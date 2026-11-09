@@ -1,0 +1,5 @@
+Segment,StartFrame,EndFrame,Intervals,MedianIntervalMs,MaximumIntervalMs,LongIntervals
+Beginning,0,116,116,32.3337,63.1775,0
+Middle_1,117,232,116,32.3853,38.3954,0
+Middle_2,233,348,116,33.0896,37.704,0
+End,349,465,117,34.6194,333.3916,42

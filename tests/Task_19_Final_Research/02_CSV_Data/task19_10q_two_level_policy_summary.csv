@@ -1,0 +1,4 @@
+ObservabilityState,Frames,EvaluatedFrames,RuleCriteriaFailures,ProcessingSkipped,FullSelections,VoxelSelections,DiagnosticFailureRatePercent
+OBSERVABLE,27,27,2,0,5,22,7.40740740740741
+REVIEW,20,20,1,0,17,3,5
+INSUFFICIENT,1,0,0,1,0,0,NaN

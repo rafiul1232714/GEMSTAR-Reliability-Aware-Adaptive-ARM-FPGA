@@ -1,0 +1,62 @@
+{
+  "Task": "20.30",
+  "Summary": [
+    {
+      "Recording": "baseline_clear",
+      "PointsEvaluated": 2957,
+      "MedianRangeResidualM": 1.7763568394002505e-15,
+      "MaximumRangeResidualM": 8.881784197001252e-15,
+      "HostNearestCount": 2957,
+      "OtherMovingObjectNearestCount": 0,
+      "NoMovingObjectCount": 0
+    },
+    {
+      "Recording": "baseline_fog",
+      "PointsEvaluated": 0,
+      "MedianRangeResidualM": null,
+      "MaximumRangeResidualM": null,
+      "HostNearestCount": 0,
+      "OtherMovingObjectNearestCount": 0,
+      "NoMovingObjectCount": 0
+    },
+    {
+      "Recording": "baseline_fog_working_radar",
+      "PointsEvaluated": 2958,
+      "MedianRangeResidualM": 1.7763568394002505e-15,
+      "MaximumRangeResidualM": 8.881784197001252e-15,
+      "HostNearestCount": 2958,
+      "OtherMovingObjectNearestCount": 0,
+      "NoMovingObjectCount": 0
+    },
+    {
+      "Recording": "fog_mor100",
+      "PointsEvaluated": 2958,
+      "MedianRangeResidualM": 1.7763568394002505e-15,
+      "MaximumRangeResidualM": 8.881784197001252e-15,
+      "HostNearestCount": 2958,
+      "OtherMovingObjectNearestCount": 0,
+      "NoMovingObjectCount": 0
+    },
+    {
+      "Recording": "fog_postfix_validation",
+      "PointsEvaluated": 2952,
+      "MedianRangeResidualM": 1.7763568394002505e-15,
+      "MaximumRangeResidualM": 8.881784197001252e-15,
+      "HostNearestCount": 2952,
+      "OtherMovingObjectNearestCount": 0,
+      "NoMovingObjectCount": 0
+    },
+    {
+      "Recording": "task05_fog_test",
+      "PointsEvaluated": 0,
+      "MedianRangeResidualM": null,
+      "MaximumRangeResidualM": null,
+      "HostNearestCount": 0,
+      "OtherMovingObjectNearestCount": 0,
+      "NoMovingObjectCount": 0
+    }
+  ],
+  "Limitation": "Geometric self-consistency only; not radar detection accuracy.",
+  "DetectionAccuracyValidated": false,
+  "EnergyMeasured": false
+}

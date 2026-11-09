@@ -1,0 +1,16 @@
+Signal,Direction,Definition
+input_valid,Input,Incoming point transfer valid
+input_ready,Output,Accelerator accepts the next point
+point_x,Input,Signed fixed-point X coordinate
+point_y,Input,Signed fixed-point Y coordinate
+point_z,Input,Signed fixed-point Z coordinate
+plane_a,Input,Quantized plane coefficient A
+plane_b,Input,Quantized plane coefficient B
+plane_c,Input,Quantized plane coefficient C
+plane_d,Input,Quantized plane offset D
+distance_threshold,Input,Quantized classification tolerance
+output_valid,Output,Output result is valid
+output_ready,Input,Downstream result acceptance
+ground_flag,Output,Point classified as plane inlier
+inlier_count,Output,Number of accepted inliers
+frame_done,Output,Frame processing completed

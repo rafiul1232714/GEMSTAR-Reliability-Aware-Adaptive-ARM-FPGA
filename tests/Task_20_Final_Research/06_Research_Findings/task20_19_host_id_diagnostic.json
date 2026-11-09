@@ -1,0 +1,701 @@
+[
+  {
+    "recording": "baseline_clear",
+    "frame": 1,
+    "timestamp_ns": 80954898,
+    "nested_host_id": 76795,
+    "nested_objects": [
+      {
+        "id": 76795,
+        "xyz": [
+          11.26008,
+          -32.06976,
+          0.0
+        ]
+      },
+      {
+        "id": 76795,
+        "xyz": [
+          11.26008,
+          -32.06976,
+          0.0
+        ]
+      },
+      {
+        "id": 76795,
+        "xyz": [
+          11.26008,
+          -32.06976,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": [
+      {
+        "id": 77091,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          2.5
+        ],
+        "model": "FollowVehicleCamera"
+      },
+      {
+        "id": 76795,
+        "xyz": [
+          11.97347,
+          -31.88327,
+          0.8262
+        ],
+        "model": "BP_Small_Car_C"
+      }
+    ]
+  },
+  {
+    "recording": "baseline_clear",
+    "frame": 2,
+    "timestamp_ns": 97621601,
+    "nested_host_id": 76795,
+    "nested_objects": [
+      {
+        "id": 76795,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      },
+      {
+        "id": 76795,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      },
+      {
+        "id": 76795,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": [
+      {
+        "id": 77091,
+        "xyz": [
+          2.89505,
+          -35.98105,
+          4.23648
+        ],
+        "model": "FollowVehicleCamera"
+      },
+      {
+        "id": 76795,
+        "xyz": [
+          11.97347,
+          -31.88327,
+          0.8262
+        ],
+        "model": "BP_Small_Car_C"
+      }
+    ]
+  },
+  {
+    "recording": "baseline_clear",
+    "frame": 3,
+    "timestamp_ns": 128477200,
+    "nested_host_id": 76795,
+    "nested_objects": [
+      {
+        "id": 76795,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      },
+      {
+        "id": 76795,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      },
+      {
+        "id": 76795,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": [
+      {
+        "id": 77091,
+        "xyz": [
+          3.45041,
+          -35.72138,
+          4.23648
+        ],
+        "model": "FollowVehicleCamera"
+      },
+      {
+        "id": 76795,
+        "xyz": [
+          12.52883,
+          -31.6236,
+          0.8262
+        ],
+        "model": "BP_Small_Car_C"
+      }
+    ]
+  },
+  {
+    "recording": "baseline_fog",
+    "frame": 1,
+    "timestamp_ns": 91288499,
+    "nested_host_id": 76889,
+    "nested_objects": [
+      {
+        "id": 76889,
+        "xyz": [
+          11.26008,
+          -32.06976,
+          0.0
+        ]
+      },
+      {
+        "id": 76889,
+        "xyz": [
+          11.26008,
+          -32.06976,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": []
+  },
+  {
+    "recording": "baseline_fog",
+    "frame": 2,
+    "timestamp_ns": 198864005,
+    "nested_host_id": 76889,
+    "nested_objects": [
+      {
+        "id": 76889,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      },
+      {
+        "id": 76889,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": []
+  },
+  {
+    "recording": "baseline_fog",
+    "frame": 3,
+    "timestamp_ns": 267635203,
+    "nested_host_id": 76889,
+    "nested_objects": [
+      {
+        "id": 76889,
+        "xyz": [
+          12.926,
+          -31.29081,
+          0.0
+        ]
+      },
+      {
+        "id": 76889,
+        "xyz": [
+          12.926,
+          -31.29081,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": []
+  },
+  {
+    "recording": "baseline_fog_working_radar",
+    "frame": 1,
+    "timestamp_ns": 84453895,
+    "nested_host_id": 76889,
+    "nested_objects": [
+      {
+        "id": 76889,
+        "xyz": [
+          11.26008,
+          -32.06976,
+          0.0
+        ]
+      },
+      {
+        "id": 76889,
+        "xyz": [
+          11.26008,
+          -32.06976,
+          0.0
+        ]
+      },
+      {
+        "id": 76889,
+        "xyz": [
+          11.26008,
+          -32.06976,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": [
+      {
+        "id": 77191,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          2.5
+        ],
+        "model": "FollowVehicleCamera"
+      },
+      {
+        "id": 76889,
+        "xyz": [
+          11.97347,
+          -31.88327,
+          0.8262
+        ],
+        "model": "BP_Small_Car_C"
+      }
+    ]
+  },
+  {
+    "recording": "baseline_fog_working_radar",
+    "frame": 2,
+    "timestamp_ns": 185582995,
+    "nested_host_id": 76889,
+    "nested_objects": [
+      {
+        "id": 76889,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      },
+      {
+        "id": 76889,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      },
+      {
+        "id": 76889,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": [
+      {
+        "id": 77191,
+        "xyz": [
+          4.00495,
+          -35.46209,
+          4.23648
+        ],
+        "model": "FollowVehicleCamera"
+      },
+      {
+        "id": 76889,
+        "xyz": [
+          13.08338,
+          -31.36431,
+          0.8262
+        ],
+        "model": "BP_Small_Car_C"
+      }
+    ]
+  },
+  {
+    "recording": "baseline_fog_working_radar",
+    "frame": 3,
+    "timestamp_ns": 234120395,
+    "nested_host_id": 76889,
+    "nested_objects": [
+      {
+        "id": 76889,
+        "xyz": [
+          12.926,
+          -31.29081,
+          0.0
+        ]
+      },
+      {
+        "id": 76889,
+        "xyz": [
+          12.926,
+          -31.29081,
+          0.0
+        ]
+      },
+      {
+        "id": 76889,
+        "xyz": [
+          12.926,
+          -31.29081,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": [
+      {
+        "id": 77191,
+        "xyz": [
+          4.56217,
+          -35.20154,
+          4.23648
+        ],
+        "model": "FollowVehicleCamera"
+      },
+      {
+        "id": 76889,
+        "xyz": [
+          13.6406,
+          -31.10376,
+          0.8262
+        ],
+        "model": "BP_Small_Car_C"
+      }
+    ]
+  },
+  {
+    "recording": "fog_mor100",
+    "frame": 1,
+    "timestamp_ns": 79844295,
+    "nested_host_id": 76895,
+    "nested_objects": [
+      {
+        "id": 76895,
+        "xyz": [
+          11.26008,
+          -32.06976,
+          0.0
+        ]
+      },
+      {
+        "id": 76895,
+        "xyz": [
+          11.26008,
+          -32.06976,
+          0.0
+        ]
+      },
+      {
+        "id": 76895,
+        "xyz": [
+          11.26008,
+          -32.06976,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": [
+      {
+        "id": 77191,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          2.5
+        ],
+        "model": "FollowVehicleCamera"
+      },
+      {
+        "id": 76895,
+        "xyz": [
+          11.97347,
+          -31.88327,
+          0.8262
+        ],
+        "model": "BP_Small_Car_C"
+      }
+    ]
+  },
+  {
+    "recording": "fog_mor100",
+    "frame": 2,
+    "timestamp_ns": 96511095,
+    "nested_host_id": 76895,
+    "nested_objects": [
+      {
+        "id": 76895,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      },
+      {
+        "id": 76895,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      },
+      {
+        "id": 76895,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": [
+      {
+        "id": 77191,
+        "xyz": [
+          2.89505,
+          -35.98105,
+          4.23648
+        ],
+        "model": "FollowVehicleCamera"
+      },
+      {
+        "id": 76895,
+        "xyz": [
+          11.97347,
+          -31.88327,
+          0.8262
+        ],
+        "model": "BP_Small_Car_C"
+      }
+    ]
+  },
+  {
+    "recording": "fog_mor100",
+    "frame": 3,
+    "timestamp_ns": 136784497,
+    "nested_host_id": 76895,
+    "nested_objects": [
+      {
+        "id": 76895,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      },
+      {
+        "id": 76895,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      },
+      {
+        "id": 76895,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": [
+      {
+        "id": 77191,
+        "xyz": [
+          3.45041,
+          -35.72138,
+          4.23648
+        ],
+        "model": "FollowVehicleCamera"
+      },
+      {
+        "id": 76895,
+        "xyz": [
+          12.52883,
+          -31.6236,
+          0.8262
+        ],
+        "model": "BP_Small_Car_C"
+      }
+    ]
+  },
+  {
+    "recording": "fog_postfix_validation",
+    "frame": 1,
+    "timestamp_ns": 80729592,
+    "nested_host_id": 76789,
+    "nested_objects": [
+      {
+        "id": 76789,
+        "xyz": [
+          11.26008,
+          -32.06976,
+          0.0
+        ]
+      },
+      {
+        "id": 76789,
+        "xyz": [
+          11.26008,
+          -32.06976,
+          0.0
+        ]
+      },
+      {
+        "id": 76789,
+        "xyz": [
+          11.26008,
+          -32.06976,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": [
+      {
+        "id": 77091,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          2.5
+        ],
+        "model": "FollowVehicleCamera"
+      },
+      {
+        "id": 76789,
+        "xyz": [
+          11.97347,
+          -31.88327,
+          0.8262
+        ],
+        "model": "BP_Small_Car_C"
+      }
+    ]
+  },
+  {
+    "recording": "fog_postfix_validation",
+    "frame": 2,
+    "timestamp_ns": 189801294,
+    "nested_host_id": 76789,
+    "nested_objects": [
+      {
+        "id": 76789,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      },
+      {
+        "id": 76789,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      },
+      {
+        "id": 76789,
+        "xyz": [
+          11.81609,
+          -31.80978,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": [
+      {
+        "id": 77091,
+        "xyz": [
+          4.00495,
+          -35.46209,
+          4.23648
+        ],
+        "model": "FollowVehicleCamera"
+      },
+      {
+        "id": 76789,
+        "xyz": [
+          13.08338,
+          -31.36431,
+          0.8262
+        ],
+        "model": "BP_Small_Car_C"
+      }
+    ]
+  },
+  {
+    "recording": "fog_postfix_validation",
+    "frame": 3,
+    "timestamp_ns": 228776492,
+    "nested_host_id": 76789,
+    "nested_objects": [
+      {
+        "id": 76789,
+        "xyz": [
+          12.926,
+          -31.29081,
+          0.0
+        ]
+      },
+      {
+        "id": 76789,
+        "xyz": [
+          12.926,
+          -31.29081,
+          0.0
+        ]
+      },
+      {
+        "id": 76789,
+        "xyz": [
+          12.926,
+          -31.29081,
+          0.0
+        ]
+      }
+    ],
+    "standalone_gt_objects": [
+      {
+        "id": 77091,
+        "xyz": [
+          4.56217,
+          -35.20154,
+          4.23648
+        ],
+        "model": "FollowVehicleCamera"
+      },
+      {
+        "id": 76789,
+        "xyz": [
+          13.6406,
+          -31.10376,
+          0.8262
+        ],
+        "model": "BP_Small_Car_C"
+      }
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+﻿"IssueID","Category","Finding","Impact","NextTask","Status"
+"T15-001","Sensor coverage","9 of 19 unique recordings lack at least one populated sensor stream","Cannot use these recordings for full three-sensor fusion","17-20","OPEN"
+"T15-002","Scenario coverage","fog_mor20 and fog_mor50 research folders contain no recordings","Cannot compare those fog settings using these folders","19 and 25","OPEN"
+"T15-003","Ground truth","Recording 415 GT counterpart exists in GEMSTAR Output but not in baseline_fog folder","Requires explicit external-path reference for reproducibility","17","OPEN"
+"T15-004","Radar calibration","Radar Mount setting commented out in inspected configuration snapshots","Radar coordinate frame and actual mounting require verification","17 and 20","OPEN"
+"T15-005","Configuration provenance","Historical configuration for each recording has not been conclusively identified","Scenario names alone do not prove simulation parameters","17 and 25","OPEN"
+"T15-006","Sensor validation","Full payload coverage does not establish valid returns, calibration, synchronization or object association","Fusion readiness remains unverified","17-24","OPEN"
+"T15-007","Object association","Earlier Task 14 Camera-Radar association provisional and target LiDAR association unconfirmed","Cannot yet claim validated three-sensor object-level fusion","17-21","OPEN"

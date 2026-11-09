@@ -1,0 +1,28 @@
+{
+  "recordings": {
+    "baseline_clear": 17,
+    "baseline_fog_working_radar": 16,
+    "fog_postfix_validation": 15
+  },
+  "frames": 48,
+  "evaluated_frames": 47,
+  "observability_states": {
+    "REVIEW": 20,
+    "OBSERVABLE": 27,
+    "INSUFFICIENT": 1
+  },
+  "processing_modes": {
+    "FULL": 22,
+    "VOXEL": 25,
+    "SKIP": 1
+  },
+  "selected_policy_failures": 3,
+  "median_processed_speed_ratio": 1.39841468502295,
+  "median_monitor_ms": 0.15244999999999997,
+  "deadline_ms": 3.0,
+  "baseline_p95_ms": 3.4172,
+  "policy_p95_ms": 2.9128,
+  "baseline_deadline_misses": 35,
+  "policy_deadline_misses": 7,
+  "artifact_count": 286
+}

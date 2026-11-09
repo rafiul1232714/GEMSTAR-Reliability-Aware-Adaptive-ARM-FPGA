@@ -1,0 +1,11 @@
+Frame,RadarIndex,RayIndex,IntersectsRecordedBox,IntersectsDoubledBox,RecordedBoxEntryM,DoubledBoxEntryM,MeasuredReturnM,PositiveReturn,Model
+95,0,44,False,True,,27.508854592908293,41.255567369825684,True,BP_Large_Car_C
+95,0,54,False,True,,27.508854592908293,,False,BP_Large_Car_C
+96,0,44,False,True,,26.62002641939095,41.255567369825684,True,BP_Large_Car_C
+96,0,54,False,True,,26.62002641939095,,False,BP_Large_Car_C
+97,0,44,False,True,,26.345660750332968,41.255567369825684,True,BP_Large_Car_C
+97,0,54,False,True,,26.345660750332968,,False,BP_Large_Car_C
+98,0,44,False,True,,25.745991933181784,41.255567369825684,True,BP_Large_Car_C
+98,0,54,False,True,,25.745991933181784,,False,BP_Large_Car_C
+99,0,44,False,True,,24.887818794711187,41.255567369825684,True,BP_Large_Car_C
+99,0,54,False,True,,24.887818794711187,,False,BP_Large_Car_C

@@ -1,0 +1,97 @@
+{
+  "Task": "20.28",
+  "CoordinateConvention": "OSI metres, right-handed",
+  "SpeedOfLightMps": 299705543.0,
+  "EmitterFrequencyHz": 77000000000.0,
+  "RotationModel": "Yaw-only; zero mount orientation",
+  "WorldPoints": 11825,
+  "RecordingSummary": [
+    {
+      "Recording": "baseline_clear",
+      "Frames": 100,
+      "UsableRadarViews": 99,
+      "ReflectionSlots": 9900,
+      "CandidateReturns": 2957,
+      "NoHostPoseFrames": 1,
+      "NoHostIDFrames": 0,
+      "NonlevelHostFrames": 0,
+      "InconsistentHostFrames": 0,
+      "SkippedNonlevelMountViews": 0,
+      "SkippedRotatedMountViews": 0
+    },
+    {
+      "Recording": "baseline_fog",
+      "Frames": 100,
+      "UsableRadarViews": 99,
+      "ReflectionSlots": 9900,
+      "CandidateReturns": 0,
+      "NoHostPoseFrames": 1,
+      "NoHostIDFrames": 0,
+      "NonlevelHostFrames": 0,
+      "InconsistentHostFrames": 0,
+      "SkippedNonlevelMountViews": 0,
+      "SkippedRotatedMountViews": 0
+    },
+    {
+      "Recording": "baseline_fog_working_radar",
+      "Frames": 100,
+      "UsableRadarViews": 99,
+      "ReflectionSlots": 9900,
+      "CandidateReturns": 2958,
+      "NoHostPoseFrames": 1,
+      "NoHostIDFrames": 0,
+      "NonlevelHostFrames": 0,
+      "InconsistentHostFrames": 0,
+      "SkippedNonlevelMountViews": 0,
+      "SkippedRotatedMountViews": 0
+    },
+    {
+      "Recording": "fog_mor100",
+      "Frames": 100,
+      "UsableRadarViews": 99,
+      "ReflectionSlots": 9900,
+      "CandidateReturns": 2958,
+      "NoHostPoseFrames": 1,
+      "NoHostIDFrames": 0,
+      "NonlevelHostFrames": 0,
+      "InconsistentHostFrames": 0,
+      "SkippedNonlevelMountViews": 0,
+      "SkippedRotatedMountViews": 0
+    },
+    {
+      "Recording": "fog_postfix_validation",
+      "Frames": 100,
+      "UsableRadarViews": 99,
+      "ReflectionSlots": 9900,
+      "CandidateReturns": 2952,
+      "NoHostPoseFrames": 1,
+      "NoHostIDFrames": 0,
+      "NonlevelHostFrames": 0,
+      "InconsistentHostFrames": 0,
+      "SkippedNonlevelMountViews": 0,
+      "SkippedRotatedMountViews": 0
+    },
+    {
+      "Recording": "task05_fog_test",
+      "Frames": 100,
+      "UsableRadarViews": 0,
+      "ReflectionSlots": 0,
+      "CandidateReturns": 0,
+      "NoHostPoseFrames": 100,
+      "NoHostIDFrames": 0,
+      "NonlevelHostFrames": 0,
+      "InconsistentHostFrames": 0,
+      "SkippedNonlevelMountViews": 0,
+      "SkippedRotatedMountViews": 0
+    }
+  ],
+  "Limitations": [
+    "Only first 100 frames inspected per recording",
+    "Radar/GT sampling-time discrepancy unresolved",
+    "No radar-to-object associations validated",
+    "No collision-geometry accuracy verified",
+    "No measured FPGA energy savings"
+  ],
+  "WorldCoordinatesPhysicallyValidated": false,
+  "RadarAccuracyValidated": false
+}

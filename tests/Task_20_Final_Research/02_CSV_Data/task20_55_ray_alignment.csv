@@ -1,0 +1,6 @@
+Frame,ObjectID,RadarIndex,TargetCenterRangeM,TargetAzimuthDeg,TargetElevationDeg,NearestRayIndex,RayAzimuthDeg,RayElevationDeg,AngularSeparationDeg,NearestRayRangeM,NearestRaySignal,NearestRayPositiveReturn
+95,76765,0,29.84184,-3.2804,0.0188,54,-5.0,1.1111,2.0372,,0.0,False
+96,76765,0,28.9273,-2.8528,0.0194,54,-5.0,1.1111,2.4088,,0.0,False
+97,76765,0,28.61887,-2.3237,0.0196,54,-5.0,1.1111,2.8904,,0.0,False
+98,76765,0,28.02944,-2.4645,0.02,54,-5.0,1.1111,2.7603,,0.0,False
+99,76765,0,27.14886,-2.1161,0.0206,54,-5.0,1.1111,3.0832,,0.0,False

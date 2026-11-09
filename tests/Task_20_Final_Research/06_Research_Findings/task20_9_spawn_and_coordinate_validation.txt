@@ -1,0 +1,101 @@
+﻿TASK 20.9 - SPAWN AND COORDINATE AUDIT
+
+=== RADAR SENSOR MANAGER ===
+ 160: 		{
+ 161: 			FDefaultValueHelper::ParseBool(*ValueStr, NoFalloff);
+ 162: 		}
+ 163: 		float distanceHalfFalloff = 0.0;
+ 164: 		if (const FString* ValueStr = Pair.Value.Entries.Find("DistanceHalfFalloff"))
+ 165: 		{
+ 166: 			FDefaultValueHelper::ParseFloat(*ValueStr, distanceHalfFalloff);
+ 167: 		}
+ 168: 		config.Radar.NumberOfRaysHorizontal = width;
+ 169: 		config.Radar.NumberOfRaysVertical = height;
+ 170: 		config.Radar.FieldOfViewHorizontal = FMath::DegreesToRadians(FoVHorizontal);
+ 171: 		config.Radar.FieldOfViewVertical = FMath::DegreesToRadians(FoVVertical);
+ 172: 		// DistanceHalfFalloff in Meter
+ 173: 		config.Radar.DistanceHalfFalloff = distanceHalfFalloff * 100.0f;
+ 174: 		SensorConfiguration.Add(config);
+ 175: 	}
+ 176: 	for (auto& config : SensorConfiguration)
+ 177: 	{
+ 178: 		SpawnSensor(config);
+ 179: 	}
+ 180: }
+ 181: 
+ 182: void ARadarSensorManager::SpawnSensor(FSensorConfigData& sensorConfiguration) {
+ 183: 	UWorld* World = GetWorld();
+ 184: 	if (World)
+ 185: 	{
+ 186: 		FActorSpawnParameters params;
+ 187: 		params.Name = sensorConfiguration.ID;
+ 188: 		ASimpleRadar* SpawnedActor = World->SpawnActor<ASimpleRadar>(ASimpleRadar::StaticClass(), FTransform(), params);
+ 189: 		if (SpawnedActor == nullptr) {
+ 190: 			UE_LOG(Radar, Log, TEXT("RadarSensorManager: Radar spawn failed for %s"), *SpawnedActor->GetName());
+ 191: 			return;
+ 192: 		}
+ 193: 
+ 194: 		SpawnedActor->SetSensorConfiguration(sensorConfiguration);
+ 195: 
+ 196: 		UE_LOG(Radar, Log, TEXT("RadarSensorManager: Radar spawned %s"), *SpawnedActor->GetName());
+ 197: 		if (!sensorConfiguration.Mount.IsEmpty()) {
+ 198: 			IGemstarManager::Execute_MountOn(GemstarSimulationSubsystem, sensorConfiguration.Mount, SpawnedActor);
+ 199: 		}
+ 200: 		else {
+ 201: 			ILocalTransformUpdater::Execute_UpdateTransformAfterAttachment(SpawnedActor);
+ 202: 		}
+ 203: 		AddTickPrerequisiteActor(SpawnedActor);
+ 204: 		SpawnedActors.Add(SpawnedActor);
+ 205: 	}
+ 206: }
+ 207: 
+ 208: void ARadarSensorManager::SpawnSensor_Implementation(FSensorConfigData& sensorConfiguration)
+ 209: {
+ 210: 	if (sensorConfiguration.Type != SensorType::RADAR) {
+ 211: 		return;
+ 212: 	}
+ 213: 
+ 214: 	UWorld* World = GetWorld();
+ 215: 	if (World)
+ 216: 	{
+ 217: 		FActorSpawnParameters params;
+ 218: 		if (sensorConfiguration.ID.IsNone()) {
+ 219: 			params.Name = "Unnamed_Radar_Sensor";
+ 220: 		}
+ 221: 		else {
+ 222: 			params.Name = sensorConfiguration.ID;
+ 223: 		}
+ 224: 		params.Owner = sensorConfiguration.Vehicle;
+ 225: 
+ 226: 		ASimpleRadar* SpawnedActor = World->SpawnActor<ASimpleRadar>(ASimpleRadar::StaticClass(), FTransform(), params);
+ 227: 		SpawnedActor->AttachToActor(sensorConfiguration.Vehicle, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true));
+ 228: 		SpawnedActor->SetSensorConfiguration(sensorConfiguration);
+ 229: 		SpawnedActor->SetActorRelativeTransform(sensorConfiguration.Offset);
+ 230: 
+ 231: 		if (SpawnedActor)
+ 232: 		{
+ 233: 			UE_LOG(Radar, Warning, TEXT("RadarSensorManager: spawned radar sensor: %s"), *SpawnedActor->GetName());
+ 234: 			SpawnedActors.Add(SpawnedActor);
+ 235: 		}
+ 236: 	}
+ 237: }
+
+=== OSI POSITION CONVERSION CANDIDATES ===
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp:29
+  osi3::Vector3d* ToOSI::Position(FVector vector) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Public\Utils\ToOSI.h:31
+  static osi3::Vector3d* Position(FVector vector);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp:290
+  ToOSI::Position(Parent->GetActorLocation()));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:128
+  moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:219
+  ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:148
+  moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:181
+  ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarSensor.cpp:191
+  moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Source\ue_sumo_featureRuntime\Private\SUMOManager.cpp:541
+  transform.SetLocation(CoordinateSystemOffset.InverseTransformPosition(FVector(Y * 100, X * 100, SafeZ * 100)));

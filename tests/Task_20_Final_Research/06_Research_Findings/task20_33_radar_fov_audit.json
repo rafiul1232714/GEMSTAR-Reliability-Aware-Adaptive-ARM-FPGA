@@ -1,0 +1,79 @@
+{
+  "Task": "20.33",
+  "Summary": [
+    {
+      "Recording": "baseline_clear",
+      "InsideFOV": 4,
+      "OutsideFOV": 104,
+      "ConfigUnavailable": 0,
+      "NoHostPose": 0,
+      "RecordedFoVDeg": [
+        [
+          90.0,
+          20.0
+        ]
+      ]
+    },
+    {
+      "Recording": "baseline_fog",
+      "InsideFOV": 0,
+      "OutsideFOV": 0,
+      "ConfigUnavailable": 0,
+      "NoHostPose": 0,
+      "RecordedFoVDeg": []
+    },
+    {
+      "Recording": "baseline_fog_working_radar",
+      "InsideFOV": 15,
+      "OutsideFOV": 119,
+      "ConfigUnavailable": 0,
+      "NoHostPose": 0,
+      "RecordedFoVDeg": [
+        [
+          90.0,
+          20.0
+        ]
+      ]
+    },
+    {
+      "Recording": "fog_mor100",
+      "InsideFOV": 10,
+      "OutsideFOV": 111,
+      "ConfigUnavailable": 0,
+      "NoHostPose": 0,
+      "RecordedFoVDeg": [
+        [
+          90.0,
+          20.0
+        ]
+      ]
+    },
+    {
+      "Recording": "fog_postfix_validation",
+      "InsideFOV": 1,
+      "OutsideFOV": 105,
+      "ConfigUnavailable": 0,
+      "NoHostPose": 0,
+      "RecordedFoVDeg": [
+        [
+          90.0,
+          20.0
+        ]
+      ]
+    },
+    {
+      "Recording": "task05_fog_test",
+      "InsideFOV": 0,
+      "OutsideFOV": 0,
+      "ConfigUnavailable": 0,
+      "NoHostPose": 0,
+      "RecordedFoVDeg": []
+    }
+  ],
+  "RangeLimitKnown": false,
+  "ObjectCenterOnly": true,
+  "OcclusionValidated": false,
+  "PoseTimingValidated": false,
+  "RadarAccuracyValidated": false,
+  "EnergyMeasured": false
+}

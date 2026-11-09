@@ -1,0 +1,57 @@
+{
+  "task": "18.E8",
+  "implementation_status": "ARCHITECTURE_ONLY",
+  "target_platform": "AMD Kria K26 candidate",
+  "input_width": 640,
+  "input_height": 480,
+  "input_pixel_format": "uint8_grayscale",
+  "sobel_gradient_format": "signed_11_bit",
+  "sobel_gradient_min": -1020,
+  "sobel_gradient_max": 1020,
+  "absolute_gradient_max": 1020,
+  "abs_gradient_sum_max": 2040,
+  "sum_intermediate_format": "unsigned_11_bit",
+  "output_format": "uint8",
+  "two_row_buffer_min_bytes": 1280,
+  "sobel_x": [
+    [
+      -1,
+      0,
+      1
+    ],
+    [
+      -2,
+      0,
+      2
+    ],
+    [
+      -1,
+      0,
+      1
+    ]
+  ],
+  "sobel_y": [
+    [
+      -1,
+      -2,
+      -1
+    ],
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      2,
+      1
+    ]
+  ],
+  "output_operation": "OpenCV-style 0.5*abs(Gx)+0.5*abs(Gy), rounded and saturated to uint8; exact rounding to be verified in RTL",
+  "border_policy": "Match OpenCV BORDER_DEFAULT (reflect_101) before comparison",
+  "stream_interface": "AXI4-Stream candidate",
+  "frame_boundary_policy": "To define and verify using TLAST/TUSER in the eventual AXI video wrapper",
+  "hardware_latency_measured": false,
+  "hardware_energy_measured": false,
+  "rtl_verified": false
+}

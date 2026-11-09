@@ -1,0 +1,9 @@
+﻿TASK 20.40 - Range hypothesis
+Assumed trace limit: 10 m (not yet runtime verified)
+Object-centre observations: 469
+Centres within 10 m: 0
+Centres within 10 m and FoV: 0
+
+This is a geometric centre test.
+Object surfaces and occlusion are not evaluated.
+No radar detection accuracy is inferred.

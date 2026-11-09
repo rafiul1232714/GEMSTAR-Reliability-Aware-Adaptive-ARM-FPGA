@@ -1,0 +1,92 @@
+﻿=== TASK 20.34 RADAR RANGE SOURCE AUDIT ===
+Date: 2026-11-02 18:31:28
+
+=== 1. RADAR C++ SOURCE ===
+Source found: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+Matching source lines: 47
+   27: TraceParams = FCollisionQueryParams(TEXT("RadioTrace"), true, GetOwner());
+   28: TraceParams.bReturnPhysicalMaterial = true;
+   29: TraceParams.bTraceComplex = true;
+   45: if (bDebugRayTraces || bDebugReflections || bDebugNormals)
+   60: // Initialize array for raycast result
+   61: Sensor.RecordedHits.Init(FRadarHitResultAndIntesity(), Sensor.Number_of_rays_horizontal * Sensor.Number_of_rays_vertical);
+   82: const float HAngle = Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal];
+   83: const float VAngle = Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal];
+   88: FVector EndPoint = RadarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+   90: GetWorld()->LineTraceSingleByChannel(
+   91: Sensor.RecordedHits[Index].HitResult, RadarPosition, EndPoint, ECC_Visibility, TraceParams, FCollisionResponseParams::DefaultResponseParam);
+   92: if (Sensor.RecordedHits[Index].HitResult.bBlockingHit) {
+   93: Sensor.RecordedHits[Index].Intesity = ComputeRadarSignalStrength(Sensor.RecordedHits[Index].HitResult);
+  112: FRadarHitResultAndIntesity hit = Sensor.RecordedHits[Index];
+  115: reflection->set_time_of_flight(2 * 0.01 * hit.HitResult.Distance / SPEED_OF_LIGHT);
+  116: reflection->set_source_horizontal_angle(Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal]);
+  117: reflection->set_source_vertical_angle(Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal]);
+  118: reflection->set_doppler_shift(0);
+  121: AActor* hitTarget = hit.HitResult.GetActor();
+  122: if (hit.HitResult.bBlockingHit) {
+  129: FString hitName = hit.HitResult.GetHitObjectHandle().GetName();
+  130: FVector relativePostition = hit.HitResult.ImpactPoint - hit.HitResult.TraceStart;
+  132: float distance = relativePostition.Size();
+  133: float radialVelocity = FVector::DotProduct(relativeVelocity, relativePostition / distance);
+  135: double doppler_shift = 2 * (radialVelocity * 0.01) * frequency / SPEED_OF_LIGHT;
+  136: reflection->set_doppler_shift(doppler_shift);
+  138: //if (hitName.Contains("BP_Simple")) {UE_LOG(Radar, Log, TEXT("Hit_%d: %s, vHero= %s, vTarget= %s, vR= %.2f, dS= %.2f, sS= %.2f" ), Index, *hitName, *currentVelocity.ToCompactString(), *hitVelocity.ToCompactString(), radialVelocity, doppler_shift, hit.Intesity);}
+  154: float ASimpleRadar::ComputeRadarSignalStrength(const FHitResult& Hit)
+  160: float distanceToTarget = (Hit.ImpactPoint - Hit.TraceStart).Size() * 0.01; //in meter
+  161: distanceToTarget = FMath::Max(distanceToTarget, 0.01f); // prevent division by zero
+  162: float signalStrengthInWatt = (7.5 * 0.00001 * backscatterValue) / FMath::Pow(distanceToTarget, 4);
+  176: conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+  177: conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+  178: conf->set_number_of_rays_horizontal(SensorConfiguration.Radar.NumberOfRaysHorizontal);
+  179: conf->set_number_of_rays_vertical(SensorConfiguration.Radar.NumberOfRaysVertical);
+  189: Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+  190: for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  192: + Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  194: Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_vertical();
+  195: for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+  197: + Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+  203: Sensor.SensorViewConfig->set_range(10);
+  209: if (hit.HitResult.bBlockingHit) {
+  210: if (bDebugRayTraces)
+  211: DrawDebugLine(GetWorld(), hit.HitResult.TraceStart, hit.HitResult.ImpactPoint, FColor::Green, false, 0.0f, 0, 1.0f);
+  213: DrawDebugPoint(GetWorld(), hit.HitResult.ImpactPoint, 10.0f, FColor::Red, false, 0.0f);
+  215: DrawDebugLine(GetWorld(), hit.HitResult.ImpactPoint, hit.HitResult.ImpactPoint + hit.HitResult.ImpactNormal * 10, FColor::Blue, false, 0.0f, 0, 1.0f);
+
+=== 2. RADAR CONFIGURATION ===
+Configuration found: E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini
+  117: [ue_radar_feature:sensor1]
+  118: ;Debug=true
+  119: 
+  120: ; Mount Radar on the same moving vehicle
+  121: Mount=SensorPlatform_1
+  122: 
+  123: ; Radar mounting position in centimeters
+  124: MountingPositionX=200
+  125: MountingPositionY=0
+  126: MountingPositionZ=80
+  127: 
+  128: ; Forward-facing orientation
+  129: MountingOrientationRoll=0
+  130: MountingOrientationPitch=0
+  131: MountingOrientationYaw=0
+  132: 
+  133: ; Radar ray configuration
+  134: NumberOfRaysHorizontal=10
+  135: NumberOfRaysVertical=10
+  136: 
+  137: FoVHorizontal=90
+  138: FoVVertical=20
+  139: 
+  140: ;DistanceHalfFalloff=30
+  141: 
+  142: 
+  143: ; =========================================================
+  144: ; SUMO TRAFFIC SIMULATION
+  145: ; =========================================================
+  146: 
+
+=== 3. OTHER RADAR SOURCE REFERENCES ===
+C++/header files: 14
+SimpleRadar.cpp:90: GetWorld()->LineTraceSingleByChannel(
+
+=== TASK 20.34 SOURCE AUDIT COMPLETE ===

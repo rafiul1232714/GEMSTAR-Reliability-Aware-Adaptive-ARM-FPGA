@@ -1,0 +1,6 @@
+Quantity,MaxAbsoluteError,Tolerance,Pass
+Range,0,1e-09,1
+RadialVelocity,0,1e-09,1
+LocalX,0,1e-09,1
+LocalY,0,1e-09,1
+LocalZ,0,1e-09,1

@@ -1,0 +1,55 @@
+﻿TASK 19.1F - READABLE LIDAR SOURCE INSPECTION
+Source files: 30
+Matches: 51
+
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Intermediate\Build\Win64\UnrealEditor\Inc\ue_lidar_featureRuntime\UHT\SimpleLidar.gen.cpp:162: static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bDebugReflections_MetaData[] = {
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Intermediate\Build\Win64\UnrealEditor\Inc\ue_lidar_featureRuntime\UHT\SimpleLidar.gen.cpp:193: static void NewProp_bDebugReflections_SetBit(void* Obj)
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Intermediate\Build\Win64\UnrealEditor\Inc\ue_lidar_featureRuntime\UHT\SimpleLidar.gen.cpp:195: ((ASimpleLidar*)Obj)->bDebugReflections = 1;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Intermediate\Build\Win64\UnrealEditor\Inc\ue_lidar_featureRuntime\UHT\SimpleLidar.gen.cpp:197: static const UECodeGen_Private::FBoolPropertyParams NewProp_bDebugReflections;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Intermediate\Build\Win64\UnrealEditor\Inc\ue_lidar_featureRuntime\UHT\SimpleLidar.gen.cpp:222: const UECodeGen_Private::FBoolPropertyParams UHT_STATICS::NewProp_bDebugReflections = { "bDebugReflections", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, nullptr, nullptr, 1, sizeof(bool), sizeof(ASimpleLidar), &UHT_STATICS::NewProp_bDebugReflections_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bDebugReflections_MetaData), NewProp_bDebugReflections_MetaData) };
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Intermediate\Build\Win64\UnrealEditor\Inc\ue_lidar_featureRuntime\UHT\SimpleLidar.gen.cpp:230: (const UECodeGen_Private::FPropertyParamsBase*)&UHT_STATICS::NewProp_bDebugReflections,
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\LidarSensorTester.cpp:128: sensorViewData.sensorview->lidar_sensor_view(0).reflection_size()
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:38: if (bDebugRayTraces || bDebugReflections || bDebugNormals)
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:54: Sensor.RecordedHits.Init(FHitResultAndIntesity(), Sensor.Number_of_rays_horizontal * Sensor.Number_of_rays_vertical);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:75: const float HAngle = Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal];
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:76: const float VAngle = Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal];
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:83: GetWorld()->LineTraceSingleByChannel(
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:104: auto* reflection = lidarSensorView->add_reflection();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:105: reflection->set_time_of_flight(2 * 0.01 * hit.HitResult.Distance / SPEED_OF_LIGHT);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:107: osi3::Vector3d* normal_to_surface = reflection->mutable_normal_to_surface();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:111: reflection->set_doppler_shift(0);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:113: reflection->mutable_object_id()->set_value(hit.HitResult.GetActor()->GetUniqueID());
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:114: reflection->set_signal_strength(hit.Intesity);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:117: reflection->mutable_object_id()->set_value(UINT64_MAX);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:118: reflection->set_signal_strength(0.0);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:216: conf->set_number_of_rays_horizontal(SensorConfiguration.Lidar.NumberOfRaysHorizontal);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:217: conf->set_number_of_rays_vertical(SensorConfiguration.Lidar.NumberOfRaysVertical);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:227: Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:228: for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:230: + Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:232: Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_vertical();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:233: for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:235: + Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:250: if (bDebugReflections)
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:259: UE_LOG(Lidar, Log, TEXT("No reflection from lidar: %d of %d"), noHitCounter, Sensor.RecordedHits.Num());
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:68: double LidarWeatherEffectModel::CalculateDistanceFromTimeOfFlight(double TimeOfFlight) const {
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:70: return 0.5 * TimeOfFlight * SpeedOfLight;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:73: bool LidarWeatherEffectModel::ShouldReflectionDisappear(double Distanc, double VanishingDistance) const {
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:189: int32 TotalReflections = 0;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:190: int32 RemovedReflections = 0;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:204: for (int32 ReflectionIndex = 0; ReflectionIndex < LidarView->reflection_size(); ++ReflectionIndex) {
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:206: osi3::LidarSensorView_Reflection* Reflection = LidarView->mutable_reflection(ReflectionIndex);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:207: if (!Reflection) {
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:210: ++TotalReflections;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:212: const double SignalStrength = Reflection->signal_strength();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:217: const double Distance = CalculateDistanceFromTimeOfFlight(Reflection->time_of_flight());
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:230: if (ShouldReflectionDisappear(Distance, LidarPointsVanishingDistance)) {
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:231: Reflection->set_signal_strength(0.0);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:232: Reflection->mutable_object_id()->set_value(InvalidObjectId);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:234: ++RemovedReflections;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\SimpleLidar.h:25: constexpr float SPEED_OF_LIGHT = 299705543.0f; //in m/s in air 299792458.0f in vakuum;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\SimpleLidar.h:47: uint32_t Number_of_rays_horizontal = 0;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\SimpleLidar.h:48: uint32_t Number_of_rays_vertical = 0;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\SimpleLidar.h:67: bool bDebugReflections = false;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\Effects\LidarWeatherEffectModel.h:29: double CalculateDistanceFromTimeOfFlight(double TimeOfFlight) const;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\Effects\LidarWeatherEffectModel.h:33: bool ShouldReflectionDisappear(double Distanc, double VanishingDistance) const;

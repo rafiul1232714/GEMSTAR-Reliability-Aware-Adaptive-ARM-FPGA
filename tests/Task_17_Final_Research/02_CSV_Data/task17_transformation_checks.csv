@@ -1,0 +1,4 @@
+Sensor,OriginError_m,InverseError,RotationDeterminant,OrthogonalityError,NumericalPass
+Camera,0.0,0.0,1.0,0.0,True
+LiDAR,0.0,0.0,1.0,0.0,True
+Radar,0.0,0.0,1.0,0.0,True

@@ -1,0 +1,18 @@
+{
+  "Task": "20.14",
+  "GTFiles": 5,
+  "ObjectEntries": 2540,
+  "UnusualDimensionEntries": 735,
+  "ExplicitEgoMetadataSample": {
+    "baseline_clear": {},
+    "baseline_fog_working_radar": {},
+    "fog_mor100": {},
+    "fog_postfix_validation": {},
+    "task05_fog_test": {}
+  },
+  "EgoIdentityVerified": false,
+  "GTObjectClassificationAudited": true,
+  "RadarObjectAssociationsVerified": false,
+  "DetectionAccuracyMeasured": false,
+  "EnergyMeasured": false
+}

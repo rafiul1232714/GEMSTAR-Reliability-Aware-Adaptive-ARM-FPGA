@@ -1,0 +1,133 @@
+[
+  {
+    "Recording": "baseline_clear",
+    "Frames": 100,
+    "NestedGTFrames": 99,
+    "TopLevelHostIDFrames": 0,
+    "HostVehicleDataFrames": 0,
+    "NestedHostIDFrames": 99,
+    "NestedMovingObjectEntries": 297,
+    "NestedPoseFrames": 99,
+    "Example": {
+      "Frame": 1,
+      "ObjectID": "76795",
+      "Position": {
+        "x": 11.260078087821839,
+        "y": -32.06975870978979,
+        "z": 0.0
+      },
+      "Orientation": {
+        "yaw": 0.4373742768138337,
+        "pitch": 0.0,
+        "roll": 0.0
+      }
+    }
+  },
+  {
+    "Recording": "baseline_fog",
+    "Frames": 100,
+    "NestedGTFrames": 99,
+    "TopLevelHostIDFrames": 0,
+    "HostVehicleDataFrames": 0,
+    "NestedHostIDFrames": 99,
+    "NestedMovingObjectEntries": 198,
+    "NestedPoseFrames": 99,
+    "Example": {
+      "Frame": 1,
+      "ObjectID": "76889",
+      "Position": {
+        "x": 11.260078087821839,
+        "y": -32.06975870978979,
+        "z": 0.0
+      },
+      "Orientation": {
+        "yaw": 0.4373742768138337,
+        "pitch": 0.0,
+        "roll": 0.0
+      }
+    }
+  },
+  {
+    "Recording": "baseline_fog_working_radar",
+    "Frames": 100,
+    "NestedGTFrames": 99,
+    "TopLevelHostIDFrames": 0,
+    "HostVehicleDataFrames": 0,
+    "NestedHostIDFrames": 99,
+    "NestedMovingObjectEntries": 297,
+    "NestedPoseFrames": 99,
+    "Example": {
+      "Frame": 1,
+      "ObjectID": "76889",
+      "Position": {
+        "x": 11.260078087821839,
+        "y": -32.06975870978979,
+        "z": 0.0
+      },
+      "Orientation": {
+        "yaw": 0.4373742768138337,
+        "pitch": 0.0,
+        "roll": 0.0
+      }
+    }
+  },
+  {
+    "Recording": "fog_mor100",
+    "Frames": 100,
+    "NestedGTFrames": 99,
+    "TopLevelHostIDFrames": 0,
+    "HostVehicleDataFrames": 0,
+    "NestedHostIDFrames": 99,
+    "NestedMovingObjectEntries": 297,
+    "NestedPoseFrames": 99,
+    "Example": {
+      "Frame": 1,
+      "ObjectID": "76895",
+      "Position": {
+        "x": 11.260078087821839,
+        "y": -32.06975870978979,
+        "z": 0.0
+      },
+      "Orientation": {
+        "yaw": 0.4373742768138337,
+        "pitch": 0.0,
+        "roll": 0.0
+      }
+    }
+  },
+  {
+    "Recording": "fog_postfix_validation",
+    "Frames": 100,
+    "NestedGTFrames": 99,
+    "TopLevelHostIDFrames": 0,
+    "HostVehicleDataFrames": 0,
+    "NestedHostIDFrames": 99,
+    "NestedMovingObjectEntries": 297,
+    "NestedPoseFrames": 99,
+    "Example": {
+      "Frame": 1,
+      "ObjectID": "76789",
+      "Position": {
+        "x": 11.260078087821839,
+        "y": -32.06975870978979,
+        "z": 0.0
+      },
+      "Orientation": {
+        "yaw": 0.4373742768138337,
+        "pitch": 0.0,
+        "roll": 0.0
+      }
+    }
+  },
+  {
+    "Recording": "task05_fog_test",
+    "Frames": 100,
+    "NestedGTFrames": 0,
+    "TopLevelHostIDFrames": 0,
+    "HostVehicleDataFrames": 0,
+    "NestedHostIDFrames": 0,
+    "NestedMovingObjectEntries": 0,
+    "NestedPoseFrames": 0,
+    "Example": null
+  }
+]

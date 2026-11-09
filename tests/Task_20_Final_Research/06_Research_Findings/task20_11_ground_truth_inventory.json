@@ -1,0 +1,12 @@
+{
+  "Task": "20.11",
+  "GroundTruthFiles": 5,
+  "SensorViewFiles": 6,
+  "RecordingFolders": 6,
+  "FoldersWithBothKinds": 5,
+  "Errors": [],
+  "TimestampAlignmentVerified": false,
+  "RadarToObjectAssociationVerified": false,
+  "GroundTruthAccuracyMeasured": false,
+  "EnergyMeasured": false
+}

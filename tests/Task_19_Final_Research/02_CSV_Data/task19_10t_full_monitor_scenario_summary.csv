@@ -1,0 +1,4 @@
+Scenario,Frames,FullSelections,VoxelSelections,Skips,MedianMonitorMs,MedianBaselineMs,MedianPolicyMs,MedianSpeedRatio
+baseline_clear,17,4,13,0,0.1775,2.7548,1.7631,1.54946847404241
+baseline_fog_working_radar,16,4,12,0,0.1594,2.68125,1.7693,1.50688464208477
+fog_postfix_validation,15,14,0,1,0.1355,2.0537,2.07535,1.00305213636489

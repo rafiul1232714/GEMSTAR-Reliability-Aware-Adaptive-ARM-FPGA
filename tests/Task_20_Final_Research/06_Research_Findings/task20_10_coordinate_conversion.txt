@@ -1,0 +1,152 @@
+﻿
+=== UNREAL TO OSI CONVERSION ===
+   1: /*
+   2:  * Copyright (c) 2026 DLR e.V.
+   3:  *
+   4:  * This program and the accompanying materials are made
+   5:  * available under the terms of the Eclipse Public License 2.0
+   6:  * which is available at https://www.eclipse.org/legal/epl-2.0/
+   7:  *
+   8:  * SPDX-License-Identifier: EPL-2.0
+   9:  */
+  10: 
+  11: #include "Utils/ToOSI.h"
+  12: 
+  13: ToOSI::ToOSI()
+  14: {
+  15: }
+  16: 
+  17: ToOSI::~ToOSI()
+  18: {
+  19: }
+  20: 
+  21: osi3::BaseStationary* ToOSI::BaseStationary(FTransform transform) {
+  22: 	osi3::BaseStationary* baseStationary = new osi3::BaseStationary();
+  23: 	baseStationary->set_allocated_position(Position(transform.GetLocation()));
+  24: 	baseStationary->set_allocated_orientation(Orientation3d(transform.GetRotation()));
+  25: 	baseStationary->set_allocated_dimension(Dimension(transform.GetScale3D()));
+  26: 	return baseStationary;
+  27: }
+  28: 
+  29: osi3::Vector3d* ToOSI::Position(FVector vector) {
+  30: 	osi3::Vector3d* vector3d = new osi3::Vector3d();
+  31: 	//change hands and cm to m
+  32: 	vector3d->set_x(vector.X * 0.01);
+  33: 	vector3d->set_y(-vector.Y * 0.01);
+  34: 	vector3d->set_z(vector.Z * 0.01);
+  35: 	return vector3d;
+  36: }
+  37: 
+  38: osi3::Orientation3d* ToOSI::Orientation3d(FQuat quat) {
+  39: 	osi3::Orientation3d* orientation = new osi3::Orientation3d();
+  40: 	FRotator rotator = quat.Rotator();
+  41: 	orientation->set_yaw(-rotator.Yaw * PI / 180.0);
+  42: 	orientation->set_pitch(rotator.Pitch * PI / 180.0);
+  43: 	orientation->set_roll(rotator.Roll * PI / 180.0);
+  44: 	return orientation;
+  45: }
+  46: 
+  47: osi3::Dimension3d* ToOSI::Dimension(FVector dimension) {
+  48: 	osi3::Dimension3d* dim = new osi3::Dimension3d();
+  49: 	dim->set_length(dimension.X);
+  50: 	dim->set_width(-dimension.Y);
+  51: 	dim->set_height(dimension.Z);
+  52: 	return dim;
+  53: }
+  54: 
+  55: osi3::BaseStationary* ToOSI::toOSIBaseStationary(const AActor* actor)
+  56: {
+  57: 	osi3::BaseStationary* base = new osi3::BaseStationary();
+  58: 	if (actor)
+  59: 	{
+  60: 		FVector Origin;
+  61: 		FVector Extent;
+  62: 
+  63: 		actor->GetActorBounds(false, Origin, Extent);
+  64: 
+  65: 		base->mutable_dimension()->set_height(Extent.Z * 0.01);
+  66: 		base->mutable_dimension()->set_width(Extent.Y * 0.01);
+  67: 		base->mutable_dimension()->set_length(Extent.X * 0.01);
+  68: 		base->mutable_position()->set_z(Origin.Z * 0.01);
+  69: 		base->mutable_position()->set_y(-Origin.Y * 0.01);
+  70: 		base->mutable_position()->set_z(Origin.X * 0.01);
+  71: 
+  72: 		auto rotation = actor->GetActorRotation();
+  73: 
+  74: 		base->mutable_orientation()->set_pitch(rotation.Pitch * PI / 180.f);
+  75: 		base->mutable_orientation()->set_yaw(-rotation.Yaw * PI / 180.f);
+  76: 		base->mutable_orientation()->set_roll(rotation.Roll * PI / 180.f);
+  77: 	}
+  78: 
+  79: 	return base;
+  80: }
+  81: 
+  82: osi3::BaseMoving* ToOSI::toOSIBaseMoving(const AActor* actor)
+  83: {
+  84: 	osi3::BaseMoving* base = new osi3::BaseMoving();
+  85: 	if (actor)
+
+=== RADAR SPAWN BRANCHES ===
+ 175: 	}
+ 176: 	for (auto& config : SensorConfiguration)
+ 177: 	{
+ 178: 		SpawnSensor(config);
+ 179: 	}
+ 180: }
+ 181: 
+ 182: void ARadarSensorManager::SpawnSensor(FSensorConfigData& sensorConfiguration) {
+ 183: 	UWorld* World = GetWorld();
+ 184: 	if (World)
+ 185: 	{
+ 186: 		FActorSpawnParameters params;
+ 187: 		params.Name = sensorConfiguration.ID;
+ 188: 		ASimpleRadar* SpawnedActor = World->SpawnActor<ASimpleRadar>(ASimpleRadar::StaticClass(), FTransform(), params);
+ 189: 		if (SpawnedActor == nullptr) {
+ 190: 			UE_LOG(Radar, Log, TEXT("RadarSensorManager: Radar spawn failed for %s"), *SpawnedActor->GetName());
+ 191: 			return;
+ 192: 		}
+ 193: 
+ 194: 		SpawnedActor->SetSensorConfiguration(sensorConfiguration);
+ 195: 
+ 196: 		UE_LOG(Radar, Log, TEXT("RadarSensorManager: Radar spawned %s"), *SpawnedActor->GetName());
+ 197: 		if (!sensorConfiguration.Mount.IsEmpty()) {
+ 198: 			IGemstarManager::Execute_MountOn(GemstarSimulationSubsystem, sensorConfiguration.Mount, SpawnedActor);
+ 199: 		}
+ 200: 		else {
+ 201: 			ILocalTransformUpdater::Execute_UpdateTransformAfterAttachment(SpawnedActor);
+ 202: 		}
+ 203: 		AddTickPrerequisiteActor(SpawnedActor);
+ 204: 		SpawnedActors.Add(SpawnedActor);
+ 205: 	}
+ 206: }
+ 207: 
+ 208: void ARadarSensorManager::SpawnSensor_Implementation(FSensorConfigData& sensorConfiguration)
+ 209: {
+ 210: 	if (sensorConfiguration.Type != SensorType::RADAR) {
+ 211: 		return;
+ 212: 	}
+ 213: 
+ 214: 	UWorld* World = GetWorld();
+ 215: 	if (World)
+ 216: 	{
+ 217: 		FActorSpawnParameters params;
+ 218: 		if (sensorConfiguration.ID.IsNone()) {
+ 219: 			params.Name = "Unnamed_Radar_Sensor";
+ 220: 		}
+ 221: 		else {
+ 222: 			params.Name = sensorConfiguration.ID;
+ 223: 		}
+ 224: 		params.Owner = sensorConfiguration.Vehicle;
+ 225: 
+ 226: 		ASimpleRadar* SpawnedActor = World->SpawnActor<ASimpleRadar>(ASimpleRadar::StaticClass(), FTransform(), params);
+ 227: 		SpawnedActor->AttachToActor(sensorConfiguration.Vehicle, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true));
+ 228: 		SpawnedActor->SetSensorConfiguration(sensorConfiguration);
+ 229: 		SpawnedActor->SetActorRelativeTransform(sensorConfiguration.Offset);
+ 230: 
+ 231: 		if (SpawnedActor)
+ 232: 		{
+ 233: 			UE_LOG(Radar, Warning, TEXT("RadarSensorManager: spawned radar sensor: %s"), *SpawnedActor->GetName());
+ 234: 			SpawnedActors.Add(SpawnedActor);
+ 235: 		}
+ 236: 	}
+ 237: }

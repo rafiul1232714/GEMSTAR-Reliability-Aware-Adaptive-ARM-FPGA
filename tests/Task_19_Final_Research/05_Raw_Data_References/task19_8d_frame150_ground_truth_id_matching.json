@@ -1,0 +1,24 @@
+{
+  "scenario": "fog_mor100",
+  "frame": 150,
+  "target_ids": [
+    83181,
+    83183,
+    83185,
+    83265
+  ],
+  "matched_ids": [],
+  "unmatched_ids": [
+    83181,
+    83183,
+    83185,
+    83265
+  ],
+  "collection_counts": {
+    "moving_object": 6,
+    "stationary_object": 0,
+    "traffic_sign": 0,
+    "traffic_light": 0
+  },
+  "matches": []
+}

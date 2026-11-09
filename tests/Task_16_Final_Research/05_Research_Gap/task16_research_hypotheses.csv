@@ -1,0 +1,5 @@
+﻿"ID","Hypothesis","PrimaryComparison","Metrics","Status"
+"H1","Uncertainty-aware scheduling reduces energy relative to workload-aware scheduling without unacceptable tracking-quality degradation","B3 versus B2","Energy per frame; tracking error; deadline misses","UNTESTED"
+"H2","Dynamic CPU-FPGA scheduling improves execution efficiency compared with fixed partitioning","B2 versus B1","End-to-end latency; energy; communication overhead","UNTESTED"
+"H3","Reliability-aware allocation improves perception robustness during sensor degradation","B3 versus B2","Tracking error; failure rate; recovery time","UNTESTED"
+"H4","Scheduling overhead remains small enough to preserve real-time deadline compliance","B3 versus B1 and B2","Decision latency; switching overhead; deadline-miss rate","UNTESTED"

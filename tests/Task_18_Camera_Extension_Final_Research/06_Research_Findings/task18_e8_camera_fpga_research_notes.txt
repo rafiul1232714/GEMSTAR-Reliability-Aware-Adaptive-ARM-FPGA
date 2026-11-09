@@ -1,0 +1,41 @@
+TASK 18.E8 - CAMERA FPGA ARCHITECTURE
+
+PURPOSE
+Translate the completed GEMSTAR Sobel fixed-point
+experiment into a hardware implementation specification.
+
+COMPLETED SOFTWARE EVIDENCE
+- Task 18.E3: 20 extracted camera frames.
+- Task 18.E4: brightness/contrast/edge statistics.
+- Task 18.E5: provisional observability monitor.
+- Task 18.E6: PC preprocessing timing comparison.
+- Task 18.E7: exact INT16 Sobel gradient comparison.
+
+PROPOSED HARDWARE
+- Unsigned 8-bit grayscale input.
+- 3x3 Sobel convolution.
+- Signed 11-bit X and Y gradient datapaths.
+- Correctly widened magnitude arithmetic.
+- Eight-bit output with defined rounding/saturation.
+- Two line buffers and sliding window.
+- AXI4-Stream interfaces and ARM-side DMA.
+
+IMPORTANT DESIGN RISKS
+- Exactly match image border handling.
+- Exactly match output rounding and saturation.
+- Correctly align valid data and frame markers.
+- Respect ready/valid handshake and backpressure.
+- Check overflow and signed arithmetic.
+- Do not claim one pixel per clock until verified.
+- Test resource/timing feasibility after synthesis.
+
+FUTURE HARDWARE WORK
+- Implement VHDL/Verilog modules.
+- Build bit-accurate testbench.
+- Synthesize and place/route.
+- Integrate on AMD Kria.
+- Measure CPU-only and FPGA-assisted latency.
+- Measure actual energy and power consumption.
+
+CURRENT STATUS
+Architecture prepared; RTL and FPGA not implemented.

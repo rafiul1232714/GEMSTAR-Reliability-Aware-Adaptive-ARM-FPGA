@@ -1,0 +1,180 @@
+﻿   1: /*
+   2:  * Copyright (c) 2026 DLR e.V.
+   3:  *
+   4:  * This program and the accompanying materials are made
+   5:  * available under the terms of the Eclipse Public License 2.0
+   6:  * which is available at https://www.eclipse.org/legal/epl-2.0/
+   7:  *
+   8:  * SPDX-License-Identifier: EPL-2.0
+   9:  */
+  10: 
+  11: #include "SimpleLidar.h"
+  12: 
+  13: #include "Effects/LidarWeatherEffectModel.h"
+  14: #include "PhysicsPublic.h"
+  15: #include "Materials/Material.h"
+  16: 
+  17: // Sets default values
+  18: ASimpleLidar::ASimpleLidar()
+  19: {
+  20: }
+  21: 
+  22: // Called when the game starts or when spawned
+  23: void ASimpleLidar::BeginPlay()
+  24: {
+  25: 	Super::BeginPlay();
+  26: 	CreateTestConfig();
+  27: 
+  28: 	// complex collisions: true
+  29: 	TraceParams = FCollisionQueryParams(TEXT("LaserTrace"), true, GetOwner());
+  30: 	TraceParams.bReturnPhysicalMaterial = true;
+  31: 	TraceParams.bTraceComplex = true;
+  32: 	TraceParams.bReturnFaceIndex = true;
+  33: }
+  34: 
+  35: void ASimpleLidar::Tick(float time) {
+  36: 	if (!TickActive) return;
+  37: 	GetScanData();
+  38: 	if (bDebugRayTraces || bDebugReflections || bDebugNormals)
+  39: 		ShowSensorDebugInformation();
+  40: 	if (PublishingActive)
+  41: 	{
+  42: 		GenerateOSIMessage();
+  43: 		SendData(*Sensor.SensorView);
+  44: 	}
+  45: }
+  46: 
+  47: void ASimpleLidar::GetScanData() {
+  48: 
+  49: 	// Get owner's location and rotation
+  50: 	const FVector LidarPosition = this->GetActorLocation();
+  51: 	const FRotator LidarRotation = this->GetActorRotation();
+  52: 
+  53: 	// Initialize array for raycast result
+  54: 	Sensor.RecordedHits.Init(FHitResultAndIntesity(), Sensor.Number_of_rays_horizontal * Sensor.Number_of_rays_vertical);
+  55: 
+  56: 	// Calculate batch size for 'ParallelFor' based on workable thread
+  57: 	const int32 ThreadNum = FPlatformMisc::NumberOfWorkerThreadsToSpawn();
+  58: 	const int32 DivideEnd = FMath::FloorToInt((float)(Sensor.RecordedHits.Num() / ThreadNum));
+  59: 
+  60: 	ParallelFor(
+  61: 		ThreadNum,
+  62: 		[&](int32 PFIndex)
+  63: 		{
+  64: 			int32 StartAt = PFIndex * DivideEnd;
+  65: 			if (StartAt >= Sensor.RecordedHits.Num()) {
+  66: 				return;
+  67: 			}
+  68: 
+  69: 			int32 EndAt = StartAt + DivideEnd;
+  70: 			if (PFIndex == (ThreadNum - 1)) {
+  71: 				EndAt = Sensor.RecordedHits.Num();
+  72: 			}
+  73: 
+  74: 			for (int32 Index = StartAt; Index < EndAt; ++Index) {
+  75: 				const float HAngle = Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal];
+  76: 				const float VAngle = Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal];
+  77: 
+  78: 				FRotator LaserRotation(FMath::RadiansToDegrees(VAngle), FMath::RadiansToDegrees(HAngle), 0.f);
+  79: 				FRotator Rotation = UKismetMathLibrary::ComposeRotators(LaserRotation, LidarRotation);
+  80: 
+  81: 				FVector EndPoint = LidarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+  82: 
+  83: 				GetWorld()->LineTraceSingleByChannel(
+  84: 					Sensor.RecordedHits[Index].HitResult, LidarPosition, EndPoint, ECC_Visibility, TraceParams, FCollisionResponseParams::DefaultResponseParam);
+  85: 				if (Sensor.RecordedHits[Index].HitResult.bBlockingHit) {
+  86: 					Sensor.RecordedHits[Index].Intesity = ComputeLidarSignalStrength(Sensor.RecordedHits[Index].HitResult);
+  87: 				}
+  88: 			}
+  89: 		},
+  90: 		!SupportMultithread
+  91: 	);
+  92: 
+  93: }
+  94: 
+  95: void ASimpleLidar::GenerateOSIMessage() {
+  96: 	delete Sensor.SensorView;
+  97: 	Sensor.SensorView = new osi3::SensorView();
+  98: 	auto* lidarSensorView = Sensor.SensorView->add_lidar_sensor_view();
+  99: 	auto* viewConfiguration = lidarSensorView->mutable_view_configuration();
+ 100: 	if (Sensor.SensorViewConfig != nullptr && Sensor.SensorViewConfig->lidar_sensor_view_configuration_size())
+ 101: 		viewConfiguration->CopyFrom(Sensor.SensorViewConfig->lidar_sensor_view_configuration(0));
+ 102: 
+ 103: 	for (auto& hit : Sensor.RecordedHits) {
+ 104: 		auto* reflection = lidarSensorView->add_reflection();
+ 105: 		reflection->set_time_of_flight(2 * 0.01 * hit.HitResult.Distance / SPEED_OF_LIGHT);
+ 106: 
+ 107: 		osi3::Vector3d* normal_to_surface = reflection->mutable_normal_to_surface();
+ 108: 		normal_to_surface->set_x(hit.HitResult.ImpactNormal.X);
+ 109: 		normal_to_surface->set_y(-hit.HitResult.ImpactNormal.Y);
+ 110: 		normal_to_surface->set_z(hit.HitResult.ImpactNormal.Z);
+ 111: 		reflection->set_doppler_shift(0);
+ 112: 		if (hit.HitResult.bBlockingHit) {
+ 113: 			reflection->mutable_object_id()->set_value(hit.HitResult.GetActor()->GetUniqueID());
+ 114: 			reflection->set_signal_strength(hit.Intesity);
+ 115: 		}
+ 116: 		else {
+ 117: 			reflection->mutable_object_id()->set_value(UINT64_MAX);
+ 118: 			reflection->set_signal_strength(0.0);
+ 119: 		}
+ 120: 	}
+ 121: 
+ 122: 	Parent = GetAttachParentActor();
+ 123: 
+ 124: 	if (Parent != nullptr) {
+ 125: 		auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+ 126: 		uint32_t uniqueID = Parent->GetUniqueID();
+ 127: 		moving_object->mutable_id()->set_value(uniqueID);
+ 128: 		moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+ 129: 		moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+ 130: 		Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+ 131: 	}
+ 132: 
+ 133: 	// Apply weather effect
+ 134: if (HasWeatherData && Sensor.SensorView) {
+ 135:     LidarWeatherEffectModel LidarWeatherEffectModel;
+ 136:     LidarWeatherEffectModel.ApplyLidarWeatherEffect(
+ 137:         *Sensor.SensorView, CurrentWeatherData);
+ 138: }
+ 139: }
+ 140: 
+ 141: float ASimpleLidar::ComputeLidarSignalStrength(const FHitResult& Hit)
+ 142: {
+ 143: 	// Surface normal from hit result
+ 144: 	FVector Normal = Hit.ImpactNormal.GetSafeNormal();
+ 145: 
+ 146: 	// Vector from hit point back to lidar (return direction)
+ 147: 	FVector ToLidar = (Hit.TraceStart - Hit.ImpactPoint).GetSafeNormal();
+ 148: 
+ 149: 	// Angle factor: cos^2(theta), clamped to [0,1]
+ 150: 	float CosTheta = FVector::DotProduct(Normal, ToLidar);
+ 151: 	CosTheta = FMath::Clamp(CosTheta, 0.0f, 1.0f);
+ 152: 	float AngleFactor = FMath::Square(CosTheta);
+ 153: 	AngleFactor = FMath::Clamp(AngleFactor, 0.0f, 1.0f);
+ 154: 
+ 155: 	// Distance attenuation: 1 / (1 + (d/d0)^2)
+ 156: 	float DistanceFactor = 1.0f / (1.0f + FMath::Square(Hit.Distance / DistanceHalfFalloff));
+ 157: 
+ 158: 	float Rho = 1.0f; // default backscatter coefficient
+ 159: 	if (Hit.Component.IsValid() && Hit.Component.Get())
+ 160: 	{
+ 161: 		UMaterialInterface* HitMaterial = GetHitMaterial(Hit);
+ 162: 		Rho = GetReflectivity(HitMaterial);
+ 163: 	}
+ 164: 	float Signal = Rho * AngleFactor * DistanceFactor;
+ 165: 	return FMath::Clamp(Signal, 0.0f, 1.0f);
+ 166: }
+ 167: 
+ 168: UMaterialInterface* ASimpleLidar::GetHitMaterial(const FHitResult& Hit) const {
+ 169: 
+ 170: 	UMaterialInterface* HitMat = nullptr;
+ 171: 	UPrimitiveComponent* PrimComp = Cast<UPrimitiveComponent>(Hit.Component.Get());
+ 172: 	if (!PrimComp)
+ 173: 	{
+ 174: 		return nullptr;
+ 175: 	}
+ 176: 	if (PrimComp && Hit.FaceIndex != INDEX_NONE)
+ 177: 	{
+ 178: 		int32 SectionIndex = INDEX_NONE;
+ 179: 		HitMat = PrimComp->GetMaterialFromCollisionFaceIndex(Hit.FaceIndex, SectionIndex);
+ 180: 		if (HitMat)

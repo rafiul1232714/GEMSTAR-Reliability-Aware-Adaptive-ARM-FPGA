@@ -1,0 +1,181 @@
+{
+  "Recording": "baseline_clear",
+  "GroundTruthDescriptorFields": [
+    "version",
+    "timestamp",
+    "host_vehicle_id",
+    "stationary_object",
+    "moving_object",
+    "traffic_sign",
+    "traffic_light",
+    "road_marking",
+    "lane_boundary",
+    "lane",
+    "occupant",
+    "environmental_conditions",
+    "country_code",
+    "proj_string",
+    "map_reference",
+    "model_reference",
+    "reference_line",
+    "logical_lane_boundary",
+    "logical_lane",
+    "proj_frame_offset"
+  ],
+  "GroundTruthPopulatedFields": [
+    "version",
+    "timestamp",
+    "stationary_object",
+    "moving_object",
+    "country_code"
+  ],
+  "SensorViewDescriptorFields": [
+    "version",
+    "timestamp",
+    "sensor_id",
+    "mounting_position",
+    "mounting_position_rmse",
+    "host_vehicle_data",
+    "global_ground_truth",
+    "host_vehicle_id",
+    "generic_sensor_view",
+    "radar_sensor_view",
+    "lidar_sensor_view",
+    "camera_sensor_view",
+    "ultrasonic_sensor_view"
+  ],
+  "SensorViewPopulatedFields": [
+    "version",
+    "timestamp",
+    "radar_sensor_view",
+    "lidar_sensor_view",
+    "camera_sensor_view"
+  ],
+  "HostOrEgoCandidates": {},
+  "FirstFrameMovingObjects": [
+    {
+      "ID": "77091",
+      "Position": [
+        -3.0,
+        -0.0,
+        0.0
+      ],
+      "Dimensions": [
+        10.1,
+        10.1,
+        10.1
+      ],
+      "OrientationYaw": -0.0,
+      "Velocity": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "ObjectType": "2",
+      "ModelReference": "FollowVehicleCamera",
+      "PopulatedFields": [
+        "id",
+        "base",
+        "type",
+        "vehicle_classification",
+        "model_reference"
+      ]
+    },
+    {
+      "ID": "76795",
+      "Position": [
+        11.41745631018043,
+        -32.14325294328503,
+        0.8261999447735003
+      ],
+      "Dimensions": [
+        2.1653440039401857,
+        1.7411328301774576,
+        1.0569707714839134
+      ],
+      "OrientationYaw": 0.4373742768138337,
+      "Velocity": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "ObjectType": "2",
+      "ModelReference": "BP_Small_Car_C",
+      "PopulatedFields": [
+        "id",
+        "base",
+        "type",
+        "vehicle_classification",
+        "model_reference"
+      ]
+    }
+  ],
+  "FirstFrameStationaryExamples": [
+    {
+      "ID": "3972744300",
+      "Position": [
+        0.0,
+        -61.9,
+        -273.90000000000003
+      ],
+      "Dimensions": [
+        1.28,
+        1.28,
+        1.28
+      ]
+    },
+    {
+      "ID": "2770889235",
+      "Position": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "Dimensions": [
+        378.0,
+        252.0,
+        6.6875
+      ]
+    },
+    {
+      "ID": "210445163",
+      "Position": [
+        0.0,
+        5.735068359375,
+        13.023671875
+      ],
+      "Dimensions": [
+        202.25375,
+        115.930341796875,
+        0.5855980300903321
+      ]
+    },
+    {
+      "ID": "1070914475",
+      "Position": [
+        0.0,
+        5.66251953125,
+        6.617958984375
+      ],
+      "Dimensions": [
+        214.870517578125,
+        121.9717578125,
+        0.300000007301569
+      ]
+    },
+    {
+      "ID": "3375196726",
+      "Position": [
+        0.0,
+        29.344687849446164,
+        64.6451123470533
+      ],
+      "Dimensions": [
+        170.69152898924835,
+        110.94494130428964,
+        4.9999998882412914e-05
+      ]
+    }
+  ],
+  "EgoIdentityVerified": false
+}

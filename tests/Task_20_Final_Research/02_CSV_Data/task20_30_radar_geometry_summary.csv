@@ -1,0 +1,7 @@
+Recording,PointsEvaluated,MedianRangeResidualM,MaximumRangeResidualM,HostNearestCount,OtherMovingObjectNearestCount,NoMovingObjectCount
+baseline_clear,2957,1.7763568394002505e-15,8.881784197001252e-15,2957,0,0
+baseline_fog,0,,,0,0,0
+baseline_fog_working_radar,2958,1.7763568394002505e-15,8.881784197001252e-15,2958,0,0
+fog_mor100,2958,1.7763568394002505e-15,8.881784197001252e-15,2958,0,0
+fog_postfix_validation,2952,1.7763568394002505e-15,8.881784197001252e-15,2952,0,0
+task05_fog_test,0,,,0,0,0

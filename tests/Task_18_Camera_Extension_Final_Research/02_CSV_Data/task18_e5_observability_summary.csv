@@ -1,0 +1,6 @@
+Recording,Frames,Observable,Review,MedianWarningCount
+baseline_clear,4,4,0,0.0
+baseline_fog,4,0,4,4.0
+baseline_fog_working_radar,4,0,4,3.0
+fog_mor100,4,4,0,0.0
+fog_postfix_validation,4,0,4,3.0

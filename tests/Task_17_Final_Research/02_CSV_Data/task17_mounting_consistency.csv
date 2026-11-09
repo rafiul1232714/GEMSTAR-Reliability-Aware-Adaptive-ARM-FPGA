@@ -1,0 +1,4 @@
+Sensor,TotalFrames,PresentFrames,MissingOrMultipleEntries,MissingMountConfigurations,ChangedMountConfigurations,Stable
+Camera,466,466,0,0,0,True
+LiDAR,466,466,0,0,0,True
+Radar,466,466,0,0,0,True

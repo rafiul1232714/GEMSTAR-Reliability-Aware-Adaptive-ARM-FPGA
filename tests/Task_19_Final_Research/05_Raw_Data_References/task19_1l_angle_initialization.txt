@@ -1,0 +1,8 @@
+﻿E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:75: const float HAngle = Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal];
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:76: const float VAngle = Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal];
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:225: Sensor.AzimuthAngles.Empty();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:226: Sensor.ElevationAngles.Empty();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:229: Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:234: Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical()
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\SimpleLidar.h:45: TArray<float> AzimuthAngles;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\SimpleLidar.h:46: TArray<float> ElevationAngles;

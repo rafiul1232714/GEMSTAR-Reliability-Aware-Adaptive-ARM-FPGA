@@ -1,0 +1,3 @@
+Model,TP,FP,FN,Precision,Recall,F1,LocalizationMatches
+yolo11n,1,5,4,0.16666666666666666,0.2,0.1818181818181818,3
+yolo11s,3,7,2,0.3,0.6,0.4,3

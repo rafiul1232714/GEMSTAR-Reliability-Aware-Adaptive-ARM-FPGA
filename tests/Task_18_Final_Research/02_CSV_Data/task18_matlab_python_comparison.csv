@@ -1,0 +1,4 @@
+Operation,MAE
+Grayscale,0.000146484375
+Gaussian,0.01755859375
+Sobel,0.12201171875

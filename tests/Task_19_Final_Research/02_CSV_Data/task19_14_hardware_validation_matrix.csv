@@ -1,0 +1,10 @@
+Experiment,RequiredEvidence,Status
+Floating-point CPU reference,Repeatable MATLAB or C results,SOFTWARE_BASELINE_AVAILABLE
+INT16 software emulation,Fixed-scale numerical error and label changes,PARTIAL_FRAME150_STUDY
+RTL functional simulation,RTL testbench and waveform evidence,NOT_MEASURED
+FPGA-only kernel timing,Hardware cycle counts at measured clock,NOT_MEASURED
+ARM CPU implementation,ARM execution-time measurements,NOT_MEASURED
+ARM plus FPGA integrated timing,DMA plus accelerator plus CPU timings,NOT_MEASURED
+Energy per processed frame,Board power trace and duration,NOT_MEASURED
+Deadline miss comparison,Timestamped execution samples,NOT_MEASURED
+Quantization quality validation,Comparison against independent reference labels,NOT_MEASURED

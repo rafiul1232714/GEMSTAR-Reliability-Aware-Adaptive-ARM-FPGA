@@ -1,0 +1,1930 @@
+{
+  "source": "E:\\GEMSTAR_Project\\sensor-health-monitor\\data\\raw\\fog_mor100\\20261027T224313Z_sv_380_X_466_GEMSTAR.osi",
+  "source_bytes": 599025820,
+  "total_sensorview_messages": 466,
+  "lidar_views_per_message": {
+    "1": 466
+  },
+  "selected_frame_inspection": [
+    {
+      "frame": 0,
+      "lidar_sensor_views": 1,
+      "fields": [
+        [
+          {
+            "name": "view_configuration",
+            "type": 11,
+            "repeated": false,
+            "fields": [
+              {
+                "name": "mounting_position",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "position",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "x",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "2.6"
+                      },
+                      {
+                        "name": "y",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "z",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.7000000000000001"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "orientation",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "roll",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "pitch",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "yaw",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "field_of_view_horizontal",
+                "type": 1,
+                "repeated": false,
+                "value": "1.5707963267948966"
+              },
+              {
+                "name": "field_of_view_vertical",
+                "type": 1,
+                "repeated": false,
+                "value": "0.3490658503988659"
+              },
+              {
+                "name": "number_of_rays_horizontal",
+                "type": 13,
+                "repeated": false,
+                "value": "251"
+              },
+              {
+                "name": "number_of_rays_vertical",
+                "type": 13,
+                "repeated": false,
+                "value": "21"
+              }
+            ]
+          },
+          {
+            "name": "reflection",
+            "type": 11,
+            "repeated": true,
+            "count": 5271,
+            "first_item_fields": [
+              {
+                "name": "signal_strength",
+                "type": 1,
+                "repeated": false,
+                "value": "0.030153684318065643"
+              },
+              {
+                "name": "time_of_flight",
+                "type": 1,
+                "repeated": false,
+                "value": "1.1166569317513471e-14"
+              },
+              {
+                "name": "doppler_shift",
+                "type": 1,
+                "repeated": false,
+                "value": "0.0"
+              },
+              {
+                "name": "normal_to_surface",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "x",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "y",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "-0.0"
+                  },
+                  {
+                    "name": "z",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "1.0"
+                  }
+                ]
+              },
+              {
+                "name": "object_id",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "value",
+                    "type": 4,
+                    "repeated": false,
+                    "value": "83185"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "frame": 50,
+      "lidar_sensor_views": 1,
+      "fields": [
+        [
+          {
+            "name": "view_configuration",
+            "type": 11,
+            "repeated": false,
+            "fields": [
+              {
+                "name": "mounting_position",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "position",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "x",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "2.6"
+                      },
+                      {
+                        "name": "y",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "z",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.7000000000000001"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "orientation",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "roll",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "pitch",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "yaw",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "field_of_view_horizontal",
+                "type": 1,
+                "repeated": false,
+                "value": "1.5707963267948966"
+              },
+              {
+                "name": "field_of_view_vertical",
+                "type": 1,
+                "repeated": false,
+                "value": "0.3490658503988659"
+              },
+              {
+                "name": "number_of_rays_horizontal",
+                "type": 13,
+                "repeated": false,
+                "value": "251"
+              },
+              {
+                "name": "number_of_rays_vertical",
+                "type": 13,
+                "repeated": false,
+                "value": "21"
+              }
+            ]
+          },
+          {
+            "name": "reflection",
+            "type": 11,
+            "repeated": true,
+            "count": 5271,
+            "first_item_fields": [
+              {
+                "name": "signal_strength",
+                "type": 1,
+                "repeated": false,
+                "value": "0.028976507484912872"
+              },
+              {
+                "name": "time_of_flight",
+                "type": 1,
+                "repeated": false,
+                "value": "2.6900679988920026e-08"
+              },
+              {
+                "name": "doppler_shift",
+                "type": 1,
+                "repeated": false,
+                "value": "0.0"
+              },
+              {
+                "name": "normal_to_surface",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "x",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "y",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "-0.0"
+                  },
+                  {
+                    "name": "z",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "1.0"
+                  }
+                ]
+              },
+              {
+                "name": "object_id",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "value",
+                    "type": 4,
+                    "repeated": false,
+                    "value": "83185"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "frame": 100,
+      "lidar_sensor_views": 1,
+      "fields": [
+        [
+          {
+            "name": "view_configuration",
+            "type": 11,
+            "repeated": false,
+            "fields": [
+              {
+                "name": "mounting_position",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "position",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "x",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "2.6"
+                      },
+                      {
+                        "name": "y",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "z",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.7000000000000001"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "orientation",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "roll",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "pitch",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "yaw",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "field_of_view_horizontal",
+                "type": 1,
+                "repeated": false,
+                "value": "1.5707963267948966"
+              },
+              {
+                "name": "field_of_view_vertical",
+                "type": 1,
+                "repeated": false,
+                "value": "0.3490658503988659"
+              },
+              {
+                "name": "number_of_rays_horizontal",
+                "type": 13,
+                "repeated": false,
+                "value": "251"
+              },
+              {
+                "name": "number_of_rays_vertical",
+                "type": 13,
+                "repeated": false,
+                "value": "21"
+              }
+            ]
+          },
+          {
+            "name": "reflection",
+            "type": 11,
+            "repeated": true,
+            "count": 5271,
+            "first_item_fields": [
+              {
+                "name": "signal_strength",
+                "type": 1,
+                "repeated": false,
+                "value": "0.028976507484912872"
+              },
+              {
+                "name": "time_of_flight",
+                "type": 1,
+                "repeated": false,
+                "value": "2.6900679988920026e-08"
+              },
+              {
+                "name": "doppler_shift",
+                "type": 1,
+                "repeated": false,
+                "value": "0.0"
+              },
+              {
+                "name": "normal_to_surface",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "x",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "y",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "-0.0"
+                  },
+                  {
+                    "name": "z",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "1.0"
+                  }
+                ]
+              },
+              {
+                "name": "object_id",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "value",
+                    "type": 4,
+                    "repeated": false,
+                    "value": "83185"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "frame": 150,
+      "lidar_sensor_views": 1,
+      "fields": [
+        [
+          {
+            "name": "view_configuration",
+            "type": 11,
+            "repeated": false,
+            "fields": [
+              {
+                "name": "mounting_position",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "position",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "x",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "2.6"
+                      },
+                      {
+                        "name": "y",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "z",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.7000000000000001"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "orientation",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "roll",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "pitch",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "yaw",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "field_of_view_horizontal",
+                "type": 1,
+                "repeated": false,
+                "value": "1.5707963267948966"
+              },
+              {
+                "name": "field_of_view_vertical",
+                "type": 1,
+                "repeated": false,
+                "value": "0.3490658503988659"
+              },
+              {
+                "name": "number_of_rays_horizontal",
+                "type": 13,
+                "repeated": false,
+                "value": "251"
+              },
+              {
+                "name": "number_of_rays_vertical",
+                "type": 13,
+                "repeated": false,
+                "value": "21"
+              }
+            ]
+          },
+          {
+            "name": "reflection",
+            "type": 11,
+            "repeated": true,
+            "count": 5271,
+            "first_item_fields": [
+              {
+                "name": "signal_strength",
+                "type": 1,
+                "repeated": false,
+                "value": "0.028976507484912872"
+              },
+              {
+                "name": "time_of_flight",
+                "type": 1,
+                "repeated": false,
+                "value": "2.6900679988920026e-08"
+              },
+              {
+                "name": "doppler_shift",
+                "type": 1,
+                "repeated": false,
+                "value": "0.0"
+              },
+              {
+                "name": "normal_to_surface",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "x",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "y",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "-0.0"
+                  },
+                  {
+                    "name": "z",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "1.0"
+                  }
+                ]
+              },
+              {
+                "name": "object_id",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "value",
+                    "type": 4,
+                    "repeated": false,
+                    "value": "83185"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "frame": 200,
+      "lidar_sensor_views": 1,
+      "fields": [
+        [
+          {
+            "name": "view_configuration",
+            "type": 11,
+            "repeated": false,
+            "fields": [
+              {
+                "name": "mounting_position",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "position",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "x",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "2.6"
+                      },
+                      {
+                        "name": "y",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "z",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.7000000000000001"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "orientation",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "roll",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "pitch",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "yaw",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "field_of_view_horizontal",
+                "type": 1,
+                "repeated": false,
+                "value": "1.5707963267948966"
+              },
+              {
+                "name": "field_of_view_vertical",
+                "type": 1,
+                "repeated": false,
+                "value": "0.3490658503988659"
+              },
+              {
+                "name": "number_of_rays_horizontal",
+                "type": 13,
+                "repeated": false,
+                "value": "251"
+              },
+              {
+                "name": "number_of_rays_vertical",
+                "type": 13,
+                "repeated": false,
+                "value": "21"
+              }
+            ]
+          },
+          {
+            "name": "reflection",
+            "type": 11,
+            "repeated": true,
+            "count": 5271,
+            "first_item_fields": [
+              {
+                "name": "signal_strength",
+                "type": 1,
+                "repeated": false,
+                "value": "0.028976507484912872"
+              },
+              {
+                "name": "time_of_flight",
+                "type": 1,
+                "repeated": false,
+                "value": "2.6900679988920026e-08"
+              },
+              {
+                "name": "doppler_shift",
+                "type": 1,
+                "repeated": false,
+                "value": "0.0"
+              },
+              {
+                "name": "normal_to_surface",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "x",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "y",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "-0.0"
+                  },
+                  {
+                    "name": "z",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "1.0"
+                  }
+                ]
+              },
+              {
+                "name": "object_id",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "value",
+                    "type": 4,
+                    "repeated": false,
+                    "value": "83185"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "frame": 250,
+      "lidar_sensor_views": 1,
+      "fields": [
+        [
+          {
+            "name": "view_configuration",
+            "type": 11,
+            "repeated": false,
+            "fields": [
+              {
+                "name": "mounting_position",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "position",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "x",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "2.6"
+                      },
+                      {
+                        "name": "y",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "z",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.7000000000000001"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "orientation",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "roll",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "pitch",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "yaw",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "field_of_view_horizontal",
+                "type": 1,
+                "repeated": false,
+                "value": "1.5707963267948966"
+              },
+              {
+                "name": "field_of_view_vertical",
+                "type": 1,
+                "repeated": false,
+                "value": "0.3490658503988659"
+              },
+              {
+                "name": "number_of_rays_horizontal",
+                "type": 13,
+                "repeated": false,
+                "value": "251"
+              },
+              {
+                "name": "number_of_rays_vertical",
+                "type": 13,
+                "repeated": false,
+                "value": "21"
+              }
+            ]
+          },
+          {
+            "name": "reflection",
+            "type": 11,
+            "repeated": true,
+            "count": 5271,
+            "first_item_fields": [
+              {
+                "name": "signal_strength",
+                "type": 1,
+                "repeated": false,
+                "value": "0.028976507484912872"
+              },
+              {
+                "name": "time_of_flight",
+                "type": 1,
+                "repeated": false,
+                "value": "2.6900679988920026e-08"
+              },
+              {
+                "name": "doppler_shift",
+                "type": 1,
+                "repeated": false,
+                "value": "0.0"
+              },
+              {
+                "name": "normal_to_surface",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "x",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "y",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "-0.0"
+                  },
+                  {
+                    "name": "z",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "1.0"
+                  }
+                ]
+              },
+              {
+                "name": "object_id",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "value",
+                    "type": 4,
+                    "repeated": false,
+                    "value": "83185"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "frame": 300,
+      "lidar_sensor_views": 1,
+      "fields": [
+        [
+          {
+            "name": "view_configuration",
+            "type": 11,
+            "repeated": false,
+            "fields": [
+              {
+                "name": "mounting_position",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "position",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "x",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "2.6"
+                      },
+                      {
+                        "name": "y",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "z",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.7000000000000001"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "orientation",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "roll",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "pitch",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "yaw",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "field_of_view_horizontal",
+                "type": 1,
+                "repeated": false,
+                "value": "1.5707963267948966"
+              },
+              {
+                "name": "field_of_view_vertical",
+                "type": 1,
+                "repeated": false,
+                "value": "0.3490658503988659"
+              },
+              {
+                "name": "number_of_rays_horizontal",
+                "type": 13,
+                "repeated": false,
+                "value": "251"
+              },
+              {
+                "name": "number_of_rays_vertical",
+                "type": 13,
+                "repeated": false,
+                "value": "21"
+              }
+            ]
+          },
+          {
+            "name": "reflection",
+            "type": 11,
+            "repeated": true,
+            "count": 5271,
+            "first_item_fields": [
+              {
+                "name": "signal_strength",
+                "type": 1,
+                "repeated": false,
+                "value": "0.028976507484912872"
+              },
+              {
+                "name": "time_of_flight",
+                "type": 1,
+                "repeated": false,
+                "value": "2.6900679988920026e-08"
+              },
+              {
+                "name": "doppler_shift",
+                "type": 1,
+                "repeated": false,
+                "value": "0.0"
+              },
+              {
+                "name": "normal_to_surface",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "x",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "y",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "-0.0"
+                  },
+                  {
+                    "name": "z",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "1.0"
+                  }
+                ]
+              },
+              {
+                "name": "object_id",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "value",
+                    "type": 4,
+                    "repeated": false,
+                    "value": "83185"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "frame": 350,
+      "lidar_sensor_views": 1,
+      "fields": [
+        [
+          {
+            "name": "view_configuration",
+            "type": 11,
+            "repeated": false,
+            "fields": [
+              {
+                "name": "mounting_position",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "position",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "x",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "2.6"
+                      },
+                      {
+                        "name": "y",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "z",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.7000000000000001"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "orientation",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "roll",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "pitch",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "yaw",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "field_of_view_horizontal",
+                "type": 1,
+                "repeated": false,
+                "value": "1.5707963267948966"
+              },
+              {
+                "name": "field_of_view_vertical",
+                "type": 1,
+                "repeated": false,
+                "value": "0.3490658503988659"
+              },
+              {
+                "name": "number_of_rays_horizontal",
+                "type": 13,
+                "repeated": false,
+                "value": "251"
+              },
+              {
+                "name": "number_of_rays_vertical",
+                "type": 13,
+                "repeated": false,
+                "value": "21"
+              }
+            ]
+          },
+          {
+            "name": "reflection",
+            "type": 11,
+            "repeated": true,
+            "count": 5271,
+            "first_item_fields": [
+              {
+                "name": "signal_strength",
+                "type": 1,
+                "repeated": false,
+                "value": "0.028976507484912872"
+              },
+              {
+                "name": "time_of_flight",
+                "type": 1,
+                "repeated": false,
+                "value": "2.6900679988920026e-08"
+              },
+              {
+                "name": "doppler_shift",
+                "type": 1,
+                "repeated": false,
+                "value": "0.0"
+              },
+              {
+                "name": "normal_to_surface",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "x",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "y",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "-0.0"
+                  },
+                  {
+                    "name": "z",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "1.0"
+                  }
+                ]
+              },
+              {
+                "name": "object_id",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "value",
+                    "type": 4,
+                    "repeated": false,
+                    "value": "83185"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "frame": 400,
+      "lidar_sensor_views": 1,
+      "fields": [
+        [
+          {
+            "name": "view_configuration",
+            "type": 11,
+            "repeated": false,
+            "fields": [
+              {
+                "name": "mounting_position",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "position",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "x",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "2.6"
+                      },
+                      {
+                        "name": "y",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "z",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.7000000000000001"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "orientation",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "roll",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "pitch",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "yaw",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "field_of_view_horizontal",
+                "type": 1,
+                "repeated": false,
+                "value": "1.5707963267948966"
+              },
+              {
+                "name": "field_of_view_vertical",
+                "type": 1,
+                "repeated": false,
+                "value": "0.3490658503988659"
+              },
+              {
+                "name": "number_of_rays_horizontal",
+                "type": 13,
+                "repeated": false,
+                "value": "251"
+              },
+              {
+                "name": "number_of_rays_vertical",
+                "type": 13,
+                "repeated": false,
+                "value": "21"
+              }
+            ]
+          },
+          {
+            "name": "reflection",
+            "type": 11,
+            "repeated": true,
+            "count": 5271,
+            "first_item_fields": [
+              {
+                "name": "signal_strength",
+                "type": 1,
+                "repeated": false,
+                "value": "0.028976507484912872"
+              },
+              {
+                "name": "time_of_flight",
+                "type": 1,
+                "repeated": false,
+                "value": "2.6900679988920026e-08"
+              },
+              {
+                "name": "doppler_shift",
+                "type": 1,
+                "repeated": false,
+                "value": "0.0"
+              },
+              {
+                "name": "normal_to_surface",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "x",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "y",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "-0.0"
+                  },
+                  {
+                    "name": "z",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "1.0"
+                  }
+                ]
+              },
+              {
+                "name": "object_id",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "value",
+                    "type": 4,
+                    "repeated": false,
+                    "value": "83185"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "frame": 423,
+      "lidar_sensor_views": 1,
+      "fields": [
+        [
+          {
+            "name": "view_configuration",
+            "type": 11,
+            "repeated": false,
+            "fields": [
+              {
+                "name": "mounting_position",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "position",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "x",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "2.6"
+                      },
+                      {
+                        "name": "y",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "z",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.7000000000000001"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "orientation",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "roll",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "pitch",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "yaw",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "field_of_view_horizontal",
+                "type": 1,
+                "repeated": false,
+                "value": "1.5707963267948966"
+              },
+              {
+                "name": "field_of_view_vertical",
+                "type": 1,
+                "repeated": false,
+                "value": "0.3490658503988659"
+              },
+              {
+                "name": "number_of_rays_horizontal",
+                "type": 13,
+                "repeated": false,
+                "value": "251"
+              },
+              {
+                "name": "number_of_rays_vertical",
+                "type": 13,
+                "repeated": false,
+                "value": "21"
+              }
+            ]
+          },
+          {
+            "name": "reflection",
+            "type": 11,
+            "repeated": true,
+            "count": 5271,
+            "first_item_fields": [
+              {
+                "name": "signal_strength",
+                "type": 1,
+                "repeated": false,
+                "value": "0.028976507484912872"
+              },
+              {
+                "name": "time_of_flight",
+                "type": 1,
+                "repeated": false,
+                "value": "2.6900679988920026e-08"
+              },
+              {
+                "name": "doppler_shift",
+                "type": 1,
+                "repeated": false,
+                "value": "0.0"
+              },
+              {
+                "name": "normal_to_surface",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "x",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "y",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "-0.0"
+                  },
+                  {
+                    "name": "z",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "1.0"
+                  }
+                ]
+              },
+              {
+                "name": "object_id",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "value",
+                    "type": 4,
+                    "repeated": false,
+                    "value": "83185"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "frame": 424,
+      "lidar_sensor_views": 1,
+      "fields": [
+        [
+          {
+            "name": "view_configuration",
+            "type": 11,
+            "repeated": false,
+            "fields": [
+              {
+                "name": "mounting_position",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "position",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "x",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "2.6"
+                      },
+                      {
+                        "name": "y",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "z",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.7000000000000001"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "orientation",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "roll",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "pitch",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "yaw",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "field_of_view_horizontal",
+                "type": 1,
+                "repeated": false,
+                "value": "1.5707963267948966"
+              },
+              {
+                "name": "field_of_view_vertical",
+                "type": 1,
+                "repeated": false,
+                "value": "0.3490658503988659"
+              },
+              {
+                "name": "number_of_rays_horizontal",
+                "type": 13,
+                "repeated": false,
+                "value": "251"
+              },
+              {
+                "name": "number_of_rays_vertical",
+                "type": 13,
+                "repeated": false,
+                "value": "21"
+              }
+            ]
+          },
+          {
+            "name": "reflection",
+            "type": 11,
+            "repeated": true,
+            "count": 5271,
+            "first_item_fields": [
+              {
+                "name": "signal_strength",
+                "type": 1,
+                "repeated": false,
+                "value": "0.028976507484912872"
+              },
+              {
+                "name": "time_of_flight",
+                "type": 1,
+                "repeated": false,
+                "value": "2.6900679988920026e-08"
+              },
+              {
+                "name": "doppler_shift",
+                "type": 1,
+                "repeated": false,
+                "value": "0.0"
+              },
+              {
+                "name": "normal_to_surface",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "x",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "y",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "-0.0"
+                  },
+                  {
+                    "name": "z",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "1.0"
+                  }
+                ]
+              },
+              {
+                "name": "object_id",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "value",
+                    "type": 4,
+                    "repeated": false,
+                    "value": "83185"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "frame": 450,
+      "lidar_sensor_views": 1,
+      "fields": [
+        [
+          {
+            "name": "view_configuration",
+            "type": 11,
+            "repeated": false,
+            "fields": [
+              {
+                "name": "mounting_position",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "position",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "x",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "2.6"
+                      },
+                      {
+                        "name": "y",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "z",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.7000000000000001"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "orientation",
+                    "type": 11,
+                    "repeated": false,
+                    "fields": [
+                      {
+                        "name": "roll",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      },
+                      {
+                        "name": "pitch",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "0.0"
+                      },
+                      {
+                        "name": "yaw",
+                        "type": 1,
+                        "repeated": false,
+                        "value": "-0.0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "field_of_view_horizontal",
+                "type": 1,
+                "repeated": false,
+                "value": "1.5707963267948966"
+              },
+              {
+                "name": "field_of_view_vertical",
+                "type": 1,
+                "repeated": false,
+                "value": "0.3490658503988659"
+              },
+              {
+                "name": "number_of_rays_horizontal",
+                "type": 13,
+                "repeated": false,
+                "value": "251"
+              },
+              {
+                "name": "number_of_rays_vertical",
+                "type": 13,
+                "repeated": false,
+                "value": "21"
+              }
+            ]
+          },
+          {
+            "name": "reflection",
+            "type": 11,
+            "repeated": true,
+            "count": 5271,
+            "first_item_fields": [
+              {
+                "name": "signal_strength",
+                "type": 1,
+                "repeated": false,
+                "value": "0.028976507484912872"
+              },
+              {
+                "name": "time_of_flight",
+                "type": 1,
+                "repeated": false,
+                "value": "2.6900679988920026e-08"
+              },
+              {
+                "name": "doppler_shift",
+                "type": 1,
+                "repeated": false,
+                "value": "0.0"
+              },
+              {
+                "name": "normal_to_surface",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "x",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "0.0"
+                  },
+                  {
+                    "name": "y",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "-0.0"
+                  },
+                  {
+                    "name": "z",
+                    "type": 1,
+                    "repeated": false,
+                    "value": "1.0"
+                  }
+                ]
+              },
+              {
+                "name": "object_id",
+                "type": 11,
+                "repeated": false,
+                "fields": [
+                  {
+                    "name": "value",
+                    "type": 4,
+                    "repeated": false,
+                    "value": "83185"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  ]
+}

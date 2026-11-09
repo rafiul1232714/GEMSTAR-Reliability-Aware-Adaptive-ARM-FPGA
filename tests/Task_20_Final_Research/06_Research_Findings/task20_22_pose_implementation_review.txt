@@ -1,0 +1,241 @@
+﻿
+=== GROUND TRUTH VEHICLE EXPORT ===
+ 205: 	. . . x	float [m]	0,2 m
+ 206: 	. . . y	float [m]	0,2 m
+ 207: 	. . . z	float [m]	0,2 m
+ 208: 	. . position	Vector3D
+ 209: 	. . . x	float [m]	0,2 m
+ 210: 	. . . y	float [m]	0,2 m
+ 211: 	. . . z	float [m]	0,2 m
+ 212: 	. . orientation	Orientation3D
+ 213: 	. . . roll	float [rad]	0,035 rad (2ï¿½)
+ 214: 	. . . pitch	float [rad]	0,035 rad (2ï¿½)
+ 215: 	. . . yaw	float [rad]	0,035 rad (2ï¿½)
+ 216: 	. . velocity	Vector3D	0,1 m/s
+ 217: 	. . acceleration	Vector3D	0,1 m/s^2
+ 218: 	. type
+ 219: 	MovingObjectType (Other, Vehicle, Pedestrian, Animal)
+ 220: 	. vehicle_classification	MovingObjectVehicleClassification
+ 221: 	. . type	MovingObjectVehicleClassificationType (Other, car, delivery van, semitrailer, trailer, motorbike, bicycle, bus, tram, train, wheelchair, standup scooter)
+ 222: 	. . role	MovingObjectVehicleClassificationRole (Other, civil, ambulance, fire, police, public transport, road assistance, garbage collectin, road construction, military)
+ 223: 	traffic_light	list[TrafficLight]
+ 224: 	. id	Identifier
+ 225: 	. . value	int
+ 226: 	. base (optional)	BaseStationary The position of traffic lights is given in the associated OpenDRIVE map file. If optionally given in the OSI message, it must match the corresponding data in the map file. The association between OSI and OpenDRIVE objects is established using the 'source_reference' field.
+ 227: 	. classification	TrafficLightClassification
+ 228: 	. . color	TrafficLightClassificationColor (Other, red, yellow, green, blue, white)
+ 229: 	. . icon	TrafficLightClassificationIcon (Other, none, arrow_straight_ahead, arrow_left, arrow_diag_left, arrow_straight_ahead_left, arrow_right, ...)
+ 230: 	. . mode	TrafficLightClassificationMode (Other, off, constant, flashing, counting)
+ 231: 	. . counter	float
+ 232: 	. . is_out_of_servcie	bool
+ 233: 	. source_reference	list[ExternalReference]	The source reference maps the dynamic OSI traffic light information to the static traffic light information in the OpenDRIVE map.
+ 234: 	*/
+ 235: 	osi3::GroundTruth groundTruth = osi3::GroundTruth();
+ 236: 	groundTruth.MergeFrom(trafficLightGroundTruth);
+ 237: 
+ 238: 	for (auto* actor : dynamicObjects) {
+ 239: 		FString pathName = actor->GetClass()->GetPathName();
+ 240: 		//based on blueprint/class *vehicle*
+ 241: 		if (pathName.Contains("vehicle")) {
+ 242: 			auto vehicle = groundTruth.add_moving_object();
+ 243: 
+ 244: 			vehicle->set_model_reference(std::string(TCHAR_TO_UTF8(*actor->GetClass()->GetName())));
+ 245: 
+ 246: 			auto* id = vehicle->mutable_id();
+ 247: 			id->set_value(actor->GetUniqueID());
+ 248: 
+ 249: 			vehicle->set_type(osi3::MovingObject_Type_TYPE_VEHICLE);
+ 250: 
+ 251: 			vehicle->set_allocated_base(ToOSI::toOSIBaseMoving(actor));
+ 252: 
+ 253: 			auto classification = vehicle->mutable_vehicle_classification();
+ 254: 			classification->set_role(osi3::MovingObject_VehicleClassification_Role_ROLE_CIVIL);
+ 255: 			classification->set_type(osi3::MovingObject_VehicleClassification_Type_TYPE_MEDIUM_CAR);
+ 256: 		}
+ 257: 		else if (pathName.Contains("pedestrian")) {
+ 258: 			auto pedestrian = groundTruth.add_moving_object();
+ 259: 
+ 260: 			auto* id = pedestrian->mutable_id();
+ 261: 			id->set_value(actor->GetUniqueID());
+ 262: 			pedestrian->set_type(osi3::MovingObject_Type_TYPE_PEDESTRIAN);
+ 263: 			pedestrian->set_allocated_base(ToOSI::toOSIBaseMoving(actor));
+ 264: 		}
+ 265: 		else if (pathName.Contains("traffic_light")) {
+
+=== OSI ACTOR GEOMETRY CONVERSION ===
+  75: 		base->mutable_orientation()->set_yaw(-rotation.Yaw * PI / 180.f);
+  76: 		base->mutable_orientation()->set_roll(rotation.Roll * PI / 180.f);
+  77: 	}
+  78: 
+  79: 	return base;
+  80: }
+  81: 
+  82: osi3::BaseMoving* ToOSI::toOSIBaseMoving(const AActor* actor)
+  83: {
+  84: 	osi3::BaseMoving* base = new osi3::BaseMoving();
+  85: 	if (actor)
+  86: 	{
+  87: 		FVector Origin;
+  88: 		FVector Extent;
+  89: 
+  90: 		actor->GetActorBounds(false, Origin, Extent);
+  91: // TASK 13.3R - Actor Origin vs GT Bounding Center
+  92: {
+  93:     const FVector ActorOrigin = actor->GetActorLocation();
+  94:     const FVector BoundingCenter = Origin;
+  95:     const FVector OffsetCm = BoundingCenter - ActorOrigin;
+  96: 
+  97:     UE_LOG(
+  98:         LogTemp,
+  99:         Warning,
+ 100:         TEXT("TASK13_ORIGIN actor=%s id=%d "
+ 101:              "actor_cm=(%.3f,%.3f,%.3f) "
+ 102:              "bounds_cm=(%.3f,%.3f,%.3f) "
+ 103:              "offset_cm=(%.3f,%.3f,%.3f)"),
+ 104:         *actor->GetName(),
+ 105:         actor->GetUniqueID(),
+ 106:         ActorOrigin.X, ActorOrigin.Y, ActorOrigin.Z,
+ 107:         BoundingCenter.X, BoundingCenter.Y, BoundingCenter.Z,
+ 108:         OffsetCm.X, OffsetCm.Y, OffsetCm.Z
+ 109:     );
+ 110: }
+ 111: 
+ 112: 		base->mutable_dimension()->set_height(Extent.Z * 0.01);
+ 113: 		base->mutable_dimension()->set_width(Extent.Y * 0.01);
+ 114: 		base->mutable_dimension()->set_length(Extent.X * 0.01);
+ 115: 		base->mutable_position()->set_x(Origin.X * 0.01);
+ 116: 		base->mutable_position()->set_y(-Origin.Y * 0.01);
+ 117: 		base->mutable_position()->set_z(Origin.Z * 0.01);
+ 118: 
+ 119: 		auto rotation = actor->GetActorRotation();
+ 120: 
+ 121: 		base->mutable_orientation()->set_pitch(rotation.Pitch * PI / 180.f);
+ 122: 		base->mutable_orientation()->set_yaw(-rotation.Yaw * PI / 180.f);
+ 123: 		base->mutable_orientation()->set_roll(rotation.Roll * PI / 180.f);
+ 124: 
+ 125: 		base->mutable_acceleration()->set_x(0);
+ 126: 		base->mutable_acceleration()->set_y(0);
+ 127: 		base->mutable_acceleration()->set_z(0);
+ 128: 
+ 129: 		base->mutable_orientation_acceleration()->set_pitch(0);
+ 130: 		base->mutable_orientation_acceleration()->set_roll(0);
+ 131: 		base->mutable_orientation_acceleration()->set_yaw(0);
+ 132: 
+ 133: 		FVector velocity = actor->GetVelocity();
+ 134: 		base->mutable_velocity()->set_x(velocity.X);
+ 135: 		base->mutable_velocity()->set_y(-velocity.Y);
+ 136: 		base->mutable_velocity()->set_z(velocity.Z);
+ 137: 	}
+ 138: 
+ 139: 	return base;
+ 140: }
+ 141: 
+ 142: osi3::MountingPosition* ToOSI::toMountingPosition(FSensorConfigData& sensorConfigData)
+ 143: {
+ 144: 	osi3::MountingPosition* mounting_position = new osi3::MountingPosition();
+ 145: 	auto* orientation = mounting_position->mutable_orientation();
+
+=== SUMO VEHICLE UPDATE ===
+ 515: 		Mode = ESumoMode::Done;
+ 516: 		return;
+ 517: 	}
+ 518: 	SendWeatherUpdate();
+ 519: 	Status = 0;
+ 520: 	UE_LOG(Sumo, Display, TEXT("Load sumocfg succeeded."));
+ 521: 	Mode = ESumoMode::Running;
+ 522: }
+ 523: 
+ 524: void ASUMOManager::VehicleDataUpdate_Implementation(FVehicleDataUpdateData &data)
+ 525: {
+ 526: 	if (data.Provider.IsEqual(PROVIDER_NAME))
+ 527: 	{
+ 528: 		// skip, use for testing
+ 529: 		UE_LOG(Sumo, Warning, TEXT("should not receive own data %s "), *data.Name.ToString());
+ 530: 	}
+ 531: 	else
+ 532: 	{
+ 533: 		// todo for co-simulation purposes
+ 534: 	}
+ 535: }
+ 536: 
+ 537: FTransform ASUMOManager::TranslateToUnrealWorldPosition(double X, double Y, double Z, double Angle)
+ 538: {
+ 539: 	FTransform transform;
+ 540: 	const double SafeZ = !std::isfinite(Z) || Z < -1000000.0 ? 0.0 : Z;
+ 541: 	transform.SetLocation(CoordinateSystemOffset.InverseTransformPosition(FVector(Y * 100, X * 100, SafeZ * 100)));
+ 542: 	transform.SetRotation(CoordinateSystemOffset.InverseTransformRotation(FRotator(0, Angle, 0).Quaternion()));
+ 543: 	return transform;
+ 544: }
+ 545: 
+ 546: FString ASUMOManager::GetSumoRootDirectory()
+ 547: {
+ 548: 	const FString ProjectDir = FPaths::ProjectDir();
+ 549: 	FString SumoDir = FPaths::Combine(
+ 550: 		ProjectDir,
+ 551: 		TEXT("Simulation"),
+ 552: 		TEXT("SUMO"));
+ 553: 	SumoDir = FPaths::ConvertRelativePathToFull(SumoDir);
+ 554: 	FPaths::NormalizeDirectoryName(SumoDir);
+ 555: 	return SumoDir;
+ 556: }
+ 557: 
+ 558: int ASUMOManager::LoadSumoWithParameters(const TArray<FString> &Parsed)
+ 559: {
+ 560: 	std::vector<std::string> Params;
+
+=== VEHICLE POSITION UPDATE ===
+  20: 	RootComponent = Mesh;
+  21: }
+  22: 
+  23: // Called when the game starts or when spawned
+  24: void ASV_VehicleBaseExternal::BeginPlay()
+  25: {
+  26: 	Super::BeginPlay();
+  27: 	oldPosition = GetActorLocation();
+  28: 	currentVelocity = FVector::ZeroVector;
+  29: 
+  30: }
+  31: 
+  32: // Called every frame
+  33: void ASV_VehicleBaseExternal::Tick(float DeltaTime)
+  34: {
+  35: 	Super::Tick(DeltaTime);
+  36: 	FVector oldMemory = oldPosition;
+  37: 	//internal speed calculation
+  38: 	if (firstTick) {
+  39: 		firstTick = false;
+  40: 		currentVelocity = FVector::ZeroVector;
+  41: 	}
+  42: 	else {
+  43: 		currentVelocity = calculateVelocity(DeltaTime);
+  44: 		oldPosition = GetActorLocation();
+  45: 	}
+  46: 	//Troubleshooting info log
+  47: 	FVector dLoc = oldPosition - oldMemory;
+  48: 	//UE_LOG(Vehicle, Log, TEXT("Name: %s, dLocV: %s, d: %.5f, vV: %s, v: %.2f, dLog: %.2f"), *GetActorNameOrLabel(), *dLoc.ToCompactString(), DeltaTime, *currentVelocity.ToCompactString(), currentVelocity.Length(), dLoc.Length());
+  49: }
+  50: 
+  51: void ASV_VehicleBaseExternal::UpdatePosition(FTransform newPosition)
+  52: {
+  53: 	//position update policies here TODO
+  54: 
+  55: 	SetActorLocation(newPosition.GetLocation(), false, nullptr, ETeleportType::TeleportPhysics);
+  56: 	SetActorRotation(newPosition.GetRotation(), ETeleportType::TeleportPhysics);
+  57: 
+  58: 	//Z correction TODO
+  59: }
+  60: 
+  61: FVector ASV_VehicleBaseExternal::GetVelocity() const
+  62: {
+  63: 	return currentVelocity;
+  64: }
+  65: 
+  66: FString ASV_VehicleBaseExternal::GetMaterialFilePath()
+  67: {
+  68: 	return materialFilePath;
+  69: }
+  70: 
+  71: FVector ASV_VehicleBaseExternal::calculateVelocity(float DeltaTime)
+  72: {
+  73: 	return (GetActorLocation() - oldPosition) / DeltaTime;
+  74: }

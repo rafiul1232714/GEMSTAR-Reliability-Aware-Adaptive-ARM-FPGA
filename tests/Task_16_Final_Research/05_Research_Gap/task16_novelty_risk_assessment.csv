@@ -1,0 +1,8 @@
+﻿"ID","ResearchArea","ExistingEvidence","NoveltyRisk","ProposedAction"
+"N01","Tri-sensor fusion","CARMA and P008","HIGH","Treat fusion as an implementation component"
+"N02","Adaptive FPGA perception","CARMA","HIGH","Compare against context-based adaptation"
+"N03","CPU-FPGA scheduling","P002 and P005","HIGH","Include communication-aware scheduling baseline"
+"N04","Uncertainty-aware task scheduling","DyUnS 2024 DOI 10.1016/j.suscom.2024.101009","HIGH","Compare uncertainty definitions and scheduling objectives"
+"N05","Sensor-derived uncertainty for ARM-FPGA placement","Not established by current review","UNRESOLVED","Search closely related perception scheduling work"
+"N06","Tracking-quality and deadline constraints","Not established by current review","UNRESOLVED","Define tracking metric and explicit scheduler constraints"
+"N07","Adaptive mixed precision","P011 P019 P020","HIGH","Keep as an optional hardware extension"

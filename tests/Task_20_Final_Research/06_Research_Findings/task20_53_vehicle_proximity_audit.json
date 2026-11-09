@@ -1,0 +1,19 @@
+{
+  "Task": "20.53",
+  "TargetObservationsEvaluated": 112,
+  "CenterInside50mAndFoV": 5,
+  "RadarPointWithin3mOfCenter": 0,
+  "EligibleAndWithin3m": 0,
+  "MedianNearestPointDistanceM": 169.862005,
+  "MissingHostFrames": 0,
+  "IndependentDetectionAccuracyValidated": false,
+  "RangeLimitSource": "Verified runtime 50m",
+  "Limitations": [
+    "Centre proximity is not object association",
+    "Surface geometry and occlusion not evaluated",
+    "Pose/GT sampling offset unresolved",
+    "World transform requires independent validation",
+    "Only first 100 recorded frames evaluated",
+    "No hardware energy measured"
+  ]
+}

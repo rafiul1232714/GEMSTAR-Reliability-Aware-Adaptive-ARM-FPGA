@@ -1,0 +1,4 @@
+Scenario,Frames,TimingSamples,BaselineMedianMs,PolicyMedianMs,BaselineP95Ms,PolicyP95Ms,BaselineMaxMs,PolicyMaxMs,BaselineMisses,PolicyMisses,BaselineMissRatePercent,PolicyMissRatePercent
+baseline_clear,17,85,2.7788,1.7806,3.5734,3.0264,8.1537,3.2842,28,5,32.9411764705882,5.88235294117647
+baseline_fog_working_radar,16,80,2.6387,1.7693,3.3975,2.7232,3.991,3.5705,7,2,8.75,2.5
+fog_postfix_validation,15,75,2.0459,2.0767,2.7854,2.7196,2.9507,2.9843,0,0,0,0

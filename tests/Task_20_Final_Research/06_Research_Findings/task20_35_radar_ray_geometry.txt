@@ -1,0 +1,109 @@
+﻿TASK 20.35 - Radar Ray Geometry
+Source: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+
+  45: 	if (bDebugRayTraces || bDebugReflections || bDebugNormals)
+  46: 		ShowSensorDebugInformation();
+  47: 	if (PublishingActive)
+  48: 	{
+  49: 		GenerateOSIMessage();
+  50: 		SendData(*Sensor.SensorView);
+  51: 	}
+  52: }
+  53: 
+  54: void ASimpleRadar::GetScanData() {
+  55: 
+  56: 	// Get owner's location and rotation
+  57: 	const FVector RadarPosition = this->GetActorLocation();
+  58: 	const FRotator RadarRotation = this->GetActorRotation();
+  59: 
+  60: 	// Initialize array for raycast result
+  61: 	Sensor.RecordedHits.Init(FRadarHitResultAndIntesity(), Sensor.Number_of_rays_horizontal * Sensor.Number_of_rays_vertical);
+  62: 
+  63: 	// Calculate batch size for 'ParallelFor' based on workable thread
+  64: 	const int32 ThreadNum = FPlatformMisc::NumberOfWorkerThreadsToSpawn();
+  65: 	const int32 DivideEnd = FMath::FloorToInt((float)(Sensor.RecordedHits.Num() / ThreadNum));
+  66: 
+  67: 	ParallelFor(
+  68: 		ThreadNum,
+  69: 		[&](int32 PFIndex)
+  70: 		{
+  71: 			int32 StartAt = PFIndex * DivideEnd;
+  72: 			if (StartAt >= Sensor.RecordedHits.Num()) {
+  73: 				return;
+  74: 			}
+  75: 
+  76: 			int32 EndAt = StartAt + DivideEnd;
+  77: 			if (PFIndex == (ThreadNum - 1)) {
+  78: 				EndAt = Sensor.RecordedHits.Num();
+  79: 			}
+  80: 
+  81: 			for (int32 Index = StartAt; Index < EndAt; ++Index) {
+  82: 				const float HAngle = Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal];
+  83: 				const float VAngle = Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal];
+  84: 
+  85: 				FRotator RadioRotation(FMath::RadiansToDegrees(VAngle), FMath::RadiansToDegrees(HAngle), 0.f);
+  86: 				FRotator Rotation = UKismetMathLibrary::ComposeRotators(RadioRotation, RadarRotation);
+  87: 
+  88: 				FVector EndPoint = RadarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+  89: 
+  90: 				GetWorld()->LineTraceSingleByChannel(
+  91: 					Sensor.RecordedHits[Index].HitResult, RadarPosition, EndPoint, ECC_Visibility, TraceParams, FCollisionResponseParams::DefaultResponseParam);
+  92: 				if (Sensor.RecordedHits[Index].HitResult.bBlockingHit) {
+  93: 					Sensor.RecordedHits[Index].Intesity = ComputeRadarSignalStrength(Sensor.RecordedHits[Index].HitResult);
+  94: 				}
+  95: 			}
+  96: 		},
+  97: 		!SupportMultithread
+  98: 	);
+  99: 
+ 100: }
+ 101: 
+ 102: void ASimpleRadar::GenerateOSIMessage() {
+ 103: 	delete Sensor.SensorView;
+ 104: 	Sensor.SensorView = new osi3::SensorView();
+ 105: 	auto* radarSensorView = Sensor.SensorView->add_radar_sensor_view();
+ 106: 	auto* viewConfiguration = radarSensorView->mutable_view_configuration();
+ 107: 	if (Sensor.SensorViewConfig != nullptr && Sensor.SensorViewConfig->radar_sensor_view_configuration_size())
+ 108: 		viewConfiguration->CopyFrom(Sensor.SensorViewConfig->radar_sensor_view_configuration(0));
+ 109: 
+ 110: 	
+ 111: 	for (int Index = 0; Index != Sensor.RecordedHits.Num(); Index++) {
+ 112: 		FRadarHitResultAndIntesity hit = Sensor.RecordedHits[Index];
+ 113: 		auto* reflection = radarSensorView->add_reflection();
+ 114: 		
+ 115: 		reflection->set_time_of_flight(2 * 0.01 * hit.HitResult.Distance / SPEED_OF_LIGHT);
+ 116: 		reflection->set_source_horizontal_angle(Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal]);
+ 117: 		reflection->set_source_vertical_angle(Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal]);
+ 118: 		reflection->set_doppler_shift(0);
+ 119: 		reflection->set_signal_strength(hit.Intesity);
+ 120: 		FVector hitVelocity = FVector::ZeroVector;
+ 121: 		AActor* hitTarget = hit.HitResult.GetActor();
+ 122: 		if (hit.HitResult.bBlockingHit) {
+ 123: 			if (hitTarget->Implements<USensorReflectionData>()) {
+ 124: 				hitVelocity = Cast<ISensorReflectionData>(hitTarget)->GetVelocity();
+ 125: 			}
+ 126: 			else {
+ 127: 				hitVelocity = hitTarget->GetVelocity();
+ 128: 			}
+ 129: 			FString hitName = hit.HitResult.GetHitObjectHandle().GetName();
+ 130: 			FVector relativePostition = hit.HitResult.ImpactPoint - hit.HitResult.TraceStart;
+ 131: 			FVector relativeVelocity = hitVelocity - currentVelocity;
+ 132: 			float distance = relativePostition.Size();
+ 133: 			float radialVelocity = FVector::DotProduct(relativeVelocity, relativePostition / distance);
+ 134: 			double frequency = viewConfiguration->emitter_frequency();
+ 135: 			double doppler_shift = 2 * (radialVelocity * 0.01) * frequency / SPEED_OF_LIGHT;
+ 136: 			reflection->set_doppler_shift(doppler_shift);
+ 137: 			//Debug Data
+ 138: 			//if (hitName.Contains("BP_Simple")) {UE_LOG(Radar, Log, TEXT("Hit_%d: %s, vHero= %s, vTarget= %s, vR= %.2f, dS= %.2f, sS= %.2f" ), Index, *hitName, *currentVelocity.ToCompactString(), *hitVelocity.ToCompactString(), radialVelocity, doppler_shift, hit.Intesity);}
+ 139: 		}
+ 140: 	}
+ 141: 	
+ 142: 	Parent = GetAttachParentActor();
+ 143: 
+ 144: 	if (Parent != nullptr) {
+ 145: 		auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+ 146: 		uint32_t uniqueID = Parent->GetUniqueID();
+ 147: 		moving_object->mutable_id()->set_value(uniqueID);
+ 148: 		moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+ 149: 		moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+ 150: 		Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);

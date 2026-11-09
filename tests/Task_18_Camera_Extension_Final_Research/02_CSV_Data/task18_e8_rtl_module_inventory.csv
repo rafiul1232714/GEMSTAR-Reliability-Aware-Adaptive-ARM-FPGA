@@ -1,0 +1,11 @@
+Module,Purpose,DataFormat,Priority,Status
+camera_axi_input.vhd,"AXI stream input, framing",8-bit pixel input,HIGH,PLANNED_NOT_IMPLEMENTED
+camera_line_buffer.vhd,Two line buffers,"8-bit pixels, configurable image width",HIGH,PLANNED_NOT_IMPLEMENTED
+camera_window_3x3.vhd,Sliding 3x3 pixel window,Nine unsigned 8-bit pixels,HIGH,PLANNED_NOT_IMPLEMENTED
+camera_sobel_x.vhd,Horizontal gradient,Signed 11-bit,HIGH,PLANNED_NOT_IMPLEMENTED
+camera_sobel_y.vhd,Vertical gradient,Signed 11-bit,HIGH,PLANNED_NOT_IMPLEMENTED
+camera_gradient_combine.vhd,"Absolute values, averaging, output saturation","Widened unsigned intermediate, 8-bit output",HIGH,PLANNED_NOT_IMPLEMENTED
+camera_axi_output.vhd,AXI output and frame markers,8-bit output pixels,HIGH,PLANNED_NOT_IMPLEMENTED
+camera_control.vhd,"Reset, status and frame counters",Integer/control signals,MEDIUM,PLANNED_NOT_IMPLEMENTED
+camera_sobel_top.vhd,Integrate RTL hierarchy,Parameterized pipeline,HIGH,PLANNED_NOT_IMPLEMENTED
+tb_camera_sobel.vhd,RTL verification testbench,Bit-accurate expected values,HIGH,PLANNED_NOT_IMPLEMENTED

@@ -1,0 +1,89 @@
+{
+  "Task": "20.56",
+  "TargetID": 76765,
+  "Results": [
+    {
+      "Frame": 95,
+      "ObjectID": 76765,
+      "Model": "BP_Large_Car_C",
+      "CenterRangeM": 29.84184,
+      "AngularGapDeg": 2.0372,
+      "PerpendicularRayGapM": 1.0608283600632797,
+      "GTLengthM": 2.423711844994086,
+      "GTWidthM": 1.902346224858395,
+      "GTHeightM": 1.0601199301012068,
+      "GTYawRad": -2.695881323992715,
+      "NearestRayIndex": 54,
+      "NearestRayPositiveReturn": "False",
+      "ObjectIntersectionValidated": false
+    },
+    {
+      "Frame": 96,
+      "ObjectID": 76765,
+      "Model": "BP_Large_Car_C",
+      "CenterRangeM": 28.9273,
+      "AngularGapDeg": 2.4088,
+      "PerpendicularRayGapM": 1.215788600957555,
+      "GTLengthM": 2.4236943855974005,
+      "GTWidthM": 1.9013913786881012,
+      "GTHeightM": 1.0601199301012068,
+      "GTYawRad": -2.696516761300217,
+      "NearestRayIndex": 54,
+      "NearestRayPositiveReturn": "False",
+      "ObjectIntersectionValidated": false
+    },
+    {
+      "Frame": 97,
+      "ObjectID": 76765,
+      "Model": "BP_Large_Car_C",
+      "CenterRangeM": 28.61887,
+      "AngularGapDeg": 2.8904,
+      "PerpendicularRayGapM": 1.4431237578371514,
+      "GTLengthM": 2.4236943855974005,
+      "GTWidthM": 1.9013913786881012,
+      "GTHeightM": 1.0601199301012068,
+      "GTYawRad": -2.696516761300217,
+      "NearestRayIndex": 54,
+      "NearestRayPositiveReturn": "False",
+      "ObjectIntersectionValidated": false
+    },
+    {
+      "Frame": 98,
+      "ObjectID": 76765,
+      "Model": "BP_Large_Car_C",
+      "CenterRangeM": 28.02944,
+      "AngularGapDeg": 2.7603,
+      "PerpendicularRayGapM": 1.3498330721284117,
+      "GTLengthM": 2.4236659196352774,
+      "GTWidthM": 1.8999359153206457,
+      "GTHeightM": 1.0601199301012068,
+      "GTYawRad": -2.6974843713594616,
+      "NearestRayIndex": 54,
+      "NearestRayPositiveReturn": "False",
+      "ObjectIntersectionValidated": false
+    },
+    {
+      "Frame": 99,
+      "ObjectID": 76765,
+      "Model": "BP_Large_Car_C",
+      "CenterRangeM": 27.14886,
+      "AngularGapDeg": 3.0832,
+      "PerpendicularRayGapM": 1.4602292469510976,
+      "GTLengthM": 2.4236017828765033,
+      "GTWidthM": 1.897002671824572,
+      "GTHeightM": 1.0601199301012068,
+      "GTYawRad": -2.699430846586741,
+      "NearestRayIndex": 54,
+      "NearestRayPositiveReturn": "False",
+      "ObjectIntersectionValidated": false
+    }
+  ],
+  "Limitations": [
+    "Angular gap is centre-to-ray only",
+    "GT dimensions may differ from collision extents",
+    "GEMSTAR GT export may use Unreal half-extents",
+    "Object yaw not yet used for box intersection",
+    "No raycast hit actor ID available in OSI",
+    "No independent detection accuracy measured"
+  ]
+}

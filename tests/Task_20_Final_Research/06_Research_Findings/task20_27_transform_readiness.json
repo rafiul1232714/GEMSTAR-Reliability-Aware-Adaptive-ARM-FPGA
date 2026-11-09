@@ -1,0 +1,14 @@
+{
+  "Task": "20.27",
+  "FramesChecked": 600,
+  "FramesWithAllInputs": 495,
+  "InputsChecked": [
+    "Nested host pose",
+    "Radar mounting position and orientation",
+    "Radar reflection entries"
+  ],
+  "FrameTimingUncertaintyResolved": false,
+  "RadarWorldCoordinatesValidated": false,
+  "RadarAccuracyValidated": false,
+  "HardwareEnergyMeasured": false
+}

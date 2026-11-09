@@ -1,0 +1,14 @@
+Metric,Value
+Frames,466
+Intervals,465
+FirstTimestampSeconds,0.016666799
+LastTimestampSeconds,28.038191422
+RecordingSpanSeconds,28.021524623
+MinimumIntervalMs,16.6668
+MedianIntervalMs,32.993100999999996
+MeanIntervalMs,60.261343275268814
+MaximumIntervalMs,333.39160699999996
+IntervalStdDevMs,86.16768433411052
+LongIntervalThresholdMs,65.98620199999999
+LongIntervalCount,42
+NonPositiveIntervalCount,0

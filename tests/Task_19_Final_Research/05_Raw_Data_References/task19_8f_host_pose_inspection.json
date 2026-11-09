@@ -1,0 +1,76 @@
+{
+  "frame": 150,
+  "ground_truth_host_id": null,
+  "host_found_in_gt": false,
+  "host_objects": [],
+  "sensorview_gt": {
+    "host_vehicle_id": {
+      "value": "76895"
+    },
+    "moving_object": [
+      {
+        "id": {
+          "value": "76895"
+        },
+        "base": {
+          "position": {
+            "x": 43.1051134868421,
+            "y": -16.284652960526316,
+            "z": 0.0
+          },
+          "orientation": {
+            "roll": 0.0,
+            "pitch": 0.0,
+            "yaw": 0.5720295371638123
+          }
+        }
+      },
+      {
+        "id": {
+          "value": "76895"
+        },
+        "base": {
+          "position": {
+            "x": 43.1051134868421,
+            "y": -16.284652960526316,
+            "z": 0.0
+          },
+          "orientation": {
+            "roll": 0.0,
+            "pitch": 0.0,
+            "yaw": 0.5720295371638123
+          }
+        }
+      },
+      {
+        "id": {
+          "value": "76895"
+        },
+        "base": {
+          "position": {
+            "x": 43.1051134868421,
+            "y": -16.284652960526316,
+            "z": 0.0
+          },
+          "orientation": {
+            "roll": 0.0,
+            "pitch": 0.0,
+            "yaw": 0.5720295371638123
+          }
+        }
+      }
+    ]
+  },
+  "lidar_mounting": {
+    "position": {
+      "x": 2.6,
+      "y": -0.0,
+      "z": 0.7000000000000001
+    },
+    "orientation": {
+      "roll": -0.0,
+      "pitch": 0.0,
+      "yaw": -0.0
+    }
+  }
+}

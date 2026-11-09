@@ -1,0 +1,229 @@
+﻿=== TASK 20.37 RADAR RANGE VERIFICATION ===
+
+=== A. SENSOR CONFIGURATION LINES 65-160 ===
+  65: 
+  66: Mount=SensorPlatform_1
+  67: 
+  68: MountingPositionX=260
+  69: MountingPositionY=0
+  70: MountingPositionZ=70
+  71: 
+  72: MountingOrientationRoll=0
+  73: MountingOrientationPitch=0
+  74: MountingOrientationYaw=0
+  75: 
+  76: FoVHorizontal=90
+  77: FoVVertical=20
+  78: 
+  79: NumberOfRaysHorizontal=251
+  80: NumberOfRaysVertical=21
+  81: 
+  82: ; Maximum simulated range in meters
+  83: Range=100
+  84: 
+  85: NoFalloff=true
+  86: DistanceHalfFalloff=60
+  87: 
+  88: WeatherInput=[ue_weather_effect_feature]
+  89: 
+  90: 
+  91: ; =========================================================
+  92: ; LOGGER - ALL THREE SENSORS
+  93: ; =========================================================
+  94: 
+  95: [ue_logger_feature]
+  96: ;Debug=true
+  97: 
+  98: ; Record simulation ground truth
+  99: GroundTruth=true
+ 100: 
+ 101: ; Optional Omega Prime recording
+ 102: ;OmegaPrime=true
+ 103: 
+ 104: ; Record Camera, LiDAR and Radar
+ 105: Input=[ue_camera_feature:sensor1,ue_lidar_feature:sensor1,ue_radar_feature:sensor1]
+ 106: 
+ 107: InputData=[SensorView,SensorView,SensorView]
+ 108: 
+ 109: ; Output filename prefix
+ 110: FileName=GEMSTAR
+ 111: 
+ 112: 
+ 113: ; =========================================================
+ 114: ; RADAR SENSOR - UPDATED FOR TEST
+ 115: ; =========================================================
+ 116: 
+ 117: [ue_radar_feature:sensor1]
+ 118: ;Debug=true
+ 119: 
+ 120: ; Mount Radar on the same moving vehicle
+ 121: Mount=SensorPlatform_1
+ 122: 
+ 123: ; Radar mounting position in centimeters
+ 124: MountingPositionX=200
+ 125: MountingPositionY=0
+ 126: MountingPositionZ=80
+ 127: 
+ 128: ; Forward-facing orientation
+ 129: MountingOrientationRoll=0
+ 130: MountingOrientationPitch=0
+ 131: MountingOrientationYaw=0
+ 132: 
+ 133: ; Radar ray configuration
+ 134: NumberOfRaysHorizontal=10
+ 135: NumberOfRaysVertical=10
+ 136: 
+ 137: FoVHorizontal=90
+ 138: FoVVertical=20
+ 139: 
+ 140: ;DistanceHalfFalloff=30
+ 141: 
+ 142: 
+ 143: ; =========================================================
+ 144: ; SUMO TRAFFIC SIMULATION
+ 145: ; =========================================================
+ 146: 
+ 147: [ue_sumo_feature]
+ 148: ;Debug=true
+ 149: 
+ 150: Parameters="-c practise-area/DrivingPractiseAreaBrunswickMap.sumocfg"
+ 151: 
+ 152: 
+ 153: ; =========================================================
+ 154: ; VEHICLE CONFIGURATION
+ 155: ; =========================================================
+ 156: 
+ 157: [ue_vehicle_feature]
+ 158: ;Debug=true
+ 159: 
+ 160: ; Receive traffic participants from SUMO
+
+=== B. RADAR RANGE INITIALIZATION IN C++ ===
+
+FILE: RadarSensorManager.cpp
+ 151: 			FDefaultValueHelper::ParseDouble(*ValueStr, FoVVertical);
+ 152: 		}
+ 153: 		float Range = 0.0;
+ 154: 		if (const FString* ValueStr = Pair.Value.Entries.Find("Range"))
+ 155: 		{
+
+FILE: RadarSensorManager.cpp
+ 152: 		}
+ 153: 		float Range = 0.0;
+ 154: 		if (const FString* ValueStr = Pair.Value.Entries.Find("Range"))
+ 155: 		{
+ 156: 			FDefaultValueHelper::ParseFloat(*ValueStr, Range);
+
+FILE: RadarSensorManager.cpp
+ 154: 		if (const FString* ValueStr = Pair.Value.Entries.Find("Range"))
+ 155: 		{
+ 156: 			FDefaultValueHelper::ParseFloat(*ValueStr, Range);
+ 157: 		}
+ 158: 		bool NoFalloff = false;
+
+FILE: SimpleRadar.cpp
+  86: 				FRotator Rotation = UKismetMathLibrary::ComposeRotators(RadioRotation, RadarRotation);
+  87: 
+  88: 				FVector EndPoint = RadarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+  89: 
+  90: 				GetWorld()->LineTraceSingleByChannel(
+
+FILE: SimpleRadar.cpp
+ 105: 	auto* radarSensorView = Sensor.SensorView->add_radar_sensor_view();
+ 106: 	auto* viewConfiguration = radarSensorView->mutable_view_configuration();
+ 107: 	if (Sensor.SensorViewConfig != nullptr && Sensor.SensorViewConfig->radar_sensor_view_configuration_size())
+ 108: 		viewConfiguration->CopyFrom(Sensor.SensorViewConfig->radar_sensor_view_configuration(0));
+ 109: 
+
+FILE: SimpleRadar.cpp
+ 106: 	auto* viewConfiguration = radarSensorView->mutable_view_configuration();
+ 107: 	if (Sensor.SensorViewConfig != nullptr && Sensor.SensorViewConfig->radar_sensor_view_configuration_size())
+ 108: 		viewConfiguration->CopyFrom(Sensor.SensorViewConfig->radar_sensor_view_configuration(0));
+ 109: 
+ 110: 	
+
+FILE: SimpleRadar.cpp
+ 172: void ASimpleRadar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) {
+ 173: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+ 174: 	Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+ 175: 	auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+ 176: 	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+
+FILE: SimpleRadar.cpp
+ 173: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+ 174: 	Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+ 175: 	auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+ 176: 	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+ 177: 	conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+
+FILE: SimpleRadar.cpp
+ 187: 	Sensor.AzimuthAngles.Empty();
+ 188: 	Sensor.ElevationAngles.Empty();
+ 189: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+ 190: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+ 191: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+
+FILE: SimpleRadar.cpp
+ 189: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+ 190: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+ 191: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+ 192: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+ 193: 	}
+
+FILE: SimpleRadar.cpp
+ 190: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+ 191: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+ 192: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+ 193: 	}
+ 194: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_vertical();
+
+FILE: SimpleRadar.cpp
+ 192: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+ 193: 	}
+ 194: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_vertical();
+ 195: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+ 196: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical()
+
+FILE: SimpleRadar.cpp
+ 194: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_vertical();
+ 195: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+ 196: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical()
+ 197: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+ 198: 	}
+
+FILE: SimpleRadar.cpp
+ 195: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+ 196: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical()
+ 197: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+ 198: 	}
+ 199: }
+
+FILE: SimpleRadar.cpp
+ 200: 
+ 201: void ASimpleRadar::CreateTestConfig() {
+ 202: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+ 203: 	Sensor.SensorViewConfig->set_range(10);
+ 204: }
+
+FILE: SimpleRadar.cpp
+ 201: void ASimpleRadar::CreateTestConfig() {
+ 202: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+ 203: 	Sensor.SensorViewConfig->set_range(10);
+ 204: }
+ 205: 
+
+FILE: SimpleRadar.h
+  20: #include "Utils/ToOSI.h"
+  21: #include "osi_sensorview.pb.h"
+  22: #include "osi_sensorviewconfiguration.pb.h"
+  23: #include "SimpleRadar.generated.h"
+  24: 
+
+FILE: SimpleRadar.h
+  41: public:
+  42: 	//packed config
+  43: 	osi3::SensorViewConfiguration* SensorViewConfig = nullptr;
+  44: 	//prepared configuration
+  45: 	TArray<float> AzimuthAngles;
+
+=== TASK 20.37 COMPLETE ===

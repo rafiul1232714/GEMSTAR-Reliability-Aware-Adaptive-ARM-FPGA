@@ -1,0 +1,6 @@
+﻿"ID","Sensor","Operation","CPUImplementation","FPGAImplementation","Priority","Reason","Status"
+"OP01","LiDAR","ROI filtering","Python/C++","VHDL or HLS","PRIMARY","Parallel point filtering","PLANNED"
+"OP02","LiDAR","Voxel or grid statistics","Python/C++","HLS","SECONDARY","Parallel spatial aggregation","PLANNED"
+"OP03","Camera","Grayscale and gradient preprocessing","OpenCV","VHDL or HLS","SECONDARY","Streaming pixel processing","PLANNED"
+"OP04","Radar","Range and confidence filtering","Python/C++","Optional","OPTIONAL","Benchmark before considering acceleration","PLANNED"
+"OP05","Fusion","Object association and tracking","MATLAB/Python/C++","Not initially planned","CPU_BASELINE","Flexible algorithms and uncertainty estimation","PLANNED"

@@ -1,0 +1,11 @@
+{
+  "Task": "20.12",
+  "CheckedPairs": 5,
+  "TotalMatchedFrames": 500,
+  "TotalUnmatchedFrames": 0,
+  "TotalAmbiguousFrames": 0,
+  "AllCheckedRadarFramesMatched": true,
+  "RadarToObjectAssociationVerified": false,
+  "GroundTruthAccuracyMeasured": false,
+  "EnergyMeasured": false
+}

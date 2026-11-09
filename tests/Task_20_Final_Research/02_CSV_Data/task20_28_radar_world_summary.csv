@@ -1,0 +1,7 @@
+Recording,Frames,UsableRadarViews,ReflectionSlots,CandidateReturns,NoHostPoseFrames,NoHostIDFrames,NonlevelHostFrames,InconsistentHostFrames,SkippedNonlevelMountViews,SkippedRotatedMountViews
+baseline_clear,100,99,9900,2957,1,0,0,0,0,0
+baseline_fog,100,99,9900,0,1,0,0,0,0,0
+baseline_fog_working_radar,100,99,9900,2958,1,0,0,0,0,0
+fog_mor100,100,99,9900,2958,1,0,0,0,0,0
+fog_postfix_validation,100,99,9900,2952,1,0,0,0,0,0
+task05_fog_test,100,0,0,0,100,0,0,0,0,0

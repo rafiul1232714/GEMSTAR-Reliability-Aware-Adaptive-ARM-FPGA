@@ -1,0 +1,8 @@
+﻿"Feature","CARMA","DyUnS","Proposed"
+"Research objective","Context-aware energy-efficient sensor fusion","Uncertainty-aware multiprocessor scheduling","Uncertainty-constrained ARM-FPGA perception scheduling"
+"Uncertainty source","Driving context","Uncertainty in computational model parameters","Sensor reliability and tracking uncertainty"
+"Hardware","FPGA DPU system","Heterogeneous ARM multicore model","ARM CPU plus FPGA accelerators"
+"Adaptation mechanism","Sensor and model-path activation","Uncertainty-aware task-to-core scheduling","Selected operator placement on ARM or FPGA"
+"Optimization criteria","Energy and perception performance","Time power temperature reliability","Energy latency tracking quality deadlines"
+"Tracking uncertainty constraint","Not established in current review","Not established in current review","Planned"
+"Hardware evidence","FPGA prototype evaluation","Scheduling simulation","Future hardware measurements required"

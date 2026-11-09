@@ -1,0 +1,8 @@
+﻿Task 20.42 - Runtime radar range instrumentation
+Source: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+Backup: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_20_Final_Research\03_Configurations\SimpleRadar_before_task20_42.cpp
+Diagnostic marker: TASK20_42_RADAR_RANGE
+Purpose: Read radar range during SetSensorConfiguration.
+Radar detection algorithm changed: No
+Range configuration changed: No
+Runtime result: Pending rebuild and execution

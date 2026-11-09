@@ -1,0 +1,13 @@
+Frame,TimestampSeconds,TimingRegime,Width,Height,ImageFile
+0,0.016666799,HIGH_RATE,640,480,task18_camera_frame_000.png
+50,1.712519697,HIGH_RATE,640,480,task18_camera_frame_050.png
+100,3.334799695,HIGH_RATE,640,480,task18_camera_frame_100.png
+150,4.935582995,HIGH_RATE,640,480,task18_camera_frame_150.png
+200,6.563594497,HIGH_RATE,640,480,task18_camera_frame_200.png
+250,8.230375796,HIGH_RATE,640,480,task18_camera_frame_250.png
+300,9.914884496,HIGH_RATE,640,480,task18_camera_frame_300.png
+350,11.555151395,HIGH_RATE,640,480,task18_camera_frame_350.png
+400,13.243770297,HIGH_RATE,640,480,task18_camera_frame_400.png
+423,14.038127496,HIGH_RATE,640,480,task18_camera_frame_423.png
+424,14.371460989,LOW_RATE,640,480,task18_camera_frame_424.png
+450,23.038189396,LOW_RATE,640,480,task18_camera_frame_450.png

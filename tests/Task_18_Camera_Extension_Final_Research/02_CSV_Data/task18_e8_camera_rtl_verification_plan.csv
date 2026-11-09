@@ -1,0 +1,13 @@
+Test,ExpectedBehavior,Status
+All-black image,Zero gradients,NOT_RUN
+Uniform gray image,Zero gradients,NOT_RUN
+Horizontal edge,Correct vertical gradient,NOT_RUN
+Vertical edge,Correct horizontal gradient,NOT_RUN
+Maximum contrast,No arithmetic overflow,NOT_RUN
+Border pixels,Match reflect_101 policy,NOT_RUN
+Randomized image,Bit-accurate software comparison,NOT_RUN
+Backpressure,No dropped or duplicated pixels,NOT_RUN
+Reset during frame,Defined recovery behavior,NOT_RUN
+Multiple frames,Correct frame boundaries,NOT_RUN
+Frame size,Correct image dimensions,NOT_RUN
+Kria deployment,Actual FPGA and DMA verification,NOT_RUN

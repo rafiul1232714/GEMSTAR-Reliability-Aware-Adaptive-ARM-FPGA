@@ -1,0 +1,42 @@
+{
+  "Task": "20.50",
+  "OriginalDataset": "task20_28 baseline_clear",
+  "CorrectedDataset": "task20_49 50m recording",
+  "Results": [
+    {
+      "Dataset": "Original 10m - baseline_clear",
+      "InspectedFrameWindow": 100,
+      "Returns": 2957,
+      "ReturnsPerInspectedFrame": 29.57,
+      "MinRangeM": 2.4324185748786022,
+      "MedianRangeM": 5.911421036506176,
+      "MaxRangeM": 9.98138145871366,
+      "Beyond10m": 0,
+      "Beyond20m": 0,
+      "Beyond30m": 0,
+      "Beyond40m": 0,
+      "NearZeroUnder1mm": 0
+    },
+    {
+      "Dataset": "Corrected 50m - 20261102T180104Z",
+      "InspectedFrameWindow": 100,
+      "Returns": 5696,
+      "ReturnsPerInspectedFrame": 56.96,
+      "MinRangeM": 2e-06,
+      "MedianRangeM": 8.554064,
+      "MaxRangeM": 49.928331,
+      "Beyond10m": 2687,
+      "Beyond20m": 1392,
+      "Beyond30m": 1104,
+      "Beyond40m": 628,
+      "NearZeroUnder1mm": 50
+    }
+  ],
+  "OriginalDatasetExcludesFrameZero": true,
+  "ComparisonIsPaired": false,
+  "IdenticalSceneStateVerified": false,
+  "NearZeroReturnQualityValidated": false,
+  "RadarDetectionAccuracyValidated": false,
+  "HardwareEnergyMeasured": false,
+  "Interpretation": "Descriptive comparison of two different recordings. Changes in counts cannot be attributed exclusively to radar range."
+}

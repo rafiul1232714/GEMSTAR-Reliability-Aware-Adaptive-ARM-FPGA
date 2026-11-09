@@ -1,0 +1,49 @@
+{
+  "Task": "20.32",
+  "Summary": [
+    {
+      "Recording": "baseline_clear",
+      "TargetObservations": 108,
+      "DistancesComputed": 108,
+      "MissingOrigin": 0,
+      "MinCenterDistanceM": 28.0294372288892,
+      "MedianCenterDistanceM": 168.04086662042292,
+      "MaxCenterDistanceM": 202.09139695006422
+    },
+    {
+      "Recording": "baseline_fog_working_radar",
+      "TargetObservations": 134,
+      "DistancesComputed": 134,
+      "MissingOrigin": 0,
+      "MinCenterDistanceM": 22.035831246116555,
+      "MedianCenterDistanceM": 162.97147913085234,
+      "MaxCenterDistanceM": 206.8018979930165
+    },
+    {
+      "Recording": "fog_mor100",
+      "TargetObservations": 121,
+      "DistancesComputed": 121,
+      "MissingOrigin": 0,
+      "MinCenterDistanceM": 24.61313583086219,
+      "MedianCenterDistanceM": 165.8405662441445,
+      "MaxCenterDistanceM": 204.77862564603686
+    },
+    {
+      "Recording": "fog_postfix_validation",
+      "TargetObservations": 106,
+      "DistancesComputed": 106,
+      "MissingOrigin": 0,
+      "MinCenterDistanceM": 29.841838742423825,
+      "MedianCenterDistanceM": 169.31049728489478,
+      "MaxCenterDistanceM": 200.6112372658924
+    }
+  ],
+  "InconsistentSensorOrigins": 0,
+  "Limitations": [
+    "GT centre distance, not distance to object surface",
+    "Radar maximum range not independently confirmed",
+    "Field of view and occlusion not checked",
+    "GT and radar sampling-time uncertainty remains",
+    "No object-association accuracy measured"
+  ]
+}

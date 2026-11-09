@@ -1,0 +1,28 @@
+﻿Task 20.58 - Predicted ray / actual return comparison
+
+Diagnostic records: 10
+Predicted doubled-box intersections: 10
+Intersections with positive return: 5
+Intersections without positive return: 5
+
+Ray-box geometry is approximate.
+Positive return alone does not establish object identity.
+Real Unreal collision geometry not validated.
+Pose sampling timing remains unresolved.
+
+
+Frame RayIndex DoubledBoxEntryM   MeasuredReturnM    PositiveReturn
+----- -------- ----------------   ---------------    --------------
+95    44       27.508854592908293 41.255567369825684 True          
+95    54       27.508854592908293                    False         
+96    44       26.62002641939095  41.255567369825684 True          
+96    54       26.62002641939095                     False         
+97    44       26.345660750332968 41.255567369825684 True          
+97    54       26.345660750332968                    False         
+98    44       25.745991933181784 41.255567369825684 True          
+98    54       25.745991933181784                    False         
+99    44       24.887818794711187 41.255567369825684 True          
+99    54       24.887818794711187                    False         
+
+
+

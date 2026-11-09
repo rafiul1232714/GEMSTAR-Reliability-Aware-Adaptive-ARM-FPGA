@@ -1,0 +1,6 @@
+Recording,RadarFramesChecked,GTFramesChecked,Matched,Unmatched,Ambiguous,ExactMatchPercent
+baseline_clear,100,100,100,0,0,100.0
+baseline_fog_working_radar,100,100,100,0,0,100.0
+fog_mor100,100,100,100,0,0,100.0
+fog_postfix_validation,100,100,100,0,0,100.0
+task05_fog_test,100,100,100,0,0,100.0

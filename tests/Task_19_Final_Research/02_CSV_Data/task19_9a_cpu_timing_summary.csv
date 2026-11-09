@@ -1,0 +1,4 @@
+Operation,Runs,MeanMs,MedianMs,MinMs,MaxMs,P95Ms,InputPoints,OutputPoints
+ROI filtering,200,0.0094415,0.0082,0.0065,0.101,0.01,2044,1922
+Voxel downsampling,200,0.081613,0.0738,0.0542,0.7575,0.12,1922,418
+ROI + voxel pipeline,200,0.0931315,0.0814,0.0617,1.359,0.1294,2044,418

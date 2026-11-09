@@ -1,0 +1,160 @@
+﻿=== TASK 20.39 EFFECTIVE RADAR RANGE AUDIT ===
+
+=== A. ALL RADAR RANGE ASSIGNMENTS ===
+RadarSensorManager.cpp:168: config.Radar.NumberOfRaysHorizontal = width;
+RadarSensorManager.cpp:169: config.Radar.NumberOfRaysVertical = height;
+RadarSensorManager.cpp:170: config.Radar.FieldOfViewHorizontal = FMath::DegreesToRadians(FoVHorizontal);
+RadarSensorManager.cpp:171: config.Radar.FieldOfViewVertical = FMath::DegreesToRadians(FoVVertical);
+RadarSensorManager.cpp:173: config.Radar.DistanceHalfFalloff = distanceHalfFalloff * 100.0f;
+RadarSensorManager.cpp:194: SpawnedActor->SetSensorConfiguration(sensorConfiguration);
+RadarSensorManager.cpp:228: SpawnedActor->SetSensorConfiguration(sensorConfiguration);
+SimpleRadar.cpp:21: CreateTestConfig();
+SimpleRadar.cpp:88: FVector EndPoint = RadarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+SimpleRadar.cpp:172: void ASimpleRadar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) {
+SimpleRadar.cpp:173: Super::SetSensorConfiguration(NewSensorConfiguration);
+SimpleRadar.cpp:201: void ASimpleRadar::CreateTestConfig() {
+SimpleRadar.cpp:202: Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+SimpleRadar.cpp:203: Sensor.SensorViewConfig->set_range(10);
+SimpleRadar.h:43: osi3::SensorViewConfiguration* SensorViewConfig = nullptr;
+SimpleRadar.h:78: virtual void SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) override;
+SimpleRadar.h:101: void CreateTestConfig();
+
+=== B. SUPERCLASS INITIALIZATION ===
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:209: void ASimpleLidar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration)
+   207: }
+   208: 
+   209: void ASimpleLidar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration)
+   210: {
+   211: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+   212: 	Sensor.SensorViewConfig->clear_lidar_sensor_view_configuration();
+   213: 	auto* conf = Sensor.SensorViewConfig->add_lidar_sensor_view_configuration();
+   214: 	conf->set_field_of_view_horizontal(SensorConfiguration.Lidar.FieldOfViewHorizontal);
+   215: 	conf->set_field_of_view_vertical(SensorConfiguration.Lidar.FieldOfViewVertical);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:222: Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+   220: 	conf->mutable_mounting_position()->set_allocated_orientation(
+   221: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+   222: 	Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+   223: 
+   224: 	//calculate angles
+   225: 	Sensor.AzimuthAngles.Empty();
+   226: 	Sensor.ElevationAngles.Empty();
+   227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+   228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:239: void ASimpleLidar::CreateTestConfig() {
+   237: }
+   238: 
+   239: void ASimpleLidar::CreateTestConfig() {
+   240: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+   241: 	Sensor.SensorViewConfig->set_range(Range);
+   242: }
+   243: 
+   244: void ASimpleLidar::ShowSensorDebugInformation() {
+   245: 	int noHitCounter = 0;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:241: Sensor.SensorViewConfig->set_range(Range);
+   239: void ASimpleLidar::CreateTestConfig() {
+   240: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+   241: 	Sensor.SensorViewConfig->set_range(Range);
+   242: }
+   243: 
+   244: void ASimpleLidar::ShowSensorDebugInformation() {
+   245: 	int noHitCounter = 0;
+   246: 	for (auto& hit : Sensor.RecordedHits) {
+   247: 		if (hit.HitResult.bBlockingHit) {
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:172: void ASimpleRadar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) {
+   170: }
+   171: 
+   172: void ASimpleRadar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) {
+   173: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+   174: 	Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+   175: 	auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+   176: 	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+   177: 	conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+   178: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Radar.NumberOfRaysHorizontal);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:201: void ASimpleRadar::CreateTestConfig() {
+   199: }
+   200: 
+   201: void ASimpleRadar::CreateTestConfig() {
+   202: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+   203: 	Sensor.SensorViewConfig->set_range(10);
+   204: }
+   205: 
+   206: void ASimpleRadar::ShowSensorDebugInformation() {
+   207: 	int noHitCounter = 0;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:203: Sensor.SensorViewConfig->set_range(10);
+   201: void ASimpleRadar::CreateTestConfig() {
+   202: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+   203: 	Sensor.SensorViewConfig->set_range(10);
+   204: }
+   205: 
+   206: void ASimpleRadar::ShowSensorDebugInformation() {
+   207: 	int noHitCounter = 0;
+   208: 	for (auto& hit : Sensor.RecordedHits) {
+   209: 		if (hit.HitResult.bBlockingHit) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Sensors\GemstarSensor.cpp:61: void AGemstarSensor::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration)
+    59: }
+    60: 
+    61: void AGemstarSensor::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration)
+    62: {
+    63: 	this->SensorConfiguration = NewSensorConfiguration;
+    64: }
+    65: 
+    66: void AGemstarSensor::UpdateTransformAfterAttachment_Implementation() 
+    67: {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:552: void set_range(double value);
+   550:   void clear_range();
+   551:   double range() const;
+   552:   void set_range(double value);
+   553:   private:
+   554:   double _internal_range() const;
+   555:   void _internal_set_range(double value);
+   556:   public:
+   557: 
+   558:   // optional bool omit_static_information = 11;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:555: void _internal_set_range(double value);
+   553:   private:
+   554:   double _internal_range() const;
+   555:   void _internal_set_range(double value);
+   556:   public:
+   557: 
+   558:   // optional bool omit_static_information = 11;
+   559:   bool has_omit_static_information() const;
+   560:   private:
+   561:   bool _internal_has_omit_static_information() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2847: inline void SensorViewConfiguration::_internal_set_range(double value) {
+  2845:   return _internal_range();
+  2846: }
+  2847: inline void SensorViewConfiguration::_internal_set_range(double value) {
+  2848:   _impl_._has_bits_[0] |= 0x00000200u;
+  2849:   _impl_.range_ = value;
+  2850: }
+  2851: inline void SensorViewConfiguration::set_range(double value) {
+  2852:   _internal_set_range(value);
+  2853:   // @@protoc_insertion_point(field_set:osi3.SensorViewConfiguration.range)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2851: inline void SensorViewConfiguration::set_range(double value) {
+  2849:   _impl_.range_ = value;
+  2850: }
+  2851: inline void SensorViewConfiguration::set_range(double value) {
+  2852:   _internal_set_range(value);
+  2853:   // @@protoc_insertion_point(field_set:osi3.SensorViewConfiguration.range)
+  2854: }
+  2855: 
+  2856: // optional .osi3.Timestamp update_cycle_time = 8;
+  2857: inline bool SensorViewConfiguration::_internal_has_update_cycle_time() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2852: _internal_set_range(value);
+  2850: }
+  2851: inline void SensorViewConfiguration::set_range(double value) {
+  2852:   _internal_set_range(value);
+  2853:   // @@protoc_insertion_point(field_set:osi3.SensorViewConfiguration.range)
+  2854: }
+  2855: 
+  2856: // optional .osi3.Timestamp update_cycle_time = 8;
+  2857: inline bool SensorViewConfiguration::_internal_has_update_cycle_time() const {
+  2858:   bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+
+=== C. RECORDED RADAR RANGE STATISTICS ===
+baseline_clear: N=2957, Min=2.4324 m, Median=5.9114 m, Max=9.9814 m
+baseline_fog_working_radar: N=2958, Min=2.4324 m, Median=5.9114 m, Max=9.9897 m
+fog_mor100: N=2958, Min=2.4324 m, Median=5.9114 m, Max=9.9814 m
+fog_postfix_validation: N=2952, Min=2.4324 m, Median=5.9114 m, Max=9.9814 m
+
+=== TASK 20.39 COMPLETE ===

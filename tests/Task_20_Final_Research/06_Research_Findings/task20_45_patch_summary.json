@@ -1,0 +1,14 @@
+{
+  "Task": "20.45",
+  "ConfiguredRadarRangeM": 50,
+  "PreviousRuntimeRangeM": 10,
+  "ChangedFiles": [
+    "E:\\GEMSTAR_Project\\gemstar\\Plugins\\gemstar_interfaces\\Source\\GEMSTAR_Interfaces\\Public\\Interfaces\\Sensor\\SensorConfigurationData.h",
+    "E:\\GEMSTAR_Project\\gemstar\\Plugins\\GameFeatures\\ue_radar_feature\\Source\\ue_radar_featureRuntime\\Private\\RadarSensorManager.cpp",
+    "E:\\GEMSTAR_Project\\gemstar\\Plugins\\GameFeatures\\ue_radar_feature\\Source\\ue_radar_featureRuntime\\Private\\SimpleRadar.cpp",
+    "E:\\GEMSTAR_Project\\gemstar\\Simulation\\DefaultGemstar.ini"
+  ],
+  "Backups": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_20_Final_Research\\03_Configurations\\Task20_45_Before_Range_Patch",
+  "BuildCompleted": false,
+  "RuntimeRangeVerified": false
+}

@@ -1,0 +1,57 @@
+﻿TASK 20 - GEMSTAR RADAR RESEARCH
+Consolidated findings: Task 20.59
+
+1. ORIGINAL RADAR BASELINE
+- Original runtime range: 10.000 m
+- Maximum measured return: approximately 9.99 m
+- Initial radar range configuration limitation identified
+
+2. CONFIGURABLE RADAR IMPLEMENTATION
+- Radar configuration structure extended
+- INI range parameter connected to radar configuration
+- Radar initialization updated
+- Corrected runtime range: 50.000 m
+
+3. EXPERIMENTAL RESULTS
+- Corrected recording: 100 frames inspected
+- Corrected candidate returns: 5696
+- Returns beyond 10 m: 2687
+- Maximum measured range: 49.9283 m
+- Near-zero startup returns: 50, all in frame zero
+- Descriptive comparison only; recordings not paired
+
+4. GROUND TRUTH
+- 99 matching SV/GT timestamps in frames 1-99
+- 112 external moving-object observations
+- Three external object IDs
+- Five observations geometrically eligible by centre range and FoV
+
+5. VEHICLE / RADAR ASSOCIATION
+- Target: BP_Large_Car_C, object ID 76765
+- Frames examined: 95-99
+- Ten predicted intersections using doubled bounding-box dimensions
+- Five positive returns on ray 44 at approximately 41.2556 m
+- Five ray 54 intersections without positive returns
+- Predicted vehicle intersections approximately 24.89-27.51 m
+- No independently verified radar-to-vehicle association
+
+6. RESEARCH LIMITATIONS
+- Actual collision-mesh intersection not verified
+- Bounding-box dimensions may represent Unreal half-extents
+- Radar-to-world transformation not independently validated
+- Pose-sampling timing uncertainty remains
+- Detection precision and recall cannot be claimed
+- CPU/FPGA energy consumption not measured
+
+7. RESEARCH CONCLUSION
+The configurable radar-range correction was implemented and
+validated using runtime logs and recorded measurements.
+The corrected simulation generates radar returns beyond the
+original 10 m range, up to approximately 49.93 m.
+
+External-vehicle detection accuracy remains unresolved and
+requires independent object-hit identification or a controlled
+target scene.
+
+This result is a software/simulator configuration improvement,
+not measured FPGA acceleration or energy savings.

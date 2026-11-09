@@ -1,0 +1,10 @@
+{
+  "Task": "20.1",
+  "RecordingsFound": 6,
+  "FramesChecked": 30,
+  "RadarViewsFound": 30,
+  "PopulatedRadarFieldPaths": 21,
+  "NoRadarDetectionSemanticsAssumed": true,
+  "EnergyMeasured": false,
+  "GroundTruthAccuracyMeasured": false
+}

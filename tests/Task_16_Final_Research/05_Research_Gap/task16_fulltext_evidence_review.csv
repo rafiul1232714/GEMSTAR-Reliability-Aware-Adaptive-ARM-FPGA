@@ -1,0 +1,2 @@
+﻿"PaperID","Title","VerifiedDOI","OpenAccessURL","VerifiedContribution","ReviewQuestion","Finding","EvidenceLocation","ReviewStatus"
+"CR001","CARMA: Context-Aware Runtime Reconfiguration for Energy-Efficient Sensor Fusion","10.1109/ISLPED58423.2023.10244517","https://arxiv.org/abs/2306.15748","Context-aware FPGA runtime model adaptation and system-wide energy optimization","Does it use tracking uncertainty for ARM-FPGA execution placement under deadlines?","NOT YET DETERMINED","","FULL-TEXT REVIEW REQUIRED"

@@ -1,0 +1,13 @@
+{
+  "Task": "20.4",
+  "InputRows": 60000,
+  "ReconstructedReturns": 12025,
+  "SourceLightSpeedMps": 299705543.0,
+  "SourceFrequencyHz": 77000000000.0,
+  "MaximumSphericalResidualM": 1.7763568394002505e-15,
+  "CoordinateConventionVerified": false,
+  "GroundTruthAccuracyValidated": false,
+  "EnergyMeasured": false,
+  "OutputCSV": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_20_Final_Research\\02_CSV_Data\\task20_4_radar_reconstructed_returns.csv",
+  "Graph": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_20_Final_Research\\01_Graphs\\task20_4_radar_reconstruction.png"
+}

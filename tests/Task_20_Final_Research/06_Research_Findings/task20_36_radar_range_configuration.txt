@@ -1,0 +1,46 @@
+﻿=== TASK 20.36 RADAR RANGE CONFIGURATION ===
+
+=== 1. RADAR SOURCE FILES ===
+SimpleRadar.cpp:88: FVector EndPoint = RadarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+SimpleRadar.cpp:107: if (Sensor.SensorViewConfig != nullptr && Sensor.SensorViewConfig->radar_sensor_view_configuration_size())
+SimpleRadar.cpp:108: viewConfiguration->CopyFrom(Sensor.SensorViewConfig->radar_sensor_view_configuration(0));
+SimpleRadar.cpp:174: Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+SimpleRadar.cpp:175: auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+SimpleRadar.cpp:189: Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+SimpleRadar.cpp:191: Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+SimpleRadar.cpp:192: + Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+SimpleRadar.cpp:194: Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_vertical();
+SimpleRadar.cpp:196: Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical()
+SimpleRadar.cpp:197: + Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+SimpleRadar.cpp:202: Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+SimpleRadar.cpp:203: Sensor.SensorViewConfig->set_range(10);
+SimpleRadar.h:22: #include "osi_sensorviewconfiguration.pb.h"
+SimpleRadar.h:43: osi3::SensorViewConfiguration* SensorViewConfig = nullptr;
+
+=== 2. SIMULATION CONFIGURATION ===
+Configuration files inspected: 16
+DefaultGemstar.ini:3: ; GEMSTAR - CAMERA + LIDAR + RADAR SENSOR CONFIGURATION
+DefaultGemstar.ini:4: ; TASK 7: RADAR MOUNTING TEST
+DefaultGemstar.ini:82: ; Maximum simulated range in meters
+DefaultGemstar.ini:83: Range=100
+DefaultGemstar.ini:104: ; Record Camera, LiDAR and Radar
+DefaultGemstar.ini:105: Input=[ue_camera_feature:sensor1,ue_lidar_feature:sensor1,ue_radar_feature:sensor1]
+DefaultGemstar.ini:114: ; RADAR SENSOR - UPDATED FOR TEST
+DefaultGemstar.ini:117: [ue_radar_feature:sensor1]
+DefaultGemstar.ini:120: ; Mount Radar on the same moving vehicle
+DefaultGemstar.ini:123: ; Radar mounting position in centimeters
+DefaultGemstar.ini:133: ; Radar ray configuration
+DefaultGemstar.ini:217: ; Meteorological Optical Range in meters
+DefaultGemstar_backup.ini:55: Range=100
+DefaultGemstar_backup.ini:75: [ue_radar_feature:sensor1]
+DefaultGemstar_backup.ini:129: ;Meteorological Optical Range in meters for fog condtion
+DefaultGemstar_before_radar_test.ini:60: Range=100
+DefaultGemstar_before_radar_test.ini:81: Input=[ue_camera_feature:sensor1,ue_lidar_feature:sensor1,ue_radar_feature:sensor1]
+DefaultGemstar_before_radar_test.ini:90: [ue_radar_feature:sensor1]
+DefaultGemstar_before_radar_test.ini:165: ;Meteorological Optical Range for fog in meters
+weather_pedestrian.xml:12: <Fog visualRange="150"/>
+weather_scenario_scenario1_0.xml:12: <Fog visualRange="50"/>
+weather_DrivingPractiseAreaBrunswickMap.net.xml:12: <Fog visualRange="30"/>
+weather_simple-intersection.net.xml:12: <Fog visualRange="150"/>
+
+=== TASK 20.36 COMPLETE ===

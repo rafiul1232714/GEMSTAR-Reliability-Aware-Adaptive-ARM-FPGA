@@ -1,0 +1,116 @@
+﻿
+=== GT EXPORT ===
+ 220: 	. vehicle_classification	MovingObjectVehicleClassification
+ 221: 	. . type	MovingObjectVehicleClassificationType (Other, car, delivery van, semitrailer, trailer, motorbike, bicycle, bus, tram, train, wheelchair, standup scooter)
+ 222: 	. . role	MovingObjectVehicleClassificationRole (Other, civil, ambulance, fire, police, public transport, road assistance, garbage collectin, road construction, military)
+ 223: 	traffic_light	list[TrafficLight]
+ 224: 	. id	Identifier
+ 225: 	. . value	int
+ 226: 	. base (optional)	BaseStationary The position of traffic lights is given in the associated OpenDRIVE map file. If optionally given in the OSI message, it must match the corresponding data in the map file. The association between OSI and OpenDRIVE objects is established using the 'source_reference' field.
+ 227: 	. classification	TrafficLightClassification
+ 228: 	. . color	TrafficLightClassificationColor (Other, red, yellow, green, blue, white)
+ 229: 	. . icon	TrafficLightClassificationIcon (Other, none, arrow_straight_ahead, arrow_left, arrow_diag_left, arrow_straight_ahead_left, arrow_right, ...)
+ 230: 	. . mode	TrafficLightClassificationMode (Other, off, constant, flashing, counting)
+ 231: 	. . counter	float
+ 232: 	. . is_out_of_servcie	bool
+ 233: 	. source_reference	list[ExternalReference]	The source reference maps the dynamic OSI traffic light information to the static traffic light information in the OpenDRIVE map.
+ 234: 	*/
+ 235: 	osi3::GroundTruth groundTruth = osi3::GroundTruth();
+ 236: 	groundTruth.MergeFrom(trafficLightGroundTruth);
+ 237: 
+ 238: 	for (auto* actor : dynamicObjects) {
+ 239: 		FString pathName = actor->GetClass()->GetPathName();
+ 240: 		//based on blueprint/class *vehicle*
+ 241: 		if (pathName.Contains("vehicle")) {
+ 242: 			auto vehicle = groundTruth.add_moving_object();
+ 243: 
+ 244: 			vehicle->set_model_reference(std::string(TCHAR_TO_UTF8(*actor->GetClass()->GetName())));
+ 245: 
+ 246: 			auto* id = vehicle->mutable_id();
+ 247: 			id->set_value(actor->GetUniqueID());
+ 248: 
+ 249: 			vehicle->set_type(osi3::MovingObject_Type_TYPE_VEHICLE);
+ 250: 
+ 251: 			vehicle->set_allocated_base(ToOSI::toOSIBaseMoving(actor));
+ 252: 
+ 253: 			auto classification = vehicle->mutable_vehicle_classification();
+ 254: 			classification->set_role(osi3::MovingObject_VehicleClassification_Role_ROLE_CIVIL);
+ 255: 			classification->set_type(osi3::MovingObject_VehicleClassification_Type_TYPE_MEDIUM_CAR);
+
+=== LOGGER TIMING ===
+  40: 			dynamicSpawnedObjects.RemoveSingle(InActor);
+  41: 		});
+  42: 
+  43: 	ActorDestroyedHandle = GetWorld()->AddOnActorDestroyedHandler(ActorDestroyLambda);
+  44: 
+  45: 	RegisterCallbacks();
+  46: }
+  47: 
+  48: // Called every frame
+  49: void ALogManager::Tick(float DeltaTime)
+  50: {
+  51: 	Super::Tick(DeltaTime);
+  52: 	FName fileDescription = FName(fileName);
+  53: 
+  54: 	accumulatedTime += DeltaTime;
+  55: 	osi3::SensorView sv = combineSensorViewMessages();
+  56: 	if (writeSensorViews) {
+  57: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::ESensorViewMessage, sv.SerializeAsString());
+  58: 	}
+  59: 	if (writeSensorDatas) {
+  60: 		for (auto& sd : sensorDatas)
+  61: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::ESensorDataMessage, sd.Value.SerializeAsString());
+  62: 	}
+  63: 	if (debugmode)
+  64: 		UE_LOG(Logger, Log, TEXT("LogManager: SV:\n%s"), *FString(UTF8_TO_TCHAR(sv.DebugString().c_str())));
+  65: 
+  66: 
+  67: 	if (writeGroundTruth) {
+  68: 		osi3::GroundTruth gt = osi_GroundTruth.parseWorldToGroundTruth(this, dynamicSpawnedObjects, DeltaTime);
+  69: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::EGroundTruthMessage, gt.SerializeAsString());
+  70: 		if (debugmode)
+  71: 			UE_LOG(Logger, Log, TEXT("LogManager: GT:\n%s"), *FString(UTF8_TO_TCHAR(gt.DebugString().c_str())));
+  72: 	}
+  73: 	if (writeOmegaPrime) {
+  74: 		osi3::GroundTruth gtop = osi_GroundTruth.parseOmegaPrimeToGroundTruth(this, dynamicSpawnedObjects, DeltaTime);
+  75: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::EGroundTruthMessage, gtop.SerializeAsString());
+  76: 		if (debugmode)
+  77: 			UE_LOG(Logger, Log, TEXT("LogManager: GT Omega Prime:\n%s"), *FString(UTF8_TO_TCHAR(gtop.DebugString().c_str())));
+  78: 	}
+  79: }
+  80: 
+  81: void ALogManager::EndPlay(const EEndPlayReason::Type EndPlayReason) {
+  82: 	if (UWorld* World = GetWorld()){
+  83: 		World->RemoveOnActorSpawnedHandler(ActorSpawnedHandle);
+  84: 		World->RemoveOnActorDestroyedHandler(ActorDestroyedHandle);
+  85: 	}
+  86: 
+  87: 	if (IsValid(GemstarSimulationSubsystem)){
+  88: 		GemstarSimulationSubsystem->UnregisterManager(this);
+  89: 		GemstarSimulationSubsystem = nullptr;
+  90: 	}
+  91: 
+  92: 	for (int32 i = SensorSpawnActorsToInform.Num() - 1; i >= 0; --i){
+  93: 		if (AActor* Spawner = SensorSpawnActorsToInform[i]; IsValid(Spawner)){
+  94: 			UnregisterSensorSpawner_Implementation(Spawner);
+  95: 		}
+  96: 	}
+  97: 	SensorSpawnActorsToInform.Reset();
+  98: 
+  99: 	Super::EndPlay(EndPlayReason);
+ 100: 	SaveMessagesToFilesystem();
+ 101: }
+ 102: 
+ 103: void ALogManager::RegisterCallbacks() {
+ 104: 	FCoreDelegates::OnHandleSystemError.AddUObject(this, &ALogManager::SaveMessagesToFilesystem);
+ 105: 	FCoreDelegates::OnExit.AddUObject(this, &ALogManager::SaveMessagesToFilesystem);
+ 106: }
+ 107: 
+ 108: void ALogManager::SaveMessagesToFilesystem() {
+ 109: 	osi_Trace_Writer.SaveMessagesToFilesystem();
+ 110: }
+ 111: 
+ 112: void ALogManager::Configure(TMap<FString, FInnerConfig> Configurations, UGemstarSimulationSubsystem* SimulationSubsystem)
+ 113: {
+ 114: 	GemstarSimulationSubsystem = SimulationSubsystem;
+ 115: 	if (Configurations.Num() > 1) {

@@ -1,0 +1,242 @@
+﻿
+=== A. RADAR CONFIG STRUCTURE ===
+   1: /*
+   2:  * Copyright (c) 2026 DLR e.V.
+   3:  *
+   4:  * This program and the accompanying materials are made
+   5:  * available under the terms of the Eclipse Public License 2.0
+   6:  * which is available at https://www.eclipse.org/legal/epl-2.0/
+   7:  *
+   8:  * SPDX-License-Identifier: EPL-2.0
+   9:  */
+  10: 
+  11: #pragma once
+  12: 
+  13: #include "Interfaces/Sensor/SensorDataUpdate.h"
+  14: #include "Interfaces/DataTarget.h"
+  15: #include "CoreMinimal.h"
+  16: #include "UObject/Interface.h"
+  17: #include "SensorConfigurationData.generated.h"
+  18: 
+  19: UENUM(BlueprintType)
+  20: enum class SensorType : uint8 {
+  21: 	CAMERA, LIDAR, RADAR
+  22: };
+  23: 
+  24: USTRUCT(BlueprintType)
+  25: struct FLidarConfigurationData {
+  26: 	GENERATED_BODY()
+  27: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  28: 	double FieldOfViewHorizontal = PI / 2;
+  29: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  30: 	double FieldOfViewVertical = PI / 4;
+  31: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  32: 	float NumberOfRaysHorizontal = 10;
+  33: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  34: 	float NumberOfRaysVertical = 10;
+  35: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  36: 	float DistanceHalfFalloff = 2000.0;
+  37: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  38: 	float Range = 20.0;
+  39: };
+  40: 
+  41: USTRUCT(BlueprintType)
+  42: struct FRadarConfigurationData {
+  43: 	GENERATED_BODY()
+  44: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  45: 	double FieldOfViewHorizontal = PI / 2;
+  46: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  47: 	double FieldOfViewVertical = PI / 4;
+  48: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  49: 	float NumberOfRaysHorizontal = 10;
+  50: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  51: 	float NumberOfRaysVertical = 10;
+  52: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  53: 	float DistanceHalfFalloff = 2000.0;
+  54: };
+  55: 
+  56: USTRUCT(BlueprintType)
+  57: struct FCameraConfigurationData {
+  58: 	GENERATED_BODY()
+  59: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  60: 	double FieldOfViewHorizontal = PI / 2;
+  61: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  62: 	double FieldOfViewVertical = PI / 4;
+  63: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  64: 	float NumberOfPixelsHorizontal = 10;
+  65: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  66: 	float NumberOfPixelsVertical = 10;
+  67: };
+  68: 
+  69: USTRUCT(BlueprintType)
+  70: struct FSensorConfigData {
+  71: 	GENERATED_BODY()
+  72: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  73: 	FName ID;
+  74: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  75: 	FTransform Offset;
+  76: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  77: 	AActor* Vehicle = nullptr;
+  78: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  79: 	SensorType Type = SensorType::CAMERA;
+  80: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  81: 	FCameraConfigurationData Camera;
+  82: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  83: 	FRadarConfigurationData Radar;
+  84: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  85: 	FLidarConfigurationData Lidar;
+  86: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  87: 	FString Mount;
+  88: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SensorConfiguration")
+  89: 	TArray<FDataTarget> DataTargets;
+  90: };
+  91: 
+  92: // This class does not need to be modified.
+  93: UINTERFACE(MinimalAPI)
+  94: class USensorConfigurationData : public UInterface
+  95: {
+  96: 	GENERATED_BODY()
+  97: };
+  98: 
+  99: /**
+ 100:  *
+ 101:  */
+ 102: class GEMSTAR_INTERFACES_API ISensorConfigurationData
+ 103: {
+ 104: 	GENERATED_BODY()
+ 105: 
+ 106: 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
+ 107: public:
+ 108: 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "GEMSTAR")
+ 109: 	void SpawnSensor(FSensorConfigData& sensorConfiguration);
+ 110: };
+
+=== B. RADAR MANAGER RANGE PARSING ===
+ 140: 		{
+ 141: 			FDefaultValueHelper::ParseDouble(*ValueStr, height);
+ 142: 		}
+ 143: 		double FoVHorizontal = 0.0;
+ 144: 		if (const FString* ValueStr = Pair.Value.Entries.Find("FoVHorizontal"))
+ 145: 		{
+ 146: 			FDefaultValueHelper::ParseDouble(*ValueStr, FoVHorizontal);
+ 147: 		}
+ 148: 		double FoVVertical = 0.0;
+ 149: 		if (const FString* ValueStr = Pair.Value.Entries.Find("FoVVertical"))
+ 150: 		{
+ 151: 			FDefaultValueHelper::ParseDouble(*ValueStr, FoVVertical);
+ 152: 		}
+ 153: 		float Range = 0.0;
+ 154: 		if (const FString* ValueStr = Pair.Value.Entries.Find("Range"))
+ 155: 		{
+ 156: 			FDefaultValueHelper::ParseFloat(*ValueStr, Range);
+ 157: 		}
+ 158: 		bool NoFalloff = false;
+ 159: 		if (const FString* ValueStr = Pair.Value.Entries.Find("NoFalloff"))
+ 160: 		{
+ 161: 			FDefaultValueHelper::ParseBool(*ValueStr, NoFalloff);
+ 162: 		}
+ 163: 		float distanceHalfFalloff = 0.0;
+ 164: 		if (const FString* ValueStr = Pair.Value.Entries.Find("DistanceHalfFalloff"))
+ 165: 		{
+ 166: 			FDefaultValueHelper::ParseFloat(*ValueStr, distanceHalfFalloff);
+ 167: 		}
+ 168: 		config.Radar.NumberOfRaysHorizontal = width;
+ 169: 		config.Radar.NumberOfRaysVertical = height;
+ 170: 		config.Radar.FieldOfViewHorizontal = FMath::DegreesToRadians(FoVHorizontal);
+ 171: 		config.Radar.FieldOfViewVertical = FMath::DegreesToRadians(FoVVertical);
+ 172: 		// DistanceHalfFalloff in Meter
+ 173: 		config.Radar.DistanceHalfFalloff = distanceHalfFalloff * 100.0f;
+ 174: 		SensorConfiguration.Add(config);
+ 175: 	}
+ 176: 	for (auto& config : SensorConfiguration)
+ 177: 	{
+ 178: 		SpawnSensor(config);
+ 179: 	}
+ 180: }
+
+=== C. RADAR CONSTRUCTOR ===
+   1: /*
+   2:  * Copyright (c) 2026 DLR e.V.
+   3:  *
+   4:  * This program and the accompanying materials are made
+   5:  * available under the terms of the Eclipse Public License 2.0
+   6:  * which is available at https://www.eclipse.org/legal/epl-2.0/
+   7:  *
+   8:  * SPDX-License-Identifier: EPL-2.0
+   9:  */
+  10: 
+  11: #include "SimpleRadar.h"
+  12: 
+  13: // Sets default values
+  14: ASimpleRadar::ASimpleRadar()
+  15: {
+  16: }
+  17: 
+  18: void ASimpleRadar::BeginPlay()
+  19: {
+  20: 	Super::BeginPlay();
+  21: 	CreateTestConfig();
+  22: 	
+  23: 	//initialise internal speed calculation
+  24: 	currentVelocity = FVector::ZeroVector;
+  25: 	oldPosition = GetActorLocation();
+  26: 	// complex collisions: true
+  27: 	TraceParams = FCollisionQueryParams(TEXT("RadioTrace"), true, GetOwner());
+  28: 	TraceParams.bReturnPhysicalMaterial = true;
+  29: 	TraceParams.bTraceComplex = true;
+  30: }
+  31: 
+  32: // Called every frame
+  33: void ASimpleRadar::Tick(float DeltaTime){
+  34: 	if (!TickActive) return;
+  35: 	//internal speed calculation
+  36: 	if (firstTick) {
+  37: 		firstTick = false;
+  38: 		currentVelocity = FVector::ZeroVector;
+  39: 	} else {
+  40: 		currentVelocity = (GetActorLocation() - oldPosition) / DeltaTime;
+  41: 		oldPosition = GetActorLocation();
+  42: 	}
+  43: 
+  44: 	GetScanData();
+  45: 	if (bDebugRayTraces || bDebugReflections || bDebugNormals)
+
+=== D. RADAR CONFIGURATION METHOD ===
+ 170: }
+ 171: 
+ 172: void ASimpleRadar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) {
+ 173: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+ 174:     if (Sensor.SensorViewConfig != nullptr)
+ 175:     {
+ 176:         UE_LOG(LogTemp, Warning,
+ 177:             TEXT("TASK20_42_RADAR_RANGE: %.3f metres"),
+ 178:             Sensor.SensorViewConfig->range());
+ 179:     }
+ 180: 	Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+ 181: 	auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+ 182: 	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+ 183: 	conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+ 184: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Radar.NumberOfRaysHorizontal);
+ 185: 	conf->set_number_of_rays_vertical(SensorConfiguration.Radar.NumberOfRaysVertical);
+ 186: 	conf->mutable_mounting_position()->set_allocated_position(
+ 187: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+ 188: 	conf->mutable_mounting_position()->set_allocated_orientation(
+ 189: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+ 190: 	conf->set_emitter_frequency(77000000000.0); //in Hz
+ 191: 	//calculate angles
+ 192: 
+ 193: 	Sensor.AzimuthAngles.Empty();
+ 194: 	Sensor.ElevationAngles.Empty();
+ 195: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+ 196: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+ 197: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+ 198: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+ 199: 	}
+ 200: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_vertical();
+ 201: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+ 202: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical()
+ 203: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+ 204: 	}
+ 205: }
+
+=== TASK 20.43 COMPLETE ===

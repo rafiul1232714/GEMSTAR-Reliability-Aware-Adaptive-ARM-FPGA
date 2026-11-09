@@ -1,0 +1,20 @@
+﻿TASK 20.7C RADAR CONFIGURATION DISCOVERY
+INI files found: 74
+
+MATCHING FILES:
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Resources\GemstarFeature.ini | Matches=1
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Resources\GemstarFeature.ini | Matches=1
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Resources\GemstarLidarTest.ini | Matches=1
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Resources\GemstarLidarWeatherDegradationTest.ini | Matches=1
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Resources\GemstarFeature.ini | Matches=2
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Resources\GemstarRadarTest.ini | Matches=4
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Config\FeatureDefaults.ini | Matches=1
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Resources\GemstarFeature.ini | Matches=4
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Config\FeatureDefaults.ini | Matches=2
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Config\FollowVehicleTest.ini | Matches=5
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Config\TestGemstar_esmini.ini | Matches=4
+E:\GEMSTAR_Project\gemstar\Resources\Gemstar_Test.ini | Matches=6
+E:\GEMSTAR_Project\gemstar\Saved\Config\WindowsEditor\EditorPerProjectUserSettings.ini | Matches=2
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini | Matches=15
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar_backup.ini | Matches=8
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar_before_radar_test.ini | Matches=8

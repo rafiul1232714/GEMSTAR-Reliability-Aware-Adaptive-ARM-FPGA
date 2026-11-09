@@ -1,0 +1,17 @@
+{
+  "generated_utc": "2026-10-30T21:27:42.352641+00:00",
+  "task": "19.16",
+  "initial_manifest_count": 286,
+  "verified_original_files": 286,
+  "missing_original_files": 0,
+  "changed_original_files": 0,
+  "figures_found": 48,
+  "figures_embedded": 48,
+  "pdf_path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_19_Final_Research\\07_Research_Report\\Task_19_Final_Illustrated_Research_Report.pdf",
+  "pdf_bytes": 8325491,
+  "pdf_pages": null,
+  "report_created": true,
+  "hardware_implemented": false,
+  "hardware_energy_measured": false,
+  "archive_pass": true
+}

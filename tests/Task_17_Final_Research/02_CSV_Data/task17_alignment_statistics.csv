@@ -1,0 +1,8 @@
+Metric,Value
+SensorViewFrames,466
+GroundTruthFrames,466
+ComparedFrames,466
+ExactTimestampMatches,466
+MaximumAbsoluteDifferenceMs,0.0
+MeanAbsoluteDifferenceMs,0.0
+TimestampMismatchCount,0

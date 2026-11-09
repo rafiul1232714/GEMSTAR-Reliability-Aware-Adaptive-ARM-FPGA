@@ -1,0 +1,9 @@
+FrameIndex,ROIPoints,SelectedMethod,SelectedVoxelSizeM,SelectedLatencyMs,FullReferenceLatencyMs,SelectedReferenceAgreementPercent,SelectedFalseGroundCount,SpeedRatioVsFull,EligibleVoxelOptions,ParetoVoxelOptions
+0,1485,Full-reference fallback,NaN,1.2003,1.2003,100,0,1,0,2
+50,1897,Voxel-assisted,0.5,1.4395,2.6054,99.3147074327886,6,1.8099340048628,3,2
+100,1889,Voxel-assisted,0.5,1.284,2.3064,97.8824775013235,13,1.79626168224299,2,2
+150,1922,Voxel-assisted,0.5,1.3315,2.3783,97.1383975026015,30,1.78618099887345,3,3
+200,1927,Voxel-assisted,0.5,1.2595,2.5047,99.6886351842242,2,1.98864628820961,3,1
+250,2331,Full-reference fallback,NaN,2.062,2.062,100,0,1,0,2
+350,1863,Voxel-assisted,0.5,1.2944,2.4737,100,0,1.91107849196539,3,1
+450,1766,Full-reference fallback,NaN,2.4973,2.4973,100,0,1,0,3

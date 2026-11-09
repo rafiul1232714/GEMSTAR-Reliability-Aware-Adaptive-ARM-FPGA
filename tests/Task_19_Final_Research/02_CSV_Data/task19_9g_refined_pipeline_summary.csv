@@ -1,0 +1,2 @@
+InputPoints,VoxelPoints,VoxelSizeM,Runs,FullMedianMs,VoxelMedianMs,SpeedRatio,LatencyReductionPercent,FullP95Ms,VoxelP95Ms,MedianAgreementPercent,MinAgreementPercent,MedianFalseGround,MedianMissedGround,MaxFalseGround,MaxMissedGround
+1922,418,0.25,30,3.1429,1.872,1.67889957264957,40.4371758566929,4.1886,3.078,95.5775234131114,94.2247658688866,44.5,40.5,58,54

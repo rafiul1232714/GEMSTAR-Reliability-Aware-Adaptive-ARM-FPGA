@@ -1,0 +1,52 @@
+[
+  {
+    "Recording": "baseline_clear",
+    "FramesChecked": 100,
+    "NestedHostFound": 99,
+    "NestedIDMatched": 0,
+    "MatchingGTObjectFound": 0,
+    "PoseAgreementsWithin1mm1mrad": 0,
+    "MissingHost": 1,
+    "MissingGTObject": 0
+  },
+  {
+    "Recording": "baseline_fog_working_radar",
+    "FramesChecked": 100,
+    "NestedHostFound": 99,
+    "NestedIDMatched": 0,
+    "MatchingGTObjectFound": 0,
+    "PoseAgreementsWithin1mm1mrad": 0,
+    "MissingHost": 1,
+    "MissingGTObject": 0
+  },
+  {
+    "Recording": "fog_mor100",
+    "FramesChecked": 100,
+    "NestedHostFound": 99,
+    "NestedIDMatched": 0,
+    "MatchingGTObjectFound": 0,
+    "PoseAgreementsWithin1mm1mrad": 0,
+    "MissingHost": 1,
+    "MissingGTObject": 0
+  },
+  {
+    "Recording": "fog_postfix_validation",
+    "FramesChecked": 100,
+    "NestedHostFound": 99,
+    "NestedIDMatched": 0,
+    "MatchingGTObjectFound": 0,
+    "PoseAgreementsWithin1mm1mrad": 0,
+    "MissingHost": 1,
+    "MissingGTObject": 0
+  },
+  {
+    "Recording": "task05_fog_test",
+    "FramesChecked": 100,
+    "NestedHostFound": 0,
+    "NestedIDMatched": 0,
+    "MatchingGTObjectFound": 0,
+    "PoseAgreementsWithin1mm1mrad": 0,
+    "MissingHost": 100,
+    "MissingGTObject": 0
+  }
+]

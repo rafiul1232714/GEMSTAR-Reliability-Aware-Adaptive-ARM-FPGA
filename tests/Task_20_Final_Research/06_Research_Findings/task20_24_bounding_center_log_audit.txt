@@ -1,0 +1,84 @@
+﻿TASK 20.24 BOUNDING CENTRE AUDIT
+Log files inspected: 21
+Matching log entries: 40
+
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:122][  3]LogTemp: Warning: TASK13_ORIGIN actor=BP_Small_Car_C_2 id=76754 actor_cm=(-14317.991,6497.011,0.000) bounds_cm=(-14305.366,6508.940,82.620) offset_cm=(12.625,11.929,82.620)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:122][  3]LogTemp: Warning: TASK13_ORIGIN actor=BP_Truck_C_2 id=76752 actor_cm=(-886.713,-3516.823,0.000) bounds_cm=(-923.420,-3501.118,150.445) offset_cm=(-36.707,15.705,150.445)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:122][  3]LogTemp: Warning: TASK13_ORIGIN actor=BP_Bus_C_2 id=76750 actor_cm=(-3008.316,868.751,0.000) bounds_cm=(-2877.243,776.238,91.729) offset_cm=(131.073,-92.513,91.729)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:122][  3]LogTemp: Warning: TASK13_ORIGIN actor=BP_Small_Car_C_3 id=76745 actor_cm=(-15205.104,9368.994,0.000) bounds_cm=(-15188.081,9372.443,82.620) offset_cm=(17.024,3.448,82.620)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:122][  3]LogTemp: Warning: TASK13_ORIGIN actor=BP_Large_Car_C_3 id=76738 actor_cm=(-846.099,-849.021,0.000) bounds_cm=(-845.772,-847.781,80.977) offset_cm=(0.327,1.241,80.977)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:122][  3]LogTemp: Warning: TASK13_ORIGIN actor=BP_Small_Car_C_4 id=76736 actor_cm=(21338.273,-10934.581,0.000) bounds_cm=(21343.054,-10951.279,82.620) offset_cm=(4.782,-16.698,82.620)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:122][  3]LogTemp: Warning: TASK13_ORIGIN actor=BP_Truck_C_4 id=76734 actor_cm=(3808.520,-1577.181,0.000) bounds_cm=(3790.645,-1612.882,150.445) offset_cm=(-17.875,-35.701,150.445)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:122][  3]LogTemp: Warning: TASK13_ORIGIN actor=BP_Large_Car_C_4 id=76729 actor_cm=(17606.065,-3267.287,0.000) bounds_cm=(17605.488,-3268.432,80.977) offset_cm=(-0.578,-1.146,80.977)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:155][  4]LogTemp: Warning: TASK13_ORIGIN actor=ue_visualizer_feature id=77091 actor_cm=(579.184,-3795.488,250.000) bounds_cm=(-331.446,-3420.522,423.648) offset_cm=(-910.630,374.965,173.648)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:155][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Small_Car_C_0 id=76795 actor_cm=(579.184,-3795.488,0.000) bounds_cm=(594.561,-3787.410,82.620) offset_cm=(15.377,8.077,82.620)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:155][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Truck_C_0 id=76770 actor_cm=(-7870.352,7411.594,0.000) bounds_cm=(-7834.102,7394.859,150.445) offset_cm=(36.249,-16.735,150.445)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:155][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Large_Car_C_0 id=76765 actor_cm=(-7740.579,6420.631,0.000) bounds_cm=(-7739.438,6420.044,80.977) offset_cm=(1.141,-0.587,80.977)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:155][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Small_Car_C_1 id=76763 actor_cm=(-7464.508,6311.033,0.000) bounds_cm=(-7454.695,6296.701,82.620) offset_cm=(9.814,-14.331,82.620)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:155][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Truck_C_1 id=76761 actor_cm=(-11985.447,6222.445,0.000) bounds_cm=(-11945.862,6217.236,150.445) offset_cm=(39.585,-5.209,150.445)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:155][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Bus_C_1 id=76759 actor_cm=(160.485,588.502,0.000) bounds_cm=(227.240,442.616,91.729) offset_cm=(66.755,-145.885,91.729)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:155][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Large_Car_C_1 id=76756 actor_cm=(-1255.845,-1387.340,0.000) bounds_cm=(-1254.683,-1387.883,80.977) offset_cm=(1.162,-0.544,80.977)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:155][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Small_Car_C_2 id=76754 actor_cm=(-14266.271,6490.921,0.000) bounds_cm=(-14253.646,6502.850,82.620) offset_cm=(12.625,11.929,82.620)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:156][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Truck_C_2 id=76752 actor_cm=(-886.713,-3516.823,0.000) bounds_cm=(-923.420,-3501.118,150.445) offset_cm=(-36.707,15.705,150.445)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:156][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Bus_C_2 id=76750 actor_cm=(-2957.244,830.285,0.000) bounds_cm=(-2826.624,737.134,91.729) offset_cm=(130.620,-93.152,91.729)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:156][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Small_Car_C_3 id=76745 actor_cm=(-15149.573,9346.801,0.000) bounds_cm=(-15132.827,9351.410,82.620) offset_cm=(16.747,4.609,82.620)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:156][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Large_Car_C_3 id=76738 actor_cm=(-908.662,-831.977,0.000) bounds_cm=(-908.321,-830.740,80.977) offset_cm=(0.341,1.237,80.977)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:156][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Small_Car_C_4 id=76736 actor_cm=(21290.435,-10998.058,0.000) bounds_cm=(21295.004,-11014.816,82.620) offset_cm=(4.569,-16.758,82.620)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:156][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Truck_C_4 id=76734 actor_cm=(3801.377,-1591.802,0.000) bounds_cm=(3783.500,-1627.502,150.445) offset_cm=(-17.877,-35.700,150.445)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:156][  4]LogTemp: Warning: TASK13_ORIGIN actor=BP_Large_Car_C_4 id=76729 actor_cm=(17669.525,-3295.553,0.000) bounds_cm=(17668.948,-3296.699,80.977) offset_cm=(-0.577,-1.146,80.977)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:284][ 11]LogTemp: Warning: TASK13_ORIGIN actor=ue_visualizer_feature id=77091 actor_cm=(579.184,-3795.488,250.000) bounds_cm=(-331.446,-3420.522,423.648) offset_cm=(-910.630,374.965,173.648)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:284][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Small_Car_C_0 id=76795 actor_cm=(579.184,-3795.488,0.000) bounds_cm=(594.561,-3787.410,82.620) offset_cm=(15.377,8.077,82.620)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:284][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Truck_C_0 id=76770 actor_cm=(-7870.352,7411.594,0.000) bounds_cm=(-7834.102,7394.859,150.445) offset_cm=(36.249,-16.735,150.445)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:284][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Large_Car_C_0 id=76765 actor_cm=(-7740.579,6420.631,0.000) bounds_cm=(-7739.438,6420.044,80.977) offset_cm=(1.141,-0.587,80.977)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:284][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Small_Car_C_1 id=76763 actor_cm=(-7464.508,6311.033,0.000) bounds_cm=(-7454.695,6296.701,82.620) offset_cm=(9.814,-14.331,82.620)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:284][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Truck_C_1 id=76761 actor_cm=(-11985.447,6222.445,0.000) bounds_cm=(-11945.862,6217.236,150.445) offset_cm=(39.585,-5.209,150.445)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:284][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Bus_C_1 id=76759 actor_cm=(160.485,588.502,0.000) bounds_cm=(227.240,442.616,91.729) offset_cm=(66.755,-145.885,91.729)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:284][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Large_Car_C_1 id=76756 actor_cm=(-1255.845,-1387.340,0.000) bounds_cm=(-1254.683,-1387.883,80.977) offset_cm=(1.162,-0.544,80.977)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:284][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Small_Car_C_2 id=76754 actor_cm=(-14266.271,6490.921,0.000) bounds_cm=(-14253.646,6502.850,82.620) offset_cm=(12.625,11.929,82.620)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:285][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Truck_C_2 id=76752 actor_cm=(-886.713,-3516.823,0.000) bounds_cm=(-923.420,-3501.118,150.445) offset_cm=(-36.707,15.705,150.445)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:285][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Bus_C_2 id=76750 actor_cm=(-2957.244,830.285,0.000) bounds_cm=(-2826.624,737.134,91.729) offset_cm=(130.620,-93.152,91.729)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:285][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Small_Car_C_3 id=76745 actor_cm=(-15149.573,9346.801,0.000) bounds_cm=(-15132.827,9351.410,82.620) offset_cm=(16.747,4.609,82.620)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:285][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Large_Car_C_3 id=76738 actor_cm=(-908.662,-831.977,0.000) bounds_cm=(-908.321,-830.740,80.977) offset_cm=(0.341,1.237,80.977)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:285][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Small_Car_C_4 id=76736 actor_cm=(21290.435,-10998.058,0.000) bounds_cm=(21295.004,-11014.816,82.620) offset_cm=(4.569,-16.758,82.620)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:285][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Truck_C_4 id=76734 actor_cm=(3801.377,-1591.802,0.000) bounds_cm=(3783.500,-1627.502,150.445) offset_cm=(-17.877,-35.700,150.445)
+FILE: E:\GEMSTAR_Project\gemstar\Saved\Logs\GEMSTAR.log
+[2026.10.28-21.07.09:285][ 11]LogTemp: Warning: TASK13_ORIGIN actor=BP_Large_Car_C_4 id=76729 actor_cm=(17669.525,-3295.553,0.000) bounds_cm=(17668.948,-3296.699,80.977) offset_cm=(-0.577,-1.146,80.977)

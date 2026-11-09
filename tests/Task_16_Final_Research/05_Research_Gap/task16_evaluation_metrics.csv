@@ -1,0 +1,8 @@
+﻿"MetricID","Metric","Unit","Measurement","Direction","Threshold"
+"M01","Energy per frame","J/frame","Measured total platform energy divided by processed frames","Lower is better","TBD after baseline and hardware measurements"
+"M02","End-to-end latency","ms","Sensor input timestamp to validated perception output","Lower is better","TBD from application requirements"
+"M03","Tracking position error","m","Position difference between tracked objects and aligned ground truth","Lower is better","TBD from baseline tracking performance"
+"M04","Deadline miss rate","%","Number of deadline violations divided by evaluated frames","Lower is better","TBD from real-time requirements"
+"M05","Scheduling overhead","ms/decision","Measured scheduler decision time","Lower is better","TBD after scheduler implementation"
+"M06","Hardware transition overhead","ms/transition","Measured data transfer, synchronization and reconfiguration delay","Lower is better","TBD after hardware implementation"
+"M07","Uncertainty calibration","Calibration metric","Compare predicted uncertainty with observed errors or outcomes","Better calibration is preferred","TBD after uncertainty model validation"

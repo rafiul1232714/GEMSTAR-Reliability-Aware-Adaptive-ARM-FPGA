@@ -1,0 +1,8 @@
+﻿"PaperID","Feature","Finding","EvidencePage","EvidenceStatus"
+"CR001","Tri-sensor perception","Camera LiDAR and Radar used","3-5","VERIFIED"
+"CR001","ARM CPU and FPGA","ARM CPU hosts control and fusion; FPGA DPU performs inference","3-4","VERIFIED"
+"CR001","Dynamic reconfiguration","Context-based model branch and sensor activation","3-4","VERIFIED"
+"CR001","Energy optimization","Joint optimization of energy and object detection performance","2-5","VERIFIED"
+"CR001","Tracking uncertainty constraint","Tracking covariance constraint not demonstrated in reviewed formulation","2-5","REVIEWED_NOT_DEMONSTRATED"
+"CR001","Dynamic ARM-FPGA operator placement","Operator-level CPU versus FPGA assignment not demonstrated","3-5","REVIEWED_NOT_DEMONSTRATED"
+"CR001","Hardware measurement","Kria KV260 used for latency and energy experiments","4-5","VERIFIED"

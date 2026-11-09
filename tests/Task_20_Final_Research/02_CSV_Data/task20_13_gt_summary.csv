@@ -1,0 +1,6 @@
+Recording,Frames,MovingObjectEntries,StationaryObjectEntries,UniqueKindIDPairs
+baseline_clear,100,308,176,181
+baseline_fog_working_radar,100,334,176,181
+fog_mor100,100,321,176,181
+fog_postfix_validation,100,306,176,181
+task05_fog_test,100,391,176,182

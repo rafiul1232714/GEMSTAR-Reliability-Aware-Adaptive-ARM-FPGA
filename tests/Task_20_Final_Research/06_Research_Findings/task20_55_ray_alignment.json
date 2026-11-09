@@ -1,0 +1,95 @@
+{
+  "Task": "20.55",
+  "TargetID": 76765,
+  "Frames": [
+    95,
+    96,
+    97,
+    98,
+    99
+  ],
+  "Results": [
+    {
+      "Frame": 95,
+      "ObjectID": 76765,
+      "RadarIndex": 0,
+      "TargetCenterRangeM": 29.84184,
+      "TargetAzimuthDeg": -3.2804,
+      "TargetElevationDeg": 0.0188,
+      "NearestRayIndex": 54,
+      "RayAzimuthDeg": -5.0,
+      "RayElevationDeg": 1.1111,
+      "AngularSeparationDeg": 2.0372,
+      "NearestRayRangeM": "",
+      "NearestRaySignal": 0.0,
+      "NearestRayPositiveReturn": false
+    },
+    {
+      "Frame": 96,
+      "ObjectID": 76765,
+      "RadarIndex": 0,
+      "TargetCenterRangeM": 28.9273,
+      "TargetAzimuthDeg": -2.8528,
+      "TargetElevationDeg": 0.0194,
+      "NearestRayIndex": 54,
+      "RayAzimuthDeg": -5.0,
+      "RayElevationDeg": 1.1111,
+      "AngularSeparationDeg": 2.4088,
+      "NearestRayRangeM": "",
+      "NearestRaySignal": 0.0,
+      "NearestRayPositiveReturn": false
+    },
+    {
+      "Frame": 97,
+      "ObjectID": 76765,
+      "RadarIndex": 0,
+      "TargetCenterRangeM": 28.61887,
+      "TargetAzimuthDeg": -2.3237,
+      "TargetElevationDeg": 0.0196,
+      "NearestRayIndex": 54,
+      "RayAzimuthDeg": -5.0,
+      "RayElevationDeg": 1.1111,
+      "AngularSeparationDeg": 2.8904,
+      "NearestRayRangeM": "",
+      "NearestRaySignal": 0.0,
+      "NearestRayPositiveReturn": false
+    },
+    {
+      "Frame": 98,
+      "ObjectID": 76765,
+      "RadarIndex": 0,
+      "TargetCenterRangeM": 28.02944,
+      "TargetAzimuthDeg": -2.4645,
+      "TargetElevationDeg": 0.02,
+      "NearestRayIndex": 54,
+      "RayAzimuthDeg": -5.0,
+      "RayElevationDeg": 1.1111,
+      "AngularSeparationDeg": 2.7603,
+      "NearestRayRangeM": "",
+      "NearestRaySignal": 0.0,
+      "NearestRayPositiveReturn": false
+    },
+    {
+      "Frame": 99,
+      "ObjectID": 76765,
+      "RadarIndex": 0,
+      "TargetCenterRangeM": 27.14886,
+      "TargetAzimuthDeg": -2.1161,
+      "TargetElevationDeg": 0.0206,
+      "NearestRayIndex": 54,
+      "RayAzimuthDeg": -5.0,
+      "RayElevationDeg": 1.1111,
+      "AngularSeparationDeg": 3.0832,
+      "NearestRayRangeM": "",
+      "NearestRaySignal": 0.0,
+      "NearestRayPositiveReturn": false
+    }
+  ],
+  "Limitations": [
+    "GT target centres are not collision surfaces",
+    "Nearest angular ray may hit another object",
+    "Coordinate transform requires independent validation",
+    "GT pose timing uncertainty remains"
+  ],
+  "DetectionAccuracyValidated": false
+}

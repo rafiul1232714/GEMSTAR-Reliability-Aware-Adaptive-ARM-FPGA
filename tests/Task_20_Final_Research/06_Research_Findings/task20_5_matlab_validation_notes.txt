@@ -1,0 +1,7 @@
+TASK 20.5 MATLAB VALIDATION
+Candidate returns: 12025
+All numeric checks pass: 1
+Coordinate convention verified: NO
+Ground-truth accuracy verified: NO
+FPGA energy measured: NO
+This is cross-language numerical consistency.

@@ -1,0 +1,564 @@
+﻿==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 54
+
+   46: 
+   47: void ASimpleLidar::GetScanData() {
+   48: 
+   49: 	// Get owner's location and rotation
+   50: 	const FVector LidarPosition = this->GetActorLocation();
+   51: 	const FRotator LidarRotation = this->GetActorRotation();
+   52: 
+   53: 	// Initialize array for raycast result
+   54: 	Sensor.RecordedHits.Init(FHitResultAndIntesity(), Sensor.Number_of_rays_horizontal * Sensor.Number_of_rays_vertical);
+   55: 
+   56: 	// Calculate batch size for 'ParallelFor' based on workable thread
+   57: 	const int32 ThreadNum = FPlatformMisc::NumberOfWorkerThreadsToSpawn();
+   58: 	const int32 DivideEnd = FMath::FloorToInt((float)(Sensor.RecordedHits.Num() / ThreadNum));
+   59: 
+   60: 	ParallelFor(
+   61: 		ThreadNum,
+   62: 		[&](int32 PFIndex)
+   63: 		{
+   64: 			int32 StartAt = PFIndex * DivideEnd;
+   65: 			if (StartAt >= Sensor.RecordedHits.Num()) {
+   66: 				return;
+   67: 			}
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 75
+
+   67: 			}
+   68: 
+   69: 			int32 EndAt = StartAt + DivideEnd;
+   70: 			if (PFIndex == (ThreadNum - 1)) {
+   71: 				EndAt = Sensor.RecordedHits.Num();
+   72: 			}
+   73: 
+   74: 			for (int32 Index = StartAt; Index < EndAt; ++Index) {
+   75: 				const float HAngle = Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal];
+   76: 				const float VAngle = Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal];
+   77: 
+   78: 				FRotator LaserRotation(FMath::RadiansToDegrees(VAngle), FMath::RadiansToDegrees(HAngle), 0.f);
+   79: 				FRotator Rotation = UKismetMathLibrary::ComposeRotators(LaserRotation, LidarRotation);
+   80: 
+   81: 				FVector EndPoint = LidarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+   82: 
+   83: 				GetWorld()->LineTraceSingleByChannel(
+   84: 					Sensor.RecordedHits[Index].HitResult, LidarPosition, EndPoint, ECC_Visibility, TraceParams, FCollisionResponseParams::DefaultResponseParam);
+   85: 				if (Sensor.RecordedHits[Index].HitResult.bBlockingHit) {
+   86: 					Sensor.RecordedHits[Index].Intesity = ComputeLidarSignalStrength(Sensor.RecordedHits[Index].HitResult);
+   87: 				}
+   88: 			}
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 76
+
+   68: 
+   69: 			int32 EndAt = StartAt + DivideEnd;
+   70: 			if (PFIndex == (ThreadNum - 1)) {
+   71: 				EndAt = Sensor.RecordedHits.Num();
+   72: 			}
+   73: 
+   74: 			for (int32 Index = StartAt; Index < EndAt; ++Index) {
+   75: 				const float HAngle = Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal];
+   76: 				const float VAngle = Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal];
+   77: 
+   78: 				FRotator LaserRotation(FMath::RadiansToDegrees(VAngle), FMath::RadiansToDegrees(HAngle), 0.f);
+   79: 				FRotator Rotation = UKismetMathLibrary::ComposeRotators(LaserRotation, LidarRotation);
+   80: 
+   81: 				FVector EndPoint = LidarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+   82: 
+   83: 				GetWorld()->LineTraceSingleByChannel(
+   84: 					Sensor.RecordedHits[Index].HitResult, LidarPosition, EndPoint, ECC_Visibility, TraceParams, FCollisionResponseParams::DefaultResponseParam);
+   85: 				if (Sensor.RecordedHits[Index].HitResult.bBlockingHit) {
+   86: 					Sensor.RecordedHits[Index].Intesity = ComputeLidarSignalStrength(Sensor.RecordedHits[Index].HitResult);
+   87: 				}
+   88: 			}
+   89: 		},
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 83
+
+   75: 				const float HAngle = Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal];
+   76: 				const float VAngle = Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal];
+   77: 
+   78: 				FRotator LaserRotation(FMath::RadiansToDegrees(VAngle), FMath::RadiansToDegrees(HAngle), 0.f);
+   79: 				FRotator Rotation = UKismetMathLibrary::ComposeRotators(LaserRotation, LidarRotation);
+   80: 
+   81: 				FVector EndPoint = LidarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+   82: 
+   83: 				GetWorld()->LineTraceSingleByChannel(
+   84: 					Sensor.RecordedHits[Index].HitResult, LidarPosition, EndPoint, ECC_Visibility, TraceParams, FCollisionResponseParams::DefaultResponseParam);
+   85: 				if (Sensor.RecordedHits[Index].HitResult.bBlockingHit) {
+   86: 					Sensor.RecordedHits[Index].Intesity = ComputeLidarSignalStrength(Sensor.RecordedHits[Index].HitResult);
+   87: 				}
+   88: 			}
+   89: 		},
+   90: 		!SupportMultithread
+   91: 	);
+   92: 
+   93: }
+   94: 
+   95: void ASimpleLidar::GenerateOSIMessage() {
+   96: 	delete Sensor.SensorView;
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 104
+
+   96: 	delete Sensor.SensorView;
+   97: 	Sensor.SensorView = new osi3::SensorView();
+   98: 	auto* lidarSensorView = Sensor.SensorView->add_lidar_sensor_view();
+   99: 	auto* viewConfiguration = lidarSensorView->mutable_view_configuration();
+  100: 	if (Sensor.SensorViewConfig != nullptr && Sensor.SensorViewConfig->lidar_sensor_view_configuration_size())
+  101: 		viewConfiguration->CopyFrom(Sensor.SensorViewConfig->lidar_sensor_view_configuration(0));
+  102: 
+  103: 	for (auto& hit : Sensor.RecordedHits) {
+  104: 		auto* reflection = lidarSensorView->add_reflection();
+  105: 		reflection->set_time_of_flight(2 * 0.01 * hit.HitResult.Distance / SPEED_OF_LIGHT);
+  106: 
+  107: 		osi3::Vector3d* normal_to_surface = reflection->mutable_normal_to_surface();
+  108: 		normal_to_surface->set_x(hit.HitResult.ImpactNormal.X);
+  109: 		normal_to_surface->set_y(-hit.HitResult.ImpactNormal.Y);
+  110: 		normal_to_surface->set_z(hit.HitResult.ImpactNormal.Z);
+  111: 		reflection->set_doppler_shift(0);
+  112: 		if (hit.HitResult.bBlockingHit) {
+  113: 			reflection->mutable_object_id()->set_value(hit.HitResult.GetActor()->GetUniqueID());
+  114: 			reflection->set_signal_strength(hit.Intesity);
+  115: 		}
+  116: 		else {
+  117: 			reflection->mutable_object_id()->set_value(UINT64_MAX);
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 105
+
+   97: 	Sensor.SensorView = new osi3::SensorView();
+   98: 	auto* lidarSensorView = Sensor.SensorView->add_lidar_sensor_view();
+   99: 	auto* viewConfiguration = lidarSensorView->mutable_view_configuration();
+  100: 	if (Sensor.SensorViewConfig != nullptr && Sensor.SensorViewConfig->lidar_sensor_view_configuration_size())
+  101: 		viewConfiguration->CopyFrom(Sensor.SensorViewConfig->lidar_sensor_view_configuration(0));
+  102: 
+  103: 	for (auto& hit : Sensor.RecordedHits) {
+  104: 		auto* reflection = lidarSensorView->add_reflection();
+  105: 		reflection->set_time_of_flight(2 * 0.01 * hit.HitResult.Distance / SPEED_OF_LIGHT);
+  106: 
+  107: 		osi3::Vector3d* normal_to_surface = reflection->mutable_normal_to_surface();
+  108: 		normal_to_surface->set_x(hit.HitResult.ImpactNormal.X);
+  109: 		normal_to_surface->set_y(-hit.HitResult.ImpactNormal.Y);
+  110: 		normal_to_surface->set_z(hit.HitResult.ImpactNormal.Z);
+  111: 		reflection->set_doppler_shift(0);
+  112: 		if (hit.HitResult.bBlockingHit) {
+  113: 			reflection->mutable_object_id()->set_value(hit.HitResult.GetActor()->GetUniqueID());
+  114: 			reflection->set_signal_strength(hit.Intesity);
+  115: 		}
+  116: 		else {
+  117: 			reflection->mutable_object_id()->set_value(UINT64_MAX);
+  118: 			reflection->set_signal_strength(0.0);
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 216
+
+  208: 
+  209: void ASimpleLidar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration)
+  210: {
+  211: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+  212: 	Sensor.SensorViewConfig->clear_lidar_sensor_view_configuration();
+  213: 	auto* conf = Sensor.SensorViewConfig->add_lidar_sensor_view_configuration();
+  214: 	conf->set_field_of_view_horizontal(SensorConfiguration.Lidar.FieldOfViewHorizontal);
+  215: 	conf->set_field_of_view_vertical(SensorConfiguration.Lidar.FieldOfViewVertical);
+  216: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Lidar.NumberOfRaysHorizontal);
+  217: 	conf->set_number_of_rays_vertical(SensorConfiguration.Lidar.NumberOfRaysVertical);
+  218: 	conf->mutable_mounting_position()->set_allocated_position(
+  219: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+  220: 	conf->mutable_mounting_position()->set_allocated_orientation(
+  221: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  222: 	Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+  223: 
+  224: 	//calculate angles
+  225: 	Sensor.AzimuthAngles.Empty();
+  226: 	Sensor.ElevationAngles.Empty();
+  227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+  228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  229: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 217
+
+  209: void ASimpleLidar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration)
+  210: {
+  211: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+  212: 	Sensor.SensorViewConfig->clear_lidar_sensor_view_configuration();
+  213: 	auto* conf = Sensor.SensorViewConfig->add_lidar_sensor_view_configuration();
+  214: 	conf->set_field_of_view_horizontal(SensorConfiguration.Lidar.FieldOfViewHorizontal);
+  215: 	conf->set_field_of_view_vertical(SensorConfiguration.Lidar.FieldOfViewVertical);
+  216: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Lidar.NumberOfRaysHorizontal);
+  217: 	conf->set_number_of_rays_vertical(SensorConfiguration.Lidar.NumberOfRaysVertical);
+  218: 	conf->mutable_mounting_position()->set_allocated_position(
+  219: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+  220: 	conf->mutable_mounting_position()->set_allocated_orientation(
+  221: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  222: 	Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+  223: 
+  224: 	//calculate angles
+  225: 	Sensor.AzimuthAngles.Empty();
+  226: 	Sensor.ElevationAngles.Empty();
+  227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+  228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  229: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+  230: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 227
+
+  219: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+  220: 	conf->mutable_mounting_position()->set_allocated_orientation(
+  221: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  222: 	Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+  223: 
+  224: 	//calculate angles
+  225: 	Sensor.AzimuthAngles.Empty();
+  226: 	Sensor.ElevationAngles.Empty();
+  227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+  228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  229: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+  230: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  231: 	}
+  232: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_vertical();
+  233: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+  234: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical()
+  235: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+  236: 	}
+  237: }
+  238: 
+  239: void ASimpleLidar::CreateTestConfig() {
+  240: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 228
+
+  220: 	conf->mutable_mounting_position()->set_allocated_orientation(
+  221: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  222: 	Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+  223: 
+  224: 	//calculate angles
+  225: 	Sensor.AzimuthAngles.Empty();
+  226: 	Sensor.ElevationAngles.Empty();
+  227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+  228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  229: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+  230: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  231: 	}
+  232: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_vertical();
+  233: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+  234: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical()
+  235: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+  236: 	}
+  237: }
+  238: 
+  239: void ASimpleLidar::CreateTestConfig() {
+  240: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+  241: 	Sensor.SensorViewConfig->set_range(Range);
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 230
+
+  222: 	Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+  223: 
+  224: 	//calculate angles
+  225: 	Sensor.AzimuthAngles.Empty();
+  226: 	Sensor.ElevationAngles.Empty();
+  227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+  228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  229: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+  230: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  231: 	}
+  232: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_vertical();
+  233: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+  234: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical()
+  235: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+  236: 	}
+  237: }
+  238: 
+  239: void ASimpleLidar::CreateTestConfig() {
+  240: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+  241: 	Sensor.SensorViewConfig->set_range(Range);
+  242: }
+  243: 
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 232
+
+  224: 	//calculate angles
+  225: 	Sensor.AzimuthAngles.Empty();
+  226: 	Sensor.ElevationAngles.Empty();
+  227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+  228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  229: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+  230: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  231: 	}
+  232: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_vertical();
+  233: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+  234: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical()
+  235: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+  236: 	}
+  237: }
+  238: 
+  239: void ASimpleLidar::CreateTestConfig() {
+  240: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+  241: 	Sensor.SensorViewConfig->set_range(Range);
+  242: }
+  243: 
+  244: void ASimpleLidar::ShowSensorDebugInformation() {
+  245: 	int noHitCounter = 0;
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 233
+
+  225: 	Sensor.AzimuthAngles.Empty();
+  226: 	Sensor.ElevationAngles.Empty();
+  227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+  228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  229: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+  230: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  231: 	}
+  232: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_vertical();
+  233: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+  234: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical()
+  235: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+  236: 	}
+  237: }
+  238: 
+  239: void ASimpleLidar::CreateTestConfig() {
+  240: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+  241: 	Sensor.SensorViewConfig->set_range(Range);
+  242: }
+  243: 
+  244: void ASimpleLidar::ShowSensorDebugInformation() {
+  245: 	int noHitCounter = 0;
+  246: 	for (auto& hit : Sensor.RecordedHits) {
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 235
+
+  227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+  228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  229: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+  230: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  231: 	}
+  232: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_vertical();
+  233: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+  234: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical()
+  235: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+  236: 	}
+  237: }
+  238: 
+  239: void ASimpleLidar::CreateTestConfig() {
+  240: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+  241: 	Sensor.SensorViewConfig->set_range(Range);
+  242: }
+  243: 
+  244: void ASimpleLidar::ShowSensorDebugInformation() {
+  245: 	int noHitCounter = 0;
+  246: 	for (auto& hit : Sensor.RecordedHits) {
+  247: 		if (hit.HitResult.bBlockingHit) {
+  248: 			if (bDebugRayTraces)
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp
+MATCH LINE: 68
+
+   60: 		// ROADVIEW regression to convert precipitation intensity to equivalent MOR value
+   61: 		const double equivalentMOR = -0.8308 * WeatherData.WeatherState.PrecipitationIntensity + 159.16;
+   62: 		return FMath::Max(0.0, equivalentMOR);
+   63: 	}
+   64: 
+   65: 	return 0.0;
+   66: }
+   67: 
+   68: double LidarWeatherEffectModel::CalculateDistanceFromTimeOfFlight(double TimeOfFlight) const {
+   69: 
+   70: 	return 0.5 * TimeOfFlight * SpeedOfLight;
+   71: }
+   72: 
+   73: bool LidarWeatherEffectModel::ShouldReflectionDisappear(double Distanc, double VanishingDistance) const {
+   74: 	return Distanc > VanishingDistance;
+   75: }
+   76: 
+   77: double LidarWeatherEffectModel::GetSensorWeatherParameterAsDouble(const FWeatherData& WeatherData, const FName& Parameterkey, double DefaultValue) const {
+   78: 
+   79: 	FString ParameterMapKey = BuildLidarWeatherParameterkey(Parameterkey);
+   80: 
+   81: 	const FString* Value = WeatherData.SensorWeatherParameters.Find(ParameterMapKey);
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp
+MATCH LINE: 70
+
+   62: 		return FMath::Max(0.0, equivalentMOR);
+   63: 	}
+   64: 
+   65: 	return 0.0;
+   66: }
+   67: 
+   68: double LidarWeatherEffectModel::CalculateDistanceFromTimeOfFlight(double TimeOfFlight) const {
+   69: 
+   70: 	return 0.5 * TimeOfFlight * SpeedOfLight;
+   71: }
+   72: 
+   73: bool LidarWeatherEffectModel::ShouldReflectionDisappear(double Distanc, double VanishingDistance) const {
+   74: 	return Distanc > VanishingDistance;
+   75: }
+   76: 
+   77: double LidarWeatherEffectModel::GetSensorWeatherParameterAsDouble(const FWeatherData& WeatherData, const FName& Parameterkey, double DefaultValue) const {
+   78: 
+   79: 	FString ParameterMapKey = BuildLidarWeatherParameterkey(Parameterkey);
+   80: 
+   81: 	const FString* Value = WeatherData.SensorWeatherParameters.Find(ParameterMapKey);
+   82: 
+   83: 	if (!Value) {
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp
+MATCH LINE: 217
+
+  209: 			}
+  210: 			++TotalReflections;
+  211: 
+  212: 			const double SignalStrength = Reflection->signal_strength();
+  213: 			if (SignalStrength <= 0.0) {
+  214: 				continue;
+  215: 			}
+  216: 
+  217: 			const double Distance = CalculateDistanceFromTimeOfFlight(Reflection->time_of_flight());
+  218: 			const double Reflectivity = SignalStrength * 100.0;
+  219: 
+  220: 			const double LidarPointsVanishingDistance = CalculateVanishingDistance(ActiveWeatherType, Reflectivity, ReflectivityThreshold, WeatherData);
+  221: 			if (LidarPointsVanishingDistance <= 0.0) {
+  222: 				continue;
+  223: 			}
+  224: 
+  225: 			MaxDis = FMath::Max(MaxDis, Distance);
+  226: 			MinDisVanishing = FMath::Min(MinDisVanishing, LidarPointsVanishingDistance);
+  227: 			MaxDisVanishing = FMath::Max(MaxDisVanishing, LidarPointsVanishingDistance);
+  228: 
+  229: 
+  230: 			if (ShouldReflectionDisappear(Distance, LidarPointsVanishingDistance)) {
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\SimpleLidar.h
+MATCH LINE: 25
+
+   17: #include "PhysicsPublic.h"
+   18: #include "Sensors/GemstarSensor.h"
+   19: #include "Utils/ToOSI.h"
+   20: #include "LidarLog.h"
+   21: #include "osi_sensorview.pb.h"
+   22: #include "osi_sensorviewconfiguration.pb.h"
+   23: #include "SimpleLidar.generated.h"
+   24: 
+   25: constexpr float SPEED_OF_LIGHT = 299705543.0f; //in m/s in air 299792458.0f in vakuum;
+   26: 
+   27: USTRUCT()
+   28: struct FHitResultAndIntesity
+   29: {
+   30: 	GENERATED_BODY()
+   31: public:
+   32: 	FHitResult HitResult;
+   33: 	float Intesity = 0.f;
+   34: };
+   35: 
+   36: USTRUCT()
+   37: struct FSimpleLidarConfiguration
+   38: {
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\SimpleLidar.h
+MATCH LINE: 47
+
+   39: 	GENERATED_BODY()
+   40: 
+   41: public:
+   42: 	//packed config
+   43: 	osi3::SensorViewConfiguration* SensorViewConfig = nullptr;
+   44: 	//prepared configuration
+   45: 	TArray<float> AzimuthAngles;
+   46: 	TArray<float> ElevationAngles;
+   47: 	uint32_t Number_of_rays_horizontal = 0;
+   48: 	uint32_t Number_of_rays_vertical = 0;
+   49: 	//raw results
+   50: 	TArray<FHitResultAndIntesity> RecordedHits;
+   51: 	//packed results
+   52: 	osi3::SensorView* SensorView = nullptr;
+   53: };
+   54: 
+   55: UCLASS()
+   56: class UE_LIDAR_FEATURERUNTIME_API ASimpleLidar : public AGemstarSensor
+   57: {
+   58: 	GENERATED_BODY()
+   59: 
+   60: public:
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\SimpleLidar.h
+MATCH LINE: 48
+
+   40: 
+   41: public:
+   42: 	//packed config
+   43: 	osi3::SensorViewConfiguration* SensorViewConfig = nullptr;
+   44: 	//prepared configuration
+   45: 	TArray<float> AzimuthAngles;
+   46: 	TArray<float> ElevationAngles;
+   47: 	uint32_t Number_of_rays_horizontal = 0;
+   48: 	uint32_t Number_of_rays_vertical = 0;
+   49: 	//raw results
+   50: 	TArray<FHitResultAndIntesity> RecordedHits;
+   51: 	//packed results
+   52: 	osi3::SensorView* SensorView = nullptr;
+   53: };
+   54: 
+   55: UCLASS()
+   56: class UE_LIDAR_FEATURERUNTIME_API ASimpleLidar : public AGemstarSensor
+   57: {
+   58: 	GENERATED_BODY()
+   59: 
+   60: public:
+   61: 	// Sets default values for this actor's properties
+
+==================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\Effects\LidarWeatherEffectModel.h
+MATCH LINE: 29
+
+   21: {
+   22: public:
+   23: 	void ApplyLidarWeatherEffect(osi3::SensorView& SensorView, const FWeatherData& WeatherData) const;
+   24: 
+   25: private:
+   26: 
+   27: 	void ApplyVanishingDistanceDegradation(osi3::SensorView& SensorView, const FWeatherData& WeatherData) const;
+   28: 	double GetVanishingSlope(const FName& WeatherType, double Reflectivity, double ReflectivityThreshold) const;
+   29: 	double CalculateDistanceFromTimeOfFlight(double TimeOfFlight) const;
+   30: 	double CalculateVanishingDistance(const FName& WeatherType, double Reflectivity, double ReflectivityThreshold, const FWeatherData& WeatherData) const;
+   31: 
+   32: 
+   33: 	bool ShouldReflectionDisappear(double Distanc, double VanishingDistance) const;
+   34: 	bool IsWeatherTypeAvailable(const FName& WeatherType, const FWeatherData& WeatherData) const;
+   35: 	bool DetermineActiveWeatherType(const FWeatherData& WeatherData, FName& OutActiveWeatherType) const;
+   36:     double GetSensorWeatherParameterAsDouble(const FWeatherData& WeatherData, const FName& Parameterkey, double DefaultValue) const;
+   37: 	double GetVisualRange(const FName& WeatherType, const FWeatherData& WeatherData) const;
+   38: 	FString BuildLidarWeatherParameterkey(const FName& Parameterkey) const;
+   39: };
+

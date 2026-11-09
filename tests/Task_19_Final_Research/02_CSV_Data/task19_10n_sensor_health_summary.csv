@@ -1,0 +1,4 @@
+Scenario,TotalFrames,InsufficientFrames,LowReturnReviewFrames,ProcessingAvailableFrames,LowReturnVoxelCriteriaPass,LowReturnVoxelCriteriaFail,OriginalRuleFailures
+baseline_clear,17,0,1,16,0,1,1
+baseline_fog_working_radar,16,0,1,15,0,1,2
+fog_postfix_validation,15,1,14,0,14,0,0

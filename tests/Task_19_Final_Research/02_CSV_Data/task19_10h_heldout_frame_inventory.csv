@@ -1,0 +1,9 @@
+FrameIndex,TotalRays,CandidatePoints,ROIPoints,UniqueObjectIDs,FrozenRuleDecision,CandidateCSV
+25,5271,2547,1913,5,Voxel-assisted,E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_19_Final_Research\08_Extracted_PointClouds\task19_10h_frame025_candidate_xyz.csv
+75,5271,2025,1871,3,Voxel-assisted,E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_19_Final_Research\08_Extracted_PointClouds\task19_10h_frame075_candidate_xyz.csv
+125,5271,2044,1922,4,Voxel-assisted,E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_19_Final_Research\08_Extracted_PointClouds\task19_10h_frame125_candidate_xyz.csv
+175,5271,2043,1922,4,Voxel-assisted,E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_19_Final_Research\08_Extracted_PointClouds\task19_10h_frame175_candidate_xyz.csv
+225,5271,2051,1821,5,Voxel-assisted,E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_19_Final_Research\08_Extracted_PointClouds\task19_10h_frame225_candidate_xyz.csv
+275,5271,2413,1814,6,Voxel-assisted,E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_19_Final_Research\08_Extracted_PointClouds\task19_10h_frame275_candidate_xyz.csv
+325,5271,2008,1850,3,Voxel-assisted,E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_19_Final_Research\08_Extracted_PointClouds\task19_10h_frame325_candidate_xyz.csv
+425,5271,3216,2992,4,Full-reference fallback,E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_19_Final_Research\08_Extracted_PointClouds\task19_10h_frame425_candidate_xyz.csv

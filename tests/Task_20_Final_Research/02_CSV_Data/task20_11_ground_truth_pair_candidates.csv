@@ -1,0 +1,7 @@
+Recording,GroundTruthFiles,SensorViewFiles,BothKindsPresent,TimestampAlignmentVerified
+baseline_clear,1,1,True,False
+baseline_fog,0,1,False,False
+baseline_fog_working_radar,1,1,True,False
+fog_mor100,1,1,True,False
+fog_postfix_validation,1,1,True,False
+task05_fog_test,1,1,True,False

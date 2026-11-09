@@ -1,0 +1,126 @@
+﻿
+================================================
+FILE: E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini
+  16: Mount=SensorPlatform_1
+  66: Mount=SensorPlatform_1
+ 105: Input=[ue_camera_feature:sensor1,ue_lidar_feature:sensor1,ue_radar_feature:sensor1]
+ 117: [ue_radar_feature:sensor1]
+ 118: ;Debug=true
+ 119: 
+ 120: ; Mount Radar on the same moving vehicle
+ 121: Mount=SensorPlatform_1
+ 122: 
+ 123: ; Radar mounting position in centimeters
+ 124: MountingPositionX=200
+ 125: MountingPositionY=0
+ 126: MountingPositionZ=80
+ 127: 
+ 128: ; Forward-facing orientation
+ 129: MountingOrientationRoll=0
+ 130: MountingOrientationPitch=0
+ 131: MountingOrientationYaw=0
+ 132: 
+ 133: ; Radar ray configuration
+ 134: NumberOfRaysHorizontal=10
+ 135: NumberOfRaysVertical=10
+ 136: 
+ 137: FoVHorizontal=90
+ 138: FoVVertical=20
+ 139: 
+ 140: ;DistanceHalfFalloff=30
+ 141: 
+ 142: 
+ 143: ; =========================================================
+ 144: ; SUMO TRAFFIC SIMULATION
+ 145: ; =========================================================
+ 146: 
+ 166: SensorPlatform_1=0
+ 169: SensorPlatform_2=other
+ 172: StaticSensorPlatform=GEMSTAR_Root
+
+================================================
+FILE: E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar_backup.ini
+   4: Mount=SensorPlatform_1
+  43: Mount=SensorPlatform_1
+  75: [ue_radar_feature:sensor1]
+  76: ;Mount=SensorPlatform_1
+  77: MountingPositionX=1940
+  78: MountingPositionY=-2650
+  79: MountingPositionZ=250
+  80: MountingOrientationRoll=0
+  81: MountingOrientationPitch=0
+  82: MountingOrientationYaw=0
+  83: NumberOfRaysHorizontal=10
+  84: NumberOfRaysVertical=10
+  85: FoVHorizontal=90
+  86: FoVVertical=20
+  87: ;DistanceHalfFalloff=30
+  88: 
+  99: ;SensorPlatform_X is a platform to mount sensors on. It is the name of the vehicle within in the scenario.
+ 100: SensorPlatform_1=0
+ 101: SensorPlatform_2=other
+ 103: StaticSensorPlatform=GEMSTAR_Root
+
+================================================
+FILE: E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar_before_radar_test.ini
+   4: Mount=SensorPlatform_1
+  44: Mount=SensorPlatform_1
+  81: Input=[ue_camera_feature:sensor1,ue_lidar_feature:sensor1,ue_radar_feature:sensor1]
+  90: [ue_radar_feature:sensor1]
+  91: ;Mount=SensorPlatform_1
+  92: 
+  93: MountingPositionX=1940
+  94: MountingPositionY=-2650
+  95: MountingPositionZ=250
+  96: 
+  97: MountingOrientationRoll=0
+  98: MountingOrientationPitch=0
+  99: MountingOrientationYaw=0
+ 100: 
+ 101: NumberOfRaysHorizontal=10
+ 102: NumberOfRaysVertical=10
+ 103: 
+ 104: FoVHorizontal=90
+ 105: FoVVertical=20
+ 106: 
+ 107: ;DistanceHalfFalloff=30
+ 108: 
+ 109: 
+ 126: SensorPlatform_1=0
+ 127: SensorPlatform_2=other
+ 130: StaticSensorPlatform=GEMSTAR_Root
+
+================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Resources\GemstarRadarTest.ini
+   1: [ue_radar_feature:sensor1]
+   2: MountingPositionX=1940
+   3: MountingPositionY=-2650
+   4: MountingPositionZ=250
+   5: MountingOrientationRoll=0
+   6: MountingOrientationPitch=0
+   7: MountingOrientationYaw=0
+   8: NumberOfRaysHorizontal=10
+   9: NumberOfRaysVertical=10
+  10: FoVHorizontal=90
+  11: FoVVertical=20
+  12: Range=50
+  13: DistanceHalfFalloff=30
+  14: 
+  16: Input=[ue_radar_feature:sensor1]
+  23: Input=[ue_radar_feature:sensor1]
+
+================================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Resources\GemstarFeature.ini
+   1: [ue_radar_feature:sensor1]
+   2: ;Mount=SensorPlatform_1
+   3: MountingPositionX=1940
+   4: MountingPositionY=-2650
+   5: MountingPositionZ=250
+   6: MountingOrientationRoll=0
+   7: MountingOrientationPitch=0
+   8: MountingOrientationYaw=0
+   9: NumberOfRaysHorizontal=10
+  10: NumberOfRaysVertical=10
+  11: FoVHorizontal=90
+  12: FoVVertical=20
+  13: ;DistanceHalfFalloff=30

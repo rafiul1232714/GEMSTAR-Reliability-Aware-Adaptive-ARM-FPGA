@@ -1,0 +1,109 @@
+﻿TASK 20.21 - POSE TIMING AND ORIGIN SOURCE AUDIT
+Source matches: 53
+
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:34
+  void AVehicleManager::Tick(float DeltaTime)
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:261
+  base->SetActorTransform(Data.Position, false, nullptr, ETeleportType::TeleportPhysics);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\Vehicles\SV_VehicleBase.cpp:32
+  void ASV_VehicleBase::Tick(float DeltaTime)
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\Vehicles\SV_VehicleBaseExternal.cpp:27
+  oldPosition = GetActorLocation();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\Vehicles\SV_VehicleBaseExternal.cpp:33
+  void ASV_VehicleBaseExternal::Tick(float DeltaTime)
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\Vehicles\SV_VehicleBaseExternal.cpp:44
+  oldPosition = GetActorLocation();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\Vehicles\SV_VehicleBaseExternal.cpp:55
+  SetActorLocation(newPosition.GetLocation(), false, nullptr, ETeleportType::TeleportPhysics);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\Vehicles\SV_VehicleBaseExternal.cpp:73
+  return (GetActorLocation() - oldPosition) / DeltaTime;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:144
+  virtual void Tick(float DeltaTime) override;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\Vehicles\SV_VehicleBase.h:33
+  virtual void Tick(float DeltaTime) override;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\Vehicles\SV_VehicleBaseExternal.h:36
+  virtual void Tick(float DeltaTime) override;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Source\ue_sumo_featureRuntime\Private\SUMOManager.cpp:36
+  Target.Actor->AddTickPrerequisiteActor(this);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Source\ue_sumo_featureRuntime\Private\SUMOManager.cpp:111
+  void ASUMOManager::Tick(float DeltaTime)
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Source\ue_sumo_featureRuntime\Private\SUMOTester.cpp:25
+  void ASUMOTester::Tick(float DeltaTime)
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Source\ue_sumo_featureRuntime\Public\SUMOManager.h:59
+  virtual void Tick(float DeltaTime) override;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Source\ue_sumo_featureRuntime\Public\SUMOTester.h:35
+  virtual void Tick(float DeltaTime) override;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:28
+  Target.Actor->AddTickPrerequisiteActor(RadarActor);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:83
+  void ARadarSensorManager::Tick(float DeltaTime)
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:203
+  AddTickPrerequisiteActor(SpawnedActor);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:43
+  CubeActor = GetWorld()->SpawnActor<AStaticMeshActor>(GetActorLocation(), FRotator::ZeroRotator, SpawnParams);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:44
+  //TargetCubeActor = GetWorld()->SpawnActor<AStaticMeshActor>(GetActorLocation() + FVector(1000,-200,50), FRotator::ZeroRotator, SpawnParams);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:45
+  //TargetCube2Actor = GetWorld()->SpawnActor<AStaticMeshActor>(GetActorLocation() + FVector(-500, 100, 50), FRotator::ZeroRotator, SpawnParams);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:53
+  //CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(0, 0, 50));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:65
+  void ARadarSensorTester::Tick(float DeltaTime)
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:69
+  CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(1 * speedMultiplier, 0, 0));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:73
+  CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(0, 0, 0));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:76
+  //TargetCubeActor->SetActorLocation(TargetCubeActor->GetActorLocation() + FVector(0, 1, 0));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:79
+  //TargetCube2Actor->SetActorLocation(TargetCube2Actor->GetActorLocation() + FVector(3, 0, 0));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:25
+  oldPosition = GetActorLocation();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:33
+  void ASimpleRadar::Tick(float DeltaTime){
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:40
+  currentVelocity = (GetActorLocation() - oldPosition) / DeltaTime;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:41
+  oldPosition = GetActorLocation();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:57
+  const FVector RadarPosition = this->GetActorLocation();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:142
+  Parent = GetAttachParentActor();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:145
+  auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:148
+  moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\VelocitySource.cpp:28
+  void AVelocitySource::Tick(float DeltaTime)
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Public\RadarSensorManager.h:41
+  virtual void Tick(float DeltaTime) override;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Public\RadarSensorTester.h:44
+  virtual void Tick(float DeltaTime) override;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Public\SimpleRadar.h:87
+  virtual void Tick(float DeltaTime) override;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Public\VelocitySource.h:38
+  virtual void Tick(float DeltaTime) override;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp:49
+  void ALogManager::Tick(float DeltaTime)
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogTester.cpp:25
+  void ALogTester::Tick(float DeltaTime)
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogTester.h:37
+  virtual void Tick(float DeltaTime) override;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:72
+  auto vehicle = groundTruth.add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:136
+  auto pedestrian = groundTruth.add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:242
+  auto vehicle = groundTruth.add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:258
+  auto pedestrian = groundTruth.add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Public\LogManager.h:48
+  virtual void Tick(float DeltaTime) override;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Sensors\GemstarSensor.cpp:27
+  void AGemstarSensor::Tick(float DeltaTime)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Subsystems\GemstarSimulationSubsystem.cpp:200
+  void UGemstarSimulationSubsystem::Tick(float DeltaTime)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp:93
+  const FVector ActorOrigin = actor->GetActorLocation();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Public\Subsystems\GemstarSimulationSubsystem.h:97
+  virtual void Tick(float DeltaTime) override;

@@ -1,0 +1,16 @@
+Operation,CPUResponsibility,FPGACandidate,Priority
+OSI decoding,Initial implementation,Not initially proposed,Software
+XYZ data reception,Buffer ownership and control,DMA streaming interface,Infrastructure
+Valid return counting,Reference implementation,Optional streaming counter,Medium
+ROI filtering,Reference implementation,Candidate comparator pipeline,Medium
+Voxel indexing,Reference implementation,Candidate fixed-point indexing,Medium
+Voxel centroid aggregation,Reference implementation,Later research candidate,Later
+RANSAC sample selection,Initial implementation,Not in first accelerator,Software
+Plane hypothesis calculation,Initial implementation,Not in first accelerator,Software
+Point-to-plane distance,Reference implementation,First accelerator candidate,High
+Inlier counting,Reference implementation,First accelerator candidate,High
+SVD plane refinement,Initial implementation,Optional later accelerator,Software
+Ground classification,Reference implementation,First accelerator candidate,High
+Observability monitoring,Initial implementation,Optional lightweight flags,Medium
+Processing scheduler,Initial implementation,Not initially proposed,Software
+Latency and energy logging,Instrumentation and reporting,Counters only; board power external,High

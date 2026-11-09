@@ -1,0 +1,4 @@
+Scenario,TotalFrames,EvaluatedFrames,InsufficientDataFrames,RuleFullDecisions,RuleVoxelDecisions,VoxelFasterFrames,VoxelCriteriaPassFrames,RuleCriteriaFailFrames,MedianVoxelSpeedRatio,MedianVoxelAgreement,MedianRuleLatencyMs
+baseline_clear,17,17,0,4,13,16,14,1,1.60360849953807,99.129014697877,1.7036
+baseline_fog_working_radar,16,16,0,4,12,15,12,2,1.62849529493064,99.2903733693207,1.56025
+fog_postfix_validation,15,14,1,15,0,14,14,0,1.32379362469918,100,1.76385

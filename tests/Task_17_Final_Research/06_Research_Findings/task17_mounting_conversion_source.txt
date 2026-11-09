@@ -1,0 +1,81 @@
+﻿=== Camera ===
+File: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp
+145: {
+146:     auto* OsiCameraSensorView = StaticSensorView.add_camera_sensor_view();
+147:     auto* ViewConfiguration = OsiCameraSensorView->mutable_view_configuration();
+148:     auto* SensorId = ViewConfiguration->mutable_sensor_id();
+149: 
+150:     if (!SensorConfiguration.ID.IsNone())
+151:     {
+152:         SensorId->set_value(GetTypeHash(SensorConfiguration.ID));
+153:     }
+154: 
+155:     ViewConfiguration->set_allocated_mounting_position(
+156:         ToOSI::toMountingPosition(SensorConfiguration));
+157: 
+158:     ViewConfiguration->mutable_mounting_position()
+159:         ->set_allocated_orientation(
+160:             ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+161: 
+162:     ViewConfiguration->set_field_of_view_horizontal(
+163:         SensorConfiguration.Camera.FieldOfViewHorizontal);
+164: 
+165:     ViewConfiguration->set_field_of_view_vertical(
+166:         SensorConfiguration.Camera.FieldOfViewVertical);
+167: 
+168:     ViewConfiguration->set_number_of_pixels_vertical(
+169:         SensorConfiguration.Camera.NumberOfPixelsVertical);
+170: 
+
+=== LiDAR ===
+File: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+208: 
+209: void ASimpleLidar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration)
+210: {
+211: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+212: 	Sensor.SensorViewConfig->clear_lidar_sensor_view_configuration();
+213: 	auto* conf = Sensor.SensorViewConfig->add_lidar_sensor_view_configuration();
+214: 	conf->set_field_of_view_horizontal(SensorConfiguration.Lidar.FieldOfViewHorizontal);
+215: 	conf->set_field_of_view_vertical(SensorConfiguration.Lidar.FieldOfViewVertical);
+216: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Lidar.NumberOfRaysHorizontal);
+217: 	conf->set_number_of_rays_vertical(SensorConfiguration.Lidar.NumberOfRaysVertical);
+218: 	conf->mutable_mounting_position()->set_allocated_position(
+219: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+220: 	conf->mutable_mounting_position()->set_allocated_orientation(
+221: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+222: 	Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+223: 
+224: 	//calculate angles
+225: 	Sensor.AzimuthAngles.Empty();
+226: 	Sensor.ElevationAngles.Empty();
+227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+229: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+230: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+
+=== Radar ===
+File: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+170: }
+171: 
+172: void ASimpleRadar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) {
+173: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+174: 	Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+175: 	auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+176: 	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+177: 	conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+178: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Radar.NumberOfRaysHorizontal);
+179: 	conf->set_number_of_rays_vertical(SensorConfiguration.Radar.NumberOfRaysVertical);
+180: 	conf->mutable_mounting_position()->set_allocated_position(
+181: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+182: 	conf->mutable_mounting_position()->set_allocated_orientation(
+183: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+184: 	conf->set_emitter_frequency(77000000000.0); //in Hz
+185: 	//calculate angles
+186: 
+187: 	Sensor.AzimuthAngles.Empty();
+188: 	Sensor.ElevationAngles.Empty();
+189: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+190: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+191: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+192: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+

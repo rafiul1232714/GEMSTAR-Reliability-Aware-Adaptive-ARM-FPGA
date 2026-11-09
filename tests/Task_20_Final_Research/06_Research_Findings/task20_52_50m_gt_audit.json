@@ -1,0 +1,22 @@
+{
+  "Task": "20.52",
+  "SensorViewFramesRead": 100,
+  "GroundTruthFramesRead": 100,
+  "FrameZeroExcluded": true,
+  "ExactTimestampMatches": 99,
+  "TimestampMismatches": 0,
+  "FramesWithNestedHostID": 99,
+  "ExternalObjectEntries": 112,
+  "FramesWithExternalObjects": 69,
+  "ExternalUniqueIDs": 3,
+  "CandidateRadarReturnsFrames1To99": 5614,
+  "ModelReferences": {
+    "FollowVehicleCamera": 99,
+    "BP_Small_Car_C": 99,
+    "BP_Truck_C": 69,
+    "BP_Bus_C": 38,
+    "BP_Large_Car_C": 5
+  },
+  "ExternalObjectGroundTruthValidated": false,
+  "RadarObjectAssociationValidated": false
+}

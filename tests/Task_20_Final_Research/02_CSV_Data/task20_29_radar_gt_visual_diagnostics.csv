@@ -1,0 +1,5 @@
+Recording,Frame,RadarCandidatePoints,GTMovingObjects,MedianNearestMovingObjectCentreDistanceM,PlotSaved,Interpretation
+baseline_clear,10,30,2,7.005620058344419,True,Diagnostic only; not accuracy
+baseline_fog_working_radar,10,30,2,7.543637573407426,True,Diagnostic only; not accuracy
+fog_mor100,10,30,2,7.5436375734039105,True,Diagnostic only; not accuracy
+fog_postfix_validation,10,30,2,7.003961007066305,True,Diagnostic only; not accuracy

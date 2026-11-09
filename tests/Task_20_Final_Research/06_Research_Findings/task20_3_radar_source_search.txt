@@ -1,0 +1,955 @@
+﻿TASK 20.3 RADAR SOURCE SEARCH
+Generated: 2026-10-31 20:01:05
+
+RADAR DIRECTORIES
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Intermediate\Build\Win64\UnrealEditor\Inc\ue_radar_featureRuntime
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ue_radar_featureRuntime
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Intermediate\Build\Win64\x64\UnrealEditor\Development\ue_radar_featureRuntime
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime
+
+SOURCE MATCHES
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_SensorViewConfiguration.cpp:38 config.Offset = toTransform(sensorViewConfiguration.radar_sensor_view_configuration()[0].mounting_position());
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_SensorViewConfiguration.cpp:42 config.Offset = toTransform(sensorViewConfiguration.lidar_sensor_view_configuration()[0].mounting_position());
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_SensorViewConfiguration.cpp:46 config.Offset = toTransform(sensorViewConfiguration.camera_sensor_view_configuration()[0].mounting_position());
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Intermediate\Build\Win64\UnrealEditor\Inc\ue_radar_featureRuntime\UHT\SimpleRadar.gen.cpp:40 { "Comment", "//in m/s in air 299792458.0f in vakuum;\n" },
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Intermediate\Build\Win64\UnrealEditor\Inc\ue_radar_featureRuntime\UHT\SimpleRadar.gen.cpp:44 { "ToolTip", "in m/s in air 299792458.0f in vakuum;" },
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:115 reflection->set_time_of_flight(2 * 0.01 * hit.HitResult.Distance / SPEED_OF_LIGHT);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:118 reflection->set_doppler_shift(0);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:119 reflection->set_signal_strength(hit.Intesity);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:134 double frequency = viewConfiguration->emitter_frequency();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:135 double doppler_shift = 2 * (radialVelocity * 0.01) * frequency / SPEED_OF_LIGHT;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:136 reflection->set_doppler_shift(doppler_shift);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:138 //if (hitName.Contains("BP_Simple")) {UE_LOG(Radar, Log, TEXT("Hit_%d: %s, vHero= %s, vTarget= %s, vR= %.2f, dS= %.2f, sS= %.2f" ), Index, *hitName, *currentVelocity.ToCompactString(), *hitVelocity.ToCompactString(), radialVelocity, doppler_shift, hit.Intesity);}
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:180 conf->mutable_mounting_position()->set_allocated_position(
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:182 conf->mutable_mounting_position()->set_allocated_orientation(
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:184 conf->set_emitter_frequency(77000000000.0); //in Hz
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Public\SimpleRadar.h:25 constexpr float SPEED_OF_LIGHT = 299705543.0f; //in m/s in air 299792458.0f in vakuum;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:378 // optional .osi3.MountingPosition mounting_position = 4;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:379 bool has_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:381 bool _internal_has_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:383 void clear_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:384 const ::osi3::MountingPosition& mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:385 PROTOBUF_NODISCARD ::osi3::MountingPosition* release_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:386 ::osi3::MountingPosition* mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:387 void set_allocated_mounting_position(::osi3::MountingPosition* mounting_position);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:389 const ::osi3::MountingPosition& _internal_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:390 ::osi3::MountingPosition* _internal_mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:392 void unsafe_arena_set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:393 ::osi3::MountingPosition* mounting_position);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:394 ::osi3::MountingPosition* unsafe_arena_release_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:396 // optional .osi3.MountingPosition mounting_position_rmse = 5;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:397 bool has_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:399 bool _internal_has_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:401 void clear_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:402 const ::osi3::MountingPosition& mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:403 PROTOBUF_NODISCARD ::osi3::MountingPosition* release_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:404 ::osi3::MountingPosition* mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:405 void set_allocated_mounting_position_rmse(::osi3::MountingPosition* mounting_position_rmse);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:407 const ::osi3::MountingPosition& _internal_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:408 ::osi3::MountingPosition* _internal_mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:410 void unsafe_arena_set_allocated_mounting_position_rmse(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:411 ::osi3::MountingPosition* mounting_position_rmse);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:412 ::osi3::MountingPosition* unsafe_arena_release_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:486 ::osi3::MountingPosition* mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:487 ::osi3::MountingPosition* mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:796 // optional double signal_strength = 1;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:797 bool has_signal_strength() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:799 bool _internal_has_signal_strength() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:801 void clear_signal_strength();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:802 double signal_strength() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:803 void set_signal_strength(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:805 double _internal_signal_strength() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:806 void _internal_set_signal_strength(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:809 // optional double time_of_flight = 2;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:810 bool has_time_of_flight() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:812 bool _internal_has_time_of_flight() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:814 void clear_time_of_flight();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:815 double time_of_flight() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:816 void set_time_of_flight(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:818 double _internal_time_of_flight() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:819 void _internal_set_time_of_flight(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:822 // optional double doppler_shift = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:823 bool has_doppler_shift() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:825 bool _internal_has_doppler_shift() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:827 void clear_doppler_shift();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:828 double doppler_shift() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:829 void set_doppler_shift(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:831 double _internal_doppler_shift() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:832 void _internal_set_doppler_shift(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:871 double signal_strength_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:872 double time_of_flight_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:873 double doppler_shift_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1239 // optional double signal_strength = 1;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1240 bool has_signal_strength() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1242 bool _internal_has_signal_strength() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1244 void clear_signal_strength();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1245 double signal_strength() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1246 void set_signal_strength(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1248 double _internal_signal_strength() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1249 void _internal_set_signal_strength(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1252 // optional double time_of_flight = 2;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1253 bool has_time_of_flight() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1255 bool _internal_has_time_of_flight() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1257 void clear_time_of_flight();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1258 double time_of_flight() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1259 void set_time_of_flight(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1261 double _internal_time_of_flight() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1262 void _internal_set_time_of_flight(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1265 // optional double doppler_shift = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1266 bool has_doppler_shift() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1268 bool _internal_has_doppler_shift() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1270 void clear_doppler_shift();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1271 double doppler_shift() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1272 void set_doppler_shift(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1274 double _internal_doppler_shift() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1275 void _internal_set_doppler_shift(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1290 double signal_strength_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1291 double time_of_flight_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1292 double doppler_shift_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2106 // optional .osi3.MountingPosition mounting_position = 4;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2107 inline bool SensorView::_internal_has_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2109 PROTOBUF_ASSUME(!value || _impl_.mounting_position_ != nullptr);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2112 inline bool SensorView::has_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2113 return _internal_has_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2115 inline const ::osi3::MountingPosition& SensorView::_internal_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2116 const ::osi3::MountingPosition* p = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2120 inline const ::osi3::MountingPosition& SensorView::mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2121 // @@protoc_insertion_point(field_get:osi3.SensorView.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2122 return _internal_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2124 inline void SensorView::unsafe_arena_set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2125 ::osi3::MountingPosition* mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2127 delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2129 _impl_.mounting_position_ = mounting_position;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2130 if (mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2135 // @@protoc_insertion_point(field_unsafe_arena_set_allocated:osi3.SensorView.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2137 inline ::osi3::MountingPosition* SensorView::release_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2139 ::osi3::MountingPosition* temp = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2140 _impl_.mounting_position_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2152 inline ::osi3::MountingPosition* SensorView::unsafe_arena_release_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2153 // @@protoc_insertion_point(field_release:osi3.SensorView.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2155 ::osi3::MountingPosition* temp = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2156 _impl_.mounting_position_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2159 inline ::osi3::MountingPosition* SensorView::_internal_mutable_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2161 if (_impl_.mounting_position_ == nullptr) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2163 _impl_.mounting_position_ = p;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2165 return _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2167 inline ::osi3::MountingPosition* SensorView::mutable_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2168 ::osi3::MountingPosition* _msg = _internal_mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2169 // @@protoc_insertion_point(field_mutable:osi3.SensorView.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2172 inline void SensorView::set_allocated_mounting_position(::osi3::MountingPosition* mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2175 delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2177 if (mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2180 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mounting_position));
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2182 mounting_position = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2183 message_arena, mounting_position, submessage_arena);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2189 _impl_.mounting_position_ = mounting_position;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2190 // @@protoc_insertion_point(field_set_allocated:osi3.SensorView.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2193 // optional .osi3.MountingPosition mounting_position_rmse = 5;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2194 inline bool SensorView::_internal_has_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2196 PROTOBUF_ASSUME(!value || _impl_.mounting_position_rmse_ != nullptr);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2199 inline bool SensorView::has_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2200 return _internal_has_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2202 inline const ::osi3::MountingPosition& SensorView::_internal_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2203 const ::osi3::MountingPosition* p = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2207 inline const ::osi3::MountingPosition& SensorView::mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2208 // @@protoc_insertion_point(field_get:osi3.SensorView.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2209 return _internal_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2211 inline void SensorView::unsafe_arena_set_allocated_mounting_position_rmse(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2212 ::osi3::MountingPosition* mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2214 delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_rmse_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2216 _impl_.mounting_position_rmse_ = mounting_position_rmse;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2217 if (mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2222 // @@protoc_insertion_point(field_unsafe_arena_set_allocated:osi3.SensorView.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2224 inline ::osi3::MountingPosition* SensorView::release_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2226 ::osi3::MountingPosition* temp = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2227 _impl_.mounting_position_rmse_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2239 inline ::osi3::MountingPosition* SensorView::unsafe_arena_release_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2240 // @@protoc_insertion_point(field_release:osi3.SensorView.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2242 ::osi3::MountingPosition* temp = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2243 _impl_.mounting_position_rmse_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2246 inline ::osi3::MountingPosition* SensorView::_internal_mutable_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2248 if (_impl_.mounting_position_rmse_ == nullptr) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2250 _impl_.mounting_position_rmse_ = p;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2252 return _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2254 inline ::osi3::MountingPosition* SensorView::mutable_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2255 ::osi3::MountingPosition* _msg = _internal_mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2256 // @@protoc_insertion_point(field_mutable:osi3.SensorView.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2259 inline void SensorView::set_allocated_mounting_position_rmse(::osi3::MountingPosition* mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2262 delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_rmse_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2264 if (mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2267 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mounting_position_rmse));
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2269 mounting_position_rmse = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2270 message_arena, mounting_position_rmse, submessage_arena);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2276 _impl_.mounting_position_rmse_ = mounting_position_rmse;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2277 // @@protoc_insertion_point(field_set_allocated:osi3.SensorView.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2836 // optional double signal_strength = 1;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2837 inline bool RadarSensorView_Reflection::_internal_has_signal_strength() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2841 inline bool RadarSensorView_Reflection::has_signal_strength() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2842 return _internal_has_signal_strength();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2844 inline void RadarSensorView_Reflection::clear_signal_strength() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2845 _impl_.signal_strength_ = 0;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2848 inline double RadarSensorView_Reflection::_internal_signal_strength() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2849 return _impl_.signal_strength_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2851 inline double RadarSensorView_Reflection::signal_strength() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2852 // @@protoc_insertion_point(field_get:osi3.RadarSensorView.Reflection.signal_strength)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2853 return _internal_signal_strength();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2855 inline void RadarSensorView_Reflection::_internal_set_signal_strength(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2857 _impl_.signal_strength_ = value;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2859 inline void RadarSensorView_Reflection::set_signal_strength(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2860 _internal_set_signal_strength(value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2861 // @@protoc_insertion_point(field_set:osi3.RadarSensorView.Reflection.signal_strength)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2864 // optional double time_of_flight = 2;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2865 inline bool RadarSensorView_Reflection::_internal_has_time_of_flight() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2869 inline bool RadarSensorView_Reflection::has_time_of_flight() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2870 return _internal_has_time_of_flight();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2872 inline void RadarSensorView_Reflection::clear_time_of_flight() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2873 _impl_.time_of_flight_ = 0;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2876 inline double RadarSensorView_Reflection::_internal_time_of_flight() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2877 return _impl_.time_of_flight_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2879 inline double RadarSensorView_Reflection::time_of_flight() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2880 // @@protoc_insertion_point(field_get:osi3.RadarSensorView.Reflection.time_of_flight)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2881 return _internal_time_of_flight();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2883 inline void RadarSensorView_Reflection::_internal_set_time_of_flight(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2885 _impl_.time_of_flight_ = value;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2887 inline void RadarSensorView_Reflection::set_time_of_flight(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2888 _internal_set_time_of_flight(value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2889 // @@protoc_insertion_point(field_set:osi3.RadarSensorView.Reflection.time_of_flight)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2892 // optional double doppler_shift = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2893 inline bool RadarSensorView_Reflection::_internal_has_doppler_shift() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2897 inline bool RadarSensorView_Reflection::has_doppler_shift() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2898 return _internal_has_doppler_shift();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2900 inline void RadarSensorView_Reflection::clear_doppler_shift() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2901 _impl_.doppler_shift_ = 0;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2904 inline double RadarSensorView_Reflection::_internal_doppler_shift() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2905 return _impl_.doppler_shift_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2907 inline double RadarSensorView_Reflection::doppler_shift() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2908 // @@protoc_insertion_point(field_get:osi3.RadarSensorView.Reflection.doppler_shift)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2909 return _internal_doppler_shift();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2911 inline void RadarSensorView_Reflection::_internal_set_doppler_shift(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2913 _impl_.doppler_shift_ = value;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2915 inline void RadarSensorView_Reflection::set_doppler_shift(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2916 _internal_set_doppler_shift(value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2917 // @@protoc_insertion_point(field_set:osi3.RadarSensorView.Reflection.doppler_shift)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3111 // optional double signal_strength = 1;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3112 inline bool LidarSensorView_Reflection::_internal_has_signal_strength() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3116 inline bool LidarSensorView_Reflection::has_signal_strength() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3117 return _internal_has_signal_strength();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3119 inline void LidarSensorView_Reflection::clear_signal_strength() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3120 _impl_.signal_strength_ = 0;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3123 inline double LidarSensorView_Reflection::_internal_signal_strength() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3124 return _impl_.signal_strength_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3126 inline double LidarSensorView_Reflection::signal_strength() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3127 // @@protoc_insertion_point(field_get:osi3.LidarSensorView.Reflection.signal_strength)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3128 return _internal_signal_strength();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3130 inline void LidarSensorView_Reflection::_internal_set_signal_strength(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3132 _impl_.signal_strength_ = value;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3134 inline void LidarSensorView_Reflection::set_signal_strength(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3135 _internal_set_signal_strength(value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3136 // @@protoc_insertion_point(field_set:osi3.LidarSensorView.Reflection.signal_strength)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3139 // optional double time_of_flight = 2;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3140 inline bool LidarSensorView_Reflection::_internal_has_time_of_flight() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3144 inline bool LidarSensorView_Reflection::has_time_of_flight() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3145 return _internal_has_time_of_flight();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3147 inline void LidarSensorView_Reflection::clear_time_of_flight() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3148 _impl_.time_of_flight_ = 0;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3151 inline double LidarSensorView_Reflection::_internal_time_of_flight() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3152 return _impl_.time_of_flight_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3154 inline double LidarSensorView_Reflection::time_of_flight() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3155 // @@protoc_insertion_point(field_get:osi3.LidarSensorView.Reflection.time_of_flight)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3156 return _internal_time_of_flight();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3158 inline void LidarSensorView_Reflection::_internal_set_time_of_flight(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3160 _impl_.time_of_flight_ = value;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3162 inline void LidarSensorView_Reflection::set_time_of_flight(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3163 _internal_set_time_of_flight(value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3164 // @@protoc_insertion_point(field_set:osi3.LidarSensorView.Reflection.time_of_flight)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3167 // optional double doppler_shift = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3168 inline bool LidarSensorView_Reflection::_internal_has_doppler_shift() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3172 inline bool LidarSensorView_Reflection::has_doppler_shift() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3173 return _internal_has_doppler_shift();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3175 inline void LidarSensorView_Reflection::clear_doppler_shift() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3176 _impl_.doppler_shift_ = 0;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3179 inline double LidarSensorView_Reflection::_internal_doppler_shift() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3180 return _impl_.doppler_shift_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3182 inline double LidarSensorView_Reflection::doppler_shift() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3183 // @@protoc_insertion_point(field_get:osi3.LidarSensorView.Reflection.doppler_shift)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3184 return _internal_doppler_shift();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3186 inline void LidarSensorView_Reflection::_internal_set_doppler_shift(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3188 _impl_.doppler_shift_ = value;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3190 inline void LidarSensorView_Reflection::set_doppler_shift(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3191 _internal_set_doppler_shift(value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3192 // @@protoc_insertion_point(field_set:osi3.LidarSensorView.Reflection.doppler_shift)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:429 // optional .osi3.MountingPosition mounting_position = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:430 bool has_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:432 bool _internal_has_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:434 void clear_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:435 const ::osi3::MountingPosition& mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:436 PROTOBUF_NODISCARD ::osi3::MountingPosition* release_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:437 ::osi3::MountingPosition* mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:438 void set_allocated_mounting_position(::osi3::MountingPosition* mounting_position);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:440 const ::osi3::MountingPosition& _internal_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:441 ::osi3::MountingPosition* _internal_mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:443 void unsafe_arena_set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:444 ::osi3::MountingPosition* mounting_position);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:445 ::osi3::MountingPosition* unsafe_arena_release_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:447 // optional .osi3.MountingPosition mounting_position_rmse = 4;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:448 bool has_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:450 bool _internal_has_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:452 void clear_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:453 const ::osi3::MountingPosition& mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:454 PROTOBUF_NODISCARD ::osi3::MountingPosition* release_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:455 ::osi3::MountingPosition* mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:456 void set_allocated_mounting_position_rmse(::osi3::MountingPosition* mounting_position_rmse);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:458 const ::osi3::MountingPosition& _internal_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:459 ::osi3::MountingPosition* _internal_mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:461 void unsafe_arena_set_allocated_mounting_position_rmse(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:462 ::osi3::MountingPosition* mounting_position_rmse);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:463 ::osi3::MountingPosition* unsafe_arena_release_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:588 ::osi3::MountingPosition* mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:589 ::osi3::MountingPosition* mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:755 // optional .osi3.MountingPosition mounting_position = 2;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:756 bool has_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:758 bool _internal_has_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:760 void clear_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:761 const ::osi3::MountingPosition& mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:762 PROTOBUF_NODISCARD ::osi3::MountingPosition* release_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:763 ::osi3::MountingPosition* mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:764 void set_allocated_mounting_position(::osi3::MountingPosition* mounting_position);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:766 const ::osi3::MountingPosition& _internal_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:767 ::osi3::MountingPosition* _internal_mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:769 void unsafe_arena_set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:770 ::osi3::MountingPosition* mounting_position);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:771 ::osi3::MountingPosition* unsafe_arena_release_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:773 // optional .osi3.MountingPosition mounting_position_rmse = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:774 bool has_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:776 bool _internal_has_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:778 void clear_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:779 const ::osi3::MountingPosition& mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:780 PROTOBUF_NODISCARD ::osi3::MountingPosition* release_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:781 ::osi3::MountingPosition* mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:782 void set_allocated_mounting_position_rmse(::osi3::MountingPosition* mounting_position_rmse);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:784 const ::osi3::MountingPosition& _internal_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:785 ::osi3::MountingPosition* _internal_mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:787 void unsafe_arena_set_allocated_mounting_position_rmse(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:788 ::osi3::MountingPosition* mounting_position_rmse);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:789 ::osi3::MountingPosition* unsafe_arena_release_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:828 ::osi3::MountingPosition* mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:829 ::osi3::MountingPosition* mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1224 // optional .osi3.MountingPosition mounting_position = 2;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1225 bool has_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1227 bool _internal_has_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1229 void clear_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1230 const ::osi3::MountingPosition& mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1231 PROTOBUF_NODISCARD ::osi3::MountingPosition* release_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1232 ::osi3::MountingPosition* mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1233 void set_allocated_mounting_position(::osi3::MountingPosition* mounting_position);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1235 const ::osi3::MountingPosition& _internal_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1236 ::osi3::MountingPosition* _internal_mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1238 void unsafe_arena_set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1239 ::osi3::MountingPosition* mounting_position);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1240 ::osi3::MountingPosition* unsafe_arena_release_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1242 // optional .osi3.MountingPosition mounting_position_rmse = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1243 bool has_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1245 bool _internal_has_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1247 void clear_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1248 const ::osi3::MountingPosition& mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1249 PROTOBUF_NODISCARD ::osi3::MountingPosition* release_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1250 ::osi3::MountingPosition* mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1251 void set_allocated_mounting_position_rmse(::osi3::MountingPosition* mounting_position_rmse);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1253 const ::osi3::MountingPosition& _internal_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1254 ::osi3::MountingPosition* _internal_mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1256 void unsafe_arena_set_allocated_mounting_position_rmse(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1257 ::osi3::MountingPosition* mounting_position_rmse);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1258 ::osi3::MountingPosition* unsafe_arena_release_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1312 // optional double emitter_frequency = 9;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1313 bool has_emitter_frequency() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1315 bool _internal_has_emitter_frequency() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1317 void clear_emitter_frequency();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1318 double emitter_frequency() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1319 void set_emitter_frequency(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1321 double _internal_emitter_frequency() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1322 void _internal_set_emitter_frequency(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1351 ::osi3::MountingPosition* mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1352 ::osi3::MountingPosition* mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1357 double emitter_frequency_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1564 // optional .osi3.MountingPosition mounting_position = 2;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1565 bool has_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1567 bool _internal_has_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1569 void clear_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1570 const ::osi3::MountingPosition& mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1571 PROTOBUF_NODISCARD ::osi3::MountingPosition* release_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1572 ::osi3::MountingPosition* mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1573 void set_allocated_mounting_position(::osi3::MountingPosition* mounting_position);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1575 const ::osi3::MountingPosition& _internal_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1576 ::osi3::MountingPosition* _internal_mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1578 void unsafe_arena_set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1579 ::osi3::MountingPosition* mounting_position);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1580 ::osi3::MountingPosition* unsafe_arena_release_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1582 // optional .osi3.MountingPosition mounting_position_rmse = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1583 bool has_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1585 bool _internal_has_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1587 void clear_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1588 const ::osi3::MountingPosition& mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1589 PROTOBUF_NODISCARD ::osi3::MountingPosition* release_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1590 ::osi3::MountingPosition* mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1591 void set_allocated_mounting_position_rmse(::osi3::MountingPosition* mounting_position_rmse);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1593 const ::osi3::MountingPosition& _internal_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1594 ::osi3::MountingPosition* _internal_mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1596 void unsafe_arena_set_allocated_mounting_position_rmse(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1597 ::osi3::MountingPosition* mounting_position_rmse);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1598 ::osi3::MountingPosition* unsafe_arena_release_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1652 // optional double emitter_frequency = 9;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1653 bool has_emitter_frequency() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1655 bool _internal_has_emitter_frequency() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1657 void clear_emitter_frequency();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1658 double emitter_frequency() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1659 void set_emitter_frequency(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1661 double _internal_emitter_frequency() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1662 void _internal_set_emitter_frequency(double value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1704 ::osi3::MountingPosition* mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1705 ::osi3::MountingPosition* mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:1710 double emitter_frequency_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2025 // optional .osi3.MountingPosition mounting_position = 2;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2026 bool has_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2028 bool _internal_has_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2030 void clear_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2031 const ::osi3::MountingPosition& mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2032 PROTOBUF_NODISCARD ::osi3::MountingPosition* release_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2033 ::osi3::MountingPosition* mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2034 void set_allocated_mounting_position(::osi3::MountingPosition* mounting_position);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2036 const ::osi3::MountingPosition& _internal_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2037 ::osi3::MountingPosition* _internal_mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2039 void unsafe_arena_set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2040 ::osi3::MountingPosition* mounting_position);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2041 ::osi3::MountingPosition* unsafe_arena_release_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2043 // optional .osi3.MountingPosition mounting_position_rmse = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2044 bool has_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2046 bool _internal_has_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2048 void clear_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2049 const ::osi3::MountingPosition& mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2050 PROTOBUF_NODISCARD ::osi3::MountingPosition* release_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2051 ::osi3::MountingPosition* mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2052 void set_allocated_mounting_position_rmse(::osi3::MountingPosition* mounting_position_rmse);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2054 const ::osi3::MountingPosition& _internal_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2055 ::osi3::MountingPosition* _internal_mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2057 void unsafe_arena_set_allocated_mounting_position_rmse(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2058 ::osi3::MountingPosition* mounting_position_rmse);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2059 ::osi3::MountingPosition* unsafe_arena_release_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2165 ::osi3::MountingPosition* mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2166 ::osi3::MountingPosition* mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2332 // optional .osi3.MountingPosition mounting_position = 2;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2333 bool has_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2335 bool _internal_has_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2337 void clear_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2338 const ::osi3::MountingPosition& mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2339 PROTOBUF_NODISCARD ::osi3::MountingPosition* release_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2340 ::osi3::MountingPosition* mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2341 void set_allocated_mounting_position(::osi3::MountingPosition* mounting_position);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2343 const ::osi3::MountingPosition& _internal_mounting_position() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2344 ::osi3::MountingPosition* _internal_mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2346 void unsafe_arena_set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2347 ::osi3::MountingPosition* mounting_position);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2348 ::osi3::MountingPosition* unsafe_arena_release_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2350 // optional .osi3.MountingPosition mounting_position_rmse = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2351 bool has_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2353 bool _internal_has_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2355 void clear_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2356 const ::osi3::MountingPosition& mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2357 PROTOBUF_NODISCARD ::osi3::MountingPosition* release_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2358 ::osi3::MountingPosition* mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2359 void set_allocated_mounting_position_rmse(::osi3::MountingPosition* mounting_position_rmse);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2361 const ::osi3::MountingPosition& _internal_mounting_position_rmse() const;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2362 ::osi3::MountingPosition* _internal_mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2364 void unsafe_arena_set_allocated_mounting_position_rmse(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2365 ::osi3::MountingPosition* mounting_position_rmse);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2366 ::osi3::MountingPosition* unsafe_arena_release_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2405 ::osi3::MountingPosition* mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2406 ::osi3::MountingPosition* mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2598 // optional .osi3.MountingPosition mounting_position = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2599 inline bool SensorViewConfiguration::_internal_has_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2601 PROTOBUF_ASSUME(!value || _impl_.mounting_position_ != nullptr);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2604 inline bool SensorViewConfiguration::has_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2605 return _internal_has_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2607 inline const ::osi3::MountingPosition& SensorViewConfiguration::_internal_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2608 const ::osi3::MountingPosition* p = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2612 inline const ::osi3::MountingPosition& SensorViewConfiguration::mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2613 // @@protoc_insertion_point(field_get:osi3.SensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2614 return _internal_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2616 inline void SensorViewConfiguration::unsafe_arena_set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2617 ::osi3::MountingPosition* mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2619 delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2621 _impl_.mounting_position_ = mounting_position;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2622 if (mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2627 // @@protoc_insertion_point(field_unsafe_arena_set_allocated:osi3.SensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2629 inline ::osi3::MountingPosition* SensorViewConfiguration::release_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2631 ::osi3::MountingPosition* temp = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2632 _impl_.mounting_position_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2644 inline ::osi3::MountingPosition* SensorViewConfiguration::unsafe_arena_release_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2645 // @@protoc_insertion_point(field_release:osi3.SensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2647 ::osi3::MountingPosition* temp = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2648 _impl_.mounting_position_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2651 inline ::osi3::MountingPosition* SensorViewConfiguration::_internal_mutable_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2653 if (_impl_.mounting_position_ == nullptr) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2655 _impl_.mounting_position_ = p;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2657 return _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2659 inline ::osi3::MountingPosition* SensorViewConfiguration::mutable_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2660 ::osi3::MountingPosition* _msg = _internal_mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2661 // @@protoc_insertion_point(field_mutable:osi3.SensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2664 inline void SensorViewConfiguration::set_allocated_mounting_position(::osi3::MountingPosition* mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2667 delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2669 if (mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2672 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mounting_position));
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2674 mounting_position = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2675 message_arena, mounting_position, submessage_arena);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2681 _impl_.mounting_position_ = mounting_position;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2682 // @@protoc_insertion_point(field_set_allocated:osi3.SensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2685 // optional .osi3.MountingPosition mounting_position_rmse = 4;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2686 inline bool SensorViewConfiguration::_internal_has_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2688 PROTOBUF_ASSUME(!value || _impl_.mounting_position_rmse_ != nullptr);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2691 inline bool SensorViewConfiguration::has_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2692 return _internal_has_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2694 inline const ::osi3::MountingPosition& SensorViewConfiguration::_internal_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2695 const ::osi3::MountingPosition* p = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2699 inline const ::osi3::MountingPosition& SensorViewConfiguration::mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2700 // @@protoc_insertion_point(field_get:osi3.SensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2701 return _internal_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2703 inline void SensorViewConfiguration::unsafe_arena_set_allocated_mounting_position_rmse(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2704 ::osi3::MountingPosition* mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2706 delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_rmse_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2708 _impl_.mounting_position_rmse_ = mounting_position_rmse;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2709 if (mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2714 // @@protoc_insertion_point(field_unsafe_arena_set_allocated:osi3.SensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2716 inline ::osi3::MountingPosition* SensorViewConfiguration::release_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2718 ::osi3::MountingPosition* temp = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2719 _impl_.mounting_position_rmse_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2731 inline ::osi3::MountingPosition* SensorViewConfiguration::unsafe_arena_release_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2732 // @@protoc_insertion_point(field_release:osi3.SensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2734 ::osi3::MountingPosition* temp = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2735 _impl_.mounting_position_rmse_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2738 inline ::osi3::MountingPosition* SensorViewConfiguration::_internal_mutable_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2740 if (_impl_.mounting_position_rmse_ == nullptr) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2742 _impl_.mounting_position_rmse_ = p;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2744 return _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2746 inline ::osi3::MountingPosition* SensorViewConfiguration::mutable_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2747 ::osi3::MountingPosition* _msg = _internal_mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2748 // @@protoc_insertion_point(field_mutable:osi3.SensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2751 inline void SensorViewConfiguration::set_allocated_mounting_position_rmse(::osi3::MountingPosition* mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2754 delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_rmse_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2756 if (mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2759 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mounting_position_rmse));
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2761 mounting_position_rmse = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2762 message_arena, mounting_position_rmse, submessage_arena);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2768 _impl_.mounting_position_rmse_ = mounting_position_rmse;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2769 // @@protoc_insertion_point(field_set_allocated:osi3.SensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3436 // optional .osi3.MountingPosition mounting_position = 2;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3437 inline bool GenericSensorViewConfiguration::_internal_has_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3439 PROTOBUF_ASSUME(!value || _impl_.mounting_position_ != nullptr);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3442 inline bool GenericSensorViewConfiguration::has_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3443 return _internal_has_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3445 inline const ::osi3::MountingPosition& GenericSensorViewConfiguration::_internal_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3446 const ::osi3::MountingPosition* p = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3450 inline const ::osi3::MountingPosition& GenericSensorViewConfiguration::mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3451 // @@protoc_insertion_point(field_get:osi3.GenericSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3452 return _internal_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3454 inline void GenericSensorViewConfiguration::unsafe_arena_set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3455 ::osi3::MountingPosition* mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3457 delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3459 _impl_.mounting_position_ = mounting_position;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3460 if (mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3465 // @@protoc_insertion_point(field_unsafe_arena_set_allocated:osi3.GenericSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3467 inline ::osi3::MountingPosition* GenericSensorViewConfiguration::release_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3469 ::osi3::MountingPosition* temp = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3470 _impl_.mounting_position_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3482 inline ::osi3::MountingPosition* GenericSensorViewConfiguration::unsafe_arena_release_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3483 // @@protoc_insertion_point(field_release:osi3.GenericSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3485 ::osi3::MountingPosition* temp = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3486 _impl_.mounting_position_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3489 inline ::osi3::MountingPosition* GenericSensorViewConfiguration::_internal_mutable_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3491 if (_impl_.mounting_position_ == nullptr) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3493 _impl_.mounting_position_ = p;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3495 return _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3497 inline ::osi3::MountingPosition* GenericSensorViewConfiguration::mutable_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3498 ::osi3::MountingPosition* _msg = _internal_mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3499 // @@protoc_insertion_point(field_mutable:osi3.GenericSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3502 inline void GenericSensorViewConfiguration::set_allocated_mounting_position(::osi3::MountingPosition* mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3505 delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3507 if (mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3510 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mounting_position));
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3512 mounting_position = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3513 message_arena, mounting_position, submessage_arena);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3519 _impl_.mounting_position_ = mounting_position;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3520 // @@protoc_insertion_point(field_set_allocated:osi3.GenericSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3523 // optional .osi3.MountingPosition mounting_position_rmse = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3524 inline bool GenericSensorViewConfiguration::_internal_has_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3526 PROTOBUF_ASSUME(!value || _impl_.mounting_position_rmse_ != nullptr);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3529 inline bool GenericSensorViewConfiguration::has_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3530 return _internal_has_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3532 inline const ::osi3::MountingPosition& GenericSensorViewConfiguration::_internal_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3533 const ::osi3::MountingPosition* p = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3537 inline const ::osi3::MountingPosition& GenericSensorViewConfiguration::mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3538 // @@protoc_insertion_point(field_get:osi3.GenericSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3539 return _internal_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3541 inline void GenericSensorViewConfiguration::unsafe_arena_set_allocated_mounting_position_rmse(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3542 ::osi3::MountingPosition* mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3544 delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_rmse_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3546 _impl_.mounting_position_rmse_ = mounting_position_rmse;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3547 if (mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3552 // @@protoc_insertion_point(field_unsafe_arena_set_allocated:osi3.GenericSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3554 inline ::osi3::MountingPosition* GenericSensorViewConfiguration::release_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3556 ::osi3::MountingPosition* temp = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3557 _impl_.mounting_position_rmse_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3569 inline ::osi3::MountingPosition* GenericSensorViewConfiguration::unsafe_arena_release_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3570 // @@protoc_insertion_point(field_release:osi3.GenericSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3572 ::osi3::MountingPosition* temp = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3573 _impl_.mounting_position_rmse_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3576 inline ::osi3::MountingPosition* GenericSensorViewConfiguration::_internal_mutable_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3578 if (_impl_.mounting_position_rmse_ == nullptr) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3580 _impl_.mounting_position_rmse_ = p;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3582 return _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3584 inline ::osi3::MountingPosition* GenericSensorViewConfiguration::mutable_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3585 ::osi3::MountingPosition* _msg = _internal_mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3586 // @@protoc_insertion_point(field_mutable:osi3.GenericSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3589 inline void GenericSensorViewConfiguration::set_allocated_mounting_position_rmse(::osi3::MountingPosition* mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3592 delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_rmse_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3594 if (mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3597 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mounting_position_rmse));
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3599 mounting_position_rmse = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3600 message_arena, mounting_position_rmse, submessage_arena);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3606 _impl_.mounting_position_rmse_ = mounting_position_rmse;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3607 // @@protoc_insertion_point(field_set_allocated:osi3.GenericSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3845 // optional .osi3.MountingPosition mounting_position = 2;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3846 inline bool RadarSensorViewConfiguration::_internal_has_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3848 PROTOBUF_ASSUME(!value || _impl_.mounting_position_ != nullptr);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3851 inline bool RadarSensorViewConfiguration::has_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3852 return _internal_has_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3854 inline const ::osi3::MountingPosition& RadarSensorViewConfiguration::_internal_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3855 const ::osi3::MountingPosition* p = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3859 inline const ::osi3::MountingPosition& RadarSensorViewConfiguration::mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3860 // @@protoc_insertion_point(field_get:osi3.RadarSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3861 return _internal_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3863 inline void RadarSensorViewConfiguration::unsafe_arena_set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3864 ::osi3::MountingPosition* mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3866 delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3868 _impl_.mounting_position_ = mounting_position;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3869 if (mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3874 // @@protoc_insertion_point(field_unsafe_arena_set_allocated:osi3.RadarSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3876 inline ::osi3::MountingPosition* RadarSensorViewConfiguration::release_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3878 ::osi3::MountingPosition* temp = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3879 _impl_.mounting_position_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3891 inline ::osi3::MountingPosition* RadarSensorViewConfiguration::unsafe_arena_release_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3892 // @@protoc_insertion_point(field_release:osi3.RadarSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3894 ::osi3::MountingPosition* temp = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3895 _impl_.mounting_position_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3898 inline ::osi3::MountingPosition* RadarSensorViewConfiguration::_internal_mutable_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3900 if (_impl_.mounting_position_ == nullptr) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3902 _impl_.mounting_position_ = p;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3904 return _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3906 inline ::osi3::MountingPosition* RadarSensorViewConfiguration::mutable_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3907 ::osi3::MountingPosition* _msg = _internal_mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3908 // @@protoc_insertion_point(field_mutable:osi3.RadarSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3911 inline void RadarSensorViewConfiguration::set_allocated_mounting_position(::osi3::MountingPosition* mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3914 delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3916 if (mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3919 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mounting_position));
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3921 mounting_position = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3922 message_arena, mounting_position, submessage_arena);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3928 _impl_.mounting_position_ = mounting_position;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3929 // @@protoc_insertion_point(field_set_allocated:osi3.RadarSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3932 // optional .osi3.MountingPosition mounting_position_rmse = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3933 inline bool RadarSensorViewConfiguration::_internal_has_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3935 PROTOBUF_ASSUME(!value || _impl_.mounting_position_rmse_ != nullptr);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3938 inline bool RadarSensorViewConfiguration::has_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3939 return _internal_has_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3941 inline const ::osi3::MountingPosition& RadarSensorViewConfiguration::_internal_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3942 const ::osi3::MountingPosition* p = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3946 inline const ::osi3::MountingPosition& RadarSensorViewConfiguration::mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3947 // @@protoc_insertion_point(field_get:osi3.RadarSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3948 return _internal_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3950 inline void RadarSensorViewConfiguration::unsafe_arena_set_allocated_mounting_position_rmse(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3951 ::osi3::MountingPosition* mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3953 delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_rmse_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3955 _impl_.mounting_position_rmse_ = mounting_position_rmse;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3956 if (mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3961 // @@protoc_insertion_point(field_unsafe_arena_set_allocated:osi3.RadarSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3963 inline ::osi3::MountingPosition* RadarSensorViewConfiguration::release_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3965 ::osi3::MountingPosition* temp = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3966 _impl_.mounting_position_rmse_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3978 inline ::osi3::MountingPosition* RadarSensorViewConfiguration::unsafe_arena_release_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3979 // @@protoc_insertion_point(field_release:osi3.RadarSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3981 ::osi3::MountingPosition* temp = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3982 _impl_.mounting_position_rmse_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3985 inline ::osi3::MountingPosition* RadarSensorViewConfiguration::_internal_mutable_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3987 if (_impl_.mounting_position_rmse_ == nullptr) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3989 _impl_.mounting_position_rmse_ = p;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3991 return _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3993 inline ::osi3::MountingPosition* RadarSensorViewConfiguration::mutable_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3994 ::osi3::MountingPosition* _msg = _internal_mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3995 // @@protoc_insertion_point(field_mutable:osi3.RadarSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:3998 inline void RadarSensorViewConfiguration::set_allocated_mounting_position_rmse(::osi3::MountingPosition* mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4001 delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_rmse_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4003 if (mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4006 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mounting_position_rmse));
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4008 mounting_position_rmse = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4009 message_arena, mounting_position_rmse, submessage_arena);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4015 _impl_.mounting_position_rmse_ = mounting_position_rmse;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4016 // @@protoc_insertion_point(field_set_allocated:osi3.RadarSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4159 // optional double emitter_frequency = 9;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4160 inline bool RadarSensorViewConfiguration::_internal_has_emitter_frequency() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4164 inline bool RadarSensorViewConfiguration::has_emitter_frequency() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4165 return _internal_has_emitter_frequency();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4167 inline void RadarSensorViewConfiguration::clear_emitter_frequency() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4168 _impl_.emitter_frequency_ = 0;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4171 inline double RadarSensorViewConfiguration::_internal_emitter_frequency() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4172 return _impl_.emitter_frequency_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4174 inline double RadarSensorViewConfiguration::emitter_frequency() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4175 // @@protoc_insertion_point(field_get:osi3.RadarSensorViewConfiguration.emitter_frequency)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4176 return _internal_emitter_frequency();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4178 inline void RadarSensorViewConfiguration::_internal_set_emitter_frequency(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4180 _impl_.emitter_frequency_ = value;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4182 inline void RadarSensorViewConfiguration::set_emitter_frequency(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4183 _internal_set_emitter_frequency(value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4184 // @@protoc_insertion_point(field_set:osi3.RadarSensorViewConfiguration.emitter_frequency)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4358 // optional .osi3.MountingPosition mounting_position = 2;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4359 inline bool LidarSensorViewConfiguration::_internal_has_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4361 PROTOBUF_ASSUME(!value || _impl_.mounting_position_ != nullptr);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4364 inline bool LidarSensorViewConfiguration::has_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4365 return _internal_has_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4367 inline const ::osi3::MountingPosition& LidarSensorViewConfiguration::_internal_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4368 const ::osi3::MountingPosition* p = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4372 inline const ::osi3::MountingPosition& LidarSensorViewConfiguration::mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4373 // @@protoc_insertion_point(field_get:osi3.LidarSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4374 return _internal_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4376 inline void LidarSensorViewConfiguration::unsafe_arena_set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4377 ::osi3::MountingPosition* mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4379 delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4381 _impl_.mounting_position_ = mounting_position;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4382 if (mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4387 // @@protoc_insertion_point(field_unsafe_arena_set_allocated:osi3.LidarSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4389 inline ::osi3::MountingPosition* LidarSensorViewConfiguration::release_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4391 ::osi3::MountingPosition* temp = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4392 _impl_.mounting_position_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4404 inline ::osi3::MountingPosition* LidarSensorViewConfiguration::unsafe_arena_release_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4405 // @@protoc_insertion_point(field_release:osi3.LidarSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4407 ::osi3::MountingPosition* temp = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4408 _impl_.mounting_position_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4411 inline ::osi3::MountingPosition* LidarSensorViewConfiguration::_internal_mutable_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4413 if (_impl_.mounting_position_ == nullptr) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4415 _impl_.mounting_position_ = p;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4417 return _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4419 inline ::osi3::MountingPosition* LidarSensorViewConfiguration::mutable_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4420 ::osi3::MountingPosition* _msg = _internal_mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4421 // @@protoc_insertion_point(field_mutable:osi3.LidarSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4424 inline void LidarSensorViewConfiguration::set_allocated_mounting_position(::osi3::MountingPosition* mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4427 delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4429 if (mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4432 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mounting_position));
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4434 mounting_position = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4435 message_arena, mounting_position, submessage_arena);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4441 _impl_.mounting_position_ = mounting_position;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4442 // @@protoc_insertion_point(field_set_allocated:osi3.LidarSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4445 // optional .osi3.MountingPosition mounting_position_rmse = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4446 inline bool LidarSensorViewConfiguration::_internal_has_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4448 PROTOBUF_ASSUME(!value || _impl_.mounting_position_rmse_ != nullptr);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4451 inline bool LidarSensorViewConfiguration::has_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4452 return _internal_has_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4454 inline const ::osi3::MountingPosition& LidarSensorViewConfiguration::_internal_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4455 const ::osi3::MountingPosition* p = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4459 inline const ::osi3::MountingPosition& LidarSensorViewConfiguration::mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4460 // @@protoc_insertion_point(field_get:osi3.LidarSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4461 return _internal_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4463 inline void LidarSensorViewConfiguration::unsafe_arena_set_allocated_mounting_position_rmse(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4464 ::osi3::MountingPosition* mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4466 delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_rmse_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4468 _impl_.mounting_position_rmse_ = mounting_position_rmse;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4469 if (mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4474 // @@protoc_insertion_point(field_unsafe_arena_set_allocated:osi3.LidarSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4476 inline ::osi3::MountingPosition* LidarSensorViewConfiguration::release_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4478 ::osi3::MountingPosition* temp = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4479 _impl_.mounting_position_rmse_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4491 inline ::osi3::MountingPosition* LidarSensorViewConfiguration::unsafe_arena_release_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4492 // @@protoc_insertion_point(field_release:osi3.LidarSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4494 ::osi3::MountingPosition* temp = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4495 _impl_.mounting_position_rmse_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4498 inline ::osi3::MountingPosition* LidarSensorViewConfiguration::_internal_mutable_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4500 if (_impl_.mounting_position_rmse_ == nullptr) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4502 _impl_.mounting_position_rmse_ = p;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4504 return _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4506 inline ::osi3::MountingPosition* LidarSensorViewConfiguration::mutable_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4507 ::osi3::MountingPosition* _msg = _internal_mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4508 // @@protoc_insertion_point(field_mutable:osi3.LidarSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4511 inline void LidarSensorViewConfiguration::set_allocated_mounting_position_rmse(::osi3::MountingPosition* mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4514 delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_rmse_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4516 if (mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4519 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mounting_position_rmse));
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4521 mounting_position_rmse = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4522 message_arena, mounting_position_rmse, submessage_arena);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4528 _impl_.mounting_position_rmse_ = mounting_position_rmse;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4529 // @@protoc_insertion_point(field_set_allocated:osi3.LidarSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4672 // optional double emitter_frequency = 9;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4673 inline bool LidarSensorViewConfiguration::_internal_has_emitter_frequency() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4677 inline bool LidarSensorViewConfiguration::has_emitter_frequency() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4678 return _internal_has_emitter_frequency();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4680 inline void LidarSensorViewConfiguration::clear_emitter_frequency() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4681 _impl_.emitter_frequency_ = 0;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4684 inline double LidarSensorViewConfiguration::_internal_emitter_frequency() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4685 return _impl_.emitter_frequency_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4687 inline double LidarSensorViewConfiguration::emitter_frequency() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4688 // @@protoc_insertion_point(field_get:osi3.LidarSensorViewConfiguration.emitter_frequency)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4689 return _internal_emitter_frequency();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4691 inline void LidarSensorViewConfiguration::_internal_set_emitter_frequency(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4693 _impl_.emitter_frequency_ = value;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4695 inline void LidarSensorViewConfiguration::set_emitter_frequency(double value) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4696 _internal_set_emitter_frequency(value);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4697 // @@protoc_insertion_point(field_set:osi3.LidarSensorViewConfiguration.emitter_frequency)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4903 // optional .osi3.MountingPosition mounting_position = 2;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4904 inline bool CameraSensorViewConfiguration::_internal_has_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4906 PROTOBUF_ASSUME(!value || _impl_.mounting_position_ != nullptr);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4909 inline bool CameraSensorViewConfiguration::has_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4910 return _internal_has_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4912 inline const ::osi3::MountingPosition& CameraSensorViewConfiguration::_internal_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4913 const ::osi3::MountingPosition* p = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4917 inline const ::osi3::MountingPosition& CameraSensorViewConfiguration::mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4918 // @@protoc_insertion_point(field_get:osi3.CameraSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4919 return _internal_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4921 inline void CameraSensorViewConfiguration::unsafe_arena_set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4922 ::osi3::MountingPosition* mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4924 delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4926 _impl_.mounting_position_ = mounting_position;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4927 if (mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4932 // @@protoc_insertion_point(field_unsafe_arena_set_allocated:osi3.CameraSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4934 inline ::osi3::MountingPosition* CameraSensorViewConfiguration::release_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4936 ::osi3::MountingPosition* temp = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4937 _impl_.mounting_position_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4949 inline ::osi3::MountingPosition* CameraSensorViewConfiguration::unsafe_arena_release_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4950 // @@protoc_insertion_point(field_release:osi3.CameraSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4952 ::osi3::MountingPosition* temp = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4953 _impl_.mounting_position_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4956 inline ::osi3::MountingPosition* CameraSensorViewConfiguration::_internal_mutable_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4958 if (_impl_.mounting_position_ == nullptr) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4960 _impl_.mounting_position_ = p;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4962 return _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4964 inline ::osi3::MountingPosition* CameraSensorViewConfiguration::mutable_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4965 ::osi3::MountingPosition* _msg = _internal_mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4966 // @@protoc_insertion_point(field_mutable:osi3.CameraSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4969 inline void CameraSensorViewConfiguration::set_allocated_mounting_position(::osi3::MountingPosition* mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4972 delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4974 if (mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4977 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mounting_position));
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4979 mounting_position = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4980 message_arena, mounting_position, submessage_arena);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4986 _impl_.mounting_position_ = mounting_position;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4987 // @@protoc_insertion_point(field_set_allocated:osi3.CameraSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4990 // optional .osi3.MountingPosition mounting_position_rmse = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4991 inline bool CameraSensorViewConfiguration::_internal_has_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4993 PROTOBUF_ASSUME(!value || _impl_.mounting_position_rmse_ != nullptr);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4996 inline bool CameraSensorViewConfiguration::has_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4997 return _internal_has_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:4999 inline const ::osi3::MountingPosition& CameraSensorViewConfiguration::_internal_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5000 const ::osi3::MountingPosition* p = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5004 inline const ::osi3::MountingPosition& CameraSensorViewConfiguration::mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5005 // @@protoc_insertion_point(field_get:osi3.CameraSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5006 return _internal_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5008 inline void CameraSensorViewConfiguration::unsafe_arena_set_allocated_mounting_position_rmse(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5009 ::osi3::MountingPosition* mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5011 delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_rmse_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5013 _impl_.mounting_position_rmse_ = mounting_position_rmse;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5014 if (mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5019 // @@protoc_insertion_point(field_unsafe_arena_set_allocated:osi3.CameraSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5021 inline ::osi3::MountingPosition* CameraSensorViewConfiguration::release_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5023 ::osi3::MountingPosition* temp = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5024 _impl_.mounting_position_rmse_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5036 inline ::osi3::MountingPosition* CameraSensorViewConfiguration::unsafe_arena_release_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5037 // @@protoc_insertion_point(field_release:osi3.CameraSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5039 ::osi3::MountingPosition* temp = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5040 _impl_.mounting_position_rmse_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5043 inline ::osi3::MountingPosition* CameraSensorViewConfiguration::_internal_mutable_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5045 if (_impl_.mounting_position_rmse_ == nullptr) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5047 _impl_.mounting_position_rmse_ = p;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5049 return _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5051 inline ::osi3::MountingPosition* CameraSensorViewConfiguration::mutable_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5052 ::osi3::MountingPosition* _msg = _internal_mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5053 // @@protoc_insertion_point(field_mutable:osi3.CameraSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5056 inline void CameraSensorViewConfiguration::set_allocated_mounting_position_rmse(::osi3::MountingPosition* mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5059 delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_rmse_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5061 if (mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5064 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mounting_position_rmse));
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5066 mounting_position_rmse = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5067 message_arena, mounting_position_rmse, submessage_arena);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5073 _impl_.mounting_position_rmse_ = mounting_position_rmse;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5074 // @@protoc_insertion_point(field_set_allocated:osi3.CameraSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5447 // optional .osi3.MountingPosition mounting_position = 2;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5448 inline bool UltrasonicSensorViewConfiguration::_internal_has_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5450 PROTOBUF_ASSUME(!value || _impl_.mounting_position_ != nullptr);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5453 inline bool UltrasonicSensorViewConfiguration::has_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5454 return _internal_has_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5456 inline const ::osi3::MountingPosition& UltrasonicSensorViewConfiguration::_internal_mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5457 const ::osi3::MountingPosition* p = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5461 inline const ::osi3::MountingPosition& UltrasonicSensorViewConfiguration::mounting_position() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5462 // @@protoc_insertion_point(field_get:osi3.UltrasonicSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5463 return _internal_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5465 inline void UltrasonicSensorViewConfiguration::unsafe_arena_set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5466 ::osi3::MountingPosition* mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5468 delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5470 _impl_.mounting_position_ = mounting_position;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5471 if (mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5476 // @@protoc_insertion_point(field_unsafe_arena_set_allocated:osi3.UltrasonicSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5478 inline ::osi3::MountingPosition* UltrasonicSensorViewConfiguration::release_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5480 ::osi3::MountingPosition* temp = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5481 _impl_.mounting_position_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5493 inline ::osi3::MountingPosition* UltrasonicSensorViewConfiguration::unsafe_arena_release_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5494 // @@protoc_insertion_point(field_release:osi3.UltrasonicSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5496 ::osi3::MountingPosition* temp = _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5497 _impl_.mounting_position_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5500 inline ::osi3::MountingPosition* UltrasonicSensorViewConfiguration::_internal_mutable_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5502 if (_impl_.mounting_position_ == nullptr) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5504 _impl_.mounting_position_ = p;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5506 return _impl_.mounting_position_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5508 inline ::osi3::MountingPosition* UltrasonicSensorViewConfiguration::mutable_mounting_position() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5509 ::osi3::MountingPosition* _msg = _internal_mutable_mounting_position();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5510 // @@protoc_insertion_point(field_mutable:osi3.UltrasonicSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5513 inline void UltrasonicSensorViewConfiguration::set_allocated_mounting_position(::osi3::MountingPosition* mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5516 delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5518 if (mounting_position) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5521 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mounting_position));
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5523 mounting_position = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5524 message_arena, mounting_position, submessage_arena);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5530 _impl_.mounting_position_ = mounting_position;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5531 // @@protoc_insertion_point(field_set_allocated:osi3.UltrasonicSensorViewConfiguration.mounting_position)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5534 // optional .osi3.MountingPosition mounting_position_rmse = 3;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5535 inline bool UltrasonicSensorViewConfiguration::_internal_has_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5537 PROTOBUF_ASSUME(!value || _impl_.mounting_position_rmse_ != nullptr);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5540 inline bool UltrasonicSensorViewConfiguration::has_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5541 return _internal_has_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5543 inline const ::osi3::MountingPosition& UltrasonicSensorViewConfiguration::_internal_mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5544 const ::osi3::MountingPosition* p = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5548 inline const ::osi3::MountingPosition& UltrasonicSensorViewConfiguration::mounting_position_rmse() const {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5549 // @@protoc_insertion_point(field_get:osi3.UltrasonicSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5550 return _internal_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5552 inline void UltrasonicSensorViewConfiguration::unsafe_arena_set_allocated_mounting_position_rmse(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5553 ::osi3::MountingPosition* mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5555 delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_rmse_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5557 _impl_.mounting_position_rmse_ = mounting_position_rmse;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5558 if (mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5563 // @@protoc_insertion_point(field_unsafe_arena_set_allocated:osi3.UltrasonicSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5565 inline ::osi3::MountingPosition* UltrasonicSensorViewConfiguration::release_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5567 ::osi3::MountingPosition* temp = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5568 _impl_.mounting_position_rmse_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5580 inline ::osi3::MountingPosition* UltrasonicSensorViewConfiguration::unsafe_arena_release_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5581 // @@protoc_insertion_point(field_release:osi3.UltrasonicSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5583 ::osi3::MountingPosition* temp = _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5584 _impl_.mounting_position_rmse_ = nullptr;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5587 inline ::osi3::MountingPosition* UltrasonicSensorViewConfiguration::_internal_mutable_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5589 if (_impl_.mounting_position_rmse_ == nullptr) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5591 _impl_.mounting_position_rmse_ = p;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5593 return _impl_.mounting_position_rmse_;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5595 inline ::osi3::MountingPosition* UltrasonicSensorViewConfiguration::mutable_mounting_position_rmse() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5596 ::osi3::MountingPosition* _msg = _internal_mutable_mounting_position_rmse();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5597 // @@protoc_insertion_point(field_mutable:osi3.UltrasonicSensorViewConfiguration.mounting_position_rmse)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5600 inline void UltrasonicSensorViewConfiguration::set_allocated_mounting_position_rmse(::osi3::MountingPosition* mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5603 delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.mounting_position_rmse_);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5605 if (mounting_position_rmse) {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5608 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mounting_position_rmse));
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5610 mounting_position_rmse = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5611 message_arena, mounting_position_rmse, submessage_arena);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5617 _impl_.mounting_position_rmse_ = mounting_position_rmse;
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:5618 // @@protoc_insertion_point(field_set_allocated:osi3.UltrasonicSensorViewConfiguration.mounting_position_rmse)

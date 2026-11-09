@@ -1,0 +1,4 @@
+Scenario,Frames,LightweightMedianMs,SpatialMedianMs,VoxelFeatureMedianMs
+baseline_clear,17,0.0215,0.0871,0.14295
+baseline_fog_working_radar,16,0.02005,0.08115,0.1434
+fog_postfix_validation,15,0.01085,0.05045,0.0982

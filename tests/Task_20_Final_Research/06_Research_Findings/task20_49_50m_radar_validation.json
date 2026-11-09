@@ -1,0 +1,18 @@
+{
+  "Task": "20.49",
+  "Source": "E:\\GEMSTAR_Project\\gemstar\\Output\\20261102T180104Z_sv_380_X_806_GEMSTAR.osi",
+  "FramesChecked": 100,
+  "ReflectionSlots": 10000,
+  "PositiveTimeOfFlightSlots": 5696,
+  "ValidCandidateReturns": 5696,
+  "Beyond10m": 2687,
+  "Beyond20m": 1392,
+  "Beyond30m": 1104,
+  "Beyond40m": 628,
+  "MinimumRangeM": 1.6733413603762572e-06,
+  "MedianRangeM": 8.554063920494048,
+  "MaximumRangeM": 49.92833124426399,
+  "Runtime50mConfigurationPreviouslyLogged": true,
+  "DetectionAccuracyValidated": false,
+  "HardwareEnergyMeasured": false
+}

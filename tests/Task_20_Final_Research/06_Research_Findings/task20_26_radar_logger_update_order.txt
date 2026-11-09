@@ -1,0 +1,132 @@
+﻿
+=== FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp ===
+  28: 	TraceParams.bReturnPhysicalMaterial = true;
+  29: 	TraceParams.bTraceComplex = true;
+  30: }
+  31: 
+  32: // Called every frame
+  33: void ASimpleRadar::Tick(float DeltaTime){
+  34: 	if (!TickActive) return;
+  35: 	//internal speed calculation
+  36: 	if (firstTick) {
+  37: 		firstTick = false;
+  38: 		currentVelocity = FVector::ZeroVector;
+  39: 	} else {
+  40: 		currentVelocity = (GetActorLocation() - oldPosition) / DeltaTime;
+  41: 		oldPosition = GetActorLocation();
+  42: 	}
+  43: 
+  44: 	GetScanData();
+  45: 	if (bDebugRayTraces || bDebugReflections || bDebugNormals)
+
+=== FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp ===
+  11: #include "LogManager.h"
+  12: 
+  13: // Sets default values
+  14: ALogManager::ALogManager()
+  15: {
+  16: 	PrimaryActorTick.bCanEverTick = true;
+  17: }
+  18: 
+  19: // Called when the game starts or when spawned
+  20: void ALogManager::BeginPlay()
+  21: {
+  22: 	Super::BeginPlay();
+  23: 	osi_GroundTruth.parseStationaryMapObjects(this);
+  24: 
+  25: 	auto ActorSpawnLambda = FOnActorSpawned::FDelegate::CreateLambda([this](AActor* InActor)
+  26: 		{
+  27: 			//Smart Traffic Light Plugin spawns ligthbulbs dynamical and movable
+  28: 			if (InActor->IsRootComponentMovable() &&
+  44: 
+  45: 	RegisterCallbacks();
+  46: }
+  47: 
+  48: // Called every frame
+  49: void ALogManager::Tick(float DeltaTime)
+  50: {
+  51: 	Super::Tick(DeltaTime);
+  52: 	FName fileDescription = FName(fileName);
+  53: 
+  54: 	accumulatedTime += DeltaTime;
+  55: 	osi3::SensorView sv = combineSensorViewMessages();
+  56: 	if (writeSensorViews) {
+  57: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::ESensorViewMessage, sv.SerializeAsString());
+  58: 	}
+  59: 	if (writeSensorDatas) {
+  60: 		for (auto& sd : sensorDatas)
+  61: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::ESensorDataMessage, sd.Value.SerializeAsString());
+  62: 	}
+  63: 	if (debugmode)
+  64: 		UE_LOG(Logger, Log, TEXT("LogManager: SV:\n%s"), *FString(UTF8_TO_TCHAR(sv.DebugString().c_str())));
+  65: 
+  66: 
+  67: 	if (writeGroundTruth) {
+ 202: 
+ 203: void ALogManager::OSITrafficLightDataUpdate_Implementation(FGroundTruthWrapper& trafficLightData) {
+ 204: 	osi_GroundTruth.saveTrafficLightData(trafficLightData);
+ 205: }
+ 206: 
+ 207: osi3::SensorView ALogManager::combineSensorViewMessages() {
+ 208: 	osi3::SensorView combinedSensorView;
+ 209: 	for (const auto& sensorView : sensorViews) {
+ 210: 		combinedSensorView.MergeFrom(sensorView.Value);
+ 211: 	}
+ 212: 	auto* ts = combinedSensorView.mutable_timestamp();
+ 213: 	ts->set_seconds(accumulatedTime);
+ 214: 	ts->set_nanos((accumulatedTime - (uint32_t)accumulatedTime) * 1e9);
+ 215: 	auto* version = combinedSensorView.mutable_version();
+ 216: 	version->set_version_major(3);
+ 217: 	version->set_version_minor(8);
+ 218: 	version->set_version_patch(0);
+ 219: 
+
+=== FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Source\ue_sumo_featureRuntime\Private\SUMOManager.cpp ===
+  19: #include <string>
+  20: #include <vector>
+  21: 
+  22: ASUMOManager::ASUMOManager()
+  23: {
+  24: 	PrimaryActorTick.bCanEverTick = true;
+  25: 
+  26: 	auto Wire = [this](TArray<FDataTarget> *List)
+  27: 	{
+  28: 		return [this, List](FDataTarget &Target, const FString &Producer)
+  29: 		{
+  30: 			// Only requests addressed to this producer
+  31: 			if (!Producer.Equals(PROVIDER_NAME.ToString(), ESearchCase::IgnoreCase))
+  32: 			{
+  33: 				return false;
+  34: 			}
+  35: 			List->AddUnique(Target);
+  36: 			Target.Actor->AddTickPrerequisiteActor(this);
+  37: 			return true;
+  38: 		};
+  39: 	};
+  40: 	auto Unwire = [this](TArray<FDataTarget> *List)
+  41: 	{
+  42: 		return [this, List](FDataTarget &Target, const FString &)
+  43: 		{
+  44: 			const int32 Removed = List->Remove(Target);
+  45: 			if (Removed > 0 && Target.Actor)
+  46: 			{
+  47: 				Target.Actor->RemoveTickPrerequisiteActor(this);
+  48: 			}
+ 106: 
+ 107: 	Super::EndPlay(EndPlayReason);
+ 108: }
+ 109: 
+ 110: // Called every frame
+ 111: void ASUMOManager::Tick(float DeltaTime)
+ 112: {
+ 113: 	Super::Tick(DeltaTime);
+ 114: 	int _state = 0;
+ 115: 	switch (Mode)
+ 116: 	{
+ 117: 	case ESumoMode::Unset:
+ 118: 		break;
+ 119: 	case ESumoMode::Configured:
+ 120: 		LoadScenario();
+ 121: 	case ESumoMode::Running:
+ 122: 		Time += DeltaTime;
+ 123: 		if (SumoBridge::Step(Time) != 0)

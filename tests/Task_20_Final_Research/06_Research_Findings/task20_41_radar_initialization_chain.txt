@@ -1,0 +1,50 @@
+﻿=== TASK 20.41 RADAR INITIALIZATION AUDIT ===
+Plugins\GameFeatures\ue_lidar_feature\Intermediate\Build\Win64\UnrealEditor\Inc\ue_lidar_featureRuntime\UHT\SimpleLidar.gen.cpp:226: const UECodeGen_Private::FFloatPropertyParams UHT_STATICS::NewProp_Range = { "Range", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, nullptr, nullptr, 1, STRUCT_OFFSET(ASimpleLidar, Range), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Range_MetaData), NewProp_Range_MetaData) };
+Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:26: CreateTestConfig();
+Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:81: FVector EndPoint = LidarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:209: void ASimpleLidar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration)
+Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:222: Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:239: void ASimpleLidar::CreateTestConfig() {
+Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:241: Sensor.SensorViewConfig->set_range(Range);
+Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\SimpleLidar.h:75: float Range = 20.0;
+Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\SimpleLidar.h:98: void CreateTestConfig();
+Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:153: float Range = 0.0;
+Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:21: CreateTestConfig();
+Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:88: FVector EndPoint = RadarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:172: void ASimpleRadar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) {
+Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:201: void ASimpleRadar::CreateTestConfig() {
+Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:203: Sensor.SensorViewConfig->set_range(10);
+Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Public\SimpleRadar.h:101: void CreateTestConfig();
+Plugins\GameFeatures\ue_sumo_feature\Source\ue_sumo_featureRuntime\ThirdParty\sumo\Include\libsumo\Helper.h:60: const int contextDomain = 0, const double range = 0.);
+Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\SensorConfigurationData.gen.cpp:158: const UECodeGen_Private::FFloatPropertyParams UHT_STATICS::NewProp_Range = { "Range", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, nullptr, nullptr, 1, STRUCT_OFFSET(FLidarConfigurationData, Range), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Range_MetaData), NewProp_Range_MetaData) };
+Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Sensors\GemstarSensor.cpp:61: void AGemstarSensor::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration)
+Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Public\Interfaces\Sensor\SensorConfigurationData.h:38: float Range = 20.0;
+Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:183: CameraDetection_Color_COLOR_ORANGE = 6,
+Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:2082: // optional double max_range = 1;
+Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:3321: static constexpr Color COLOR_ORANGE =
+Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:6283: // optional double max_range = 1;
+Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_lane.pb.h:219: LaneBoundary_Classification_Color_COLOR_ORANGE = 9
+Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_lane.pb.h:1779: static constexpr Color COLOR_ORANGE =
+Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_object.pb.h:206: StationaryObject_Classification_Color_COLOR_ORANGE = 7,
+Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_object.pb.h:936: static constexpr Color COLOR_ORANGE =
+Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_roadmarking.pb.h:102: RoadMarking_Classification_Color_COLOR_ORANGE = 9
+Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_roadmarking.pb.h:309: static constexpr Color COLOR_ORANGE =
+Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:545: // optional double range = 7;
+Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorviewconfiguration.pb.h:2828: // optional double range = 7;
+Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_trafficsign.pb.h:499: TrafficSign_SupplementarySign_Classification_Type_TYPE_TIME_RANGE = 5,
+Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_trafficsign.pb.h:2475: static constexpr Type TYPE_TIME_RANGE =
+Plugins\gemstar_interfaces\ThirdParty\protobuf\include\google\protobuf\descriptor.pb.h:1452: // repeated .google.protobuf.DescriptorProto.ExtensionRange extension_range = 5;
+Plugins\gemstar_interfaces\ThirdParty\protobuf\include\google\protobuf\descriptor.pb.h:1506: // repeated .google.protobuf.DescriptorProto.ReservedRange reserved_range = 9;
+Plugins\gemstar_interfaces\ThirdParty\protobuf\include\google\protobuf\descriptor.pb.h:2914: // repeated .google.protobuf.EnumDescriptorProto.EnumReservedRange reserved_range = 4;
+Plugins\gemstar_interfaces\ThirdParty\protobuf\include\google\protobuf\descriptor.pb.h:9737: // repeated .google.protobuf.DescriptorProto.ExtensionRange extension_range = 5;
+Plugins\gemstar_interfaces\ThirdParty\protobuf\include\google\protobuf\descriptor.pb.h:9907: // repeated .google.protobuf.DescriptorProto.ReservedRange reserved_range = 9;
+Plugins\gemstar_interfaces\ThirdParty\protobuf\include\google\protobuf\descriptor.pb.h:11066: // repeated .google.protobuf.EnumDescriptorProto.EnumReservedRange reserved_range = 4;
+Plugins\gemstar_interfaces\ThirdParty\protobuf\include\google\protobuf\generated_message_tctable_impl.h:146: kTvRange     = 3 << kTvShift,  // validate using FieldAux::enum_range
+Plugins\gemstar_interfaces\ThirdParty\protobuf\include\google\protobuf\generated_message_tctable_impl.h:195: kEnumRange       = kFkVarint | kRep32Bits | kFmtEnum   | kTvRange,
+Plugins\gemstar_interfaces\ThirdParty\protobuf\include\google\protobuf\generated_message_tctable_impl.h:214: kPackedEnumRange = kFkPackedVarint | kRep32Bits | kFmtEnum   | kTvRange,
+Plugins\gemstar_interfaces\ThirdParty\protobuf\include\google\protobuf\stubs\map_util.h:250: std::pair<const_iterator, const_iterator> range = collection.equal_range(key);
+Plugins\gemstar_interfaces\ThirdParty\protobuf\include\google\protobuf\stubs\status.h:59: kOutOfRange = 11,
+
+Matches found: 45
+Runtime trace range verified: NO
+Source audit only; no files modified

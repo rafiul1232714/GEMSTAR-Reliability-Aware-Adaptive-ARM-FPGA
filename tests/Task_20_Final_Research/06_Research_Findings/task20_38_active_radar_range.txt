@@ -1,0 +1,176 @@
+﻿
+=== A. RADAR INI CONFIGURATION ===
+ 110: FileName=GEMSTAR
+ 111: 
+ 112: 
+ 113: ; =========================================================
+ 114: ; RADAR SENSOR - UPDATED FOR TEST
+ 115: ; =========================================================
+ 116: 
+ 117: [ue_radar_feature:sensor1]
+ 118: ;Debug=true
+ 119: 
+ 120: ; Mount Radar on the same moving vehicle
+ 121: Mount=SensorPlatform_1
+ 122: 
+ 123: ; Radar mounting position in centimeters
+ 124: MountingPositionX=200
+ 125: MountingPositionY=0
+ 126: MountingPositionZ=80
+ 127: 
+ 128: ; Forward-facing orientation
+ 129: MountingOrientationRoll=0
+ 130: MountingOrientationPitch=0
+ 131: MountingOrientationYaw=0
+ 132: 
+ 133: ; Radar ray configuration
+ 134: NumberOfRaysHorizontal=10
+ 135: NumberOfRaysVertical=10
+ 136: 
+ 137: FoVHorizontal=90
+ 138: FoVVertical=20
+ 139: 
+ 140: ;DistanceHalfFalloff=30
+ 141: 
+ 142: 
+ 143: ; =========================================================
+ 144: ; SUMO TRAFFIC SIMULATION
+ 145: ; =========================================================
+ 146: 
+ 147: [ue_sumo_feature]
+ 148: ;Debug=true
+ 149: 
+ 150: Parameters="-c practise-area/DrivingPractiseAreaBrunswickMap.sumocfg"
+ 151: 
+ 152: 
+ 153: ; =========================================================
+ 154: ; VEHICLE CONFIGURATION
+ 155: ; =========================================================
+
+=== B. RADAR MANAGER CONFIGURATION ===
+ 125: 		}
+ 126: 		double yaw = 0.0;
+ 127: 		if (const FString* ValueStr = Pair.Value.Entries.Find("MountingOrientationYaw"))
+ 128: 		{
+ 129: 			FDefaultValueHelper::ParseDouble(*ValueStr, yaw);
+ 130: 		}
+ 131: 		config.Offset.SetRotation(FRotator(pitch, yaw, roll).Quaternion());
+ 132: 
+ 133: 		double width = 0.0;
+ 134: 		if (const FString* ValueStr = Pair.Value.Entries.Find("NumberOfRaysHorizontal"))
+ 135: 		{
+ 136: 			FDefaultValueHelper::ParseDouble(*ValueStr, width);
+ 137: 		}
+ 138: 		double height = 0.0;
+ 139: 		if (const FString* ValueStr = Pair.Value.Entries.Find("NumberOfRaysVertical"))
+ 140: 		{
+ 141: 			FDefaultValueHelper::ParseDouble(*ValueStr, height);
+ 142: 		}
+ 143: 		double FoVHorizontal = 0.0;
+ 144: 		if (const FString* ValueStr = Pair.Value.Entries.Find("FoVHorizontal"))
+ 145: 		{
+ 146: 			FDefaultValueHelper::ParseDouble(*ValueStr, FoVHorizontal);
+ 147: 		}
+ 148: 		double FoVVertical = 0.0;
+ 149: 		if (const FString* ValueStr = Pair.Value.Entries.Find("FoVVertical"))
+ 150: 		{
+ 151: 			FDefaultValueHelper::ParseDouble(*ValueStr, FoVVertical);
+ 152: 		}
+ 153: 		float Range = 0.0;
+ 154: 		if (const FString* ValueStr = Pair.Value.Entries.Find("Range"))
+ 155: 		{
+ 156: 			FDefaultValueHelper::ParseFloat(*ValueStr, Range);
+ 157: 		}
+ 158: 		bool NoFalloff = false;
+ 159: 		if (const FString* ValueStr = Pair.Value.Entries.Find("NoFalloff"))
+ 160: 		{
+ 161: 			FDefaultValueHelper::ParseBool(*ValueStr, NoFalloff);
+ 162: 		}
+ 163: 		float distanceHalfFalloff = 0.0;
+ 164: 		if (const FString* ValueStr = Pair.Value.Entries.Find("DistanceHalfFalloff"))
+ 165: 		{
+ 166: 			FDefaultValueHelper::ParseFloat(*ValueStr, distanceHalfFalloff);
+ 167: 		}
+ 168: 		config.Radar.NumberOfRaysHorizontal = width;
+ 169: 		config.Radar.NumberOfRaysVertical = height;
+ 170: 		config.Radar.FieldOfViewHorizontal = FMath::DegreesToRadians(FoVHorizontal);
+ 171: 		config.Radar.FieldOfViewVertical = FMath::DegreesToRadians(FoVVertical);
+ 172: 		// DistanceHalfFalloff in Meter
+ 173: 		config.Radar.DistanceHalfFalloff = distanceHalfFalloff * 100.0f;
+ 174: 		SensorConfiguration.Add(config);
+ 175: 	}
+ 176: 	for (auto& config : SensorConfiguration)
+ 177: 	{
+ 178: 		SpawnSensor(config);
+ 179: 	}
+ 180: }
+ 181: 
+ 182: void ARadarSensorManager::SpawnSensor(FSensorConfigData& sensorConfiguration) {
+ 183: 	UWorld* World = GetWorld();
+ 184: 	if (World)
+ 185: 	{
+ 186: 		FActorSpawnParameters params;
+ 187: 		params.Name = sensorConfiguration.ID;
+ 188: 		ASimpleRadar* SpawnedActor = World->SpawnActor<ASimpleRadar>(ASimpleRadar::StaticClass(), FTransform(), params);
+ 189: 		if (SpawnedActor == nullptr) {
+ 190: 			UE_LOG(Radar, Log, TEXT("RadarSensorManager: Radar spawn failed for %s"), *SpawnedActor->GetName());
+ 191: 			return;
+ 192: 		}
+ 193: 
+ 194: 		SpawnedActor->SetSensorConfiguration(sensorConfiguration);
+ 195: 
+ 196: 		UE_LOG(Radar, Log, TEXT("RadarSensorManager: Radar spawned %s"), *SpawnedActor->GetName());
+ 197: 		if (!sensorConfiguration.Mount.IsEmpty()) {
+ 198: 			IGemstarManager::Execute_MountOn(GemstarSimulationSubsystem, sensorConfiguration.Mount, SpawnedActor);
+ 199: 		}
+ 200: 		else {
+
+=== C. RADAR SENSOR CONFIGURATION ===
+ 160: 	float distanceToTarget = (Hit.ImpactPoint - Hit.TraceStart).Size() * 0.01; //in meter
+ 161: 	distanceToTarget = FMath::Max(distanceToTarget, 0.01f); // prevent division by zero
+ 162: 	float signalStrengthInWatt = (7.5 * 0.00001 * backscatterValue) / FMath::Pow(distanceToTarget, 4); 
+ 163: 
+ 164: 	float signalStrengthInDB = 10 * FMath::LogX(10, (signalStrengthInWatt / FMath::Pow(10.0, -12.0)));
+ 165: 
+ 166: 	// normalise dB signal
+ 167: 	float scaledDBsignal = (signalStrengthInDB) / 100.0;
+ 168: 
+ 169: 	return scaledDBsignal;
+ 170: }
+ 171: 
+ 172: void ASimpleRadar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) {
+ 173: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+ 174: 	Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+ 175: 	auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+ 176: 	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+ 177: 	conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+ 178: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Radar.NumberOfRaysHorizontal);
+ 179: 	conf->set_number_of_rays_vertical(SensorConfiguration.Radar.NumberOfRaysVertical);
+ 180: 	conf->mutable_mounting_position()->set_allocated_position(
+ 181: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+ 182: 	conf->mutable_mounting_position()->set_allocated_orientation(
+ 183: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+ 184: 	conf->set_emitter_frequency(77000000000.0); //in Hz
+ 185: 	//calculate angles
+ 186: 
+ 187: 	Sensor.AzimuthAngles.Empty();
+ 188: 	Sensor.ElevationAngles.Empty();
+ 189: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+ 190: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+ 191: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+ 192: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+ 193: 	}
+ 194: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_vertical();
+ 195: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+ 196: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical()
+ 197: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+ 198: 	}
+ 199: }
+ 200: 
+ 201: void ASimpleRadar::CreateTestConfig() {
+ 202: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+ 203: 	Sensor.SensorViewConfig->set_range(10);
+ 204: }
+ 205: 
+
+=== TASK 20.38 COMPLETE ===

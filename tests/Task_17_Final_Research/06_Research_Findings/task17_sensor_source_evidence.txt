@@ -1,0 +1,23 @@
+﻿TASK 17.9C - SENSOR IMPLEMENTATION EVIDENCE
+Matches found: 20
+
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp:155: ViewConfiguration->set_allocated_mounting_position(
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp:156: ToOSI::toMountingPosition(SensorConfiguration));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp:158: ViewConfiguration->mutable_mounting_position()
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensorManager.cpp:91: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionX"))
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensorManager.cpp:96: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionY"))
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensorManager.cpp:101: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionZ"))
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\LidarSensorManager.cpp:100: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionX"))
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\LidarSensorManager.cpp:105: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionY"))
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\LidarSensorManager.cpp:110: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionZ"))
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\LidarSensorManager.cpp:169: config.Lidar.DistanceHalfFalloff = distanceHalfFalloff * 100.0f;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:218: conf->mutable_mounting_position()->set_allocated_position(
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:220: conf->mutable_mounting_position()->set_allocated_orientation(
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:218: const double Reflectivity = SignalStrength * 100.0;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:100: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionX"))
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:105: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionY"))
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:110: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionZ"))
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:173: config.Radar.DistanceHalfFalloff = distanceHalfFalloff * 100.0f;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:167: float scaledDBsignal = (signalStrengthInDB) / 100.0;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:180: conf->mutable_mounting_position()->set_allocated_position(
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:182: conf->mutable_mounting_position()->set_allocated_orientation(

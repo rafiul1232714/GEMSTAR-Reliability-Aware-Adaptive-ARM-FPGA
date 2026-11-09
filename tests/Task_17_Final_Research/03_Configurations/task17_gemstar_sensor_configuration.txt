@@ -1,0 +1,12 @@
+﻿TASK 17.6A - GEMSTAR SENSOR CONFIGURATION
+ConfigDirectory: E:\GEMSTAR_Project\gemstar\Config
+INIFileCount: 4
+MatchingLineCount: 0
+
+=== INI FILES ===
+E:\GEMSTAR_Project\gemstar\Config\DefaultEditor.ini
+E:\GEMSTAR_Project\gemstar\Config\DefaultEngine.ini
+E:\GEMSTAR_Project\gemstar\Config\DefaultGame.ini
+E:\GEMSTAR_Project\gemstar\Config\DefaultInput.ini
+
+=== MATCHING CONFIGURATION LINES ===

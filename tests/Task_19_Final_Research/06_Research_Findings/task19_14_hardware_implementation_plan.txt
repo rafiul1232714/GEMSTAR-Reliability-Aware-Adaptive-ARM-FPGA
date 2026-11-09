@@ -1,0 +1,35 @@
+TASK 19.14 - ARM-FPGA IMPLEMENTATION PLAN
+
+1. SOFTWARE REFERENCE
+Preserve existing double-precision processing.
+Use reproducible input point clouds and reference outputs.
+
+2. FIRST FPGA KERNEL
+Implement point-to-plane distance and inlier counting.
+Use signed fixed-point arithmetic with explicit scaling.
+Widen products and accumulators to avoid overflow.
+
+3. NUMERICAL VALIDATION
+Start with INT16 XYZ candidate precision.
+Calibrate scales on separate frames/recordings.
+Use independent frames for validation.
+Validate plane coefficients and arithmetic precision.
+
+4. HARDWARE INTEGRATION
+Select actual ARM-FPGA board and toolchain.
+Specify AXI stream/control and DMA requirements.
+Confirm clock frequency, memory and resource limits.
+Use identical input data for CPU and FPGA comparison.
+
+5. MEASUREMENTS
+Measure software, DMA, accelerator and total latency.
+Measure real board power with appropriate instrumentation.
+Energy per frame = measured energy over the frame interval.
+Account for idle baseline and system-level power.
+Report LUT, FF, BRAM and DSP utilization from implementation.
+
+6. RESEARCH LIMITATIONS
+No FPGA implementation completed in Task 19.14.
+No measured hardware energy or FPGA speedup.
+INT8 and INT16 results currently from one frame.
+Full RANSAC agreement is not verified obstacle accuracy.

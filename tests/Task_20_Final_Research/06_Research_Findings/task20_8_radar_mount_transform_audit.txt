@@ -1,0 +1,80 @@
+﻿TASK 20.8 - RADAR MOUNT TRANSFORM AUDIT
+Files inspected: 35
+Source matches: 38
+
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\GEMSTAR_Radar_Loader.cpp:33
+  ARadarSensorManager *SpawnedRadarActor = GetWorld()->SpawnActor<ARadarSensorManager>(ARadarSensorManager::StaticClass(), SpawnTransform, SpawnParams);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:100
+  if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionX"))
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:105
+  if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionY"))
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:110
+  if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionZ"))
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:188
+  ASimpleRadar* SpawnedActor = World->SpawnActor<ASimpleRadar>(ASimpleRadar::StaticClass(), FTransform(), params);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:226
+  ASimpleRadar* SpawnedActor = World->SpawnActor<ASimpleRadar>(ASimpleRadar::StaticClass(), FTransform(), params);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:227
+  SpawnedActor->AttachToActor(sensorConfiguration.Vehicle, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp:229
+  SpawnedActor->SetActorRelativeTransform(sensorConfiguration.Offset);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:43
+  CubeActor = GetWorld()->SpawnActor<AStaticMeshActor>(GetActorLocation(), FRotator::ZeroRotator, SpawnParams);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:44
+  //TargetCubeActor = GetWorld()->SpawnActor<AStaticMeshActor>(GetActorLocation() + FVector(1000,-200,50), FRotator::ZeroRotator, SpawnParams);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:45
+  //TargetCube2Actor = GetWorld()->SpawnActor<AStaticMeshActor>(GetActorLocation() + FVector(-500, 100, 50), FRotator::ZeroRotator, SpawnParams);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:53
+  //CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(0, 0, 50));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:69
+  CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(1 * speedMultiplier, 0, 0));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:70
+  CubeActor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 0, 0));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:73
+  CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(0, 0, 0));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:74
+  CubeActor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 1 * speedMultiplier, 0));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:76
+  //TargetCubeActor->SetActorLocation(TargetCubeActor->GetActorLocation() + FVector(0, 1, 0));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:77
+  //TargetCubeActor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 0, 0));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:79
+  //TargetCube2Actor->SetActorLocation(TargetCube2Actor->GetActorLocation() + FVector(3, 0, 0));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp:80
+  //TargetCube2Actor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 0, 0));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:25
+  oldPosition = GetActorLocation();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:40
+  currentVelocity = (GetActorLocation() - oldPosition) / DeltaTime;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:41
+  oldPosition = GetActorLocation();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:57
+  const FVector RadarPosition = this->GetActorLocation();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:58
+  const FRotator RadarRotation = this->GetActorRotation();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:148
+  moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:181
+  ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:183
+  ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\GEMSTAR_Log_Loader.cpp:41
+  LogManager = World->SpawnActor<ALogManager>(ALogManager::StaticClass(), FTransform::Identity, SpawnParams);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp:92
+  for (int32 i = SensorSpawnActorsToInform.Num() - 1; i >= 0; --i){
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp:93
+  if (AActor* Spawner = SensorSpawnActorsToInform[i]; IsValid(Spawner)){
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp:97
+  SensorSpawnActorsToInform.Reset();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp:171
+  SensorSpawnActorsToInform.AddUnique(spawner);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp:181
+  SensorSpawnActorsToInform.Remove(spawner);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_SensorViewConfiguration.cpp:21
+  FSensorConfigData OSI_SensorViewConfiguration::createSensor(TArray<AActor*>& SensorSpawnActorsToInform,
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_SensorViewConfiguration.cpp:51
+  for (auto& actors : SensorSpawnActorsToInform) {
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Public\LogManager.h:65
+  TArray<AActor*> SensorSpawnActorsToInform;
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Public\OSI_SensorViewConfiguration.h:28
+  FSensorConfigData createSensor(TArray<AActor*>& SensorSpawnActorsToInform,

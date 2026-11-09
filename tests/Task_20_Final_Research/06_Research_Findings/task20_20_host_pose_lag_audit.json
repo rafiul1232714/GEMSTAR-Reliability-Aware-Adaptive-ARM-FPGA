@@ -1,0 +1,259 @@
+{
+  "Task": "20.20",
+  "OffsetConvention": "GT index minus SV index",
+  "Comparisons": [
+    {
+      "Recording": "baseline_clear",
+      "GTMinusSVFrameOffset": -2,
+      "MatchedFrames": 98,
+      "ExtraNestedDuplicateEntries": 196,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.32513331856906297,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 0.8878855899119569
+    },
+    {
+      "Recording": "baseline_clear",
+      "GTMinusSVFrameOffset": -1,
+      "MatchedFrames": 99,
+      "ExtraNestedDuplicateEntries": 198,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.173693140998148,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 0.8442604195232284
+    },
+    {
+      "Recording": "baseline_clear",
+      "GTMinusSVFrameOffset": 0,
+      "MatchedFrames": 99,
+      "ExtraNestedDuplicateEntries": 198,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.53080839557125,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 0.9820203162626829
+    },
+    {
+      "Recording": "baseline_clear",
+      "GTMinusSVFrameOffset": 1,
+      "MatchedFrames": 98,
+      "ExtraNestedDuplicateEntries": 196,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.7364991821401379,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 1.1068140765366983
+    },
+    {
+      "Recording": "baseline_clear",
+      "GTMinusSVFrameOffset": 2,
+      "MatchedFrames": 97,
+      "ExtraNestedDuplicateEntries": 194,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 1.2477906879962635,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 1.4965252920662329
+    },
+    {
+      "Recording": "baseline_fog_working_radar",
+      "GTMinusSVFrameOffset": -2,
+      "MatchedFrames": 98,
+      "ExtraNestedDuplicateEntries": 196,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.3149055596923578,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 0.8841914622284162
+    },
+    {
+      "Recording": "baseline_fog_working_radar",
+      "GTMinusSVFrameOffset": -1,
+      "MatchedFrames": 99,
+      "ExtraNestedDuplicateEntries": 198,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.1736931409981484,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 0.8442604195232285
+    },
+    {
+      "Recording": "baseline_fog_working_radar",
+      "GTMinusSVFrameOffset": 0,
+      "MatchedFrames": 99,
+      "ExtraNestedDuplicateEntries": 198,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.5199258546242924,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 0.9761809479038893
+    },
+    {
+      "Recording": "baseline_fog_working_radar",
+      "GTMinusSVFrameOffset": 1,
+      "MatchedFrames": 98,
+      "ExtraNestedDuplicateEntries": 196,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.7363042310306532,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 1.1066843595061284
+    },
+    {
+      "Recording": "baseline_fog_working_radar",
+      "GTMinusSVFrameOffset": 2,
+      "MatchedFrames": 97,
+      "ExtraNestedDuplicateEntries": 194,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 1.2039763398457806,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 1.4601936089615573
+    },
+    {
+      "Recording": "fog_mor100",
+      "GTMinusSVFrameOffset": -2,
+      "MatchedFrames": 98,
+      "ExtraNestedDuplicateEntries": 196,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.32513331856906297,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 0.8878855899119569
+    },
+    {
+      "Recording": "fog_mor100",
+      "GTMinusSVFrameOffset": -1,
+      "MatchedFrames": 99,
+      "ExtraNestedDuplicateEntries": 198,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.1736931409981484,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 0.8442604195232285
+    },
+    {
+      "Recording": "fog_mor100",
+      "GTMinusSVFrameOffset": 0,
+      "MatchedFrames": 99,
+      "ExtraNestedDuplicateEntries": 198,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.53080839557125,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 0.9820203162626829
+    },
+    {
+      "Recording": "fog_mor100",
+      "GTMinusSVFrameOffset": 1,
+      "MatchedFrames": 98,
+      "ExtraNestedDuplicateEntries": 196,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.7363184958384494,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 1.1066938507860145
+    },
+    {
+      "Recording": "fog_mor100",
+      "GTMinusSVFrameOffset": 2,
+      "MatchedFrames": 97,
+      "ExtraNestedDuplicateEntries": 194,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 1.2477906879962635,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 1.4965252920662329
+    },
+    {
+      "Recording": "fog_postfix_validation",
+      "GTMinusSVFrameOffset": -2,
+      "MatchedFrames": 98,
+      "ExtraNestedDuplicateEntries": 196,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.3149055596923578,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 0.8841914622284162
+    },
+    {
+      "Recording": "fog_postfix_validation",
+      "GTMinusSVFrameOffset": -1,
+      "MatchedFrames": 99,
+      "ExtraNestedDuplicateEntries": 198,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.173693140998148,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 0.8442604195232284
+    },
+    {
+      "Recording": "fog_postfix_validation",
+      "GTMinusSVFrameOffset": 0,
+      "MatchedFrames": 99,
+      "ExtraNestedDuplicateEntries": 198,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.5199258546242924,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 0.9761809479038893
+    },
+    {
+      "Recording": "fog_postfix_validation",
+      "GTMinusSVFrameOffset": 1,
+      "MatchedFrames": 98,
+      "ExtraNestedDuplicateEntries": 196,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 0.7360464423170114,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 1.1065128632265315
+    },
+    {
+      "Recording": "fog_postfix_validation",
+      "GTMinusSVFrameOffset": 2,
+      "MatchedFrames": 97,
+      "ExtraNestedDuplicateEntries": 194,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": 1.1154380150921883,
+      "MedianZAbsErrorM": 0.8261999447735003,
+      "MedianXYZErrorM": 1.3880952108038325
+    },
+    {
+      "Recording": "task05_fog_test",
+      "GTMinusSVFrameOffset": -2,
+      "MatchedFrames": 0,
+      "ExtraNestedDuplicateEntries": 0,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": null,
+      "MedianZAbsErrorM": null,
+      "MedianXYZErrorM": null
+    },
+    {
+      "Recording": "task05_fog_test",
+      "GTMinusSVFrameOffset": -1,
+      "MatchedFrames": 0,
+      "ExtraNestedDuplicateEntries": 0,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": null,
+      "MedianZAbsErrorM": null,
+      "MedianXYZErrorM": null
+    },
+    {
+      "Recording": "task05_fog_test",
+      "GTMinusSVFrameOffset": 0,
+      "MatchedFrames": 0,
+      "ExtraNestedDuplicateEntries": 0,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": null,
+      "MedianZAbsErrorM": null,
+      "MedianXYZErrorM": null
+    },
+    {
+      "Recording": "task05_fog_test",
+      "GTMinusSVFrameOffset": 1,
+      "MatchedFrames": 0,
+      "ExtraNestedDuplicateEntries": 0,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": null,
+      "MedianZAbsErrorM": null,
+      "MedianXYZErrorM": null
+    },
+    {
+      "Recording": "task05_fog_test",
+      "GTMinusSVFrameOffset": 2,
+      "MatchedFrames": 0,
+      "ExtraNestedDuplicateEntries": 0,
+      "InconsistentDuplicateFrames": 0,
+      "MedianXYErrorM": null,
+      "MedianZAbsErrorM": null,
+      "MedianXYZErrorM": null
+    }
+  ],
+  "Interpretation": "Frame-offset comparison is diagnostic only; it does not prove synchronization or accuracy.",
+  "ValidatedRadarAccuracy": false,
+  "MeasuredEnergy": false
+}

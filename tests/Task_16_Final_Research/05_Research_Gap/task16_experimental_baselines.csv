@@ -1,0 +1,5 @@
+﻿"ID","Name","Hardware","SchedulingInputs","SensorUncertainty","Objective"
+"B0","CPU-only","ARM CPU","None","NO","Establish software latency, energy and quality"
+"B1","Fixed CPU-FPGA","ARM + FPGA","Fixed allocation","NO","Measure static hardware acceleration"
+"B2","Workload-aware CPU-FPGA","ARM + FPGA","Load; latency; communication cost","NO","Measure benefit from workload-based scheduling"
+"B3","Uncertainty-aware CPU-FPGA","ARM + FPGA","Load; latency; communication cost; reliability; tracking uncertainty","YES","Test whether uncertainty improves the energy-quality tradeoff"

@@ -1,0 +1,17 @@
+{
+  "task": "18.E9",
+  "report_created": true,
+  "pdf_path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_18_Camera_Extension_Final_Research\\07_Research_Report\\Task_18_Camera_Extension_Final_Research_Report.pdf",
+  "pdf_bytes": 6179870,
+  "images_extracted": 20,
+  "quality_records": 20,
+  "observability_records": 20,
+  "fixed_point_records": 20,
+  "rtl_modules_planned": 10,
+  "rtl_verification_cases_planned": 12,
+  "illustrations_embedded": 10,
+  "artifacts_in_manifest": 55,
+  "rtl_implemented": false,
+  "kria_measured": false,
+  "complete": true
+}

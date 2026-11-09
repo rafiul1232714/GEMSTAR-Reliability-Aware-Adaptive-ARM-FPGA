@@ -1,0 +1,18 @@
+﻿Task 20.54 - Eligible External Target Diagnostics
+Eligible observations: 5
+
+These distances are exploratory centre-to-point distances.
+Not object detection accuracy.
+Radar world-coordinate orientation not independently validated.
+
+
+Frame ObjectID ModelReference CenterRangeM NearestRadarPointDistanceM
+----- -------- -------------- ------------ --------------------------
+95    76765    BP_Large_Car_C 29.84184     11.48306                  
+96    76765    BP_Large_Car_C 28.9273      12.41477                  
+97    76765    BP_Large_Car_C 28.61887     12.75622                  
+98    76765    BP_Large_Car_C 28.02944     13.32835                  
+99    76765    BP_Large_Car_C 27.14886     13.4729                   
+
+
+

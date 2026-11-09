@@ -1,0 +1,138 @@
+{
+  "Task": "20.57",
+  "TargetID": 76765,
+  "Results": [
+    {
+      "Frame": 95,
+      "RadarIndex": 0,
+      "RayIndex": 44,
+      "IntersectsRecordedBox": false,
+      "IntersectsDoubledBox": true,
+      "RecordedBoxEntryM": "",
+      "DoubledBoxEntryM": 27.508854592908293,
+      "MeasuredReturnM": 41.255567369825684,
+      "PositiveReturn": true,
+      "Model": "BP_Large_Car_C"
+    },
+    {
+      "Frame": 95,
+      "RadarIndex": 0,
+      "RayIndex": 54,
+      "IntersectsRecordedBox": false,
+      "IntersectsDoubledBox": true,
+      "RecordedBoxEntryM": "",
+      "DoubledBoxEntryM": 27.508854592908293,
+      "MeasuredReturnM": "",
+      "PositiveReturn": false,
+      "Model": "BP_Large_Car_C"
+    },
+    {
+      "Frame": 96,
+      "RadarIndex": 0,
+      "RayIndex": 44,
+      "IntersectsRecordedBox": false,
+      "IntersectsDoubledBox": true,
+      "RecordedBoxEntryM": "",
+      "DoubledBoxEntryM": 26.62002641939095,
+      "MeasuredReturnM": 41.255567369825684,
+      "PositiveReturn": true,
+      "Model": "BP_Large_Car_C"
+    },
+    {
+      "Frame": 96,
+      "RadarIndex": 0,
+      "RayIndex": 54,
+      "IntersectsRecordedBox": false,
+      "IntersectsDoubledBox": true,
+      "RecordedBoxEntryM": "",
+      "DoubledBoxEntryM": 26.62002641939095,
+      "MeasuredReturnM": "",
+      "PositiveReturn": false,
+      "Model": "BP_Large_Car_C"
+    },
+    {
+      "Frame": 97,
+      "RadarIndex": 0,
+      "RayIndex": 44,
+      "IntersectsRecordedBox": false,
+      "IntersectsDoubledBox": true,
+      "RecordedBoxEntryM": "",
+      "DoubledBoxEntryM": 26.345660750332968,
+      "MeasuredReturnM": 41.255567369825684,
+      "PositiveReturn": true,
+      "Model": "BP_Large_Car_C"
+    },
+    {
+      "Frame": 97,
+      "RadarIndex": 0,
+      "RayIndex": 54,
+      "IntersectsRecordedBox": false,
+      "IntersectsDoubledBox": true,
+      "RecordedBoxEntryM": "",
+      "DoubledBoxEntryM": 26.345660750332968,
+      "MeasuredReturnM": "",
+      "PositiveReturn": false,
+      "Model": "BP_Large_Car_C"
+    },
+    {
+      "Frame": 98,
+      "RadarIndex": 0,
+      "RayIndex": 44,
+      "IntersectsRecordedBox": false,
+      "IntersectsDoubledBox": true,
+      "RecordedBoxEntryM": "",
+      "DoubledBoxEntryM": 25.745991933181784,
+      "MeasuredReturnM": 41.255567369825684,
+      "PositiveReturn": true,
+      "Model": "BP_Large_Car_C"
+    },
+    {
+      "Frame": 98,
+      "RadarIndex": 0,
+      "RayIndex": 54,
+      "IntersectsRecordedBox": false,
+      "IntersectsDoubledBox": true,
+      "RecordedBoxEntryM": "",
+      "DoubledBoxEntryM": 25.745991933181784,
+      "MeasuredReturnM": "",
+      "PositiveReturn": false,
+      "Model": "BP_Large_Car_C"
+    },
+    {
+      "Frame": 99,
+      "RadarIndex": 0,
+      "RayIndex": 44,
+      "IntersectsRecordedBox": false,
+      "IntersectsDoubledBox": true,
+      "RecordedBoxEntryM": "",
+      "DoubledBoxEntryM": 24.887818794711187,
+      "MeasuredReturnM": 41.255567369825684,
+      "PositiveReturn": true,
+      "Model": "BP_Large_Car_C"
+    },
+    {
+      "Frame": 99,
+      "RadarIndex": 0,
+      "RayIndex": 54,
+      "IntersectsRecordedBox": false,
+      "IntersectsDoubledBox": true,
+      "RecordedBoxEntryM": "",
+      "DoubledBoxEntryM": 24.887818794711187,
+      "MeasuredReturnM": "",
+      "PositiveReturn": false,
+      "Model": "BP_Large_Car_C"
+    }
+  ],
+  "Assumptions": [
+    "Zero host and mount pitch/roll",
+    "Zero radar mounting yaw",
+    "OSI world-coordinate yaw",
+    "Recorded and doubled GT box dimensions",
+    "50 m maximum trace distance",
+    "Identical frame indices used",
+    "Pose sampling-time offset unresolved"
+  ],
+  "CollisionMeshIntersectionVerified": false,
+  "RadarDetectionAccuracyValidated": false,
+  "HardwareEnergyMeasured": false
+}

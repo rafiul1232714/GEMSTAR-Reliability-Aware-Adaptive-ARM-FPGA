@@ -1,0 +1,2 @@
+RawMedianAgreementPercent,RefinedMedianAgreementPercent,RawMedianFalseGround,RefinedMedianFalseGround,RawMedianMissedGround,RefinedMedianMissedGround,RawMedianAngleDeg,RefinedMedianAngleDeg,StableFullPoints,StableVoxelPoints,MedianFullFitMs,MedianVoxelFitMs
+89.4901144640999,95.837669094693,93.5,41.5,107.5,38.5,1.25672622355289,0.615932960995619,1859,1771,3.15475,1.5507

@@ -1,0 +1,6 @@
+Recording,Frames,UniqueIDs,UnusualDimensionEntries,ExplicitEgoFieldsFirstFrame,ClassCounts
+baseline_clear,100,181,147,{},"{""MOVING/TYPE_VEHICLE/TYPE_UNKNOWN"": 308, ""STATIONARY//"": 176}"
+baseline_fog_working_radar,100,181,147,{},"{""MOVING/TYPE_VEHICLE/TYPE_UNKNOWN"": 334, ""STATIONARY//"": 176}"
+fog_mor100,100,181,147,{},"{""MOVING/TYPE_VEHICLE/TYPE_UNKNOWN"": 321, ""STATIONARY//"": 176}"
+fog_postfix_validation,100,181,147,{},"{""MOVING/TYPE_VEHICLE/TYPE_UNKNOWN"": 306, ""STATIONARY//"": 176}"
+task05_fog_test,100,182,147,{},"{""MOVING/TYPE_VEHICLE/TYPE_UNKNOWN"": 391, ""STATIONARY//"": 176}"

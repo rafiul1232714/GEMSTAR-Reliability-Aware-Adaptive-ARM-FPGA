@@ -1,0 +1,13 @@
+Frame,Status,ObjectCount,Classes
+0,VALID,0,
+50,VALID,0,
+100,VALID,1,car
+150,VALID,1,car
+200,VALID,0,
+250,VALID,0,
+300,VALID,1,car
+350,VALID,1,car
+400,VALID,0,
+423,VALID,0,
+424,VALID,0,
+450,VALID,1,truck

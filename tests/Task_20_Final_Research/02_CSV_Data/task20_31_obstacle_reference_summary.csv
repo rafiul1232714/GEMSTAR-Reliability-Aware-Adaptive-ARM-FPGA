@@ -1,0 +1,6 @@
+Recording,GTFrames,FramesWithoutRecordedHost,ExcludedHostEntries,ExcludedLikelyHelperEntries,OtherMovingObjectEntries,OtherMovingObjectUniqueIDs,RadarCandidateReturns,ExternalDetectionAccuracyValidated
+baseline_clear,100,1,99,99,108,3,2957,False
+baseline_fog_working_radar,100,1,99,99,134,3,2958,False
+fog_mor100,100,1,99,99,121,3,2958,False
+fog_postfix_validation,100,1,99,99,106,3,2952,False
+task05_fog_test,100,100,0,0,0,0,0,False

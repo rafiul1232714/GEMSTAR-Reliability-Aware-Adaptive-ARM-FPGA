@@ -1,0 +1,4 @@
+Scenario,Frames,Insufficient,Review,Observable,LowReturnFlags,ShortRangeFlags,LowCoverageFlags,TemporalChangeFlags
+baseline_clear,17,0,4,13,0,0,1,3
+baseline_fog_working_radar,16,0,2,14,0,0,1,1
+fog_postfix_validation,15,1,14,0,15,14,15,0

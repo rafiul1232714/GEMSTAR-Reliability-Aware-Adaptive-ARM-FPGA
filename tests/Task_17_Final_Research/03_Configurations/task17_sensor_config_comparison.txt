@@ -1,0 +1,108 @@
+﻿TASK 17.6B - GEMSTAR SENSOR CONFIGURATION COMPARISON
+OSI Camera: X=0.7, Y=0, Z=1.6 m
+OSI LiDAR: X=2.6, Y=0, Z=0.7 m
+OSI Radar: X=2.0, Y=0, Z=0.8 m
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini
+========================================
+Line 4: ; TASK 7: RADAR MOUNTING TEST
+Line 13: [ue_camera_feature:sensor1]
+Line 16: Mount=SensorPlatform_1
+Line 18: ; Position in centimeters
+Line 19: MountingPositionX=70
+Line 20: MountingPositionY=0
+Line 21: MountingPositionZ=160
+Line 24: MountingOrientationRoll=0
+Line 25: MountingOrientationPitch=0
+Line 26: MountingOrientationYaw=0
+Line 63: [ue_lidar_feature:sensor1]
+Line 66: Mount=SensorPlatform_1
+Line 68: MountingPositionX=260
+Line 69: MountingPositionY=0
+Line 70: MountingPositionZ=70
+Line 72: MountingOrientationRoll=0
+Line 73: MountingOrientationPitch=0
+Line 74: MountingOrientationYaw=0
+Line 105: Input=[ue_camera_feature:sensor1,ue_lidar_feature:sensor1,ue_radar_feature:sensor1]
+Line 117: [ue_radar_feature:sensor1]
+Line 120: ; Mount Radar on the same moving vehicle
+Line 121: Mount=SensorPlatform_1
+Line 123: ; Radar mounting position in centimeters
+Line 124: MountingPositionX=200
+Line 125: MountingPositionY=0
+Line 126: MountingPositionZ=80
+Line 129: MountingOrientationRoll=0
+Line 130: MountingOrientationPitch=0
+Line 131: MountingOrientationYaw=0
+Line 165: ; Mount three sensors on vehicle 0
+Line 188: Input=[ue_lidar_feature:sensor1]
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar_backup.ini
+========================================
+Line 2: [ue_camera_feature:sensor1]
+Line 4: Mount=SensorPlatform_1
+Line 5: ;MountingPosition and MountingOrientation are relative to the mount (sensor platform).
+Line 6: ;Position in cm, Orientation in °
+Line 7: MountingPositionX=70
+Line 8: MountingPositionY=0
+Line 9: MountingPositionZ=160
+Line 10: MountingOrientationRoll=0
+Line 11: MountingOrientationPitch=0
+Line 12: MountingOrientationYaw=0
+Line 41: [ue_lidar_feature:sensor1]
+Line 43: Mount=SensorPlatform_1
+Line 44: MountingPositionX=260
+Line 45: MountingPositionY=0
+Line 46: MountingPositionZ=70
+Line 47: MountingOrientationRoll=0
+Line 48: MountingOrientationPitch=0
+Line 49: MountingOrientationYaw=0
+Line 75: [ue_radar_feature:sensor1]
+Line 76: ;Mount=SensorPlatform_1
+Line 77: MountingPositionX=1940
+Line 78: MountingPositionY=-2650
+Line 79: MountingPositionZ=250
+Line 80: MountingOrientationRoll=0
+Line 81: MountingOrientationPitch=0
+Line 82: MountingOrientationYaw=0
+Line 99: ;SensorPlatform_X is a platform to mount sensors on. It is the name of the vehicle within in the scenario.
+Line 102: ;Sensors are mounted on static infrastructure. Example object is GEMSTAR_Root
+Line 108: ;Remove vehicle from simulation if no position update reached vehicle feature during simulation frame
+Line 113: Input=[ue_lidar_feature:sensor1]
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar_before_radar_test.ini
+========================================
+Line 2: [ue_camera_feature:sensor1]
+Line 4: Mount=SensorPlatform_1
+Line 6: ;MountingPosition and MountingOrientation are relative to the mount (sensor platform).
+Line 7: ;Position in cm, Orientation in degrees
+Line 8: MountingPositionX=70
+Line 9: MountingPositionY=0
+Line 10: MountingPositionZ=160
+Line 11: MountingOrientationRoll=0
+Line 12: MountingOrientationPitch=0
+Line 13: MountingOrientationYaw=0
+Line 42: [ue_lidar_feature:sensor1]
+Line 44: Mount=SensorPlatform_1
+Line 46: MountingPositionX=260
+Line 47: MountingPositionY=0
+Line 48: MountingPositionZ=70
+Line 49: MountingOrientationRoll=0
+Line 50: MountingOrientationPitch=0
+Line 51: MountingOrientationYaw=0
+Line 81: Input=[ue_camera_feature:sensor1,ue_lidar_feature:sensor1,ue_radar_feature:sensor1]
+Line 90: [ue_radar_feature:sensor1]
+Line 91: ;Mount=SensorPlatform_1
+Line 93: MountingPositionX=1940
+Line 94: MountingPositionY=-2650
+Line 95: MountingPositionZ=250
+Line 97: MountingOrientationRoll=0
+Line 98: MountingOrientationPitch=0
+Line 99: MountingOrientationYaw=0
+Line 125: ;Sensor platforms mounted on scenario vehicles
+Line 129: ;Sensors mounted on static infrastructure
+Line 143: Input=[ue_lidar_feature:sensor1]
+

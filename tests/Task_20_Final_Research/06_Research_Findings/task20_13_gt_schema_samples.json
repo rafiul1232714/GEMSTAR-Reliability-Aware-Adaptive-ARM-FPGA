@@ -1,0 +1,172 @@
+{
+  "baseline_clear": {
+    "Kind": "MOVING",
+    "TopLevelFields": [
+      "id",
+      "base",
+      "type",
+      "vehicle_classification",
+      "model_reference"
+    ],
+    "BaseFields": [
+      "dimension",
+      "position",
+      "orientation",
+      "velocity",
+      "acceleration",
+      "orientation_acceleration"
+    ],
+    "SampleObject": {
+      "Recording": "baseline_clear",
+      "FrameIndex": 0,
+      "TimestampNs": 16666699,
+      "Kind": "MOVING",
+      "ObjectID": "77091",
+      "X": -3.0,
+      "Y": -0.0,
+      "Z": 0.0,
+      "Length": 10.1,
+      "Width": 10.1,
+      "Height": 10.1,
+      "Yaw": -0.0,
+      "Pitch": 0.0,
+      "Roll": 0.0
+    }
+  },
+  "baseline_fog_working_radar": {
+    "Kind": "MOVING",
+    "TopLevelFields": [
+      "id",
+      "base",
+      "type",
+      "vehicle_classification",
+      "model_reference"
+    ],
+    "BaseFields": [
+      "dimension",
+      "position",
+      "orientation",
+      "velocity",
+      "acceleration",
+      "orientation_acceleration"
+    ],
+    "SampleObject": {
+      "Recording": "baseline_fog_working_radar",
+      "FrameIndex": 0,
+      "TimestampNs": 16666799,
+      "Kind": "MOVING",
+      "ObjectID": "77191",
+      "X": -3.0,
+      "Y": -0.0,
+      "Z": 0.0,
+      "Length": 10.1,
+      "Width": 10.1,
+      "Height": 10.1,
+      "Yaw": -0.0,
+      "Pitch": 0.0,
+      "Roll": 0.0
+    }
+  },
+  "fog_mor100": {
+    "Kind": "MOVING",
+    "TopLevelFields": [
+      "id",
+      "base",
+      "type",
+      "vehicle_classification",
+      "model_reference"
+    ],
+    "BaseFields": [
+      "dimension",
+      "position",
+      "orientation",
+      "velocity",
+      "acceleration",
+      "orientation_acceleration"
+    ],
+    "SampleObject": {
+      "Recording": "fog_mor100",
+      "FrameIndex": 0,
+      "TimestampNs": 16666799,
+      "Kind": "MOVING",
+      "ObjectID": "77191",
+      "X": -3.0,
+      "Y": -0.0,
+      "Z": 0.0,
+      "Length": 10.1,
+      "Width": 10.1,
+      "Height": 10.1,
+      "Yaw": -0.0,
+      "Pitch": 0.0,
+      "Roll": 0.0
+    }
+  },
+  "fog_postfix_validation": {
+    "Kind": "MOVING",
+    "TopLevelFields": [
+      "id",
+      "base",
+      "type",
+      "vehicle_classification",
+      "model_reference"
+    ],
+    "BaseFields": [
+      "dimension",
+      "position",
+      "orientation",
+      "velocity",
+      "acceleration",
+      "orientation_acceleration"
+    ],
+    "SampleObject": {
+      "Recording": "fog_postfix_validation",
+      "FrameIndex": 0,
+      "TimestampNs": 16666699,
+      "Kind": "MOVING",
+      "ObjectID": "77091",
+      "X": -3.0,
+      "Y": -0.0,
+      "Z": 0.0,
+      "Length": 10.1,
+      "Width": 10.1,
+      "Height": 10.1,
+      "Yaw": -0.0,
+      "Pitch": 0.0,
+      "Roll": 0.0
+    }
+  },
+  "task05_fog_test": {
+    "Kind": "MOVING",
+    "TopLevelFields": [
+      "id",
+      "base",
+      "type",
+      "vehicle_classification",
+      "model_reference"
+    ],
+    "BaseFields": [
+      "dimension",
+      "position",
+      "orientation",
+      "velocity",
+      "acceleration",
+      "orientation_acceleration"
+    ],
+    "SampleObject": {
+      "Recording": "task05_fog_test",
+      "FrameIndex": 0,
+      "TimestampNs": 16666799,
+      "Kind": "MOVING",
+      "ObjectID": "77091",
+      "X": -3.0,
+      "Y": -0.0,
+      "Z": 0.0,
+      "Length": 10.1,
+      "Width": 10.1,
+      "Height": 10.1,
+      "Yaw": -0.0,
+      "Pitch": 0.0,
+      "Roll": 0.0
+    }
+  }
+}

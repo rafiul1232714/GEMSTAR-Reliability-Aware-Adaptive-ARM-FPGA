@@ -1,0 +1,4 @@
+Operation,TimeMilliseconds
+Grayscale,5.681499984348193
+GaussianBlur,1.8201000057160854
+SobelEdges,6.907400005729869

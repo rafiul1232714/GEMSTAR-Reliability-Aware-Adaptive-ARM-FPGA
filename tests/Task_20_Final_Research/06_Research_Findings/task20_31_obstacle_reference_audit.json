@@ -1,0 +1,67 @@
+{
+  "Task": "20.31",
+  "Summary": [
+    {
+      "Recording": "baseline_clear",
+      "GTFrames": 100,
+      "FramesWithoutRecordedHost": 1,
+      "ExcludedHostEntries": 99,
+      "ExcludedLikelyHelperEntries": 99,
+      "OtherMovingObjectEntries": 108,
+      "OtherMovingObjectUniqueIDs": 3,
+      "RadarCandidateReturns": 2957,
+      "ExternalDetectionAccuracyValidated": false
+    },
+    {
+      "Recording": "baseline_fog_working_radar",
+      "GTFrames": 100,
+      "FramesWithoutRecordedHost": 1,
+      "ExcludedHostEntries": 99,
+      "ExcludedLikelyHelperEntries": 99,
+      "OtherMovingObjectEntries": 134,
+      "OtherMovingObjectUniqueIDs": 3,
+      "RadarCandidateReturns": 2958,
+      "ExternalDetectionAccuracyValidated": false
+    },
+    {
+      "Recording": "fog_mor100",
+      "GTFrames": 100,
+      "FramesWithoutRecordedHost": 1,
+      "ExcludedHostEntries": 99,
+      "ExcludedLikelyHelperEntries": 99,
+      "OtherMovingObjectEntries": 121,
+      "OtherMovingObjectUniqueIDs": 3,
+      "RadarCandidateReturns": 2958,
+      "ExternalDetectionAccuracyValidated": false
+    },
+    {
+      "Recording": "fog_postfix_validation",
+      "GTFrames": 100,
+      "FramesWithoutRecordedHost": 1,
+      "ExcludedHostEntries": 99,
+      "ExcludedLikelyHelperEntries": 99,
+      "OtherMovingObjectEntries": 106,
+      "OtherMovingObjectUniqueIDs": 3,
+      "RadarCandidateReturns": 2952,
+      "ExternalDetectionAccuracyValidated": false
+    },
+    {
+      "Recording": "task05_fog_test",
+      "GTFrames": 100,
+      "FramesWithoutRecordedHost": 100,
+      "ExcludedHostEntries": 0,
+      "ExcludedLikelyHelperEntries": 0,
+      "OtherMovingObjectEntries": 0,
+      "OtherMovingObjectUniqueIDs": 0,
+      "RadarCandidateReturns": 0,
+      "ExternalDetectionAccuracyValidated": false
+    }
+  ],
+  "Limitations": [
+    "Only first 100 frames",
+    "Heuristic helper exclusion requires confirmation",
+    "Stationary geometry not yet ray-associated",
+    "Absence of candidates is not absence of obstacles",
+    "No detection accuracy or energy measured"
+  ]
+}
