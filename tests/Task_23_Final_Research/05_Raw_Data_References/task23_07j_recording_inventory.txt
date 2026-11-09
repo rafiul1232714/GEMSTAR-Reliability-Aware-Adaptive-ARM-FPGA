@@ -1,0 +1,15 @@
+﻿TASK 23.7J - RECORDING INVENTORY
+
+Radar scan log events: 5293
+Range configuration events: 5295
+SensorView logger events: 5293
+GroundTruth logger events: 5293
+Radar manager spawn events: 1
+
+Recent OSI files (last 3 hours): 0
+
+=== RECORDED FILES ===
+
+NOTE: OSI file presence does not prove valid protobuf content.
+NOTE: The runtime process was forcibly stopped.
+NOTE: SensorView and GroundTruth payloads require parsing.

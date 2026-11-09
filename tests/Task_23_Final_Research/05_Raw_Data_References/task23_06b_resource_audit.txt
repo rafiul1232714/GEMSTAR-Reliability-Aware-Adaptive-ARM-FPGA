@@ -1,0 +1,187 @@
+﻿TASK 23.6B — GEMSTAR RESOURCE AUDIT
+Status: SOURCE_AND_RESOURCE_INVENTORY_ONLY
+
+Project: E:\GEMSTAR_Project\gemstar
+
+Scenario files: 38
+Relevant Unreal assets: 1
+C++ source files inspected: 739
+Source matches: 131
+
+=== SCENARIO FILES ===
+E:\GEMSTAR_Project\gemstar\Content\GEMSTAR.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Content\Test\CameraTestMap.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_driving_area_brunswick_map_feature\Content\DrivingPractiseAreaBrunswickMap.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_driving_area_brunswick_map_feature\Content\TrianImport\Driving_Practise_Area_Tiles\DrivingPractiseArea_0_0.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_driving_area_brunswick_map_feature\XODR\DrivingPractiseAreaBrunswickMap.xodr
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_esmini_feature\Content\Test\EsminiTestMap.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_esmini_feature\Resources\OpenSCENARIO\cut-in\e6mini.xodr
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_esmini_feature\Resources\OpenSCENARIO\pedestrian\fabriksgatan.xodr
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_esmini_feature\Resources\OpenSCENARIO\simple-left-turn\drive_scenario1_0.xodr
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_fmi_feature\Content\Test\FMITestMap.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Content\Test\LidarTestMap.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Content\Test\LogTestMap.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Content\Test\RadarTestMap.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Content\Test\RtLidarTestMap.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Content\Test\TestMap.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\practise-area\DrivingPractiseAreaBrunswickMap.net.xml
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\practise-area\DrivingPractiseAreaBrunswickMap.rou.xml
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\practise-area\DrivingPractiseAreaBrunswickMap.sumocfg
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\practise-area\DrivingPractiseAreaBrunswickMap.xodr
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\practise-area\weather_DrivingPractiseAreaBrunswickMap.net.xml
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\simple-intersection\simple-intersection.net.xml
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\simple-intersection\simple-intersection.rou.xml
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\simple-intersection\simple-intersection.sumocfg
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\simple-intersection\weather_simple-intersection.net.xml
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\sl-intersection\sl-intersection.net.xml
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\sl-intersection\sl-intersection.rou.xml
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\sl-intersection\sl-intersection.sumocfg
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\square\square.net.xml
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\square\square.rou.xml
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\Sumo\square\square.sumocfg
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Content\Test\VehicleTestMap_esmini.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Content\Test\VehicleTestMap_esmini_tsc.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Content\Test\VehicleTestMap_SUMO.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Content\Test\TestMap.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Content\Test\TestMap_FollowVehicleCamera.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Content\Test\VehicleTestMap_esmini.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vru_feature\Content\Test\TestMap.umap
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_weather_effect_feature\Content\Test\WeatherEffectTest.umap
+
+=== RELEVANT ACTOR AND GROUNDTRUTH SOURCE MATCHES ===
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp:45: GenerateOSIMessage(true);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp:206: void ACameraSensor::GenerateOSIMessage(bool bIncludeImageData)
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp:283: ->add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp:285: const uint32 UniqueId = Parent->GetUniqueID();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp:296: ->mutable_host_vehicle_id()->set_value(UniqueId);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Public\CameraSensor.h:75: void GenerateOSIMessage(bool bIncludeImageData);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\Effects\LidarWeatherEffectModel.cpp:232: Reflection->mutable_object_id()->set_value(InvalidObjectId);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:42: GenerateOSIMessage();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:95: void ASimpleLidar::GenerateOSIMessage() {
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:113: reflection->mutable_object_id()->set_value(hit.HitResult.GetActor()->GetUniqueID());
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:117: reflection->mutable_object_id()->set_value(UINT64_MAX);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:125: auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:126: uint32_t uniqueID = Parent->GetUniqueID();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp:130: Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\SimpleLidar.h:100: void GenerateOSIMessage();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:72: auto vehicle = groundTruth.add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:77: id->set_value(actor->GetUniqueID());
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:81: vehicle->set_allocated_base(ToOSI::toOSIBaseMoving(actor));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:136: auto pedestrian = groundTruth.add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:242: auto vehicle = groundTruth.add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:247: id->set_value(actor->GetUniqueID());
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:251: vehicle->set_allocated_base(ToOSI::toOSIBaseMoving(actor));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:258: auto pedestrian = groundTruth.add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:261: id->set_value(actor->GetUniqueID());
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:263: pedestrian->set_allocated_base(ToOSI::toOSIBaseMoving(actor));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:275: id->set_value(actor->GetUniqueID());
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp:293: osi3::BaseStationary* base = ToOSI::toOSIBaseStationary(actor);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:52: GenerateOSIMessage();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:105: void ASimpleRadar::GenerateOSIMessage() {
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:148: auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:149: uint32_t uniqueID = Parent->GetUniqueID();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp:153: Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Public\SimpleRadar.h:103: void GenerateOSIMessage();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\Effects\RaytracingLidarWeatherEffectModel.cpp:255: Reflection->mutable_object_id()->set_value(InvalidObjectId);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarSensor.cpp:178: Reflection->mutable_object_id()->set_value(MAX_uint64);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarSensor.cpp:184: Reflection->mutable_object_id()->set_value(uint64(Hit.ObjectLow) | (uint64(Hit.ObjectHigh) << 32));
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarSensor.cpp:188: auto* moving_object = View.mutable_global_ground_truth()->add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarSensor.cpp:189: uint32_t uniqueID = Parent->GetUniqueID();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarSensor.cpp:193: View.mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\Tests\RaytracingLidarWeatherEffectModelTest.cpp:69: Reflection->mutable_object_id()->set_value(42);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:291: Entry.OsiObjectId = actor->GetUniqueID();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Source\ue_visualizer_featureRuntime\Private\PointcloudTester.cpp:62: sv.mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(1234);
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Source\ue_visualizer_featureRuntime\Private\PointcloudTester.cpp:63: auto* mo = sv.mutable_global_ground_truth()->add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Source\ue_visualizer_featureRuntime\Private\PointcloudTester.cpp:64: //auto* mo = sv.mutable_global_ground_truth()->add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp:55: osi3::BaseStationary* ToOSI::toOSIBaseStationary(const AActor* actor)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp:63: actor->GetActorBounds(false, Origin, Extent);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp:82: osi3::BaseMoving* ToOSI::toOSIBaseMoving(const AActor* actor)
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp:90: actor->GetActorBounds(false, Origin, Extent);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp:105: actor->GetUniqueID(),
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Public\Utils\ToOSI.h:29: static osi3::BaseStationary* toOSIBaseStationary(const AActor* actor);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Public\Utils\ToOSI.h:30: static osi3::BaseMoving* toOSIBaseMoving(const AActor* actor);
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:1224: ::osi3::Identifier* mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:1228: ::osi3::Identifier* _internal_mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:1741: ::osi3::Identifier* mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:1745: ::osi3::Identifier* _internal_mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:2491: ::osi3::Identifier* mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:2495: ::osi3::Identifier* _internal_mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:2689: ::osi3::Identifier* mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:2693: ::osi3::Identifier* _internal_mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:3445: ::osi3::Identifier* mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:3449: ::osi3::Identifier* _internal_mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:5076: inline ::osi3::Identifier* RadarDetection::_internal_mutable_object_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:5084: inline ::osi3::Identifier* RadarDetection::mutable_object_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:5085: ::osi3::Identifier* _msg = _internal_mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:5759: inline ::osi3::Identifier* LidarDetection::_internal_mutable_object_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:5767: inline ::osi3::Identifier* LidarDetection::mutable_object_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:5768: ::osi3::Identifier* _msg = _internal_mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:6688: inline ::osi3::Identifier* UltrasonicDetection::_internal_mutable_object_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:6696: inline ::osi3::Identifier* UltrasonicDetection::mutable_object_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:6697: ::osi3::Identifier* _msg = _internal_mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:6835: inline ::osi3::Identifier* UltrasonicIndirectDetection::_internal_mutable_object_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:6843: inline ::osi3::Identifier* UltrasonicIndirectDetection::mutable_object_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:6844: ::osi3::Identifier* _msg = _internal_mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:7480: inline ::osi3::Identifier* CameraDetection::_internal_mutable_object_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:7488: inline ::osi3::Identifier* CameraDetection::mutable_object_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_featuredata.pb.h:7489: ::osi3::Identifier* _msg = _internal_mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:416: ::osi3::StationaryObject* _internal_add_stationary_object();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:419: ::osi3::StationaryObject* add_stationary_object();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:434: ::osi3::MovingObject* _internal_add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:437: ::osi3::MovingObject* add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:701: ::osi3::Identifier* mutable_host_vehicle_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:705: ::osi3::Identifier* _internal_mutable_host_vehicle_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:1151: inline ::osi3::Identifier* GroundTruth::_internal_mutable_host_vehicle_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:1159: inline ::osi3::Identifier* GroundTruth::mutable_host_vehicle_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:1160: ::osi3::Identifier* _msg = _internal_mutable_host_vehicle_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:1208: inline ::osi3::StationaryObject* GroundTruth::_internal_add_stationary_object() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:1211: inline ::osi3::StationaryObject* GroundTruth::add_stationary_object() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:1212: ::osi3::StationaryObject* _add = _internal_add_stationary_object();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:1245: inline ::osi3::MovingObject* GroundTruth::_internal_add_moving_object() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:1248: inline ::osi3::MovingObject* GroundTruth::add_moving_object() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_groundtruth.pb.h:1249: ::osi3::MovingObject* _add = _internal_add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_hostvehicledata.pb.h:3018: ::osi3::Identifier* mutable_host_vehicle_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_hostvehicledata.pb.h:3022: ::osi3::Identifier* _internal_mutable_host_vehicle_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_hostvehicledata.pb.h:5025: inline ::osi3::Identifier* HostVehicleData::_internal_mutable_host_vehicle_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_hostvehicledata.pb.h:5033: inline ::osi3::Identifier* HostVehicleData::mutable_host_vehicle_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_hostvehicledata.pb.h:5034: ::osi3::Identifier* _msg = _internal_mutable_host_vehicle_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_logicaldetectiondata.pb.h:755: ::osi3::Identifier* mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_logicaldetectiondata.pb.h:759: ::osi3::Identifier* _internal_mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_logicaldetectiondata.pb.h:1439: inline ::osi3::Identifier* LogicalDetection::_internal_mutable_object_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_logicaldetectiondata.pb.h:1447: inline ::osi3::Identifier* LogicalDetection::mutable_object_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_logicaldetectiondata.pb.h:1448: ::osi3::Identifier* _msg = _internal_mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensordata.pb.h:695: ::osi3::DetectedStationaryObject* _internal_add_stationary_object();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensordata.pb.h:698: ::osi3::DetectedStationaryObject* add_stationary_object();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensordata.pb.h:713: ::osi3::DetectedMovingObject* _internal_add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensordata.pb.h:716: ::osi3::DetectedMovingObject* add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensordata.pb.h:2277: inline ::osi3::DetectedStationaryObject* SensorData::_internal_add_stationary_object() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensordata.pb.h:2280: inline ::osi3::DetectedStationaryObject* SensorData::add_stationary_object() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensordata.pb.h:2281: ::osi3::DetectedStationaryObject* _add = _internal_add_stationary_object();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensordata.pb.h:2404: inline ::osi3::DetectedMovingObject* SensorData::_internal_add_moving_object() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensordata.pb.h:2407: inline ::osi3::DetectedMovingObject* SensorData::add_moving_object() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensordata.pb.h:2408: ::osi3::DetectedMovingObject* _add = _internal_add_moving_object();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:458: ::osi3::Identifier* mutable_host_vehicle_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:462: ::osi3::Identifier* _internal_mutable_host_vehicle_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1229: ::osi3::Identifier* mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:1233: ::osi3::Identifier* _internal_mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2507: inline ::osi3::Identifier* SensorView::_internal_mutable_host_vehicle_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2515: inline ::osi3::Identifier* SensorView::mutable_host_vehicle_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:2516: ::osi3::Identifier* _msg = _internal_mutable_host_vehicle_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3335: inline ::osi3::Identifier* LidarSensorView_Reflection::_internal_mutable_object_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3343: inline ::osi3::Identifier* LidarSensorView_Reflection::mutable_object_id() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_sensorview.pb.h:3344: ::osi3::Identifier* _msg = _internal_mutable_object_id();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_streamingupdate.pb.h:215: ::osi3::StationaryObject* _internal_add_stationary_object_update();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_streamingupdate.pb.h:218: ::osi3::StationaryObject* add_stationary_object_update();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_streamingupdate.pb.h:233: ::osi3::MovingObject* _internal_add_moving_object_update();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_streamingupdate.pb.h:236: ::osi3::MovingObject* add_moving_object_update();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_streamingupdate.pb.h:597: inline ::osi3::StationaryObject* StreamingUpdate::_internal_add_stationary_object_update() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_streamingupdate.pb.h:600: inline ::osi3::StationaryObject* StreamingUpdate::add_stationary_object_update() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_streamingupdate.pb.h:601: ::osi3::StationaryObject* _add = _internal_add_stationary_object_update();
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_streamingupdate.pb.h:634: inline ::osi3::MovingObject* StreamingUpdate::_internal_add_moving_object_update() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_streamingupdate.pb.h:637: inline ::osi3::MovingObject* StreamingUpdate::add_moving_object_update() {
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\ThirdParty\osi3\include\osi3\osi_streamingupdate.pb.h:638: ::osi3::MovingObject* _add = _internal_add_moving_object_update();
+
+IMPORTANT:
+File and source discovery does not verify actor identity.
+No Unreal map was modified.
+No simulation or controlled recording was executed.

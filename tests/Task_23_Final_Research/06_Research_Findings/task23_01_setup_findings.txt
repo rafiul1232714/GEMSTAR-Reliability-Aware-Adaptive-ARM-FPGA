@@ -1,0 +1,37 @@
+﻿TASK 23.1 - RESEARCH SETUP
+
+Objective:
+Prepare paired GEMSTAR recordings for Camera,
+LiDAR and Radar measurement extraction.
+
+Source:
+Task 22 deduplicated recording summary.
+
+Recording pairs selected: 4
+Missing or incomplete source pairs: 0
+
+Primary dataset:
+Pair 1 - corrected 50m radar recording, ID 806.
+
+Validation datasets:
+Pair 2 - recording ID 794.
+Pair 3 - recording ID 466.
+
+Incomplete-data control:
+Pair 4 - recording ID 542.
+
+Data handling:
+Original OSI recordings remain unchanged.
+No raw data was duplicated.
+No ZIP archive was created.
+
+Scientific rules:
+1. Validate actual protobuf fields before interpretation.
+2. Flag frame-zero startup artifacts.
+3. Never assume sensor entry presence implies accuracy.
+4. Verify coordinate conventions before projection.
+5. Do not claim verified weather or traffic conditions.
+6. Do not infer FPGA energy from software timing.
+
+Next:
+Task 23.2 - Inspect actual OSI measurement schemas.

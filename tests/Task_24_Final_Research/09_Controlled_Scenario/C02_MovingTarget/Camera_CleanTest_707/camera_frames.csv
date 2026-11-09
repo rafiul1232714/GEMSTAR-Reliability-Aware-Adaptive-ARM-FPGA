@@ -1,0 +1,6 @@
+frame_index,timestamp_seconds,width,height,image
+0,0.016666799,640,480,clean_camera_01_frame00000.png
+176,6.994956102,640,480,clean_camera_02_frame00176.png
+353,13.736603304,640,480,clean_camera_03_frame00353.png
+530,20.627439104,640,480,clean_camera_04_frame00530.png
+706,27.504750303,640,480,clean_camera_05_frame00706.png

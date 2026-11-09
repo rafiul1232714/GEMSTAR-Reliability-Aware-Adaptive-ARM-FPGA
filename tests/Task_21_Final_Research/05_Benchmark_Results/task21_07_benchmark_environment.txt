@@ -1,0 +1,10 @@
+Computer: NAFIS
+Processor: AMD64 Family 26 Model 96 Stepping 0, AuthenticAMD
+MATLAB version: 26.2.0.3386108 (R2026b)
+MATLAB release: 2026b
+Batch repetitions: 100
+Trials: 5
+Frames per pass: 99
+Dataset source: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_21_Final_Research\02_Imported_Data\task20_49_50m_radar_returns.mat
+Timing excludes MAT loading, disk I/O and plotting.
+No CPU affinity or fixed frequency enforced.

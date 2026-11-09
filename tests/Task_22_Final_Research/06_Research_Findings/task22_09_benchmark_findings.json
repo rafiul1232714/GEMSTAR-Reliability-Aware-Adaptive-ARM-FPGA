@@ -1,0 +1,43 @@
+{
+  "Task": "22.9",
+  "PythonVersion": "3.11.9",
+  "NumPyVersion": "2.4.6",
+  "InputFrames": 400,
+  "ExpectedCandidates": 297,
+  "ReproducibilityRuns": 3,
+  "ReproducibilityPassed": true,
+  "PythonNumPyCorrectnessPassed": true,
+  "Trials": 5,
+  "RepetitionsPerTrial": 1000,
+  "Benchmarks": [
+    {
+      "Method": "Python_loop",
+      "InputFrames": 400,
+      "MedianTimeMs": 0.024349300016183406,
+      "MinTimeMs": 0.021900299994740635,
+      "MaxTimeMs": 0.02877719997195527,
+      "Trials": 5,
+      "ExecutionsPerTrial": 1000
+    },
+    {
+      "Method": "NumPy_vectorized",
+      "InputFrames": 400,
+      "MedianTimeMs": 0.005516799981705844,
+      "MinTimeMs": 0.005208200018387288,
+      "MaxTimeMs": 0.006330600008368492,
+      "Trials": 5,
+      "ExecutionsPerTrial": 1000
+    }
+  ],
+  "Scope": "Eligibility-filter computation using preloaded 400-frame tabular data",
+  "Limitations": [
+    "Measured on host CPU, not target ARM processor",
+    "No FPGA implementation tested",
+    "Input parsing and disk I/O excluded from timing",
+    "Only 400 frames analyzed",
+    "Wall-clock timing is not electrical energy",
+    "No power measurement",
+    "Software eligibility is not perception accuracy",
+    "Results are not fusion-kernel benchmarks"
+  ]
+}

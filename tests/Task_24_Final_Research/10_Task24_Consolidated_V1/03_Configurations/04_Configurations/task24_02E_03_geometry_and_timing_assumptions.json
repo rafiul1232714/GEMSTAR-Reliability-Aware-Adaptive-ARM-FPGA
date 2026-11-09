@@ -1,0 +1,102 @@
+{
+  "task": "24.2",
+  "coordinate_frame": "NOMINAL_VEHICLE_RELATIVE_OSI",
+  "mounts_m": {
+    "camera": [
+      0.7,
+      0.0,
+      1.6
+    ],
+    "lidar": [
+      2.6,
+      0.0,
+      0.7
+    ],
+    "radar": [
+      2.0,
+      0.0,
+      0.8
+    ]
+  },
+  "mount_rotation_model": "ZERO_ROTATION_ASSUMPTION",
+  "local_ue_to_vehicle_osi": [
+    "X_vehicle = X_local + mount_X",
+    "Y_vehicle = -Y_local + mount_Y",
+    "Z_vehicle = Z_local + mount_Z"
+  ],
+  "camera": {
+    "width_pixels": 640,
+    "height_pixels": 480,
+    "recorded_horizontal_fov_deg": 90.0,
+    "recorded_vertical_fov_deg": 90.0,
+    "candidate_fx_pixels": 320.0,
+    "candidate_fy_pixels": 320.0,
+    "candidate_cx_pixels": 320.0,
+    "candidate_cy_pixels": 240.0,
+    "derived_vertical_fov_deg": 73.739795,
+    "channel_order": "RGB_SOURCE_VERIFIED",
+    "projection_status": "NOMINAL_UNCALIBRATED"
+  },
+  "sensor_return_filter": {
+    "diagnostic_minimum_range_m": 0.01,
+    "status": "PROVISIONAL_NOT_CALIBRATED"
+  },
+  "timing": {
+    "sv_gt_logger_timestamp_matches": 372,
+    "interval_transition_frame": 311,
+    "initial_mean_interval_ms": 33.260154,
+    "later_mean_interval_ms": 333.334059,
+    "independent_acquisition_synchronization": "UNVERIFIED",
+    "one_frame_acquisition_delay": "NOT_PROVEN"
+  },
+  "ego_pose": {
+    "host_vehicle_id": 76895,
+    "embedded_pose_missing_frames": [
+      0,
+      356,
+      357,
+      358,
+      359,
+      360,
+      361,
+      362,
+      363,
+      364,
+      365,
+      366,
+      367,
+      368,
+      369,
+      370,
+      371
+    ],
+    "separate_gt_host_missing_frames": [
+      356,
+      357,
+      358,
+      359,
+      360,
+      361,
+      362,
+      363,
+      364,
+      365,
+      366,
+      367,
+      368,
+      369,
+      370,
+      371
+    ]
+  },
+  "limitations": [
+    "Physical cross-sensor calibration is not independently verified.",
+    "Nominal transform assumes zero relative sensor rotation.",
+    "Effective Unreal rendering projection needs image-grounded validation.",
+    "Camera image vertical orientation has not been independently verified.",
+    "Shared logger timestamps do not prove synchronized acquisition.",
+    "Cause of frame-311 recording interval change is unknown.",
+    "Cause of host disappearance from frame 356 is unknown.",
+    "Frame-0 sensor projection is diagnostic, not validated object association."
+  ]
+}

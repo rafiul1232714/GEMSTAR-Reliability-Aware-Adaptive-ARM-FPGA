@@ -1,0 +1,12 @@
+﻿TASK 23.6D-1 — RECORDING CONFIGURATION AUDIT
+
+=== LOGGER CONFIGURATION ===
+DefaultGemstar.ini not found at expected location.
+
+=== GROUNDTRUTH FUNCTION DEFINITIONS ===
+Line 21: void OSI_GroundTruth::parseStationaryMapObjects(const UObject* WorldContectObject)
+Line 55: osi3::GroundTruth OSI_GroundTruth::parseWorldToGroundTruth(const UObject* WorldContectObject, const TArray<AActor*>& dynamicObjects, const float DeltaTime)
+Line 61: groundTruth.MergeFrom(staticMapTruth);
+Line 64: groundTruth.MergeFrom(trafficLightGroundTruth);
+Line 180: osi3::GroundTruth OSI_GroundTruth::parseOmegaPrimeToGroundTruth(const UObject* WorldContectObject, const TArray<AActor*>& dynamicObjects, const float DeltaTime)
+Line 236: groundTruth.MergeFrom(trafficLightGroundTruth);

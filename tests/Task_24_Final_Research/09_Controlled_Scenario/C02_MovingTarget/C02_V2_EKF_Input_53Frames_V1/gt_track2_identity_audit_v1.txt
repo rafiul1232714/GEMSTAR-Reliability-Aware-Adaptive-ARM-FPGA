@@ -1,0 +1,16 @@
+TASK 24 — INDEPENDENT TRACK 2 / GT CORRESPONDENCE AUDIT
+============================================================
+Evaluated frames: 23
+Target GT ID: 76897
+Nearest-GT frames: 23
+Within 4 m diagnostic gate: 23
+Mean GT-center separation: 1.650417 m
+Maximum separation: 1.895988 m
+Problems: []
+
+Interpretation:
+Nearest-center correspondence is evaluation evidence only.
+LiDAR measures visible surfaces, not necessarily GT centers.
+The fixed 4 m gate is diagnostic, not a calibrated criterion.
+GT data was never supplied to the original tracker.
+Results do not prove physical target identity independently.

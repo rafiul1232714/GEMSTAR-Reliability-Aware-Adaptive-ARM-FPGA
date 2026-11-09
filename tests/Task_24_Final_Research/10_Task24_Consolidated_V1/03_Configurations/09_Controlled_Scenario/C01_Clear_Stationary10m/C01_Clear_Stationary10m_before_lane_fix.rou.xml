@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<routes>
+  <vType id="pedestrian" vClass="pedestrian" maxSpeed="1.4" />
+  <vType id="car" vClass="passenger" />
+  <vType id="truck" vClass="truck" />
+  <vType id="bus" vClass="bus" />
+  <vType id="private" vClass="private" />
+  <vehicle id="target_C01" type="car" depart="0.00" departLane="0" departPos="15.00" departSpeed="0">
+    <route edges="158 -45 131 674 -143 -140" />
+    <stop lane="158_0" endPos="15.00" duration="100" parking="false" />
+  </vehicle>
+  <vehicle id="0" type="car" depart="0.05" departLane="0" departPos="5.00" departSpeed="0">
+    <route edges="158 -45 131 674 -143 -140" />
+    <stop lane="158_0" endPos="5.00" duration="100" parking="false" />
+  </vehicle>
+</routes>

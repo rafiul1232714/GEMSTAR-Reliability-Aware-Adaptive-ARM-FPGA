@@ -1,0 +1,17 @@
+TASK 21.4 - MATLAB RADAR DISTRIBUTIONS
+
+Original records: 11825
+Corrected records, excluding frame 0: 5614
+Original maximum range: 9.989749 m
+Corrected maximum range: 49.928331 m
+Corrected returns above 10m: 2655
+Corrected returns above 20m: 1390
+Corrected returns above 40m: 626
+
+LIMITATIONS
+Original and corrected data are not paired.
+Original dataset combines archived scenario records.
+Frame 0 excluded from corrected plots.
+Candidate returns do not establish object detection.
+Signal strength is simulator output, not calibrated SNR.
+No hardware power or energy measured.

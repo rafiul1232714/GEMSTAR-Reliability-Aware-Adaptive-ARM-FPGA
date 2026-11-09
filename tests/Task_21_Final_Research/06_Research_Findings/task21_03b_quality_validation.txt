@@ -1,0 +1,12 @@
+TASK 21.3B - CORRECTED DATA QUALITY
+
+50m candidate returns: 5696
+Frame-zero returns: 82
+Near-zero returns: 50
+Near-zero in frame zero: 50
+Returns excluding frame zero: 5614
+
+Missing fields and invalid numeric values were audited separately.
+Empty radar returns are not automatically corrupted data.
+Original datasets remain unchanged.
+No detection accuracy or energy claims.

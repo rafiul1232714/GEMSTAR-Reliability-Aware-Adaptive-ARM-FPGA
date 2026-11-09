@@ -1,0 +1,4 @@
+PairID,Frame,ChannelFormatValues,ChannelFormatNames,PixelOrder,Width,Height,ImageBytes,ExpectedRGBBytes,RGBFormatVerified
+1,25,[6],CHANNEL_FORMAT_RGB_U8_LIN,0,640,480,921600,921600,True
+2,25,[6],CHANNEL_FORMAT_RGB_U8_LIN,0,640,480,921600,921600,True
+3,25,[6],CHANNEL_FORMAT_RGB_U8_LIN,0,640,480,921600,921600,True

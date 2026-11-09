@@ -1,0 +1,11 @@
+=== TASK 23.9 - AUTOMATIC CAMERA GEOMETRY ===
+Baseline cube width: 112 px
+Displaced cube width: 92 px
+Measured width ratio: 0.821429
+Expected width ratio: 0.809524
+Measured reduction: 17.86%
+Status: CAMERA_AUTO_GEOMETRY_CANDIDATE
+Note: Bounding boxes are algorithmic candidates.
+Visual confirmation of cube boundaries is still required.
+Image: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\03_Graphs\task23_09_auto_detected_cubes.png
+CSV: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\02_CSV_Data\task23_09_camera_auto_measurements.csv

@@ -1,0 +1,3292 @@
+{
+  "Task": "23.2",
+  "FramesSelected": [
+    0,
+    1,
+    25,
+    99
+  ],
+  "PairSummaries": [
+    {
+      "PairID": "1",
+      "Recording": "20261102T180104Z_sv_380_X_806_GEMSTAR.osi",
+      "Samples": 4,
+      "CameraSamples": 4,
+      "LiDARSamples": 4,
+      "RadarSamples": 4
+    },
+    {
+      "PairID": "2",
+      "Recording": "20261027T152743Z_sv_380_X_794_GEMSTAR.osi",
+      "Samples": 4,
+      "CameraSamples": 4,
+      "LiDARSamples": 4,
+      "RadarSamples": 4
+    },
+    {
+      "PairID": "3",
+      "Recording": "20261027T224313Z_sv_380_X_466_GEMSTAR.osi",
+      "Samples": 4,
+      "CameraSamples": 4,
+      "LiDARSamples": 4,
+      "RadarSamples": 4
+    },
+    {
+      "PairID": "4",
+      "Recording": "20261027T125122Z_sv_380_X_542_GEMSTAR.osi",
+      "Samples": 4,
+      "CameraSamples": 0,
+      "LiDARSamples": 0,
+      "RadarSamples": 4
+    }
+  ],
+  "Samples": [
+    {
+      "PairID": "1",
+      "Frame": 0,
+      "TimestampNs": 16666699,
+      "MessageBytes": 1269886,
+      "CameraEntries": 1,
+      "LiDAREntries": 1,
+      "RadarEntries": 1,
+      "ImageBytes": 921600,
+      "LiDARReflectionSlots": 5271,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.CameraSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "image_data",
+          "Type": "bytes",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": 921600,
+          "Preview": "a2abb9a2abb8a2abb8a2abb9"
+        }
+      ],
+      "LiDARFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.LidarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.LidarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 5271,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {
+        "ReflectionField": true,
+        "Count": 5271,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.030153684318065643"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.1166569317513471e-14"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.030153684318065643"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.1166569317513471e-14"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ]
+      },
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.687506079673767"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.1166569317513471e-14"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.687506079673767"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.1166569317513471e-14"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ]
+      },
+      "CameraImageHeaderHex": "a2abb9a2abb8a2abb8a2abb9a3acb9a2"
+    },
+    {
+      "PairID": "1",
+      "Frame": 1,
+      "TimestampNs": 80403495,
+      "MessageBytes": 1286584,
+      "CameraEntries": 1,
+      "LiDAREntries": 1,
+      "RadarEntries": 1,
+      "ImageBytes": 921600,
+      "LiDARReflectionSlots": 5271,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.CameraSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "image_data",
+          "Type": "bytes",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": 921600,
+          "Preview": "afb6c0b0b7c1afb5c0b0b6c1"
+        }
+      ],
+      "LiDARFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.LidarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.LidarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 5271,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {
+        "ReflectionField": true,
+        "Count": 5271,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ]
+      },
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "198753.36148070017"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "198753.36148070017"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ]
+      },
+      "CameraImageHeaderHex": "afb6c0b0b7c1afb5c0b0b6c1b0b7c1af"
+    },
+    {
+      "PairID": "1",
+      "Frame": 25,
+      "TimestampNs": 817748695,
+      "MessageBytes": 1284135,
+      "CameraEntries": 1,
+      "LiDAREntries": 1,
+      "RadarEntries": 1,
+      "ImageBytes": 921600,
+      "LiDARReflectionSlots": 5271,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.CameraSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "image_data",
+          "Type": "bytes",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": 921600,
+          "Preview": "afb6c1b0b7c2afb6c1b0b7c2"
+        }
+      ],
+      "LiDARFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.LidarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.LidarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 5271,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {
+        "ReflectionField": true,
+        "Count": 5271,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ]
+      },
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ]
+      },
+      "CameraImageHeaderHex": "afb6c1b0b7c2afb6c1b0b7c2b0b7c2b0"
+    },
+    {
+      "PairID": "1",
+      "Frame": 99,
+      "TimestampNs": 3162452895,
+      "MessageBytes": 1286822,
+      "CameraEntries": 1,
+      "LiDAREntries": 1,
+      "RadarEntries": 1,
+      "ImageBytes": 921600,
+      "LiDARReflectionSlots": 5271,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.CameraSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "image_data",
+          "Type": "bytes",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": 921600,
+          "Preview": "b1b8c2b2b8c2b1b8c2b2b9c3"
+        }
+      ],
+      "LiDARFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.LidarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.LidarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 5271,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {
+        "ReflectionField": true,
+        "Count": 5271,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ]
+      },
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-2997.9038903505084"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-2997.9038903505084"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ]
+      },
+      "CameraImageHeaderHex": "b1b8c2b2b8c2b1b8c2b2b9c3b2b9c3b2"
+    },
+    {
+      "PairID": "2",
+      "Frame": 0,
+      "TimestampNs": 16666799,
+      "MessageBytes": 1269886,
+      "CameraEntries": 1,
+      "LiDAREntries": 1,
+      "RadarEntries": 1,
+      "ImageBytes": 921600,
+      "LiDARReflectionSlots": 5271,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.CameraSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "image_data",
+          "Type": "bytes",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": 921600,
+          "Preview": "c5c0b7c4bfb7c5c0b7c4bfb6"
+        }
+      ],
+      "LiDARFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.LidarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.LidarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 5271,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {
+        "ReflectionField": true,
+        "Count": 5271,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.030153684318065643"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.1166569317513471e-14"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.030153684318065643"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.1166569317513471e-14"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ]
+      },
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.687506079673767"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.1166569317513471e-14"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.687506079673767"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.1166569317513471e-14"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ]
+      },
+      "CameraImageHeaderHex": "c5c0b7c4bfb7c5c0b7c4bfb6c5c0b8c5"
+    },
+    {
+      "PairID": "2",
+      "Frame": 1,
+      "TimestampNs": 84453895,
+      "MessageBytes": 1286584,
+      "CameraEntries": 1,
+      "LiDAREntries": 1,
+      "RadarEntries": 1,
+      "ImageBytes": 921600,
+      "LiDARReflectionSlots": 5271,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.CameraSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "image_data",
+          "Type": "bytes",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": 921600,
+          "Preview": "d4d3d0d4d3d0d5d4d1d5d3d1"
+        }
+      ],
+      "LiDARFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.LidarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.LidarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 5271,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {
+        "ReflectionField": true,
+        "Count": 5271,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ]
+      },
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "186877.78968820916"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "186877.78968820916"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ]
+      },
+      "CameraImageHeaderHex": "d4d3d0d4d3d0d5d4d1d5d3d1d4d3d0d5"
+    },
+    {
+      "PairID": "2",
+      "Frame": 25,
+      "TimestampNs": 986093696,
+      "MessageBytes": 1281860,
+      "CameraEntries": 1,
+      "LiDAREntries": 1,
+      "RadarEntries": 1,
+      "ImageBytes": 921600,
+      "LiDARReflectionSlots": 5271,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.CameraSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "image_data",
+          "Type": "bytes",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": 921600,
+          "Preview": "d5d4d2d5d4d2d5d4d2d5d4d2"
+        }
+      ],
+      "LiDARFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.LidarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.LidarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 5271,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {
+        "ReflectionField": true,
+        "Count": 5271,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ]
+      },
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-6647.680387757439"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-6647.680387757439"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ]
+      },
+      "CameraImageHeaderHex": "d5d4d2d5d4d2d5d4d2d5d4d2d4d3d2d5"
+    },
+    {
+      "PairID": "2",
+      "Frame": 99,
+      "TimestampNs": 3494944695,
+      "MessageBytes": 1286774,
+      "CameraEntries": 1,
+      "LiDAREntries": 1,
+      "RadarEntries": 1,
+      "ImageBytes": 921600,
+      "LiDARReflectionSlots": 5271,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.CameraSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "image_data",
+          "Type": "bytes",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": 921600,
+          "Preview": "d6d5d4d7d6d4d6d5d4d7d6d4"
+        }
+      ],
+      "LiDARFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.LidarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.LidarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 5271,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {
+        "ReflectionField": true,
+        "Count": 5271,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ]
+      },
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-1999.5181073937988"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-1999.5181073937988"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ]
+      },
+      "CameraImageHeaderHex": "d6d5d4d7d6d4d6d5d4d7d6d4d7d6d4d8"
+    },
+    {
+      "PairID": "3",
+      "Frame": 0,
+      "TimestampNs": 16666799,
+      "MessageBytes": 1269886,
+      "CameraEntries": 1,
+      "LiDAREntries": 1,
+      "RadarEntries": 1,
+      "ImageBytes": 921600,
+      "LiDARReflectionSlots": 5271,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.CameraSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "image_data",
+          "Type": "bytes",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": 921600,
+          "Preview": "a3acb9a2abb8a3acb9a2abb8"
+        }
+      ],
+      "LiDARFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.LidarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.LidarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 5271,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {
+        "ReflectionField": true,
+        "Count": 5271,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.030153684318065643"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.1166569317513471e-14"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.030153684318065643"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.1166569317513471e-14"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ]
+      },
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.687506079673767"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.1166569317513471e-14"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.687506079673767"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "1.1166569317513471e-14"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ]
+      },
+      "CameraImageHeaderHex": "a3acb9a2abb8a3acb9a2abb8a3acb9a3"
+    },
+    {
+      "PairID": "3",
+      "Frame": 1,
+      "TimestampNs": 79844295,
+      "MessageBytes": 1286584,
+      "CameraEntries": 1,
+      "LiDAREntries": 1,
+      "RadarEntries": 1,
+      "ImageBytes": 921600,
+      "LiDARReflectionSlots": 5271,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.CameraSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "image_data",
+          "Type": "bytes",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": 921600,
+          "Preview": "afb6c0afb6c0b0b6c1afb6c0"
+        }
+      ],
+      "LiDARFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.LidarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.LidarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 5271,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {
+        "ReflectionField": true,
+        "Count": 5271,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ]
+      },
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "200512.89427341442"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "200512.89427341442"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ]
+      },
+      "CameraImageHeaderHex": "afb6c0afb6c0b0b6c1afb6c0afb6c0b0"
+    },
+    {
+      "PairID": "3",
+      "Frame": 25,
+      "TimestampNs": 882331795,
+      "MessageBytes": 1283239,
+      "CameraEntries": 1,
+      "LiDAREntries": 1,
+      "RadarEntries": 1,
+      "ImageBytes": 921600,
+      "LiDARReflectionSlots": 5271,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.CameraSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "image_data",
+          "Type": "bytes",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": 921600,
+          "Preview": "b0b7c1b0b7c1b0b7c2b0b7c1"
+        }
+      ],
+      "LiDARFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.LidarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.LidarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 5271,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {
+        "ReflectionField": true,
+        "Count": 5271,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ]
+      },
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ]
+      },
+      "CameraImageHeaderHex": "b0b7c1b0b7c1b0b7c2b0b7c1afb6c1b0"
+    },
+    {
+      "PairID": "3",
+      "Frame": 99,
+      "TimestampNs": 3302098296,
+      "MessageBytes": 1286802,
+      "CameraEntries": 1,
+      "LiDAREntries": 1,
+      "RadarEntries": 1,
+      "ImageBytes": 921600,
+      "LiDARReflectionSlots": 5271,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.CameraSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "image_data",
+          "Type": "bytes",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": 921600,
+          "Preview": "b2b8c2b3b9c3b2b8c2b3b9c3"
+        }
+      ],
+      "LiDARFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.LidarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.LidarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 5271,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {
+        "ReflectionField": true,
+        "Count": 5271,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.028976507484912872"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "2.6900679988920026e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "normal_to_surface",
+            "Type": "message:osi3.Vector3d",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          },
+          {
+            "Field": "object_id",
+            "Type": "message:osi3.Identifier",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": ""
+          }
+        ]
+      },
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-2866.8978604122594"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.6221381425857544"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "3.074363252747649e-08"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-2866.8978604122594"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ]
+      },
+      "CameraImageHeaderHex": "b2b8c2b3b9c3b2b8c2b3b9c3b2b8c2b3"
+    },
+    {
+      "PairID": "4",
+      "Frame": 0,
+      "TimestampNs": 16666799,
+      "MessageBytes": 4814,
+      "CameraEntries": 0,
+      "LiDAREntries": 0,
+      "RadarEntries": 1,
+      "ImageBytes": 0,
+      "LiDARReflectionSlots": 0,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [],
+      "LiDARFields": [],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {},
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": []
+      },
+      "CameraImageHeaderHex": ""
+    },
+    {
+      "PairID": "4",
+      "Frame": 1,
+      "TimestampNs": 94999901,
+      "MessageBytes": 4814,
+      "CameraEntries": 0,
+      "LiDAREntries": 0,
+      "RadarEntries": 1,
+      "ImageBytes": 0,
+      "LiDARReflectionSlots": 0,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [],
+      "LiDARFields": [],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {},
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": []
+      },
+      "CameraImageHeaderHex": ""
+    },
+    {
+      "PairID": "4",
+      "Frame": 25,
+      "TimestampNs": 1306388091,
+      "MessageBytes": 4815,
+      "CameraEntries": 0,
+      "LiDAREntries": 0,
+      "RadarEntries": 1,
+      "ImageBytes": 0,
+      "LiDARReflectionSlots": 0,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [],
+      "LiDARFields": [],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {},
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": []
+      },
+      "CameraImageHeaderHex": ""
+    },
+    {
+      "PairID": "4",
+      "Frame": 99,
+      "TimestampNs": 4599506694,
+      "MessageBytes": 4815,
+      "CameraEntries": 0,
+      "LiDAREntries": 0,
+      "RadarEntries": 1,
+      "ImageBytes": 0,
+      "LiDARReflectionSlots": 0,
+      "RadarReflectionSlots": 100,
+      "CameraFields": [],
+      "LiDARFields": [],
+      "RadarFields": [
+        {
+          "Field": "view_configuration",
+          "Type": "message:osi3.RadarSensorViewConfiguration",
+          "Repeated": false,
+          "Count": 1,
+          "Bytes": null,
+          "Preview": ""
+        },
+        {
+          "Field": "reflection",
+          "Type": "message:osi3.RadarSensorView.Reflection",
+          "Repeated": true,
+          "Count": 100,
+          "Bytes": null,
+          "Preview": ""
+        }
+      ],
+      "LiDARReflectionSample": {},
+      "RadarReflectionSample": {
+        "ReflectionField": true,
+        "Count": 100,
+        "FirstSlot": [
+          {
+            "Field": "signal_strength",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "time_of_flight",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "doppler_shift",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "0.0"
+          },
+          {
+            "Field": "source_horizontal_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.7853981852531433"
+          },
+          {
+            "Field": "source_vertical_angle",
+            "Type": "double",
+            "Repeated": false,
+            "Count": 1,
+            "Bytes": null,
+            "Preview": "-0.1745329201221466"
+          }
+        ],
+        "FirstPositiveSlot": []
+      },
+      "CameraImageHeaderHex": ""
+    }
+  ],
+  "Limitations": [
+    "Only four sampled frames per recording",
+    "Field presence does not prove payload correctness",
+    "Image encoding not yet independently decoded",
+    "Sensor coordinate conventions remain unverified",
+    "No object association or detection accuracy tested"
+  ]
+}

@@ -1,0 +1,8 @@
+﻿TASK 23.9 DISPLACED CAMERA RETRY
+Status: CAMERA_DISPLACED_RETRY_CAPTURED
+Map restored: True
+Runtime log: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\05_Raw_Data_References\task23_09_retry_runtime.log
+
+New OSI files:
+E:\GEMSTAR_Project\gemstar\Output\20261103T195644Z_sv_380_X_769_GEMSTARCAMERADISPLACED23.osi | 708810931 bytes
+E:\GEMSTAR_Project\gemstar\Output\20261103T195645Z_gt_380_X_769_GEMSTARCAMERADISPLACED23.osi | 1452625 bytes

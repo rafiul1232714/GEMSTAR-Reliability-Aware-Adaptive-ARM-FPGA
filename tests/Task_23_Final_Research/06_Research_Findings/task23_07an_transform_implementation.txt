@@ -1,0 +1,1300 @@
+﻿TASK 23.7AN - TRANSFORM IMPLEMENTATION AUDIT
+Matches found: 48
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp
+MATCH LINE: 68
+  64:         UKismetRenderingLibrary::ReadRenderTarget(this, renderTarget, Sensor.OutPixels);
+  65:     }
+  66: }
+  67: 
+  68: void ACameraSensor::UpdateTransformAfterAttachment_Implementation()
+  69: {
+  70:     SetActorRelativeTransform(SensorConfiguration.Offset);
+  71: }
+  72: 
+  73: UTextureRenderTarget2D* ACameraSensor::GetGEMSTARRenderTarget_Implementation()
+  74: {
+  75:     CaptureSceneOnce();
+  76:     return renderTarget;
+  77: }
+  78: 
+  79: FString ACameraSensor::GetGEMSTARRenderTargetFrameId_Implementation()
+  80: {
+  81:     return GetName();
+  82: }
+  83: 
+  84: void ACameraSensor::CaptureSceneOnce()
+  85: {
+  86:     if (sceneCaptureComp)
+  87:     {
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp
+MATCH LINE: 70
+  66: }
+  67: 
+  68: void ACameraSensor::UpdateTransformAfterAttachment_Implementation()
+  69: {
+  70:     SetActorRelativeTransform(SensorConfiguration.Offset);
+  71: }
+  72: 
+  73: UTextureRenderTarget2D* ACameraSensor::GetGEMSTARRenderTarget_Implementation()
+  74: {
+  75:     CaptureSceneOnce();
+  76:     return renderTarget;
+  77: }
+  78: 
+  79: FString ACameraSensor::GetGEMSTARRenderTargetFrameId_Implementation()
+  80: {
+  81:     return GetName();
+  82: }
+  83: 
+  84: void ACameraSensor::CaptureSceneOnce()
+  85: {
+  86:     if (sceneCaptureComp)
+  87:     {
+  88:         sceneCaptureComp->CaptureScene();
+  89:     }
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensorManager.cpp
+MATCH LINE: 200
+ 196: 	}
+ 197: 	else if (sensorConfiguration.Vehicle) {
+ 198: 		SpawnedActor->AttachToActor(sensorConfiguration.Vehicle,FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true));
+ 199: 	}
+ 200: 	ILocalTransformUpdater::Execute_UpdateTransformAfterAttachment(SpawnedActor);
+ 201: 	AddTickPrerequisiteActor(SpawnedActor);
+ 202: 
+ 203: 	SpawnedActors.Add(SpawnedActor);
+ 204: 
+ 205: 	UE_LOG(Camera, Log, TEXT("Spawned sensor: %s"),*SpawnedActor->GetName());
+ 206: }
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Public\CameraSensor.h
+MATCH LINE: 43
+  39: 
+  40: public:
+  41: 	ACameraSensor();
+  42: 
+  43: 	virtual void UpdateTransformAfterAttachment_Implementation() override;
+  44: 	virtual UTextureRenderTarget2D* GetGEMSTARRenderTarget_Implementation() override;
+  45: 	virtual FString GetGEMSTARRenderTargetFrameId_Implementation() override;
+  46: 
+  47: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GEMSTAR")
+  48: 	TObjectPtr<USceneCaptureComponent2D> sceneCaptureComp = nullptr;
+  49: 
+  50: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GEMSTAR")
+  51: 	TObjectPtr<UTextureRenderTarget2D> renderTarget = nullptr;
+  52: 
+  53: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GEMSTAR")
+  54: 	bool bDebugCamera = false;
+  55: 
+  56: protected:
+  57: 	virtual void BeginPlay() override;
+  58: 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+  59: 
+  60: 	virtual void SendData(osi3::SensorView& SensorView);
+  61: public:
+  62: 	virtual void Tick(float DeltaTime) override;
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\LidarSensorManager.cpp
+MATCH LINE: 197
+ 193: 		if (!sensorConfiguration.Mount.IsEmpty()) {
+ 194: 			IGemstarManager::Execute_MountOn(GemstarSimulationSubsystem, sensorConfiguration.Mount, SpawnedActor);
+ 195: 		}
+ 196: 		else {
+ 197: 			ILocalTransformUpdater::Execute_UpdateTransformAfterAttachment(SpawnedActor);
+ 198: 		}
+ 199: 		AddTickPrerequisiteActor(SpawnedActor);
+ 200: 		SpawnedActors.Add(SpawnedActor);
+ 201: 
+ 202: 		if (bHasWeatherData) {
+ 203: 			SpawnedActor->SetWeatherData(LatestWeatherData);
+ 204: 		}
+ 205: 	}
+ 206: }
+ 207: 
+ 208: void ALidarSensorManager::SpawnSensor_Implementation(FSensorConfigData& sensorConfiguration)
+ 209: {
+ 210: 	if (sensorConfiguration.Type != SensorType::LIDAR) {
+ 211: 		return;
+ 212: 	}
+ 213: 
+ 214: 	UWorld* World = GetWorld();
+ 215: 	if (World)
+ 216: 	{
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\LidarSensorManager.cpp
+MATCH LINE: 229
+ 225: 
+ 226: 		ASimpleLidar* SpawnedActor = World->SpawnActor<ASimpleLidar>(ASimpleLidar::StaticClass(), FTransform(), params);
+ 227: 		SpawnedActor->AttachToActor(sensorConfiguration.Vehicle, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true));
+ 228: 		SpawnedActor->SetSensorConfiguration(sensorConfiguration);
+ 229: 		SpawnedActor->SetActorRelativeTransform(sensorConfiguration.Offset);
+ 230: 
+ 231: 		if (SpawnedActor)
+ 232: 		{
+ 233: 			UE_LOG(Lidar, Warning, TEXT("Spawned sensor: %s"), *SpawnedActor->GetName());
+ 234: 			SpawnedActors.Add(SpawnedActor);
+ 235: 		}
+ 236: 	}
+ 237: }
+ 238: 
+ 239: void ALidarSensorManager::WeatherDataUpdate_Implementation(FWeatherData& data, int32 targetIndex)
+ 240: {
+ 241: 	LatestWeatherData = data;
+ 242: 	bHasWeatherData = true;
+ 243: 
+ 244: 	for (auto& lidarActor : SpawnedActors) {
+ 245: 		ASimpleLidar* SimpleLidar = Cast<ASimpleLidar>(lidarActor);
+ 246: 
+ 247: 		if (!SimpleLidar) {
+ 248: 			continue;
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 209
+ 205: 	}
+ 206: 	return  FMath::Clamp(Rho, 0.0f, 1.0f);
+ 207: }
+ 208: 
+ 209: void ASimpleLidar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration)
+ 210: {
+ 211: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+ 212: 	Sensor.SensorViewConfig->clear_lidar_sensor_view_configuration();
+ 213: 	auto* conf = Sensor.SensorViewConfig->add_lidar_sensor_view_configuration();
+ 214: 	conf->set_field_of_view_horizontal(SensorConfiguration.Lidar.FieldOfViewHorizontal);
+ 215: 	conf->set_field_of_view_vertical(SensorConfiguration.Lidar.FieldOfViewVertical);
+ 216: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Lidar.NumberOfRaysHorizontal);
+ 217: 	conf->set_number_of_rays_vertical(SensorConfiguration.Lidar.NumberOfRaysVertical);
+ 218: 	conf->mutable_mounting_position()->set_allocated_position(
+ 219: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+ 220: 	conf->mutable_mounting_position()->set_allocated_orientation(
+ 221: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+ 222: 	Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+ 223: 
+ 224: 	//calculate angles
+ 225: 	Sensor.AzimuthAngles.Empty();
+ 226: 	Sensor.ElevationAngles.Empty();
+ 227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+ 228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Public\SimpleLidar.h
+MATCH LINE: 77
+  73: 	float DistanceHalfFalloff = 2000.0;
+  74: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GEMSTAR")
+  75: 	float Range = 20.0;
+  76: 
+  77: 	virtual void SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) override;
+  78: 
+  79: protected:
+  80: 	// Called when the game starts or when spawned
+  81: 	virtual void BeginPlay() override;
+  82: 
+  83: public:
+  84: 	void GetScanData();
+  85: 	void Tick(float time) override;
+  86: 
+  87: private:
+  88: 	UPROPERTY()
+  89: 	AActor* Parent = nullptr;
+  90: 
+  91: 	FSimpleLidarConfiguration Sensor;
+  92: 	FCollisionQueryParams TraceParams;
+  93: 
+  94: 	FWeatherData LatestWeatherData;
+  95: 
+  96: 	bool bReportedNoDataTarget = false;
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp
+MATCH LINE: 202
+ 198: 		if (!sensorConfiguration.Mount.IsEmpty()) {
+ 199: 			IGemstarManager::Execute_MountOn(GemstarSimulationSubsystem, sensorConfiguration.Mount, SpawnedActor);
+ 200: 		}
+ 201: 		else {
+ 202: 			ILocalTransformUpdater::Execute_UpdateTransformAfterAttachment(SpawnedActor);
+ 203: 		}
+ 204: 		AddTickPrerequisiteActor(SpawnedActor);
+ 205: 		SpawnedActors.Add(SpawnedActor);
+ 206: 	}
+ 207: }
+ 208: 
+ 209: void ARadarSensorManager::SpawnSensor_Implementation(FSensorConfigData& sensorConfiguration)
+ 210: {
+ 211: 	if (sensorConfiguration.Type != SensorType::RADAR) {
+ 212: 		return;
+ 213: 	}
+ 214: 
+ 215: 	UWorld* World = GetWorld();
+ 216: 	if (World)
+ 217: 	{
+ 218: 		FActorSpawnParameters params;
+ 219: 		if (sensorConfiguration.ID.IsNone()) {
+ 220: 			params.Name = "Unnamed_Radar_Sensor";
+ 221: 		}
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp
+MATCH LINE: 230
+ 226: 
+ 227: 		ASimpleRadar* SpawnedActor = World->SpawnActor<ASimpleRadar>(ASimpleRadar::StaticClass(), FTransform(), params);
+ 228: 		SpawnedActor->AttachToActor(sensorConfiguration.Vehicle, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true));
+ 229: 		SpawnedActor->SetSensorConfiguration(sensorConfiguration);
+ 230: 		SpawnedActor->SetActorRelativeTransform(sensorConfiguration.Offset);
+ 231: 
+ 232: 		if (SpawnedActor)
+ 233: 		{
+ 234: 			UE_LOG(Radar, Warning, TEXT("RadarSensorManager: spawned radar sensor: %s"), *SpawnedActor->GetName());
+ 235: 			SpawnedActors.Add(SpawnedActor);
+ 236: 		}
+ 237: 	}
+ 238: }
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+MATCH LINE: 175
+ 171: 
+ 172: 	return scaledDBsignal;
+ 173: }
+ 174: 
+ 175: void ASimpleRadar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) {
+ 176: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+ 177:   if (Sensor.SensorViewConfig == nullptr)
+ 178:   {
+ 179:       CreateTestConfig();
+ 180:   }
+ 181:   Sensor.SensorViewConfig->set_range(SensorConfiguration.Radar.Range);
+ 182:   UE_LOG(LogTemp, Warning,
+ 183:       TEXT("TASK20_45_RADAR_RANGE: %.3f metres"),
+ 184:       Sensor.SensorViewConfig->range());
+ 185: 	Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+ 186: 	auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+ 187: 	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+ 188: 	conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+ 189: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Radar.NumberOfRaysHorizontal);
+ 190: 	conf->set_number_of_rays_vertical(SensorConfiguration.Radar.NumberOfRaysVertical);
+ 191: 	conf->mutable_mounting_position()->set_allocated_position(
+ 192: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+ 193: 	conf->mutable_mounting_position()->set_allocated_orientation(
+ 194: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Public\SimpleRadar.h
+MATCH LINE: 78
+  74: 	bool SupportMultithread = true;
+  75: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GEMSTAR")
+  76: 	float DistanceHalfFalloff = 2000.0;
+  77: 
+  78: 	virtual void SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) override;
+  79: 
+  80: protected:
+  81: 	// Called when the game starts or when spawned
+  82: 	virtual void BeginPlay() override;
+  83: 
+  84: public:	
+  85: 	// Called every frame
+  86: 	void GetScanData();
+  87: 	virtual void Tick(float DeltaTime) override;
+  88: 	FVector currentVelocity;
+  89: private:
+  90: 	UPROPERTY()
+  91: 	AActor* Parent = nullptr;
+  92: 
+  93: 	FSimpleRadarConfiguration Sensor;
+  94: 	FCollisionQueryParams TraceParams;
+  95: 
+  96: 	bool bReportedNoDataTarget = false;
+  97: 
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarManager.cpp
+MATCH LINE: 135
+ 131:             ConnectInputs(WeatherInput, GemstarRoot, Target, GemstarInterfaceType::WEATHERDATA);
+ 132:         }
+ 133:         if (!S.Mount.IsEmpty())
+ 134:             IGemstarManager::Execute_MountOn(GemstarRoot, S.Mount, A);
+ 135:         ILocalTransformUpdater::Execute_UpdateTransformAfterAttachment(A);
+ 136:     }
+ 137: }
+ 138: 
+ 139: void ARaytracingLidarManager::WeatherDataUpdate_Implementation(FWeatherData& Data, int32 TargetIndex)
+ 140: {
+ 141:     // Match the regular Lidar plugin: one weather state is shared by this manager's sensors.
+ 142:     LatestWeatherData = Data;
+ 143:     bHasWeatherData = true;
+ 144:     for (ARaytracingLidarSensor* Sensor : Sensors)
+ 145:         if (IsValid(Sensor))
+ 146:             Sensor->SetWeatherData(LatestWeatherData);
+ 147: }
+ 148: 
+ 149: void ARaytracingLidarManager::EndPlay(const EEndPlayReason::Type Reason)
+ 150: {
+ 151:     if (IsValid(GemstarRoot))
+ 152:         GemstarRoot->UnregisterManager(this);
+ 153:     GemstarRoot = nullptr;
+ 154:     for (ARaytracingLidarSensor* Sensor : Sensors)
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarSensor.cpp
+MATCH LINE: 51
+  47:     return Producer.Equals(Id, ESearchCase::IgnoreCase) ||
+  48:            Producer.Equals(TEXT("ue_raytracing_lidar_feature:") + Id, ESearchCase::IgnoreCase);
+  49: }
+  50: 
+  51: void ARaytracingLidarSensor::UpdateTransformAfterAttachment_Implementation()
+  52: {
+  53:     SetActorRelativeTransform(SensorConfiguration.Offset);
+  54:     PreviousPose = GetActorTransform();
+  55: }
+  56: 
+  57: void ARaytracingLidarSensor::BeginPlay()
+  58: {
+  59:     Super::BeginPlay();
+  60:     PreviousPose = GetActorTransform();
+  61:     if (!TickActive)
+  62:     {
+  63:         Disabled = true;
+  64:         return;
+  65:     }
+  66:     RayTracingAcquired = AcquireRaytracingLidarRayTracing();
+  67:     if (!RayTracingAcquired)
+  68:     {
+  69:         Disabled = true;
+  70:         UE_LOG(LogRaytracingLidar, Warning,
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarSensor.cpp
+MATCH LINE: 53
+  49: }
+  50: 
+  51: void ARaytracingLidarSensor::UpdateTransformAfterAttachment_Implementation()
+  52: {
+  53:     SetActorRelativeTransform(SensorConfiguration.Offset);
+  54:     PreviousPose = GetActorTransform();
+  55: }
+  56: 
+  57: void ARaytracingLidarSensor::BeginPlay()
+  58: {
+  59:     Super::BeginPlay();
+  60:     PreviousPose = GetActorTransform();
+  61:     if (!TickActive)
+  62:     {
+  63:         Disabled = true;
+  64:         return;
+  65:     }
+  66:     RayTracingAcquired = AcquireRaytracingLidarRayTracing();
+  67:     if (!RayTracingAcquired)
+  68:     {
+  69:         Disabled = true;
+  70:         UE_LOG(LogRaytracingLidar, Warning,
+  71:             TEXT("%s disabled: requires SM6, enabled hardware RT and inline RT (D3D12/Vulkan)."), *GetName());
+  72:         return;
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Public\RaytracingLidarSensor.h
+MATCH LINE: 35
+  31:     ARaytracingLidarSensor();
+  32:     void Configure(
+  33:         const FRaytracingLidarConfig& InConfig, const FSensorConfigData& InSensor);
+  34:     bool MatchesProducer(const FString& Producer) const;
+  35:     virtual void UpdateTransformAfterAttachment_Implementation() override;
+  36:     // Game-thread event; views are valid only during Broadcast. Includes fields absent in OSI 3.6.
+  37:     FRaytracingLidarScanEvent OnScanCompleted;
+  38:     uint64 GetDroppedScans() const
+  39:     {
+  40:         return Drops;
+  41:     }
+  42: 
+  43: protected:
+  44:     virtual void BeginPlay() override;
+  45:     virtual void Tick(float DeltaSeconds) override;
+  46:     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
+  47: 
+  48: private:
+  49:     FRaytracingLidarConfig Config;
+  50:     
+  51:     TSharedPtr<FRaytracingLidarRenderState, ESPMode::ThreadSafe> State;
+  52:     TSharedPtr<FRaytracingLidarViewExtension, ESPMode::ThreadSafe> Extension;
+  53:     FTransform PreviousPose;
+  54:     double Accumulator = 0;
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Source\ue_visualizer_featureRuntime\Private\FollowVehicleCamera.cpp
+MATCH LINE: 67
+  63: 	}
+  64: 	switch (CurrentViewType)
+  65: 	{
+  66: 	case::EFollowVehicleCameraType::FirstPerson:
+  67: 		SetActorRelativeTransform(FirstPersonTransform);
+  68: 		SpringArm->TargetArmLength = 0.0f;
+  69: 		break;
+  70: 
+  71: 	case::EFollowVehicleCameraType::SecondPerson:
+  72: 		SetActorRelativeTransform(SecondPersonTransform);
+  73: 		SpringArm->TargetArmLength = SecondPerseonDistance;
+  74: 		break;
+  75: 
+  76: 	case::EFollowVehicleCameraType::ThirdPerson:
+  77: 	default:
+  78: 		SetActorRelativeTransform(ThirdPersonTransform);
+  79: 		SpringArm->TargetArmLength = ThirdPerseonDistance;
+  80: 		break;
+  81: 	}
+  82: }
+  83:    
+  84: void AFollowVehicleCamera::UpdateTransformAfterAttachment_Implementation() {
+  85: 
+  86: 	ApplyViewType();
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Source\ue_visualizer_featureRuntime\Private\FollowVehicleCamera.cpp
+MATCH LINE: 72
+  68: 		SpringArm->TargetArmLength = 0.0f;
+  69: 		break;
+  70: 
+  71: 	case::EFollowVehicleCameraType::SecondPerson:
+  72: 		SetActorRelativeTransform(SecondPersonTransform);
+  73: 		SpringArm->TargetArmLength = SecondPerseonDistance;
+  74: 		break;
+  75: 
+  76: 	case::EFollowVehicleCameraType::ThirdPerson:
+  77: 	default:
+  78: 		SetActorRelativeTransform(ThirdPersonTransform);
+  79: 		SpringArm->TargetArmLength = ThirdPerseonDistance;
+  80: 		break;
+  81: 	}
+  82: }
+  83:    
+  84: void AFollowVehicleCamera::UpdateTransformAfterAttachment_Implementation() {
+  85: 
+  86: 	ApplyViewType();
+  87: 	if (APlayerController* PC = UGameplayStatics::GetPlayerController(GetWorld(), 0))
+  88: 	{
+  89: 		PC->SetViewTargetWithBlend(this, 0.0f);
+  90: 		UE_LOG(Visualizer, Log, TEXT("FollowVehicleCamera attached to: %s"), *GetName());
+  91: 
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Source\ue_visualizer_featureRuntime\Private\FollowVehicleCamera.cpp
+MATCH LINE: 78
+  74: 		break;
+  75: 
+  76: 	case::EFollowVehicleCameraType::ThirdPerson:
+  77: 	default:
+  78: 		SetActorRelativeTransform(ThirdPersonTransform);
+  79: 		SpringArm->TargetArmLength = ThirdPerseonDistance;
+  80: 		break;
+  81: 	}
+  82: }
+  83:    
+  84: void AFollowVehicleCamera::UpdateTransformAfterAttachment_Implementation() {
+  85: 
+  86: 	ApplyViewType();
+  87: 	if (APlayerController* PC = UGameplayStatics::GetPlayerController(GetWorld(), 0))
+  88: 	{
+  89: 		PC->SetViewTargetWithBlend(this, 0.0f);
+  90: 		UE_LOG(Visualizer, Log, TEXT("FollowVehicleCamera attached to: %s"), *GetName());
+  91: 
+  92: 	}
+  93: 	else 
+  94: 	{
+  95: 		UE_LOG(Visualizer, Warning, TEXT("FollowVehicleCamera failed to be attached"));
+  96: 	}
+  97: 	
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Source\ue_visualizer_featureRuntime\Private\FollowVehicleCamera.cpp
+MATCH LINE: 84
+  80: 		break;
+  81: 	}
+  82: }
+  83:    
+  84: void AFollowVehicleCamera::UpdateTransformAfterAttachment_Implementation() {
+  85: 
+  86: 	ApplyViewType();
+  87: 	if (APlayerController* PC = UGameplayStatics::GetPlayerController(GetWorld(), 0))
+  88: 	{
+  89: 		PC->SetViewTargetWithBlend(this, 0.0f);
+  90: 		UE_LOG(Visualizer, Log, TEXT("FollowVehicleCamera attached to: %s"), *GetName());
+  91: 
+  92: 	}
+  93: 	else 
+  94: 	{
+  95: 		UE_LOG(Visualizer, Warning, TEXT("FollowVehicleCamera failed to be attached"));
+  96: 	}
+  97: 	
+  98: }
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Source\ue_visualizer_featureRuntime\Private\VisualizerManager.cpp
+MATCH LINE: 467
+ 463: 		if (!FollowVehicle.IsEmpty()) {
+ 464: 			IGemstarManager::Execute_MountOn(GemstarSimulationSubsystem, FollowVehicle, SpawnedActor);
+ 465: 		}
+ 466: 		else {
+ 467: 			ILocalTransformUpdater::Execute_UpdateTransformAfterAttachment(SpawnedActor);
+ 468: 		}
+ 469: 		AddTickPrerequisiteActor(SpawnedActor);
+ 470: 	}
+ 471: }
+ 472: 
+ 473: void AVisualizerManager::VehicleDataUpdate_Implementation(FVehicleDataUpdateData& data) {
+ 474: 
+ 475: 	if (!bDrawVehicleTraces || data.Name.IsNone()) {
+ 476: 		return;
+ 477: 	}
+ 478: 	const  FVector CurrentLocation = data.Position.GetLocation();
+ 479: 	TMap<FName, FVector>& Inner = LastPositions.FindOrAdd(data.Provider);
+ 480: 
+ 481: 	if (const FVector* LastLocation = Inner.Find(data.Name)) {
+ 482: 
+ 483: 		if (!LastLocation->Equals(CurrentLocation, 1.f)) {
+ 484: 
+ 485: 			if (VehicleTraceStyle == EVehicleTraceStyle::Debug) {
+ 486: 				const uint32 hash = HashCombine(GetTypeHash(data.Provider), GetTypeHash(data.Name));
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Source\ue_visualizer_featureRuntime\Public\FollowVehicleCamera.h
+MATCH LINE: 41
+  37: 	GENERATED_BODY()
+  38: 
+  39: public:
+  40: 	AFollowVehicleCamera();
+  41: 	void UpdateTransformAfterAttachment_Implementation() override;
+  42: 	void SetViewType(const FString& ViewType);
+  43: 	void SetOffsets(const FTransform InFirstPerson, const FTransform InSecondPerson, const FTransform InThirdPerson);
+  44: 
+  45: private:
+  46: 	EFollowVehicleCameraType CurrentViewType = EFollowVehicleCameraType::ThirdPerson;
+  47: 	FTransform FirstPersonTransform;
+  48: 	FTransform SecondPersonTransform;
+  49: 	FTransform ThirdPersonTransform;
+  50: 
+  51: 	float SecondPerseonDistance = 500.f;
+  52: 	float ThirdPerseonDistance = 1000.f;
+  53: 
+  54: 	UPROPERTY()
+  55: 	USpringArmComponent* SpringArm;
+  56: 	UPROPERTY()
+  57: 	UCameraComponent* Camera;
+  58: 
+  59: 	void ApplyViewType();
+  60: };
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\GemstarSensor.gen.cpp
+MATCH LINE: 368
+ 364: 	P_NATIVE_END;
+ 365: }
+ 366: // ********** End Class AGemstarSensor Function SetWeatherData *************************************
+ 367: 
+ 368: // ********** Begin Class AGemstarSensor Function UpdateTransformAfterAttachment_Implementation ****
+ 369: #ifdef UHT_STATICS
+ 370: #error UHT_STATICS already defined
+ 371: #endif
+ 372: #define UHT_STATICS Z_Construct_UFunction_AGemstarSensor_UpdateTransformAfterAttachment_Implementation_Statics
+ 373: struct UHT_STATICS
+ 374: {
+ 375: #if WITH_METADATA
+ 376: 	static constexpr UECodeGen_Private::FMetaDataPairParam Type_MetaData[] = {
+ 377: 		{ "Category", "GEMSTAR" },
+ 378: 		{ "ModuleRelativePath", "Public/Sensors/GemstarSensor.h" },
+ 379: 	};
+ 380: #endif // WITH_METADATA
+ 381: 
+ 382: // ********** Begin Function UpdateTransformAfterAttachment_Implementation constinit property declarations 
+ 383: // ********** End Function UpdateTransformAfterAttachment_Implementation constinit property declarations 
+ 384: 	static const UECodeGen_Private::FFunctionParams FuncParams;
+ 385: };
+ 386: const UECodeGen_Private::FFunctionParams UHT_STATICS::FuncParams = { { (FTypeConstructFunc*)Z_Construct_UClass_AGemstarSensor, nullptr, "UpdateTransformAfterAttachment_Implementation", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(UHT_STATICS::Type_MetaData), UHT_STATICS::Type_MetaData)},  };
+ 387: UFunction* Z_Construct_UFunction_AGemstarSensor_UpdateTransformAfterAttachment_Implementation(ETypeConstructPhase Phase)
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\GemstarSensor.gen.cpp
+MATCH LINE: 372
+ 368: // ********** Begin Class AGemstarSensor Function UpdateTransformAfterAttachment_Implementation ****
+ 369: #ifdef UHT_STATICS
+ 370: #error UHT_STATICS already defined
+ 371: #endif
+ 372: #define UHT_STATICS Z_Construct_UFunction_AGemstarSensor_UpdateTransformAfterAttachment_Implementation_Statics
+ 373: struct UHT_STATICS
+ 374: {
+ 375: #if WITH_METADATA
+ 376: 	static constexpr UECodeGen_Private::FMetaDataPairParam Type_MetaData[] = {
+ 377: 		{ "Category", "GEMSTAR" },
+ 378: 		{ "ModuleRelativePath", "Public/Sensors/GemstarSensor.h" },
+ 379: 	};
+ 380: #endif // WITH_METADATA
+ 381: 
+ 382: // ********** Begin Function UpdateTransformAfterAttachment_Implementation constinit property declarations 
+ 383: // ********** End Function UpdateTransformAfterAttachment_Implementation constinit property declarations 
+ 384: 	static const UECodeGen_Private::FFunctionParams FuncParams;
+ 385: };
+ 386: const UECodeGen_Private::FFunctionParams UHT_STATICS::FuncParams = { { (FTypeConstructFunc*)Z_Construct_UClass_AGemstarSensor, nullptr, "UpdateTransformAfterAttachment_Implementation", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(UHT_STATICS::Type_MetaData), UHT_STATICS::Type_MetaData)},  };
+ 387: UFunction* Z_Construct_UFunction_AGemstarSensor_UpdateTransformAfterAttachment_Implementation(ETypeConstructPhase Phase)
+ 388: {
+ 389: 	static UFunction* ReturnFunction = nullptr;
+ 390: 	if (!ReturnFunction)
+ 391: 	{
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\GemstarSensor.gen.cpp
+MATCH LINE: 382
+ 378: 		{ "ModuleRelativePath", "Public/Sensors/GemstarSensor.h" },
+ 379: 	};
+ 380: #endif // WITH_METADATA
+ 381: 
+ 382: // ********** Begin Function UpdateTransformAfterAttachment_Implementation constinit property declarations 
+ 383: // ********** End Function UpdateTransformAfterAttachment_Implementation constinit property declarations 
+ 384: 	static const UECodeGen_Private::FFunctionParams FuncParams;
+ 385: };
+ 386: const UECodeGen_Private::FFunctionParams UHT_STATICS::FuncParams = { { (FTypeConstructFunc*)Z_Construct_UClass_AGemstarSensor, nullptr, "UpdateTransformAfterAttachment_Implementation", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(UHT_STATICS::Type_MetaData), UHT_STATICS::Type_MetaData)},  };
+ 387: UFunction* Z_Construct_UFunction_AGemstarSensor_UpdateTransformAfterAttachment_Implementation(ETypeConstructPhase Phase)
+ 388: {
+ 389: 	static UFunction* ReturnFunction = nullptr;
+ 390: 	if (!ReturnFunction)
+ 391: 	{
+ 392: 		UECodeGen_Private::ConstructUFunction(&ReturnFunction, UHT_STATICS::FuncParams);
+ 393: 	}
+ 394: 	return ReturnFunction;
+ 395: }
+ 396: #undef UHT_STATICS
+ 397: DEFINE_FUNCTION(AGemstarSensor::execUpdateTransformAfterAttachment_Implementation)
+ 398: {
+ 399: 	P_FINISH;
+ 400: 	P_NATIVE_BEGIN;
+ 401: 	P_THIS->UpdateTransformAfterAttachment_Implementation();
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\GemstarSensor.gen.cpp
+MATCH LINE: 383
+ 379: 	};
+ 380: #endif // WITH_METADATA
+ 381: 
+ 382: // ********** Begin Function UpdateTransformAfterAttachment_Implementation constinit property declarations 
+ 383: // ********** End Function UpdateTransformAfterAttachment_Implementation constinit property declarations 
+ 384: 	static const UECodeGen_Private::FFunctionParams FuncParams;
+ 385: };
+ 386: const UECodeGen_Private::FFunctionParams UHT_STATICS::FuncParams = { { (FTypeConstructFunc*)Z_Construct_UClass_AGemstarSensor, nullptr, "UpdateTransformAfterAttachment_Implementation", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(UHT_STATICS::Type_MetaData), UHT_STATICS::Type_MetaData)},  };
+ 387: UFunction* Z_Construct_UFunction_AGemstarSensor_UpdateTransformAfterAttachment_Implementation(ETypeConstructPhase Phase)
+ 388: {
+ 389: 	static UFunction* ReturnFunction = nullptr;
+ 390: 	if (!ReturnFunction)
+ 391: 	{
+ 392: 		UECodeGen_Private::ConstructUFunction(&ReturnFunction, UHT_STATICS::FuncParams);
+ 393: 	}
+ 394: 	return ReturnFunction;
+ 395: }
+ 396: #undef UHT_STATICS
+ 397: DEFINE_FUNCTION(AGemstarSensor::execUpdateTransformAfterAttachment_Implementation)
+ 398: {
+ 399: 	P_FINISH;
+ 400: 	P_NATIVE_BEGIN;
+ 401: 	P_THIS->UpdateTransformAfterAttachment_Implementation();
+ 402: 	P_NATIVE_END;
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\GemstarSensor.gen.cpp
+MATCH LINE: 386
+ 382: // ********** Begin Function UpdateTransformAfterAttachment_Implementation constinit property declarations 
+ 383: // ********** End Function UpdateTransformAfterAttachment_Implementation constinit property declarations 
+ 384: 	static const UECodeGen_Private::FFunctionParams FuncParams;
+ 385: };
+ 386: const UECodeGen_Private::FFunctionParams UHT_STATICS::FuncParams = { { (FTypeConstructFunc*)Z_Construct_UClass_AGemstarSensor, nullptr, "UpdateTransformAfterAttachment_Implementation", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(UHT_STATICS::Type_MetaData), UHT_STATICS::Type_MetaData)},  };
+ 387: UFunction* Z_Construct_UFunction_AGemstarSensor_UpdateTransformAfterAttachment_Implementation(ETypeConstructPhase Phase)
+ 388: {
+ 389: 	static UFunction* ReturnFunction = nullptr;
+ 390: 	if (!ReturnFunction)
+ 391: 	{
+ 392: 		UECodeGen_Private::ConstructUFunction(&ReturnFunction, UHT_STATICS::FuncParams);
+ 393: 	}
+ 394: 	return ReturnFunction;
+ 395: }
+ 396: #undef UHT_STATICS
+ 397: DEFINE_FUNCTION(AGemstarSensor::execUpdateTransformAfterAttachment_Implementation)
+ 398: {
+ 399: 	P_FINISH;
+ 400: 	P_NATIVE_BEGIN;
+ 401: 	P_THIS->UpdateTransformAfterAttachment_Implementation();
+ 402: 	P_NATIVE_END;
+ 403: }
+ 404: // ********** End Class AGemstarSensor Function UpdateTransformAfterAttachment_Implementation ******
+ 405: 
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\GemstarSensor.gen.cpp
+MATCH LINE: 387
+ 383: // ********** End Function UpdateTransformAfterAttachment_Implementation constinit property declarations 
+ 384: 	static const UECodeGen_Private::FFunctionParams FuncParams;
+ 385: };
+ 386: const UECodeGen_Private::FFunctionParams UHT_STATICS::FuncParams = { { (FTypeConstructFunc*)Z_Construct_UClass_AGemstarSensor, nullptr, "UpdateTransformAfterAttachment_Implementation", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(UHT_STATICS::Type_MetaData), UHT_STATICS::Type_MetaData)},  };
+ 387: UFunction* Z_Construct_UFunction_AGemstarSensor_UpdateTransformAfterAttachment_Implementation(ETypeConstructPhase Phase)
+ 388: {
+ 389: 	static UFunction* ReturnFunction = nullptr;
+ 390: 	if (!ReturnFunction)
+ 391: 	{
+ 392: 		UECodeGen_Private::ConstructUFunction(&ReturnFunction, UHT_STATICS::FuncParams);
+ 393: 	}
+ 394: 	return ReturnFunction;
+ 395: }
+ 396: #undef UHT_STATICS
+ 397: DEFINE_FUNCTION(AGemstarSensor::execUpdateTransformAfterAttachment_Implementation)
+ 398: {
+ 399: 	P_FINISH;
+ 400: 	P_NATIVE_BEGIN;
+ 401: 	P_THIS->UpdateTransformAfterAttachment_Implementation();
+ 402: 	P_NATIVE_END;
+ 403: }
+ 404: // ********** End Class AGemstarSensor Function UpdateTransformAfterAttachment_Implementation ******
+ 405: 
+ 406: // ********** Begin Class AGemstarSensor ***********************************************************
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\GemstarSensor.gen.cpp
+MATCH LINE: 397
+ 393: 	}
+ 394: 	return ReturnFunction;
+ 395: }
+ 396: #undef UHT_STATICS
+ 397: DEFINE_FUNCTION(AGemstarSensor::execUpdateTransformAfterAttachment_Implementation)
+ 398: {
+ 399: 	P_FINISH;
+ 400: 	P_NATIVE_BEGIN;
+ 401: 	P_THIS->UpdateTransformAfterAttachment_Implementation();
+ 402: 	P_NATIVE_END;
+ 403: }
+ 404: // ********** End Class AGemstarSensor Function UpdateTransformAfterAttachment_Implementation ******
+ 405: 
+ 406: // ********** Begin Class AGemstarSensor ***********************************************************
+ 407: #ifdef UHT_STATICS
+ 408: #error UHT_STATICS already defined
+ 409: #endif
+ 410: #define UHT_STATICS Z_Construct_UClass_AGemstarSensor_Statics
+ 411: struct UHT_STATICS
+ 412: {
+ 413: #if WITH_METADATA
+ 414: 	static constexpr UECodeGen_Private::FMetaDataPairParam Type_MetaData[] = {
+ 415: #if !UE_BUILD_SHIPPING
+ 416: 		{ "Comment", "/**\n * \n */" },
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\GemstarSensor.gen.cpp
+MATCH LINE: 401
+ 397: DEFINE_FUNCTION(AGemstarSensor::execUpdateTransformAfterAttachment_Implementation)
+ 398: {
+ 399: 	P_FINISH;
+ 400: 	P_NATIVE_BEGIN;
+ 401: 	P_THIS->UpdateTransformAfterAttachment_Implementation();
+ 402: 	P_NATIVE_END;
+ 403: }
+ 404: // ********** End Class AGemstarSensor Function UpdateTransformAfterAttachment_Implementation ******
+ 405: 
+ 406: // ********** Begin Class AGemstarSensor ***********************************************************
+ 407: #ifdef UHT_STATICS
+ 408: #error UHT_STATICS already defined
+ 409: #endif
+ 410: #define UHT_STATICS Z_Construct_UClass_AGemstarSensor_Statics
+ 411: struct UHT_STATICS
+ 412: {
+ 413: #if WITH_METADATA
+ 414: 	static constexpr UECodeGen_Private::FMetaDataPairParam Type_MetaData[] = {
+ 415: #if !UE_BUILD_SHIPPING
+ 416: 		{ "Comment", "/**\n * \n */" },
+ 417: #endif
+ 418: 		{ "IncludePath", "Sensors/GemstarSensor.h" },
+ 419: 		{ "ModuleRelativePath", "Public/Sensors/GemstarSensor.h" },
+ 420: 	};
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\GemstarSensor.gen.cpp
+MATCH LINE: 404
+ 400: 	P_NATIVE_BEGIN;
+ 401: 	P_THIS->UpdateTransformAfterAttachment_Implementation();
+ 402: 	P_NATIVE_END;
+ 403: }
+ 404: // ********** End Class AGemstarSensor Function UpdateTransformAfterAttachment_Implementation ******
+ 405: 
+ 406: // ********** Begin Class AGemstarSensor ***********************************************************
+ 407: #ifdef UHT_STATICS
+ 408: #error UHT_STATICS already defined
+ 409: #endif
+ 410: #define UHT_STATICS Z_Construct_UClass_AGemstarSensor_Statics
+ 411: struct UHT_STATICS
+ 412: {
+ 413: #if WITH_METADATA
+ 414: 	static constexpr UECodeGen_Private::FMetaDataPairParam Type_MetaData[] = {
+ 415: #if !UE_BUILD_SHIPPING
+ 416: 		{ "Comment", "/**\n * \n */" },
+ 417: #endif
+ 418: 		{ "IncludePath", "Sensors/GemstarSensor.h" },
+ 419: 		{ "ModuleRelativePath", "Public/Sensors/GemstarSensor.h" },
+ 420: 	};
+ 421: 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SensorConfiguration_MetaData[] = {
+ 422: 		{ "Category", "GEMSTAR" },
+ 423: 		{ "ModuleRelativePath", "Public/Sensors/GemstarSensor.h" },
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\GemstarSensor.gen.cpp
+MATCH LINE: 465
+ 461: 		{ .NameUTF8 = UTF8TEXT("SetPublishingActive"), .Pointer = &AGemstarSensor::execSetPublishingActive },
+ 462: 		{ .NameUTF8 = UTF8TEXT("SetSensorConfiguration"), .Pointer = &AGemstarSensor::execSetSensorConfiguration },
+ 463: 		{ .NameUTF8 = UTF8TEXT("SetTickActive"), .Pointer = &AGemstarSensor::execSetTickActive },
+ 464: 		{ .NameUTF8 = UTF8TEXT("SetWeatherData"), .Pointer = &AGemstarSensor::execSetWeatherData },
+ 465: 		{ .NameUTF8 = UTF8TEXT("UpdateTransformAfterAttachment_Implementation"), .Pointer = &AGemstarSensor::execUpdateTransformAfterAttachment_Implementation },
+ 466: 	};
+ 467: 	static FTypeConstructFunc* DependentSingletons[];
+ 468: 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+ 469: 		{ &Z_Construct_UFunction_AGemstarSensor_AddDataTarget, "AddDataTarget" }, // ed13f4b9e933df84684a7a304d498613be39e363
+ 470: 		{ &Z_Construct_UFunction_AGemstarSensor_RemoveDataTarget, "RemoveDataTarget" }, // eacfc751384245c8611fa801cc58295b0ea108c7
+ 471: 		{ &Z_Construct_UFunction_AGemstarSensor_SetPublishingActive, "SetPublishingActive" }, // 74aa275d2391121ac0ce64280b8ae23bae40bc16
+ 472: 		{ &Z_Construct_UFunction_AGemstarSensor_SetSensorConfiguration, "SetSensorConfiguration" }, // 461f11c0812ac4d166884daf7113cdccfd503b5f
+ 473: 		{ &Z_Construct_UFunction_AGemstarSensor_SetTickActive, "SetTickActive" }, // 267e807911457bf00e8710b585b78f9348a988b0
+ 474: 		{ &Z_Construct_UFunction_AGemstarSensor_SetWeatherData, "SetWeatherData" }, // eab16bec912a58980816cd0ecc1971360f569fab
+ 475: 		{ &Z_Construct_UFunction_AGemstarSensor_UpdateTransformAfterAttachment_Implementation, "UpdateTransformAfterAttachment_Implementation" }, // ccaf1abdfffa7487bceb81689323a79ef6dc75cb
+ 476: 	};
+ 477: 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
+ 478: 	static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
+ 479: 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
+ 480: 		TCppClassTypeTraits<AGemstarSensor>::IsAbstract,
+ 481: 	};
+ 482: 	static const UECodeGen_Private::FClassParams ClassParams;
+ 483: }; // struct UHT_STATICS
+ 484: 
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\GemstarSensor.gen.cpp
+MATCH LINE: 475
+ 471: 		{ &Z_Construct_UFunction_AGemstarSensor_SetPublishingActive, "SetPublishingActive" }, // 74aa275d2391121ac0ce64280b8ae23bae40bc16
+ 472: 		{ &Z_Construct_UFunction_AGemstarSensor_SetSensorConfiguration, "SetSensorConfiguration" }, // 461f11c0812ac4d166884daf7113cdccfd503b5f
+ 473: 		{ &Z_Construct_UFunction_AGemstarSensor_SetTickActive, "SetTickActive" }, // 267e807911457bf00e8710b585b78f9348a988b0
+ 474: 		{ &Z_Construct_UFunction_AGemstarSensor_SetWeatherData, "SetWeatherData" }, // eab16bec912a58980816cd0ecc1971360f569fab
+ 475: 		{ &Z_Construct_UFunction_AGemstarSensor_UpdateTransformAfterAttachment_Implementation, "UpdateTransformAfterAttachment_Implementation" }, // ccaf1abdfffa7487bceb81689323a79ef6dc75cb
+ 476: 	};
+ 477: 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
+ 478: 	static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
+ 479: 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
+ 480: 		TCppClassTypeTraits<AGemstarSensor>::IsAbstract,
+ 481: 	};
+ 482: 	static const UECodeGen_Private::FClassParams ClassParams;
+ 483: }; // struct UHT_STATICS
+ 484: 
+ 485: // ********** Begin Class AGemstarSensor Property Definitions **************************************
+ 486: const UECodeGen_Private::FStructPropertyParams UHT_STATICS::NewProp_SensorConfiguration = { "SensorConfiguration", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, nullptr, nullptr, 1, STRUCT_OFFSET(AGemstarSensor, SensorConfiguration), Z_Construct_UScriptStruct_FSensorConfigData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SensorConfiguration_MetaData), NewProp_SensorConfiguration_MetaData) }; // 9f92dc9de151643b17d7bf1915c4e09ab2b144e8
+ 487: const UECodeGen_Private::FBoolPropertyParams UHT_STATICS::NewProp_HasWeatherData = { "HasWeatherData", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, nullptr, nullptr, 1, sizeof(bool), sizeof(AGemstarSensor), &UHT_STATICS::NewProp_HasWeatherData_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_HasWeatherData_MetaData), NewProp_HasWeatherData_MetaData) };
+ 488: const UECodeGen_Private::FBoolPropertyParams UHT_STATICS::NewProp_TickActive = { "TickActive", nullptr, (EPropertyFlags)0x0020080000000014, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, nullptr, nullptr, 1, sizeof(bool), sizeof(AGemstarSensor), &UHT_STATICS::NewProp_TickActive_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TickActive_MetaData), NewProp_TickActive_MetaData) };
+ 489: const UECodeGen_Private::FBoolPropertyParams UHT_STATICS::NewProp_PublishingActive = { "PublishingActive", nullptr, (EPropertyFlags)0x0020080000000014, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, nullptr, nullptr, 1, sizeof(bool), sizeof(AGemstarSensor), &UHT_STATICS::NewProp_PublishingActive_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PublishingActive_MetaData), NewProp_PublishingActive_MetaData) };
+ 490: const UECodeGen_Private::FPropertyParamsBase* const UHT_STATICS::PropPointers[] = {
+ 491: 	(const UECodeGen_Private::FPropertyParamsBase*)&UHT_STATICS::NewProp_SensorConfiguration,
+ 492: 	(const UECodeGen_Private::FPropertyParamsBase*)&UHT_STATICS::NewProp_HasWeatherData,
+ 493: 	(const UECodeGen_Private::FPropertyParamsBase*)&UHT_STATICS::NewProp_TickActive,
+ 494: 	(const UECodeGen_Private::FPropertyParamsBase*)&UHT_STATICS::NewProp_PublishingActive,
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\GemstarSensor.generated.h
+MATCH LINE: 25
+  21: struct FWeatherData;
+  22: 
+  23: // ********** Begin Class AGemstarSensor ***********************************************************
+  24: #define FID_GEMSTAR_Project_gemstar_Plugins_gemstar_interfaces_Source_GEMSTAR_Interfaces_Public_Sensors_GemstarSensor_h_29_RPC_WRAPPERS_NO_PURE_DECLS \
+  25: 	DECLARE_FUNCTION(execUpdateTransformAfterAttachment_Implementation); \
+  26: 	DECLARE_FUNCTION(execSetPublishingActive); \
+  27: 	DECLARE_FUNCTION(execSetTickActive); \
+  28: 	DECLARE_FUNCTION(execSetWeatherData); \
+  29: 	DECLARE_FUNCTION(execRemoveDataTarget); \
+  30: 	DECLARE_FUNCTION(execAddDataTarget); \
+  31: 	DECLARE_FUNCTION(execSetSensorConfiguration);
+  32: 
+  33: 
+  34: struct Z_Construct_UClass_AGemstarSensor_Statics;
+  35: GEMSTAR_INTERFACES_API UClass* Z_Construct_UClass_AGemstarSensor(ETypeConstructPhase);
+  36: 
+  37: #define FID_GEMSTAR_Project_gemstar_Plugins_gemstar_interfaces_Source_GEMSTAR_Interfaces_Public_Sensors_GemstarSensor_h_29_INCLASS_NO_PURE_DECLS \
+  38: private: \
+  39: 	friend struct ::Z_Construct_UClass_AGemstarSensor_Statics; \
+  40: 	friend GEMSTAR_INTERFACES_API UClass* ::Z_Construct_UClass_AGemstarSensor(ETypeConstructPhase); \
+  41: public: \
+  42: 	DECLARE_CLASS2(AGemstarSensor, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/GEMSTAR_Interfaces"), Z_Construct_UClass_AGemstarSensor) \
+  43: 	DECLARE_SERIALIZER(AGemstarSensor) \
+  44: 	[[deprecated("Do not call _getUObject(), use Cast.")]] virtual UObject* _getUObject() const override { return const_cast<AGemstarSensor*>(this); }
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\LocalTransformUpdater.gen.cpp
+MATCH LINE: 28
+  24: // ********** End Same Module References ***********************************************************
+  25: #define UHT_STRUCT_BASE(INIT) UE::CodeGen::ConstInit::TCompiledInObjectPtr<const FStructBaseChain>(UE::Private::AsStructBaseChain(INIT))
+  26: 
+  27: // ********** Begin Interface ULocalTransformUpdater Function UpdateTransformAfterAttachment *******
+  28: void ILocalTransformUpdater::UpdateTransformAfterAttachment()
+  29: {
+  30: 	check(0 && "Do not directly call Event functions in Interfaces. Call Execute_UpdateTransformAfterAttachment instead.");
+  31: }
+  32: static FName NAME_ULocalTransformUpdater_UpdateTransformAfterAttachment = FName(TEXT("UpdateTransformAfterAttachment"));
+  33: void ILocalTransformUpdater::Execute_UpdateTransformAfterAttachment(UObject* O)
+  34: {
+  35: 	check(O != NULL);
+  36: 	check(O->GetClass()->ImplementsInterface(ULocalTransformUpdater::StaticClass()));
+  37: 	UFunction* const Func = O->FindFunction(NAME_ULocalTransformUpdater_UpdateTransformAfterAttachment);
+  38: 	if (Func)
+  39: 	{
+  40: 		O->ProcessEvent(Func, NULL);
+  41: 	}
+  42: 	else if (auto I = (ILocalTransformUpdater*)(O->GetNativeInterfaceAddress(ULocalTransformUpdater::StaticClass())))
+  43: 	{
+  44: 		I->UpdateTransformAfterAttachment_Implementation();
+  45: 	}
+  46: }
+  47: #ifdef UHT_STATICS
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\LocalTransformUpdater.gen.cpp
+MATCH LINE: 33
+  29: {
+  30: 	check(0 && "Do not directly call Event functions in Interfaces. Call Execute_UpdateTransformAfterAttachment instead.");
+  31: }
+  32: static FName NAME_ULocalTransformUpdater_UpdateTransformAfterAttachment = FName(TEXT("UpdateTransformAfterAttachment"));
+  33: void ILocalTransformUpdater::Execute_UpdateTransformAfterAttachment(UObject* O)
+  34: {
+  35: 	check(O != NULL);
+  36: 	check(O->GetClass()->ImplementsInterface(ULocalTransformUpdater::StaticClass()));
+  37: 	UFunction* const Func = O->FindFunction(NAME_ULocalTransformUpdater_UpdateTransformAfterAttachment);
+  38: 	if (Func)
+  39: 	{
+  40: 		O->ProcessEvent(Func, NULL);
+  41: 	}
+  42: 	else if (auto I = (ILocalTransformUpdater*)(O->GetNativeInterfaceAddress(ULocalTransformUpdater::StaticClass())))
+  43: 	{
+  44: 		I->UpdateTransformAfterAttachment_Implementation();
+  45: 	}
+  46: }
+  47: #ifdef UHT_STATICS
+  48: #error UHT_STATICS already defined
+  49: #endif
+  50: #define UHT_STATICS Z_Construct_UFunction_ULocalTransformUpdater_UpdateTransformAfterAttachment_Statics
+  51: struct UHT_STATICS
+  52: {
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\LocalTransformUpdater.gen.cpp
+MATCH LINE: 44
+  40: 		O->ProcessEvent(Func, NULL);
+  41: 	}
+  42: 	else if (auto I = (ILocalTransformUpdater*)(O->GetNativeInterfaceAddress(ULocalTransformUpdater::StaticClass())))
+  43: 	{
+  44: 		I->UpdateTransformAfterAttachment_Implementation();
+  45: 	}
+  46: }
+  47: #ifdef UHT_STATICS
+  48: #error UHT_STATICS already defined
+  49: #endif
+  50: #define UHT_STATICS Z_Construct_UFunction_ULocalTransformUpdater_UpdateTransformAfterAttachment_Statics
+  51: struct UHT_STATICS
+  52: {
+  53: #if WITH_METADATA
+  54: 	static constexpr UECodeGen_Private::FMetaDataPairParam Type_MetaData[] = {
+  55: 		{ "Category", "GEMSTAR" },
+  56: 		{ "ModuleRelativePath", "Public/Utils/LocalTransformUpdater.h" },
+  57: 	};
+  58: #endif // WITH_METADATA
+  59: 
+  60: // ********** Begin Function UpdateTransformAfterAttachment constinit property declarations ********
+  61: // ********** End Function UpdateTransformAfterAttachment constinit property declarations **********
+  62: 	static const UECodeGen_Private::FFunctionParams FuncParams;
+  63: };
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\LocalTransformUpdater.gen.cpp
+MATCH LINE: 65
+  61: // ********** End Function UpdateTransformAfterAttachment constinit property declarations **********
+  62: 	static const UECodeGen_Private::FFunctionParams FuncParams;
+  63: };
+  64: const UECodeGen_Private::FFunctionParams UHT_STATICS::FuncParams = { { (FTypeConstructFunc*)Z_Construct_UClass_ULocalTransformUpdater, nullptr, "UpdateTransformAfterAttachment", nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(UHT_STATICS::Type_MetaData), UHT_STATICS::Type_MetaData)},  };
+  65: UFunction* Z_Construct_UFunction_ULocalTransformUpdater_UpdateTransformAfterAttachment(ETypeConstructPhase Phase)
+  66: {
+  67: 	static UFunction* ReturnFunction = nullptr;
+  68: 	if (!ReturnFunction)
+  69: 	{
+  70: 		UECodeGen_Private::ConstructUFunction(&ReturnFunction, UHT_STATICS::FuncParams);
+  71: 	}
+  72: 	return ReturnFunction;
+  73: }
+  74: #undef UHT_STATICS
+  75: DEFINE_FUNCTION(ILocalTransformUpdater::execUpdateTransformAfterAttachment)
+  76: {
+  77: 	P_FINISH;
+  78: 	P_NATIVE_BEGIN;
+  79: 	P_THIS->UpdateTransformAfterAttachment_Implementation();
+  80: 	P_NATIVE_END;
+  81: }
+  82: // ********** End Interface ULocalTransformUpdater Function UpdateTransformAfterAttachment *********
+  83: 
+  84: // ********** Begin Interface ULocalTransformUpdater ***********************************************
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\LocalTransformUpdater.gen.cpp
+MATCH LINE: 79
+  75: DEFINE_FUNCTION(ILocalTransformUpdater::execUpdateTransformAfterAttachment)
+  76: {
+  77: 	P_FINISH;
+  78: 	P_NATIVE_BEGIN;
+  79: 	P_THIS->UpdateTransformAfterAttachment_Implementation();
+  80: 	P_NATIVE_END;
+  81: }
+  82: // ********** End Interface ULocalTransformUpdater Function UpdateTransformAfterAttachment *********
+  83: 
+  84: // ********** Begin Interface ULocalTransformUpdater ***********************************************
+  85: #ifdef UHT_STATICS
+  86: #error UHT_STATICS already defined
+  87: #endif
+  88: #define UHT_STATICS Z_Construct_UClass_ULocalTransformUpdater_Statics
+  89: struct UHT_STATICS
+  90: {
+  91: #if WITH_METADATA
+  92: 	static constexpr UECodeGen_Private::FMetaDataPairParam Type_MetaData[] = {
+  93: 		{ "ModuleRelativePath", "Public/Utils/LocalTransformUpdater.h" },
+  94: 	};
+  95: #endif // WITH_METADATA
+  96: 
+  97: // ********** Begin Interface ULocalTransformUpdater constinit property declarations ***************
+  98: // ********** End Interface ULocalTransformUpdater constinit property declarations *****************
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\LocalTransformUpdater.generated.h
+MATCH LINE: 22
+  18: PRAGMA_DISABLE_DEPRECATION_WARNINGS
+  19: 
+  20: // ********** Begin Interface ULocalTransformUpdater ***********************************************
+  21: #define FID_GEMSTAR_Project_gemstar_Plugins_gemstar_interfaces_Source_GEMSTAR_Interfaces_Public_Utils_LocalTransformUpdater_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+  22: 	virtual void UpdateTransformAfterAttachment_Implementation() {}; \
+  23: 	DECLARE_FUNCTION(execUpdateTransformAfterAttachment);
+  24: 
+  25: 
+  26: #define FID_GEMSTAR_Project_gemstar_Plugins_gemstar_interfaces_Source_GEMSTAR_Interfaces_Public_Utils_LocalTransformUpdater_h_20_CALLBACK_WRAPPERS
+  27: struct Z_Construct_UClass_ULocalTransformUpdater_Statics;
+  28: GEMSTAR_INTERFACES_API UClass* Z_Construct_UClass_ULocalTransformUpdater(ETypeConstructPhase);
+  29: 
+  30: #define FID_GEMSTAR_Project_gemstar_Plugins_gemstar_interfaces_Source_GEMSTAR_Interfaces_Public_Utils_LocalTransformUpdater_h_20_ENHANCED_CONSTRUCTORS \
+  31: 	/** Standard constructor, called after all reflected properties have been initialized */ \
+  32: 	GEMSTAR_INTERFACES_API ULocalTransformUpdater(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+  33: 	/** Deleted move- and copy-constructors, should never be used */ \
+  34: 	ULocalTransformUpdater(ULocalTransformUpdater&&) = delete; \
+  35: 	ULocalTransformUpdater(const ULocalTransformUpdater&) = delete; \
+  36: 	DECLARE_VTABLE_PTR_HELPER_CTOR(GEMSTAR_INTERFACES_API, ULocalTransformUpdater); \
+  37: 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ULocalTransformUpdater); \
+  38: 	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ULocalTransformUpdater) \
+  39: 	virtual ~ULocalTransformUpdater() = default;
+  40: 
+  41: 
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\UnrealEditor\Inc\GEMSTAR_Interfaces\UHT\LocalTransformUpdater.generated.h
+MATCH LINE: 65
+  61: 	virtual ~ILocalTransformUpdater() {} \
+  62: public: \
+  63: 	typedef ULocalTransformUpdater UClassType; \
+  64: 	typedef ILocalTransformUpdater ThisClass; \
+  65: 	static void Execute_UpdateTransformAfterAttachment(UObject* O); \
+  66: 	[[deprecated("Do not call _getUObject(), use Cast.")]] virtual UObject* _getUObject() const { return nullptr; }
+  67: 
+  68: 
+  69: #define FID_GEMSTAR_Project_gemstar_Plugins_gemstar_interfaces_Source_GEMSTAR_Interfaces_Public_Utils_LocalTransformUpdater_h_17_PROLOG
+  70: #define FID_GEMSTAR_Project_gemstar_Plugins_gemstar_interfaces_Source_GEMSTAR_Interfaces_Public_Utils_LocalTransformUpdater_h_28_GENERATED_BODY \
+  71: PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+  72: public: \
+  73: 	FID_GEMSTAR_Project_gemstar_Plugins_gemstar_interfaces_Source_GEMSTAR_Interfaces_Public_Utils_LocalTransformUpdater_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+  74: 	FID_GEMSTAR_Project_gemstar_Plugins_gemstar_interfaces_Source_GEMSTAR_Interfaces_Public_Utils_LocalTransformUpdater_h_20_CALLBACK_WRAPPERS \
+  75: 	FID_GEMSTAR_Project_gemstar_Plugins_gemstar_interfaces_Source_GEMSTAR_Interfaces_Public_Utils_LocalTransformUpdater_h_20_INCLASS_IINTERFACE_NO_PURE_DECLS \
+  76: private: \
+  77: PRAGMA_ENABLE_DEPRECATION_WARNINGS
+  78: 
+  79: 
+  80: class ULocalTransformUpdater;
+  81: 
+  82: // ********** End Interface ULocalTransformUpdater *************************************************
+  83: 
+  84: #undef CURRENT_FILE_ID
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Sensors\GemstarSensor.cpp
+MATCH LINE: 61
+  57: 		dataTarget.Actor->RemoveTickPrerequisiteActor(this);
+  58: 	}
+  59: }
+  60: 
+  61: void AGemstarSensor::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration)
+  62: {
+  63: 	this->SensorConfiguration = NewSensorConfiguration;
+  64: }
+  65: 
+  66: void AGemstarSensor::UpdateTransformAfterAttachment_Implementation() 
+  67: {
+  68: 	SetActorRelativeTransform(SensorConfiguration.Offset);
+  69: }
+  70: 
+  71: void AGemstarSensor::SendData(osi3::SensorView& SensorView)
+  72: {
+  73: 	if (SensorConfiguration.DataTargets.Num() == 0) {
+  74: 
+  75: 		if (!bReportedNoDataTarget) {
+  76: 			bReportedNoDataTarget = true;
+  77: 			UE_LOG(GemstarInterfaces, Warning, TEXT("Sensor data target not configured! %s"), *GetName());
+  78: 		}
+  79: 		return;
+  80: 	}
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Sensors\GemstarSensor.cpp
+MATCH LINE: 66
+  62: {
+  63: 	this->SensorConfiguration = NewSensorConfiguration;
+  64: }
+  65: 
+  66: void AGemstarSensor::UpdateTransformAfterAttachment_Implementation() 
+  67: {
+  68: 	SetActorRelativeTransform(SensorConfiguration.Offset);
+  69: }
+  70: 
+  71: void AGemstarSensor::SendData(osi3::SensorView& SensorView)
+  72: {
+  73: 	if (SensorConfiguration.DataTargets.Num() == 0) {
+  74: 
+  75: 		if (!bReportedNoDataTarget) {
+  76: 			bReportedNoDataTarget = true;
+  77: 			UE_LOG(GemstarInterfaces, Warning, TEXT("Sensor data target not configured! %s"), *GetName());
+  78: 		}
+  79: 		return;
+  80: 	}
+  81: 	bReportedNoDataTarget = false;
+  82: 	FSensorView sensorViewData;
+  83: sensorViewData.ID = SensorConfiguration.ID;
+  84: sensorViewData.sensorview = &SensorView;
+  85: 
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Sensors\GemstarSensor.cpp
+MATCH LINE: 68
+  64: }
+  65: 
+  66: void AGemstarSensor::UpdateTransformAfterAttachment_Implementation() 
+  67: {
+  68: 	SetActorRelativeTransform(SensorConfiguration.Offset);
+  69: }
+  70: 
+  71: void AGemstarSensor::SendData(osi3::SensorView& SensorView)
+  72: {
+  73: 	if (SensorConfiguration.DataTargets.Num() == 0) {
+  74: 
+  75: 		if (!bReportedNoDataTarget) {
+  76: 			bReportedNoDataTarget = true;
+  77: 			UE_LOG(GemstarInterfaces, Warning, TEXT("Sensor data target not configured! %s"), *GetName());
+  78: 		}
+  79: 		return;
+  80: 	}
+  81: 	bReportedNoDataTarget = false;
+  82: 	FSensorView sensorViewData;
+  83: sensorViewData.ID = SensorConfiguration.ID;
+  84: sensorViewData.sensorview = &SensorView;
+  85: 
+  86: 	for (int32 i = SensorConfiguration.DataTargets.Num() - 1; i >= 0; --i) {
+  87: 		FDataTarget dataTarget = SensorConfiguration.DataTargets[i];
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Subsystems\GemstarSimulationSubsystem.cpp
+MATCH LINE: 258
+ 254: 
+ 255: 				// `mount` is a reference INTO CachedMounts; take what is needed before RemoveAt.
+ 256: 				AActor* const MountedActor = mount.Actor;
+ 257: 				CachedMounts.RemoveAt(i);
+ 258: 				ILocalTransformUpdater::Execute_UpdateTransformAfterAttachment(MountedActor);
+ 259: 				break;
+ 260: 			}
+ 261: 		}
+ 262: 
+ 263: 		if (!success && bReportStragglers && !mount.bReported) {
+ 264: 			mount.bReported = true;
+ 265: 			UE_LOG(GemstarInterfaces, Log,
+ 266: 				TEXT("GEMSTAR can not mount yet: %s on %s, Retrying silently every tick"),
+ 267: 				*mount.Actor->GetName(), *mount.NameByConfiguration);
+ 268: 		}
+ 269: 	}
+ 270: 	return CachedMounts.Num() == 0;
+ 271: }
+ 272: 
+ 273: void UGemstarSimulationSubsystem::SetIniFile(const FString& IniFile)
+ 274: {
+ 275: 	GemstarConfiguration = IniFile;
+ 276: 	IniLoaded = false;
+ 277: }
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Public\Sensors\GemstarSensor.h
+MATCH LINE: 36
+  32: 
+  33: 	void Tick(float time) override;
+  34: 
+  35: 	UFUNCTION(BlueprintCallable, Category = "GEMSTAR")
+  36: 	virtual void SetSensorConfiguration(FSensorConfigData NewSensorConfiguration);
+  37: 
+  38: 	UFUNCTION(BlueprintCallable, Category = "GEMSTAR")
+  39: 	virtual void AddDataTarget(FDataTarget& dataTarget);
+  40: 
+  41: 	UFUNCTION(BlueprintCallable, Category = "GEMSTAR")
+  42: 	virtual void RemoveDataTarget(FDataTarget& dataTarget);
+  43: 
+  44: 	UFUNCTION(BlueprintCallable, Category = "GEMSTAR")
+  45: 	virtual void SetWeatherData(const FWeatherData& NewWeatherData);
+  46: 
+  47: 	UFUNCTION(BlueprintCallable, Category = "GEMSTAR")
+  48: 	virtual void SetTickActive(bool Active);
+  49: 
+  50: 	UFUNCTION(BlueprintCallable, Category = "GEMSTAR")
+  51: 	virtual void SetPublishingActive(bool Active);
+  52: 
+  53: 	UFUNCTION(BlueprintCallable, Category = "GEMSTAR")
+  54: 	virtual void UpdateTransformAfterAttachment_Implementation() override;
+  55: 
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Public\Sensors\GemstarSensor.h
+MATCH LINE: 54
+  50: 	UFUNCTION(BlueprintCallable, Category = "GEMSTAR")
+  51: 	virtual void SetPublishingActive(bool Active);
+  52: 
+  53: 	UFUNCTION(BlueprintCallable, Category = "GEMSTAR")
+  54: 	virtual void UpdateTransformAfterAttachment_Implementation() override;
+  55: 
+  56: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GEMSTAR")
+  57: 	FSensorConfigData SensorConfiguration;
+  58: 
+  59: 	UPROPERTY(BlueprintReadOnly, Category = "GEMSTAR")
+  60: 	bool HasWeatherData;
+  61: 
+  62: protected:
+  63: 	// Called when the game starts or when spawned
+  64: 	virtual void BeginPlay() override;
+  65: 
+  66: 	FWeatherData CurrentWeatherData;
+  67: 	UPROPERTY(BlueprintReadOnly, Category = "GEMSTAR")
+  68: 	bool TickActive;
+  69: 
+  70: 	UPROPERTY(BlueprintReadOnly, Category = "GEMSTAR")
+  71: 	bool PublishingActive;
+  72: 
+  73: 	virtual void SendData(osi3::SensorView& SensorView);
+
+========================================
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Public\Utils\LocalTransformUpdater.h
+MATCH LINE: 33
+  29: 
+  30: public:
+  31: 
+  32: 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "GEMSTAR")
+  33: 	void UpdateTransformAfterAttachment();
+  34: };
+

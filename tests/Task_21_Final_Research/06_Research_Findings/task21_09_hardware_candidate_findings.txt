@@ -1,0 +1,14 @@
+TASK 21.9 - HARDWARE ACCELERATION SCREEN
+
+Fastest measured implementation: Frame-by-frame MATLAB
+Fastest time: 0.025771117 ms per dataset
+Slowest time: 10.251578000 ms per dataset
+Slowest/fastest time ratio: 397.793
+
+PRELIMINARY INTERPRETATION
+Radar aggregation is a low-priority FPGA candidate.
+LiDAR and camera kernels require actual profiling.
+Small CPU execution time does not prove low energy.
+No ARM measurements or FPGA power results exist yet.
+PCIe is not assumed; actual SoC AXI/DMA overhead must be measured later.
+The comparison is desktop compute-kernel only.

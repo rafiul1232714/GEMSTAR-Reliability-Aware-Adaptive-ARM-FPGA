@@ -1,0 +1,4 @@
+PairA,PairB,Frame,CommonRayIndices,MatchingActorIDs,ActorIDAgreementFraction,HostPositionDifferenceM,MedianPointDifferenceM,MaximumPointDifferenceM
+1,2,1,2069,2069,1.0,0.0,0.0,0.0
+1,3,1,2069,2069,1.0,0.0,0.0,0.0
+2,3,1,2069,2069,1.0,0.0,0.0,0.0

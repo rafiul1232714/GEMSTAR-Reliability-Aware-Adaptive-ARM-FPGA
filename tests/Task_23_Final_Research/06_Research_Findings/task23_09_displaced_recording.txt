@@ -1,0 +1,8 @@
+﻿TASK 23.9 - CAMERA DISPLACEMENT
+Status: FAILED: No nonempty camera SensorView OSI recorded.
+Cube center X: 3140 cm
+Cube front face X: 2990 cm
+Original map restored: True
+Runtime log: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\05_Raw_Data_References\task23_09_displaced_runtime.log
+
+OSI files:

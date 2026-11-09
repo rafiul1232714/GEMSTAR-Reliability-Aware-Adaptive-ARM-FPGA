@@ -1,0 +1,630 @@
+﻿
+===========================================================================
+SOURCE: ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+TOTAL LINES: 260
+===========================================================================
+...
+   29: 	TraceParams = FCollisionQueryParams(TEXT("LaserTrace"), true, GetOwner());
+   30: 	TraceParams.bReturnPhysicalMaterial = true;
+   31: 	TraceParams.bTraceComplex = true;
+   32: 	TraceParams.bReturnFaceIndex = true;
+   33: }
+   34: 
+   35: void ASimpleLidar::Tick(float time) {
+   36: 	if (!TickActive) return;
+   37: 	GetScanData();
+   38: 	if (bDebugRayTraces || bDebugReflections || bDebugNormals)
+   39: 		ShowSensorDebugInformation();
+   40: 	if (PublishingActive)
+   41: 	{
+   42: 		GenerateOSIMessage();
+   43: 		SendData(*Sensor.SensorView);
+   44: 	}
+   45: }
+   46: 
+   47: void ASimpleLidar::GetScanData() {
+   48: 
+   49: 	// Get owner's location and rotation
+   50: 	const FVector LidarPosition = this->GetActorLocation();
+   51: 	const FRotator LidarRotation = this->GetActorRotation();
+   52: 
+   53: 	// Initialize array for raycast result
+   54: 	Sensor.RecordedHits.Init(FHitResultAndIntesity(), Sensor.Number_of_rays_horizontal * Sensor.Number_of_rays_vertical);
+   55: 
+   56: 	// Calculate batch size for 'ParallelFor' based on workable thread
+   57: 	const int32 ThreadNum = FPlatformMisc::NumberOfWorkerThreadsToSpawn();
+   58: 	const int32 DivideEnd = FMath::FloorToInt((float)(Sensor.RecordedHits.Num() / ThreadNum));
+   59: 
+   60: 	ParallelFor(
+   61: 		ThreadNum,
+   62: 		[&](int32 PFIndex)
+   63: 		{
+   64: 			int32 StartAt = PFIndex * DivideEnd;
+   65: 			if (StartAt >= Sensor.RecordedHits.Num()) {
+   66: 				return;
+   67: 			}
+   68: 
+   69: 			int32 EndAt = StartAt + DivideEnd;
+   70: 			if (PFIndex == (ThreadNum - 1)) {
+   71: 				EndAt = Sensor.RecordedHits.Num();
+   72: 			}
+   73: 
+   74: 			for (int32 Index = StartAt; Index < EndAt; ++Index) {
+   75: 				const float HAngle = Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal];
+   76: 				const float VAngle = Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal];
+   77: 
+   78: 				FRotator LaserRotation(FMath::RadiansToDegrees(VAngle), FMath::RadiansToDegrees(HAngle), 0.f);
+   79: 				FRotator Rotation = UKismetMathLibrary::ComposeRotators(LaserRotation, LidarRotation);
+   80: 
+   81: 				FVector EndPoint = LidarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+   82: 
+   83: 				GetWorld()->LineTraceSingleByChannel(
+   84: 					Sensor.RecordedHits[Index].HitResult, LidarPosition, EndPoint, ECC_Visibility, TraceParams, FCollisionResponseParams::DefaultResponseParam);
+   85: 				if (Sensor.RecordedHits[Index].HitResult.bBlockingHit) {
+   86: 					Sensor.RecordedHits[Index].Intesity = ComputeLidarSignalStrength(Sensor.RecordedHits[Index].HitResult);
+   87: 				}
+   88: 			}
+   89: 		},
+   90: 		!SupportMultithread
+   91: 	);
+   92: 
+   93: }
+   94: 
+   95: void ASimpleLidar::GenerateOSIMessage() {
+   96: 	delete Sensor.SensorView;
+   97: 	Sensor.SensorView = new osi3::SensorView();
+   98: 	auto* lidarSensorView = Sensor.SensorView->add_lidar_sensor_view();
+   99: 	auto* viewConfiguration = lidarSensorView->mutable_view_configuration();
+  100: 	if (Sensor.SensorViewConfig != nullptr && Sensor.SensorViewConfig->lidar_sensor_view_configuration_size())
+  101: 		viewConfiguration->CopyFrom(Sensor.SensorViewConfig->lidar_sensor_view_configuration(0));
+  102: 
+  103: 	for (auto& hit : Sensor.RecordedHits) {
+  104: 		auto* reflection = lidarSensorView->add_reflection();
+  105: 		reflection->set_time_of_flight(2 * 0.01 * hit.HitResult.Distance / SPEED_OF_LIGHT);
+  106: 
+  107: 		osi3::Vector3d* normal_to_surface = reflection->mutable_normal_to_surface();
+  108: 		normal_to_surface->set_x(hit.HitResult.ImpactNormal.X);
+  109: 		normal_to_surface->set_y(-hit.HitResult.ImpactNormal.Y);
+  110: 		normal_to_surface->set_z(hit.HitResult.ImpactNormal.Z);
+  111: 		reflection->set_doppler_shift(0);
+  112: 		if (hit.HitResult.bBlockingHit) {
+  113: 			reflection->mutable_object_id()->set_value(hit.HitResult.GetActor()->GetUniqueID());
+  114: 			reflection->set_signal_strength(hit.Intesity);
+  115: 		}
+  116: 		else {
+  117: 			reflection->mutable_object_id()->set_value(UINT64_MAX);
+  118: 			reflection->set_signal_strength(0.0);
+  119: 		}
+  120: 	}
+  121: 
+  122: 	Parent = GetAttachParentActor();
+  123: 
+  124: 	if (Parent != nullptr) {
+  125: 		auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+  126: 		uint32_t uniqueID = Parent->GetUniqueID();
+  127: 		moving_object->mutable_id()->set_value(uniqueID);
+  128: 		moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  129: 		moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  130: 		Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+...
+  206: 	return  FMath::Clamp(Rho, 0.0f, 1.0f);
+  207: }
+  208: 
+  209: void ASimpleLidar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration)
+  210: {
+  211: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+  212: 	Sensor.SensorViewConfig->clear_lidar_sensor_view_configuration();
+  213: 	auto* conf = Sensor.SensorViewConfig->add_lidar_sensor_view_configuration();
+  214: 	conf->set_field_of_view_horizontal(SensorConfiguration.Lidar.FieldOfViewHorizontal);
+  215: 	conf->set_field_of_view_vertical(SensorConfiguration.Lidar.FieldOfViewVertical);
+  216: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Lidar.NumberOfRaysHorizontal);
+  217: 	conf->set_number_of_rays_vertical(SensorConfiguration.Lidar.NumberOfRaysVertical);
+  218: 	conf->mutable_mounting_position()->set_allocated_position(
+  219: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+  220: 	conf->mutable_mounting_position()->set_allocated_orientation(
+  221: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  222: 	Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+  223: 
+  224: 	//calculate angles
+  225: 	Sensor.AzimuthAngles.Empty();
+  226: 	Sensor.ElevationAngles.Empty();
+  227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+  228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  229: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+  230: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  231: 	}
+  232: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_vertical();
+  233: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+  234: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical()
+  235: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+  236: 	}
+  237: }
+  238: 
+  239: void ASimpleLidar::CreateTestConfig() {
+  240: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+  241: 	Sensor.SensorViewConfig->set_range(Range);
+  242: }
+  243: 
+  244: void ASimpleLidar::ShowSensorDebugInformation() {
+  245: 	int noHitCounter = 0;
+  246: 	for (auto& hit : Sensor.RecordedHits) {
+  247: 		if (hit.HitResult.bBlockingHit) {
+  248: 			if (bDebugRayTraces)
+  249: 				DrawDebugLine(GetWorld(), hit.HitResult.TraceStart, hit.HitResult.ImpactPoint, FColor::Green, false, 0.0f, 0, 1.0f);
+  250: 			if (bDebugReflections)
+  251: 				DrawDebugPoint(GetWorld(), hit.HitResult.ImpactPoint, 10.0f, FColor::Red, false, 0.0f);
+  252: 			if (bDebugNormals)
+  253: 				DrawDebugLine(GetWorld(), hit.HitResult.ImpactPoint, hit.HitResult.ImpactPoint + hit.HitResult.ImpactNormal * 10, FColor::Blue, false, 0.0f, 0, 1.0f);
+  254: 		}
+  255: 		else {
+  256: 			noHitCounter++;
+  257: 		}
+  258: 	}
+  259: 	UE_LOG(Lidar, Log, TEXT("No reflection from lidar: %d of %d"), noHitCounter, Sensor.RecordedHits.Num());
+  260: }
+
+===========================================================================
+SOURCE: ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\LidarSensorManager.cpp
+TOTAL LINES: 253
+===========================================================================
+...
+   14: ALidarSensorManager::ALidarSensorManager()
+   15: {
+   16: 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+   17: 	PrimaryActorTick.bCanEverTick = false;
+   18: 
+   19: 	AcceptChannel(GemstarInterfaceType::SENSORVIEW,
+   20: 		[this](FDataTarget& Target, const FString& Producer)
+   21: 		{
+   22: 			for (AActor* LidarActor : SpawnedActors)
+   23: 			{
+   24: 				if (!IsValid(LidarActor) || LidarActor->GetName() != Producer) { continue; }
+   25: 				ASimpleLidar* SimpleLidar = Cast<ASimpleLidar>(LidarActor);
+   26: 				if (SimpleLidar == nullptr) { return false; }
+   27: 				SimpleLidar->AddDataTarget(Target);
+   28: 				Target.Actor->AddTickPrerequisiteActor(LidarActor);
+   29: 				return true;
+   30: 			}
+   31: 			return false;
+   32: 		},
+   33: 		[this](FDataTarget& Target, const FString&)
+   34: 		{
+   35: 			bool bRemoved = false;
+   36: 			for (AActor* LidarActor : SpawnedActors)
+   37: 			{
+   38: 				if (ASimpleLidar* SimpleLidar = Cast<ASimpleLidar>(LidarActor))
+   39: 				{
+   40: 					SimpleLidar->RemoveDataTarget(Target);
+   41: 					Target.Actor->RemoveTickPrerequisiteActor(SimpleLidar);
+   42: 					bRemoved = true;
+   43: 				}
+   44: 			}
+   45: 			return bRemoved;
+   46: 		});
+   47: }
+   48: 
+...
+   55: 
+   56: void ALidarSensorManager::EndPlay(const EEndPlayReason::Type EndPlayReason)
+   57: {
+   58: 	if (IsValid(GemstarSimulationSubsystem)){
+   59: 		GemstarSimulationSubsystem->UnregisterManager(this);
+   60: 		GemstarSimulationSubsystem = nullptr;
+   61: 	}
+   62: 
+   63: 	for (int32 i = SpawnedActors.Num() - 1; i >= 0; --i){
+   64: 		AActor* Sensor = SpawnedActors[i];
+   65: 		
+   66: 		if (!IsValid(Sensor)) {
+   67: 			continue;
+   68: 		}
+   69: 
+   70: 		RemoveTickPrerequisiteActor(Sensor);
+   71: 
+   72: 		Sensor->Rename(nullptr, GetTransientPackage(), REN_DontCreateRedirectors);
+   73: 		Sensor->Destroy();
+   74: 	}
+   75: 
+...
+   84: {
+   85: 	Super::Tick(DeltaTime);
+   86: }
+   87: 
+   88: 
+   89: void ALidarSensorManager::Configure(TMap<FString, FInnerConfig> Configurations, UGemstarSimulationSubsystem* SimulationSubsystem) {
+   90: 	GemstarSimulationSubsystem = SimulationSubsystem;
+   91: 
+   92: 	for (const TPair<FString, FInnerConfig>& Pair : Configurations)
+   93: 	{
+   94: 		FSensorConfigData config;
+   95: 		config.ID = FName(Pair.Key);
+   96: 		if (const FString* ValueStr = Pair.Value.Entries.Find("Mount")) {
+   97: 			config.Mount = *ValueStr;
+   98: 		}
+   99: 		double x = 0.0;
+  100: 		if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionX"))
+  101: 		{
+  102: 			FDefaultValueHelper::ParseDouble(*ValueStr, x);
+  103: 		}
+  104: 		double y = 0.0;
+...
+  126: 		double yaw = 0.0;
+  127: 		if (const FString* ValueStr = Pair.Value.Entries.Find("MountingOrientationYaw"))
+  128: 		{
+  129: 			FDefaultValueHelper::ParseDouble(*ValueStr, yaw);
+  130: 		}
+  131: 		config.Offset.SetRotation(FRotator(pitch, yaw, roll).Quaternion());
+  132: 
+  133: 		double width = 0.0;
+  134: 		if (const FString* ValueStr = Pair.Value.Entries.Find("NumberOfRaysHorizontal"))
+  135: 		{
+  136: 			FDefaultValueHelper::ParseDouble(*ValueStr, width);
+  137: 		}
+  138: 		double height = 0.0;
+  139: 		if (const FString* ValueStr = Pair.Value.Entries.Find("NumberOfRaysVertical"))
+  140: 		{
+  141: 			FDefaultValueHelper::ParseDouble(*ValueStr, height);
+  142: 		}
+  143: 		double FoVHorizontal = 0.0;
+  144: 		if (const FString* ValueStr = Pair.Value.Entries.Find("FoVHorizontal"))
+  145: 		{
+  146: 			FDefaultValueHelper::ParseDouble(*ValueStr, FoVHorizontal);
+  147: 		}
+  148: 		double FoVVertical = 0.0;
+  149: 		if (const FString* ValueStr = Pair.Value.Entries.Find("FoVVertical"))
+  150: 		{
+  151: 			FDefaultValueHelper::ParseDouble(*ValueStr, FoVVertical);
+  152: 		}
+  153: 		float distanceHalfFalloff = 0.0;
+  154: 		if (const FString* ValueStr = Pair.Value.Entries.Find("DistanceHalfFalloff"))
+  155: 		{
+  156: 			FDefaultValueHelper::ParseFloat(*ValueStr, distanceHalfFalloff);
+  157: 		}
+  158: 		if (const FString* ValueStr = Pair.Value.Entries.Find("WeatherInput"))
+  159: 		{
+  160: 			FDataTarget dt;
+  161: 			dt.Actor = this;
+  162: 			ConnectInputs(ValueStr, GemstarSimulationSubsystem, dt, GemstarInterfaceType::WEATHERDATA);
+  163: 		}
+  164: 		config.Lidar.NumberOfRaysHorizontal = width;
+  165: 		config.Lidar.NumberOfRaysVertical = height;
+  166: 		config.Lidar.FieldOfViewHorizontal = FMath::DegreesToRadians(FoVHorizontal);
+  167: 		config.Lidar.FieldOfViewVertical = FMath::DegreesToRadians(FoVVertical);
+  168: 		// DistanceHalfFalloff in Meter
+  169: 		config.Lidar.DistanceHalfFalloff = distanceHalfFalloff * 100.0f;
+  170: 		SensorConfiguration.Add(config);
+  171: 	}
+  172: 	for (auto& config : SensorConfiguration)
+  173: 	{
+  174: 		SpawnSensor(config);
+  175: 	}
+  176: }
+  177: 
+  178: void ALidarSensorManager::SpawnSensor(FSensorConfigData& sensorConfiguration) {
+  179: 	UWorld* World = GetWorld();
+  180: 	if (World)
+  181: 	{
+  182: 		FActorSpawnParameters params;
+  183: 		params.Name = sensorConfiguration.ID;
+  184: 		ASimpleLidar* SpawnedActor = World->SpawnActor<ASimpleLidar>(ASimpleLidar::StaticClass(), FTransform(), params);
+...
+  236: 	}
+  237: }
+  238: 
+  239: void ALidarSensorManager::WeatherDataUpdate_Implementation(FWeatherData& data, int32 targetIndex)
+  240: {
+  241: 	LatestWeatherData = data;
+  242: 	bHasWeatherData = true;
+  243: 
+  244: 	for (auto& lidarActor : SpawnedActors) {
+  245: 		ASimpleLidar* SimpleLidar = Cast<ASimpleLidar>(lidarActor);
+  246: 
+  247: 		if (!SimpleLidar) {
+  248: 			continue;
+  249: 		}
+  250: 
+  251: 		SimpleLidar->SetWeatherData(LatestWeatherData);
+  252: 	}
+  253: }
+
+===========================================================================
+SOURCE: ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarSensor.cpp
+TOTAL LINES: 271
+===========================================================================
+...
+   85: }
+   86: 
+   87: void ARaytracingLidarSensor::Tick(float Dt)
+   88: {
+   89:     Super::Tick(Dt);
+   90:     if (!TickActive) return;
+   91:     if (Disabled || !State)
+   92:         return;
+   93:     const auto StateLifetime = State; // Subscribers may destroy the sensor during OnScanCompleted.
+   94:     for (const auto& Slot : State->Slots)
+   95:         if (Slot.State.load() == ERaytracingLidarSlotState::Queued && FPlatformTime::Seconds() - Slot.QueuedWallTime > 5)
+   96:         {
+   97:             Disabled = true;
+   98:             ReleaseRaytracingLidar(State);
+   99:             UE_LOG(LogRaytracingLidar, Error,
+  100:                 TEXT(
+  101:                     "%s disabled: no usable PostTLAS scene for 5s. UE 5.8.1 needs the documented inline scene-request correction when no visual RT effect is active."),
+  102:                 *GetName());
+  103:             return;
+  104:         }
+  105:     if (State->Failed || !RaytracingLidarSupported())
+  106:     {
+  107:         Disabled = true;
+  108:         ReleaseRaytracingLidar(State);
+  109:         UE_LOG(LogRaytracingLidar, Error, TEXT("%s disabled after rendering/readback capability failure"), *GetName());
+  110:         return;
+  111:     }
+  112:     PollRaytracingLidar(State);
+  113: 
+  114:     // Deliver ready scans in acquisition order, even if GPU completion order differs.
+  115:     TArray<FRaytracingLidarSlot*> Completed;
+  116:     for (auto& Slot : State->Slots)
+  117:         if (Slot.State.load() == ERaytracingLidarSlotState::Complete)
+  118:             Completed.Add(&Slot);
+  119:     Completed.Sort(
+  120:         [](const FRaytracingLidarSlot& A, const FRaytracingLidarSlot& B)
+  121:         {
+  122:             return A.ScanId < B.ScanId;
+  123:         });
+  124:     for (auto* Slot : Completed)
+  125:     {
+  126:         TRACE_CPUPROFILER_EVENT_SCOPE(RaytracingLidar_OSI);
+  127:         const double ConversionStart = FPlatformTime::Seconds();
+  128:         if (Slot->ScanId <= LastCompletedScan)
+  129:         {
+  130:             Slot->State.store(ERaytracingLidarSlotState::Free);
+  131:             continue;
+  132:         }
+  133:         osi3::SensorView View;
+  134:         View.mutable_version()->set_version_major(3);
+  135:         View.mutable_version()->set_version_minor(6);
+  136:         View.mutable_version()->set_version_patch(0);
+  137:         const int64 Ns = FMath::RoundToInt64(Slot->Timestamp * 1e9);
+  138:         View.mutable_timestamp()->set_seconds(Ns / 1000000000);
+  139:         View.mutable_timestamp()->set_nanos(Ns % 1000000000);
+  140:         const uint32 SensorId = FCrc::StrCrc32(*SensorConfiguration.ID.ToString());
+  141:         View.mutable_sensor_id()->set_value(SensorId);
+  142:         View.set_allocated_mounting_position(ToOSI::toMountingPosition(SensorConfiguration));
+  143:         auto* Lidar = View.add_lidar_sensor_view();
+  144:         auto* VC = Lidar->mutable_view_configuration();
+  145:         VC->mutable_sensor_id()->set_value(SensorId);
+  146:         VC->mutable_mounting_position()->CopyFrom(View.mounting_position());
+  147:         VC->set_field_of_view_horizontal(FMath::DegreesToRadians(Config.HorizontalFovDegrees));
+  148:         VC->set_field_of_view_vertical(FMath::DegreesToRadians(Config.VerticalFovDegrees));
+  149:         VC->set_number_of_rays_horizontal(
+  150:             Config.Pattern == ERaytracingLidarPattern::Custom || Config.Pattern == ERaytracingLidarPattern::Lissajous
+  151:                 ? State->Rays.Num()
+  152:                 : Config.HorizontalResolution);
+  153:         VC->set_number_of_rays_vertical(
+  154:             Config.Pattern == ERaytracingLidarPattern::Rotating ? Config.RotatingChannels
+  155:             : Config.Pattern == ERaytracingLidarPattern::Custom || Config.Pattern == ERaytracingLidarPattern::Lissajous
+  156:                 ? 1
+  157:                 : Config.VerticalResolution);
+  158:         VC->set_max_number_of_interactions(1);
+  159:         VC->set_emitter_frequency(299792458.0 / 905e-9);
+  160:         VC->set_num_of_pixels(State->Rays.Num());
+  161:         // Custom patterns may acquire rays in a different order than their output indices.
+  162:         TArray<const FRaytracingLidarRay*> Ordered;
+  163:         Ordered.SetNumUninitialized(State->Rays.Num());
+  164:         for (const auto& Ray : State->Rays)
+  165:             Ordered[Ray.OutputIndex] = &Ray;
+  166:         int32 Hits = 0;
+  167:         for (int32 I = 0; I < Ordered.Num(); ++I)
+  168:         {
+  169:             const auto& Ray = *Ordered[I];
+  170:             const auto& Hit = Slot->Hits[I];
+  171:             auto* Direction = VC->add_directions();
+  172:             Direction->set_x(Hit.LocalDirection.X);
+  173:             Direction->set_y(-Hit.LocalDirection.Y);
+  174:             Direction->set_z(Hit.LocalDirection.Z);
+  175:             VC->add_timings(
+  176:                 FMath::RoundToInt64((Config.ScanTimeOrigin + Ray.NormalizedTime * Config.GetScanDurationSeconds()) * 1e6));
+  177:             auto* Reflection = Lidar->add_reflection();
+  178:             Reflection->mutable_object_id()->set_value(MAX_uint64);
+  179:             if (!Hit.Valid)
+  180:                 continue;
+  181:             ++Hits;
+  182:             Reflection->set_time_of_flight(2.0 * Hit.RangeMeters / 299792458.0);
+  183:             Reflection->set_signal_strength(10.0 * FMath::LogX(10.0, FMath::Max(double(Hit.Intensity), 1e-12)));
+  184:             Reflection->mutable_object_id()->set_value(uint64(Hit.ObjectLow) | (uint64(Hit.ObjectHigh) << 32));
+  185:         }
+  186:         auto* Parent = GetAttachParentActor();
+  187:         if (Parent != nullptr) {
+  188:             auto* moving_object = View.mutable_global_ground_truth()->add_moving_object();
+  189:             uint32_t uniqueID = Parent->GetUniqueID();
+  190:             moving_object->mutable_id()->set_value(uniqueID);
+  191:             moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  192:             moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  193:             View.mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+  194:         }
+  195:         // Apply weather degradation before delivering the SensorView to interface consumers.
+  196:         if (HasWeatherData)
+  197:             FRaytracingLidarWeatherEffectModel().ApplyLidarWeatherEffect(View, CurrentWeatherData);
+  198: 
+  199:         LastCompletedScan = Slot->ScanId;
+  200:         if (PublishingActive)
+  201:             SendData(View);
+  202:         UE_LOG(LogRaytracingLidar, Verbose, TEXT("%s scan=%llu rays=%d hits=%d drops=%llu"), *GetName(), Slot->ScanId,
+  203:             Ordered.Num(), Hits, Drops);
+  204:         CSV_CUSTOM_STAT(
+  205:             RaytracingLidar, ConversionMs, (FPlatformTime::Seconds() - ConversionStart) * 1000, ECsvCustomStatOp::Accumulate);
+  206:         CSV_CUSTOM_STAT(RaytracingLidar, Hits, Hits, ECsvCustomStatOp::Accumulate);
+  207:         OnScanCompleted.Broadcast(Slot->ScanId, Slot->Timestamp, Slot->Pose, Slot->Hits);
+  208:         if (Disabled || !State)
+  209:             return;
+  210:         Slot->State.store(ERaytracingLidarSlotState::Free);
+  211:     }
+  212:     const FTransform Pose = GetActorTransform();
+  213:     FVector Linear = FVector::ZeroVector, Angular = FVector::ZeroVector;
+  214:     if (Dt > SMALL_NUMBER)
+  215:     {
+  216:         Linear = (Pose.GetLocation() - PreviousPose.GetLocation()) / Dt;
+  217:         FQuat Delta = (Pose.GetRotation() * PreviousPose.GetRotation().Inverse()).GetNormalized();
+  218:         if (Delta.W < 0)
+  219:             Delta = Delta * -1;
+  220:         // ToAxisAndAngle substitutes an axis near identity, losing small per-frame rotations.
+  221:         const FVector Imaginary(Delta.X, Delta.Y, Delta.Z);
+  222:         const double SinHalf = Imaginary.Length();
+  223:         Angular = Imaginary * (SinHalf > 1e-12 ? 2 * FMath::Atan2(SinHalf, Delta.W) / (SinHalf * Dt) : 2.0 / Dt);
+  224:     }
+  225:     PreviousPose = Pose;
+  226:     int32 Occupied = 0;
+  227:     for (const auto& Slot : State->Slots)
+  228:         Occupied += Slot.State.load() != ERaytracingLidarSlotState::Free;
+  229:     CSV_CUSTOM_STAT(RaytracingLidar, SlotsUsed, Occupied, ECsvCustomStatOp::Accumulate);
+  230:     Accumulator += Dt;
+  231:     if (Accumulator < 1.0 / Config.UpdateRateHz)
+  232:         return;
+  233:     // At most one scan per game frame, discard overdue periods (no unbounded catch-up).
+  234:     Accumulator = FMath::Fmod(Accumulator, 1.0 / Config.UpdateRateHz);
+  235:     FRaytracingLidarSlot* Free = State->TryBeginScan();
+  236:     if (!Free)
+  237:     {
+  238:         ++Drops;
+  239:         CSV_CUSTOM_STAT(RaytracingLidar, Drops, 1, ECsvCustomStatOp::Accumulate);
+  240:         return;
+  241:     }
+  242:     Free->ScanId = NextScan++;
+  243:     Free->Timestamp = GetWorld()->GetTimeSeconds();
+  244:     Free->Pose = Pose;
+  245:     Free->QueuedWallTime = FPlatformTime::Seconds();
+  246:     Free->LinearCmS = Linear;
+  247:     Free->AngularRadS = Angular;
+  248:     GatherRaytracingLidarMetadata(GetWorld(), Free->Metadata, Free->Profiles);
+  249: 
+  250:     // Queue the slot only after all scan inputs are ready for the render thread.
+  251:     Free->State.store(ERaytracingLidarSlotState::Queued);
+  252: }
+  253: 
+  254: void ARaytracingLidarSensor::EndPlay(const EEndPlayReason::Type Reason)
+  255: {
+  256:     Disabled = true;
+  257:     ReleaseRaytracingLidar(State);
+  258:     Extension.Reset();
+  259:     State.Reset();
+  260:     if (RayTracingAcquired)
+  261:     {
+  262:         ReleaseRaytracingLidarRayTracing();
+
+===========================================================================
+SOURCE: ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarRenderer.cpp
+TOTAL LINES: 316
+===========================================================================
+...
+  134: {
+  135: #if RHI_RAYTRACING && !UE_VERSION_OLDER_THAN(5, 8, 0) && UE_VERSION_OLDER_THAN(5, 9, 0)
+  136:     if (!State->Active || !IsRayTracingEnabled() || Family.FrameNumber == MAX_uint32)
+  137:         return;
+  138:     const auto* AO = IConsoleManager::Get().FindConsoleVariable(TEXT("r.RayTracing.AmbientOcclusion"));
+  139:     if (!AO || AO->GetInt() != -1)
+  140:         return; // Respect explicit global AO overrides.
+  141:     FScopeLock Lock(&SceneRequestMutex);
+  142:     for (const auto* ConstView : Family.Views)
+  143:     {
+  144:         if (ConstView->bIsSceneCapture || !ConstView->IsRayTracingAllowedForView())
+  145:             continue;
+  146:         auto& View = *const_cast<FSceneView*>(ConstView);
+  147:         const auto Key = SceneRequestKey(View);
+  148:         if (SceneRequests.Contains(Key))
+  149:             continue;
+  150:         auto& PP = View.FinalPostProcessSettings;
+  151:         SceneRequests.Add(Key, {int32(PP.RayTracingAO), PP.RayTracingAOIntensity});
+  152:         // UE 5.8 omits inline extensions from AnyRayTracingPassEnabled. Request the
+  153:         // scene through a view-local AO flag, restored before any AO rendering.
+  154:         PP.RayTracingAO = true;
+...
+  202:     // position fetch needs no inline SBT, so a null binding buffer is valid there.
+  203:     if (!Bindings && GRHIGlobals.RayTracing.RequiresInlineRayTracingSBT)
+  204:         return;
+  205:     auto* TLAS = UE::FXRenderingUtils::RayTracing::GetRayTracingSceneViewRDG(Scene, View);
+  206: #endif
+  207:     if (!TLAS || (!Bindings && GRHIGlobals.RayTracing.RequiresInlineRayTracingSBT))
+  208:         return;
+  209:     FRDGBufferRef Pattern = nullptr;
+  210:     for (auto& Slot : State->Slots)
+  211:     {
+  212:         if (Slot.State.load() != ERaytracingLidarSlotState::Queued)
+  213:             continue;
+  214:         RDG_EVENT_SCOPE_STAT(Graph, RaytracingLidarTrace, "GEMSTAR Raytracing LiDAR %u rays", State->Rays.Num());
+  215:         if (!Pattern && State->PatternBuffer)
+  216:             Pattern = Graph.RegisterExternalBuffer(State->PatternBuffer);
+  217:         if (!Pattern)
+  218:         {
+  219:             Pattern = CreateStructuredBuffer(Graph, TEXT("RaytracingLidar.Pattern"), State->Rays);
+  220:             Graph.QueueBufferExtraction(Pattern, &State->PatternBuffer);
+  221:         }
+  222:         const uint32 MetadataCount = Slot.Metadata.Num();
+...
+  240:         P->Origin = FVector3f(Slot.Pose.GetLocation() + View.ViewMatrices.GetPreViewTranslation());
+  241:         const auto Q = Slot.Pose.GetRotation();
+  242:         P->Rotation = FVector4f(Q.X, Q.Y, Q.Z, Q.W);
+  243:         P->LinearVelocity = FVector3f(Slot.LinearCmS);
+  244:         P->AngularVelocity = FVector3f(Slot.AngularRadS);
+  245:         const auto& C = State->Config;
+  246:         P->MinRangeCm = C.MinRangeMeters * 100;
+  247:         P->MaxRangeCm = C.MaxRangeMeters * 100;
+  248:         P->Duration = C.GetScanDurationSeconds();
+  249:         P->TimeOrigin = C.ScanTimeOrigin;
+  250:         P->NoiseStdDev = C.RangeNoiseStdDevMeters;
+  251:         P->MotionEnabled = C.MotionDistortionEnabled;
+  252:         P->MaterialEnabled = C.MaterialResponseEnabled;
+  253:         P->RayCount = State->Rays.Num();
+  254:         P->MetadataCount = MetadataCount;
+  255:         P->RandomSeed = C.Seed ^ uint32(Slot.ScanId);
+  256:         P->PatternKind = uint32(C.Pattern);
+  257:         P->PatternFrequency = FVector2f(C.LissajousFrequencyX, C.LissajousFrequencyY);
+  258:         P->PatternPhase = FVector2f(FMath::Fmod(Slot.Timestamp * C.LissajousFrequencyX * 2 * PI + C.LissajousPhaseX, 2 * PI),
+  259:             FMath::Fmod(Slot.Timestamp * C.LissajousFrequencyY * 2 * PI + C.LissajousPhaseY, 2 * PI));
+  260:         P->PatternFov =
+  261:             FVector2f(FMath::DegreesToRadians(C.HorizontalFovDegrees), FMath::DegreesToRadians(C.VerticalFovDegrees));
+  262:         TShaderMapRef<FRaytracingLidarCS> Shader(GetGlobalShaderMap(GMaxRHIFeatureLevel));
+  263:         FComputeShaderUtils::AddPass(Graph, RDG_EVENT_NAME("RaytracingLidar.TraceWholeScan"), Shader, P,
+  264:             FComputeShaderUtils::GetGroupCount(State->Rays.Num(), 64));
+  265:         if (!Slot.Readback)
+  266:             Slot.Readback = MakeUnique<FRHIGPUBufferReadback>(TEXT("RaytracingLidar.Readback"));
+  267:         AddEnqueueCopyPass(Graph, Slot.Readback.Get(), Output, State->Rays.Num() * sizeof(FRaytracingLidarHit));
+  268:         Slot.Frame = GFrameNumberRenderThread;
+  269:         Slot.State.store(ERaytracingLidarSlotState::Pending);
+  270:         CSV_CUSTOM_STAT(RaytracingLidar, Rays, State->Rays.Num(), ECsvCustomStatOp::Accumulate);
+  271:         // A queued scan is consumed once; secondary/stereo views cannot dispatch it again.
+  272:     }
+  273: #endif
+  274: }
+  275: 
+  276: void PollRaytracingLidar(const TSharedPtr<FRaytracingLidarRenderState, ESPMode::ThreadSafe>& State)
+  277: {
+  278:     ENQUEUE_RENDER_COMMAND(RaytracingLidarPoll)(
+  279:         [State](FRHICommandListImmediate&)
+  280:         {
+  281:             for (auto& Slot : State->Slots)
+  282:             {
+  283:                 if (Slot.State.load() != ERaytracingLidarSlotState::Pending || !Slot.Readback || !Slot.Readback->IsReady())
+  284:                     continue;
+  285:                 const uint32 Bytes = State->Rays.Num() * sizeof(FRaytracingLidarHit);
+  286:                 const void* Data = Slot.Readback->Lock(Bytes);
+  287:                 if (!Data)
+  288:                 {
+  289:                     State->Failed = true;
+  290:                     Slot.State.store(ERaytracingLidarSlotState::Free);
+  291:                     continue;
+  292:                 }
+  293:                 Slot.Hits.SetNumUninitialized(State->Rays.Num());
+...
+  304: {
+  305:     if (!State)
+  306:         return;
+  307:     State->Active = false;
+  308:     ENQUEUE_RENDER_COMMAND(RaytracingLidarRelease)(
+  309:         [State](FRHICommandListImmediate&)
+  310:         {
+  311:             // RHI references use deferred deletion; no game-thread fence/wait is needed.
+  312:             for (auto& Slot : State->Slots)
+  313:                 Slot.Readback.Reset();
+  314:             State->PatternBuffer.SafeRelease();
+  315:         });
+  316: }

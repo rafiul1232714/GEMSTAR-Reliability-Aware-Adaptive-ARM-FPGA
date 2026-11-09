@@ -1,0 +1,122 @@
+﻿=== TASK 23.7L — LOGGER DIAGNOSIS ===
+
+=== LOGGER SOURCE FILES ===
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp
+
+=== LOGGER FILE-WRITING IMPLEMENTATION ===
+SOURCE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp
+Line 52: FName fileDescription = FName(fileName);
+Line 56: if (writeSensorViews) {
+Line 67: if (writeGroundTruth) {
+Line 81: void ALogManager::EndPlay(const EEndPlayReason::Type EndPlayReason) {
+Line 99: Super::EndPlay(EndPlayReason);
+Line 100: SaveMessagesToFilesystem();
+Line 104: FCoreDelegates::OnHandleSystemError.AddUObject(this, &ALogManager::SaveMessagesToFilesystem);
+Line 105: FCoreDelegates::OnExit.AddUObject(this, &ALogManager::SaveMessagesToFilesystem);
+Line 108: void ALogManager::SaveMessagesToFilesystem() {
+Line 109: osi_Trace_Writer.SaveMessagesToFilesystem();
+Line 123: writeGroundTruth = gtString->ToBool();
+Line 125: const FString* fileNameString = Config.Value.Entries.Find("filename");
+Line 126: if (fileNameString) {
+Line 127: fileName = *fileNameString;
+Line 156: writeSensorViews = true;
+Line 204: osi_GroundTruth.saveTrafficLightData(trafficLightData);
+
+=== ACTIVE GEMSTAR CONFIGURATION ===
+[ue_logger_feature]
+;Debug=true
+
+; Record simulation ground truth
+GroundTruth=true
+
+; Optional Omega Prime recording
+;OmegaPrime=true
+
+; Record Camera, LiDAR and Radar
+Input=[ue_camera_feature:sensor1,ue_lidar_feature:sensor1,ue_radar_feature:sensor1]
+
+InputData=[SensorView,SensorView,SensorView]
+
+; Output filename prefix
+FileName=GEMSTAR
+
+
+; =========================================================
+; RADAR SENSOR - UPDATED FOR TEST
+; =========================================================
+
+[ue_radar_feature:sensor1]
+;Debug=true
+
+; Mount Radar on the same moving vehicle
+Mount=SensorPlatform_1
+
+; Radar mounting position in centimeters
+MountingPositionX=200
+MountingPositionY=0
+MountingPositionZ=80
+
+; Forward-facing orientation
+MountingOrientationRoll=0
+MountingOrientationPitch=0
+MountingOrientationYaw=0
+
+; Radar ray configuration
+NumberOfRaysHorizontal=10
+NumberOfRaysVertical=10
+
+FoVHorizontal=90
+FoVVertical=20
+
+;DistanceHalfFalloff=30
+
+
+; =========================================================
+; SUMO TRAFFIC SIMULATION
+; =========================================================
+Range=50
+
+[ue_sumo_feature]
+;Debug=true
+
+Parameters="-c practise-area/DrivingPractiseAreaBrunswickMap.sumocfg"
+
+
+; =========================================================
+; VEHICLE CONFIGURATION
+; =========================================================
+
+
+=== RUNTIME LOGGER EVENTS ===
+Matching runtime events: 15882
+[2026.11.03-15.06.57:333][  0]LogTemp: Warning: TASK20_45_RADAR_RANGE: 10.000 metres
+[2026.11.03-15.06.57:335][  0]LogTemp: Warning: TASK20_45_RADAR_RANGE: 50.000 metres
+[2026.11.03-15.06.57:335][  0]Radar: RadarSensorManager: Radar spawned ue_radar_feature:sensor1
+[2026.11.03-15.06.57:740][  1]LogTemp: Warning: TASK20_45_RADAR_RANGE: 10.000 metres
+[2026.11.03-15.06.57:745][  1]Logger: LogManager: SV:
+[2026.11.03-15.06.57:747][  1]Logger: LogManager: GT:
+[2026.11.03-15.06.57:768][  2]LogTemp: Warning: TASK20_45_RADAR_RANGE: 10.000 metres
+[2026.11.03-15.06.57:769][  2]Logger: LogManager: SV:
+[2026.11.03-15.06.57:770][  2]Logger: LogManager: GT:
+[2026.11.03-15.06.57:774][  3]LogTemp: Warning: TASK20_45_RADAR_RANGE: 10.000 metres
+[2026.11.03-15.06.57:775][  3]Logger: LogManager: SV:
+[2026.11.03-15.06.57:776][  3]Logger: LogManager: GT:
+[2026.11.03-15.06.57:789][  4]LogTemp: Warning: TASK20_45_RADAR_RANGE: 10.000 metres
+[2026.11.03-15.06.57:791][  4]Logger: LogManager: SV:
+[2026.11.03-15.06.57:791][  4]Logger: LogManager: GT:
+--- FINAL RUNTIME EVENTS ---
+[2026.11.03-15.07.33:444][289]LogTemp: Warning: TASK20_45_RADAR_RANGE: 10.000 metres
+[2026.11.03-15.07.33:445][289]Logger: LogManager: SV:
+[2026.11.03-15.07.33:445][289]Logger: LogManager: GT:
+[2026.11.03-15.07.33:452][290]LogTemp: Warning: TASK20_45_RADAR_RANGE: 10.000 metres
+[2026.11.03-15.07.33:453][290]Logger: LogManager: SV:
+[2026.11.03-15.07.33:454][290]Logger: LogManager: GT:
+[2026.11.03-15.07.33:458][291]LogTemp: Warning: TASK20_45_RADAR_RANGE: 10.000 metres
+[2026.11.03-15.07.33:459][291]Logger: LogManager: SV:
+[2026.11.03-15.07.33:459][291]Logger: LogManager: GT:
+[2026.11.03-15.07.33:466][292]LogTemp: Warning: TASK20_45_RADAR_RANGE: 10.000 metres
+[2026.11.03-15.07.33:467][292]Logger: LogManager: SV:
+[2026.11.03-15.07.33:467][292]Logger: LogManager: GT:
+[2026.11.03-15.07.33:472][293]LogTemp: Warning: TASK20_45_RADAR_RANGE: 10.000 metres
+[2026.11.03-15.07.33:473][293]Logger: LogManager: SV:
+[2026.11.03-15.07.33:473][293]Logger: LogManager: GT:

@@ -1,0 +1,142 @@
+﻿TASK 23.6C-9 — GROUNDTRUTH INITIALIZATION AUDIT
+
+=== PART A ===
+   1: /*
+   2:  * Copyright (c) 2026 DLR e.V.
+   3:  *
+   4:  * This program and the accompanying materials are made
+   5:  * available under the terms of the Eclipse Public License 2.0
+   6:  * which is available at https://www.eclipse.org/legal/epl-2.0/
+   7:  *
+   8:  * SPDX-License-Identifier: EPL-2.0
+   9:  */
+  10: 
+  11: #include "OSI_GroundTruth.h"
+  12: 
+  13: OSI_GroundTruth::OSI_GroundTruth()
+  14: {
+  15: }
+  16: 
+  17: OSI_GroundTruth::~OSI_GroundTruth()
+  18: {
+  19: }
+  20: 
+  21: void OSI_GroundTruth::parseStationaryMapObjects(const UObject* WorldContectObject)
+  22: {
+  23: 	staticMapTruth.set_country_code(276);//Default: Germany, USA = 840
+  24: 	auto* version = staticMapTruth.mutable_version();
+  25: 	version->set_version_major(OSI_VERSION_MAJOR);
+  26: 	version->set_version_minor(OSI_VERSION_MINOR);
+  27: 	version->set_version_patch(OSI_VERSION_PATCH);
+  28: 	//TODO
+  29: 	//auto* proj_frame_offset = staticMapTruth.mutable_proj_frame_offset();
+  30: 	//proj_frame_offset->
+  31: 	auto OSIStationaryObjects = staticMapTruth.mutable_stationary_object();
+  32: 	TArray<AActor*> FoundActors;
+  33: 	UGameplayStatics::GetAllActorsOfClass(WorldContectObject, AActor::StaticClass(), FoundActors);
+  34: 
+  35: 	for (auto actor : FoundActors) {
+  36: 		//TODO Check if static actor
+  37: 		auto stationaryObject = toOSI(actor);
+  38: 		if (stationaryObject->base().has_dimension()){
+  39: 			OSIStationaryObjects->AddAllocated(stationaryObject);
+  40: 	}
+  41: 		else {
+  42: 			UE_LOG(Logger, Log, TEXT("OSI_GroundTruth: Skip object %s for static ground truth."), *actor->GetName());
+  43: 		}
+  44: 	}
+  45: 	auto OSITrafficSigns = staticMapTruth.mutable_traffic_sign();
+  46: 	//TODO Traffic Signs
+  47: 
+  48: 	UE_LOG(Logger, Log, TEXT("OSI_GroundTruth: Finished parsing of stationary map objects."));
+  49: }
+  50: 
+  51: void OSI_GroundTruth::saveTrafficLightData(FGroundTruthWrapper& trafficLightData) {
+  52: 	trafficLightGroundTruth.CopyFrom(*trafficLightData.gt);
+  53: }
+  54: 
+  55: osi3::GroundTruth OSI_GroundTruth::parseWorldToGroundTruth(const UObject* WorldContectObject, const TArray<AActor*>& dynamicObjects, const float DeltaTime)
+  56: {
+  57: 	// use staticMapTruth as a base for every new groundTruth message that already contains unchanging fields
+  58: 	osi3::GroundTruth groundTruth = osi3::GroundTruth();
+  59: 	if (!staticInformationisLoggedOneTime)
+  60: 	{
+  61: 		groundTruth.MergeFrom(staticMapTruth);
+  62: 		staticInformationisLoggedOneTime = true;
+  63: 	}
+  64: 	groundTruth.MergeFrom(trafficLightGroundTruth);
+  65: 
+  66: 	for (auto* actor : dynamicObjects) {
+  67: 		FString pathName = actor->GetClass()->GetPathName();
+  68: 		//UE_LOG(Logger, Warning, TEXT("Ground Truth: %s"), *pathName);
+
+=== PART B ===
+GEMSTAR_Log_Loader.cpp:21: void UGEMSTAR_Log_Loader::BeginPlay()
+GEMSTAR_Log_Loader.cpp:23: Super::BeginPlay();
+LogManager.cpp:20: void ALogManager::BeginPlay()
+LogManager.cpp:22: Super::BeginPlay();
+LogManager.cpp:23: osi_GroundTruth.parseStationaryMapObjects(this);
+LogManager.cpp:68: osi3::GroundTruth gt = osi_GroundTruth.parseWorldToGroundTruth(this, dynamicSpawnedObjects, DeltaTime);
+LogManager.cpp:74: osi3::GroundTruth gtop = osi_GroundTruth.parseOmegaPrimeToGroundTruth(this, dynamicSpawnedObjects, DeltaTime);
+LogManager.cpp:204: osi_GroundTruth.saveTrafficLightData(trafficLightData);
+LogManager.cpp:210: combinedSensorView.MergeFrom(sensorView.Value);
+LogTester.cpp:20: void ALogTester::BeginPlay()
+LogTester.cpp:22: Super::BeginPlay();
+LogTester.h:33: virtual void BeginPlay() override;
+OSI_GroundTruth.cpp:11: #include "OSI_GroundTruth.h"
+OSI_GroundTruth.cpp:13: OSI_GroundTruth::OSI_GroundTruth()
+OSI_GroundTruth.cpp:17: OSI_GroundTruth::~OSI_GroundTruth()
+OSI_GroundTruth.cpp:21: void OSI_GroundTruth::parseStationaryMapObjects(const UObject* WorldContectObject)
+OSI_GroundTruth.cpp:23: staticMapTruth.set_country_code(276);//Default: Germany, USA = 840
+OSI_GroundTruth.cpp:24: auto* version = staticMapTruth.mutable_version();
+OSI_GroundTruth.cpp:29: //auto* proj_frame_offset = staticMapTruth.mutable_proj_frame_offset();
+OSI_GroundTruth.cpp:31: auto OSIStationaryObjects = staticMapTruth.mutable_stationary_object();
+OSI_GroundTruth.cpp:42: UE_LOG(Logger, Log, TEXT("OSI_GroundTruth: Skip object %s for static ground truth."), *actor->GetName());
+OSI_GroundTruth.cpp:45: auto OSITrafficSigns = staticMapTruth.mutable_traffic_sign();
+OSI_GroundTruth.cpp:48: UE_LOG(Logger, Log, TEXT("OSI_GroundTruth: Finished parsing of stationary map objects."));
+OSI_GroundTruth.cpp:51: void OSI_GroundTruth::saveTrafficLightData(FGroundTruthWrapper& trafficLightData) {
+OSI_GroundTruth.cpp:55: osi3::GroundTruth OSI_GroundTruth::parseWorldToGroundTruth(const UObject* WorldContectObject, const TArray<AActor*>& dynamicObjects, const float DeltaTime)
+OSI_GroundTruth.cpp:57: // use staticMapTruth as a base for every new groundTruth message that already contains unchanging fields
+OSI_GroundTruth.cpp:61: groundTruth.MergeFrom(staticMapTruth);
+OSI_GroundTruth.cpp:64: groundTruth.MergeFrom(trafficLightGroundTruth);
+OSI_GroundTruth.cpp:162: TEXT("OSI_GroundTruth: Not parsed to GroundTruth: %s"),
+OSI_GroundTruth.cpp:180: osi3::GroundTruth OSI_GroundTruth::parseOmegaPrimeToGroundTruth(const UObject* WorldContectObject, const TArray<AActor*>& dynamicObjects, const float DeltaTime)
+OSI_GroundTruth.cpp:236: groundTruth.MergeFrom(trafficLightGroundTruth);
+OSI_GroundTruth.cpp:279: UE_LOG(Logger, Warning, TEXT("OSI_GroundTruth: Not parsed to GroundTruth: %s"), *actor->GetName());
+OSI_GroundTruth.cpp:291: osi3::StationaryObject* OSI_GroundTruth::toOSI(const AActor* actor) {
+OSI_Trace_Writer.cpp:18: #include "osi_groundtruth.pb.h"
+GEMSTAR_Log_Loader.h:31: virtual void BeginPlay() override;
+LogManager.h:17: #include "OSI_GroundTruth.h"
+LogManager.h:43: virtual void BeginPlay() override;
+LogManager.h:74: OSI_GroundTruth osi_GroundTruth = OSI_GroundTruth();
+OSI_GroundTruth.h:14: #include "osi_groundtruth.pb.h"
+OSI_GroundTruth.h:25: class UE_LOGGER_FEATURERUNTIME_API OSI_GroundTruth
+OSI_GroundTruth.h:28: OSI_GroundTruth();
+OSI_GroundTruth.h:29: ~OSI_GroundTruth();
+OSI_GroundTruth.h:42: osi3::GroundTruth staticMapTruth = osi3::GroundTruth();
+
+=== PART C ===
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp
+LINE 23: osi_GroundTruth.parseStationaryMapObjects(this);
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp
+LINE 68: osi3::GroundTruth gt = osi_GroundTruth.parseWorldToGroundTruth(this, dynamicSpawnedObjects, DeltaTime);
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp
+LINE 74: osi3::GroundTruth gtop = osi_GroundTruth.parseOmegaPrimeToGroundTruth(this, dynamicSpawnedObjects, DeltaTime);
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp
+LINE 204: osi_GroundTruth.saveTrafficLightData(trafficLightData);
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_Trace_Writer.cpp
+LINE 18: #include "osi_groundtruth.pb.h"
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Public\LogManager.h
+LINE 17: #include "OSI_GroundTruth.h"
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Public\LogManager.h
+LINE 74: OSI_GroundTruth osi_GroundTruth = OSI_GroundTruth();
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Public\OSI_GroundTruth.h
+LINE 14: #include "osi_groundtruth.pb.h"
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Public\OSI_GroundTruth.h
+LINE 25: class UE_LOGGER_FEATURERUNTIME_API OSI_GroundTruth
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Public\OSI_GroundTruth.h
+LINE 28: OSI_GroundTruth();
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Public\OSI_GroundTruth.h
+LINE 29: ~OSI_GroundTruth();
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Public\OSI_GroundTruth.h
+LINE 42: osi3::GroundTruth staticMapTruth = osi3::GroundTruth();

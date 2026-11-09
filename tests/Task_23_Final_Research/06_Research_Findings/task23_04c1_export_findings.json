@@ -1,0 +1,51 @@
+{
+  "Task": "23.4C-1",
+  "Description": "Original LiDAR time-of-flight export for independent MATLAB reconstruction",
+  "SampledFrames": [
+    0,
+    1,
+    25,
+    99
+  ],
+  "SpeedOfLightMPerS": 299792458.0,
+  "MinimumScreeningRangeM": 0.05,
+  "MaximumScreeningRangeM": 200.0,
+  "ExportedRows": 63252,
+  "PairResults": [
+    {
+      "PairID": "1",
+      "FramesExamined": 4,
+      "ExportedRows": 21084,
+      "PositiveReturns": 10947,
+      "ScreenedReturns": 8437
+    },
+    {
+      "PairID": "2",
+      "FramesExamined": 4,
+      "ExportedRows": 21084,
+      "PositiveReturns": 11279,
+      "ScreenedReturns": 8769
+    },
+    {
+      "PairID": "3",
+      "FramesExamined": 4,
+      "ExportedRows": 21084,
+      "PositiveReturns": 11078,
+      "ScreenedReturns": 8568
+    },
+    {
+      "PairID": "4",
+      "FramesExamined": 4,
+      "ExportedRows": 0,
+      "PositiveReturns": 0,
+      "ScreenedReturns": 0
+    }
+  ],
+  "ScientificLimitations": [
+    "Beam direction geometry remains hypothetical",
+    "Positive returns are not verified detections",
+    "Frame zero requires separate interpretation",
+    "Range thresholds are preliminary screening choices",
+    "No power or energy measurements"
+  ]
+}

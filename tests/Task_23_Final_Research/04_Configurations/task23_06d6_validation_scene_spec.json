@@ -1,0 +1,67 @@
+﻿{
+    "Task":  "23.6D-6",
+    "Status":  "PLANNED_NOT_IMPLEMENTED",
+    "SourceMap":  "RadarTestMap.umap",
+    "ProposedMap":  "SensorFusionValidationMap.umap",
+    "ReferenceSensors":  {
+                             "Radar":  {
+                                           "HorizontalRays":  10,
+                                           "VerticalFOVDeg":  20,
+                                           "RangeM":  50,
+                                           "HorizontalFOVDeg":  90,
+                                           "MountingPositionCm":  [
+                                                                      1940,
+                                                                      -2650,
+                                                                      250
+                                                                  ],
+                                           "VerticalRays":  10
+                                       },
+                             "LiDAR":  {
+                                           "HorizontalRays":  251,
+                                           "VerticalFOVDeg":  20,
+                                           "RangeM":  100,
+                                           "HorizontalFOVDeg":  90,
+                                           "MountingPositionCm":  [
+                                                                      1940,
+                                                                      -2650,
+                                                                      250
+                                                                  ],
+                                           "VerticalRays":  21
+                                       }
+                         },
+    "Experiments":  [
+                        {
+                            "Name":  "EmptyScene",
+                            "Purpose":  "Characterize background and false reflections"
+                        },
+                        {
+                            "Name":  "StationaryTarget",
+                            "DistancesM":  [
+                                               5,
+                                               10,
+                                               20,
+                                               40
+                                           ],
+                            "Purpose":  "Range and geometry validation"
+                        },
+                        {
+                            "Name":  "MovingTarget",
+                            "Purpose":  "Radar Doppler and target association validation"
+                        },
+                        {
+                            "Name":  "ClearFogComparison",
+                            "Purpose":  "Reliability comparison under controlled weather"
+                        }
+                    ],
+    "Requirements":  [
+                         "Inspect source map actors before editing",
+                         "Create a separate Unreal map",
+                         "Preserve original RadarTestMap and LidarTestMap",
+                         "Verify sensor origin and coordinate system",
+                         "Record known target geometry and identity",
+                         "Enable both SensorView inputs and GroundTruth",
+                         "Verify OSI payloads after recording",
+                         "Use at least three repetitions per condition",
+                         "Do not claim physical radar accuracy from simulator-only checks"
+                     ]
+}

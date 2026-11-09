@@ -1,0 +1,7 @@
+﻿TASK 23.7AR - DISPLACED RADAR EXPERIMENT
+Status: FAILED: Saved map verification failed.
+Target X: 3140 cm during experiment
+Map restored: True
+INI restored: True
+
+RADAR DIAGNOSTICS:

@@ -1,0 +1,110 @@
+﻿   1: /*
+   2:  * Copyright (c) 2026 DLR e.V.
+   3:  *
+   4:  * This program and the accompanying materials are made
+   5:  * available under the terms of the Eclipse Public License 2.0
+   6:  * which is available at https://www.eclipse.org/legal/epl-2.0/
+   7:  *
+   8:  * SPDX-License-Identifier: EPL-2.0
+   9:  */
+  10: 
+  11: #include "LogManager.h"
+  12: 
+  13: // Sets default values
+  14: ALogManager::ALogManager()
+  15: {
+  16: 	PrimaryActorTick.bCanEverTick = true;
+  17: }
+  18: 
+  19: // Called when the game starts or when spawned
+  20: void ALogManager::BeginPlay()
+  21: {
+  22: 	Super::BeginPlay();
+  23: 	osi_GroundTruth.parseStationaryMapObjects(this);
+  24: 
+  25: 	auto ActorSpawnLambda = FOnActorSpawned::FDelegate::CreateLambda([this](AActor* InActor)
+  26: 		{
+  27: 			//Smart Traffic Light Plugin spawns ligthbulbs dynamical and movable
+  28: 			if (InActor->IsRootComponentMovable() &&
+  29: 				!InActor->GetName().Contains("BP_TrafficLightActor_C")) {
+  30: 				UE_LOG(Logger, Log, TEXT("LogManager: Add ground truth dynamic object handler for: %s"), *InActor->GetName());
+  31: 				dynamicSpawnedObjects.Add(InActor);
+  32: 			}
+  33: 		});
+  34: 
+  35: 	ActorSpawnedHandle = GetWorld()->AddOnActorSpawnedHandler(ActorSpawnLambda);
+  36: 	auto ActorDestroyLambda = FOnActorSpawned::FDelegate::CreateLambda([this](AActor* InActor)
+  37: 		{
+  38: 			UE_LOG(Logger, Log, TEXT("LogManager: Remove ground truth dynamic object handler for: %s"), *InActor->GetName());
+  39: 			//there should be only one actor instance in this array
+  40: 			dynamicSpawnedObjects.RemoveSingle(InActor);
+  41: 		});
+  42: 
+  43: 	ActorDestroyedHandle = GetWorld()->AddOnActorDestroyedHandler(ActorDestroyLambda);
+  44: 
+  45: 	RegisterCallbacks();
+  46: }
+  47: 
+  48: // Called every frame
+  49: void ALogManager::Tick(float DeltaTime)
+  50: {
+  51: 	Super::Tick(DeltaTime);
+  52: 	FName fileDescription = FName(fileName);
+  53: 
+  54: 	accumulatedTime += DeltaTime;
+  55: 	osi3::SensorView sv = combineSensorViewMessages();
+  56: 	if (writeSensorViews) {
+  57: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::ESensorViewMessage, sv.SerializeAsString());
+  58: 	}
+  59: 	if (writeSensorDatas) {
+  60: 		for (auto& sd : sensorDatas)
+  61: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::ESensorDataMessage, sd.Value.SerializeAsString());
+  62: 	}
+  63: 	if (debugmode)
+  64: 		UE_LOG(Logger, Log, TEXT("LogManager: SV:\n%s"), *FString(UTF8_TO_TCHAR(sv.DebugString().c_str())));
+  65: 
+  66: 
+  67: 	if (writeGroundTruth) {
+  68: 		osi3::GroundTruth gt = osi_GroundTruth.parseWorldToGroundTruth(this, dynamicSpawnedObjects, DeltaTime);
+  69: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::EGroundTruthMessage, gt.SerializeAsString());
+  70: 		if (debugmode)
+  71: 			UE_LOG(Logger, Log, TEXT("LogManager: GT:\n%s"), *FString(UTF8_TO_TCHAR(gt.DebugString().c_str())));
+  72: 	}
+  73: 	if (writeOmegaPrime) {
+  74: 		osi3::GroundTruth gtop = osi_GroundTruth.parseOmegaPrimeToGroundTruth(this, dynamicSpawnedObjects, DeltaTime);
+  75: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::EGroundTruthMessage, gtop.SerializeAsString());
+  76: 		if (debugmode)
+  77: 			UE_LOG(Logger, Log, TEXT("LogManager: GT Omega Prime:\n%s"), *FString(UTF8_TO_TCHAR(gtop.DebugString().c_str())));
+  78: 	}
+  79: }
+  80: 
+  81: void ALogManager::EndPlay(const EEndPlayReason::Type EndPlayReason) {
+  82: 	if (UWorld* World = GetWorld()){
+  83: 		World->RemoveOnActorSpawnedHandler(ActorSpawnedHandle);
+  84: 		World->RemoveOnActorDestroyedHandler(ActorDestroyedHandle);
+  85: 	}
+  86: 
+  87: 	if (IsValid(GemstarSimulationSubsystem)){
+  88: 		GemstarSimulationSubsystem->UnregisterManager(this);
+  89: 		GemstarSimulationSubsystem = nullptr;
+  90: 	}
+  91: 
+  92: 	for (int32 i = SensorSpawnActorsToInform.Num() - 1; i >= 0; --i){
+  93: 		if (AActor* Spawner = SensorSpawnActorsToInform[i]; IsValid(Spawner)){
+  94: 			UnregisterSensorSpawner_Implementation(Spawner);
+  95: 		}
+  96: 	}
+  97: 	SensorSpawnActorsToInform.Reset();
+  98: 
+  99: 	Super::EndPlay(EndPlayReason);
+ 100: 	SaveMessagesToFilesystem();
+ 101: }
+ 102: 
+ 103: void ALogManager::RegisterCallbacks() {
+ 104: 	FCoreDelegates::OnHandleSystemError.AddUObject(this, &ALogManager::SaveMessagesToFilesystem);
+ 105: 	FCoreDelegates::OnExit.AddUObject(this, &ALogManager::SaveMessagesToFilesystem);
+ 106: }
+ 107: 
+ 108: void ALogManager::SaveMessagesToFilesystem() {
+ 109: 	osi_Trace_Writer.SaveMessagesToFilesystem();
+ 110: }

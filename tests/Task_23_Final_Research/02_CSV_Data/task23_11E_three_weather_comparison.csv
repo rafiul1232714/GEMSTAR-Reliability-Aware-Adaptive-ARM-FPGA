@@ -1,0 +1,4 @@
+﻿"Weather","MOR_m","TotalFrames","MissingLidarFrames","ReflectionSlotsPerFrame","PositiveReturnsPerFrame","CoveragePercent","UniqueReflectionHashes","TimestampsIncreasing","SensorViewFile"
+"Clear","NA","13819","0","5271","5090","96.566116","1","True","20261105T213845Z_sv_380_X_13819_T23_11E_CLEAR.osi"
+"Fog100","100","12386","0","5271","5090","96.566116","1","True","20261105T220440Z_sv_380_X_12386_T23_11E_FOG100.osi"
+"Fog20","20","14597","0","5271","0","0","1","True","20261105T215332Z_sv_380_X_14597_T23_11E_FOG20.osi"

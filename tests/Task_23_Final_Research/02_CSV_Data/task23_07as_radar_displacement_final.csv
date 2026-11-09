@@ -1,0 +1,5 @@
+ray,baseline_distance_cm,displaced_distance_cm,distance_change_cm,baseline_impact_x_cm,displaced_impact_x_cm,baseline_actor,displaced_actor,baseline_blocking,displaced_blocking
+44,853.407,1054.209,200.802,2790.0,2990.0,StaticMeshActor_18,StaticMeshActor_18,1,1
+45,853.407,1054.209,200.802,2790.0,2990.0,StaticMeshActor_18,StaticMeshActor_18,1,1
+54,853.407,1054.209,200.802,2790.0,2990.0,StaticMeshActor_18,StaticMeshActor_18,1,1
+55,853.407,1054.209,200.802,2790.0,2990.0,StaticMeshActor_18,StaticMeshActor_18,1,1

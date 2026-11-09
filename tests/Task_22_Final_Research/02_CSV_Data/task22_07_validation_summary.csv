@@ -1,0 +1,5 @@
+PairID,Frames,DuplicateFrameIDs,TimestampMismatches,NonmonotonicSVTimestamps,CameraImageFrames,LiDARReflectionFrames,RadarEntryFrames,RadarReflectionFrames,PositiveRadarFrames,TotalRadarReflectionSlots,PositiveRadarReturnSlots,NonfiniteRadarSlots,Status
+1,100,0,0,0,100,100,100,100,100,10000,5696,0,PASS_PRELIMINARY_DATA_CHECKS
+2,100,0,0,0,100,100,100,100,100,10000,3008,0,PASS_PRELIMINARY_DATA_CHECKS
+3,100,0,0,0,100,100,100,100,100,10000,3008,0,PASS_PRELIMINARY_DATA_CHECKS
+4,100,0,0,0,0,0,100,100,0,10000,0,0,WARN_INCOMPLETE_SENSOR_DATA

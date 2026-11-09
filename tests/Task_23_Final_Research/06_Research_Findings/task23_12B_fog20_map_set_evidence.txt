@@ -1,0 +1,4 @@
+MAP=/Game/ResearchValidation/SensorFusionValidationMap
+PREVIOUS=Simulation/Task23_12_Camera_FogMOR100.ini
+EXPECTED=Simulation/Task23_12_Camera_FogMOR20.ini
+SAVE_STATUS=PASS

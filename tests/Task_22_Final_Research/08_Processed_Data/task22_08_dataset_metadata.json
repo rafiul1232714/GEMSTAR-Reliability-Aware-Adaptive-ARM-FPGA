@@ -1,0 +1,40 @@
+{
+  "Task": "22.8",
+  "DatasetType": "Preliminary per-frame sensor availability",
+  "OriginalFrameRows": 400,
+  "ExportedFrameRows": 400,
+  "CandidateFrames": 297,
+  "UniqueRecordings": 4,
+  "SourceFiles": [
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_22_Final_Research\\02_CSV_Data\\task22_06_frame_metrics.csv",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_22_Final_Research\\02_CSV_Data\\task22_07_validation_summary.csv",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_22_Final_Research\\02_CSV_Data\\task22_04b_deduplicated_pair_summary.csv"
+  ],
+  "CandidateRules": {
+    "StructuralPass": true,
+    "TimestampMatched": true,
+    "CameraImageBytesPositive": true,
+    "LiDARReflectionCountPositive": true,
+    "RadarPositiveReturnCountPositive": true,
+    "ExcludeFrameZero": true
+  },
+  "Units": {
+    "TimestampNs": "nanoseconds",
+    "TimestampSeconds": "seconds",
+    "CameraImageBytes": "bytes",
+    "LiDARReflections": "count",
+    "RadarReflectionSlots": "count",
+    "PositiveRadarReturns": "count"
+  },
+  "Limitations": [
+    "CSV contains per-frame metadata, not raw sensor arrays",
+    "Camera image bytes are not decoded pixels",
+    "LiDAR counts are not calibrated point clouds",
+    "Radar positive returns use a heuristic validity rule",
+    "Frame zero is excluded conservatively in all recordings",
+    "GT object count is not GT association accuracy",
+    "FusionCandidate is not proof of geometric fusion readiness",
+    "Scenario weather/map/traffic identities remain unverified",
+    "No FPGA latency or power measurements"
+  ]
+}

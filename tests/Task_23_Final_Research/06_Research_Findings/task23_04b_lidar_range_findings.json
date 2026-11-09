@@ -1,0 +1,77 @@
+{
+  "Task": "23.4B",
+  "FrameLimitPerRecording": 100,
+  "SpeedOfLightMPerS": 299792458.0,
+  "RangeFormula": "range_m = c * time_of_flight_s / 2",
+  "ScreeningRangeM": [
+    0.05,
+    200.0
+  ],
+  "RangeImageShape": "21 rows x 251 columns",
+  "Recordings": [
+    {
+      "PairID": "1",
+      "Frames": 100,
+      "RaySlots": 527100,
+      "PositiveReturns": 222716,
+      "ScreenedReturns": 220206,
+      "MeanCoveragePct": 41.77689243027889,
+      "MedianRangeM": 6.6986853848071535,
+      "MaxRangeM": 20.005113038274484,
+      "GeometryMethods": "UNIFORM_FOV_HYPOTHESIS"
+    },
+    {
+      "PairID": "2",
+      "Frames": 100,
+      "RaySlots": 527100,
+      "PositiveReturns": 221558,
+      "ScreenedReturns": 219048,
+      "MeanCoveragePct": 41.55719977233922,
+      "MedianRangeM": 6.6986853848071535,
+      "MaxRangeM": 20.005113038274484,
+      "GeometryMethods": "UNIFORM_FOV_HYPOTHESIS"
+    },
+    {
+      "PairID": "3",
+      "Frames": 100,
+      "RaySlots": 527100,
+      "PositiveReturns": 222414,
+      "ScreenedReturns": 219904,
+      "MeanCoveragePct": 41.71959779927908,
+      "MedianRangeM": 6.6986853848071535,
+      "MaxRangeM": 20.005113038274484,
+      "GeometryMethods": "UNIFORM_FOV_HYPOTHESIS"
+    },
+    {
+      "PairID": "4",
+      "Frames": 100,
+      "RaySlots": 0,
+      "PositiveReturns": 0,
+      "ScreenedReturns": 0,
+      "MeanCoveragePct": 0.0,
+      "MedianRangeM": "",
+      "MaxRangeM": "",
+      "GeometryMethods": "NO_LIDAR"
+    }
+  ],
+  "GeometryStatus": {
+    "1": [
+      "UNIFORM_FOV_HYPOTHESIS"
+    ],
+    "2": [
+      "UNIFORM_FOV_HYPOTHESIS"
+    ],
+    "3": [
+      "UNIFORM_FOV_HYPOTHESIS"
+    ]
+  },
+  "Limitations": [
+    "Uniform beam directions are a hypothesis unless explicit OSI directions exist",
+    "Sensor-frame 3D coordinates are not yet GroundTruth validated",
+    "Positive TOF and signal strength do not guarantee correct detections",
+    "Distance thresholds are preliminary screening choices",
+    "Object IDs were not used as perception predictions",
+    "Frame zero remains included but flagged for later evaluation",
+    "No CPU-versus-FPGA energy measurements have been made"
+  ]
+}

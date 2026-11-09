@@ -1,0 +1,17 @@
+TASK 23.9 - CAMERA RGB INSPECTION
+Source OSI: E:\GEMSTAR_Project\gemstar\Output\20261103T194105Z_sv_380_X_55_GEMSTARCAMERACLEAR23.osi
+Frames inspected: 6
+Resolution: 640 x 480
+RGB bytes/frame: 921600
+Status: CAMERA_RGB_PAYLOAD_VALID
+
+Saved images:
+E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\03_Graphs\task23_09_camera_baseline_frame001.png
+E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\03_Graphs\task23_09_camera_baseline_frame003.png
+E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\03_Graphs\task23_09_camera_baseline_frame006.png
+
+CSV: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\02_CSV_Data\task23_09_camera_frame_inspection.csv
+
+Limitation: valid RGB payload and pixel variation do not
+prove that the calibration cube is visible or correctly
+located in the camera image.

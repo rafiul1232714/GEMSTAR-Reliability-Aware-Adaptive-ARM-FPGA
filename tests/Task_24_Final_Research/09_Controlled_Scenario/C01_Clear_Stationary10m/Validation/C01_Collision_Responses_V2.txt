@@ -1,0 +1,8 @@
+BLUEPRINT=/ue_vehicle_feature/Blueprints/Vehicles/BP_Small_Car
+PRIMITIVE_COMPONENTS=1
+COMPONENT=VehicleMeshComponent
+COLLISION_ENABLED=<CollisionEnabled.NO_COLLISION: 0>
+COLLISION_PROFILE=NoCollision
+VISIBILITY_RESPONSE=<CollisionResponseType.ECR_IGNORE: 0>
+OBJECT_TYPE=<CollisionChannel.ECC_WORLD_STATIC: 0>
+GENERATE_OVERLAP_EVENTS=False

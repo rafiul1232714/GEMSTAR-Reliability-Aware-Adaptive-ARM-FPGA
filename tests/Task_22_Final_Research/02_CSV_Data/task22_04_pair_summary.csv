@@ -1,0 +1,6 @@
+PairID,ScenarioFolder,SensorViewFilename,GroundTruthFilename,SensorViewFrames,GroundTruthFrames,PairedFrames,ExactTimestampMatches,TimestampMismatches,MaxTimestampDifferenceMs,NonmonotonicSVFrames,NonmonotonicGTFrames,CameraEntryFrames,LiDAREntryFrames,RadarEntryFrames,ValidationStatus
+1,E:\GEMSTAR_Project\gemstar\Output,20261102T180104Z_sv_380_X_806_GEMSTAR.osi,20261102T180104Z_gt_380_X_806_GEMSTAR.osi,100,100,100,100,0,0.0,0,0,100,100,100,PASS_MESSAGE_ALIGNMENT
+2,E:\GEMSTAR_Project\sensor-health-monitor\data\raw\baseline_fog_working_radar,20261027T152743Z_sv_380_X_794_GEMSTAR.osi,20261027T152743Z_gt_380_X_794_GEMSTAR.osi,100,100,100,100,0,0.0,0,0,100,100,100,PASS_MESSAGE_ALIGNMENT
+3,E:\GEMSTAR_Project\sensor-health-monitor\data\raw\fog_mor100,20261027T224313Z_sv_380_X_466_GEMSTAR.osi,20261027T224313Z_gt_380_X_466_GEMSTAR.osi,100,100,100,100,0,0.0,0,0,100,100,100,PASS_MESSAGE_ALIGNMENT
+4,E:\GEMSTAR_Project\sensor-health-monitor\data\raw\task05_fog_test,20261027T125122Z_sv_380_X_542_GEMSTAR.osi,20261027T125122Z_gt_380_X_542_GEMSTAR.osi,100,100,100,100,0,0.0,0,0,0,0,100,PASS_MESSAGE_ALIGNMENT
+5,E:\GEMSTAR_Project\gemstar\Output,20261027T125122Z_sv_380_X_542_GEMSTAR.osi,20261027T125122Z_gt_380_X_542_GEMSTAR.osi,100,100,100,100,0,0.0,0,0,0,0,100,PASS_MESSAGE_ALIGNMENT

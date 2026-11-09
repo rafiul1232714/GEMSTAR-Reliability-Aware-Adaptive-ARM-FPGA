@@ -1,0 +1,83 @@
+{
+  "Task": "23.5D-2",
+  "Status": "RECORDED_TIMESTAMP_AUDIT",
+  "RecordingPairs": 3,
+  "FramesInspected": 15,
+  "TargetFrameComparisons": 6,
+  "TargetFramesWithSVGTDelta": 6,
+  "TargetFramesWithIndependentSensorDelta": 0,
+  "AllAvailableSVGTTimestampsEqual": true,
+  "TimestampProgression": [
+    {
+      "PairID": 1,
+      "FromFrame": 24,
+      "ToFrame": 25,
+      "TimestampStepMs": 32.892503,
+      "StrictlyIncreasing": true
+    },
+    {
+      "PairID": 1,
+      "FromFrame": 25,
+      "ToFrame": 26,
+      "TimestampStepMs": 27.893897,
+      "StrictlyIncreasing": true
+    },
+    {
+      "PairID": 1,
+      "FromFrame": 98,
+      "ToFrame": 99,
+      "TimestampStepMs": 38.360801,
+      "StrictlyIncreasing": true
+    },
+    {
+      "PairID": 2,
+      "FromFrame": 24,
+      "ToFrame": 25,
+      "TimestampStepMs": 33.109702,
+      "StrictlyIncreasing": true
+    },
+    {
+      "PairID": 2,
+      "FromFrame": 25,
+      "ToFrame": 26,
+      "TimestampStepMs": 31.892799,
+      "StrictlyIncreasing": true
+    },
+    {
+      "PairID": 2,
+      "FromFrame": 98,
+      "ToFrame": 99,
+      "TimestampStepMs": 34.599401,
+      "StrictlyIncreasing": true
+    },
+    {
+      "PairID": 3,
+      "FromFrame": 24,
+      "ToFrame": 25,
+      "TimestampStepMs": 32.019801,
+      "StrictlyIncreasing": true
+    },
+    {
+      "PairID": 3,
+      "FromFrame": 25,
+      "ToFrame": 26,
+      "TimestampStepMs": 31.877202,
+      "StrictlyIncreasing": true
+    },
+    {
+      "PairID": 3,
+      "FromFrame": 98,
+      "ToFrame": 99,
+      "TimestampStepMs": 32.5853,
+      "StrictlyIncreasing": true
+    }
+  ],
+  "Interpretation": "Radar and LiDAR are contained in the same SensorView message. Container timestamps alone do not establish identical physical acquisition times.",
+  "Limitations": [
+    "Same frame index is not independent synchronization proof",
+    "Sensor-level timestamps may be unavailable",
+    "OSI timestamp equality does not rule out sensor latency",
+    "No measurement of real-time end-to-end delay",
+    "Sensor fusion accuracy remains unverified"
+  ]
+}

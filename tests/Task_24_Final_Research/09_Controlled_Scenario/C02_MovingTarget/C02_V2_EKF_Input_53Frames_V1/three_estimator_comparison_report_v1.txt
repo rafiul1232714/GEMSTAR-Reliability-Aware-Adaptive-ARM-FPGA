@@ -1,0 +1,40 @@
+TASK 24.9.7 - MATCHED THREE-ESTIMATOR COMPARISON
+==========================================================
+Recording: clean V2
+Track: provisional LiDAR Track 2
+Matched observations: 24
+Camera update frame: 530
+
+LiDAR vs LiDAR-Radar
+  Mean difference (m): 0.02263835
+  Maximum difference (m): 0.16994502
+  Final difference (m): 0.00169418
+
+LiDAR-Radar vs three-sensor
+  Mean difference (m): 0.00109029
+  Maximum difference (m): 0.01742885
+  Final difference (m): 0.00000103
+
+LiDAR vs three-sensor
+  Mean difference (m): 0.02369145
+  Maximum difference (m): 0.16994502
+  Final difference (m): 0.00169405
+
+Radar updates accepted: 4
+Camera updates accepted: 1
+
+INTERPRETATION
+These values measure disagreement between estimators.
+They do not measure accuracy against Ground Truth.
+Camera detector confidence is low and class is ambiguous.
+Camera calibration and noise remain unvalidated.
+Radar-LiDAR associations are provisional.
+The comparison uses the same 24 observations.
+No energy, latency or FPGA measurements are included.
+
+NEXT: TASK 24.10
+Use Ground Truth exclusively for independent evaluation.
+Check ego-motion and coordinate alignment.
+Evaluate position/velocity error and track association.
+Determine if Radar or Camera improves true accuracy.
+Validate assumptions and uncertainty.

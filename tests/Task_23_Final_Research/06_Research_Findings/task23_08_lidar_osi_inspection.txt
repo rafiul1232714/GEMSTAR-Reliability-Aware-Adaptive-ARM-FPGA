@@ -1,0 +1,26 @@
+=== TASK 23.8 — LIDAR OSI INSPECTION ===
+File: E:\GEMSTAR_Project\gemstar\Output\20261103T190206Z_sv_380_X_336_GEMSTARLIDAR23.osi
+File size: 113810844 bytes
+Frame 1: LiDAR views=1, reflections=5271, valid ranges=5090
+Frame 2: LiDAR views=1, reflections=5271, valid ranges=5090
+Frame 3: LiDAR views=1, reflections=5271, valid ranges=5090
+Frame 4: LiDAR views=1, reflections=5271, valid ranges=5090
+Frame 5: LiDAR views=1, reflections=5271, valid ranges=5090
+Frame 6: LiDAR views=1, reflections=5271, valid ranges=5090
+Frame 7: LiDAR views=1, reflections=5271, valid ranges=5090
+Frame 8: LiDAR views=1, reflections=5271, valid ranges=5090
+Frame 9: LiDAR views=1, reflections=5271, valid ranges=5090
+Frame 10: LiDAR views=1, reflections=5271, valid ranges=5090
+
+=== SUMMARY ===
+Frames inspected: 10
+LiDAR views: 10
+Total reflections: 52710
+Positive ranges <= 50 m: 50900
+Minimum range: 8.5025 m
+Median range: 13.2663 m
+Maximum range: 15.7677 m
+Ranges between 8 and 12 m: 10710
+Median 8–12 m range: 8.5833 m
+Status: LIDAR_PAYLOAD_PRESENT
+Report: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\06_Research_Findings\task23_08_lidar_osi_inspection.txt

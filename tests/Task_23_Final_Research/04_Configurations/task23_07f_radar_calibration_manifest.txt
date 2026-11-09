@@ -1,0 +1,12 @@
+﻿TASK 23.7F — RADAR CALIBRATION CONFIGURATION
+Status: PREPARED_NOT_ACTIVATED
+
+Source: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Resources\GemstarRadarTest.ini
+Copy: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\04_Configurations\task23_07f_radar_calibration.ini
+
+Original SHA256: CF19C30EBDE1440D8BFBBD6C1FAD2E06573743CF74C79298C4A0ED3A6BA40359
+Copy SHA256: CF19C30EBDE1440D8BFBBD6C1FAD2E06573743CF74C79298C4A0ED3A6BA40359
+
+Radar manager pathway investigated.
+Controlled calibration scene not yet executed.
+Original GEMSTAR configuration unchanged.

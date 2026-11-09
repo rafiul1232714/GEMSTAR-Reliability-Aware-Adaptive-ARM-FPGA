@@ -1,0 +1,22 @@
+{
+  "Task": "23.4E-5D",
+  "Purpose": "Diagnostic proximity comparison between LiDAR world points and non-host GroundTruth object bounding boxes.",
+  "NonHostObjectEntries": 18,
+  "Evaluations": 36,
+  "LargeObjectEntries": 9,
+  "Interpretations": {
+    "A": "Recorded dimensions treated as full size",
+    "B": "Recorded dimensions treated as half-extents"
+  },
+  "WorldPoseMethod": "Candidate Rz(yaw)Ry(pitch)Rx(roll)",
+  "ScientificStatus": "DIAGNOSTIC_PROXIMITY_NOT_ACCURACY",
+  "Limitations": [
+    "Nearest point is not necessarily an object return",
+    "Occlusion and sensor visibility not modeled",
+    "Large simulation actors not identified",
+    "Recorded dimension semantics not independently verified",
+    "World pose convention not independently verified",
+    "Source revision at recording time not confirmed",
+    "No object-detection accuracy is inferred"
+  ]
+}

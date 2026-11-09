@@ -1,0 +1,8 @@
+{
+  "Task": "22.5B",
+  "RecordingsInvestigated": 4,
+  "CandidateFilesScanned": 23,
+  "EvidenceMatches": 43,
+  "VerifiedScenarioAssignments": 0,
+  "ImportantNote": "Matches are provenance candidates. Manual review is required before claiming a verified runtime map, weather or traffic setting."
+}

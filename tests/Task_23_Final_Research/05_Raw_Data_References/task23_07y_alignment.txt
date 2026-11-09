@@ -1,0 +1,10 @@
+TASK 23.7Y - RADAR TARGET ALIGNMENT
+Redundant placed Radar removed: YES
+Target label: TASK23_CALIBRATION_TARGET_10M
+Target position (cm): 2940,-2650,250
+Target scale: 3,3,3
+Configured Radar position (cm): 1940,-2650,250
+Nominal center distance (m): 10
+Nominal front surface distance (m): 8.5
+Configuration activated: NOT YET
+Map saved: YES

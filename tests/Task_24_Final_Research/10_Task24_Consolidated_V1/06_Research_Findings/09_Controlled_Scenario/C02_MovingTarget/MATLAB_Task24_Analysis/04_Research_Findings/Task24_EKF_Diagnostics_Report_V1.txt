@@ -1,0 +1,27 @@
+TASK 24 MATLAB - EKF DIAGNOSTICS
+================================
+
+EKF observations: 24
+GT evaluated frames: 23
+Radar accepted updates: 4
+
+Velocity estimation:
+Maximum estimator Vx difference: 0.350125 m/s
+Maximum estimator Vy difference: 0.004593 m/s
+
+Radar position influence:
+Maximum separation: 0.169945 m
+
+Camera position influence:
+Maximum separation: 0.017429 m
+
+IMPORTANT LIMITATIONS:
+Only one development recording was evaluated.
+Radar noise assumptions were not calibrated.
+NIS threshold 9 is an exploratory gate.
+Only X position standard deviation is available.
+Full covariance and NEES cannot be evaluated.
+GT-center errors include surface-reference bias.
+Velocity states have not been validated against GT.
+No hardware energy or latency evaluation is made.
+GT was not used for EKF state updates.

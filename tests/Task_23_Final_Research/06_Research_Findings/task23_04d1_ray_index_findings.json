@@ -1,0 +1,162 @@
+{
+  "Task": "23.4D-1",
+  "Source": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_23_Final_Research\\08_Processed_Data\\task23_04c_raw_lidar_measurements.csv",
+  "GridHypothesis": [
+    21,
+    251
+  ],
+  "FrameZeroRejectedIndicesIdentical": true,
+  "Results": [
+    {
+      "PairID": 1,
+      "Frame": 0,
+      "PositiveReturns": 4424,
+      "RejectedBelow005m": 2510,
+      "RejectedAbove200m": 0,
+      "RejectedTotal": 2510,
+      "CompleteRejectedRows": 10,
+      "RowsContainingRejectedRays": 10,
+      "MinimumRejectedRangeM": 1.673826631562373e-06,
+      "MaximumRejectedRangeM": 1.6654261692338172e-05
+    },
+    {
+      "PairID": 1,
+      "Frame": 1,
+      "PositiveReturns": 2069,
+      "RejectedBelow005m": 0,
+      "RejectedAbove200m": 0,
+      "RejectedTotal": 0,
+      "CompleteRejectedRows": 0,
+      "RowsContainingRejectedRays": 0,
+      "MinimumRejectedRangeM": null,
+      "MaximumRejectedRangeM": null
+    },
+    {
+      "PairID": 1,
+      "Frame": 25,
+      "PositiveReturns": 2419,
+      "RejectedBelow005m": 0,
+      "RejectedAbove200m": 0,
+      "RejectedTotal": 0,
+      "CompleteRejectedRows": 0,
+      "RowsContainingRejectedRays": 0,
+      "MinimumRejectedRangeM": null,
+      "MaximumRejectedRangeM": null
+    },
+    {
+      "PairID": 1,
+      "Frame": 99,
+      "PositiveReturns": 2035,
+      "RejectedBelow005m": 0,
+      "RejectedAbove200m": 0,
+      "RejectedTotal": 0,
+      "CompleteRejectedRows": 0,
+      "RowsContainingRejectedRays": 0,
+      "MinimumRejectedRangeM": null,
+      "MaximumRejectedRangeM": null
+    },
+    {
+      "PairID": 2,
+      "Frame": 0,
+      "PositiveReturns": 4424,
+      "RejectedBelow005m": 2510,
+      "RejectedAbove200m": 0,
+      "RejectedTotal": 2510,
+      "CompleteRejectedRows": 10,
+      "RowsContainingRejectedRays": 10,
+      "MinimumRejectedRangeM": 1.673826631562373e-06,
+      "MaximumRejectedRangeM": 1.6654261692338172e-05
+    },
+    {
+      "PairID": 2,
+      "Frame": 1,
+      "PositiveReturns": 2069,
+      "RejectedBelow005m": 0,
+      "RejectedAbove200m": 0,
+      "RejectedTotal": 0,
+      "CompleteRejectedRows": 0,
+      "RowsContainingRejectedRays": 0,
+      "MinimumRejectedRangeM": null,
+      "MaximumRejectedRangeM": null
+    },
+    {
+      "PairID": 2,
+      "Frame": 25,
+      "PositiveReturns": 2744,
+      "RejectedBelow005m": 0,
+      "RejectedAbove200m": 0,
+      "RejectedTotal": 0,
+      "CompleteRejectedRows": 0,
+      "RowsContainingRejectedRays": 0,
+      "MinimumRejectedRangeM": null,
+      "MaximumRejectedRangeM": null
+    },
+    {
+      "PairID": 2,
+      "Frame": 99,
+      "PositiveReturns": 2042,
+      "RejectedBelow005m": 0,
+      "RejectedAbove200m": 0,
+      "RejectedTotal": 0,
+      "CompleteRejectedRows": 0,
+      "RowsContainingRejectedRays": 0,
+      "MinimumRejectedRangeM": null,
+      "MaximumRejectedRangeM": null
+    },
+    {
+      "PairID": 3,
+      "Frame": 0,
+      "PositiveReturns": 4424,
+      "RejectedBelow005m": 2510,
+      "RejectedAbove200m": 0,
+      "RejectedTotal": 2510,
+      "CompleteRejectedRows": 10,
+      "RowsContainingRejectedRays": 10,
+      "MinimumRejectedRangeM": 1.673826631562373e-06,
+      "MaximumRejectedRangeM": 1.6654261692338172e-05
+    },
+    {
+      "PairID": 3,
+      "Frame": 1,
+      "PositiveReturns": 2069,
+      "RejectedBelow005m": 0,
+      "RejectedAbove200m": 0,
+      "RejectedTotal": 0,
+      "CompleteRejectedRows": 0,
+      "RowsContainingRejectedRays": 0,
+      "MinimumRejectedRangeM": null,
+      "MaximumRejectedRangeM": null
+    },
+    {
+      "PairID": 3,
+      "Frame": 25,
+      "PositiveReturns": 2547,
+      "RejectedBelow005m": 0,
+      "RejectedAbove200m": 0,
+      "RejectedTotal": 0,
+      "CompleteRejectedRows": 0,
+      "RowsContainingRejectedRays": 0,
+      "MinimumRejectedRangeM": null,
+      "MaximumRejectedRangeM": null
+    },
+    {
+      "PairID": 3,
+      "Frame": 99,
+      "PositiveReturns": 2038,
+      "RejectedBelow005m": 0,
+      "RejectedAbove200m": 0,
+      "RejectedTotal": 0,
+      "CompleteRejectedRows": 0,
+      "RowsContainingRejectedRays": 0,
+      "MinimumRejectedRangeM": null,
+      "MaximumRejectedRangeM": null
+    }
+  ],
+  "ScientificLimitations": [
+    "The 21x251 arrangement is an indexing interpretation",
+    "Beam angular positions remain unverified",
+    "Identical rejected indices do not identify root cause",
+    "No GroundTruth geometric comparison yet",
+    "No proof of simulator initialization bug"
+  ]
+}

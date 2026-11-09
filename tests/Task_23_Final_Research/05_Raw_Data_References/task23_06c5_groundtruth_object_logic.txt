@@ -1,0 +1,132 @@
+﻿...
+  28: 	//TODO
+  29: 	//auto* proj_frame_offset = staticMapTruth.mutable_proj_frame_offset();
+  30: 	//proj_frame_offset->
+  31: 	auto OSIStationaryObjects = staticMapTruth.mutable_stationary_object();
+  32: 	TArray<AActor*> FoundActors;
+  33: 	UGameplayStatics::GetAllActorsOfClass(WorldContectObject, AActor::StaticClass(), FoundActors);
+  34: 
+  35: 	for (auto actor : FoundActors) {
+  36: 		//TODO Check if static actor
+  37: 		auto stationaryObject = toOSI(actor);
+  38: 		if (stationaryObject->base().has_dimension()){
+  39: 			OSIStationaryObjects->AddAllocated(stationaryObject);
+  40: 	}
+  41: 		else {
+  42: 			UE_LOG(Logger, Log, TEXT("OSI_GroundTruth: Skip object %s for static ground truth."), *actor->GetName());
+  43: 		}
+...
+  67: 		FString pathName = actor->GetClass()->GetPathName();
+  68: 		//UE_LOG(Logger, Warning, TEXT("Ground Truth: %s"), *pathName);
+  69: 
+  70: 		//based on blueprint/class *vehicle*
+  71: 		if (pathName.Contains("vehicle")) {
+  72: 			auto vehicle = groundTruth.add_moving_object();
+  73: 
+  74: 			vehicle->set_model_reference(std::string(TCHAR_TO_UTF8(*actor->GetClass()->GetName())));
+  75: 
+  76: 			auto* id = vehicle->mutable_id();
+  77: 			id->set_value(actor->GetUniqueID());
+  78: 
+  79: 			vehicle->set_type(osi3::MovingObject_Type_TYPE_VEHICLE);
+  80: 
+  81: 			vehicle->set_allocated_base(ToOSI::toOSIBaseMoving(actor));
+  82: 
+  83: 
+  84: 			auto classification = vehicle->mutable_vehicle_classification();
+  85: 			//TODO support trailer
+  86: 			classification->set_has_trailer(false);
+  87: 
+  88: 			classification->set_role(osi3::MovingObject_VehicleClassification_Role_ROLE_CIVIL);
+  89: 
+  90: 			//auto attributes = vehicle->mutable_vehicle_attributes();
+  91: 			//auto frontAxle = attributes->mutable_bbcenter_to_front();
+...
+ 131: 			// parse vehicle lights
+ 132: 			//classification->mutable_light_state();
+ 133: 
+ 134: 		}
+ 135: 		else if (pathName.Contains("pedestrian")) {
+ 136: 			auto pedestrian = groundTruth.add_moving_object();
+ 137: 
+ 138: 			//pedestrian->set_model_reference(walkerActor->GetTypeId());
+ 139: 			//pedestrian->set_allocated_id();
+ 140: 			pedestrian->set_type(osi3::MovingObject_Type_TYPE_PEDESTRIAN);
+ 141: 			//pedestrian->set_allocated_base();
+ 142: 		}
+ 143: 		/*else if (pathName.Contains("traffic_light")) {
+ 144: 			//a osi3::TrafficLight describes a single bulb of a traffic light
+ 145: 
+ 146: 			//add converted bulbs to ground truth
+...
+ 237: 
+ 238: 	for (auto* actor : dynamicObjects) {
+ 239: 		FString pathName = actor->GetClass()->GetPathName();
+ 240: 		//based on blueprint/class *vehicle*
+ 241: 		if (pathName.Contains("vehicle")) {
+ 242: 			auto vehicle = groundTruth.add_moving_object();
+ 243: 
+ 244: 			vehicle->set_model_reference(std::string(TCHAR_TO_UTF8(*actor->GetClass()->GetName())));
+ 245: 
+ 246: 			auto* id = vehicle->mutable_id();
+ 247: 			id->set_value(actor->GetUniqueID());
+ 248: 
+ 249: 			vehicle->set_type(osi3::MovingObject_Type_TYPE_VEHICLE);
+ 250: 
+ 251: 			vehicle->set_allocated_base(ToOSI::toOSIBaseMoving(actor));
+ 252: 
+ 253: 			auto classification = vehicle->mutable_vehicle_classification();
+ 254: 			classification->set_role(osi3::MovingObject_VehicleClassification_Role_ROLE_CIVIL);
+ 255: 			classification->set_type(osi3::MovingObject_VehicleClassification_Type_TYPE_MEDIUM_CAR);
+ 256: 		}
+ 257: 		else if (pathName.Contains("pedestrian")) {
+ 258: 			auto pedestrian = groundTruth.add_moving_object();
+ 259: 
+ 260: 			auto* id = pedestrian->mutable_id();
+ 261: 			id->set_value(actor->GetUniqueID());
+ 262: 			pedestrian->set_type(osi3::MovingObject_Type_TYPE_PEDESTRIAN);
+ 263: 			pedestrian->set_allocated_base(ToOSI::toOSIBaseMoving(actor));
+ 264: 		}
+ 265: 		else if (pathName.Contains("traffic_light")) {
+ 266: 			if (trafficLightGroundTruth.traffic_light_size() != 0)
+ 267: 			{
+ 268: 				continue; //data already merged at the top of this method
+ 269: 			}
+ 270: 			//a osi3::TrafficLight describes a single bulb of a traffic light
+ 271: 
+ 272: 			//add converted bulbs to ground truth
+ 273: 			auto trafficLights = groundTruth.add_traffic_light();
+ 274: 			auto* id = trafficLights->mutable_id();
+ 275: 			id->set_value(actor->GetUniqueID());
+ 276: 			//todo
+ 277: 		}
+ 278: 		else {
+ 279: 			UE_LOG(Logger, Warning, TEXT("OSI_GroundTruth: Not parsed to GroundTruth: %s"), *actor->GetName());
+ 280: 		}
+ 281: 	}
+ 282: 
+ 283: 	//Timestamp
+ 284: 	auto* ts = groundTruth.mutable_timestamp();
+ 285: 	addedTimeDeltaTimes += DeltaTime;
+...
+ 288: 	return groundTruth;
+ 289: }
+ 290: 
+ 291: osi3::StationaryObject* OSI_GroundTruth::toOSI(const AActor* actor) {
+ 292: 	osi3::StationaryObject* prop = new osi3::StationaryObject();
+ 293: 	osi3::BaseStationary* base = ToOSI::toOSIBaseStationary(actor);
+ 294: 	if (base->dimension().length() == 0 && base->dimension().height() == 0 &&base->dimension().width() == 0) {
+ 295: 		base->Clear();
+ 296: 		return prop;
+ 297: 	}
+ 298: 	else {
+ 299: 		prop->set_allocated_base(base);
+ 300: 	}
+ 301: 	osi3::StationaryObject_Classification* classification = prop->mutable_classification();
+ 302: 	//TODO Classification
+ 303: 
+ 304: 	//Use hash of object name for id management of static actors to keep them the same in each session
+ 305: 	prop->mutable_id()->set_value(GetTypeHash(actor->GetName()));
+ 306: 	prop->set_model_reference(std::string(TCHAR_TO_UTF8(*actor->GetClass()->GetName())));
+ 307: 	return prop;
+ 308: }

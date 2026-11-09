@@ -1,0 +1,18 @@
+TASK 23.7AI - RADAR DISPLACEMENT VALIDATION
+Baseline frames: 2393
+Displaced frames: 2168
+Radar configurations identical: True
+Mean absolute displacement residual (m): 2.00801724
+Maximum displacement residual (m): 2.00801724
+
+PER-RAY RESULTS:
+Ray 44: baseline=8.53655 m, moved=8.53655 m, observed change=0.00000 m, expected change=2.00802 m, residual=-2.008017 m
+Ray 45: baseline=8.53655 m, moved=8.53655 m, observed change=0.00000 m, expected change=2.00802 m, residual=-2.008017 m
+Ray 54: baseline=8.53655 m, moved=8.53655 m, observed change=0.00000 m, expected change=2.00802 m, residual=-2.008017 m
+Ray 55: baseline=8.53655 m, moved=8.53655 m, observed change=0.00000 m, expected change=2.00802 m, residual=-2.008017 m
+
+STATUS: DISPLACEMENT_COMPARISON_COMPLETE
+Interpretation is conditional on an unchanged verified Radar pose
+and both sets of rays intersecting the intended cube.
+GroundTruth identity and independent hit-object confirmation pending.
+Deterministic frames are not independent experiments.

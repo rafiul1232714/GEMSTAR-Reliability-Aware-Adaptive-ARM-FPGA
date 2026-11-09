@@ -1,0 +1,2 @@
+TargetLabel,RadarXcm,RadarYcm,RadarZcm,TargetXcm,TargetYcm,TargetZcm,TargetScale,CenterDistanceM,ExpectedSurfaceRangeM,ValidationStatus
+TASK23_CALIBRATION_TARGET_10M,1850.0,2340.0,110.0,2850.0,2340.0,110.0,3,10.0,8.5,NOMINAL_GEOMETRY_ONLY

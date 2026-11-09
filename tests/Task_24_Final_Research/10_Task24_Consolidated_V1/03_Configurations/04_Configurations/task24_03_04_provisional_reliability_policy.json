@@ -1,0 +1,31 @@
+{
+  "task": "24.3.4",
+  "status": "PROVISIONAL_DIAGNOSTIC_POLICY",
+  "frame_count": 372,
+  "freshness": {
+    "CHANGED": "Payload differs from previous frame",
+    "REPEATED": "Payload identical to previous frame",
+    "UNKNOWN_FIRST_FRAME": "No previous frame exists",
+    "limitation": "Changed content does not prove independent acquisition"
+  },
+  "range_candidate": {
+    "minimum_diagnostic_range_m": 0.01,
+    "calibrated": false
+  },
+  "doppler": {
+    "extreme_review_threshold_abs_mps": 70.0,
+    "all_zero_requires_review": true,
+    "extreme_requires_review": true,
+    "automatically_delete_outliers": false,
+    "automatically_invalidate_zero_doppler": false
+  },
+  "identity_leakage": {
+    "lidar_actor_ids": "Evaluation or diagnostics only",
+    "groundtruth_ids": "Evaluation only"
+  },
+  "timing": {
+    "use_recorded_variable_delta_t": true,
+    "independent_acquisition_synchronization": "UNVERIFIED",
+    "automatic_one_frame_correction": false
+  }
+}

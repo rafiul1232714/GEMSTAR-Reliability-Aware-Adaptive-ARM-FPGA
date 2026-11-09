@@ -1,0 +1,58 @@
+TASK 24.8 - THREE-SENSOR ASSOCIATION RESEARCH SUMMARY
+=====================================================
+
+DATASET
+Scenario: C02 Moving Target
+Recording: 20261108T211139Z_sv_380_X_2122_GEMSTAR.osi
+Total recorded frames: 2122
+Sampled Camera frames: 5
+
+CAMERA
+Independent YOLO11s observations available.
+Confidence threshold: 0.15.
+Frame 530 contains three raw detections.
+After exploratory IoU deduplication: two hypotheses.
+Class labels remain uncertain.
+
+CAMERA-LIDAR
+Nominal, uncalibrated projection.
+Frame 530: one depth-consistent Camera-LiDAR candidate.
+Dominant LiDAR group: 51 points in 20-22 m depth bin.
+Other Camera hypothesis rejected by depth-consistency gate.
+
+RADAR
+Frame 530 contains 63 valid returns.
+Radar nominal FoV includes the LiDAR candidate.
+Candidate expected Radar range: approximately 22.175 m.
+Radar returns in 20-25 m range interval: zero.
+Nearest spatial Radar gap: approximately 7 m.
+No Radar return passed the 1.5 m exploratory gate.
+
+MULTI-FRAME READINESS
+Sampled frames: 5
+Camera-positive frames: 1
+Camera-LiDAR candidate rows: 1
+Three-sensor associated rows: 0
+
+CRITICAL LIMITATIONS
+Only frame 530 underwent joint geometric testing.
+Other sampled frames did not undergo LiDAR-Radar association.
+No full-recording temporal track association.
+Camera calibration not quantitatively validated.
+No confirmed three-sensor object track.
+No Camera-based EKF update implemented.
+
+TASK 24.9 INTEGRATION REQUIREMENTS
+Reconstruct measurement inputs from the clean V2 recording.
+Preserve the LiDAR-Radar EKF V3 baseline.
+Allow missing Camera observations.
+Use independently detected Camera bearing only where
+a geometrically validated association exists.
+Never use simulator object IDs as association inputs.
+Do not treat LiDAR projections as independent Camera depth.
+Compare tracking results on identical frame/time samples.
+Evaluate false associations and missed observations.
+Validate measurement uncertainty and gating.
+
+ASSOCIATION_INTERFACE_STATUS=EXPLORATORY_NOT_EKF_READY
+TASK24_08_08_RESEARCH_SUMMARY_COMPLETE

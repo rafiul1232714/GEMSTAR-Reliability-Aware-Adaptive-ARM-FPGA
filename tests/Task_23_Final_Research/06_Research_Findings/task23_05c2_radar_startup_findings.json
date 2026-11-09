@@ -1,0 +1,20 @@
+{
+  "Task": "23.5C-2",
+  "TotalMeasurements": 1600,
+  "PositiveReturns": 544,
+  "HighSpeedFlags": 103,
+  "SteadyStateCandidatePositiveReturns": 237,
+  "FrameQualityPolicy": {
+    "Frame0": "Keep for startup analysis; exclude from steady-state benchmarking",
+    "Frame1": "Keep for Doppler initialization analysis; exclude from steady-state benchmarking",
+    "Frames25And99": "Provisional steady-state candidates, not independently validated detections"
+  },
+  "SourceCodeHypothesis": "SimpleRadar.cpp firstTick branch sets currentVelocity to zero without updating oldPosition; later velocity may be biased.",
+  "ScientificLimitations": [
+    "A high Doppler-equivalent speed is not proof of an implementation bug",
+    "Near-zero ranges require a separate scene-level explanation",
+    "Only four sampled frames per recording were analyzed",
+    "Steady-state candidates are not externally validated",
+    "No performance or energy benefit claimed"
+  ]
+}

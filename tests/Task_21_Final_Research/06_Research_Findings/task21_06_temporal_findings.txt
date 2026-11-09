@@ -1,0 +1,17 @@
+TASK 21.6 - TEMPORAL RADAR ANALYSIS
+
+Analyzed frames: 1-99
+Total candidate returns: 5614
+Minimum returns per frame: 53
+Maximum returns per frame: 63
+Mean returns per frame: 56.7071
+Frames with zero returns: 0
+Large return-count jumps: 0
+Jump threshold: 10.0000 returns
+
+LIMITATIONS
+Frame number is not elapsed time in seconds.
+Return-count changes do not prove sensor faults.
+Scene changes and ray intersections may affect counts.
+No independent object detections verified.
+No processing energy measured.

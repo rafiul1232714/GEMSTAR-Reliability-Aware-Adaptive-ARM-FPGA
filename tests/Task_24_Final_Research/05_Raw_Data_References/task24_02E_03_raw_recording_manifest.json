@@ -1,0 +1,29 @@
+{
+  "task": "24.2",
+  "source": "GEMSTAR OSI recordings",
+  "recording_pair": "20261105T231919Z",
+  "recordings": [
+    {
+      "type": "SensorView",
+      "filename": "20261105T231919Z_sv_380_X_372_GEMSTAR.osi",
+      "absolute_path": "E:\\GEMSTAR_Project\\gemstar\\Output\\20261105T231919Z_sv_380_X_372_GEMSTAR.osi",
+      "size_bytes": 478214726,
+      "sha256": "3d4f1c9957b8d26a11d12570212f54e74007f967acb739dc5ff64799326d8e2b",
+      "frame_count_validated": 372,
+      "preservation_policy": "READ_ONLY_IMMUTABLE"
+    },
+    {
+      "type": "GroundTruth",
+      "filename": "20261105T231919Z_gt_380_X_372_GEMSTAR.osi",
+      "absolute_path": "E:\\GEMSTAR_Project\\gemstar\\Output\\20261105T231919Z_gt_380_X_372_GEMSTAR.osi",
+      "size_bytes": 628956,
+      "sha256": "31cb4c4e113adb7f05c51668922ab8c356d97edbd1ab5af0ea7c2ce2a44dcec9",
+      "frame_count_validated": 372,
+      "preservation_policy": "READ_ONLY_IMMUTABLE"
+    }
+  ],
+  "timestamp_pairs_matched": 372,
+  "three_sensor_frame_count": 372,
+  "raw_files_modified": false,
+  "note": "Hashes identify the source recordings. No raw OSI file is copied or rewritten."
+}

@@ -1,0 +1,65 @@
+{
+  "Task": "23.3D",
+  "Description": "Validated RGB decoding and descriptive camera image statistics",
+  "TotalFrames": 300,
+  "RecordingSummary": [
+    {
+      "PairID": "1",
+      "Frames": 100,
+      "BrightnessMean_Mean": 190.41832595825196,
+      "BrightnessMean_Std": 2.5459394083378055,
+      "ContrastStd_Mean": 26.973153038024904,
+      "ContrastStd_Std": 0.7856357446234336,
+      "DarkPixelPct_Mean": 0.016575520833333333,
+      "DarkPixelPct_Std": 0.07218922916192742,
+      "BrightPixelPct_Mean": 18.697757161458334,
+      "BrightPixelPct_Std": 1.035963527321157,
+      "EdgeStrength_Mean": 4.147399935722351,
+      "EdgeStrength_Std": 0.6060005950352922
+    },
+    {
+      "PairID": "2",
+      "Frames": 100,
+      "BrightnessMean_Mean": 207.9030340576172,
+      "BrightnessMean_Std": 2.739581567464904,
+      "ContrastStd_Mean": 21.035031814575195,
+      "ContrastStd_Std": 0.5906687355682712,
+      "DarkPixelPct_Mean": 0.0,
+      "DarkPixelPct_Std": 0.0,
+      "BrightPixelPct_Mean": 51.081806640625,
+      "BrightPixelPct_Std": 4.741655539826409,
+      "EdgeStrength_Mean": 2.2607982897758485,
+      "EdgeStrength_Std": 0.259106445907146
+    },
+    {
+      "PairID": "3",
+      "Frames": 100,
+      "BrightnessMean_Mean": 190.36200225830078,
+      "BrightnessMean_Std": 2.54761461264997,
+      "ContrastStd_Mean": 26.950478591918944,
+      "ContrastStd_Std": 0.8092240205667158,
+      "DarkPixelPct_Mean": 0.014938151041666667,
+      "DarkPixelPct_Std": 0.07110638658240098,
+      "BrightPixelPct_Mean": 18.670911458333332,
+      "BrightPixelPct_Std": 1.038888298016367,
+      "EdgeStrength_Mean": 4.160580275058746,
+      "EdgeStrength_Std": 0.6009942206149776
+    }
+  ],
+  "Methodology": {
+    "PixelFormat": "OSI RGB_U8_LIN",
+    "Brightness": "Mean weighted RGB intensity",
+    "Contrast": "Std of weighted RGB intensity",
+    "DarkThreshold": 40,
+    "BrightThreshold": 215,
+    "EdgeStrength": "Mean absolute neighboring difference in quarter-resolution grayscale"
+  },
+  "Limitations": [
+    "Metrics are descriptive image statistics",
+    "No object detection accuracy measured",
+    "No verified runtime weather labels",
+    "No reference image quality scores",
+    "No electrical energy measurement",
+    "Frame index is not elapsed time"
+  ]
+}

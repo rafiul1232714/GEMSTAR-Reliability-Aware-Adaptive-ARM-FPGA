@@ -1,0 +1,6 @@
+Workload,EvidenceStatus,InitialDecision,Reason
+Radar frame aggregation,Desktop benchmark available,Low initial priority,Very small measured compute time; transfer overhead may dominate
+LiDAR point filtering,Requires CPU profiling,Potential FPGA candidate,Streaming comparisons may be efficient in hardware
+LiDAR voxel reduction,Requires CPU profiling,Potential FPGA candidate,Potential point-count and bandwidth reduction
+Camera spatial filtering,Requires CPU profiling,Potential FPGA candidate,Regular pixel operations suit pipelined hardware
+Sensor fusion / EKF,Requires quality + CPU profiling,Prefer CPU baseline initially,Association and tracking are control-heavy; validate on CPU first

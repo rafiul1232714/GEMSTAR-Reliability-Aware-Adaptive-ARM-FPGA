@@ -1,0 +1,19 @@
+Pair 1: 
+SV: E:\GEMSTAR_Project\gemstar\Output\20261102T180104Z_sv_380_X_806_GEMSTAR.osi
+GT: E:\GEMSTAR_Project\gemstar\Output\20261102T180104Z_gt_380_X_806_GEMSTAR.osi
+
+Pair 2: 
+SV: E:\GEMSTAR_Project\sensor-health-monitor\data\raw\baseline_fog_working_radar\20261027T152743Z_sv_380_X_794_GEMSTAR.osi
+GT: E:\GEMSTAR_Project\sensor-health-monitor\data\raw\baseline_fog_working_radar\20261027T152743Z_gt_380_X_794_GEMSTAR.osi
+
+Pair 3: 
+SV: E:\GEMSTAR_Project\sensor-health-monitor\data\raw\fog_mor100\20261027T224313Z_sv_380_X_466_GEMSTAR.osi
+GT: E:\GEMSTAR_Project\sensor-health-monitor\data\raw\fog_mor100\20261027T224313Z_gt_380_X_466_GEMSTAR.osi
+
+Pair 4: 
+SV: E:\GEMSTAR_Project\sensor-health-monitor\data\raw\task05_fog_test\20261027T125122Z_sv_380_X_542_GEMSTAR.osi
+GT: E:\GEMSTAR_Project\sensor-health-monitor\data\raw\task05_fog_test\20261027T125122Z_gt_380_X_542_GEMSTAR.osi
+
+Pair 5: 
+SV: E:\GEMSTAR_Project\gemstar\Output\20261027T125122Z_sv_380_X_542_GEMSTAR.osi
+GT: E:\GEMSTAR_Project\gemstar\Output\20261027T125122Z_gt_380_X_542_GEMSTAR.osi

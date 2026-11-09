@@ -1,0 +1,10 @@
+PairID,Frame,ValidLiDARPoints,GroundTruthObjectIDs,UniqueReflectionObjectIDs,MatchedGroundTruthRays,UnmatchedGroundTruthRays,MissingObjectIDRays,HostObjectRays,MatchedFraction
+1,1,2069,2,4,0,2069,0,0,0.0
+1,25,2419,2,5,0,2419,0,0,0.0
+1,99,2035,5,4,0,2035,0,0,0.0
+2,1,2069,2,4,0,2069,0,0,0.0
+2,25,2744,2,5,0,2744,0,0,0.0
+2,99,2042,5,4,0,2042,0,0,0.0
+3,1,2069,2,4,0,2069,0,0,0.0
+3,25,2547,2,5,0,2547,0,0,0.0
+3,99,2038,5,4,0,2038,0,0,0.0

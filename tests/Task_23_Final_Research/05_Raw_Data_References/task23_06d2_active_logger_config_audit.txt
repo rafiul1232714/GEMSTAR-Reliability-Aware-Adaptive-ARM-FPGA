@@ -1,0 +1,113 @@
+﻿TASK 23.6D-2 — LOGGER CONFIGURATION AUDIT
+
+=== CONFIGURATION FILES ===
+E:\GEMSTAR_Project\gemstar\Config\DefaultEngine.ini
+E:\GEMSTAR_Project\gemstar\Config\DefaultGame.ini
+E:\GEMSTAR_Project\gemstar\Intermediate\Build\BuildRules\GEMSTARModuleRulesManifest.json
+E:\GEMSTAR_Project\gemstar\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR\GEMSTAR.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR\GEMSTAR.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Resources\GemstarCameraTest.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Resources\GemstarFeature.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_esmini_feature\Resources\GemstarEsminiTest.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_esmini_feature\Resources\GemstarFeature.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_fmi_feature\Resources\GemstarFeature.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Resources\GemstarFeature.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Resources\GemstarLidarTest.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Resources\GemstarLidarWeatherDegradationTest.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ue_logger_featureRuntime\Module.ue_logger_featureRuntime.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Intermediate\Build\Win64\x64\UnrealEditor\Development\ue_logger_featureRuntime\Module.ue_logger_featureRuntime.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Resources\GemstarFeature.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Resources\GemstarLogTest.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Resources\GemstarFeature.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Resources\GemstarRadarTest.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Resources\GemstarRtLidarTest.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\GemstarFeature.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_sumo_feature\Resources\GemstarSumoTest.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Resources\GemstarFeature.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Resources\GemstarVehicleTest_esmini.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Resources\GemstarVehicleTest_esmini_tsc.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Resources\GemstarVehicleTest_SUMO.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Config\TestGemstar_esmini.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_visualizer_feature\Resources\GemstarFeature.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vru_feature\Resources\GemstarFeature.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_weather_effect_feature\Resources\GemstarFeature.ini
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_weather_effect_feature\Resources\GemstarWeatherTest.ini
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarExperienceDefinition.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarExperienceManagerComponent.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarExperienceSet.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarExperienceTest.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarFeatureConsoleCommands.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarFeatureOptions.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarFeatureOptionsTest.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarGameFeatureSubsystem.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarGameMode.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarGameState.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarHelper.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarInterfacesLog.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GEMSTARManager.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarSensor.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarSimulationSubsystem.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GemstarWorldSettings.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\GEMSTAR_Interfaces.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\Module.GEMSTAR_Interfaces.gen.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\SensorConfigurationData.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\SensorConfigurationDispatcher.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\SensorDataDispatcher.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\SensorDataUpdate.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\GEMSTAR_Interfaces\SensorReflectionData.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarExperienceDefinition.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarExperienceManagerComponent.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarExperienceSet.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarExperienceTest.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarFeatureConsoleCommands.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarFeatureOptions.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarFeatureOptionsTest.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarGameFeatureSubsystem.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarGameMode.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarGameState.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarHelper.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarInterfacesLog.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GEMSTARManager.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarSensor.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarSimulationSubsystem.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GemstarWorldSettings.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\GEMSTAR_Interfaces.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\Module.GEMSTAR_Interfaces.gen.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\SensorConfigurationData.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\SensorConfigurationDispatcher.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\SensorDataDispatcher.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\SensorDataUpdate.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Intermediate\Build\Win64\x64\UnrealEditor\Development\GEMSTAR_Interfaces\SensorReflectionData.cpp.dep.json
+E:\GEMSTAR_Project\gemstar\Resources\Gemstar_Test.ini
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar_backup.ini
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar_before_radar_test.ini
+
+=== LOGGER SETTINGS ===
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Resources\GemstarCameraTest.ini:15: [ue_logger_feature]
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Resources\GemstarCameraTest.ini:16: GroundTruth=true
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Resources\GemstarLidarTest.ini:20: [ue_logger_feature]
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Resources\GemstarLidarTest.ini:22: GroundTruth=true
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Resources\GemstarLidarWeatherDegradationTest.ini:21: [ue_logger_feature]
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_lidar_feature\Resources\GemstarLidarWeatherDegradationTest.ini:23: GroundTruth=true
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Resources\GemstarFeature.ini:1: [ue_logger_feature]
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Resources\GemstarFeature.ini:4: GroundTruth=true
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Resources\GemstarFeature.ini:6: ;OmegaPrime=true
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Resources\GemstarLogTest.ini:1: [ue_logger_feature]
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Resources\GemstarLogTest.ini:3: GroundTruth=true
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Resources\GemstarRadarTest.ini:20: [ue_logger_feature]
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Resources\GemstarRadarTest.ini:22: GroundTruth=true
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Resources\GemstarRtLidarTest.ini:121: [ue_logger_feature]
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Resources\GemstarRtLidarTest.ini:122: ; Also record global OSI GroundTruth: true | false.
+E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_raytracing_lidar_feature\Resources\GemstarRtLidarTest.ini:123: GroundTruth=false
+E:\GEMSTAR_Project\gemstar\Resources\Gemstar_Test.ini:69: [ue_logger_feature]
+E:\GEMSTAR_Project\gemstar\Resources\Gemstar_Test.ini:71: GroundTruth=true
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:95: [ue_logger_feature]
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:99: GroundTruth=true
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:102: ;OmegaPrime=true
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar_backup.ini:62: [ue_logger_feature]
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar_backup.ini:65: GroundTruth=true
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar_backup.ini:67: ;OmegaPrime=true
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar_before_radar_test.ini:71: [ue_logger_feature]
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar_before_radar_test.ini:75: GroundTruth=true
+E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar_before_radar_test.ini:78: ;OmegaPrime=true

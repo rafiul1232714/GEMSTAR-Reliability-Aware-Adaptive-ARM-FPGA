@@ -1,0 +1,10 @@
+PairID,Frame,LiDARPoints,MovingObjects,StationaryObjects,StationaryNearZeroX,InvalidDimensions
+1,1,2069,2,0,0,0
+1,25,2419,2,0,0,0
+1,99,2035,5,0,0,0
+2,1,2069,2,0,0,0
+2,25,2744,2,0,0,0
+2,99,2042,5,0,0,0
+3,1,2069,2,0,0,0
+3,25,2547,2,0,0,0
+3,99,2038,5,0,0,0

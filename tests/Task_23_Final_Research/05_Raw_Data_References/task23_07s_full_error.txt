@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\01_Code\task23_07s_decode_radar.py", line 78, in <module>
+    for cfg in message.radar_sensor_view_configuration:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: radar_sensor_view_configuration

@@ -1,0 +1,4 @@
+MAP=/Game/ResearchValidation/SensorFusionValidationMap
+EXPECTED=Simulation/Task23_12_Camera_Clear.ini
+ACTUAL=Simulation/Task23_12_Camera_Clear.ini
+STATUS=PASS

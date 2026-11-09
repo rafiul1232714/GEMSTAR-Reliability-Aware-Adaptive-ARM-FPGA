@@ -1,0 +1,4 @@
+scenario,frame_index,timestamp_seconds,target_seconds,time_difference_ms,image_path,source_osi
+CLEAR,2,0.189942196,0.2,10.058,E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\08_Processed_Data\Camera_Weather_Comparison\CLEAR_t0200ms.png,E:\GEMSTAR_Project\gemstar\Output\20261105T232522Z_sv_380_X_6865_T23_12_CAMERA_CLEAR.osi
+FOG100,2,0.203151807,0.2,3.152,E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\08_Processed_Data\Camera_Weather_Comparison\FOG100_t0200ms.png,E:\GEMSTAR_Project\gemstar\Output\20261105T233335Z_sv_380_X_6180_T23_12_CAMERA_FOG100.osi
+FOG20,2,0.192329600,0.2,7.670,E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\08_Processed_Data\Camera_Weather_Comparison\FOG20_t0200ms.png,E:\GEMSTAR_Project\gemstar\Output\20261105T234100Z_sv_380_X_7515_T23_12_CAMERA_FOG20.osi

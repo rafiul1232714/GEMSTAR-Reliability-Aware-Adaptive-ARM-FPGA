@@ -1,0 +1,25 @@
+TASK 23.8 - LIDAR CONTROLLED DISPLACEMENT
+Baseline OSI: E:\GEMSTAR_Project\gemstar\Output\20261103T190743Z_sv_380_X_573_GEMSTARLIDARCLEAR23.osi
+Displaced OSI: E:\GEMSTAR_Project\gemstar\Output\20261103T191205Z_sv_380_X_604_GEMSTARLIDARDISPLACED23.osi
+Frames per condition: 10
+Rays per frame: 5271
+Baseline candidates: 1071
+Matching displaced rays: 765
+Median range increase: 2.013944
+Median absolute geometric error: 0.0
+Status: LIDAR_DISPLACEMENT_PASS
+
+Method:
+Compare median distance by identical ray index.
+Candidate selection is based on baseline geometry.
+Expected moved range = baseline range * (10.5 / 8.5).
+A matching ray has absolute range error <= 0.05 m.
+
+Limitations:
+Candidate ray identity is inferred from geometry.
+The two recordings are not time-synchronized.
+This validates controlled simulated range response only.
+It does not establish real-world LiDAR accuracy.
+
+CSV: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\02_CSV_Data\task23_08_lidar_displacement_rays.csv
+Graph: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\03_Graphs\task23_08_lidar_displacement.svg

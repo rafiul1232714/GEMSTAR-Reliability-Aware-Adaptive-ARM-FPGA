@@ -1,0 +1,43 @@
+TASK 24.6.4 - RESEARCH FINDINGS
+================================
+
+PROBLEM:
+Orange/red curved artifacts appeared in Camera images.
+
+V1:
+Visualizer input was disconnected using Input=[].
+Visualizer activation continued.
+Artifacts remained visible.
+
+V2:
+Visualizer INI section removed.
+Visualizer activation not reported in the runtime log.
+Five sampled Camera images showed no orange/red arcs.
+
+SENSOR INTEGRITY:
+2122 Camera image payloads.
+2122 LiDAR reflection payloads.
+2122 Radar reflection payloads.
+
+GROUND TRUTH:
+2122 valid timestamped messages.
+Timestamps strictly increasing.
+Moving objects present in all 2122 messages.
+
+SENSORVIEW - GROUND TRUTH:
+2122 index-matched timestamp pairs.
+Maximum timestamp difference: 0 ms.
+P99 timestamp difference: 0 ms.
+
+CONCLUSION:
+The evidence strongly supports GEMSTAR visualization
+as the source of the observed Camera artifacts.
+
+LIMITATIONS:
+Only five V2 Camera images were visually inspected.
+V1 and V2 recordings were not frame-matched.
+Sensor measurement accuracy was not established.
+Internal acquisition delays were not independently measured.
+
+ORIGINAL DATA:
+Unmodified. Raw OSI files remain in GEMSTAR Output.

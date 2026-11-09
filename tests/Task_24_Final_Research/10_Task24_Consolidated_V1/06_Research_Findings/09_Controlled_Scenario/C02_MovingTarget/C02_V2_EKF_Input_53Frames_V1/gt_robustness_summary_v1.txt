@@ -1,0 +1,79 @@
+TASK 24.10.4 - ROBUSTNESS AND ERROR DISTRIBUTION
+==========================================================
+Evaluated frames: 23
+Reference: Ground Truth object center in ego frame
+Ego-unavailable frame 0 excluded
+
+CENTER ERROR DISTRIBUTION
+LiDAR-only
+  Mean (m): 1.650417
+  Median (m): 1.725230
+  P95 (m): 1.847546
+  Maximum (m): 1.895988
+
+LiDAR-Radar
+  Mean (m): 1.628205
+  Median (m): 1.708158
+  P95 (m): 1.770550
+  Maximum (m): 1.816246
+
+Three-sensor
+  Mean (m): 1.628213
+  Median (m): 1.708158
+  P95 (m): 1.770550
+  Maximum (m): 1.816246
+
+ALL EVALUATED FRAMES
+  Frames: 23
+  Mean Radar improvement (m): 0.0222116
+  Median Radar improvement (m): 0.0000000
+  Radar improved frames: 11
+  Radar worsened frames: 6
+  Radar approximately unchanged: 6
+  Mean Camera improvement (m): -0.0000084
+
+BEFORE CAMERA
+  Frames: 12
+  Mean Radar improvement (m): 0.0395140
+  Median Radar improvement (m): 0.0000000
+  Radar improved frames: 5
+  Radar worsened frames: 2
+  Radar approximately unchanged: 5
+  Mean Camera improvement (m): 0.0000000
+
+CAMERA FRAME AND AFTER
+  Frames: 11
+  Mean Radar improvement (m): 0.0033362
+  Median Radar improvement (m): 0.0000047
+  Radar improved frames: 6
+  Radar worsened frames: 4
+  Radar approximately unchanged: 1
+  Mean Camera improvement (m): -0.0000175
+
+FRAMES WITH ACCEPTED RADAR UPDATES
+  Frames: 4
+  Mean Radar improvement (m): 0.1085542
+  Median Radar improvement (m): 0.1241437
+  Radar improved frames: 4
+  Radar worsened frames: 0
+  Radar approximately unchanged: 0
+  Mean Camera improvement (m): -0.0000011
+
+GROUND TRUTH GEOMETRY
+  Length min/max (m): 1.17333 / 2.16873
+  Width min/max (m): 1.73703 / 2.16488
+  Relative yaw min/max (deg): -0.181 / 72.842
+  Mean approximate rear-face error (m): 0.639567
+
+INTERPRETATION LIMITATIONS
+Rear-face comparison is not a calibrated surface-accuracy metric.
+Recorded dimensions vary and need source-level explanation.
+Only one recording and one provisional target track were evaluated.
+The 23 samples are temporally correlated, not independent trials.
+Noise covariance assumptions are uncalibrated.
+No full covariance consistency test (NEES) is performed.
+No velocity Ground Truth accuracy test is performed.
+No full-rate tracking or independent scenario replication.
+No energy or hardware measurements are part of this task.
+
+TASK24_10_04_ROBUSTNESS_COMPLETE

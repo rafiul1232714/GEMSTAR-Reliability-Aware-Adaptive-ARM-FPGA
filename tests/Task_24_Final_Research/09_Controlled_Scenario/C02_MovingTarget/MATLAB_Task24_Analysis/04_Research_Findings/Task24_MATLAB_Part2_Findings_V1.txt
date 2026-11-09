@@ -1,0 +1,46 @@
+TASK 24 - MATLAB ADVANCED ANALYSIS
+===================================
+
+Evaluated frames: 23
+All estimators use the same GT frames.
+
+LiDAR-only
+Mean center error: 1.650417 m
+2D RMSE: 1.663585 m
+P95 center error: 1.847546 m
+Maximum error: 1.895988 m
+
+LiDAR-Radar
+Mean center error: 1.628205 m
+2D RMSE: 1.640300 m
+P95 center error: 1.770550 m
+Maximum error: 1.816246 m
+
+Three-sensor
+Mean center error: 1.628213 m
+2D RMSE: 1.640308 m
+P95 center error: 1.770550 m
+Maximum error: 1.816246 m
+
+RADAR CONTRIBUTION
+Mean improvement: 0.022212 m
+Relative mean improvement: 1.346 %
+Improved frames: 11
+Worsened frames: 6
+Approximately unchanged frames: 6
+
+CAMERA CONTRIBUTION
+Mean improvement: -0.000008368 m
+Frame 530 improvement: -0.000367956 m
+
+GEOMETRIC LIMITATIONS
+Center-reference errors include potential surface-to-center mismatch.
+Approximate rear-face reference is not a validated physical reference.
+Ground Truth target dimensions vary during the recording.
+
+STATISTICAL LIMITATIONS
+One recording, one tracked target.
+Only 23 valid reference-aligned samples.
+Measurements are temporally correlated.
+No statistical generalization is claimed.
+No GT measurements were used to update the EKF.

@@ -1,0 +1,23 @@
+TASK 24 - GT VELOCITY EVALUATION V1
+========================================================
+Evaluated matched frames: 23
+GT target ID: 76897
+GT raw velocity divided by 100 (cm/s to m/s).
+GT velocity rotated using ego yaw recorded for each frame.
+Ego assumed stationary; full ego-motion validation pending.
+
+LiDAR-only mean 2D velocity error (m/s): 1.504483
+LiDAR-only 2D velocity RMSE (m/s): 1.688990
+LiDAR-Radar mean 2D velocity error (m/s): 1.465717
+LiDAR-Radar 2D velocity RMSE (m/s): 1.646969
+Radar minus LiDAR mean velocity error (m/s): -0.038766
+GT reported-velocity vs center finite-difference median discrepancy (m/s): 1.783784
+
+LIMITATIONS:
+GT exporter records axis-aligned bounding-box center for position.
+GT exporter records actor GetVelocity for velocity.
+Thus position-derived and actor velocity references may differ.
+Track 2 is provisional though all 23 frames passed GT nearest-center audit.
+Surface measurements need not have the same motion as GT actor center.
+No GT velocity was used to update the EKF.
+Only one recording and temporally correlated frames were evaluated.

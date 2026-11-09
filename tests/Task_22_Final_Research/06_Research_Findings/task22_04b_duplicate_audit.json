@@ -1,0 +1,36 @@
+{
+  "Task": "22.4B",
+  "PreviouslyTestedPairs": 5,
+  "UniqueFilenamePairIdentities": 4,
+  "SuspectedRepeatedGroups": 1,
+  "ConfirmedDuplicateEntriesExcluded": 1,
+  "RetainedEntries": 4,
+  "AuditedRecords": [
+    {
+      "PairID": "4",
+      "ScenarioFolder": "E:\\GEMSTAR_Project\\sensor-health-monitor\\data\\raw\\task05_fog_test",
+      "SensorViewFilename": "20261027T125122Z_sv_380_X_542_GEMSTAR.osi",
+      "GroundTruthFilename": "20261027T125122Z_gt_380_X_542_GEMSTAR.osi",
+      "SensorViewExists": true,
+      "GroundTruthExists": true,
+      "SensorViewSHA256": "a952105794899e5ef718c0e66d8d5498cf2b4ebb24d4f94fed0d863d325d71d9",
+      "GroundTruthSHA256": "708be763c00b67cb03ed075704ca1098829b82069af8574210c5f1b2cd147751"
+    },
+    {
+      "PairID": "5",
+      "ScenarioFolder": "E:\\GEMSTAR_Project\\gemstar\\Output",
+      "SensorViewFilename": "20261027T125122Z_sv_380_X_542_GEMSTAR.osi",
+      "GroundTruthFilename": "20261027T125122Z_gt_380_X_542_GEMSTAR.osi",
+      "SensorViewExists": true,
+      "GroundTruthExists": true,
+      "SensorViewSHA256": "a952105794899e5ef718c0e66d8d5498cf2b4ebb24d4f94fed0d863d325d71d9",
+      "GroundTruthSHA256": "708be763c00b67cb03ed075704ca1098829b82069af8574210c5f1b2cd147751"
+    }
+  ],
+  "Limitations": [
+    "SHA256 was computed only for repeated filename pairs",
+    "Distinct filenames do not guarantee distinct content",
+    "Distinct recordings do not establish distinct maps",
+    "No full-dataset metadata verification performed"
+  ]
+}

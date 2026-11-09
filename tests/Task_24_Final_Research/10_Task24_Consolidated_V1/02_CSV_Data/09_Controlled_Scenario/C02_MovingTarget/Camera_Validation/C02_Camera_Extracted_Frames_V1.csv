@@ -1,0 +1,6 @@
+requested_time_s,record_time_s,record_index,width,height,payload_bytes,rgb_file,bgr_file,color_order_confirmed,target_detected
+6.0,6.014871,125,640,480,921600,C02_Camera_t06_RGB.png,C02_Camera_t06_BGR.png,NO,NOT_TESTED
+9.0,9.029989,196,640,480,921600,C02_Camera_t09_RGB.png,C02_Camera_t09_BGR.png,NO,NOT_TESTED
+15.0,15.024766,342,640,480,921600,C02_Camera_t15_RGB.png,C02_Camera_t15_BGR.png,NO,NOT_TESTED
+20.0,20.002697,463,640,480,921600,C02_Camera_t20_RGB.png,C02_Camera_t20_BGR.png,NO,NOT_TESTED
+25.0,25.015462,584,640,480,921600,C02_Camera_t25_RGB.png,C02_Camera_t25_BGR.png,NO,NOT_TESTED

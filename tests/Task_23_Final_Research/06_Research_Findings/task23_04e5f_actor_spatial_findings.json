@@ -1,0 +1,50 @@
+{
+  "Task": "23.4E-5F",
+  "Status": "ACTOR_ID_SPATIAL_REPEATABILITY_AUDIT",
+  "TotalValidPoints": 20032,
+  "UniqueActorIDs": 5,
+  "ActorObservations": 39,
+  "Frame1CrossRecordingComparisons": [
+    {
+      "PairA": 1,
+      "PairB": 2,
+      "Frame": 1,
+      "CommonRayIndices": 2069,
+      "MatchingActorIDs": 2069,
+      "ActorIDAgreementFraction": 1.0,
+      "HostPositionDifferenceM": 0.0,
+      "MedianPointDifferenceM": 0.0,
+      "MaximumPointDifferenceM": 0.0
+    },
+    {
+      "PairA": 1,
+      "PairB": 3,
+      "Frame": 1,
+      "CommonRayIndices": 2069,
+      "MatchingActorIDs": 2069,
+      "ActorIDAgreementFraction": 1.0,
+      "HostPositionDifferenceM": 0.0,
+      "MedianPointDifferenceM": 0.0,
+      "MaximumPointDifferenceM": 0.0
+    },
+    {
+      "PairA": 2,
+      "PairB": 3,
+      "Frame": 1,
+      "CommonRayIndices": 2069,
+      "MatchingActorIDs": 2069,
+      "ActorIDAgreementFraction": 1.0,
+      "HostPositionDifferenceM": 0.0,
+      "MedianPointDifferenceM": 0.0,
+      "MaximumPointDifferenceM": 0.0
+    }
+  ],
+  "Limitations": [
+    "Repeated actor IDs do not prove actor stationarity",
+    "World rotation convention is still provisional",
+    "Centroids depend on visibility and sampled surfaces",
+    "Same-frame agreement is simulation repeatability",
+    "No independent target-surface accuracy tested",
+    "No real-sensor performance or energy measured"
+  ]
+}

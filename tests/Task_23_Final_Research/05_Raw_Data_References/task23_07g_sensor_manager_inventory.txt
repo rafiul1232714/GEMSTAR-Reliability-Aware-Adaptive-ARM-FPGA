@@ -1,0 +1,6 @@
+TASK 23.7G — SENSOR MANAGER INVENTORY
+Map: /Game/ResearchValidation/SensorFusionValidationMap
+Total actors: 30
+
+=== RELEVANT ACTORS ===
+SimpleRadar_ConfiguredByBlueprint | Class=SimpleRadar | X=1850.00, Y=2340.00, Z=110.00

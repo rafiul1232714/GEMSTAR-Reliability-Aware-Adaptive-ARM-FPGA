@@ -1,0 +1,18 @@
+=== TASK 23.8 — CLEAR VS FOG LIDAR ===
+Frames per recording: 10
+Reflections per frame: 5271
+Clear valid rays/frame (mean): 5090.0
+Fog valid rays/frame (mean): 5090.0
+Clear minimum range/frame (mean): 8.5025 m
+Fog minimum range/frame (mean): 8.5025 m
+Paired valid reflections: 50900
+Median paired (fog - clear) range: 0.000000 m
+
+Interpretation:
+This is a diagnostic comparison of independently recorded
+frames, matched by ray index, not timestamp-synchronized
+sensor observations. Geometry, validity, and weather model
+effects must be assessed before drawing causal conclusions.
+
+CSV: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\02_CSV_Data\task23_08_clear_fog_comparison.csv
+Status: CLEAR_FOG_COMPARISON_GENERATED

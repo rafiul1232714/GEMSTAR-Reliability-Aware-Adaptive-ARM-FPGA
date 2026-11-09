@@ -1,0 +1,10 @@
+﻿TASK 23.9 - CAMERA BASELINE
+Status: CAMERA_OSI_CAPTURED
+Original map restored: True
+Camera resolution: 640x480
+Expected RGB image bytes per frame: 921600
+Runtime log: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\05_Raw_Data_References\task23_09_camera_runtime.log
+
+OSI files:
+E:\GEMSTAR_Project\gemstar\Output\20261103T194105Z_sv_380_X_55_GEMSTARCAMERACLEAR23.osi | 50695189 bytes
+E:\GEMSTAR_Project\gemstar\Output\20261103T194105Z_gt_380_X_55_GEMSTARCAMERACLEAR23.osi | 31321 bytes

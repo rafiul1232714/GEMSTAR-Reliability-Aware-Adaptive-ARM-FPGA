@@ -1,0 +1,97 @@
+{
+  "Task": "23.4E-4D",
+  "Status": "SOURCE_CONVENTION_VALIDATED",
+  "Implementation": "ToOSI.cpp",
+  "CoordinateRule": {
+    "X": "Preserved",
+    "Y": "Negated",
+    "Z": "Preserved",
+    "PositionUnits": "metres",
+    "MountingRotation": "Zero in tested data"
+  },
+  "SelectedHypothesis": "Inverted Y",
+  "RejectedHypothesis": "Unreal Y unchanged",
+  "Samples": [
+    {
+      "PairID": 1,
+      "Frame": 1,
+      "Points": 2069,
+      "CoordinateErrorM": 0.0,
+      "RangeErrorM": 1.7763568394002505e-15,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 1,
+      "Frame": 25,
+      "Points": 2419,
+      "CoordinateErrorM": 0.0,
+      "RangeErrorM": 3.552713678800501e-15,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 1,
+      "Frame": 99,
+      "Points": 2035,
+      "CoordinateErrorM": 0.0,
+      "RangeErrorM": 3.552713678800501e-15,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 2,
+      "Frame": 1,
+      "Points": 2069,
+      "CoordinateErrorM": 0.0,
+      "RangeErrorM": 1.7763568394002505e-15,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 2,
+      "Frame": 25,
+      "Points": 2744,
+      "CoordinateErrorM": 0.0,
+      "RangeErrorM": 3.552713678800501e-15,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 2,
+      "Frame": 99,
+      "Points": 2042,
+      "CoordinateErrorM": 0.0,
+      "RangeErrorM": 3.552713678800501e-15,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 3,
+      "Frame": 1,
+      "Points": 2069,
+      "CoordinateErrorM": 0.0,
+      "RangeErrorM": 1.7763568394002505e-15,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 3,
+      "Frame": 25,
+      "Points": 2547,
+      "CoordinateErrorM": 0.0,
+      "RangeErrorM": 3.552713678800501e-15,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 3,
+      "Frame": 99,
+      "Points": 2038,
+      "CoordinateErrorM": 0.0,
+      "RangeErrorM": 3.552713678800501e-15,
+      "ValidationPass": true
+    }
+  ],
+  "TotalPoints": 20032,
+  "MaximumNumericalErrorM": 3.552713678800501e-15,
+  "Limitations": [
+    "Source revision at recording time not proven",
+    "No world-coordinate pose applied",
+    "GroundTruth geometric accuracy not tested",
+    "Stationary GroundTruth conversion needs audit",
+    "No measured perception accuracy or energy"
+  ]
+}

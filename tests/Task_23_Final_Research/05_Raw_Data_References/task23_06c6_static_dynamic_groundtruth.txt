@@ -1,0 +1,160 @@
+﻿
+=== SOURCE LINES 1-65 ===
+   1: /*
+   2:  * Copyright (c) 2026 DLR e.V.
+   3:  *
+   4:  * This program and the accompanying materials are made
+   5:  * available under the terms of the Eclipse Public License 2.0
+   6:  * which is available at https://www.eclipse.org/legal/epl-2.0/
+   7:  *
+   8:  * SPDX-License-Identifier: EPL-2.0
+   9:  */
+  10: 
+  11: #include "OSI_GroundTruth.h"
+  12: 
+  13: OSI_GroundTruth::OSI_GroundTruth()
+  14: {
+  15: }
+  16: 
+  17: OSI_GroundTruth::~OSI_GroundTruth()
+  18: {
+  19: }
+  20: 
+  21: void OSI_GroundTruth::parseStationaryMapObjects(const UObject* WorldContectObject)
+  22: {
+  23: 	staticMapTruth.set_country_code(276);//Default: Germany, USA = 840
+  24: 	auto* version = staticMapTruth.mutable_version();
+  25: 	version->set_version_major(OSI_VERSION_MAJOR);
+  26: 	version->set_version_minor(OSI_VERSION_MINOR);
+  27: 	version->set_version_patch(OSI_VERSION_PATCH);
+  28: 	//TODO
+  29: 	//auto* proj_frame_offset = staticMapTruth.mutable_proj_frame_offset();
+  30: 	//proj_frame_offset->
+  31: 	auto OSIStationaryObjects = staticMapTruth.mutable_stationary_object();
+  32: 	TArray<AActor*> FoundActors;
+  33: 	UGameplayStatics::GetAllActorsOfClass(WorldContectObject, AActor::StaticClass(), FoundActors);
+  34: 
+  35: 	for (auto actor : FoundActors) {
+  36: 		//TODO Check if static actor
+  37: 		auto stationaryObject = toOSI(actor);
+  38: 		if (stationaryObject->base().has_dimension()){
+  39: 			OSIStationaryObjects->AddAllocated(stationaryObject);
+  40: 	}
+  41: 		else {
+  42: 			UE_LOG(Logger, Log, TEXT("OSI_GroundTruth: Skip object %s for static ground truth."), *actor->GetName());
+  43: 		}
+  44: 	}
+  45: 	auto OSITrafficSigns = staticMapTruth.mutable_traffic_sign();
+  46: 	//TODO Traffic Signs
+  47: 
+  48: 	UE_LOG(Logger, Log, TEXT("OSI_GroundTruth: Finished parsing of stationary map objects."));
+  49: }
+  50: 
+  51: void OSI_GroundTruth::saveTrafficLightData(FGroundTruthWrapper& trafficLightData) {
+  52: 	trafficLightGroundTruth.CopyFrom(*trafficLightData.gt);
+  53: }
+  54: 
+  55: osi3::GroundTruth OSI_GroundTruth::parseWorldToGroundTruth(const UObject* WorldContectObject, const TArray<AActor*>& dynamicObjects, const float DeltaTime)
+  56: {
+  57: 	// use staticMapTruth as a base for every new groundTruth message that already contains unchanging fields
+  58: 	osi3::GroundTruth groundTruth = osi3::GroundTruth();
+  59: 	if (!staticInformationisLoggedOneTime)
+  60: 	{
+  61: 		groundTruth.MergeFrom(staticMapTruth);
+  62: 		staticInformationisLoggedOneTime = true;
+  63: 	}
+  64: 	groundTruth.MergeFrom(trafficLightGroundTruth);
+  65: 
+
+=== SOURCE LINES 180-242 ===
+ 180: osi3::GroundTruth OSI_GroundTruth::parseOmegaPrimeToGroundTruth(const UObject* WorldContectObject, const TArray<AActor*>& dynamicObjects, const float DeltaTime)
+ 181: {
+ 182: 
+ 183: 	/*
+ 184: 	https://ika-rwth-aachen.github.io/omega-prime/omega_prime_specification/#note-on-field-presence-in-protobuf
+ 185: 	map_reference	str	Content depends on the chosen map association option (see 'OMEGA-PRIME Format Specification').
+ 186: 	country_code	int [3 digit ISO country code (e.g. germany=276,usa=840)].
+ 187: 	version	InterfaceVersion
+ 188: 	. version_major	int
+ 189: 	. version_minor	int
+ 190: 	. version_patch	int
+ 191: 	proj_frame_offset	GroundTruthProjFrameOffset	0,2 m
+ 192: 	. position	Vector3D	0,2 m
+ 193: 	. yaw	float	0,035 rad (2ï¿½)
+ 194: 	proj_string	str [PROJ coordinate transformation software library] Mandatory for real world data; Can be omitted for simulation data.
+ 195: 	timestamp	Timestamp (total time is combination of seconds and nanos)
+ 196: 	. nanos	int
+ 197: 	. seconds	int
+ 198: 	host_vehicle_id	Identifier
+ 199: 	. value	int
+ 200: 	moving_object	list[MovingObject]
+ 201: 	. id	Identifier
+ 202: 	. . value	int
+ 203: 	. base	BaseMoving
+ 204: 	. . dimension	Dimension3D
+ 205: 	. . . x	float [m]	0,2 m
+ 206: 	. . . y	float [m]	0,2 m
+ 207: 	. . . z	float [m]	0,2 m
+ 208: 	. . position	Vector3D
+ 209: 	. . . x	float [m]	0,2 m
+ 210: 	. . . y	float [m]	0,2 m
+ 211: 	. . . z	float [m]	0,2 m
+ 212: 	. . orientation	Orientation3D
+ 213: 	. . . roll	float [rad]	0,035 rad (2ï¿½)
+ 214: 	. . . pitch	float [rad]	0,035 rad (2ï¿½)
+ 215: 	. . . yaw	float [rad]	0,035 rad (2ï¿½)
+ 216: 	. . velocity	Vector3D	0,1 m/s
+ 217: 	. . acceleration	Vector3D	0,1 m/s^2
+ 218: 	. type
+ 219: 	MovingObjectType (Other, Vehicle, Pedestrian, Animal)
+ 220: 	. vehicle_classification	MovingObjectVehicleClassification
+ 221: 	. . type	MovingObjectVehicleClassificationType (Other, car, delivery van, semitrailer, trailer, motorbike, bicycle, bus, tram, train, wheelchair, standup scooter)
+ 222: 	. . role	MovingObjectVehicleClassificationRole (Other, civil, ambulance, fire, police, public transport, road assistance, garbage collectin, road construction, military)
+ 223: 	traffic_light	list[TrafficLight]
+ 224: 	. id	Identifier
+ 225: 	. . value	int
+ 226: 	. base (optional)	BaseStationary The position of traffic lights is given in the associated OpenDRIVE map file. If optionally given in the OSI message, it must match the corresponding data in the map file. The association between OSI and OpenDRIVE objects is established using the 'source_reference' field.
+ 227: 	. classification	TrafficLightClassification
+ 228: 	. . color	TrafficLightClassificationColor (Other, red, yellow, green, blue, white)
+ 229: 	. . icon	TrafficLightClassificationIcon (Other, none, arrow_straight_ahead, arrow_left, arrow_diag_left, arrow_straight_ahead_left, arrow_right, ...)
+ 230: 	. . mode	TrafficLightClassificationMode (Other, off, constant, flashing, counting)
+ 231: 	. . counter	float
+ 232: 	. . is_out_of_servcie	bool
+ 233: 	. source_reference	list[ExternalReference]	The source reference maps the dynamic OSI traffic light information to the static traffic light information in the OpenDRIVE map.
+ 234: 	*/
+ 235: 	osi3::GroundTruth groundTruth = osi3::GroundTruth();
+ 236: 	groundTruth.MergeFrom(trafficLightGroundTruth);
+ 237: 
+ 238: 	for (auto* actor : dynamicObjects) {
+ 239: 		FString pathName = actor->GetClass()->GetPathName();
+ 240: 		//based on blueprint/class *vehicle*
+ 241: 		if (pathName.Contains("vehicle")) {
+ 242: 			auto vehicle = groundTruth.add_moving_object();
+
+=== SOURCE LINES 283-308 ===
+ 283: 	//Timestamp
+ 284: 	auto* ts = groundTruth.mutable_timestamp();
+ 285: 	addedTimeDeltaTimes += DeltaTime;
+ 286: 	ts->set_seconds(addedTimeDeltaTimes);
+ 287: 	ts->set_nanos((addedTimeDeltaTimes - (uint32_t)addedTimeDeltaTimes) * 1000000000);
+ 288: 	return groundTruth;
+ 289: }
+ 290: 
+ 291: osi3::StationaryObject* OSI_GroundTruth::toOSI(const AActor* actor) {
+ 292: 	osi3::StationaryObject* prop = new osi3::StationaryObject();
+ 293: 	osi3::BaseStationary* base = ToOSI::toOSIBaseStationary(actor);
+ 294: 	if (base->dimension().length() == 0 && base->dimension().height() == 0 &&base->dimension().width() == 0) {
+ 295: 		base->Clear();
+ 296: 		return prop;
+ 297: 	}
+ 298: 	else {
+ 299: 		prop->set_allocated_base(base);
+ 300: 	}
+ 301: 	osi3::StationaryObject_Classification* classification = prop->mutable_classification();
+ 302: 	//TODO Classification
+ 303: 
+ 304: 	//Use hash of object name for id management of static actors to keep them the same in each session
+ 305: 	prop->mutable_id()->set_value(GetTypeHash(actor->GetName()));
+ 306: 	prop->set_model_reference(std::string(TCHAR_TO_UTF8(*actor->GetClass()->GetName())));
+ 307: 	return prop;
+ 308: }

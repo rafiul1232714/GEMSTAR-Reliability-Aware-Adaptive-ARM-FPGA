@@ -1,0 +1,9 @@
+﻿TASK 23.8 - LIDAR BASELINE
+Status: LIDAR_OSI_CAPTURED
+Original map restored: True
+LiDAR configuration: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\04_Configurations\task23_08_lidar_only_calibration.ini
+Runtime log: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\05_Raw_Data_References\task23_08_lidar_baseline_runtime.log
+
+New OSI files:
+E:\GEMSTAR_Project\gemstar\Output\20261103T190206Z_sv_380_X_336_GEMSTARLIDAR23.osi | 113810844 bytes
+E:\GEMSTAR_Project\gemstar\Output\20261103T190206Z_gt_380_X_336_GEMSTARLIDAR23.osi | 268796 bytes

@@ -1,0 +1,90 @@
+{
+  "Task": "22.6",
+  "RecordingPairsRequested": 4,
+  "RecordingPairsProcessed": 4,
+  "FramesProcessed": 400,
+  "Errors": [],
+  "Summaries": [
+    {
+      "PairID": "1",
+      "Recording": "20261102T180104Z_sv_380_X_806_GEMSTAR.osi",
+      "Frames": 100,
+      "CameraEntryFrames": 100,
+      "CameraImageDataFrames": 100,
+      "LiDAREntryFrames": 100,
+      "LiDARReflectionFrames": 100,
+      "RadarEntryFrames": 100,
+      "PositiveRadarFrames": 100,
+      "TotalLiDARReflections": 527100,
+      "TotalPositiveRadarReturns": 5696,
+      "TimestampMatches": 100,
+      "MedianMessageIntervalMs": 31.1369,
+      "MaxMessageIntervalMs": 63.736796,
+      "MedianGTMovingObjects": 3.0
+    },
+    {
+      "PairID": "2",
+      "Recording": "20261027T152743Z_sv_380_X_794_GEMSTAR.osi",
+      "Frames": 100,
+      "CameraEntryFrames": 100,
+      "CameraImageDataFrames": 100,
+      "LiDAREntryFrames": 100,
+      "LiDARReflectionFrames": 100,
+      "RadarEntryFrames": 100,
+      "PositiveRadarFrames": 100,
+      "TotalLiDARReflections": 527100,
+      "TotalPositiveRadarReturns": 3008,
+      "TimestampMatches": 100,
+      "MedianMessageIntervalMs": 32.892603,
+      "MaxMessageIntervalMs": 101.1291,
+      "MedianGTMovingObjects": 3.0
+    },
+    {
+      "PairID": "3",
+      "Recording": "20261027T224313Z_sv_380_X_466_GEMSTAR.osi",
+      "Frames": 100,
+      "CameraEntryFrames": 100,
+      "CameraImageDataFrames": 100,
+      "LiDAREntryFrames": 100,
+      "LiDARReflectionFrames": 100,
+      "RadarEntryFrames": 100,
+      "PositiveRadarFrames": 100,
+      "TotalLiDARReflections": 527100,
+      "TotalPositiveRadarReturns": 3008,
+      "TimestampMatches": 100,
+      "MedianMessageIntervalMs": 32.4127,
+      "MaxMessageIntervalMs": 63.177496,
+      "MedianGTMovingObjects": 3.0
+    },
+    {
+      "PairID": "4",
+      "Recording": "20261027T125122Z_sv_380_X_542_GEMSTAR.osi",
+      "Frames": 100,
+      "CameraEntryFrames": 0,
+      "CameraImageDataFrames": 0,
+      "LiDAREntryFrames": 0,
+      "LiDARReflectionFrames": 0,
+      "RadarEntryFrames": 100,
+      "PositiveRadarFrames": 0,
+      "TotalLiDARReflections": 0,
+      "TotalPositiveRadarReturns": 0,
+      "TimestampMatches": 100,
+      "MedianMessageIntervalMs": 44.3101,
+      "MaxMessageIntervalMs": 116.460294,
+      "MedianGTMovingObjects": 4.0
+    }
+  ],
+  "GraphsCreated": [
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_22_Final_Research\\03_Graphs\\task22_06_sensor_coverage.png",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_22_Final_Research\\03_Graphs\\task22_06_message_timing.png"
+  ],
+  "ScientificLimitations": [
+    "First 100 frames only",
+    "Image bytes present does not prove valid image decoding",
+    "LiDAR reflection count does not establish geometric accuracy",
+    "Positive radar returns do not establish object detection",
+    "Recorded-message intervals are not CPU or FPGA latency",
+    "Folder names do not establish verified scenario conditions",
+    "No energy or perception accuracy measurement"
+  ]
+}

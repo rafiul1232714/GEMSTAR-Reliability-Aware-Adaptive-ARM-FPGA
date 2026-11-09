@@ -1,0 +1,25 @@
+﻿TASK 22.1 - MULTI-SCENARIO OSI INVENTORY
+
+Objective:
+Discover existing GEMSTAR OSI recordings for reusable
+multi-scenario processing.
+
+SensorView files: 27
+GroundTruth files: 26
+Unknown files: 0
+Total files: 53
+
+Dataset source locations:
+E:\GEMSTAR_Project\sensor-health-monitor\data\raw
+E:\GEMSTAR_Project\gemstar\Output
+
+Scientific limitations:
+- Filename type classification is preliminary.
+- No OSI payload validity has been checked.
+- No SensorView/GroundTruth pairs verified.
+- Scenario folder is not proof of exact weather or map.
+- SHA256 checksums not yet computed.
+- No sensor accuracy or electrical energy measured.
+
+Next:
+Task 22.2 - Reusable Python OSI reader.

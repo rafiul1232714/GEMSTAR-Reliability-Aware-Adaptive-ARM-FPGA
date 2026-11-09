@@ -1,0 +1,13 @@
+Test,ExpectedAccept,ActualAccept,ErrorType,RangeM,Result
+VALID_BASELINE,True,True,,8.536548578192942,PASS
+VALID_DISPLACED,True,True,,10.545148530960615,PASS
+ZERO_TOF,False,False,ValueError,,PASS
+NEGATIVE_TOF,False,False,ValueError,,PASS
+ZERO_STRENGTH,False,False,ValueError,,PASS
+NEGATIVE_STRENGTH,False,False,ValueError,,PASS
+NAN_TOF,False,False,ValueError,,PASS
+INFINITE_TOF,False,False,ValueError,,PASS
+NAN_STRENGTH,False,False,ValueError,,PASS
+MISSING_TOF,False,False,TypeError,,PASS
+STRING_TOF,False,False,TypeError,,PASS
+BOOLEAN_TOF,False,False,ValueError,,PASS

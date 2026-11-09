@@ -1,0 +1,12 @@
+TASK 23.11.D - CLEAR LIDAR RANGE VARIABILITY
+Frames: 573
+Unique coverage values: 1
+Unique median range values: 1
+Minimum median range: 13.266293947 m
+Maximum median range: 13.266293947 m
+Median range standard deviation: 0.000000000 m
+Minimum range standard deviation: 0.000000000 m
+Maximum range standard deviation: 0.000000000 m
+
+Note: Constant summary statistics do not prove identical raw rays.
+Note: Detection accuracy and physical geometry remain unverified.

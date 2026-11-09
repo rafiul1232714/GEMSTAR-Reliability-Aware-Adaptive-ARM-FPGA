@@ -1,0 +1,5 @@
+Dataset,Imported,Rows,Columns
+task20_28_radar_world_points.csv,1,11825,15
+task20_49_50m_radar_returns.csv,1,5696,9
+task20_55_ray_alignment.csv,1,5,13
+task20_57_ray_box_intersections.csv,1,10,10

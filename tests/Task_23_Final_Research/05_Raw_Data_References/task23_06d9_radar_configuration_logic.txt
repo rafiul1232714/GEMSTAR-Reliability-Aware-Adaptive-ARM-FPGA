@@ -1,0 +1,91 @@
+﻿...
+  14: ASimpleRadar::ASimpleRadar()
+  15: {
+  16: }
+  17: 
+  18: void ASimpleRadar::BeginPlay()
+  19: {
+  20: 	Super::BeginPlay();
+  21: 	  if (Sensor.SensorViewConfig == nullptr)
+  22:   {
+  23:       CreateTestConfig();
+  24:   }
+  25: 	
+  26: 	//initialise internal speed calculation
+  27: 	currentVelocity = FVector::ZeroVector;
+  28: 	oldPosition = GetActorLocation();
+...
+  59: 	// Get owner's location and rotation
+  60: 	const FVector RadarPosition = this->GetActorLocation();
+  61: 	const FRotator RadarRotation = this->GetActorRotation();
+  62: 
+  63: 	// Initialize array for raycast result
+  64: 	Sensor.RecordedHits.Init(FRadarHitResultAndIntesity(), Sensor.Number_of_rays_horizontal * Sensor.Number_of_rays_vertical);
+  65: 
+  66: 	// Calculate batch size for 'ParallelFor' based on workable thread
+  67: 	const int32 ThreadNum = FPlatformMisc::NumberOfWorkerThreadsToSpawn();
+  68: 	const int32 DivideEnd = FMath::FloorToInt((float)(Sensor.RecordedHits.Num() / ThreadNum));
+  69: 
+  70: 	ParallelFor(
+  71: 		ThreadNum,
+...
+  87: 
+  88: 				FRotator RadioRotation(FMath::RadiansToDegrees(VAngle), FMath::RadiansToDegrees(HAngle), 0.f);
+  89: 				FRotator Rotation = UKismetMathLibrary::ComposeRotators(RadioRotation, RadarRotation);
+  90: 
+  91: 				FVector EndPoint = RadarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+  92: 
+  93: 				GetWorld()->LineTraceSingleByChannel(
+  94: 					Sensor.RecordedHits[Index].HitResult, RadarPosition, EndPoint, ECC_Visibility, TraceParams, FCollisionResponseParams::DefaultResponseParam);
+  95: 				if (Sensor.RecordedHits[Index].HitResult.bBlockingHit) {
+  96: 					Sensor.RecordedHits[Index].Intesity = ComputeRadarSignalStrength(Sensor.RecordedHits[Index].HitResult);
+  97: 				}
+  98: 			}
+  99: 		},
+...
+ 171: 
+ 172: 	return scaledDBsignal;
+ 173: }
+ 174: 
+ 175: void ASimpleRadar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) {
+ 176: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+ 177:   if (Sensor.SensorViewConfig == nullptr)
+ 178:   {
+ 179:       CreateTestConfig();
+ 180:   }
+ 181:   Sensor.SensorViewConfig->set_range(SensorConfiguration.Radar.Range);
+ 182:   UE_LOG(LogTemp, Warning,
+ 183:       TEXT("TASK20_45_RADAR_RANGE: %.3f metres"),
+ 184:       Sensor.SensorViewConfig->range());
+ 185: 	Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+ 186: 	auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+ 187: 	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+ 188: 	conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+ 189: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Radar.NumberOfRaysHorizontal);
+ 190: 	conf->set_number_of_rays_vertical(SensorConfiguration.Radar.NumberOfRaysVertical);
+ 191: 	conf->mutable_mounting_position()->set_allocated_position(
+ 192: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+ 193: 	conf->mutable_mounting_position()->set_allocated_orientation(
+ 194: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+ 195: 	conf->set_emitter_frequency(77000000000.0); //in Hz
+ 196: 	//calculate angles
+ 197: 
+ 198: 	Sensor.AzimuthAngles.Empty();
+ 199: 	Sensor.ElevationAngles.Empty();
+ 200: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+ 201: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+ 202: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+...
+ 210: }
+ 211: 
+ 212: void ASimpleRadar::CreateTestConfig() {
+ 213: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+ 214: 	Sensor.SensorViewConfig->set_range(10);
+ 215: }
+ 216: 
+ 217: void ASimpleRadar::ShowSensorDebugInformation() {
+ 218: 	int noHitCounter = 0;
+ 219: 	for (auto& hit : Sensor.RecordedHits) {
+ 220: 		if (hit.HitResult.bBlockingHit) {
+ 221: 			if (bDebugRayTraces)
+ 222: 				DrawDebugLine(GetWorld(), hit.HitResult.TraceStart, hit.HitResult.ImpactPoint, FColor::Green, false, 0.0f, 0, 1.0f);

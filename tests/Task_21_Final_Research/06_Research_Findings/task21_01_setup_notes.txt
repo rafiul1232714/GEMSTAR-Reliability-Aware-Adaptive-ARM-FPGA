@@ -1,0 +1,24 @@
+﻿TASK 21 - MATLAB RADAR ANALYSIS
+
+Subtask: 21.1
+Status: Workspace initialized
+
+Objective:
+Establish a reproducible MATLAB radar analysis workspace.
+
+Input:
+Previously generated GEMSTAR radar data from Task 20.
+
+Source location:
+E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_20_Final_Research
+
+Research principles:
+- Preserve original Task 20 datasets.
+- Keep all new MATLAB code and outputs in Task 21.
+- Record all processing parameters and dataset references.
+- Benchmark identical workloads for fair comparison.
+- Do not claim hardware energy savings from CPU timing.
+- Do not claim radar object-detection accuracy without validation.
+
+Next:
+21.2 - MATLAB radar data import and verification.

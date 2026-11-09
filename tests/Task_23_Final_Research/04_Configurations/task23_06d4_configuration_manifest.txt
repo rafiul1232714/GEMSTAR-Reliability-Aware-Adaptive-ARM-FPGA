@@ -1,0 +1,17 @@
+﻿TASK 23.6D-4 — CONTROLLED VALIDATION CONFIGURATION
+Status: BASELINE_COPY_NOT_ACTIVATED
+
+Source: E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini
+Copy: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\04_Configurations\task23_06d4_controlled_validation.ini
+
+Original SHA256: 2B8B50BA3B0858A6681A6339D272D6024DA71C5AF54CBD4F8B14FDB2D5EF9EB7
+Copy SHA256: 2B8B50BA3B0858A6681A6339D272D6024DA71C5AF54CBD4F8B14FDB2D5EF9EB7
+
+Research purpose:
+1. Preserve existing driving/fog configuration.
+2. Prepare a separate controlled target experiment.
+3. Keep original sensor parameters unchanged.
+4. Validate experiment settings before execution.
+
+No Unreal project files modified.
+No controlled validation run executed.

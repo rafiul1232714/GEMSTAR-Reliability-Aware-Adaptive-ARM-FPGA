@@ -1,0 +1,9 @@
+TASK 23.6D-8J ACTOR VERIFICATION
+Map: /Game/ResearchValidation/SensorFusionValidationMap
+Total actors: 30
+RadarSensorTester count: 0
+SimpleRadar_ConfiguredByBlueprint count: 1
+
+RADAR-RELATED ACTORS
+SimpleRadar_ConfiguredByBlueprint | X=1850.00, Y=2340.00, Z=110.00 cm
+STATUS: PASS

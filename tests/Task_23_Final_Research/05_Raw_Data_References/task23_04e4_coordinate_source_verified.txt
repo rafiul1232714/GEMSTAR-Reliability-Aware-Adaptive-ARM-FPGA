@@ -1,0 +1,523 @@
+﻿
+======================================================================
+FILE: Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp
+======================================================================
+
+MATCH AT LINE 160
+  151:     {
+  152:         SensorId->set_value(GetTypeHash(SensorConfiguration.ID));
+  153:     }
+  154: 
+  155:     ViewConfiguration->set_allocated_mounting_position(
+  156:         ToOSI::toMountingPosition(SensorConfiguration));
+  157: 
+  158:     ViewConfiguration->mutable_mounting_position()
+  159:         ->set_allocated_orientation(
+  160:             ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  161: 
+  162:     ViewConfiguration->set_field_of_view_horizontal(
+  163:         SensorConfiguration.Camera.FieldOfViewHorizontal);
+  164: 
+  165:     ViewConfiguration->set_field_of_view_vertical(
+  166:         SensorConfiguration.Camera.FieldOfViewVertical);
+  167: 
+  168:     ViewConfiguration->set_number_of_pixels_vertical(
+  169:         SensorConfiguration.Camera.NumberOfPixelsVertical);
+  170: 
+  171:     ViewConfiguration->set_number_of_pixels_horizontal(
+  172:         SensorConfiguration.Camera.NumberOfPixelsHorizontal);
+  173: 
+  174:     ViewConfiguration->add_channel_format(
+  175:         osi3::CameraSensorViewConfiguration_ChannelFormat_CHANNEL_FORMAT_RGB_U8_LIN);
+  176: 
+  177:     ViewConfiguration->set_samples_per_pixel(1);
+
+MATCH AT LINE 290
+  281:         auto* MovingObject =
+  282:             Sensor.SensorView->mutable_global_ground_truth()
+  283:                 ->add_moving_object();
+  284: 
+  285:         const uint32 UniqueId = Parent->GetUniqueID();
+  286: 
+  287:         MovingObject->mutable_id()->set_value(UniqueId);
+  288: 
+  289:         MovingObject->mutable_base()->set_allocated_position(
+  290:             ToOSI::Position(Parent->GetActorLocation()));
+  291: 
+  292:         MovingObject->mutable_base()->set_allocated_orientation(
+  293:             ToOSI::Orientation3d(Parent->GetActorQuat()));
+  294: 
+  295:         Sensor.SensorView->mutable_global_ground_truth()
+  296:             ->mutable_host_vehicle_id()->set_value(UniqueId);
+  297:     }
+  298: 
+  299:     SensorView.ID = SensorConfiguration.ID;
+  300:     SensorView.sensorview = Sensor.SensorView;
+  301: }
+  302: 
+  303: void ACameraSensor::SendData(osi3::SensorView& NewSensorView)
+  304: {
+  305:     if (SensorConfiguration.DataTargets.Num() == 0)
+  306:     {
+  307:         if (!bReportedNoDataTarget)
+
+MATCH AT LINE 293
+  284: 
+  285:         const uint32 UniqueId = Parent->GetUniqueID();
+  286: 
+  287:         MovingObject->mutable_id()->set_value(UniqueId);
+  288: 
+  289:         MovingObject->mutable_base()->set_allocated_position(
+  290:             ToOSI::Position(Parent->GetActorLocation()));
+  291: 
+  292:         MovingObject->mutable_base()->set_allocated_orientation(
+  293:             ToOSI::Orientation3d(Parent->GetActorQuat()));
+  294: 
+  295:         Sensor.SensorView->mutable_global_ground_truth()
+  296:             ->mutable_host_vehicle_id()->set_value(UniqueId);
+  297:     }
+  298: 
+  299:     SensorView.ID = SensorConfiguration.ID;
+  300:     SensorView.sensorview = Sensor.SensorView;
+  301: }
+  302: 
+  303: void ACameraSensor::SendData(osi3::SensorView& NewSensorView)
+  304: {
+  305:     if (SensorConfiguration.DataTargets.Num() == 0)
+  306:     {
+  307:         if (!bReportedNoDataTarget)
+  308:         {
+  309:             bReportedNoDataTarget = true;
+  310: 
+
+======================================================================
+FILE: Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+======================================================================
+
+MATCH AT LINE 128
+  119: 		}
+  120: 	}
+  121: 
+  122: 	Parent = GetAttachParentActor();
+  123: 
+  124: 	if (Parent != nullptr) {
+  125: 		auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+  126: 		uint32_t uniqueID = Parent->GetUniqueID();
+  127: 		moving_object->mutable_id()->set_value(uniqueID);
+  128: 		moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  129: 		moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  130: 		Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+  131: 	}
+  132: 
+  133: 	// Apply weather effect
+  134: if (HasWeatherData && Sensor.SensorView) {
+  135:     LidarWeatherEffectModel LidarWeatherEffectModel;
+  136:     LidarWeatherEffectModel.ApplyLidarWeatherEffect(
+  137:         *Sensor.SensorView, CurrentWeatherData);
+  138: }
+  139: }
+  140: 
+  141: float ASimpleLidar::ComputeLidarSignalStrength(const FHitResult& Hit)
+  142: {
+  143: 	// Surface normal from hit result
+  144: 	FVector Normal = Hit.ImpactNormal.GetSafeNormal();
+  145: 
+
+MATCH AT LINE 129
+  120: 	}
+  121: 
+  122: 	Parent = GetAttachParentActor();
+  123: 
+  124: 	if (Parent != nullptr) {
+  125: 		auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+  126: 		uint32_t uniqueID = Parent->GetUniqueID();
+  127: 		moving_object->mutable_id()->set_value(uniqueID);
+  128: 		moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  129: 		moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  130: 		Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+  131: 	}
+  132: 
+  133: 	// Apply weather effect
+  134: if (HasWeatherData && Sensor.SensorView) {
+  135:     LidarWeatherEffectModel LidarWeatherEffectModel;
+  136:     LidarWeatherEffectModel.ApplyLidarWeatherEffect(
+  137:         *Sensor.SensorView, CurrentWeatherData);
+  138: }
+  139: }
+  140: 
+  141: float ASimpleLidar::ComputeLidarSignalStrength(const FHitResult& Hit)
+  142: {
+  143: 	// Surface normal from hit result
+  144: 	FVector Normal = Hit.ImpactNormal.GetSafeNormal();
+  145: 
+  146: 	// Vector from hit point back to lidar (return direction)
+
+MATCH AT LINE 219
+  210: {
+  211: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+  212: 	Sensor.SensorViewConfig->clear_lidar_sensor_view_configuration();
+  213: 	auto* conf = Sensor.SensorViewConfig->add_lidar_sensor_view_configuration();
+  214: 	conf->set_field_of_view_horizontal(SensorConfiguration.Lidar.FieldOfViewHorizontal);
+  215: 	conf->set_field_of_view_vertical(SensorConfiguration.Lidar.FieldOfViewVertical);
+  216: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Lidar.NumberOfRaysHorizontal);
+  217: 	conf->set_number_of_rays_vertical(SensorConfiguration.Lidar.NumberOfRaysVertical);
+  218: 	conf->mutable_mounting_position()->set_allocated_position(
+  219: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+  220: 	conf->mutable_mounting_position()->set_allocated_orientation(
+  221: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  222: 	Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+  223: 
+  224: 	//calculate angles
+  225: 	Sensor.AzimuthAngles.Empty();
+  226: 	Sensor.ElevationAngles.Empty();
+  227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+  228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  229: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+  230: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  231: 	}
+  232: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_vertical();
+  233: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+  234: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical()
+  235: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+  236: 	}
+
+MATCH AT LINE 221
+  212: 	Sensor.SensorViewConfig->clear_lidar_sensor_view_configuration();
+  213: 	auto* conf = Sensor.SensorViewConfig->add_lidar_sensor_view_configuration();
+  214: 	conf->set_field_of_view_horizontal(SensorConfiguration.Lidar.FieldOfViewHorizontal);
+  215: 	conf->set_field_of_view_vertical(SensorConfiguration.Lidar.FieldOfViewVertical);
+  216: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Lidar.NumberOfRaysHorizontal);
+  217: 	conf->set_number_of_rays_vertical(SensorConfiguration.Lidar.NumberOfRaysVertical);
+  218: 	conf->mutable_mounting_position()->set_allocated_position(
+  219: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+  220: 	conf->mutable_mounting_position()->set_allocated_orientation(
+  221: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  222: 	Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+  223: 
+  224: 	//calculate angles
+  225: 	Sensor.AzimuthAngles.Empty();
+  226: 	Sensor.ElevationAngles.Empty();
+  227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+  228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  229: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+  230: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  231: 	}
+  232: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_vertical();
+  233: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+  234: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical()
+  235: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+  236: 	}
+  237: }
+  238: 
+
+======================================================================
+FILE: Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+======================================================================
+
+MATCH AT LINE 151
+  142: 		}
+  143: 	}
+  144: 	
+  145: 	Parent = GetAttachParentActor();
+  146: 
+  147: 	if (Parent != nullptr) {
+  148: 		auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+  149: 		uint32_t uniqueID = Parent->GetUniqueID();
+  150: 		moving_object->mutable_id()->set_value(uniqueID);
+  151: 		moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  152: 		moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  153: 		Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+  154: 	}
+  155: }
+  156: 
+  157: float ASimpleRadar::ComputeRadarSignalStrength(const FHitResult& Hit)
+  158: {
+  159: 	// Frequenz 77GHz, Wellenlï¿½nge= 3.9mm, Sendeleistung 0.01W, Antennengewinn 30dB ca. 1000(linear), Radarziel Rï¿½ckstreuquerschnitt (Auto) 10m2, R = Entfernung zum Ziel
+  160: 	// Pr = (7.5 * 10^-5 * Radarziel Rï¿½ckstreuquerschnitt) / R^4
+  161: 	float backscatterValue = 10; // default for cars, need adjustment for bikes and pedestrians
+  162: 
+  163: 	float distanceToTarget = (Hit.ImpactPoint - Hit.TraceStart).Size() * 0.01; //in meter
+  164: 	distanceToTarget = FMath::Max(distanceToTarget, 0.01f); // prevent division by zero
+  165: 	float signalStrengthInWatt = (7.5 * 0.00001 * backscatterValue) / FMath::Pow(distanceToTarget, 4); 
+  166: 
+  167: 	float signalStrengthInDB = 10 * FMath::LogX(10, (signalStrengthInWatt / FMath::Pow(10.0, -12.0)));
+  168: 
+
+MATCH AT LINE 152
+  143: 	}
+  144: 	
+  145: 	Parent = GetAttachParentActor();
+  146: 
+  147: 	if (Parent != nullptr) {
+  148: 		auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+  149: 		uint32_t uniqueID = Parent->GetUniqueID();
+  150: 		moving_object->mutable_id()->set_value(uniqueID);
+  151: 		moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  152: 		moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  153: 		Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+  154: 	}
+  155: }
+  156: 
+  157: float ASimpleRadar::ComputeRadarSignalStrength(const FHitResult& Hit)
+  158: {
+  159: 	// Frequenz 77GHz, Wellenlï¿½nge= 3.9mm, Sendeleistung 0.01W, Antennengewinn 30dB ca. 1000(linear), Radarziel Rï¿½ckstreuquerschnitt (Auto) 10m2, R = Entfernung zum Ziel
+  160: 	// Pr = (7.5 * 10^-5 * Radarziel Rï¿½ckstreuquerschnitt) / R^4
+  161: 	float backscatterValue = 10; // default for cars, need adjustment for bikes and pedestrians
+  162: 
+  163: 	float distanceToTarget = (Hit.ImpactPoint - Hit.TraceStart).Size() * 0.01; //in meter
+  164: 	distanceToTarget = FMath::Max(distanceToTarget, 0.01f); // prevent division by zero
+  165: 	float signalStrengthInWatt = (7.5 * 0.00001 * backscatterValue) / FMath::Pow(distanceToTarget, 4); 
+  166: 
+  167: 	float signalStrengthInDB = 10 * FMath::LogX(10, (signalStrengthInWatt / FMath::Pow(10.0, -12.0)));
+  168: 
+  169: 	// normalise dB signal
+
+MATCH AT LINE 192
+  183:       TEXT("TASK20_45_RADAR_RANGE: %.3f metres"),
+  184:       Sensor.SensorViewConfig->range());
+  185: 	Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+  186: 	auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+  187: 	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+  188: 	conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+  189: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Radar.NumberOfRaysHorizontal);
+  190: 	conf->set_number_of_rays_vertical(SensorConfiguration.Radar.NumberOfRaysVertical);
+  191: 	conf->mutable_mounting_position()->set_allocated_position(
+  192: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+  193: 	conf->mutable_mounting_position()->set_allocated_orientation(
+  194: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  195: 	conf->set_emitter_frequency(77000000000.0); //in Hz
+  196: 	//calculate angles
+  197: 
+  198: 	Sensor.AzimuthAngles.Empty();
+  199: 	Sensor.ElevationAngles.Empty();
+  200: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+  201: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  202: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+  203: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  204: 	}
+  205: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_vertical();
+  206: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+  207: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical()
+  208: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+  209: 	}
+
+MATCH AT LINE 194
+  185: 	Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+  186: 	auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+  187: 	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+  188: 	conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+  189: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Radar.NumberOfRaysHorizontal);
+  190: 	conf->set_number_of_rays_vertical(SensorConfiguration.Radar.NumberOfRaysVertical);
+  191: 	conf->mutable_mounting_position()->set_allocated_position(
+  192: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+  193: 	conf->mutable_mounting_position()->set_allocated_orientation(
+  194: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  195: 	conf->set_emitter_frequency(77000000000.0); //in Hz
+  196: 	//calculate angles
+  197: 
+  198: 	Sensor.AzimuthAngles.Empty();
+  199: 	Sensor.ElevationAngles.Empty();
+  200: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+  201: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  202: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+  203: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  204: 	}
+  205: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_vertical();
+  206: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+  207: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical()
+  208: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+  209: 	}
+  210: }
+  211: 
+
+======================================================================
+FILE: Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarSensor.cpp
+======================================================================
+
+MATCH AT LINE 191
+  182:             Reflection->set_time_of_flight(2.0 * Hit.RangeMeters / 299792458.0);
+  183:             Reflection->set_signal_strength(10.0 * FMath::LogX(10.0, FMath::Max(double(Hit.Intensity), 1e-12)));
+  184:             Reflection->mutable_object_id()->set_value(uint64(Hit.ObjectLow) | (uint64(Hit.ObjectHigh) << 32));
+  185:         }
+  186:         auto* Parent = GetAttachParentActor();
+  187:         if (Parent != nullptr) {
+  188:             auto* moving_object = View.mutable_global_ground_truth()->add_moving_object();
+  189:             uint32_t uniqueID = Parent->GetUniqueID();
+  190:             moving_object->mutable_id()->set_value(uniqueID);
+  191:             moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  192:             moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  193:             View.mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+  194:         }
+  195:         // Apply weather degradation before delivering the SensorView to interface consumers.
+  196:         if (HasWeatherData)
+  197:             FRaytracingLidarWeatherEffectModel().ApplyLidarWeatherEffect(View, CurrentWeatherData);
+  198: 
+  199:         LastCompletedScan = Slot->ScanId;
+  200:         if (PublishingActive)
+  201:             SendData(View);
+  202:         UE_LOG(LogRaytracingLidar, Verbose, TEXT("%s scan=%llu rays=%d hits=%d drops=%llu"), *GetName(), Slot->ScanId,
+  203:             Ordered.Num(), Hits, Drops);
+  204:         CSV_CUSTOM_STAT(
+  205:             RaytracingLidar, ConversionMs, (FPlatformTime::Seconds() - ConversionStart) * 1000, ECsvCustomStatOp::Accumulate);
+  206:         CSV_CUSTOM_STAT(RaytracingLidar, Hits, Hits, ECsvCustomStatOp::Accumulate);
+  207:         OnScanCompleted.Broadcast(Slot->ScanId, Slot->Timestamp, Slot->Pose, Slot->Hits);
+  208:         if (Disabled || !State)
+
+MATCH AT LINE 192
+  183:             Reflection->set_signal_strength(10.0 * FMath::LogX(10.0, FMath::Max(double(Hit.Intensity), 1e-12)));
+  184:             Reflection->mutable_object_id()->set_value(uint64(Hit.ObjectLow) | (uint64(Hit.ObjectHigh) << 32));
+  185:         }
+  186:         auto* Parent = GetAttachParentActor();
+  187:         if (Parent != nullptr) {
+  188:             auto* moving_object = View.mutable_global_ground_truth()->add_moving_object();
+  189:             uint32_t uniqueID = Parent->GetUniqueID();
+  190:             moving_object->mutable_id()->set_value(uniqueID);
+  191:             moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  192:             moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  193:             View.mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+  194:         }
+  195:         // Apply weather degradation before delivering the SensorView to interface consumers.
+  196:         if (HasWeatherData)
+  197:             FRaytracingLidarWeatherEffectModel().ApplyLidarWeatherEffect(View, CurrentWeatherData);
+  198: 
+  199:         LastCompletedScan = Slot->ScanId;
+  200:         if (PublishingActive)
+  201:             SendData(View);
+  202:         UE_LOG(LogRaytracingLidar, Verbose, TEXT("%s scan=%llu rays=%d hits=%d drops=%llu"), *GetName(), Slot->ScanId,
+  203:             Ordered.Num(), Hits, Drops);
+  204:         CSV_CUSTOM_STAT(
+  205:             RaytracingLidar, ConversionMs, (FPlatformTime::Seconds() - ConversionStart) * 1000, ECsvCustomStatOp::Accumulate);
+  206:         CSV_CUSTOM_STAT(RaytracingLidar, Hits, Hits, ECsvCustomStatOp::Accumulate);
+  207:         OnScanCompleted.Broadcast(Slot->ScanId, Slot->Timestamp, Slot->Pose, Slot->Hits);
+  208:         if (Disabled || !State)
+  209:             return;
+
+======================================================================
+FILE: Plugins\GameFeatures\ue_sumo_feature\Source\ue_sumo_featureRuntime\Private\SUMOManager.cpp
+======================================================================
+
+MATCH AT LINE 541
+  532: 	{
+  533: 		// todo for co-simulation purposes
+  534: 	}
+  535: }
+  536: 
+  537: FTransform ASUMOManager::TranslateToUnrealWorldPosition(double X, double Y, double Z, double Angle)
+  538: {
+  539: 	FTransform transform;
+  540: 	const double SafeZ = !std::isfinite(Z) || Z < -1000000.0 ? 0.0 : Z;
+  541: 	transform.SetLocation(CoordinateSystemOffset.InverseTransformPosition(FVector(Y * 100, X * 100, SafeZ * 100)));
+  542: 	transform.SetRotation(CoordinateSystemOffset.InverseTransformRotation(FRotator(0, Angle, 0).Quaternion()));
+  543: 	return transform;
+  544: }
+  545: 
+  546: FString ASUMOManager::GetSumoRootDirectory()
+  547: {
+  548: 	const FString ProjectDir = FPaths::ProjectDir();
+  549: 	FString SumoDir = FPaths::Combine(
+  550: 		ProjectDir,
+  551: 		TEXT("Simulation"),
+  552: 		TEXT("SUMO"));
+  553: 	SumoDir = FPaths::ConvertRelativePathToFull(SumoDir);
+  554: 	FPaths::NormalizeDirectoryName(SumoDir);
+  555: 	return SumoDir;
+  556: }
+  557: 
+  558: int ASUMOManager::LoadSumoWithParameters(const TArray<FString> &Parsed)
+
+======================================================================
+FILE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+======================================================================
+
+MATCH AT LINE 29
+   20: 
+   21: osi3::BaseStationary* ToOSI::BaseStationary(FTransform transform) {
+   22: 	osi3::BaseStationary* baseStationary = new osi3::BaseStationary();
+   23: 	baseStationary->set_allocated_position(Position(transform.GetLocation()));
+   24: 	baseStationary->set_allocated_orientation(Orientation3d(transform.GetRotation()));
+   25: 	baseStationary->set_allocated_dimension(Dimension(transform.GetScale3D()));
+   26: 	return baseStationary;
+   27: }
+   28: 
+   29: osi3::Vector3d* ToOSI::Position(FVector vector) {
+   30: 	osi3::Vector3d* vector3d = new osi3::Vector3d();
+   31: 	//change hands and cm to m
+   32: 	vector3d->set_x(vector.X * 0.01);
+   33: 	vector3d->set_y(-vector.Y * 0.01);
+   34: 	vector3d->set_z(vector.Z * 0.01);
+   35: 	return vector3d;
+   36: }
+   37: 
+   38: osi3::Orientation3d* ToOSI::Orientation3d(FQuat quat) {
+   39: 	osi3::Orientation3d* orientation = new osi3::Orientation3d();
+   40: 	FRotator rotator = quat.Rotator();
+   41: 	orientation->set_yaw(-rotator.Yaw * PI / 180.0);
+   42: 	orientation->set_pitch(rotator.Pitch * PI / 180.0);
+   43: 	orientation->set_roll(rotator.Roll * PI / 180.0);
+   44: 	return orientation;
+   45: }
+   46: 
+
+MATCH AT LINE 38
+   29: osi3::Vector3d* ToOSI::Position(FVector vector) {
+   30: 	osi3::Vector3d* vector3d = new osi3::Vector3d();
+   31: 	//change hands and cm to m
+   32: 	vector3d->set_x(vector.X * 0.01);
+   33: 	vector3d->set_y(-vector.Y * 0.01);
+   34: 	vector3d->set_z(vector.Z * 0.01);
+   35: 	return vector3d;
+   36: }
+   37: 
+   38: osi3::Orientation3d* ToOSI::Orientation3d(FQuat quat) {
+   39: 	osi3::Orientation3d* orientation = new osi3::Orientation3d();
+   40: 	FRotator rotator = quat.Rotator();
+   41: 	orientation->set_yaw(-rotator.Yaw * PI / 180.0);
+   42: 	orientation->set_pitch(rotator.Pitch * PI / 180.0);
+   43: 	orientation->set_roll(rotator.Roll * PI / 180.0);
+   44: 	return orientation;
+   45: }
+   46: 
+   47: osi3::Dimension3d* ToOSI::Dimension(FVector dimension) {
+   48: 	osi3::Dimension3d* dim = new osi3::Dimension3d();
+   49: 	dim->set_length(dimension.X);
+   50: 	dim->set_width(-dimension.Y);
+   51: 	dim->set_height(dimension.Z);
+   52: 	return dim;
+   53: }
+   54: 
+   55: osi3::BaseStationary* ToOSI::toOSIBaseStationary(const AActor* actor)
+
+======================================================================
+FILE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Public\Utils\ToOSI.h
+======================================================================
+
+MATCH AT LINE 31
+   22:  */
+   23: class GEMSTAR_INTERFACES_API ToOSI
+   24: {
+   25: public:
+   26: 	ToOSI();
+   27: 	~ToOSI();
+   28: 	static osi3::BaseStationary* BaseStationary(FTransform transform);
+   29: 	static osi3::BaseStationary* toOSIBaseStationary(const AActor* actor);
+   30: 	static osi3::BaseMoving* toOSIBaseMoving(const AActor* actor);
+   31: 	static osi3::Vector3d* Position(FVector vector);
+   32: 	static osi3::Orientation3d* Orientation3d(FQuat quat);
+   33: 	static osi3::Dimension3d* Dimension(FVector dimension);
+   34: 	static osi3::MountingPosition* toMountingPosition(FSensorConfigData& sensorConfigData);
+   35: };
+
+MATCH AT LINE 32
+   23: class GEMSTAR_INTERFACES_API ToOSI
+   24: {
+   25: public:
+   26: 	ToOSI();
+   27: 	~ToOSI();
+   28: 	static osi3::BaseStationary* BaseStationary(FTransform transform);
+   29: 	static osi3::BaseStationary* toOSIBaseStationary(const AActor* actor);
+   30: 	static osi3::BaseMoving* toOSIBaseMoving(const AActor* actor);
+   31: 	static osi3::Vector3d* Position(FVector vector);
+   32: 	static osi3::Orientation3d* Orientation3d(FQuat quat);
+   33: 	static osi3::Dimension3d* Dimension(FVector dimension);
+   34: 	static osi3::MountingPosition* toMountingPosition(FSensorConfigData& sensorConfigData);
+   35: };

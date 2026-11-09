@@ -1,0 +1,54 @@
+﻿
+[ue_logger_feature]
+;Debug=true
+
+; Record simulation ground truth
+GroundTruth=true
+
+; Optional Omega Prime recording
+;OmegaPrime=true
+
+; Record Camera, LiDAR and Radar
+Input=[ue_camera_feature:sensor1,ue_lidar_feature:sensor1,ue_radar_feature:sensor1]
+
+InputData=[SensorView,SensorView,SensorView]
+
+; Output filename prefix
+FileName=GEMSTAR
+
+
+; =========================================================
+; RADAR SENSOR - UPDATED FOR TEST
+; =========================================================
+
+
+[ue_sumo_feature]
+;Debug=true
+
+Parameters="-c practise-area/DrivingPractiseAreaBrunswickMap.sumocfg"
+
+
+; =========================================================
+; VEHICLE CONFIGURATION
+; =========================================================
+
+
+[ue_weather_effect_feature]
+
+; External weather input disabled
+;Input=ue_sumo_feature
+
+WeatherEffectEnabled=true
+
+; Clear, Fog, Rain, Snow
+ActiveWeatherType=Fog
+
+; Meteorological Optical Range in meters
+MOR=100.0
+
+PrecipitationType=Rain
+PrecipitationIntensity=0.0
+
+; LiDAR weather model
+LidarCoefficient=1.0
+ReflectivityThreshold=10.0

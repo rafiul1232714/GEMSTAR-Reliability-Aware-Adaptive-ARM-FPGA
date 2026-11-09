@@ -1,0 +1,20 @@
+TASK 24 — EGO MOTION / GT VELOCITY INTEGRITY AUDIT
+============================================================
+Evaluated frames: 23
+Ego ID: 76894
+Target ID: 76897
+
+Maximum sampled ego position change (m): 0.000000000
+Maximum sampled ego yaw change (deg): 0.000000000
+
+GT actor-zero / center-motion flags: 6
+Flagged frames: [408, 449, 571, 612, 653, 897]
+Median finite-difference center speed (m/s): 1.975851
+
+LIMITATIONS
+Ego pose is checked at the 23 evaluated frames.
+This is not a continuous full-rate ego-motion audit.
+GT actor velocity is a different reference from AABB center motion.
+Finite differences use sparse, nonuniform evaluation samples.
+A zero-velocity flag indicates inconsistency, not its root cause.
+No measurements were used to alter the original EKF.

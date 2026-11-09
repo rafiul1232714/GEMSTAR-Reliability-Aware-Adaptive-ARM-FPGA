@@ -1,0 +1,4 @@
+weather,repetitions,reflection_slots,positive_returns,status,mean_us,p50_us,p95_us,p99_us
+Clear,200,5271,5090,VALID,946.230,931.900,988.790,1212.517
+Fog100,200,5271,5090,VALID,939.878,917.650,1012.080,1547.147
+Fog20,200,5271,0,NO_RETURNS,905.939,885.050,955.580,1477.374

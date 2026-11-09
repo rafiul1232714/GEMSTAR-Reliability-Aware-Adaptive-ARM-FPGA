@@ -1,0 +1,28 @@
+﻿{
+    "Task":  "23",
+    "ResearchTopic":  "Multi-Sensor Measurement Extraction and Validation",
+    "PrimaryPairID":  1,
+    "SelectedPairIDs":  [
+                            1,
+                            2,
+                            3,
+                            4
+                        ],
+    "InitialFrameLimit":  100,
+    "StartupFramePolicy":  "FLAG_FRAME_ZERO",
+    "OriginalOSIReadOnly":  true,
+    "SourceManifest":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_23_Final_Research\\05_Raw_Data_References\\task23_01_source_manifest.csv",
+    "MeasurementValidation":  {
+                                  "InspectCameraEncoding":  true,
+                                  "InspectLiDARFields":  true,
+                                  "InspectRadarFields":  true,
+                                  "VerifyCoordinateConventions":  true,
+                                  "GroundTruthAssociationVerified":  false
+                              },
+    "ResearchLimitations":  [
+                                "Runtime weather and map conditions not independently verified",
+                                "Preliminary sensor availability is not perception accuracy",
+                                "Frame zero requires explicit startup-artifact checks",
+                                "No ARM-FPGA power measurements at this stage"
+                            ]
+}

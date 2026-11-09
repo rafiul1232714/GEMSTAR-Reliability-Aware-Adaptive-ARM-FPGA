@@ -1,0 +1,25 @@
+{
+  "Task": "22.2",
+  "MessageLimitPerFile": 3,
+  "Status": {
+    "SensorView": {
+      "Success": true,
+      "InputFile": "E:\\GEMSTAR_Project\\gemstar\\Output\\20261027T121711Z_sv_380_X_1114_GEMSTAR.osi",
+      "MessagesRead": 3
+    },
+    "GroundTruth": {
+      "Success": true,
+      "InputFile": "E:\\GEMSTAR_Project\\gemstar\\Output\\20261027T134242Z_gt_380_X_101_GEMSTAR_LogTest.osi",
+      "MessagesRead": 3
+    }
+  },
+  "RecordsDecoded": 6,
+  "Limitations": [
+    "Only a subset of messages was inspected",
+    "No complete file-integrity scan performed",
+    "Sensor entry presence does not prove payload validity",
+    "Selected SV and GT files are not necessarily paired",
+    "Timestamps were not compared between recordings",
+    "No energy or detection-accuracy measurement"
+  ]
+}

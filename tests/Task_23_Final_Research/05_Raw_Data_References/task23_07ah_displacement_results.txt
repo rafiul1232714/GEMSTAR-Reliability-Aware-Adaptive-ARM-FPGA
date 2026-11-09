@@ -1,0 +1,11 @@
+﻿TASK 23.7AH - TARGET DISPLACEMENT
+Status: RECORDING_PRESENT_NEEDS_PROTOBUF_VALIDATION
+Original target X: 2940 cm
+Test target X: 3140 cm
+Displacement: +200 cm
+Map restored: True
+Original INI restored: True
+
+NEW RECORDINGS:
+E:\GEMSTAR_Project\gemstar\Output\20261103T161227Z_gt_380_X_2168_GEMSTARADAR.osi | 32840 bytes
+E:\GEMSTAR_Project\gemstar\Output\20261103T161227Z_sv_380_X_2168_GEMSTARADAR.osi | 10447000 bytes

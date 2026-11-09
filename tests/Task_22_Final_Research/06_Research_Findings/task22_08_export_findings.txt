@@ -1,0 +1,17 @@
+TASK 22.8 - STANDARDIZED DATASET EXPORT
+
+Original inspected frames: 400
+Exported frames: 400
+Preliminary fusion candidates: 297
+
+PER-RECORDING RESULTS
+Pair 1: 99 candidates / 100 inspected frames; status=PASS_PRELIMINARY_DATA_CHECKS
+Pair 2: 99 candidates / 100 inspected frames; status=PASS_PRELIMINARY_DATA_CHECKS
+Pair 3: 99 candidates / 100 inspected frames; status=PASS_PRELIMINARY_DATA_CHECKS
+Pair 4: 0 candidates / 100 inspected frames; status=WARN_INCOMPLETE_SENSOR_DATA
+
+INTERPRETATION
+Candidate eligibility is based on preliminary
+sensor data presence and message alignment only.
+Further calibration, sensor decoding, GT association
+and perception-quality validation are required.

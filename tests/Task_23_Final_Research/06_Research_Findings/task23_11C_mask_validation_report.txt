@@ -1,0 +1,15 @@
+TASK 23.11.C - INDEPENDENT LIDAR MASK VALIDATION
+Source: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\08_Processed_Data\task23_04c_raw_lidar_measurements.csv
+Total rows: 63252
+Positive returns: 33304
+Screened returns: 25774
+PositiveMaskMismatch: 0
+ScreenedMaskMismatch: 0
+MissingAcceptedRange: 0
+RangeMismatch: 0
+RejectedRangeNotBlank: 0
+Total mismatches: 0
+Status: MASK_VALIDATION_PASS
+
+Mismatch examples:
+None

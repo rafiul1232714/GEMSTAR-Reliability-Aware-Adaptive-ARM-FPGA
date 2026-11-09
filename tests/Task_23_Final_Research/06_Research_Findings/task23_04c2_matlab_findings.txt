@@ -1,0 +1,35 @@
+TASK 23.4C-2 - MATLAB LIDAR VALIDATION
+
+Raw measurement rows: 63252
+Independently reconstructed ranges: 63252
+Positive returns: 33304
+Screened returns: 25774
+Positive classification mismatches: 0
+Screening classification mismatches: 0
+Maximum range error (m): 0
+Range validation passed: 1
+
+Pair 1 - Sampled frame results:
+Frame 0: positive 4424, screened 1914, rejected 2510
+Frame 1: positive 2069, screened 2069, rejected 0
+Frame 25: positive 2419, screened 2419, rejected 0
+Frame 99: positive 2035, screened 2035, rejected 0
+Pair 2 - Sampled frame results:
+Frame 0: positive 4424, screened 1914, rejected 2510
+Frame 1: positive 2069, screened 2069, rejected 0
+Frame 25: positive 2744, screened 2744, rejected 0
+Frame 99: positive 2042, screened 2042, rejected 0
+Pair 3 - Sampled frame results:
+Frame 0: positive 4424, screened 1914, rejected 2510
+Frame 1: positive 2069, screened 2069, rejected 0
+Frame 25: positive 2547, screened 2547, rejected 0
+Frame 99: positive 2038, screened 2038, rejected 0
+
+SCIENTIFIC LIMITATIONS
+- LiDAR source values were exported by Python.
+- MATLAB independently recalculated range and screening.
+- Only four frames per complete recording were checked.
+- The full 100-frame Python dataset was not independently reprocessed.
+- Range-image ordering is based on assumed row-major ray indexing.
+- 3D beam geometry has not been GroundTruth-validated.
+- No FPGA energy or detection accuracy measured.

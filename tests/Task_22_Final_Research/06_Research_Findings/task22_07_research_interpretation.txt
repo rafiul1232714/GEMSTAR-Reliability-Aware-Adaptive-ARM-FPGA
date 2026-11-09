@@ -1,0 +1,5 @@
+TASK 22.7 - DATA INTEGRITY VALIDATION
+
+Pair 4: Radar sensor entries are present but no reflections satisfy the two-positive-field criterion. Inspect individual fields before interpreting these records as valid detections.
+
+Interpretation: Preliminary data checks only. Do not infer radar detection accuracy or hardware energy from these results.

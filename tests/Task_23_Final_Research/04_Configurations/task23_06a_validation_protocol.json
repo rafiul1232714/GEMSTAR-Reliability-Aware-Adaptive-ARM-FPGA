@@ -1,0 +1,64 @@
+﻿{
+    "Task":  "23.6A",
+    "Title":  "Controlled GEMSTAR Radar-LiDAR Validation",
+    "Status":  "PLANNED_NOT_EXECUTED",
+    "PrimaryGoal":  "Establish independently verifiable target-level perception metrics",
+    "ReferenceRequirements":  [
+                                  "Known target identity for each test actor",
+                                  "GroundTruth target position and orientation",
+                                  "Verified target dimensions and coordinate convention",
+                                  "Known sensor mounting position and orientation",
+                                  "SensorView and GroundTruth timestamp agreement",
+                                  "Verified association between sensor-hit IDs and target IDs"
+                              ],
+    "ProposedScenarios":  [
+                              {
+                                  "Objective":  "Measure background returns and false-positive behavior",
+                                  "Name":  "Empty reference scene",
+                                  "ID":  "S01"
+                              },
+                              {
+                                  "Objective":  "Evaluate target localization and range errors",
+                                  "ProposedDistancesM":  [
+                                                             5,
+                                                             10,
+                                                             20,
+                                                             40
+                                                         ],
+                                  "Name":  "Stationary target distances",
+                                  "ID":  "S02"
+                              },
+                              {
+                                  "Objective":  "Evaluate detection and radial-velocity consistency",
+                                  "GroundTruthVelocityRequired":  true,
+                                  "Name":  "Moving target",
+                                  "ID":  "S03"
+                              },
+                              {
+                                  "Objective":  "Measure quality changes with controlled scene and weather",
+                                  "Name":  "Weather comparison",
+                                  "ID":  "S04",
+                                  "Conditions":  [
+                                                     "Clear",
+                                                     "Fog"
+                                                 ]
+                              }
+                          ],
+    "QualityMetrics":  [
+                           "Target-level precision",
+                           "Target-level recall",
+                           "Localization error in metres",
+                           "Range error in metres",
+                           "Radial-velocity error where supported",
+                           "False-positive count"
+                       ],
+    "MinimumPlannedRepetitions":  3,
+    "AcceptanceRules":  [
+                            "Do not use simulator metadata as a detector prediction",
+                            "Establish matching target IDs before scoring detection quality",
+                            "Document sensor configuration changes between runs",
+                            "Keep startup frames separate",
+                            "Do not claim accuracy without independently checked reference labels",
+                            "Do not claim energy savings without hardware measurements"
+                        ]
+}

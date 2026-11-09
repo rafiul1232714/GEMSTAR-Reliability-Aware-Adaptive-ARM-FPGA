@@ -1,0 +1,1359 @@
+{
+  "Task": "23.3A",
+  "Purpose": "Camera encoding and shape investigation",
+  "Samples": [
+    {
+      "PairID": "1",
+      "Frame": 1,
+      "ImageBytes": 921600,
+      "HeaderHex": "afb6c0b0b7c1afb5c0b0b6c1b0b7c1af",
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "1",
+      "Frame": 25,
+      "ImageBytes": 921600,
+      "HeaderHex": "afb6c1b0b7c2afb6c1b0b7c2b0b7c2b0",
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "1",
+      "Frame": 99,
+      "ImageBytes": 921600,
+      "HeaderHex": "b1b8c2b2b8c2b1b8c2b2b9c3b2b9c3b2",
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "2",
+      "Frame": 1,
+      "ImageBytes": 921600,
+      "HeaderHex": "d4d3d0d4d3d0d5d4d1d5d3d1d4d3d0d5",
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "2",
+      "Frame": 25,
+      "ImageBytes": 921600,
+      "HeaderHex": "d5d4d2d5d4d2d5d4d2d5d4d2d4d3d2d5",
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "2",
+      "Frame": 99,
+      "ImageBytes": 921600,
+      "HeaderHex": "d6d5d4d7d6d4d6d5d4d7d6d4d7d6d4d8",
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "3",
+      "Frame": 1,
+      "ImageBytes": 921600,
+      "HeaderHex": "afb6c0afb6c0b0b6c1afb6c0afb6c0b0",
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "3",
+      "Frame": 25,
+      "ImageBytes": 921600,
+      "HeaderHex": "b0b7c1b0b7c1b0b7c2b0b7c1afb6c1b0",
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "3",
+      "Frame": 99,
+      "ImageBytes": 921600,
+      "HeaderHex": "b2b8c2b3b9c3b2b8c2b3b9c3b2b8c2b3",
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    }
+  ],
+  "ConfigurationInspection": [
+    {
+      "PairID": "1",
+      "Frame": 1,
+      "CameraDeclaredFields": [
+        {
+          "name": "view_configuration",
+          "type_number": 11,
+          "repeated": false,
+          "message_type": "osi3.CameraSensorViewConfiguration"
+        },
+        {
+          "name": "image_data",
+          "type_number": 12,
+          "repeated": false,
+          "message_type": ""
+        }
+      ],
+      "CameraPopulatedFields": {
+        "view_configuration": {
+          "sensor_id": {
+            "value": 2763112687
+          },
+          "mounting_position": {
+            "position": {
+              "x": 0.7000000000000001,
+              "y": -0.0,
+              "z": 1.6
+            },
+            "orientation": {
+              "roll": -0.0,
+              "pitch": 0.0,
+              "yaw": -0.0
+            }
+          },
+          "field_of_view_horizontal": 1.5707963267948966,
+          "field_of_view_vertical": 1.5707963267948966,
+          "number_of_pixels_horizontal": 640,
+          "number_of_pixels_vertical": 480,
+          "channel_format": {
+            "count": 1
+          },
+          "samples_per_pixel": 1,
+          "pixel_order": 0
+        },
+        "image_data": {
+          "bytes": 921600,
+          "header_hex": "afb6c0b0b7c1afb5c0b0b6c1b0b7c1af"
+        }
+      },
+      "SensorViewPopulatedFields": {
+        "version": {
+          "version_major": 3,
+          "version_minor": 8,
+          "version_patch": 0
+        },
+        "timestamp": {
+          "seconds": 0,
+          "nanos": 80403495
+        },
+        "global_ground_truth": {
+          "host_vehicle_id": {
+            "note": "depth_limit"
+          },
+          "moving_object": {
+            "count": 3,
+            "first_element": {
+              "note": "depth_limit"
+            }
+          }
+        },
+        "radar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 100,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "lidar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 5271,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "camera_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "image_data": {
+              "bytes": 921600,
+              "header_hex": "afb6c0b0b7c1afb5c0b0b6c1b0b7c1af"
+            }
+          }
+        }
+      },
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "1",
+      "Frame": 25,
+      "CameraDeclaredFields": [
+        {
+          "name": "view_configuration",
+          "type_number": 11,
+          "repeated": false,
+          "message_type": "osi3.CameraSensorViewConfiguration"
+        },
+        {
+          "name": "image_data",
+          "type_number": 12,
+          "repeated": false,
+          "message_type": ""
+        }
+      ],
+      "CameraPopulatedFields": {
+        "view_configuration": {
+          "sensor_id": {
+            "value": 2763112687
+          },
+          "mounting_position": {
+            "position": {
+              "x": 0.7000000000000001,
+              "y": -0.0,
+              "z": 1.6
+            },
+            "orientation": {
+              "roll": -0.0,
+              "pitch": 0.0,
+              "yaw": -0.0
+            }
+          },
+          "field_of_view_horizontal": 1.5707963267948966,
+          "field_of_view_vertical": 1.5707963267948966,
+          "number_of_pixels_horizontal": 640,
+          "number_of_pixels_vertical": 480,
+          "channel_format": {
+            "count": 1
+          },
+          "samples_per_pixel": 1,
+          "pixel_order": 0
+        },
+        "image_data": {
+          "bytes": 921600,
+          "header_hex": "afb6c1b0b7c2afb6c1b0b7c2b0b7c2b0"
+        }
+      },
+      "SensorViewPopulatedFields": {
+        "version": {
+          "version_major": 3,
+          "version_minor": 8,
+          "version_patch": 0
+        },
+        "timestamp": {
+          "seconds": 0,
+          "nanos": 817748695
+        },
+        "global_ground_truth": {
+          "host_vehicle_id": {
+            "note": "depth_limit"
+          },
+          "moving_object": {
+            "count": 3,
+            "first_element": {
+              "note": "depth_limit"
+            }
+          }
+        },
+        "radar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 100,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "lidar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 5271,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "camera_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "image_data": {
+              "bytes": 921600,
+              "header_hex": "afb6c1b0b7c2afb6c1b0b7c2b0b7c2b0"
+            }
+          }
+        }
+      },
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "1",
+      "Frame": 99,
+      "CameraDeclaredFields": [
+        {
+          "name": "view_configuration",
+          "type_number": 11,
+          "repeated": false,
+          "message_type": "osi3.CameraSensorViewConfiguration"
+        },
+        {
+          "name": "image_data",
+          "type_number": 12,
+          "repeated": false,
+          "message_type": ""
+        }
+      ],
+      "CameraPopulatedFields": {
+        "view_configuration": {
+          "sensor_id": {
+            "value": 2763112687
+          },
+          "mounting_position": {
+            "position": {
+              "x": 0.7000000000000001,
+              "y": -0.0,
+              "z": 1.6
+            },
+            "orientation": {
+              "roll": -0.0,
+              "pitch": 0.0,
+              "yaw": -0.0
+            }
+          },
+          "field_of_view_horizontal": 1.5707963267948966,
+          "field_of_view_vertical": 1.5707963267948966,
+          "number_of_pixels_horizontal": 640,
+          "number_of_pixels_vertical": 480,
+          "channel_format": {
+            "count": 1
+          },
+          "samples_per_pixel": 1,
+          "pixel_order": 0
+        },
+        "image_data": {
+          "bytes": 921600,
+          "header_hex": "b1b8c2b2b8c2b1b8c2b2b9c3b2b9c3b2"
+        }
+      },
+      "SensorViewPopulatedFields": {
+        "version": {
+          "version_major": 3,
+          "version_minor": 8,
+          "version_patch": 0
+        },
+        "timestamp": {
+          "seconds": 3,
+          "nanos": 162452895
+        },
+        "global_ground_truth": {
+          "host_vehicle_id": {
+            "note": "depth_limit"
+          },
+          "moving_object": {
+            "count": 3,
+            "first_element": {
+              "note": "depth_limit"
+            }
+          }
+        },
+        "radar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 100,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "lidar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 5271,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "camera_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "image_data": {
+              "bytes": 921600,
+              "header_hex": "b1b8c2b2b8c2b1b8c2b2b9c3b2b9c3b2"
+            }
+          }
+        }
+      },
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "2",
+      "Frame": 1,
+      "CameraDeclaredFields": [
+        {
+          "name": "view_configuration",
+          "type_number": 11,
+          "repeated": false,
+          "message_type": "osi3.CameraSensorViewConfiguration"
+        },
+        {
+          "name": "image_data",
+          "type_number": 12,
+          "repeated": false,
+          "message_type": ""
+        }
+      ],
+      "CameraPopulatedFields": {
+        "view_configuration": {
+          "sensor_id": {
+            "value": 2763072905
+          },
+          "mounting_position": {
+            "position": {
+              "x": 0.7000000000000001,
+              "y": -0.0,
+              "z": 1.6
+            },
+            "orientation": {
+              "roll": -0.0,
+              "pitch": 0.0,
+              "yaw": -0.0
+            }
+          },
+          "field_of_view_horizontal": 1.5707963267948966,
+          "field_of_view_vertical": 1.5707963267948966,
+          "number_of_pixels_horizontal": 640,
+          "number_of_pixels_vertical": 480,
+          "channel_format": {
+            "count": 1
+          },
+          "samples_per_pixel": 1,
+          "pixel_order": 0
+        },
+        "image_data": {
+          "bytes": 921600,
+          "header_hex": "d4d3d0d4d3d0d5d4d1d5d3d1d4d3d0d5"
+        }
+      },
+      "SensorViewPopulatedFields": {
+        "version": {
+          "version_major": 3,
+          "version_minor": 8,
+          "version_patch": 0
+        },
+        "timestamp": {
+          "seconds": 0,
+          "nanos": 84453895
+        },
+        "global_ground_truth": {
+          "host_vehicle_id": {
+            "note": "depth_limit"
+          },
+          "moving_object": {
+            "count": 3,
+            "first_element": {
+              "note": "depth_limit"
+            }
+          }
+        },
+        "radar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 100,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "lidar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 5271,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "camera_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "image_data": {
+              "bytes": 921600,
+              "header_hex": "d4d3d0d4d3d0d5d4d1d5d3d1d4d3d0d5"
+            }
+          }
+        }
+      },
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "2",
+      "Frame": 25,
+      "CameraDeclaredFields": [
+        {
+          "name": "view_configuration",
+          "type_number": 11,
+          "repeated": false,
+          "message_type": "osi3.CameraSensorViewConfiguration"
+        },
+        {
+          "name": "image_data",
+          "type_number": 12,
+          "repeated": false,
+          "message_type": ""
+        }
+      ],
+      "CameraPopulatedFields": {
+        "view_configuration": {
+          "sensor_id": {
+            "value": 2763072905
+          },
+          "mounting_position": {
+            "position": {
+              "x": 0.7000000000000001,
+              "y": -0.0,
+              "z": 1.6
+            },
+            "orientation": {
+              "roll": -0.0,
+              "pitch": 0.0,
+              "yaw": -0.0
+            }
+          },
+          "field_of_view_horizontal": 1.5707963267948966,
+          "field_of_view_vertical": 1.5707963267948966,
+          "number_of_pixels_horizontal": 640,
+          "number_of_pixels_vertical": 480,
+          "channel_format": {
+            "count": 1
+          },
+          "samples_per_pixel": 1,
+          "pixel_order": 0
+        },
+        "image_data": {
+          "bytes": 921600,
+          "header_hex": "d5d4d2d5d4d2d5d4d2d5d4d2d4d3d2d5"
+        }
+      },
+      "SensorViewPopulatedFields": {
+        "version": {
+          "version_major": 3,
+          "version_minor": 8,
+          "version_patch": 0
+        },
+        "timestamp": {
+          "seconds": 0,
+          "nanos": 986093696
+        },
+        "global_ground_truth": {
+          "host_vehicle_id": {
+            "note": "depth_limit"
+          },
+          "moving_object": {
+            "count": 3,
+            "first_element": {
+              "note": "depth_limit"
+            }
+          }
+        },
+        "radar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 100,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "lidar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 5271,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "camera_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "image_data": {
+              "bytes": 921600,
+              "header_hex": "d5d4d2d5d4d2d5d4d2d5d4d2d4d3d2d5"
+            }
+          }
+        }
+      },
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "2",
+      "Frame": 99,
+      "CameraDeclaredFields": [
+        {
+          "name": "view_configuration",
+          "type_number": 11,
+          "repeated": false,
+          "message_type": "osi3.CameraSensorViewConfiguration"
+        },
+        {
+          "name": "image_data",
+          "type_number": 12,
+          "repeated": false,
+          "message_type": ""
+        }
+      ],
+      "CameraPopulatedFields": {
+        "view_configuration": {
+          "sensor_id": {
+            "value": 2763072905
+          },
+          "mounting_position": {
+            "position": {
+              "x": 0.7000000000000001,
+              "y": -0.0,
+              "z": 1.6
+            },
+            "orientation": {
+              "roll": -0.0,
+              "pitch": 0.0,
+              "yaw": -0.0
+            }
+          },
+          "field_of_view_horizontal": 1.5707963267948966,
+          "field_of_view_vertical": 1.5707963267948966,
+          "number_of_pixels_horizontal": 640,
+          "number_of_pixels_vertical": 480,
+          "channel_format": {
+            "count": 1
+          },
+          "samples_per_pixel": 1,
+          "pixel_order": 0
+        },
+        "image_data": {
+          "bytes": 921600,
+          "header_hex": "d6d5d4d7d6d4d6d5d4d7d6d4d7d6d4d8"
+        }
+      },
+      "SensorViewPopulatedFields": {
+        "version": {
+          "version_major": 3,
+          "version_minor": 8,
+          "version_patch": 0
+        },
+        "timestamp": {
+          "seconds": 3,
+          "nanos": 494944695
+        },
+        "global_ground_truth": {
+          "host_vehicle_id": {
+            "note": "depth_limit"
+          },
+          "moving_object": {
+            "count": 3,
+            "first_element": {
+              "note": "depth_limit"
+            }
+          }
+        },
+        "radar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 100,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "lidar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 5271,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "camera_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "image_data": {
+              "bytes": 921600,
+              "header_hex": "d6d5d4d7d6d4d6d5d4d7d6d4d7d6d4d8"
+            }
+          }
+        }
+      },
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "3",
+      "Frame": 1,
+      "CameraDeclaredFields": [
+        {
+          "name": "view_configuration",
+          "type_number": 11,
+          "repeated": false,
+          "message_type": "osi3.CameraSensorViewConfiguration"
+        },
+        {
+          "name": "image_data",
+          "type_number": 12,
+          "repeated": false,
+          "message_type": ""
+        }
+      ],
+      "CameraPopulatedFields": {
+        "view_configuration": {
+          "sensor_id": {
+            "value": 2763123287
+          },
+          "mounting_position": {
+            "position": {
+              "x": 0.7000000000000001,
+              "y": -0.0,
+              "z": 1.6
+            },
+            "orientation": {
+              "roll": -0.0,
+              "pitch": 0.0,
+              "yaw": -0.0
+            }
+          },
+          "field_of_view_horizontal": 1.5707963267948966,
+          "field_of_view_vertical": 1.5707963267948966,
+          "number_of_pixels_horizontal": 640,
+          "number_of_pixels_vertical": 480,
+          "channel_format": {
+            "count": 1
+          },
+          "samples_per_pixel": 1,
+          "pixel_order": 0
+        },
+        "image_data": {
+          "bytes": 921600,
+          "header_hex": "afb6c0afb6c0b0b6c1afb6c0afb6c0b0"
+        }
+      },
+      "SensorViewPopulatedFields": {
+        "version": {
+          "version_major": 3,
+          "version_minor": 8,
+          "version_patch": 0
+        },
+        "timestamp": {
+          "seconds": 0,
+          "nanos": 79844295
+        },
+        "global_ground_truth": {
+          "host_vehicle_id": {
+            "note": "depth_limit"
+          },
+          "moving_object": {
+            "count": 3,
+            "first_element": {
+              "note": "depth_limit"
+            }
+          }
+        },
+        "radar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 100,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "lidar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 5271,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "camera_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "image_data": {
+              "bytes": 921600,
+              "header_hex": "afb6c0afb6c0b0b6c1afb6c0afb6c0b0"
+            }
+          }
+        }
+      },
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "3",
+      "Frame": 25,
+      "CameraDeclaredFields": [
+        {
+          "name": "view_configuration",
+          "type_number": 11,
+          "repeated": false,
+          "message_type": "osi3.CameraSensorViewConfiguration"
+        },
+        {
+          "name": "image_data",
+          "type_number": 12,
+          "repeated": false,
+          "message_type": ""
+        }
+      ],
+      "CameraPopulatedFields": {
+        "view_configuration": {
+          "sensor_id": {
+            "value": 2763123287
+          },
+          "mounting_position": {
+            "position": {
+              "x": 0.7000000000000001,
+              "y": -0.0,
+              "z": 1.6
+            },
+            "orientation": {
+              "roll": -0.0,
+              "pitch": 0.0,
+              "yaw": -0.0
+            }
+          },
+          "field_of_view_horizontal": 1.5707963267948966,
+          "field_of_view_vertical": 1.5707963267948966,
+          "number_of_pixels_horizontal": 640,
+          "number_of_pixels_vertical": 480,
+          "channel_format": {
+            "count": 1
+          },
+          "samples_per_pixel": 1,
+          "pixel_order": 0
+        },
+        "image_data": {
+          "bytes": 921600,
+          "header_hex": "b0b7c1b0b7c1b0b7c2b0b7c1afb6c1b0"
+        }
+      },
+      "SensorViewPopulatedFields": {
+        "version": {
+          "version_major": 3,
+          "version_minor": 8,
+          "version_patch": 0
+        },
+        "timestamp": {
+          "seconds": 0,
+          "nanos": 882331795
+        },
+        "global_ground_truth": {
+          "host_vehicle_id": {
+            "note": "depth_limit"
+          },
+          "moving_object": {
+            "count": 3,
+            "first_element": {
+              "note": "depth_limit"
+            }
+          }
+        },
+        "radar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 100,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "lidar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 5271,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "camera_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "image_data": {
+              "bytes": 921600,
+              "header_hex": "b0b7c1b0b7c1b0b7c2b0b7c1afb6c1b0"
+            }
+          }
+        }
+      },
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "PairID": "3",
+      "Frame": 99,
+      "CameraDeclaredFields": [
+        {
+          "name": "view_configuration",
+          "type_number": 11,
+          "repeated": false,
+          "message_type": "osi3.CameraSensorViewConfiguration"
+        },
+        {
+          "name": "image_data",
+          "type_number": 12,
+          "repeated": false,
+          "message_type": ""
+        }
+      ],
+      "CameraPopulatedFields": {
+        "view_configuration": {
+          "sensor_id": {
+            "value": 2763123287
+          },
+          "mounting_position": {
+            "position": {
+              "x": 0.7000000000000001,
+              "y": -0.0,
+              "z": 1.6
+            },
+            "orientation": {
+              "roll": -0.0,
+              "pitch": 0.0,
+              "yaw": -0.0
+            }
+          },
+          "field_of_view_horizontal": 1.5707963267948966,
+          "field_of_view_vertical": 1.5707963267948966,
+          "number_of_pixels_horizontal": 640,
+          "number_of_pixels_vertical": 480,
+          "channel_format": {
+            "count": 1
+          },
+          "samples_per_pixel": 1,
+          "pixel_order": 0
+        },
+        "image_data": {
+          "bytes": 921600,
+          "header_hex": "b2b8c2b3b9c3b2b8c2b3b9c3b2b8c2b3"
+        }
+      },
+      "SensorViewPopulatedFields": {
+        "version": {
+          "version_major": 3,
+          "version_minor": 8,
+          "version_patch": 0
+        },
+        "timestamp": {
+          "seconds": 3,
+          "nanos": 302098296
+        },
+        "global_ground_truth": {
+          "host_vehicle_id": {
+            "note": "depth_limit"
+          },
+          "moving_object": {
+            "count": 3,
+            "first_element": {
+              "note": "depth_limit"
+            }
+          }
+        },
+        "radar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 100,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "lidar_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "reflection": {
+              "count": 5271,
+              "first_element": {
+                "note": "depth_limit"
+              }
+            }
+          }
+        },
+        "camera_sensor_view": {
+          "count": 1,
+          "first_element": {
+            "view_configuration": {
+              "note": "depth_limit"
+            },
+            "image_data": {
+              "bytes": 921600,
+              "header_hex": "b2b8c2b3b9c3b2b8c2b3b9c3b2b8c2b3"
+            }
+          }
+        }
+      },
+      "CandidateLayouts": [
+        {
+          "width": 640,
+          "height": 480,
+          "channels": 3,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "channels": 1,
+          "bytes_per_channel": 1,
+          "status": "SIZE_ONLY_NOT_VERIFIED"
+        }
+      ]
+    }
+  ],
+  "Interpretation": "Matching byte counts provide candidate layouts, not proof of image width, height, channel count, color order or row stride."
+}

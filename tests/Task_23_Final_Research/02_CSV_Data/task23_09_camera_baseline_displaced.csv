@@ -1,0 +1,3 @@
+condition,cube_front_face_m,frame,width,height,image_bytes,sampled_unique_colors,center_rgb,rgb_sha256
+baseline,8.5,3,640,480,921600,2621,"(170, 161, 151)",f006ff25c350f13eac959b9233db26cbbcbad5039634d1181d72da8a0e65753f
+displaced,10.5,3,640,480,921600,2638,"(166, 156, 147)",662b983e2eb887d7504dfbb9445bcbbe203cf48188115346e9fabb2f9a5d362d

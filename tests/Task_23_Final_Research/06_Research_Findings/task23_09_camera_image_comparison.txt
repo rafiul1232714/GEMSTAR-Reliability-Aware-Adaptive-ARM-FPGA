@@ -1,0 +1,11 @@
+TASK 23.9 - CAMERA BASELINE VS DISPLACED
+Status: CAMERA_RGB_COMPARISON_READY
+Frame used: 3 from each recording
+Resolution per image: 640x480
+Baseline RGB SHA256: f006ff25c350f13eac959b9233db26cbbcbad5039634d1181d72da8a0e65753f
+Displaced RGB SHA256: 662b983e2eb887d7504dfbb9445bcbbe203cf48188115346e9fabb2f9a5d362d
+Expected width ratio: 0.809524
+The target bounding boxes have not yet been measured.
+Weather-mode consistency requires separate verification.
+Combined image: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\03_Graphs\task23_09_baseline_vs_displaced.png
+CSV: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\02_CSV_Data\task23_09_camera_baseline_displaced.csv

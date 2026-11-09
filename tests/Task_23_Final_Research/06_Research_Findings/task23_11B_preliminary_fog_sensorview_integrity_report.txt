@@ -1,0 +1,10 @@
+TASK 23.11.B - FULL LIDAR FRAME INTEGRITY
+Source: E:\GEMSTAR_Project\gemstar\Output\20261103T190206Z_sv_380_X_336_GEMSTARLIDAR23.osi
+Frames inspected: 336
+Missing timestamps: 0
+Non-monotonic timestamps: 0
+Frames without LiDAR views: 0
+Frames without reflections: 0
+Parsing errors: 0
+Status: FRAME_INTEGRITY_PASS
+CSV: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\02_CSV_Data\task23_11B_preliminary_fog_sensorview_integrity.csv

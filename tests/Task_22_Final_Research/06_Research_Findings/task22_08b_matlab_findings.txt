@@ -1,0 +1,20 @@
+TASK 22.8B - MATLAB CROSS VALIDATION
+
+All frame rows: 400
+Python candidate rows: 297
+MATLAB candidate rows: 297
+Eligibility disagreements: 0
+Unique recordings: 4
+
+Pair 1: 99 / 100 candidates
+Pair 2: 99 / 100 candidates
+Pair 3: 99 / 100 candidates
+Pair 4: 0 / 100 candidates
+
+SCIENTIFIC LIMITATIONS
+- Frame-zero exclusion is a conservative policy.
+- Availability is not proof of sensor accuracy.
+- No image or point-cloud geometry was validated.
+- No sensor-to-GT object association was measured.
+- Runtime scenario conditions remain unverified.
+- No CPU/FPGA electrical energy was measured.

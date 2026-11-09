@@ -1,0 +1,16 @@
+TASK 24.3.5.D ? FULL DATASET INTEGRITY REPORT
+Camera frames: 372
+LiDAR records: 1960812
+Radar records: 37200
+LiDAR candidates: 823254
+Radar candidates: 24161
+LiDAR pilot rows matched: 52710
+Radar pilot rows matched: 1000
+Radar Doppler rows compared: 37200
+Maximum Doppler difference Hz: 0.000000000000
+Maximum radial-velocity difference m/s: 0.000000000000
+Privileged identity fields: ABSENT
+Original OSI files modified: NO
+Nominal geometry: UNCALIBRATED
+Independent acquisition synchronization: UNVERIFIED
+Integrity status: PASS

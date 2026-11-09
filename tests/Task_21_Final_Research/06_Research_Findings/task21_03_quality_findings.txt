@@ -1,0 +1,8 @@
+TASK 21.3 - MATLAB RADAR QUALITY AUDIT
+
+Original Task 20 files were not modified.
+Missing values and frame-zero rows were audited.
+Range-like fields were inspected when present.
+Per-frame multiple reflections are not duplicates.
+Unverified object associations remain unverified.
+Energy measurements have not been performed.

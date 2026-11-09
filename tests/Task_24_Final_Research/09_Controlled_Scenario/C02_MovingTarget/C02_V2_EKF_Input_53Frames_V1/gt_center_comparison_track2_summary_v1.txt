@@ -1,0 +1,44 @@
+TASK 24.10.3A — GT CENTER REFERENCE COMPARISON
+=======================================================
+Matched estimator observations: 24
+Evaluated GT frames: 23
+Skipped frames: [(0, 'HOST_OR_TARGET_UNAVAILABLE')]
+Evaluation target ID: 76897
+Reference: GT object center transformed to ego frame
+
+LIDAR ESTIMATOR
+Mean center error (m): 1.650417
+Median center error (m): 1.725230
+Maximum center error (m): 1.895988
+Final center error (m): 1.168074
+Mean signed X error (m): -1.623522
+Mean signed Y error (m): -0.116578
+
+RADAR ESTIMATOR
+Mean center error (m): 1.628205
+Median center error (m): 1.708158
+Maximum center error (m): 1.816246
+Final center error (m): 1.169418
+Mean signed X error (m): -1.601283
+Mean signed Y error (m): -0.116574
+
+CAMERA ESTIMATOR
+Mean center error (m): 1.628213
+Median center error (m): 1.708158
+Maximum center error (m): 1.816246
+Final center error (m): 1.169417
+Mean signed X error (m): -1.601288
+Mean signed Y error (m): -0.117506
+
+IMPORTANT LIMITATIONS
+Errors are relative to the GT object center.
+LiDAR clusters may represent visible object surfaces.
+A systematic surface-to-center offset is not corrected.
+Evaluation object ID was chosen for diagnostic comparison.
+Correspondence requires independent validation.
+No GT information was used to alter EKF estimates.
+No velocity accuracy was evaluated.
+Camera calibration and noise are not validated.
+
+NEXT: validate target correspondence and surface bias
+before interpreting these values as tracker accuracy.

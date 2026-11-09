@@ -1,0 +1,8 @@
+﻿TASK 23.8 - LIDAR BASELINE RECORDING
+Status: FAILED: No new GEMSTARLIDAR23 OSI files were created.
+INI restored: True
+Expected LiDAR origin: (1940, -2650, 250) cm
+Expected target front face: X=2790 cm
+Runtime log: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\05_Raw_Data_References\task23_08_baseline_runtime.log
+
+New OSI recordings:

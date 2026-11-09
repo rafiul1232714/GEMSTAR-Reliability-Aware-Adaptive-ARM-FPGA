@@ -1,0 +1,73 @@
+{
+  "Task": "23.5D-4",
+  "Status": "SIMULATOR_METADATA_SUPPORTED_ASSOCIATION_AUDIT",
+  "TotalRadarPoints": 237,
+  "GeometricCandidateAssociations": 197,
+  "CandidatesWithLocalActorAgreement": 193,
+  "LocalActorAgreementDefinition": "At least two of the five nearest LiDAR points within 1 metre have usable actor IDs, and all those usable IDs equal the nearest point's ID.",
+  "FrameSummaries": [
+    {
+      "PairID": 1,
+      "Frame": 25,
+      "RadarPoints": 59,
+      "LiDARPoints": 2419,
+      "PreviousCandidateAssociations": 50,
+      "CandidatesWithLocalActorAgreement": 49,
+      "CandidateLocalAgreementFraction": 0.98
+    },
+    {
+      "PairID": 1,
+      "Frame": 99,
+      "RadarPoints": 57,
+      "LiDARPoints": 2035,
+      "PreviousCandidateAssociations": 36,
+      "CandidatesWithLocalActorAgreement": 34,
+      "CandidateLocalAgreementFraction": 0.9444444444444444
+    },
+    {
+      "PairID": 2,
+      "Frame": 25,
+      "RadarPoints": 30,
+      "LiDARPoints": 2744,
+      "PreviousCandidateAssociations": 29,
+      "CandidatesWithLocalActorAgreement": 29,
+      "CandidateLocalAgreementFraction": 1.0
+    },
+    {
+      "PairID": 2,
+      "Frame": 99,
+      "RadarPoints": 31,
+      "LiDARPoints": 2042,
+      "PreviousCandidateAssociations": 27,
+      "CandidatesWithLocalActorAgreement": 27,
+      "CandidateLocalAgreementFraction": 1.0
+    },
+    {
+      "PairID": 3,
+      "Frame": 25,
+      "RadarPoints": 30,
+      "LiDARPoints": 2547,
+      "PreviousCandidateAssociations": 28,
+      "CandidatesWithLocalActorAgreement": 28,
+      "CandidateLocalAgreementFraction": 1.0
+    },
+    {
+      "PairID": 3,
+      "Frame": 99,
+      "RadarPoints": 30,
+      "LiDARPoints": 2038,
+      "PreviousCandidateAssociations": 27,
+      "CandidatesWithLocalActorAgreement": 26,
+      "CandidateLocalAgreementFraction": 0.9629629629629629
+    }
+  ],
+  "ScientificLimitations": [
+    "Radar itself does not supply an actor ID here",
+    "Assigned IDs originate from nearby LiDAR reflections",
+    "Local ID agreement does not establish correct object association",
+    "The five-neighbor test is an exploratory heuristic",
+    "Only six sampled frames were analyzed",
+    "GroundTruth actor-ID mappings remain unresolved",
+    "No fusion accuracy or hardware energy savings demonstrated"
+  ]
+}

@@ -1,0 +1,7 @@
+TASK24_06_04Z_RUNTIME_AUDIT_STARTED
+MAP=C02_CleanCamera_TestMap
+CONFIG=E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget\C02_CleanCamera_Test_V1.ini
+EDITOR_ACTOR_COUNT=170
+EDITOR_WORLD_INSPECTION_COMPLETE
+NOTE=Runtime-spawned actors require a separate Play-session inspection
+TASK24_06_04Z_RUNTIME_AUDIT_PASS

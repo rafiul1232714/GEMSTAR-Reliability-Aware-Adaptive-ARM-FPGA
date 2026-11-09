@@ -1,0 +1,27 @@
+TASK 24 - MATLAB VELOCITY VALIDATION
+====================================
+
+Evaluated frames: 23
+Ground Truth target: 76897 (BP_Small_Car_C)
+
+LiDAR mean velocity error: 1.504483 m/s
+LiDAR velocity RMSE: 1.688990 m/s
+LiDAR-Radar mean velocity error: 1.465717 m/s
+LiDAR-Radar velocity RMSE: 1.646969 m/s
+Radar improved frames: 14
+Radar worsened frames: 4
+Approximately unchanged frames: 5
+
+GT actor vs bounding-center FD median difference: 1.783784 m/s
+
+LIMITATIONS
+Single development recording.
+23 temporally correlated evaluation frames.
+GT exporter velocity divided by 100.
+Full ego-motion audit is still pending.
+GT bounding-center and actor velocity references differ.
+Finite differences use sparse evaluation samples.
+EKF states represent LiDAR-associated target geometry.
+Camera-aided velocity state is not available in this CSV.
+No statistically generalizable accuracy claim.
+Ground Truth was not used for filter updates.

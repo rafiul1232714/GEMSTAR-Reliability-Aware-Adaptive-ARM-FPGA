@@ -1,0 +1,98 @@
+{
+  "Task": "23.4E-5C",
+  "PositionToleranceM": 0.05,
+  "YawToleranceDeg": 2.0,
+  "FrameResults": [
+    {
+      "PairID": 1,
+      "Frame": 1,
+      "GroundTruthObjects": 2,
+      "HostCandidates": 1,
+      "CandidateHostObjectID": "76795",
+      "AssociationStatus": "UNIQUE_CANDIDATE",
+      "HostPoseSource": "PAIRED_GROUNDTRUTH_MATCHED_SV_HOST_ID"
+    },
+    {
+      "PairID": 1,
+      "Frame": 25,
+      "GroundTruthObjects": 2,
+      "HostCandidates": 1,
+      "CandidateHostObjectID": "76795",
+      "AssociationStatus": "UNIQUE_CANDIDATE",
+      "HostPoseSource": "PAIRED_GROUNDTRUTH_MATCHED_SV_HOST_ID"
+    },
+    {
+      "PairID": 1,
+      "Frame": 99,
+      "GroundTruthObjects": 5,
+      "HostCandidates": 1,
+      "CandidateHostObjectID": "76795",
+      "AssociationStatus": "UNIQUE_CANDIDATE",
+      "HostPoseSource": "PAIRED_GROUNDTRUTH_MATCHED_SV_HOST_ID"
+    },
+    {
+      "PairID": 2,
+      "Frame": 1,
+      "GroundTruthObjects": 2,
+      "HostCandidates": 1,
+      "CandidateHostObjectID": "76889",
+      "AssociationStatus": "UNIQUE_CANDIDATE",
+      "HostPoseSource": "PAIRED_GROUNDTRUTH_MATCHED_SV_HOST_ID"
+    },
+    {
+      "PairID": 2,
+      "Frame": 25,
+      "GroundTruthObjects": 2,
+      "HostCandidates": 1,
+      "CandidateHostObjectID": "76889",
+      "AssociationStatus": "UNIQUE_CANDIDATE",
+      "HostPoseSource": "PAIRED_GROUNDTRUTH_MATCHED_SV_HOST_ID"
+    },
+    {
+      "PairID": 2,
+      "Frame": 99,
+      "GroundTruthObjects": 5,
+      "HostCandidates": 1,
+      "CandidateHostObjectID": "76889",
+      "AssociationStatus": "UNIQUE_CANDIDATE",
+      "HostPoseSource": "PAIRED_GROUNDTRUTH_MATCHED_SV_HOST_ID"
+    },
+    {
+      "PairID": 3,
+      "Frame": 1,
+      "GroundTruthObjects": 2,
+      "HostCandidates": 1,
+      "CandidateHostObjectID": "76895",
+      "AssociationStatus": "UNIQUE_CANDIDATE",
+      "HostPoseSource": "PAIRED_GROUNDTRUTH_MATCHED_SV_HOST_ID"
+    },
+    {
+      "PairID": 3,
+      "Frame": 25,
+      "GroundTruthObjects": 2,
+      "HostCandidates": 1,
+      "CandidateHostObjectID": "76895",
+      "AssociationStatus": "UNIQUE_CANDIDATE",
+      "HostPoseSource": "PAIRED_GROUNDTRUTH_MATCHED_SV_HOST_ID"
+    },
+    {
+      "PairID": 3,
+      "Frame": 99,
+      "GroundTruthObjects": 5,
+      "HostCandidates": 1,
+      "CandidateHostObjectID": "76895",
+      "AssociationStatus": "UNIQUE_CANDIDATE",
+      "HostPoseSource": "PAIRED_GROUNDTRUTH_MATCHED_SV_HOST_ID"
+    }
+  ],
+  "UniqueHostCandidates": 9,
+  "UnusuallyLargeObjectEntries": 9,
+  "AssociationMethod": "Position and yaw consistency; not definitive actor identity verification",
+  "Limitations": [
+    "Matching position and yaw does not prove ID identity",
+    "Object centers may be bounding-box centers",
+    "Large objects are flagged, not automatically invalid",
+    "No point-to-surface accuracy measured",
+    "Stationary GroundTruth objects absent in samples"
+  ]
+}

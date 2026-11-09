@@ -1,0 +1,999 @@
+﻿
+SOURCE: Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp
+MATCH LINE: 156
+  151:     {
+  152:         SensorId->set_value(GetTypeHash(SensorConfiguration.ID));
+  153:     }
+  154: 
+  155:     ViewConfiguration->set_allocated_mounting_position(
+  156:         ToOSI::toMountingPosition(SensorConfiguration));
+  157: 
+  158:     ViewConfiguration->mutable_mounting_position()
+  159:         ->set_allocated_orientation(
+  160:             ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  161: 
+  162:     ViewConfiguration->set_field_of_view_horizontal(
+  163:         SensorConfiguration.Camera.FieldOfViewHorizontal);
+  164: 
+  165:     ViewConfiguration->set_field_of_view_vertical(
+  166:         SensorConfiguration.Camera.FieldOfViewVertical);
+  167: 
+  168:     ViewConfiguration->set_number_of_pixels_vertical(
+
+SOURCE: Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp
+MATCH LINE: 160
+  155:     ViewConfiguration->set_allocated_mounting_position(
+  156:         ToOSI::toMountingPosition(SensorConfiguration));
+  157: 
+  158:     ViewConfiguration->mutable_mounting_position()
+  159:         ->set_allocated_orientation(
+  160:             ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  161: 
+  162:     ViewConfiguration->set_field_of_view_horizontal(
+  163:         SensorConfiguration.Camera.FieldOfViewHorizontal);
+  164: 
+  165:     ViewConfiguration->set_field_of_view_vertical(
+  166:         SensorConfiguration.Camera.FieldOfViewVertical);
+  167: 
+  168:     ViewConfiguration->set_number_of_pixels_vertical(
+  169:         SensorConfiguration.Camera.NumberOfPixelsVertical);
+  170: 
+  171:     ViewConfiguration->set_number_of_pixels_horizontal(
+  172:         SensorConfiguration.Camera.NumberOfPixelsHorizontal);
+
+SOURCE: Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp
+MATCH LINE: 290
+  285:         const uint32 UniqueId = Parent->GetUniqueID();
+  286: 
+  287:         MovingObject->mutable_id()->set_value(UniqueId);
+  288: 
+  289:         MovingObject->mutable_base()->set_allocated_position(
+  290:             ToOSI::Position(Parent->GetActorLocation()));
+  291: 
+  292:         MovingObject->mutable_base()->set_allocated_orientation(
+  293:             ToOSI::Orientation3d(Parent->GetActorQuat()));
+  294: 
+  295:         Sensor.SensorView->mutable_global_ground_truth()
+  296:             ->mutable_host_vehicle_id()->set_value(UniqueId);
+  297:     }
+  298: 
+  299:     SensorView.ID = SensorConfiguration.ID;
+  300:     SensorView.sensorview = Sensor.SensorView;
+  301: }
+  302: 
+
+SOURCE: Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp
+MATCH LINE: 293
+  288: 
+  289:         MovingObject->mutable_base()->set_allocated_position(
+  290:             ToOSI::Position(Parent->GetActorLocation()));
+  291: 
+  292:         MovingObject->mutable_base()->set_allocated_orientation(
+  293:             ToOSI::Orientation3d(Parent->GetActorQuat()));
+  294: 
+  295:         Sensor.SensorView->mutable_global_ground_truth()
+  296:             ->mutable_host_vehicle_id()->set_value(UniqueId);
+  297:     }
+  298: 
+  299:     SensorView.ID = SensorConfiguration.ID;
+  300:     SensorView.sensorview = Sensor.SensorView;
+  301: }
+  302: 
+  303: void ACameraSensor::SendData(osi3::SensorView& NewSensorView)
+  304: {
+  305:     if (SensorConfiguration.DataTargets.Num() == 0)
+
+SOURCE: Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\LidarSensorTester.cpp
+MATCH LINE: 59
+   54: // Called every frame
+   55: void ALidarSensorTester::Tick(float DeltaTime)
+   56: {
+   57: 	Super::Tick(DeltaTime);
+   58: 	CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(1, 0, 0));
+   59: 	CubeActor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 0, 0));
+   60: 
+   61: 	if (bSensorSpawned) {
+   62: 		return;
+   63: 	}
+   64: 	AActor* Spawner = FindSensorSpawner();
+   65: 
+   66: 	if (Spawner == nullptr) {
+   67: 
+   68: 		if (!bReportedWaiting) {
+   69: 			bReportedWaiting = true;
+   70: 			UE_LOG(Lidar, Log, TEXT("LidarSensorTester: no lidar manager yet, retrying every tick"));
+   71: 		}
+
+SOURCE: Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 51
+   46: 
+   47: void ASimpleLidar::GetScanData() {
+   48: 
+   49: 	// Get owner's location and rotation
+   50: 	const FVector LidarPosition = this->GetActorLocation();
+   51: 	const FRotator LidarRotation = this->GetActorRotation();
+   52: 
+   53: 	// Initialize array for raycast result
+   54: 	Sensor.RecordedHits.Init(FHitResultAndIntesity(), Sensor.Number_of_rays_horizontal * Sensor.Number_of_rays_vertical);
+   55: 
+   56: 	// Calculate batch size for 'ParallelFor' based on workable thread
+   57: 	const int32 ThreadNum = FPlatformMisc::NumberOfWorkerThreadsToSpawn();
+   58: 	const int32 DivideEnd = FMath::FloorToInt((float)(Sensor.RecordedHits.Num() / ThreadNum));
+   59: 
+   60: 	ParallelFor(
+   61: 		ThreadNum,
+   62: 		[&](int32 PFIndex)
+   63: 		{
+
+SOURCE: Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 109
+  104: 		auto* reflection = lidarSensorView->add_reflection();
+  105: 		reflection->set_time_of_flight(2 * 0.01 * hit.HitResult.Distance / SPEED_OF_LIGHT);
+  106: 
+  107: 		osi3::Vector3d* normal_to_surface = reflection->mutable_normal_to_surface();
+  108: 		normal_to_surface->set_x(hit.HitResult.ImpactNormal.X);
+  109: 		normal_to_surface->set_y(-hit.HitResult.ImpactNormal.Y);
+  110: 		normal_to_surface->set_z(hit.HitResult.ImpactNormal.Z);
+  111: 		reflection->set_doppler_shift(0);
+  112: 		if (hit.HitResult.bBlockingHit) {
+  113: 			reflection->mutable_object_id()->set_value(hit.HitResult.GetActor()->GetUniqueID());
+  114: 			reflection->set_signal_strength(hit.Intesity);
+  115: 		}
+  116: 		else {
+  117: 			reflection->mutable_object_id()->set_value(UINT64_MAX);
+  118: 			reflection->set_signal_strength(0.0);
+  119: 		}
+  120: 	}
+  121: 
+
+SOURCE: Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 128
+  123: 
+  124: 	if (Parent != nullptr) {
+  125: 		auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+  126: 		uint32_t uniqueID = Parent->GetUniqueID();
+  127: 		moving_object->mutable_id()->set_value(uniqueID);
+  128: 		moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  129: 		moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  130: 		Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+  131: 	}
+  132: 
+  133: 	// Apply weather effect
+  134: if (HasWeatherData && Sensor.SensorView) {
+  135:     LidarWeatherEffectModel LidarWeatherEffectModel;
+  136:     LidarWeatherEffectModel.ApplyLidarWeatherEffect(
+  137:         *Sensor.SensorView, CurrentWeatherData);
+  138: }
+  139: }
+  140: 
+
+SOURCE: Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 129
+  124: 	if (Parent != nullptr) {
+  125: 		auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+  126: 		uint32_t uniqueID = Parent->GetUniqueID();
+  127: 		moving_object->mutable_id()->set_value(uniqueID);
+  128: 		moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  129: 		moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  130: 		Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+  131: 	}
+  132: 
+  133: 	// Apply weather effect
+  134: if (HasWeatherData && Sensor.SensorView) {
+  135:     LidarWeatherEffectModel LidarWeatherEffectModel;
+  136:     LidarWeatherEffectModel.ApplyLidarWeatherEffect(
+  137:         *Sensor.SensorView, CurrentWeatherData);
+  138: }
+  139: }
+  140: 
+  141: float ASimpleLidar::ComputeLidarSignalStrength(const FHitResult& Hit)
+
+SOURCE: Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 219
+  214: 	conf->set_field_of_view_horizontal(SensorConfiguration.Lidar.FieldOfViewHorizontal);
+  215: 	conf->set_field_of_view_vertical(SensorConfiguration.Lidar.FieldOfViewVertical);
+  216: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Lidar.NumberOfRaysHorizontal);
+  217: 	conf->set_number_of_rays_vertical(SensorConfiguration.Lidar.NumberOfRaysVertical);
+  218: 	conf->mutable_mounting_position()->set_allocated_position(
+  219: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+  220: 	conf->mutable_mounting_position()->set_allocated_orientation(
+  221: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  222: 	Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+  223: 
+  224: 	//calculate angles
+  225: 	Sensor.AzimuthAngles.Empty();
+  226: 	Sensor.ElevationAngles.Empty();
+  227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+  228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  229: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+  230: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  231: 	}
+
+SOURCE: Plugins\GameFeatures\ue_lidar_feature\Source\ue_lidar_featureRuntime\Private\SimpleLidar.cpp
+MATCH LINE: 221
+  216: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Lidar.NumberOfRaysHorizontal);
+  217: 	conf->set_number_of_rays_vertical(SensorConfiguration.Lidar.NumberOfRaysVertical);
+  218: 	conf->mutable_mounting_position()->set_allocated_position(
+  219: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+  220: 	conf->mutable_mounting_position()->set_allocated_orientation(
+  221: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  222: 	Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+  223: 
+  224: 	//calculate angles
+  225: 	Sensor.AzimuthAngles.Empty();
+  226: 	Sensor.ElevationAngles.Empty();
+  227: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_horizontal();
+  228: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  229: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal()
+  230: 			+ Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  231: 	}
+  232: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->lidar_sensor_view_configuration(0).number_of_rays_vertical();
+  233: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+
+SOURCE: Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp
+MATCH LINE: 81
+   76: 			auto* id = vehicle->mutable_id();
+   77: 			id->set_value(actor->GetUniqueID());
+   78: 
+   79: 			vehicle->set_type(osi3::MovingObject_Type_TYPE_VEHICLE);
+   80: 
+   81: 			vehicle->set_allocated_base(ToOSI::toOSIBaseMoving(actor));
+   82: 
+   83: 
+   84: 			auto classification = vehicle->mutable_vehicle_classification();
+   85: 			//TODO support trailer
+   86: 			classification->set_has_trailer(false);
+   87: 
+   88: 			classification->set_role(osi3::MovingObject_VehicleClassification_Role_ROLE_CIVIL);
+   89: 
+   90: 			//auto attributes = vehicle->mutable_vehicle_attributes();
+   91: 			//auto frontAxle = attributes->mutable_bbcenter_to_front();
+   92: 			//auto rearAxle = attributes->mutable_bbcenter_to_rear();
+   93: 
+
+SOURCE: Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp
+MATCH LINE: 113
+  108: 				else if ("bbcenter_to_front_x" == attribute.GetId()) {
+  109: 					frontAxle->set_x(attribute.As<float>());
+  110: 				}
+  111: 				else if ("bbcenter_to_front_y" == attribute.GetId()) {
+  112: 					// y-axis has to be flipped
+  113: 					frontAxle->set_y(-attribute.As<float>());
+  114: 				}
+  115: 				else if ("bbcenter_to_front_z" == attribute.GetId()) {
+  116: 					frontAxle->set_z(attribute.As<float>());
+  117: 				}
+  118: 				else if ("bbcenter_to_rear_x" == attribute.GetId()) {
+  119: 					rearAxle->set_x(attribute.As<float>());
+  120: 				}
+  121: 				else if ("bbcenter_to_rear_y" == attribute.GetId()) {
+  122: 					// y-axis has to be flipped
+  123: 					rearAxle->set_y(-attribute.As<float>());
+  124: 				}
+  125: 				else if ("bbcenter_to_rear_z" == attribute.GetId()) {
+
+SOURCE: Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp
+MATCH LINE: 123
+  118: 				else if ("bbcenter_to_rear_x" == attribute.GetId()) {
+  119: 					rearAxle->set_x(attribute.As<float>());
+  120: 				}
+  121: 				else if ("bbcenter_to_rear_y" == attribute.GetId()) {
+  122: 					// y-axis has to be flipped
+  123: 					rearAxle->set_y(-attribute.As<float>());
+  124: 				}
+  125: 				else if ("bbcenter_to_rear_z" == attribute.GetId()) {
+  126: 					rearAxle->set_z(attribute.As<float>());
+  127: 				}
+  128: 				else if ("role_name" == attribute.GetId()) {
+  129: 				}
+  130: 			}*/
+  131: 			// parse vehicle lights
+  132: 			//classification->mutable_light_state();
+  133: 
+  134: 		}
+  135: 		else if (pathName.Contains("pedestrian")) {
+
+SOURCE: Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp
+MATCH LINE: 251
+  246: 			auto* id = vehicle->mutable_id();
+  247: 			id->set_value(actor->GetUniqueID());
+  248: 
+  249: 			vehicle->set_type(osi3::MovingObject_Type_TYPE_VEHICLE);
+  250: 
+  251: 			vehicle->set_allocated_base(ToOSI::toOSIBaseMoving(actor));
+  252: 
+  253: 			auto classification = vehicle->mutable_vehicle_classification();
+  254: 			classification->set_role(osi3::MovingObject_VehicleClassification_Role_ROLE_CIVIL);
+  255: 			classification->set_type(osi3::MovingObject_VehicleClassification_Type_TYPE_MEDIUM_CAR);
+  256: 		}
+  257: 		else if (pathName.Contains("pedestrian")) {
+  258: 			auto pedestrian = groundTruth.add_moving_object();
+  259: 
+  260: 			auto* id = pedestrian->mutable_id();
+  261: 			id->set_value(actor->GetUniqueID());
+  262: 			pedestrian->set_type(osi3::MovingObject_Type_TYPE_PEDESTRIAN);
+  263: 			pedestrian->set_allocated_base(ToOSI::toOSIBaseMoving(actor));
+
+SOURCE: Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp
+MATCH LINE: 263
+  258: 			auto pedestrian = groundTruth.add_moving_object();
+  259: 
+  260: 			auto* id = pedestrian->mutable_id();
+  261: 			id->set_value(actor->GetUniqueID());
+  262: 			pedestrian->set_type(osi3::MovingObject_Type_TYPE_PEDESTRIAN);
+  263: 			pedestrian->set_allocated_base(ToOSI::toOSIBaseMoving(actor));
+  264: 		}
+  265: 		else if (pathName.Contains("traffic_light")) {
+  266: 			if (trafficLightGroundTruth.traffic_light_size() != 0)
+  267: 			{
+  268: 				continue; //data already merged at the top of this method
+  269: 			}
+  270: 			//a osi3::TrafficLight describes a single bulb of a traffic light
+  271: 
+  272: 			//add converted bulbs to ground truth
+  273: 			auto trafficLights = groundTruth.add_traffic_light();
+  274: 			auto* id = trafficLights->mutable_id();
+  275: 			id->set_value(actor->GetUniqueID());
+
+SOURCE: Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp
+MATCH LINE: 293
+  288: 	return groundTruth;
+  289: }
+  290: 
+  291: osi3::StationaryObject* OSI_GroundTruth::toOSI(const AActor* actor) {
+  292: 	osi3::StationaryObject* prop = new osi3::StationaryObject();
+  293: 	osi3::BaseStationary* base = ToOSI::toOSIBaseStationary(actor);
+  294: 	if (base->dimension().length() == 0 && base->dimension().height() == 0 &&base->dimension().width() == 0) {
+  295: 		base->Clear();
+  296: 		return prop;
+  297: 	}
+  298: 	else {
+  299: 		prop->set_allocated_base(base);
+  300: 	}
+  301: 	osi3::StationaryObject_Classification* classification = prop->mutable_classification();
+  302: 	//TODO Classification
+  303: 
+  304: 	//Use hash of object name for id management of static actors to keep them the same in each session
+  305: 	prop->mutable_id()->set_value(GetTypeHash(actor->GetName()));
+
+SOURCE: Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp
+MATCH LINE: 70
+   65: void ARadarSensorTester::Tick(float DeltaTime)
+   66: {
+   67: 	Super::Tick(DeltaTime);
+   68: 	if (counter <= rotationTimer) {
+   69: 		CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(1 * speedMultiplier, 0, 0));
+   70: 		CubeActor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 0, 0));
+   71: 	}
+   72: 	else {
+   73: 		CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(0, 0, 0));
+   74: 		CubeActor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 1 * speedMultiplier, 0));
+   75: 	}
+   76: 	//TargetCubeActor->SetActorLocation(TargetCubeActor->GetActorLocation() + FVector(0, 1, 0));
+   77: 	//TargetCubeActor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 0, 0));
+   78: 
+   79: 	//TargetCube2Actor->SetActorLocation(TargetCube2Actor->GetActorLocation() + FVector(3, 0, 0));
+   80: 	//TargetCube2Actor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 0, 0));
+   81: 
+   82: 
+
+SOURCE: Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp
+MATCH LINE: 74
+   69: 		CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(1 * speedMultiplier, 0, 0));
+   70: 		CubeActor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 0, 0));
+   71: 	}
+   72: 	else {
+   73: 		CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(0, 0, 0));
+   74: 		CubeActor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 1 * speedMultiplier, 0));
+   75: 	}
+   76: 	//TargetCubeActor->SetActorLocation(TargetCubeActor->GetActorLocation() + FVector(0, 1, 0));
+   77: 	//TargetCubeActor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 0, 0));
+   78: 
+   79: 	//TargetCube2Actor->SetActorLocation(TargetCube2Actor->GetActorLocation() + FVector(3, 0, 0));
+   80: 	//TargetCube2Actor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 0, 0));
+   81: 
+   82: 
+   83: 	if (bSensorSpawned) {
+   84: 		return;
+   85: 	}
+   86: 	AActor* Spawner = FindSensorSpawner();
+
+SOURCE: Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp
+MATCH LINE: 77
+   72: 	else {
+   73: 		CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(0, 0, 0));
+   74: 		CubeActor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 1 * speedMultiplier, 0));
+   75: 	}
+   76: 	//TargetCubeActor->SetActorLocation(TargetCubeActor->GetActorLocation() + FVector(0, 1, 0));
+   77: 	//TargetCubeActor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 0, 0));
+   78: 
+   79: 	//TargetCube2Actor->SetActorLocation(TargetCube2Actor->GetActorLocation() + FVector(3, 0, 0));
+   80: 	//TargetCube2Actor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 0, 0));
+   81: 
+   82: 
+   83: 	if (bSensorSpawned) {
+   84: 		return;
+   85: 	}
+   86: 	AActor* Spawner = FindSensorSpawner();
+   87: 
+   88: 	if (Spawner == nullptr) {
+   89: 
+
+SOURCE: Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp
+MATCH LINE: 80
+   75: 	}
+   76: 	//TargetCubeActor->SetActorLocation(TargetCubeActor->GetActorLocation() + FVector(0, 1, 0));
+   77: 	//TargetCubeActor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 0, 0));
+   78: 
+   79: 	//TargetCube2Actor->SetActorLocation(TargetCube2Actor->GetActorLocation() + FVector(3, 0, 0));
+   80: 	//TargetCube2Actor->SetActorRotation(CubeActor->GetActorRotation() + FRotator(0, 0, 0));
+   81: 
+   82: 
+   83: 	if (bSensorSpawned) {
+   84: 		return;
+   85: 	}
+   86: 	AActor* Spawner = FindSensorSpawner();
+   87: 
+   88: 	if (Spawner == nullptr) {
+   89: 
+   90: 		if (!bReportedWaiting) {
+   91: 			bReportedWaiting = true;
+   92: 			UE_LOG(Radar, Log, TEXT("RadarSensorTester: no radar manager yet, retrying every tick"));
+
+SOURCE: Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+MATCH LINE: 61
+   56: 
+   57: void ASimpleRadar::GetScanData() {
+   58: 
+   59: 	// Get owner's location and rotation
+   60: 	const FVector RadarPosition = this->GetActorLocation();
+   61: 	const FRotator RadarRotation = this->GetActorRotation();
+   62: 
+   63: 	// Initialize array for raycast result
+   64: 	Sensor.RecordedHits.Init(FRadarHitResultAndIntesity(), Sensor.Number_of_rays_horizontal * Sensor.Number_of_rays_vertical);
+   65: 
+   66: 	// Calculate batch size for 'ParallelFor' based on workable thread
+   67: 	const int32 ThreadNum = FPlatformMisc::NumberOfWorkerThreadsToSpawn();
+   68: 	const int32 DivideEnd = FMath::FloorToInt((float)(Sensor.RecordedHits.Num() / ThreadNum));
+   69: 
+   70: 	ParallelFor(
+   71: 		ThreadNum,
+   72: 		[&](int32 PFIndex)
+   73: 		{
+
+SOURCE: Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+MATCH LINE: 151
+  146: 
+  147: 	if (Parent != nullptr) {
+  148: 		auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+  149: 		uint32_t uniqueID = Parent->GetUniqueID();
+  150: 		moving_object->mutable_id()->set_value(uniqueID);
+  151: 		moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  152: 		moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  153: 		Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+  154: 	}
+  155: }
+  156: 
+  157: float ASimpleRadar::ComputeRadarSignalStrength(const FHitResult& Hit)
+  158: {
+  159: 	// Frequenz 77GHz, Wellenlï¿½nge= 3.9mm, Sendeleistung 0.01W, Antennengewinn 30dB ca. 1000(linear), Radarziel Rï¿½ckstreuquerschnitt (Auto) 10m2, R = Entfernung zum Ziel
+  160: 	// Pr = (7.5 * 10^-5 * Radarziel Rï¿½ckstreuquerschnitt) / R^4
+  161: 	float backscatterValue = 10; // default for cars, need adjustment for bikes and pedestrians
+  162: 
+  163: 	float distanceToTarget = (Hit.ImpactPoint - Hit.TraceStart).Size() * 0.01; //in meter
+
+SOURCE: Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+MATCH LINE: 152
+  147: 	if (Parent != nullptr) {
+  148: 		auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+  149: 		uint32_t uniqueID = Parent->GetUniqueID();
+  150: 		moving_object->mutable_id()->set_value(uniqueID);
+  151: 		moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  152: 		moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  153: 		Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+  154: 	}
+  155: }
+  156: 
+  157: float ASimpleRadar::ComputeRadarSignalStrength(const FHitResult& Hit)
+  158: {
+  159: 	// Frequenz 77GHz, Wellenlï¿½nge= 3.9mm, Sendeleistung 0.01W, Antennengewinn 30dB ca. 1000(linear), Radarziel Rï¿½ckstreuquerschnitt (Auto) 10m2, R = Entfernung zum Ziel
+  160: 	// Pr = (7.5 * 10^-5 * Radarziel Rï¿½ckstreuquerschnitt) / R^4
+  161: 	float backscatterValue = 10; // default for cars, need adjustment for bikes and pedestrians
+  162: 
+  163: 	float distanceToTarget = (Hit.ImpactPoint - Hit.TraceStart).Size() * 0.01; //in meter
+  164: 	distanceToTarget = FMath::Max(distanceToTarget, 0.01f); // prevent division by zero
+
+SOURCE: Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+MATCH LINE: 192
+  187: 	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+  188: 	conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+  189: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Radar.NumberOfRaysHorizontal);
+  190: 	conf->set_number_of_rays_vertical(SensorConfiguration.Radar.NumberOfRaysVertical);
+  191: 	conf->mutable_mounting_position()->set_allocated_position(
+  192: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+  193: 	conf->mutable_mounting_position()->set_allocated_orientation(
+  194: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  195: 	conf->set_emitter_frequency(77000000000.0); //in Hz
+  196: 	//calculate angles
+  197: 
+  198: 	Sensor.AzimuthAngles.Empty();
+  199: 	Sensor.ElevationAngles.Empty();
+  200: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+  201: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  202: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+  203: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  204: 	}
+
+SOURCE: Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+MATCH LINE: 194
+  189: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Radar.NumberOfRaysHorizontal);
+  190: 	conf->set_number_of_rays_vertical(SensorConfiguration.Radar.NumberOfRaysVertical);
+  191: 	conf->mutable_mounting_position()->set_allocated_position(
+  192: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+  193: 	conf->mutable_mounting_position()->set_allocated_orientation(
+  194: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  195: 	conf->set_emitter_frequency(77000000000.0); //in Hz
+  196: 	//calculate angles
+  197: 
+  198: 	Sensor.AzimuthAngles.Empty();
+  199: 	Sensor.ElevationAngles.Empty();
+  200: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+  201: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  202: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+  203: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  204: 	}
+  205: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_vertical();
+  206: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+
+SOURCE: Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarSensor.cpp
+MATCH LINE: 142
+  137:         const int64 Ns = FMath::RoundToInt64(Slot->Timestamp * 1e9);
+  138:         View.mutable_timestamp()->set_seconds(Ns / 1000000000);
+  139:         View.mutable_timestamp()->set_nanos(Ns % 1000000000);
+  140:         const uint32 SensorId = FCrc::StrCrc32(*SensorConfiguration.ID.ToString());
+  141:         View.mutable_sensor_id()->set_value(SensorId);
+  142:         View.set_allocated_mounting_position(ToOSI::toMountingPosition(SensorConfiguration));
+  143:         auto* Lidar = View.add_lidar_sensor_view();
+  144:         auto* VC = Lidar->mutable_view_configuration();
+  145:         VC->mutable_sensor_id()->set_value(SensorId);
+  146:         VC->mutable_mounting_position()->CopyFrom(View.mounting_position());
+  147:         VC->set_field_of_view_horizontal(FMath::DegreesToRadians(Config.HorizontalFovDegrees));
+  148:         VC->set_field_of_view_vertical(FMath::DegreesToRadians(Config.VerticalFovDegrees));
+  149:         VC->set_number_of_rays_horizontal(
+  150:             Config.Pattern == ERaytracingLidarPattern::Custom || Config.Pattern == ERaytracingLidarPattern::Lissajous
+  151:                 ? State->Rays.Num()
+  152:                 : Config.HorizontalResolution);
+  153:         VC->set_number_of_rays_vertical(
+  154:             Config.Pattern == ERaytracingLidarPattern::Rotating ? Config.RotatingChannels
+
+SOURCE: Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarSensor.cpp
+MATCH LINE: 173
+  168:         {
+  169:             const auto& Ray = *Ordered[I];
+  170:             const auto& Hit = Slot->Hits[I];
+  171:             auto* Direction = VC->add_directions();
+  172:             Direction->set_x(Hit.LocalDirection.X);
+  173:             Direction->set_y(-Hit.LocalDirection.Y);
+  174:             Direction->set_z(Hit.LocalDirection.Z);
+  175:             VC->add_timings(
+  176:                 FMath::RoundToInt64((Config.ScanTimeOrigin + Ray.NormalizedTime * Config.GetScanDurationSeconds()) * 1e6));
+  177:             auto* Reflection = Lidar->add_reflection();
+  178:             Reflection->mutable_object_id()->set_value(MAX_uint64);
+  179:             if (!Hit.Valid)
+  180:                 continue;
+  181:             ++Hits;
+  182:             Reflection->set_time_of_flight(2.0 * Hit.RangeMeters / 299792458.0);
+  183:             Reflection->set_signal_strength(10.0 * FMath::LogX(10.0, FMath::Max(double(Hit.Intensity), 1e-12)));
+  184:             Reflection->mutable_object_id()->set_value(uint64(Hit.ObjectLow) | (uint64(Hit.ObjectHigh) << 32));
+  185:         }
+
+SOURCE: Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarSensor.cpp
+MATCH LINE: 191
+  186:         auto* Parent = GetAttachParentActor();
+  187:         if (Parent != nullptr) {
+  188:             auto* moving_object = View.mutable_global_ground_truth()->add_moving_object();
+  189:             uint32_t uniqueID = Parent->GetUniqueID();
+  190:             moving_object->mutable_id()->set_value(uniqueID);
+  191:             moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  192:             moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  193:             View.mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+  194:         }
+  195:         // Apply weather degradation before delivering the SensorView to interface consumers.
+  196:         if (HasWeatherData)
+  197:             FRaytracingLidarWeatherEffectModel().ApplyLidarWeatherEffect(View, CurrentWeatherData);
+  198: 
+  199:         LastCompletedScan = Slot->ScanId;
+  200:         if (PublishingActive)
+  201:             SendData(View);
+  202:         UE_LOG(LogRaytracingLidar, Verbose, TEXT("%s scan=%llu rays=%d hits=%d drops=%llu"), *GetName(), Slot->ScanId,
+  203:             Ordered.Num(), Hits, Drops);
+
+SOURCE: Plugins\GameFeatures\ue_raytracing_lidar_feature\Source\ue_raytracing_lidar_featureRuntime\Private\RaytracingLidarSensor.cpp
+MATCH LINE: 192
+  187:         if (Parent != nullptr) {
+  188:             auto* moving_object = View.mutable_global_ground_truth()->add_moving_object();
+  189:             uint32_t uniqueID = Parent->GetUniqueID();
+  190:             moving_object->mutable_id()->set_value(uniqueID);
+  191:             moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  192:             moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  193:             View.mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+  194:         }
+  195:         // Apply weather degradation before delivering the SensorView to interface consumers.
+  196:         if (HasWeatherData)
+  197:             FRaytracingLidarWeatherEffectModel().ApplyLidarWeatherEffect(View, CurrentWeatherData);
+  198: 
+  199:         LastCompletedScan = Slot->ScanId;
+  200:         if (PublishingActive)
+  201:             SendData(View);
+  202:         UE_LOG(LogRaytracingLidar, Verbose, TEXT("%s scan=%llu rays=%d hits=%d drops=%llu"), *GetName(), Slot->ScanId,
+  203:             Ordered.Num(), Hits, Drops);
+  204:         CSV_CUSTOM_STAT(
+
+SOURCE: Plugins\GameFeatures\ue_visualizer_feature\Source\ue_visualizer_featureRuntime\Private\VisualizerManager.cpp
+MATCH LINE: 44
+   39: 	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+   40: 
+   41: 	PointCloudVisualizer = GetWorld()->SpawnActor<APointCloudVisualizer>(
+   42: 		APointCloudVisualizer::StaticClass(),
+   43: 		GetActorLocation(),
+   44: 		GetActorRotation(),
+   45: 		SpawnParams
+   46: 	);
+   47: 
+   48: 
+   49: 	if (!IsValid(PointCloudVisualizer))
+   50: 	{
+   51: 		UE_LOG(Visualizer, Error, TEXT("Could not create Point Cloud Visualizer"));
+   52: 		return;
+   53: 	}
+   54: 
+   55: 	PointCloudVisualizer->Initialize(Definition->MarkerSpereMesh, Definition->MarkerConeMesh, Definition->MarkerMaterial, Definition->MarkerScale, Definition->bClearEveryFrame);
+   56: 
+
+SOURCE: Plugins\GameFeatures\ue_visualizer_feature\Source\ue_visualizer_featureRuntime\Private\VisualizerManager.cpp
+MATCH LINE: 62
+   57: 	AddTickPrerequisiteActor(PointCloudVisualizer);
+   58: 
+   59: 	FoVVisualizer = GetWorld()->SpawnActor<AFoVVisualizer>(
+   60: 		AFoVVisualizer::StaticClass(),
+   61: 		GetActorLocation(),
+   62: 		GetActorRotation(),
+   63: 		SpawnParams
+   64: 	);
+   65: 
+   66: 	if (!IsValid(FoVVisualizer))
+   67: 	{
+   68: 		UE_LOG(Visualizer, Error, TEXT("Could not create FoV Visualizer"));
+   69: 		return;
+   70: 	}
+   71: 
+   72: 	AddTickPrerequisiteActor(FoVVisualizer);
+   73: 
+   74: 	CameraWidget = LoadClass<UCameraVisualizer>(nullptr, CameraWidgetPath);
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 13
+    8:  * SPDX-License-Identifier: EPL-2.0
+    9:  */
+   10: 
+   11: #include "Utils/ToOSI.h"
+   12: 
+   13: ToOSI::ToOSI()
+   14: {
+   15: }
+   16: 
+   17: ToOSI::~ToOSI()
+   18: {
+   19: }
+   20: 
+   21: osi3::BaseStationary* ToOSI::BaseStationary(FTransform transform) {
+   22: 	osi3::BaseStationary* baseStationary = new osi3::BaseStationary();
+   23: 	baseStationary->set_allocated_position(Position(transform.GetLocation()));
+   24: 	baseStationary->set_allocated_orientation(Orientation3d(transform.GetRotation()));
+   25: 	baseStationary->set_allocated_dimension(Dimension(transform.GetScale3D()));
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 17
+   12: 
+   13: ToOSI::ToOSI()
+   14: {
+   15: }
+   16: 
+   17: ToOSI::~ToOSI()
+   18: {
+   19: }
+   20: 
+   21: osi3::BaseStationary* ToOSI::BaseStationary(FTransform transform) {
+   22: 	osi3::BaseStationary* baseStationary = new osi3::BaseStationary();
+   23: 	baseStationary->set_allocated_position(Position(transform.GetLocation()));
+   24: 	baseStationary->set_allocated_orientation(Orientation3d(transform.GetRotation()));
+   25: 	baseStationary->set_allocated_dimension(Dimension(transform.GetScale3D()));
+   26: 	return baseStationary;
+   27: }
+   28: 
+   29: osi3::Vector3d* ToOSI::Position(FVector vector) {
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 21
+   16: 
+   17: ToOSI::~ToOSI()
+   18: {
+   19: }
+   20: 
+   21: osi3::BaseStationary* ToOSI::BaseStationary(FTransform transform) {
+   22: 	osi3::BaseStationary* baseStationary = new osi3::BaseStationary();
+   23: 	baseStationary->set_allocated_position(Position(transform.GetLocation()));
+   24: 	baseStationary->set_allocated_orientation(Orientation3d(transform.GetRotation()));
+   25: 	baseStationary->set_allocated_dimension(Dimension(transform.GetScale3D()));
+   26: 	return baseStationary;
+   27: }
+   28: 
+   29: osi3::Vector3d* ToOSI::Position(FVector vector) {
+   30: 	osi3::Vector3d* vector3d = new osi3::Vector3d();
+   31: 	//change hands and cm to m
+   32: 	vector3d->set_x(vector.X * 0.01);
+   33: 	vector3d->set_y(-vector.Y * 0.01);
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 29
+   24: 	baseStationary->set_allocated_orientation(Orientation3d(transform.GetRotation()));
+   25: 	baseStationary->set_allocated_dimension(Dimension(transform.GetScale3D()));
+   26: 	return baseStationary;
+   27: }
+   28: 
+   29: osi3::Vector3d* ToOSI::Position(FVector vector) {
+   30: 	osi3::Vector3d* vector3d = new osi3::Vector3d();
+   31: 	//change hands and cm to m
+   32: 	vector3d->set_x(vector.X * 0.01);
+   33: 	vector3d->set_y(-vector.Y * 0.01);
+   34: 	vector3d->set_z(vector.Z * 0.01);
+   35: 	return vector3d;
+   36: }
+   37: 
+   38: osi3::Orientation3d* ToOSI::Orientation3d(FQuat quat) {
+   39: 	osi3::Orientation3d* orientation = new osi3::Orientation3d();
+   40: 	FRotator rotator = quat.Rotator();
+   41: 	orientation->set_yaw(-rotator.Yaw * PI / 180.0);
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 33
+   28: 
+   29: osi3::Vector3d* ToOSI::Position(FVector vector) {
+   30: 	osi3::Vector3d* vector3d = new osi3::Vector3d();
+   31: 	//change hands and cm to m
+   32: 	vector3d->set_x(vector.X * 0.01);
+   33: 	vector3d->set_y(-vector.Y * 0.01);
+   34: 	vector3d->set_z(vector.Z * 0.01);
+   35: 	return vector3d;
+   36: }
+   37: 
+   38: osi3::Orientation3d* ToOSI::Orientation3d(FQuat quat) {
+   39: 	osi3::Orientation3d* orientation = new osi3::Orientation3d();
+   40: 	FRotator rotator = quat.Rotator();
+   41: 	orientation->set_yaw(-rotator.Yaw * PI / 180.0);
+   42: 	orientation->set_pitch(rotator.Pitch * PI / 180.0);
+   43: 	orientation->set_roll(rotator.Roll * PI / 180.0);
+   44: 	return orientation;
+   45: }
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 38
+   33: 	vector3d->set_y(-vector.Y * 0.01);
+   34: 	vector3d->set_z(vector.Z * 0.01);
+   35: 	return vector3d;
+   36: }
+   37: 
+   38: osi3::Orientation3d* ToOSI::Orientation3d(FQuat quat) {
+   39: 	osi3::Orientation3d* orientation = new osi3::Orientation3d();
+   40: 	FRotator rotator = quat.Rotator();
+   41: 	orientation->set_yaw(-rotator.Yaw * PI / 180.0);
+   42: 	orientation->set_pitch(rotator.Pitch * PI / 180.0);
+   43: 	orientation->set_roll(rotator.Roll * PI / 180.0);
+   44: 	return orientation;
+   45: }
+   46: 
+   47: osi3::Dimension3d* ToOSI::Dimension(FVector dimension) {
+   48: 	osi3::Dimension3d* dim = new osi3::Dimension3d();
+   49: 	dim->set_length(dimension.X);
+   50: 	dim->set_width(-dimension.Y);
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 47
+   42: 	orientation->set_pitch(rotator.Pitch * PI / 180.0);
+   43: 	orientation->set_roll(rotator.Roll * PI / 180.0);
+   44: 	return orientation;
+   45: }
+   46: 
+   47: osi3::Dimension3d* ToOSI::Dimension(FVector dimension) {
+   48: 	osi3::Dimension3d* dim = new osi3::Dimension3d();
+   49: 	dim->set_length(dimension.X);
+   50: 	dim->set_width(-dimension.Y);
+   51: 	dim->set_height(dimension.Z);
+   52: 	return dim;
+   53: }
+   54: 
+   55: osi3::BaseStationary* ToOSI::toOSIBaseStationary(const AActor* actor)
+   56: {
+   57: 	osi3::BaseStationary* base = new osi3::BaseStationary();
+   58: 	if (actor)
+   59: 	{
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 55
+   50: 	dim->set_width(-dimension.Y);
+   51: 	dim->set_height(dimension.Z);
+   52: 	return dim;
+   53: }
+   54: 
+   55: osi3::BaseStationary* ToOSI::toOSIBaseStationary(const AActor* actor)
+   56: {
+   57: 	osi3::BaseStationary* base = new osi3::BaseStationary();
+   58: 	if (actor)
+   59: 	{
+   60: 		FVector Origin;
+   61: 		FVector Extent;
+   62: 
+   63: 		actor->GetActorBounds(false, Origin, Extent);
+   64: 
+   65: 		base->mutable_dimension()->set_height(Extent.Z * 0.01);
+   66: 		base->mutable_dimension()->set_width(Extent.Y * 0.01);
+   67: 		base->mutable_dimension()->set_length(Extent.X * 0.01);
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 69
+   64: 
+   65: 		base->mutable_dimension()->set_height(Extent.Z * 0.01);
+   66: 		base->mutable_dimension()->set_width(Extent.Y * 0.01);
+   67: 		base->mutable_dimension()->set_length(Extent.X * 0.01);
+   68: 		base->mutable_position()->set_z(Origin.Z * 0.01);
+   69: 		base->mutable_position()->set_y(-Origin.Y * 0.01);
+   70: 		base->mutable_position()->set_z(Origin.X * 0.01);
+   71: 
+   72: 		auto rotation = actor->GetActorRotation();
+   73: 
+   74: 		base->mutable_orientation()->set_pitch(rotation.Pitch * PI / 180.f);
+   75: 		base->mutable_orientation()->set_yaw(-rotation.Yaw * PI / 180.f);
+   76: 		base->mutable_orientation()->set_roll(rotation.Roll * PI / 180.f);
+   77: 	}
+   78: 
+   79: 	return base;
+   80: }
+   81: 
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 72
+   67: 		base->mutable_dimension()->set_length(Extent.X * 0.01);
+   68: 		base->mutable_position()->set_z(Origin.Z * 0.01);
+   69: 		base->mutable_position()->set_y(-Origin.Y * 0.01);
+   70: 		base->mutable_position()->set_z(Origin.X * 0.01);
+   71: 
+   72: 		auto rotation = actor->GetActorRotation();
+   73: 
+   74: 		base->mutable_orientation()->set_pitch(rotation.Pitch * PI / 180.f);
+   75: 		base->mutable_orientation()->set_yaw(-rotation.Yaw * PI / 180.f);
+   76: 		base->mutable_orientation()->set_roll(rotation.Roll * PI / 180.f);
+   77: 	}
+   78: 
+   79: 	return base;
+   80: }
+   81: 
+   82: osi3::BaseMoving* ToOSI::toOSIBaseMoving(const AActor* actor)
+   83: {
+   84: 	osi3::BaseMoving* base = new osi3::BaseMoving();
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 82
+   77: 	}
+   78: 
+   79: 	return base;
+   80: }
+   81: 
+   82: osi3::BaseMoving* ToOSI::toOSIBaseMoving(const AActor* actor)
+   83: {
+   84: 	osi3::BaseMoving* base = new osi3::BaseMoving();
+   85: 	if (actor)
+   86: 	{
+   87: 		FVector Origin;
+   88: 		FVector Extent;
+   89: 
+   90: 		actor->GetActorBounds(false, Origin, Extent);
+   91: // TASK 13.3R - Actor Origin vs GT Bounding Center
+   92: {
+   93:     const FVector ActorOrigin = actor->GetActorLocation();
+   94:     const FVector BoundingCenter = Origin;
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 116
+  111: 
+  112: 		base->mutable_dimension()->set_height(Extent.Z * 0.01);
+  113: 		base->mutable_dimension()->set_width(Extent.Y * 0.01);
+  114: 		base->mutable_dimension()->set_length(Extent.X * 0.01);
+  115: 		base->mutable_position()->set_x(Origin.X * 0.01);
+  116: 		base->mutable_position()->set_y(-Origin.Y * 0.01);
+  117: 		base->mutable_position()->set_z(Origin.Z * 0.01);
+  118: 
+  119: 		auto rotation = actor->GetActorRotation();
+  120: 
+  121: 		base->mutable_orientation()->set_pitch(rotation.Pitch * PI / 180.f);
+  122: 		base->mutable_orientation()->set_yaw(-rotation.Yaw * PI / 180.f);
+  123: 		base->mutable_orientation()->set_roll(rotation.Roll * PI / 180.f);
+  124: 
+  125: 		base->mutable_acceleration()->set_x(0);
+  126: 		base->mutable_acceleration()->set_y(0);
+  127: 		base->mutable_acceleration()->set_z(0);
+  128: 
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 119
+  114: 		base->mutable_dimension()->set_length(Extent.X * 0.01);
+  115: 		base->mutable_position()->set_x(Origin.X * 0.01);
+  116: 		base->mutable_position()->set_y(-Origin.Y * 0.01);
+  117: 		base->mutable_position()->set_z(Origin.Z * 0.01);
+  118: 
+  119: 		auto rotation = actor->GetActorRotation();
+  120: 
+  121: 		base->mutable_orientation()->set_pitch(rotation.Pitch * PI / 180.f);
+  122: 		base->mutable_orientation()->set_yaw(-rotation.Yaw * PI / 180.f);
+  123: 		base->mutable_orientation()->set_roll(rotation.Roll * PI / 180.f);
+  124: 
+  125: 		base->mutable_acceleration()->set_x(0);
+  126: 		base->mutable_acceleration()->set_y(0);
+  127: 		base->mutable_acceleration()->set_z(0);
+  128: 
+  129: 		base->mutable_orientation_acceleration()->set_pitch(0);
+  130: 		base->mutable_orientation_acceleration()->set_roll(0);
+  131: 		base->mutable_orientation_acceleration()->set_yaw(0);
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 135
+  130: 		base->mutable_orientation_acceleration()->set_roll(0);
+  131: 		base->mutable_orientation_acceleration()->set_yaw(0);
+  132: 
+  133: 		FVector velocity = actor->GetVelocity();
+  134: 		base->mutable_velocity()->set_x(velocity.X);
+  135: 		base->mutable_velocity()->set_y(-velocity.Y);
+  136: 		base->mutable_velocity()->set_z(velocity.Z);
+  137: 	}
+  138: 
+  139: 	return base;
+  140: }
+  141: 
+  142: osi3::MountingPosition* ToOSI::toMountingPosition(FSensorConfigData& sensorConfigData)
+  143: {
+  144: 	osi3::MountingPosition* mounting_position = new osi3::MountingPosition();
+  145: 	auto* orientation = mounting_position->mutable_orientation();
+  146: 	orientation->set_roll(sensorConfigData.Offset.GetRotation().X * PI / 180.0);
+  147: 	orientation->set_pitch(sensorConfigData.Offset.GetRotation().Y * PI / 180.0);
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 142
+  137: 	}
+  138: 
+  139: 	return base;
+  140: }
+  141: 
+  142: osi3::MountingPosition* ToOSI::toMountingPosition(FSensorConfigData& sensorConfigData)
+  143: {
+  144: 	osi3::MountingPosition* mounting_position = new osi3::MountingPosition();
+  145: 	auto* orientation = mounting_position->mutable_orientation();
+  146: 	orientation->set_roll(sensorConfigData.Offset.GetRotation().X * PI / 180.0);
+  147: 	orientation->set_pitch(sensorConfigData.Offset.GetRotation().Y * PI / 180.0);
+  148: 	orientation->set_yaw(sensorConfigData.Offset.GetRotation().Z * PI / -180.0);
+  149: 	auto* position = mounting_position->mutable_position();
+  150: 	position->set_x(sensorConfigData.Offset.GetLocation().X * 0.01);
+  151: 	position->set_y(-sensorConfigData.Offset.GetLocation().Y * 0.01);
+  152: 	position->set_z(sensorConfigData.Offset.GetLocation().Z * 0.01);
+  153: 	return mounting_position;
+  154: }
+
+SOURCE: Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Utils\ToOSI.cpp
+MATCH LINE: 151
+  146: 	orientation->set_roll(sensorConfigData.Offset.GetRotation().X * PI / 180.0);
+  147: 	orientation->set_pitch(sensorConfigData.Offset.GetRotation().Y * PI / 180.0);
+  148: 	orientation->set_yaw(sensorConfigData.Offset.GetRotation().Z * PI / -180.0);
+  149: 	auto* position = mounting_position->mutable_position();
+  150: 	position->set_x(sensorConfigData.Offset.GetLocation().X * 0.01);
+  151: 	position->set_y(-sensorConfigData.Offset.GetLocation().Y * 0.01);
+  152: 	position->set_z(sensorConfigData.Offset.GetLocation().Z * 0.01);
+  153: 	return mounting_position;
+  154: }

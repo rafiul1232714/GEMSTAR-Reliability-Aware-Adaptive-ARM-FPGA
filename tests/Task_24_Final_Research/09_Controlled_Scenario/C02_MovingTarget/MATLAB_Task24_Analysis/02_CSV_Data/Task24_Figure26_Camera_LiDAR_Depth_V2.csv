@@ -1,0 +1,2 @@
+Frame,CameraConfidence,ProjectedImagePoints,PointsInsideDetectionBox,MedianDepth_m,MeanDepth_m,MinDepth_m,MaxDepth_m,MedianAbsoluteDepthDeviation_m,PointsDepth20to22m,FractionDepth20to22m
+530,0.210501506924629,3257,56,23.482542167343,23.6573633139312,23.2846017479847,27.4370588159918,0.104925327393689,51,0.910714285714286

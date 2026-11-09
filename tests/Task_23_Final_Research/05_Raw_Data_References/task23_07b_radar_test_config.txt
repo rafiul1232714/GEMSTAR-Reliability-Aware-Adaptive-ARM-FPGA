@@ -1,0 +1,175 @@
+﻿
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+  19: {
+  20: 	Super::BeginPlay();
+  21: 	  if (Sensor.SensorViewConfig == nullptr)
+  22:   {
+  23:       CreateTestConfig();
+  24:   }
+  25: 	
+  26: 	//initialise internal speed calculation
+  27: 	currentVelocity = FVector::ZeroVector;
+  28: 	oldPosition = GetActorLocation();
+  29: 	// complex collisions: true
+  30: 	TraceParams = FCollisionQueryParams(TEXT("RadioTrace"), true, GetOwner());
+  31: 	TraceParams.bReturnPhysicalMaterial = true;
+  32: 	TraceParams.bTraceComplex = true;
+  33: }
+  34: 
+  35: // Called every frame
+  36: void ASimpleRadar::Tick(float DeltaTime){
+  37: 	if (!TickActive) return;
+  38: 	//internal speed calculation
+  39: 	if (firstTick) {
+  40: 		firstTick = false;
+  41: 		currentVelocity = FVector::ZeroVector;
+  42: 	} else {
+  43: 		currentVelocity = (GetActorLocation() - oldPosition) / DeltaTime;
+  44: 		oldPosition = GetActorLocation();
+  45: 	}
+  46: 
+  47: 	GetScanData();
+  48: 	if (bDebugRayTraces || bDebugReflections || bDebugNormals)
+  49: 		ShowSensorDebugInformation();
+  50: 	if (PublishingActive)
+  51: 	{
+  52: 		GenerateOSIMessage();
+  53: 		SendData(*Sensor.SensorView);
+  54: 	}
+  55: }
+  56: 
+  57: void ASimpleRadar::GetScanData() {
+  58: 
+  59: 	// Get owner's location and rotation
+  60: 	const FVector RadarPosition = this->GetActorLocation();
+  61: 	const FRotator RadarRotation = this->GetActorRotation();
+  62: 
+  63: 	// Initialize array for raycast result
+  64: 	Sensor.RecordedHits.Init(FRadarHitResultAndIntesity(), Sensor.Number_of_rays_horizontal * Sensor.Number_of_rays_vertical);
+  65: 
+  66: 	// Calculate batch size for 'ParallelFor' based on workable thread
+  67: 	const int32 ThreadNum = FPlatformMisc::NumberOfWorkerThreadsToSpawn();
+  68: 	const int32 DivideEnd = FMath::FloorToInt((float)(Sensor.RecordedHits.Num() / ThreadNum));
+  69: 
+  70: 	ParallelFor(
+  71: 		ThreadNum,
+  72: 		[&](int32 PFIndex)
+  73: 		{
+  74: 			int32 StartAt = PFIndex * DivideEnd;
+  75: 			if (StartAt >= Sensor.RecordedHits.Num()) {
+  76: 				return;
+  77: 			}
+  78: 
+  79: 			int32 EndAt = StartAt + DivideEnd;
+  80: 			if (PFIndex == (ThreadNum - 1)) {
+  81: 				EndAt = Sensor.RecordedHits.Num();
+  82: 			}
+  83: 
+  84: 			for (int32 Index = StartAt; Index < EndAt; ++Index) {
+  85: 				const float HAngle = Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal];
+  86: 				const float VAngle = Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal];
+  87: 
+  88: 				FRotator RadioRotation(FMath::RadiansToDegrees(VAngle), FMath::RadiansToDegrees(HAngle), 0.f);
+  89: 				FRotator Rotation = UKismetMathLibrary::ComposeRotators(RadioRotation, RadarRotation);
+
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+ 175: void ASimpleRadar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) {
+ 176: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+ 177:   if (Sensor.SensorViewConfig == nullptr)
+ 178:   {
+ 179:       CreateTestConfig();
+ 180:   }
+ 181:   Sensor.SensorViewConfig->set_range(SensorConfiguration.Radar.Range);
+ 182:   UE_LOG(LogTemp, Warning,
+ 183:       TEXT("TASK20_45_RADAR_RANGE: %.3f metres"),
+ 184:       Sensor.SensorViewConfig->range());
+ 185: 	Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+ 186: 	auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+ 187: 	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+ 188: 	conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+ 189: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Radar.NumberOfRaysHorizontal);
+ 190: 	conf->set_number_of_rays_vertical(SensorConfiguration.Radar.NumberOfRaysVertical);
+ 191: 	conf->mutable_mounting_position()->set_allocated_position(
+ 192: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+ 193: 	conf->mutable_mounting_position()->set_allocated_orientation(
+ 194: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+ 195: 	conf->set_emitter_frequency(77000000000.0); //in Hz
+ 196: 	//calculate angles
+ 197: 
+ 198: 	Sensor.AzimuthAngles.Empty();
+ 199: 	Sensor.ElevationAngles.Empty();
+ 200: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+ 201: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+ 202: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+ 203: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+ 204: 	}
+ 205: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_vertical();
+ 206: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+ 207: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical()
+ 208: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+ 209: 	}
+ 210: }
+ 211: 
+ 212: void ASimpleRadar::CreateTestConfig() {
+ 213: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+ 214: 	Sensor.SensorViewConfig->set_range(10);
+ 215: }
+ 216: 
+ 217: void ASimpleRadar::ShowSensorDebugInformation() {
+ 218: 	int noHitCounter = 0;
+ 219: 	for (auto& hit : Sensor.RecordedHits) {
+ 220: 		if (hit.HitResult.bBlockingHit) {
+ 221: 			if (bDebugRayTraces)
+ 222: 				DrawDebugLine(GetWorld(), hit.HitResult.TraceStart, hit.HitResult.ImpactPoint, FColor::Green, false, 0.0f, 0, 1.0f);
+ 223: 			if (bDebugReflections)
+ 224: 				DrawDebugPoint(GetWorld(), hit.HitResult.ImpactPoint, 10.0f, FColor::Red, false, 0.0f);
+ 225: 			if (bDebugNormals)
+ 226: 				DrawDebugLine(GetWorld(), hit.HitResult.ImpactPoint, hit.HitResult.ImpactPoint + hit.HitResult.ImpactNormal * 10, FColor::Blue, false, 0.0f, 0, 1.0f);
+ 227: 		}
+ 228: 		else {
+ 229: 			noHitCounter++;
+ 230: 		}
+ 231: 	}
+ 232: 	UE_LOG(Radar, Log, TEXT("SimpleRadar: No reflection from radar: %d of %d"), noHitCounter, Sensor.RecordedHits.Num());
+ 233: }
+
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+ 208: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+ 209: 	}
+ 210: }
+ 211: 
+ 212: void ASimpleRadar::CreateTestConfig() {
+ 213: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+ 214: 	Sensor.SensorViewConfig->set_range(10);
+ 215: }
+ 216: 
+ 217: void ASimpleRadar::ShowSensorDebugInformation() {
+ 218: 	int noHitCounter = 0;
+ 219: 	for (auto& hit : Sensor.RecordedHits) {
+ 220: 		if (hit.HitResult.bBlockingHit) {
+ 221: 			if (bDebugRayTraces)
+ 222: 				DrawDebugLine(GetWorld(), hit.HitResult.TraceStart, hit.HitResult.ImpactPoint, FColor::Green, false, 0.0f, 0, 1.0f);
+ 223: 			if (bDebugReflections)
+ 224: 				DrawDebugPoint(GetWorld(), hit.HitResult.ImpactPoint, 10.0f, FColor::Red, false, 0.0f);
+ 225: 			if (bDebugNormals)
+ 226: 				DrawDebugLine(GetWorld(), hit.HitResult.ImpactPoint, hit.HitResult.ImpactPoint + hit.HitResult.ImpactNormal * 10, FColor::Blue, false, 0.0f, 0, 1.0f);
+ 227: 		}
+ 228: 		else {
+ 229: 			noHitCounter++;
+ 230: 		}
+ 231: 	}
+ 232: 	UE_LOG(Radar, Log, TEXT("SimpleRadar: No reflection from radar: %d of %d"), noHitCounter, Sensor.RecordedHits.Num());
+ 233: }
+
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Public\SimpleRadar.h
+  97: 
+  98: 	bool firstTick = true;
+  99: 	FVector oldPosition;
+ 100: 
+ 101: 	void CreateTestConfig();
+ 102: 	void ShowSensorDebugInformation();
+ 103: 	void GenerateOSIMessage();
+ 104: 	float ComputeRadarSignalStrength(
+ 105: 		const FHitResult& Hit
+ 106: 	);
+ 107: };

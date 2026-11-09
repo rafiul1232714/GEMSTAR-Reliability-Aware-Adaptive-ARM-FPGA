@@ -1,0 +1,18 @@
+TASK 23.11.D - CLEAR BASELINE STABILITY
+Frames: 573
+Unique accepted-return counts: 1
+Minimum accepted returns/frame: 5090
+Maximum accepted returns/frame: 5090
+Mean coverage: 96.566116 %
+Coverage standard deviation: 0.000000
+Minimum coverage: 96.566116 %
+Maximum coverage: 96.566116 %
+First-frame coverage: 96.566116 %
+Frames 2-573 mean coverage: 96.566116 %
+First-frame median range: 13.266293946764518 m
+Mean of frame median ranges: 13.266294 m
+Minimum timestamp interval: 8.271798 ms
+Median timestamp interval: 10.724651 ms
+Maximum timestamp interval: 40.230498 ms
+Timestamp interval standard deviation: 2.281087 ms
+Note: Frames 2-573 are an analysis grouping, not proven steady state.

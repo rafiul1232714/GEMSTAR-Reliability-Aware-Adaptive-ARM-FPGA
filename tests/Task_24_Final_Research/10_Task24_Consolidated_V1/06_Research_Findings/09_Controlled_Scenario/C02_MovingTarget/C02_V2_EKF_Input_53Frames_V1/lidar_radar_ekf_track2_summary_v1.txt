@@ -1,0 +1,29 @@
+TASK 24.9.5D - MATCHED EKF DEVELOPMENT BASELINE
+=================================================
+Recording: clean V2, 2122 frames
+Selected development frames: 53
+Evaluated provisional Track ID: 2
+Matched Track 2 observations: 24
+LiDAR-only and LiDAR-Radar inputs: same position sequence
+
+Radar carrier: 77 GHz (verified in recorded OSI)
+Radar velocity sigma: 2.0 m/s (exploratory)
+Radar NIS gate: 9.0
+Minimum nonzero Radar returns: 2
+
+Radar accepted: 4
+Radar rejected by NIS: 0
+Radar insufficient returns: 1
+No nonzero Radar measurement: 19
+
+Maximum position difference between estimators:
+0.169945 m
+
+Caution:
+This is NOT a Ground Truth accuracy comparison.
+Radar and LiDAR associations remain provisional.
+The 2.0 m/s Radar uncertainty is not calibrated.
+No Camera update has been performed.
+No object ID from Ground Truth is used.
+The model assumes stationary ego or ego-compensated positions.
+This experiment only processes Track 2 observations.

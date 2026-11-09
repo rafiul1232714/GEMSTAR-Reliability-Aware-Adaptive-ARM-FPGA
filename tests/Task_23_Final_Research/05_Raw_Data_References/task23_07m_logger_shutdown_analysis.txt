@@ -1,0 +1,153 @@
+﻿TASK 23.7M — LOGGER FILE WRITING AND SHUTDOWN
+Source: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp
+
+=== SOURCE LINE 52 ===
+  48: // Called every frame
+  49: void ALogManager::Tick(float DeltaTime)
+  50: {
+  51: 	Super::Tick(DeltaTime);
+  52: 	FName fileDescription = FName(fileName);
+  53: 
+  54: 	accumulatedTime += DeltaTime;
+  55: 	osi3::SensorView sv = combineSensorViewMessages();
+  56: 	if (writeSensorViews) {
+  57: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::ESensorViewMessage, sv.SerializeAsString());
+  58: 	}
+  59: 	if (writeSensorDatas) {
+  60: 		for (auto& sd : sensorDatas)
+  61: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::ESensorDataMessage, sd.Value.SerializeAsString());
+=== SOURCE LINE 56 ===
+  52: 	FName fileDescription = FName(fileName);
+  53: 
+  54: 	accumulatedTime += DeltaTime;
+  55: 	osi3::SensorView sv = combineSensorViewMessages();
+  56: 	if (writeSensorViews) {
+  57: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::ESensorViewMessage, sv.SerializeAsString());
+  58: 	}
+  59: 	if (writeSensorDatas) {
+  60: 		for (auto& sd : sensorDatas)
+  61: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::ESensorDataMessage, sd.Value.SerializeAsString());
+  62: 	}
+  63: 	if (debugmode)
+  64: 		UE_LOG(Logger, Log, TEXT("LogManager: SV:\n%s"), *FString(UTF8_TO_TCHAR(sv.DebugString().c_str())));
+  65: 
+=== SOURCE LINE 67 ===
+  63: 	if (debugmode)
+  64: 		UE_LOG(Logger, Log, TEXT("LogManager: SV:\n%s"), *FString(UTF8_TO_TCHAR(sv.DebugString().c_str())));
+  65: 
+  66: 
+  67: 	if (writeGroundTruth) {
+  68: 		osi3::GroundTruth gt = osi_GroundTruth.parseWorldToGroundTruth(this, dynamicSpawnedObjects, DeltaTime);
+  69: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::EGroundTruthMessage, gt.SerializeAsString());
+  70: 		if (debugmode)
+  71: 			UE_LOG(Logger, Log, TEXT("LogManager: GT:\n%s"), *FString(UTF8_TO_TCHAR(gt.DebugString().c_str())));
+  72: 	}
+  73: 	if (writeOmegaPrime) {
+  74: 		osi3::GroundTruth gtop = osi_GroundTruth.parseOmegaPrimeToGroundTruth(this, dynamicSpawnedObjects, DeltaTime);
+  75: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::EGroundTruthMessage, gtop.SerializeAsString());
+  76: 		if (debugmode)
+=== SOURCE LINE 81 ===
+  77: 			UE_LOG(Logger, Log, TEXT("LogManager: GT Omega Prime:\n%s"), *FString(UTF8_TO_TCHAR(gtop.DebugString().c_str())));
+  78: 	}
+  79: }
+  80: 
+  81: void ALogManager::EndPlay(const EEndPlayReason::Type EndPlayReason) {
+  82: 	if (UWorld* World = GetWorld()){
+  83: 		World->RemoveOnActorSpawnedHandler(ActorSpawnedHandle);
+  84: 		World->RemoveOnActorDestroyedHandler(ActorDestroyedHandle);
+  85: 	}
+  86: 
+  87: 	if (IsValid(GemstarSimulationSubsystem)){
+  88: 		GemstarSimulationSubsystem->UnregisterManager(this);
+  89: 		GemstarSimulationSubsystem = nullptr;
+  90: 	}
+=== SOURCE LINE 99 ===
+  95: 		}
+  96: 	}
+  97: 	SensorSpawnActorsToInform.Reset();
+  98: 
+  99: 	Super::EndPlay(EndPlayReason);
+ 100: 	SaveMessagesToFilesystem();
+ 101: }
+ 102: 
+ 103: void ALogManager::RegisterCallbacks() {
+ 104: 	FCoreDelegates::OnHandleSystemError.AddUObject(this, &ALogManager::SaveMessagesToFilesystem);
+ 105: 	FCoreDelegates::OnExit.AddUObject(this, &ALogManager::SaveMessagesToFilesystem);
+ 106: }
+ 107: 
+ 108: void ALogManager::SaveMessagesToFilesystem() {
+=== SOURCE LINE 123 ===
+ 119: 	for (const TPair<FString, FInnerConfig>& Config : Configurations)
+ 120: 	{
+ 121: 		const FString* gtString = Config.Value.Entries.Find("groundtruth");
+ 122: 		if (gtString) {
+ 123: 			writeGroundTruth = gtString->ToBool();
+ 124: 		}
+ 125: 		const FString* fileNameString = Config.Value.Entries.Find("filename");
+ 126: 		if (fileNameString) {
+ 127: 			fileName = *fileNameString;
+ 128: 		}
+ 129: 		const FString* debugString = Config.Value.Entries.Find("debug");
+ 130: 		if (debugString) {
+ 131: 			debugmode = debugString->ToBool();
+ 132: 		}
+=== SOURCE LINE 125 ===
+ 121: 		const FString* gtString = Config.Value.Entries.Find("groundtruth");
+ 122: 		if (gtString) {
+ 123: 			writeGroundTruth = gtString->ToBool();
+ 124: 		}
+ 125: 		const FString* fileNameString = Config.Value.Entries.Find("filename");
+ 126: 		if (fileNameString) {
+ 127: 			fileName = *fileNameString;
+ 128: 		}
+ 129: 		const FString* debugString = Config.Value.Entries.Find("debug");
+ 130: 		if (debugString) {
+ 131: 			debugmode = debugString->ToBool();
+ 132: 		}
+ 133: 		const FString* Inputs = Config.Value.Entries.Find("Input");
+ 134: 		TArray<FString> inputs;
+=== SOURCE LINE 126 ===
+ 122: 		if (gtString) {
+ 123: 			writeGroundTruth = gtString->ToBool();
+ 124: 		}
+ 125: 		const FString* fileNameString = Config.Value.Entries.Find("filename");
+ 126: 		if (fileNameString) {
+ 127: 			fileName = *fileNameString;
+ 128: 		}
+ 129: 		const FString* debugString = Config.Value.Entries.Find("debug");
+ 130: 		if (debugString) {
+ 131: 			debugmode = debugString->ToBool();
+ 132: 		}
+ 133: 		const FString* Inputs = Config.Value.Entries.Find("Input");
+ 134: 		TArray<FString> inputs;
+ 135: 		if (Inputs != nullptr) {
+=== SOURCE LINE 127 ===
+ 123: 			writeGroundTruth = gtString->ToBool();
+ 124: 		}
+ 125: 		const FString* fileNameString = Config.Value.Entries.Find("filename");
+ 126: 		if (fileNameString) {
+ 127: 			fileName = *fileNameString;
+ 128: 		}
+ 129: 		const FString* debugString = Config.Value.Entries.Find("debug");
+ 130: 		if (debugString) {
+ 131: 			debugmode = debugString->ToBool();
+ 132: 		}
+ 133: 		const FString* Inputs = Config.Value.Entries.Find("Input");
+ 134: 		TArray<FString> inputs;
+ 135: 		if (Inputs != nullptr) {
+ 136: 			inputs = GemstarHelper::SplitIniString(*Inputs);
+=== SOURCE LINE 156 ===
+ 152: 			if (inputData[i].ToLower() == "sensorview") {
+ 153: 				FDataTarget dt;
+ 154: 				dt.Actor = this;
+ 155: 				ConnectInputs(&inputs[i], GemstarSimulationSubsystem, dt, GemstarInterfaceType::SENSORVIEW);
+ 156: 				writeSensorViews = true;
+ 157: 			}
+ 158: 			else if (inputData[i].ToLower() == "sensordata") {
+ 159: 				FDataTarget dt;
+ 160: 				dt.Actor = this;
+ 161: 				ConnectInputs(&inputs[i], GemstarSimulationSubsystem, dt, GemstarInterfaceType::SENSORDATA);
+ 162: 				writeSensorDatas = true;
+ 163: 			}
+ 164: 		}
+ 165: 	}

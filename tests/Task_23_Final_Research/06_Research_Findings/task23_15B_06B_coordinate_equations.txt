@@ -1,0 +1,153 @@
+﻿
+=== LIDAR COORDINATE RECONSTRUCTION ===
+SOURCE=E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\01_Code\task23_04e4d_finalize_vehicle_coordinates.py
+  35:             f"pair{pair}_frame{frame:03d}_"
+  36:             "vehicle_hypotheses.npz"
+  37:         )
+  38: 
+  39:         if not path.is_file():
+  40:             raise FileNotFoundError(path)
+  41: 
+  42:         with np.load(path, allow_pickle=False) as data:
+  43:             sensor = data["points_sensor_m"].copy()
+  44:             vehicle = data["points_vehicle_flipped_y_m"].copy()
+  45:             alternate = data["points_vehicle_unreal_y_m"].copy()
+  46:             translation = data["mount_translation_m"].copy()
+  47:             orientation = data["mount_orientation_rpy_rad"].copy()
+  48:             ray_indices = data["valid_ray_indices"].copy()
+  49: 
+  50:         if sensor.ndim != 2 or sensor.shape[1] != 3:
+  51:             raise RuntimeError("Invalid sensor points")
+  52: 
+  53:         if not np.allclose(orientation, 0.0, atol=1e-9):
+  54:             raise RuntimeError(
+  55:                 "Nonzero mounting rotation requires "
+  56:                 "a general rotation transform."
+  57:             )
+  58: 
+  59:         # Source-verified Unreal-to-OSI axis conversion.
+  60:         reflect_y = np.array([1.0, -1.0, 1.0])
+  61: 
+  62:         expected = sensor * reflect_y + translation
+  63: 
+  64:         error = (
+  65:             float(np.max(np.abs(expected - vehicle)))
+  66:             if len(sensor) else 0.0
+  67:         )
+  68: 
+  69:         ranges_sensor = np.linalg.norm(sensor, axis=1)
+  70:         ranges_vehicle = np.linalg.norm(
+  71:             vehicle - translation,
+  72:             axis=1
+  73:         )
+  74: 
+  75:         range_error = (
+  76:             float(np.max(np.abs(
+  77:                 ranges_sensor - ranges_vehicle
+  78:             )))
+  79:             if len(sensor) else 0.0
+  80:         )
+  81: 
+  82:         if not np.all(np.isfinite(vehicle)):
+  83:             raise RuntimeError("Nonfinite coordinates")
+  84: 
+  85:         passed = bool(
+  86:             error < 1e-10
+  87:             and range_error < 1e-10
+  88:         )
+  89: 
+  90:         if not passed:
+  91:             raise RuntimeError(
+  92:                 f"Validation failed: pair={pair}, "
+  93:                 f"frame={frame}"
+  94:             )
+  95: 
+  96:         max_error = max(max_error, error, range_error)
+  97:         total_points += len(sensor)
+  98: 
+  99:         destination = OUTPUT / (
+ 100:             f"pair{pair}_frame{frame:03d}_"
+ 101:             "vehicle_osi.npz"
+ 102:         )
+ 103: 
+ 104:         np.savez_compressed(
+ 105:             destination,
+ 106:             points_vehicle_osi_m=vehicle,
+ 107:             points_sensor_unreal_axes_m=sensor,
+ 108:             rejected_hypothesis_points_m=alternate,
+ 109:             mounting_position_osi_m=translation,
+ 110:             valid_ray_indices=ray_indices,
+ 111:             convention=np.array(
+ 112:                 "GEMSTAR_TOOSI_SOURCE_MATCHED"
+ 113:             )
+ 114:         )
+ 115: 
+
+=== RADAR COORDINATE RECONSTRUCTION ===
+SOURCE=E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\01_Code\task23_05c3_radar_3d_reconstruction.py
+ 205:         doppler_hz = np.array([
+ 206:             float(r["DopplerShiftHz"])
+ 207:             for r in positive_rows
+ 208:         ], dtype=np.float64)
+ 209: 
+ 210:         az = azimuth_all[valid_mask]
+ 211:         el = elevation_all[valid_mask]
+ 212: 
+ 213:         if not all(np.isfinite(v).all() for v in (
+ 214:             ranges, radial_velocity, strength, az, el
+ 215:         )):
+ 216:             raise RuntimeError(f"Nonfinite measurement: {key}")
+ 217: 
+ 218:         # Reconstruct the Unreal-local ray directions
+ 219:         # from the angles recorded in the OSI message.
+ 220:         x = ranges * np.cos(el) * np.cos(az)
+ 221:         y_ue = ranges * np.cos(el) * np.sin(az)
+ 222:         z = ranges * np.sin(el)
+ 223: 
+ 224:         sensor_ue = np.column_stack((x, y_ue, z))
+ 225: 
+ 226:         # GEMSTAR ToOSI.cpp:
+ 227:         # x is preserved, y is negated, z is preserved.
+ 228:         reflect_y = np.array([1.0, -1.0, 1.0])
+ 229:         sensor_osi = sensor_ue * reflect_y
+ 230: 
+ 231:         # Zero mounting rotation verified above.
+ 232:         vehicle_osi = sensor_osi + translation
+ 233: 
+ 234:         # Internal numerical checks.
+ 235:         if len(ranges):
+ 236:             reconstructed_range = np.linalg.norm(
+ 237:                 sensor_ue, axis=1
+ 238:             )
+ 239: 
+ 240:             range_error = float(np.max(np.abs(
+ 241:                 reconstructed_range - ranges
+ 242:             )))
+ 243: 
+ 244:             mount_error = float(np.max(np.abs(
+ 245:                 (vehicle_osi - translation) - sensor_osi
+ 246:             )))
+ 247: 
+ 248:             tof_error = float(np.max(np.abs(
+ 249:                 ranges - C * tof / 2.0
+ 250:             )))
+ 251: 
+ 252:             velocity_error = float(np.max(np.abs(
+ 253:                 radial_velocity -
+ 254:                 doppler_hz * C / (2.0 * frequency)
+ 255:             )))
+ 256:         else:
+ 257:             range_error = 0.0
+ 258:             mount_error = 0.0
+ 259:             tof_error = 0.0
+ 260:             velocity_error = 0.0
+ 261: 
+ 262:         passed = bool(
+ 263:             range_error < DISTANCE_TOL
+ 264:             and mount_error < DISTANCE_TOL
+ 265:             and tof_error < DISTANCE_TOL
+ 266:             and velocity_error < DISTANCE_TOL
+ 267:         )
+ 268: 
+ 269:         if not passed:
+ 270:             raise RuntimeError(

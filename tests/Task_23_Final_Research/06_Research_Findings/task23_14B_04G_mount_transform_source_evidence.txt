@@ -1,0 +1,81 @@
+﻿
+=== CAMERA OFFSET APPLICATION ===
+SOURCE=E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Source\ue_camera_featureRuntime\Private\CameraSensor.cpp
+  65:     }
+  66: }
+  67: 
+  68: void ACameraSensor::UpdateTransformAfterAttachment_Implementation()
+  69: {
+  70:     SetActorRelativeTransform(SensorConfiguration.Offset);
+  71: }
+  72: 
+  73: UTextureRenderTarget2D* ACameraSensor::GetGEMSTARRenderTarget_Implementation()
+  74: {
+  75:     CaptureSceneOnce();
+
+=== VEHICLE NAMED MOUNT ===
+SOURCE=E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp
+ 414: bool AVehicleManager::MountOn_Implementation(const FString& nameByConfiguration, AActor* Actor) {
+ 415: 	const FString* nameInScenario = ConfigurationNameToVehicleNameInScenario.Find(nameByConfiguration);
+ 416: 	if (!nameInScenario) {
+ 417: 		return false;
+ 418: 	}
+ 419: 	for (auto& vehicleControllers : SpawnedVehicles) {
+ 420: 		for (auto& instances : vehicleControllers.Value.Instances) {
+ 421: 			if (nameInScenario->Compare(instances.Name.ToString(), ESearchCase::IgnoreCase) == 0) {
+ 422: 				Actor->AttachToActor(instances.VehicleInstance, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true));
+ 423: 				return true;
+ 424: 			}
+ 425: 		}
+ 426: 	}
+ 427: 
+ 428: 	return false;
+ 429: }
+ 430: 
+ 431: FString AVehicleManager::ToCSVField(const FString& Value) const {
+ 432: 	FString Escaped = Value;
+ 433: 	Escaped.ReplaceInline(TEXT("\""), TEXT("\"\""));
+ 434: 	return FString::Printf(TEXT("\"%s\""), *Escaped);
+ 435: }
+ 436: 
+ 437: void AVehicleManager::WriteVehicleMappingLogToFile() {
+ 438: 	if (!bWriteVehicleMappingLog) {
+ 439: 		UE_LOG(Vehicle, Warning, TEXT("No vehicle mapping log written!"));
+ 440: 		return;
+ 441: 	}
+ 442: 
+ 443: 	const FString OutputDir = FPaths::Combine(FPaths::ProjectDir(), TEXT("Output"));
+ 444: 	IFileManager::Get().MakeDirectory(*OutputDir, true);
+ 445: 	FString Timestamp = FDateTime::Now().ToString(TEXT("%Y%m%d_%H%M%S"));
+
+=== SIMULATION MOUNT ROUTING ===
+SOURCE=E:\GEMSTAR_Project\gemstar\Plugins\gemstar_interfaces\Source\GEMSTAR_Interfaces\Private\Subsystems\GemstarSimulationSubsystem.cpp
+ 182: bool UGemstarSimulationSubsystem::MountOn_Implementation(const FString& NameByConfiguration, AActor* Actor)
+ 183: {
+ 184: 	CachedMounts.Add({ NameByConfiguration, Actor, false });
+ 185: 	TryResolvePending(false);
+ 186: 	return true;
+ 187: }
+ 188: 
+ 189: void UGemstarSimulationSubsystem::TryResolvePending(bool bReportStragglers)
+ 190: {
+ 191: 	ConfigureDataFlow(bReportStragglers);
+ 192: 	ConfigureMounts(bReportStragglers);
+ 193: }
+ 194: 
+ 195: bool UGemstarSimulationSubsystem::IsTickable() const
+ 196: {
+ 197: 	return CachedDataFlows.Num() > 0 || CachedMounts.Num() > 0;
+ 198: }
+ 199: 
+ 200: void UGemstarSimulationSubsystem::Tick(float DeltaTime)
+ 201: {
+ 202: 	// Straggler reporting starts on the second retry tick, once every first-frame spawn had its chance
+ 203: 	++TicksSinceFirstManager;
+ 204: 	TryResolvePending(TicksSinceFirstManager > 1);
+ 205: }
+ 206: 
+ 207: bool UGemstarSimulationSubsystem::ConfigureDataFlow(bool bReportStragglers)
+ 208: {
+ 209: 	bool success = false;
+ 210: 	for (int32 i = CachedDataFlows.Num() - 1; i >= 0; --i) {

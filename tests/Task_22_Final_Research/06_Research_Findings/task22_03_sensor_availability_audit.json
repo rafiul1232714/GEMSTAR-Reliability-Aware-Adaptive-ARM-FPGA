@@ -1,0 +1,32 @@
+{
+  "Task": "22.3",
+  "SensorViewFile": "E:\\GEMSTAR_Project\\gemstar\\Output\\20261102T180104Z_sv_380_X_806_GEMSTAR.osi",
+  "GroundTruthFile": "E:\\GEMSTAR_Project\\gemstar\\Output\\20261102T180104Z_gt_380_X_806_GEMSTAR.osi",
+  "FramesInspected": 100,
+  "GTFramesInspected": 100,
+  "CameraEntryFrames": 100,
+  "LiDAREntryFrames": 100,
+  "RadarEntryFrames": 100,
+  "LiDARReflectionFrames": 100,
+  "RadarPositiveReturnFrames": 100,
+  "MatchingTimestamps": 100,
+  "MismatchedTimestamps": 0,
+  "MissingGTFrames": 0,
+  "CameraNonconfigurationFields": {
+    "image_data": 100
+  },
+  "LiDARNonconfigurationFields": {
+    "reflection": 100
+  },
+  "RadarNonconfigurationFields": {
+    "reflection": 100
+  },
+  "Limitations": [
+    "Sensor entry presence does not validate sensor content",
+    "Populated fields do not establish perception accuracy",
+    "Matching message timestamps do not prove capture-time synchrony",
+    "Only first 100 frames inspected",
+    "Radar source-object identity remains unverified",
+    "No CPU-FPGA energy measured"
+  ]
+}

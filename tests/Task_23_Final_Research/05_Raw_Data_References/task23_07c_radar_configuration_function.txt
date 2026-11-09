@@ -1,0 +1,56 @@
+﻿ 156: 
+ 157: float ASimpleRadar::ComputeRadarSignalStrength(const FHitResult& Hit)
+ 158: {
+ 159: 	// Frequenz 77GHz, Wellenlï¿½nge= 3.9mm, Sendeleistung 0.01W, Antennengewinn 30dB ca. 1000(linear), Radarziel Rï¿½ckstreuquerschnitt (Auto) 10m2, R = Entfernung zum Ziel
+ 160: 	// Pr = (7.5 * 10^-5 * Radarziel Rï¿½ckstreuquerschnitt) / R^4
+ 161: 	float backscatterValue = 10; // default for cars, need adjustment for bikes and pedestrians
+ 162: 
+ 163: 	float distanceToTarget = (Hit.ImpactPoint - Hit.TraceStart).Size() * 0.01; //in meter
+ 164: 	distanceToTarget = FMath::Max(distanceToTarget, 0.01f); // prevent division by zero
+ 165: 	float signalStrengthInWatt = (7.5 * 0.00001 * backscatterValue) / FMath::Pow(distanceToTarget, 4); 
+ 166: 
+ 167: 	float signalStrengthInDB = 10 * FMath::LogX(10, (signalStrengthInWatt / FMath::Pow(10.0, -12.0)));
+ 168: 
+ 169: 	// normalise dB signal
+ 170: 	float scaledDBsignal = (signalStrengthInDB) / 100.0;
+ 171: 
+ 172: 	return scaledDBsignal;
+ 173: }
+ 174: 
+ 175: void ASimpleRadar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) {
+ 176: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+ 177:   if (Sensor.SensorViewConfig == nullptr)
+ 178:   {
+ 179:       CreateTestConfig();
+ 180:   }
+ 181:   Sensor.SensorViewConfig->set_range(SensorConfiguration.Radar.Range);
+ 182:   UE_LOG(LogTemp, Warning,
+ 183:       TEXT("TASK20_45_RADAR_RANGE: %.3f metres"),
+ 184:       Sensor.SensorViewConfig->range());
+ 185: 	Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+ 186: 	auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+ 187: 	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+ 188: 	conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+ 189: 	conf->set_number_of_rays_horizontal(SensorConfiguration.Radar.NumberOfRaysHorizontal);
+ 190: 	conf->set_number_of_rays_vertical(SensorConfiguration.Radar.NumberOfRaysVertical);
+ 191: 	conf->mutable_mounting_position()->set_allocated_position(
+ 192: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+ 193: 	conf->mutable_mounting_position()->set_allocated_orientation(
+ 194: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+ 195: 	conf->set_emitter_frequency(77000000000.0); //in Hz
+ 196: 	//calculate angles
+ 197: 
+ 198: 	Sensor.AzimuthAngles.Empty();
+ 199: 	Sensor.ElevationAngles.Empty();
+ 200: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+ 201: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+ 202: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+ 203: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+ 204: 	}
+ 205: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_vertical();
+ 206: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+ 207: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical()
+ 208: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+ 209: 	}
+ 210: }
+ 211: 

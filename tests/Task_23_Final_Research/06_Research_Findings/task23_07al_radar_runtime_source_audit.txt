@@ -1,0 +1,67 @@
+﻿TASK 23.7AL - RADAR SOURCE AUDIT
+Source files found: 26
+
+=== GEMSTAR_Radar_Loader.cpp ===
+Path: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\GEMSTAR_Radar_Loader.cpp
+Line 33: ARadarSensorManager *SpawnedRadarActor = GetWorld()->SpawnActor<ARadarSensorManager>(ARadarSensorManager::StaticClass(), SpawnTransform, SpawnParams);
+
+=== RadarSensorManager.cpp ===
+Path: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp
+Line 96: if (const FString* ValueStr = Pair.Value.Entries.Find("Mount")) {
+Line 97: config.Mount = *ValueStr;
+Line 100: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionX"))
+Line 105: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionY"))
+Line 110: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingPositionZ"))
+Line 117: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingOrientationRoll"))
+Line 122: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingOrientationPitch"))
+Line 127: if (const FString* ValueStr = Pair.Value.Entries.Find("MountingOrientationYaw"))
+Line 179: SpawnSensor(config);
+Line 183: void ARadarSensorManager::SpawnSensor(FSensorConfigData& sensorConfiguration) {
+Line 189: ASimpleRadar* SpawnedActor = World->SpawnActor<ASimpleRadar>(ASimpleRadar::StaticClass(), FTransform(), params);
+Line 198: if (!sensorConfiguration.Mount.IsEmpty()) {
+Line 199: IGemstarManager::Execute_MountOn(GemstarSimulationSubsystem, sensorConfiguration.Mount, SpawnedActor);
+Line 209: void ARadarSensorManager::SpawnSensor_Implementation(FSensorConfigData& sensorConfiguration)
+Line 227: ASimpleRadar* SpawnedActor = World->SpawnActor<ASimpleRadar>(ASimpleRadar::StaticClass(), FTransform(), params);
+Line 228: SpawnedActor->AttachToActor(sensorConfiguration.Vehicle, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true));
+
+=== RadarSensorTester.cpp ===
+Path: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorTester.cpp
+Line 43: CubeActor = GetWorld()->SpawnActor<AStaticMeshActor>(GetActorLocation(), FRotator::ZeroRotator, SpawnParams);
+Line 44: //TargetCubeActor = GetWorld()->SpawnActor<AStaticMeshActor>(GetActorLocation() + FVector(1000,-200,50), FRotator::ZeroRotator, SpawnParams);
+Line 45: //TargetCube2Actor = GetWorld()->SpawnActor<AStaticMeshActor>(GetActorLocation() + FVector(-500, 100, 50), FRotator::ZeroRotator, SpawnParams);
+Line 53: //CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(0, 0, 50));
+Line 69: CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(1 * speedMultiplier, 0, 0));
+Line 73: CubeActor->SetActorLocation(CubeActor->GetActorLocation() + FVector(0, 0, 0));
+Line 76: //TargetCubeActor->SetActorLocation(TargetCubeActor->GetActorLocation() + FVector(0, 1, 0));
+Line 79: //TargetCube2Actor->SetActorLocation(TargetCube2Actor->GetActorLocation() + FVector(3, 0, 0));
+Line 114: ISensorConfigurationData::Execute_SpawnSensor(Spawner, data);
+
+=== SimpleRadar.cpp ===
+Path: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+Line 28: oldPosition = GetActorLocation();
+Line 43: currentVelocity = (GetActorLocation() - oldPosition) / DeltaTime;
+Line 44: oldPosition = GetActorLocation();
+Line 60: const FVector RadarPosition = this->GetActorLocation();
+Line 63: // Initialize array for raycast result
+Line 93: GetWorld()->LineTraceSingleByChannel(
+Line 94: Sensor.RecordedHits[Index].HitResult, RadarPosition, EndPoint, ECC_Visibility, TraceParams, FCollisionResponseParams::DefaultResponseParam);
+Line 151: moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+Line 191: conf->mutable_mounting_position()->set_allocated_position(
+Line 193: conf->mutable_mounting_position()->set_allocated_orientation(
+
+=== RadarSensorManager.h ===
+Path: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Public\RadarSensorManager.h
+Line 45: virtual void SpawnSensor_Implementation(FSensorConfigData& sensorConfiguration) override;
+Line 55: void SpawnSensor(FSensorConfigData& sensorConfiguration);
+
+=== CALIBRATION INI ===
+MountingPositionX=1940
+MountingPositionY=-2650
+MountingPositionZ=250
+MountingOrientationRoll=0
+MountingOrientationPitch=0
+MountingOrientationYaw=0
+NumberOfRaysHorizontal=10
+NumberOfRaysVertical=10
+Range=50
+Mount=

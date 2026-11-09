@@ -1,0 +1,82 @@
+{
+  "Task": "22.7",
+  "PairsChecked": 4,
+  "Summary": [
+    {
+      "PairID": "1",
+      "Frames": 100,
+      "DuplicateFrameIDs": 0,
+      "TimestampMismatches": 0,
+      "NonmonotonicSVTimestamps": 0,
+      "CameraImageFrames": 100,
+      "LiDARReflectionFrames": 100,
+      "RadarEntryFrames": 100,
+      "RadarReflectionFrames": 100,
+      "PositiveRadarFrames": 100,
+      "TotalRadarReflectionSlots": 10000,
+      "PositiveRadarReturnSlots": 5696,
+      "NonfiniteRadarSlots": 0,
+      "Status": "PASS_PRELIMINARY_DATA_CHECKS"
+    },
+    {
+      "PairID": "2",
+      "Frames": 100,
+      "DuplicateFrameIDs": 0,
+      "TimestampMismatches": 0,
+      "NonmonotonicSVTimestamps": 0,
+      "CameraImageFrames": 100,
+      "LiDARReflectionFrames": 100,
+      "RadarEntryFrames": 100,
+      "RadarReflectionFrames": 100,
+      "PositiveRadarFrames": 100,
+      "TotalRadarReflectionSlots": 10000,
+      "PositiveRadarReturnSlots": 3008,
+      "NonfiniteRadarSlots": 0,
+      "Status": "PASS_PRELIMINARY_DATA_CHECKS"
+    },
+    {
+      "PairID": "3",
+      "Frames": 100,
+      "DuplicateFrameIDs": 0,
+      "TimestampMismatches": 0,
+      "NonmonotonicSVTimestamps": 0,
+      "CameraImageFrames": 100,
+      "LiDARReflectionFrames": 100,
+      "RadarEntryFrames": 100,
+      "RadarReflectionFrames": 100,
+      "PositiveRadarFrames": 100,
+      "TotalRadarReflectionSlots": 10000,
+      "PositiveRadarReturnSlots": 3008,
+      "NonfiniteRadarSlots": 0,
+      "Status": "PASS_PRELIMINARY_DATA_CHECKS"
+    },
+    {
+      "PairID": "4",
+      "Frames": 100,
+      "DuplicateFrameIDs": 0,
+      "TimestampMismatches": 0,
+      "NonmonotonicSVTimestamps": 0,
+      "CameraImageFrames": 0,
+      "LiDARReflectionFrames": 0,
+      "RadarEntryFrames": 100,
+      "RadarReflectionFrames": 100,
+      "PositiveRadarFrames": 0,
+      "TotalRadarReflectionSlots": 10000,
+      "PositiveRadarReturnSlots": 0,
+      "NonfiniteRadarSlots": 0,
+      "Status": "WARN_INCOMPLETE_SENSOR_DATA"
+    }
+  ],
+  "Findings": [
+    "Pair 4: Radar sensor entries are present but no reflections satisfy the two-positive-field criterion. Inspect individual fields before interpreting these records as valid detections."
+  ],
+  "ValidationScope": "First 100 SensorView frames per recording, compared with Task 22.6 CSV metrics",
+  "ImportantLimitations": [
+    "These are preliminary data-integrity checks",
+    "Positive time-of-flight and signal strength are heuristic filters",
+    "No image decoding or LiDAR spatial validation",
+    "No ground-truth object-association accuracy measured",
+    "Recorded-message timing is not CPU/FPGA execution latency",
+    "No electrical power or energy measured"
+  ]
+}

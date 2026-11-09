@@ -1,0 +1,345 @@
+{
+  "Task": "23.4A",
+  "SampleFrames": [
+    0,
+    1,
+    10,
+    25,
+    50,
+    75,
+    99
+  ],
+  "Configurations": [
+    {
+      "PairID": "1",
+      "Configuration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.6,
+            "y": -0.0,
+            "z": 0.7000000000000001
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 251,
+        "number_of_rays_vertical": 21
+      },
+      "LiDARSchema": [
+        {
+          "name": "view_configuration",
+          "number": 1,
+          "type": 11,
+          "repeated": false,
+          "message_type": "osi3.LidarSensorViewConfiguration"
+        },
+        {
+          "name": "reflection",
+          "number": 2,
+          "type": 11,
+          "repeated": true,
+          "message_type": "osi3.LidarSensorView.Reflection"
+        }
+      ],
+      "ReflectionSchema": [
+        {
+          "name": "signal_strength",
+          "number": 1,
+          "type": 1,
+          "repeated": false,
+          "message_type": ""
+        },
+        {
+          "name": "time_of_flight",
+          "number": 2,
+          "type": 1,
+          "repeated": false,
+          "message_type": ""
+        },
+        {
+          "name": "doppler_shift",
+          "number": 3,
+          "type": 1,
+          "repeated": false,
+          "message_type": ""
+        },
+        {
+          "name": "normal_to_surface",
+          "number": 5,
+          "type": 11,
+          "repeated": false,
+          "message_type": "osi3.Vector3d"
+        },
+        {
+          "name": "object_id",
+          "number": 6,
+          "type": 11,
+          "repeated": false,
+          "message_type": "osi3.Identifier"
+        }
+      ],
+      "FirstReflection": {
+        "signal_strength": 0.028976507484912872,
+        "time_of_flight": 2.6900679988920026e-08,
+        "doppler_shift": 0.0,
+        "normal_to_surface": {
+          "x": 0.0,
+          "y": -0.0,
+          "z": 1.0
+        },
+        "object_id": {
+          "value": 83185
+        }
+      },
+      "Frame1Statistics": {
+        "ReflectionSlots": 5271,
+        "PositiveTOF": 2069,
+        "PositiveStrength": 2069,
+        "BothPositive": 2069,
+        "NonfiniteTOFOrStrength": 0,
+        "TOFStatistics": {
+          "count": 2069,
+          "minimum": 1.648967883819126e-08,
+          "maximum": 1.331885269786525e-07,
+          "mean": 4.812656802143553e-08
+        },
+        "StrengthStatistics": {
+          "count": 2069,
+          "minimum": 5.646008503390476e-05,
+          "maximum": 0.09713831543922424,
+          "mean": 0.01741980616747019
+        },
+        "DistinctObjectIDs": 4
+      }
+    },
+    {
+      "PairID": "2",
+      "Configuration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.6,
+            "y": -0.0,
+            "z": 0.7000000000000001
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 251,
+        "number_of_rays_vertical": 21
+      },
+      "LiDARSchema": [
+        {
+          "name": "view_configuration",
+          "number": 1,
+          "type": 11,
+          "repeated": false,
+          "message_type": "osi3.LidarSensorViewConfiguration"
+        },
+        {
+          "name": "reflection",
+          "number": 2,
+          "type": 11,
+          "repeated": true,
+          "message_type": "osi3.LidarSensorView.Reflection"
+        }
+      ],
+      "ReflectionSchema": [
+        {
+          "name": "signal_strength",
+          "number": 1,
+          "type": 1,
+          "repeated": false,
+          "message_type": ""
+        },
+        {
+          "name": "time_of_flight",
+          "number": 2,
+          "type": 1,
+          "repeated": false,
+          "message_type": ""
+        },
+        {
+          "name": "doppler_shift",
+          "number": 3,
+          "type": 1,
+          "repeated": false,
+          "message_type": ""
+        },
+        {
+          "name": "normal_to_surface",
+          "number": 5,
+          "type": 11,
+          "repeated": false,
+          "message_type": "osi3.Vector3d"
+        },
+        {
+          "name": "object_id",
+          "number": 6,
+          "type": 11,
+          "repeated": false,
+          "message_type": "osi3.Identifier"
+        }
+      ],
+      "FirstReflection": {
+        "signal_strength": 0.028976507484912872,
+        "time_of_flight": 2.6900679988920026e-08,
+        "doppler_shift": 0.0,
+        "normal_to_surface": {
+          "x": 0.0,
+          "y": -0.0,
+          "z": 1.0
+        },
+        "object_id": {
+          "value": 83185
+        }
+      },
+      "Frame1Statistics": {
+        "ReflectionSlots": 5271,
+        "PositiveTOF": 2069,
+        "PositiveStrength": 2069,
+        "BothPositive": 2069,
+        "NonfiniteTOFOrStrength": 0,
+        "TOFStatistics": {
+          "count": 2069,
+          "minimum": 1.648967883819126e-08,
+          "maximum": 1.331885269786525e-07,
+          "mean": 4.812656802143553e-08
+        },
+        "StrengthStatistics": {
+          "count": 2069,
+          "minimum": 5.646008503390476e-05,
+          "maximum": 0.09713831543922424,
+          "mean": 0.01741980616747019
+        },
+        "DistinctObjectIDs": 4
+      }
+    },
+    {
+      "PairID": "3",
+      "Configuration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.6,
+            "y": -0.0,
+            "z": 0.7000000000000001
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 251,
+        "number_of_rays_vertical": 21
+      },
+      "LiDARSchema": [
+        {
+          "name": "view_configuration",
+          "number": 1,
+          "type": 11,
+          "repeated": false,
+          "message_type": "osi3.LidarSensorViewConfiguration"
+        },
+        {
+          "name": "reflection",
+          "number": 2,
+          "type": 11,
+          "repeated": true,
+          "message_type": "osi3.LidarSensorView.Reflection"
+        }
+      ],
+      "ReflectionSchema": [
+        {
+          "name": "signal_strength",
+          "number": 1,
+          "type": 1,
+          "repeated": false,
+          "message_type": ""
+        },
+        {
+          "name": "time_of_flight",
+          "number": 2,
+          "type": 1,
+          "repeated": false,
+          "message_type": ""
+        },
+        {
+          "name": "doppler_shift",
+          "number": 3,
+          "type": 1,
+          "repeated": false,
+          "message_type": ""
+        },
+        {
+          "name": "normal_to_surface",
+          "number": 5,
+          "type": 11,
+          "repeated": false,
+          "message_type": "osi3.Vector3d"
+        },
+        {
+          "name": "object_id",
+          "number": 6,
+          "type": 11,
+          "repeated": false,
+          "message_type": "osi3.Identifier"
+        }
+      ],
+      "FirstReflection": {
+        "signal_strength": 0.028976507484912872,
+        "time_of_flight": 2.6900679988920026e-08,
+        "doppler_shift": 0.0,
+        "normal_to_surface": {
+          "x": 0.0,
+          "y": -0.0,
+          "z": 1.0
+        },
+        "object_id": {
+          "value": 83185
+        }
+      },
+      "Frame1Statistics": {
+        "ReflectionSlots": 5271,
+        "PositiveTOF": 2069,
+        "PositiveStrength": 2069,
+        "BothPositive": 2069,
+        "NonfiniteTOFOrStrength": 0,
+        "TOFStatistics": {
+          "count": 2069,
+          "minimum": 1.648967883819126e-08,
+          "maximum": 1.331885269786525e-07,
+          "mean": 4.812656802143553e-08
+        },
+        "StrengthStatistics": {
+          "count": 2069,
+          "minimum": 5.646008503390476e-05,
+          "maximum": 0.09713831543922424,
+          "mean": 0.01741980616747019
+        },
+        "DistinctObjectIDs": 4
+      }
+    }
+  ],
+  "ValidityDefinition": "Finite positive time_of_flight and signal_strength. This is preliminary screening, not physical correctness.",
+  "Limitations": [
+    "Only seven frames inspected per recording",
+    "Reflection slots are not necessarily valid points",
+    "Time-of-flight units not yet verified",
+    "Scan angles and coordinate system unverified",
+    "Object IDs are simulator metadata, not detections",
+    "No distance or 3D point reconstruction yet",
+    "No FPGA energy measurements"
+  ]
+}

@@ -1,0 +1,9 @@
+test,expected_accept,actual_accept,error_type,result
+VALID_FULL,True,True,,PASS
+VALID_CENTER_ROI,True,True,,PASS
+MISSING_IMAGE,False,False,TypeError,PASS
+EMPTY_IMAGE,False,False,ValueError,PASS
+WRONG_DTYPE,False,False,ValueError,PASS
+GRAYSCALE_INPUT,False,False,ValueError,PASS
+ROI_OUT_OF_BOUNDS,False,False,ValueError,PASS
+ROI_ZERO_WIDTH,False,False,ValueError,PASS

@@ -1,0 +1,6 @@
+ActorID,ObservationCount,RecordingPairs,SampledFrames,PresentAllThreePairs,StaticActorStatus
+83181,9,3,3,True,NOT_VERIFIED
+83183,9,3,3,True,NOT_VERIFIED
+83185,9,3,3,True,NOT_VERIFIED
+83265,9,3,3,True,NOT_VERIFIED
+83366,3,3,1,True,NOT_VERIFIED

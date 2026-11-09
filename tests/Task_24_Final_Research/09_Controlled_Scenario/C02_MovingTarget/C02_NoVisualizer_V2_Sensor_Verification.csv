@@ -1,0 +1,8 @@
+Metric,Value
+Total_Messages,2122
+Camera_View_Frames,2122
+LiDAR_View_Frames,2122
+Radar_View_Frames,2122
+Camera_Image_Frames,2122
+LiDAR_Reflection_Frames,2122
+Radar_Reflection_Frames,2122

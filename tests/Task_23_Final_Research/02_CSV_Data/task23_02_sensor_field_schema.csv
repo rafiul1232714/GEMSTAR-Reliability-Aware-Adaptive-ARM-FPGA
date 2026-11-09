@@ -1,0 +1,17 @@
+Category,MessageType,FieldName,FieldType,Repeated
+Camera,osi3.CameraSensorView,view_configuration,message:osi3.CameraSensorViewConfiguration,False
+Camera,osi3.CameraSensorView,image_data,bytes,False
+LiDAR,osi3.LidarSensorView,view_configuration,message:osi3.LidarSensorViewConfiguration,False
+LiDAR,osi3.LidarSensorView,reflection,message:osi3.LidarSensorView.Reflection,True
+LiDARReflection,osi3.LidarSensorView.Reflection,signal_strength,double,False
+LiDARReflection,osi3.LidarSensorView.Reflection,time_of_flight,double,False
+LiDARReflection,osi3.LidarSensorView.Reflection,doppler_shift,double,False
+LiDARReflection,osi3.LidarSensorView.Reflection,normal_to_surface,message:osi3.Vector3d,False
+LiDARReflection,osi3.LidarSensorView.Reflection,object_id,message:osi3.Identifier,False
+Radar,osi3.RadarSensorView,view_configuration,message:osi3.RadarSensorViewConfiguration,False
+Radar,osi3.RadarSensorView,reflection,message:osi3.RadarSensorView.Reflection,True
+RadarReflection,osi3.RadarSensorView.Reflection,signal_strength,double,False
+RadarReflection,osi3.RadarSensorView.Reflection,time_of_flight,double,False
+RadarReflection,osi3.RadarSensorView.Reflection,doppler_shift,double,False
+RadarReflection,osi3.RadarSensorView.Reflection,source_horizontal_angle,double,False
+RadarReflection,osi3.RadarSensorView.Reflection,source_vertical_angle,double,False

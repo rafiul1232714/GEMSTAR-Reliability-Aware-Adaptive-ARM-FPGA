@@ -1,0 +1,5 @@
+Dataset,Rows,Columns,MissingCells,FrameZeroRows,UniqueFrames
+task20_28_radar_world_points,11825,15,0,0,99
+task20_49_50m_radar_returns,5696,9,0,82,100
+task20_55_ray_alignment,5,13,0,0,5
+task20_57_ray_box_intersections,10,10,0,0,5

@@ -1,0 +1,81 @@
+{
+    "task":  "24.3.10",
+    "status":  "PLANNED_NOT_EXECUTED",
+    "purpose":  "Validate sensor-only object measurements before three-sensor association and EKF tracking",
+    "recording_policy":  {
+                             "preserve_original_osi":  true,
+                             "require_sv_gt_pair":  true,
+                             "require_sha256_manifest":  true,
+                             "use_groundtruth_for_fusion_inputs":  false,
+                             "use_lidar_actor_ids_for_fusion_inputs":  false,
+                             "require_independent_evaluation":  true
+                         },
+    "pilot_scenarios":  [
+                            {
+                                "id":  "C01",
+                                "condition":  "CLEAR",
+                                "target":  "ONE_STATIONARY_VEHICLE",
+                                "planned_nominal_distance_m":  10
+                            },
+                            {
+                                "id":  "C02",
+                                "condition":  "CLEAR",
+                                "target":  "ONE_STATIONARY_VEHICLE",
+                                "planned_nominal_distance_m":  20
+                            },
+                            {
+                                "id":  "C03",
+                                "condition":  "CLEAR",
+                                "target":  "ONE_STATIONARY_VEHICLE",
+                                "planned_nominal_distance_m":  30
+                            },
+                            {
+                                "id":  "C04",
+                                "condition":  "CLEAR",
+                                "target":  "ONE_MOVING_VEHICLE",
+                                "planned_nominal_distance_m":  null
+                            },
+                            {
+                                "id":  "C05",
+                                "condition":  "FOG",
+                                "target":  "REPEAT_VALIDATED_CLEAR_SCENARIO",
+                                "planned_nominal_distance_m":  null
+                            }
+                        ],
+    "validation_checks":  [
+                              "Verify target actor presence in held-out GT",
+                              "Verify target is visually identifiable in Camera RGB",
+                              "Investigate Camera-visible debug graphics",
+                              "Verify LiDAR target surface measurements exist",
+                              "Verify Radar returns near the target geometry",
+                              "Verify nominal sensor mounts and projection model",
+                              "Measure actual timestamp intervals",
+                              "Audit exact repeated measurements per sensor",
+                              "Separate sensor-only detections from GT evaluation",
+                              "Report missing detections instead of inventing matches",
+                              "Quantify positional error only for validated associations",
+                              "Verify all experiment files and recording hashes"
+                          ],
+    "acceptance":  {
+                       "camera":  "Visible target and documented sensor-only image localization",
+                       "lidar":  "Evidence of target-related geometry with held-out GT evaluation",
+                       "radar":  "Radar geometry assessed against independently validated target position",
+                       "association":  "Explicit sensor-only matching rule with ambiguity and unmatched outcomes",
+                       "synchronization":  "Timing uncertainty documented; no unsupported acquisition-time claim",
+                       "quality":  "Detection, association and error statistics computed from actual observations",
+                       "failure_policy":  "Failed scenario remains documented and is not silently excluded"
+                   },
+    "known_limitations":  [
+                              "Existing 372-frame recording contains large ground-like LiDAR components",
+                              "Camera projection is nominal and physically uncalibrated",
+                              "Radar Doppler has startup and all-zero review conditions",
+                              "Recorder timestamps do not prove acquisition synchronization",
+                              "Controlled scene implementation and measurements remain pending"
+                          ],
+    "final_evaluation_separation":  {
+                                        "input_measurements":  "Camera LiDAR Radar only",
+                                        "groundtruth_usage":  "Independent evaluation and diagnostics",
+                                        "target_identity_leakage":  "FORBIDDEN",
+                                        "energy_measurements":  "Future hardware benchmarking, not part of this recording acceptance"
+                                    }
+}

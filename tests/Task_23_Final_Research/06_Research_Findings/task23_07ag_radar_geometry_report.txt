@@ -1,0 +1,24 @@
+TASK 23.7AG - RADAR GEOMETRIC COMPARISON
+Compared records: 9572
+Unique frames: 2393
+Mean absolute difference (m): 0.00247530
+Maximum absolute difference (m): 0.00247530
+
+PER-RAY RESULTS:
+Ray 44: samples=2393, mean difference=0.00247530 m
+Ray 45: samples=2393, mean difference=0.00247530 m
+Ray 54: samples=2393, mean difference=0.00247530 m
+Ray 55: samples=2393, mean difference=0.00247530 m
+
+ASSUMPTIONS:
+Radar world origin: (19.4,-26.5,2.5) m
+Radar orientation: +X forward, zero rotation
+Cube center: (29.4,-26.5,2.5) m
+Cube dimensions: 3 x 3 x 3 m
+Cube is axis-aligned.
+No occluding geometry is present.
+
+STATUS: CONDITIONAL_GEOMETRY_CONSISTENCY
+This is not independent sensor accuracy validation.
+Radar runtime pose and hit actor identity remain unverified.
+Repeated frames are not independent trials.

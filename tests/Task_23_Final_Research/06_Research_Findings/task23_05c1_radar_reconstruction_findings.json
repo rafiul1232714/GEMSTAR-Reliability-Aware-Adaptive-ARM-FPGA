@@ -1,0 +1,23 @@
+{
+  "Task": "23.5C-1",
+  "FramesAnalyzed": 16,
+  "ReflectionSlotsAnalyzed": 1600,
+  "PositiveReturns": 544,
+  "HighEquivalentSpeedFlags": 103,
+  "HighSpeedThresholdMps": 100.0,
+  "Equations": {
+    "RangeM": "299792458 * time_of_flight / 2",
+    "RadialMps": "doppler_shift * 299792458 / (2 * emitter_frequency)"
+  },
+  "ScientificStatus": "SOURCE_EQUATION_RECONSTRUCTION",
+  "Limitations": [
+    "Positive returns are not verified detections",
+    "Doppler-equivalent velocity may contain simulator artifacts",
+    "Threshold above 100 m/s is diagnostic, not a validity rule",
+    "No 3D Radar points calculated in this subtask",
+    "No independent target GroundTruth velocity validation",
+    "Pair 4 has a different mounting configuration",
+    "Frame zero analyzed separately from steady-state data",
+    "No hardware energy or latency measured"
+  ]
+}

@@ -1,0 +1,5 @@
+Frame,ClusterIndex,LiDARClusterPoints,RadarCandidates,NearestRadarToActualLiDARPoint_m,RadarWithin0p5mOfActualPoints,RadarWithin1mOfActualPoints,RadarWithin2mOfActualPoints,RadarWithin1mAndCloserToClusterThanPlane,RadarWithin2mAndCloserToClusterThanPlane,RadarCloserToClusterThanPlane_All,ReferenceClusterReconstruction,Interpretation
+2,0,122,58,0.007732339695441108,4,6,13,2,2,2,PASS,UNVALIDATED_GEOMETRIC_PROXIMITY
+2,1,24,58,0.5787549744745636,0,3,8,0,0,0,PASS,UNVALIDATED_GEOMETRIC_PROXIMITY
+2,2,5,58,0.5985201148460547,0,1,1,0,0,0,PASS,UNVALIDATED_GEOMETRIC_PROXIMITY
+172,0,216,57,0.012509338908011263,7,10,13,3,3,6,PASS,UNVALIDATED_GEOMETRIC_PROXIMITY

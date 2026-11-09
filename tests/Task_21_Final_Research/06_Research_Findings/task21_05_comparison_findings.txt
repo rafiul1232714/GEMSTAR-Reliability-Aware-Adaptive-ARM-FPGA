@@ -1,0 +1,15 @@
+TASK 21.5 - RANGE COMPARISON
+
+Original returns: 11825
+Corrected returns: 5614
+Corrected returns beyond 10m: 2655
+Corrected maximum range: 49.928331 m
+
+IMPORTANT LIMITATIONS
+Original data combines multiple scenarios.
+Corrected data comes from one recording.
+Frame zero excluded from corrected analysis.
+Measurements are not from paired experiments.
+Differences in counts are not causal estimates.
+Return counts are not detection accuracy.
+No electrical energy was measured.

@@ -1,0 +1,9 @@
+TASK 21.8 - PYTHON VS MATLAB
+
+Identical source CSV and intended processing operations.
+Correctness validation: PASSED
+Dataset contains 5614 valid returns after frame 0.
+No OSI decoding or disk I/O included in timing.
+MATLAB and Python timings have different runtime overhead.
+No electrical energy or FPGA performance measured.
+Differences do not establish whole-pipeline performance.

@@ -1,0 +1,130 @@
+{
+  "Task": "23.4E-5E",
+  "Scope": "Recorded reflection IDs versus paired GroundTruth IDs",
+  "FrameSummaries": [
+    {
+      "PairID": 1,
+      "Frame": 1,
+      "ValidLiDARPoints": 2069,
+      "GroundTruthObjectIDs": 2,
+      "UniqueReflectionObjectIDs": 4,
+      "MatchedGroundTruthRays": 0,
+      "UnmatchedGroundTruthRays": 2069,
+      "MissingObjectIDRays": 0,
+      "HostObjectRays": 0,
+      "MatchedFraction": 0.0
+    },
+    {
+      "PairID": 1,
+      "Frame": 25,
+      "ValidLiDARPoints": 2419,
+      "GroundTruthObjectIDs": 2,
+      "UniqueReflectionObjectIDs": 5,
+      "MatchedGroundTruthRays": 0,
+      "UnmatchedGroundTruthRays": 2419,
+      "MissingObjectIDRays": 0,
+      "HostObjectRays": 0,
+      "MatchedFraction": 0.0
+    },
+    {
+      "PairID": 1,
+      "Frame": 99,
+      "ValidLiDARPoints": 2035,
+      "GroundTruthObjectIDs": 5,
+      "UniqueReflectionObjectIDs": 4,
+      "MatchedGroundTruthRays": 0,
+      "UnmatchedGroundTruthRays": 2035,
+      "MissingObjectIDRays": 0,
+      "HostObjectRays": 0,
+      "MatchedFraction": 0.0
+    },
+    {
+      "PairID": 2,
+      "Frame": 1,
+      "ValidLiDARPoints": 2069,
+      "GroundTruthObjectIDs": 2,
+      "UniqueReflectionObjectIDs": 4,
+      "MatchedGroundTruthRays": 0,
+      "UnmatchedGroundTruthRays": 2069,
+      "MissingObjectIDRays": 0,
+      "HostObjectRays": 0,
+      "MatchedFraction": 0.0
+    },
+    {
+      "PairID": 2,
+      "Frame": 25,
+      "ValidLiDARPoints": 2744,
+      "GroundTruthObjectIDs": 2,
+      "UniqueReflectionObjectIDs": 5,
+      "MatchedGroundTruthRays": 0,
+      "UnmatchedGroundTruthRays": 2744,
+      "MissingObjectIDRays": 0,
+      "HostObjectRays": 0,
+      "MatchedFraction": 0.0
+    },
+    {
+      "PairID": 2,
+      "Frame": 99,
+      "ValidLiDARPoints": 2042,
+      "GroundTruthObjectIDs": 5,
+      "UniqueReflectionObjectIDs": 4,
+      "MatchedGroundTruthRays": 0,
+      "UnmatchedGroundTruthRays": 2042,
+      "MissingObjectIDRays": 0,
+      "HostObjectRays": 0,
+      "MatchedFraction": 0.0
+    },
+    {
+      "PairID": 3,
+      "Frame": 1,
+      "ValidLiDARPoints": 2069,
+      "GroundTruthObjectIDs": 2,
+      "UniqueReflectionObjectIDs": 4,
+      "MatchedGroundTruthRays": 0,
+      "UnmatchedGroundTruthRays": 2069,
+      "MissingObjectIDRays": 0,
+      "HostObjectRays": 0,
+      "MatchedFraction": 0.0
+    },
+    {
+      "PairID": 3,
+      "Frame": 25,
+      "ValidLiDARPoints": 2547,
+      "GroundTruthObjectIDs": 2,
+      "UniqueReflectionObjectIDs": 5,
+      "MatchedGroundTruthRays": 0,
+      "UnmatchedGroundTruthRays": 2547,
+      "MissingObjectIDRays": 0,
+      "HostObjectRays": 0,
+      "MatchedFraction": 0.0
+    },
+    {
+      "PairID": 3,
+      "Frame": 99,
+      "ValidLiDARPoints": 2038,
+      "GroundTruthObjectIDs": 5,
+      "UniqueReflectionObjectIDs": 4,
+      "MatchedGroundTruthRays": 0,
+      "UnmatchedGroundTruthRays": 2038,
+      "MissingObjectIDRays": 0,
+      "HostObjectRays": 0,
+      "MatchedFraction": 0.0
+    }
+  ],
+  "Totals": {
+    "ValidPoints": 20032,
+    "Matched": 0,
+    "Unmatched": 20032,
+    "MissingID": 0,
+    "HostRays": 0
+  },
+  "ScientificStatus": "SIMULATOR_METADATA_ASSOCIATION_AUDIT",
+  "Limitations": [
+    "An object ID is simulator metadata, not a detector prediction",
+    "GroundTruth contains a limited object subset",
+    "Missing ID does not establish false detection",
+    "Weather processing may modify recorded reflections",
+    "Matching IDs alone does not establish geometric accuracy",
+    "Source revision at recording time is not proven"
+  ]
+}

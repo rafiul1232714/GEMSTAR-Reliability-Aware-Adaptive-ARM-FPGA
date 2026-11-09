@@ -1,0 +1,8 @@
+﻿TASK 23.10 - WEATHER CONTROLLER CORRECTION
+Original source: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_weather_effect_feature\Source\ue_weather_effect_featureRuntime\Private\WeatherVisualController.cpp
+Backup: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\04_Configurations\WeatherVisualController_before_task23_10.cpp
+Original SHA256: F163CD4991977736CDCBE7634E10793349DF8503980DEA2DD57941C683F56DB2
+Corrected SHA256: F1D182AE23280BFC24265FD3688792A411C9D1AAC4BD572E3426FA37DC3FB73D
+Guard added: ActiveWeatherType must equal Fog
+Runtime validation: PENDING
+Status: WEATHER_SOURCE_PATCH_APPLIED

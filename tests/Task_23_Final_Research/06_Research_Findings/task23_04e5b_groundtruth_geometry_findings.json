@@ -1,0 +1,98 @@
+{
+  "Task": "23.4E-5B",
+  "Scope": "GroundTruth geometry diagnostic audit",
+  "FrameSummaries": [
+    {
+      "PairID": 1,
+      "Frame": 1,
+      "LiDARPoints": 2069,
+      "MovingObjects": 2,
+      "StationaryObjects": 0,
+      "StationaryNearZeroX": 0,
+      "InvalidDimensions": 0
+    },
+    {
+      "PairID": 1,
+      "Frame": 25,
+      "LiDARPoints": 2419,
+      "MovingObjects": 2,
+      "StationaryObjects": 0,
+      "StationaryNearZeroX": 0,
+      "InvalidDimensions": 0
+    },
+    {
+      "PairID": 1,
+      "Frame": 99,
+      "LiDARPoints": 2035,
+      "MovingObjects": 5,
+      "StationaryObjects": 0,
+      "StationaryNearZeroX": 0,
+      "InvalidDimensions": 0
+    },
+    {
+      "PairID": 2,
+      "Frame": 1,
+      "LiDARPoints": 2069,
+      "MovingObjects": 2,
+      "StationaryObjects": 0,
+      "StationaryNearZeroX": 0,
+      "InvalidDimensions": 0
+    },
+    {
+      "PairID": 2,
+      "Frame": 25,
+      "LiDARPoints": 2744,
+      "MovingObjects": 2,
+      "StationaryObjects": 0,
+      "StationaryNearZeroX": 0,
+      "InvalidDimensions": 0
+    },
+    {
+      "PairID": 2,
+      "Frame": 99,
+      "LiDARPoints": 2042,
+      "MovingObjects": 5,
+      "StationaryObjects": 0,
+      "StationaryNearZeroX": 0,
+      "InvalidDimensions": 0
+    },
+    {
+      "PairID": 3,
+      "Frame": 1,
+      "LiDARPoints": 2069,
+      "MovingObjects": 2,
+      "StationaryObjects": 0,
+      "StationaryNearZeroX": 0,
+      "InvalidDimensions": 0
+    },
+    {
+      "PairID": 3,
+      "Frame": 25,
+      "LiDARPoints": 2547,
+      "MovingObjects": 2,
+      "StationaryObjects": 0,
+      "StationaryNearZeroX": 0,
+      "InvalidDimensions": 0
+    },
+    {
+      "PairID": 3,
+      "Frame": 99,
+      "LiDARPoints": 2038,
+      "MovingObjects": 5,
+      "StationaryObjects": 0,
+      "StationaryNearZeroX": 0,
+      "InvalidDimensions": 0
+    }
+  ],
+  "TotalGroundTruthObjects": 27,
+  "StationaryNearZeroXCount": 0,
+  "KnownPotentialDefect": "ToOSI::toOSIBaseStationary uses set_z twice; use of this function in recordings is not yet confirmed.",
+  "Limitations": [
+    "Nearest object-center distance is diagnostic",
+    "Object dimensions and orientation not yet used",
+    "Nearest LiDAR point need not belong to the object",
+    "Source code revision at recording time unverified",
+    "World orientation convention not independently verified",
+    "No GroundTruth accuracy metric claimed"
+  ]
+}

@@ -1,0 +1,325 @@
+﻿
+===========================================================================
+SOURCE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\RadarSensorManager.cpp
+===========================================================================
+...
+  189: 		ASimpleRadar* SpawnedActor = World->SpawnActor<ASimpleRadar>(ASimpleRadar::StaticClass(), FTransform(), params);
+  190: 		if (SpawnedActor == nullptr) {
+  191: 			UE_LOG(Radar, Log, TEXT("RadarSensorManager: Radar spawn failed for %s"), *SpawnedActor->GetName());
+  192: 			return;
+  193: 		}
+  194: 
+  195: 		SpawnedActor->SetSensorConfiguration(sensorConfiguration);
+  196: 
+  197: 		UE_LOG(Radar, Log, TEXT("RadarSensorManager: Radar spawned %s"), *SpawnedActor->GetName());
+  198: 		if (!sensorConfiguration.Mount.IsEmpty()) {
+  199: 			IGemstarManager::Execute_MountOn(GemstarSimulationSubsystem, sensorConfiguration.Mount, SpawnedActor);
+  200: 		}
+  201: 		else {
+  202: 			ILocalTransformUpdater::Execute_UpdateTransformAfterAttachment(SpawnedActor);
+  203: 		}
+  204: 		AddTickPrerequisiteActor(SpawnedActor);
+  205: 		SpawnedActors.Add(SpawnedActor);
+  206: 	}
+  207: }
+...
+  223: 			params.Name = sensorConfiguration.ID;
+  224: 		}
+  225: 		params.Owner = sensorConfiguration.Vehicle;
+  226: 
+  227: 		ASimpleRadar* SpawnedActor = World->SpawnActor<ASimpleRadar>(ASimpleRadar::StaticClass(), FTransform(), params);
+  228: 		SpawnedActor->AttachToActor(sensorConfiguration.Vehicle, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true));
+  229: 		SpawnedActor->SetSensorConfiguration(sensorConfiguration);
+  230: 		SpawnedActor->SetActorRelativeTransform(sensorConfiguration.Offset);
+  231: 
+  232: 		if (SpawnedActor)
+  233: 		{
+  234: 			UE_LOG(Radar, Warning, TEXT("RadarSensorManager: spawned radar sensor: %s"), *SpawnedActor->GetName());
+  235: 			SpawnedActors.Add(SpawnedActor);
+  236: 		}
+  237: 	}
+  238: }
+
+===========================================================================
+SOURCE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\SimpleRadar.cpp
+===========================================================================
+...
+   41: 		currentVelocity = FVector::ZeroVector;
+   42: 	} else {
+   43: 		currentVelocity = (GetActorLocation() - oldPosition) / DeltaTime;
+   44: 		oldPosition = GetActorLocation();
+   45: 	}
+   46: 
+   47: 	GetScanData();
+   48: 	if (bDebugRayTraces || bDebugReflections || bDebugNormals)
+   49: 		ShowSensorDebugInformation();
+   50: 	if (PublishingActive)
+   51: 	{
+   52: 		GenerateOSIMessage();
+   53: 		SendData(*Sensor.SensorView);
+   54: 	}
+   55: }
+   56: 
+   57: void ASimpleRadar::GetScanData() {
+   58: 
+   59: 	// Get owner's location and rotation
+   60: 	const FVector RadarPosition = this->GetActorLocation();
+   61: 	const FRotator RadarRotation = this->GetActorRotation();
+   62: 
+   63: 	// Initialize array for raycast result
+   64: 	Sensor.RecordedHits.Init(FRadarHitResultAndIntesity(), Sensor.Number_of_rays_horizontal * Sensor.Number_of_rays_vertical);
+   65: 
+   66: 	// Calculate batch size for 'ParallelFor' based on workable thread
+   67: 	const int32 ThreadNum = FPlatformMisc::NumberOfWorkerThreadsToSpawn();
+   68: 	const int32 DivideEnd = FMath::FloorToInt((float)(Sensor.RecordedHits.Num() / ThreadNum));
+   69: 
+...
+   79: 			int32 EndAt = StartAt + DivideEnd;
+   80: 			if (PFIndex == (ThreadNum - 1)) {
+   81: 				EndAt = Sensor.RecordedHits.Num();
+   82: 			}
+   83: 
+   84: 			for (int32 Index = StartAt; Index < EndAt; ++Index) {
+   85: 				const float HAngle = Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal];
+   86: 				const float VAngle = Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal];
+   87: 
+   88: 				FRotator RadioRotation(FMath::RadiansToDegrees(VAngle), FMath::RadiansToDegrees(HAngle), 0.f);
+   89: 				FRotator Rotation = UKismetMathLibrary::ComposeRotators(RadioRotation, RadarRotation);
+   90: 
+   91: 				FVector EndPoint = RadarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+   92: 
+   93: 				GetWorld()->LineTraceSingleByChannel(
+   94: 					Sensor.RecordedHits[Index].HitResult, RadarPosition, EndPoint, ECC_Visibility, TraceParams, FCollisionResponseParams::DefaultResponseParam);
+   95: 				if (Sensor.RecordedHits[Index].HitResult.bBlockingHit) {
+   96: 					Sensor.RecordedHits[Index].Intesity = ComputeRadarSignalStrength(Sensor.RecordedHits[Index].HitResult);
+   97: 				}
+   98: 			}
+   99: 		},
+  100: 		!SupportMultithread
+  101: 	);
+  102: 
+  103: }
+  104: 
+  105: void ASimpleRadar::GenerateOSIMessage() {
+  106: 	delete Sensor.SensorView;
+  107: 	Sensor.SensorView = new osi3::SensorView();
+  108: 	auto* radarSensorView = Sensor.SensorView->add_radar_sensor_view();
+  109: 	auto* viewConfiguration = radarSensorView->mutable_view_configuration();
+  110: 	if (Sensor.SensorViewConfig != nullptr && Sensor.SensorViewConfig->radar_sensor_view_configuration_size())
+  111: 		viewConfiguration->CopyFrom(Sensor.SensorViewConfig->radar_sensor_view_configuration(0));
+  112: 
+  113: 	
+  114: 	for (int Index = 0; Index != Sensor.RecordedHits.Num(); Index++) {
+  115: 		FRadarHitResultAndIntesity hit = Sensor.RecordedHits[Index];
+  116: 		auto* reflection = radarSensorView->add_reflection();
+  117: 		
+  118: 		reflection->set_time_of_flight(2 * 0.01 * hit.HitResult.Distance / SPEED_OF_LIGHT);
+  119: 		reflection->set_source_horizontal_angle(Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal]);
+  120: 		reflection->set_source_vertical_angle(Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal]);
+  121: 		reflection->set_doppler_shift(0);
+  122: 		reflection->set_signal_strength(hit.Intesity);
+  123: 		FVector hitVelocity = FVector::ZeroVector;
+  124: 		AActor* hitTarget = hit.HitResult.GetActor();
+  125: 		if (hit.HitResult.bBlockingHit) {
+  126: 			if (hitTarget->Implements<USensorReflectionData>()) {
+  127: 				hitVelocity = Cast<ISensorReflectionData>(hitTarget)->GetVelocity();
+  128: 			}
+  129: 			else {
+  130: 				hitVelocity = hitTarget->GetVelocity();
+  131: 			}
+  132: 			FString hitName = hit.HitResult.GetHitObjectHandle().GetName();
+  133: 			FVector relativePostition = hit.HitResult.ImpactPoint - hit.HitResult.TraceStart;
+  134: 			FVector relativeVelocity = hitVelocity - currentVelocity;
+  135: 			float distance = relativePostition.Size();
+  136: 			float radialVelocity = FVector::DotProduct(relativeVelocity, relativePostition / distance);
+  137: 			double frequency = viewConfiguration->emitter_frequency();
+  138: 			double doppler_shift = 2 * (radialVelocity * 0.01) * frequency / SPEED_OF_LIGHT;
+  139: 			reflection->set_doppler_shift(doppler_shift);
+  140: 			//Debug Data
+  141: 			//if (hitName.Contains("BP_Simple")) {UE_LOG(Radar, Log, TEXT("Hit_%d: %s, vHero= %s, vTarget= %s, vR= %.2f, dS= %.2f, sS= %.2f" ), Index, *hitName, *currentVelocity.ToCompactString(), *hitVelocity.ToCompactString(), radialVelocity, doppler_shift, hit.Intesity);}
+  142: 		}
+  143: 	}
+  144: 	
+  145: 	Parent = GetAttachParentActor();
+  146: 
+  147: 	if (Parent != nullptr) {
+  148: 		auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+  149: 		uint32_t uniqueID = Parent->GetUniqueID();
+  150: 		moving_object->mutable_id()->set_value(uniqueID);
+  151: 		moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+  152: 		moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+  153: 		Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+...
+  169: 	// normalise dB signal
+  170: 	float scaledDBsignal = (signalStrengthInDB) / 100.0;
+  171: 
+  172: 	return scaledDBsignal;
+  173: }
+  174: 
+  175: void ASimpleRadar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) {
+  176: 	Super::SetSensorConfiguration(NewSensorConfiguration);
+  177:   if (Sensor.SensorViewConfig == nullptr)
+  178:   {
+  179:       CreateTestConfig();
+  180:   }
+  181:   Sensor.SensorViewConfig->set_range(SensorConfiguration.Radar.Range);
+  182:   UE_LOG(LogTemp, Warning,
+  183:       TEXT("TASK20_45_RADAR_RANGE: %.3f metres"),
+  184:       Sensor.SensorViewConfig->range());
+  185: 	Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+  186: 	auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+  187: 	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+  188: 	conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+...
+  192: 		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+  193: 	conf->mutable_mounting_position()->set_allocated_orientation(
+  194: 		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+  195: 	conf->set_emitter_frequency(77000000000.0); //in Hz
+  196: 	//calculate angles
+  197: 
+  198: 	Sensor.AzimuthAngles.Empty();
+  199: 	Sensor.ElevationAngles.Empty();
+  200: 	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+  201: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+  202: 		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+  203: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+  204: 	}
+  205: 	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_vertical();
+  206: 	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+  207: 		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical()
+  208: 			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+  209: 	}
+  210: }
+  211: 
+  212: void ASimpleRadar::CreateTestConfig() {
+  213: 	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+  214: 	Sensor.SensorViewConfig->set_range(10);
+  215: }
+  216: 
+  217: void ASimpleRadar::ShowSensorDebugInformation() {
+  218: 	int noHitCounter = 0;
+  219: 	for (auto& hit : Sensor.RecordedHits) {
+
+===========================================================================
+SOURCE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Private\VelocitySource.cpp
+===========================================================================
+...
+   28: void AVelocitySource::Tick(float DeltaTime)
+   29: {
+   30: 	Super::Tick(DeltaTime);
+   31: 	currentVelocity = calculateVelocity(DeltaTime);
+   32: }
+   33: 
+   34: FVector AVelocitySource::GetVelocity() const
+   35: {
+   36: 	return currentVelocity;
+   37: }
+   38: 
+   39: FString AVelocitySource::GetMaterialFilePath()
+   40: {
+   41: 	return MaterialFilePath;
+   42: }
+   43: 
+   44: FVector AVelocitySource::calculateVelocity(float DeltaTime)
+   45: {
+   46: 	return currentVelocity;
+
+===========================================================================
+SOURCE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Public\SimpleRadar.h
+===========================================================================
+...
+   19: #include "VelocitySource.h"
+   20: #include "Utils/ToOSI.h"
+   21: #include "osi_sensorview.pb.h"
+   22: #include "osi_sensorviewconfiguration.pb.h"
+   23: #include "SimpleRadar.generated.h"
+   24: 
+   25: constexpr float SPEED_OF_LIGHT = 299705543.0f; //in m/s in air 299792458.0f in vakuum;
+   26: 
+   27: USTRUCT()
+   28: struct FRadarHitResultAndIntesity
+   29: {
+   30: 	GENERATED_BODY()
+   31: public:
+   32: 	FHitResult HitResult;
+   33: 	float Intesity = 0.f;
+   34: };
+   35: 
+   36: USTRUCT()
+   37: struct FSimpleRadarConfiguration
+...
+   39: 	GENERATED_BODY()
+   40: 
+   41: public:
+   42: 	//packed config
+   43: 	osi3::SensorViewConfiguration* SensorViewConfig = nullptr;
+   44: 	//prepared configuration
+   45: 	TArray<float> AzimuthAngles;
+   46: 	TArray<float> ElevationAngles;
+   47: 	uint32_t Number_of_rays_horizontal = 0;
+   48: 	uint32_t Number_of_rays_vertical = 0;
+   49: 	//raw results
+   50: 	TArray<FRadarHitResultAndIntesity> RecordedHits;
+   51: 	//packed results
+   52: 	osi3::SensorView* SensorView = nullptr;
+   53: 
+   54: };
+   55: 
+   56: UCLASS()
+   57: class UE_RADAR_FEATURERUNTIME_API ASimpleRadar : public AGemstarSensor
+   58: {
+...
+   72: 	bool bDebugData = false;
+   73: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GEMSTAR")
+   74: 	bool SupportMultithread = true;
+   75: 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GEMSTAR")
+   76: 	float DistanceHalfFalloff = 2000.0;
+   77: 
+   78: 	virtual void SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) override;
+   79: 
+   80: protected:
+   81: 	// Called when the game starts or when spawned
+   82: 	virtual void BeginPlay() override;
+   83: 
+   84: public:	
+   85: 	// Called every frame
+   86: 	void GetScanData();
+   87: 	virtual void Tick(float DeltaTime) override;
+   88: 	FVector currentVelocity;
+   89: private:
+   90: 	UPROPERTY()
+   91: 	AActor* Parent = nullptr;
+   92: 
+   93: 	FSimpleRadarConfiguration Sensor;
+   94: 	FCollisionQueryParams TraceParams;
+   95: 
+   96: 	bool bReportedNoDataTarget = false;
+   97: 
+   98: 	bool firstTick = true;
+   99: 	FVector oldPosition;
+  100: 
+  101: 	void CreateTestConfig();
+  102: 	void ShowSensorDebugInformation();
+  103: 	void GenerateOSIMessage();
+  104: 	float ComputeRadarSignalStrength(
+  105: 		const FHitResult& Hit
+  106: 	);
+  107: };
+
+===========================================================================
+SOURCE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_radar_feature\Source\ue_radar_featureRuntime\Public\VelocitySource.h
+===========================================================================
+...
+   33: public:	
+   34: 	UPROPERTY(EditAnywhere)
+   35: 	FVector currentVelocity = FVector::ZeroVector;
+   36: 	
+   37: 	// Called every frame
+   38: 	virtual void Tick(float DeltaTime) override;
+   39: 	virtual FVector GetVelocity() const override;
+   40: 	virtual FString GetMaterialFilePath() override;
+   41: 	virtual FVector calculateVelocity(float DeltaTime) override;
+   42: 	
+   43: private:
+   44: 	FString MaterialFilePath = "";
+   45: };

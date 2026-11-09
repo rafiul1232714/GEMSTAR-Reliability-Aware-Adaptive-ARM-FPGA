@@ -1,0 +1,70 @@
+TASK 24.7 - CAMERA OBSERVATION READINESS REPORT
+================================================
+
+DATASET
+Scenario: C02 Moving Target
+Recording: 20261108T211139Z_sv_380_X_2122_GEMSTAR.osi
+Camera resolution: 640 x 480
+Camera frames available: 2122
+
+CAMERA GEOMETRY
+Nominal horizontal FoV: 90 degrees
+Nominal fx: 320 pixels
+Nominal fy: 320 pixels
+Principal point: (320, 240)
+Projection model: NOMINAL_UNCALIBRATED
+Runtime geometric accuracy not quantitatively calibrated.
+
+CAMERA-LIDAR PROJECTION
+Validation frame: 530
+Valid LiDAR ranges: 3257
+Projected points inside image: 3257
+Qualitative alignment: Plausible
+Quantitative reprojection error: Not established
+
+INDEPENDENT CAMERA DETECTION
+Model: yolo11s.pt
+Confidence threshold: 0.15
+Frames tested: 5
+Frames with detections: 1
+Total detections: 3
+
+MULTI-FRAME RESULTS
+FRAME=0 DETECTIONS=0
+FRAME=530 DETECTIONS=3
+FRAME=1060 DETECTIONS=0
+FRAME=1591 DETECTIONS=0
+FRAME=2121 DETECTIONS=0
+
+FRAME 530
+Original YOLO detections: 3
+Representative hypotheses: 2
+Truck/Boat IoU: 0.9584
+Object classification: UNCERTAIN
+
+DEPTH CONSISTENCY
+Truck box: 51/56 LiDAR points in 20-22 m range bin.
+Boat box: 62/67 LiDAR points in 20-22 m range bin.
+Car box: Mixed-depth measurements.
+Association: DIAGNOSTIC ONLY
+
+SCIENTIFIC LIMITATIONS
+Five widely spaced Camera frames were tested.
+Detection availability does not establish detector recall.
+No continuous Camera object tracking demonstrated.
+No validated unique three-sensor object association.
+Camera calibration remains nominal.
+GT object IDs must never be used as inference inputs.
+
+TASK 24.8 READINESS
+Camera measurements are available as independent
+bounding-box observations with uncertain classifications.
+
+Proceed with guarded Camera-LiDAR-Radar association.
+Allow missing Camera observations.
+Retain LiDAR-Radar EKF V3 as a baseline.
+Do not update EKF position using duplicate LiDAR-derived
+Camera measurements.
+Use Ground Truth only for independent evaluation.
+
+TASK24_07_21_RESEARCH_DOCUMENTATION_COMPLETE

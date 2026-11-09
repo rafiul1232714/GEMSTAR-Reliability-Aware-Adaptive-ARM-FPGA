@@ -1,0 +1,130 @@
+{
+  "Task": "23.4D-4",
+  "SourceImplementation": "SimpleLidar.cpp",
+  "SourceEvidence": {
+    "RayIndexing": "Index % horizontal and Index / horizontal",
+    "AzimuthStart": "-horizontal_fov/2",
+    "AzimuthEnd": "+horizontal_fov/2",
+    "ElevationStart": "-vertical_fov/2",
+    "ElevationEnd": "+vertical_fov/2"
+  },
+  "Samples": [
+    {
+      "PairID": 1,
+      "Frame": 1,
+      "Points": 2069,
+      "FirstAzimuthDeg": -45.0,
+      "LastAzimuthDeg": 45.0,
+      "FirstElevationDeg": -10.0,
+      "LastElevationDeg": 10.0,
+      "MaximumRangeErrorM": 3.552713678800501e-15,
+      "MaximumCoordinateChangeM": 21.7395834971837,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 1,
+      "Frame": 25,
+      "Points": 2419,
+      "FirstAzimuthDeg": -45.0,
+      "LastAzimuthDeg": 45.0,
+      "FirstElevationDeg": -10.0,
+      "LastElevationDeg": 10.0,
+      "MaximumRangeErrorM": 3.552713678800501e-15,
+      "MaximumCoordinateChangeM": 27.86050895336013,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 1,
+      "Frame": 99,
+      "Points": 2035,
+      "FirstAzimuthDeg": -45.0,
+      "LastAzimuthDeg": 45.0,
+      "FirstElevationDeg": -10.0,
+      "LastElevationDeg": 10.0,
+      "MaximumRangeErrorM": 3.552713678800501e-15,
+      "MaximumCoordinateChangeM": 20.39662238486661,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 2,
+      "Frame": 1,
+      "Points": 2069,
+      "FirstAzimuthDeg": -45.0,
+      "LastAzimuthDeg": 45.0,
+      "FirstElevationDeg": -10.0,
+      "LastElevationDeg": 10.0,
+      "MaximumRangeErrorM": 3.552713678800501e-15,
+      "MaximumCoordinateChangeM": 21.7395834971837,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 2,
+      "Frame": 25,
+      "Points": 2744,
+      "FirstAzimuthDeg": -45.0,
+      "LastAzimuthDeg": 45.0,
+      "FirstElevationDeg": -10.0,
+      "LastElevationDeg": 10.0,
+      "MaximumRangeErrorM": 3.552713678800501e-15,
+      "MaximumCoordinateChangeM": 25.164485560214043,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 2,
+      "Frame": 99,
+      "Points": 2042,
+      "FirstAzimuthDeg": -45.0,
+      "LastAzimuthDeg": 45.0,
+      "FirstElevationDeg": -10.0,
+      "LastElevationDeg": 10.0,
+      "MaximumRangeErrorM": 3.552713678800501e-15,
+      "MaximumCoordinateChangeM": 22.76840530781902,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 3,
+      "Frame": 1,
+      "Points": 2069,
+      "FirstAzimuthDeg": -45.0,
+      "LastAzimuthDeg": 45.0,
+      "FirstElevationDeg": -10.0,
+      "LastElevationDeg": 10.0,
+      "MaximumRangeErrorM": 3.552713678800501e-15,
+      "MaximumCoordinateChangeM": 21.7395834971837,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 3,
+      "Frame": 25,
+      "Points": 2547,
+      "FirstAzimuthDeg": -45.0,
+      "LastAzimuthDeg": 45.0,
+      "FirstElevationDeg": -10.0,
+      "LastElevationDeg": 10.0,
+      "MaximumRangeErrorM": 3.552713678800501e-15,
+      "MaximumCoordinateChangeM": 26.42257629609505,
+      "ValidationPass": true
+    },
+    {
+      "PairID": 3,
+      "Frame": 99,
+      "Points": 2038,
+      "FirstAzimuthDeg": -45.0,
+      "LastAzimuthDeg": 45.0,
+      "FirstElevationDeg": -10.0,
+      "LastElevationDeg": 10.0,
+      "MaximumRangeErrorM": 3.552713678800501e-15,
+      "MaximumCoordinateChangeM": 20.847163605924443,
+      "ValidationPass": true
+    }
+  ],
+  "AllValidationChecksPassed": true,
+  "Limitations": [
+    "Source-matched geometry is not yet GroundTruth-validated",
+    "Recorded implementation version still needs confirmation",
+    "Points are in sensor-local coordinates",
+    "World-frame mounting transformations not yet applied",
+    "Weather-induced measurement effects not independently assessed",
+    "No energy or perception accuracy measurements"
+  ]
+}

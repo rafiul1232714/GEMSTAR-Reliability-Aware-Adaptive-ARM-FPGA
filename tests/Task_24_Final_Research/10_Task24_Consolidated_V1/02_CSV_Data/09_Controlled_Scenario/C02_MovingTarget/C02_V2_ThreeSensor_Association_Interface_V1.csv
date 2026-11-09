@@ -1,0 +1,6 @@
+﻿"Frame","CameraAvailable","CameraClass","CameraConfidence","LidarCandidateAvailable","LidarX_M","LidarY_M","LidarZ_M","RadarAssociated","RadarMatchedReturns","AssociationStatus","MeasurementUse"
+"0","False","","","False","","","","False","","NO_CAMERA_DETECTION_LIDAR_RADAR_NOT_EVALUATED","NOT_AUTHORIZED_FOR_EKF_UPDATE"
+"530","True","UNCERTAIN","0.2105015069246292","True","24.17474053980988","-0.1353206229834082","0.7","False","0","CAMERA_LIDAR_CANDIDATE_RADAR_UNSUPPORTED","DIAGNOSTIC_ONLY"
+"1060","False","","","False","","","","False","","NO_CAMERA_DETECTION_LIDAR_RADAR_NOT_EVALUATED","NOT_AUTHORIZED_FOR_EKF_UPDATE"
+"1591","False","","","False","","","","False","","NO_CAMERA_DETECTION_LIDAR_RADAR_NOT_EVALUATED","NOT_AUTHORIZED_FOR_EKF_UPDATE"
+"2121","False","","","False","","","","False","","NO_CAMERA_DETECTION_LIDAR_RADAR_NOT_EVALUATED","NOT_AUTHORIZED_FOR_EKF_UPDATE"

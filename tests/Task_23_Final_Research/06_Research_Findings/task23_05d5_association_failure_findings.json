@@ -1,0 +1,122 @@
+{
+  "Task": "23.5D-5",
+  "Status": "ASSOCIATION_FAILURE_AND_AMBIGUITY_AUDIT",
+  "TotalRadarReturns": 237,
+  "GeometricAccepted": 197,
+  "GeometricRejected": 40,
+  "CandidatesWithLocalActorAgreement": 193,
+  "CandidatesWithoutLocalActorAgreement": 4,
+  "FrameSummaries": [
+    {
+      "PairID": 1,
+      "Frame": 25,
+      "RadarReturns": 59,
+      "GeometricAccepted": 50,
+      "GeometricRejected": 9,
+      "LocalActorConsistent": 49,
+      "CandidateWithoutActorAgreement": 1,
+      "RejectedDistance": 7,
+      "RejectedAngle": 7,
+      "RejectedNonMutual": 8
+    },
+    {
+      "PairID": 1,
+      "Frame": 99,
+      "RadarReturns": 57,
+      "GeometricAccepted": 36,
+      "GeometricRejected": 21,
+      "LocalActorConsistent": 34,
+      "CandidateWithoutActorAgreement": 2,
+      "RejectedDistance": 19,
+      "RejectedAngle": 14,
+      "RejectedNonMutual": 20
+    },
+    {
+      "PairID": 2,
+      "Frame": 25,
+      "RadarReturns": 30,
+      "GeometricAccepted": 29,
+      "GeometricRejected": 1,
+      "LocalActorConsistent": 29,
+      "CandidateWithoutActorAgreement": 0,
+      "RejectedDistance": 0,
+      "RejectedAngle": 1,
+      "RejectedNonMutual": 1
+    },
+    {
+      "PairID": 2,
+      "Frame": 99,
+      "RadarReturns": 31,
+      "GeometricAccepted": 27,
+      "GeometricRejected": 4,
+      "LocalActorConsistent": 27,
+      "CandidateWithoutActorAgreement": 0,
+      "RejectedDistance": 1,
+      "RejectedAngle": 3,
+      "RejectedNonMutual": 3
+    },
+    {
+      "PairID": 3,
+      "Frame": 25,
+      "RadarReturns": 30,
+      "GeometricAccepted": 28,
+      "GeometricRejected": 2,
+      "LocalActorConsistent": 28,
+      "CandidateWithoutActorAgreement": 0,
+      "RejectedDistance": 0,
+      "RejectedAngle": 2,
+      "RejectedNonMutual": 1
+    },
+    {
+      "PairID": 3,
+      "Frame": 99,
+      "RadarReturns": 30,
+      "GeometricAccepted": 27,
+      "GeometricRejected": 3,
+      "LocalActorConsistent": 26,
+      "CandidateWithoutActorAgreement": 1,
+      "RejectedDistance": 0,
+      "RejectedAngle": 3,
+      "RejectedNonMutual": 3
+    }
+  ],
+  "FailurePatterns": {
+    "ANGLE+NON_MUTUAL": 11,
+    "ANGLE": 2,
+    "DISTANCE+NON_MUTUAL": 8,
+    "DISTANCE+ANGLE+NON_MUTUAL": 17,
+    "DISTANCE": 2
+  },
+  "TopAssignedLiDARActors": [
+    {
+      "ActorID": "83185",
+      "CandidateCount": 116
+    },
+    {
+      "ActorID": "83181",
+      "CandidateCount": 37
+    },
+    {
+      "ActorID": "83265",
+      "CandidateCount": 31
+    },
+    {
+      "ActorID": "83366",
+      "CandidateCount": 12
+    },
+    {
+      "ActorID": "83183",
+      "CandidateCount": 1
+    }
+  ],
+  "ImportantInterpretation": "Local LiDAR actor-ID consistency is not an independently validated Radar target identity.",
+  "ScientificLimitations": [
+    "No independently labeled Radar-LiDAR correspondence",
+    "Distance and angular gates are heuristic",
+    "Rejection reasons can overlap",
+    "Local agreement depends on five nearest LiDAR samples",
+    "A single large map actor may dominate associations",
+    "Six frames are insufficient to establish general accuracy",
+    "No measured fusion accuracy or FPGA energy savings"
+  ]
+}

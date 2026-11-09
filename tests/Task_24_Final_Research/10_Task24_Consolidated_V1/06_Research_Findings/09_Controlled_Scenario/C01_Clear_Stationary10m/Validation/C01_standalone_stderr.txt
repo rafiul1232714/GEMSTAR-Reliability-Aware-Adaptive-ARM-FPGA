@@ -1,0 +1,4 @@
+Warning: Environment variable SUMO_HOME is not set properly, disabling XML validation. Set 'auto' or 'always' for web lookups.
+Warning: Raw netstate dumps are deprecated. Use fcd-output instead.
+Error: Vehicle 'target_C01' is not allowed to stop on lane '158_0'.
+Quitting (on error).

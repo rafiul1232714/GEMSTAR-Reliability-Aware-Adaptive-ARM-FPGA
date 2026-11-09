@@ -1,0 +1,11 @@
+TASK 23.3A CAMERA FORMAT INVESTIGATION
+
+Recording pairs inspected: 3
+Camera samples inspected: 9
+
+Image interpretation is pending confirmation
+of actual dimensions, channel order and layout.
+
+A matching byte count does not prove pixel format.
+Current configuration files may not match the
+configuration active at recording time.

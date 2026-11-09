@@ -1,0 +1,102 @@
+{
+  "Task": "23.4D-2",
+  "Purpose": "Locate the actual GEMSTAR LiDAR ray generation and indexing implementation.",
+  "SourceRoot": "E:\\GEMSTAR_Project\\gemstar",
+  "SourceFilesScanned": 449,
+  "FilesWithMatches": 55,
+  "ExtractedMatchCount": 1283,
+  "TopFiles": [
+    {
+      "File": "Plugins\\gemstar_interfaces\\ThirdParty\\osi3\\include\\osi3\\osi_sensorviewconfiguration.pb.h",
+      "Score": 1727,
+      "PrimaryMatches": 577,
+      "GeometryMatches": 573
+    },
+    {
+      "File": "Plugins\\gemstar_interfaces\\ThirdParty\\osi3\\include\\osi3\\osi_sensorview.pb.h",
+      "Score": 835,
+      "PrimaryMatches": 266,
+      "GeometryMatches": 303
+    },
+    {
+      "File": "Plugins\\gemstar_interfaces\\ThirdParty\\osi3\\include\\osi3\\osi_featuredata.pb.h",
+      "Score": 616,
+      "PrimaryMatches": 293,
+      "GeometryMatches": 30
+    },
+    {
+      "File": "Plugins\\gemstar_interfaces\\ThirdParty\\osi3\\include\\osi3\\osi_detectedobject.pb.h",
+      "Score": 236,
+      "PrimaryMatches": 112,
+      "GeometryMatches": 12
+    },
+    {
+      "File": "Plugins\\GameFeatures\\ue_lidar_feature\\Source\\ue_lidar_featureRuntime\\Private\\SimpleLidar.cpp",
+      "Score": 179,
+      "PrimaryMatches": 55,
+      "GeometryMatches": 49
+    },
+    {
+      "File": "Plugins\\GameFeatures\\ue_raytracing_lidar_feature\\Source\\ue_raytracing_lidar_featureRuntime\\Private\\RaytracingLidarSensor.cpp",
+      "Score": 155,
+      "PrimaryMatches": 58,
+      "GeometryMatches": 19
+    },
+    {
+      "File": "Plugins\\GameFeatures\\ue_visualizer_feature\\Source\\ue_visualizer_featureRuntime\\Private\\VisualizerManager.cpp",
+      "Score": 153,
+      "PrimaryMatches": 27,
+      "GeometryMatches": 99
+    },
+    {
+      "File": "Plugins\\GameFeatures\\ue_lidar_feature\\Source\\ue_lidar_featureRuntime\\Private\\LidarSensorManager.cpp",
+      "Score": 103,
+      "PrimaryMatches": 35,
+      "GeometryMatches": 13
+    },
+    {
+      "File": "Plugins\\GameFeatures\\ue_raytracing_lidar_feature\\Source\\ue_raytracing_lidar_featureRuntime\\Private\\RaytracingLidarRenderer.cpp",
+      "Score": 102,
+      "PrimaryMatches": 36,
+      "GeometryMatches": 10
+    },
+    {
+      "File": "Plugins\\GameFeatures\\ue_raytracing_lidar_feature\\Source\\ue_raytracing_lidar_featureRuntime\\Private\\RaytracingLidarTypes.cpp",
+      "Score": 101,
+      "PrimaryMatches": 15,
+      "GeometryMatches": 51
+    },
+    {
+      "File": "Plugins\\GameFeatures\\ue_raytracing_lidar_feature\\Source\\ue_raytracing_lidar_featureRuntime\\Private\\RaytracingLidarConfig.cpp",
+      "Score": 94,
+      "PrimaryMatches": 32,
+      "GeometryMatches": 10
+    },
+    {
+      "File": "Plugins\\GameFeatures\\ue_lidar_feature\\Source\\ue_lidar_featureRuntime\\Private\\Effects\\LidarWeatherEffectModel.cpp",
+      "Score": 91,
+      "PrimaryMatches": 29,
+      "GeometryMatches": 13
+    },
+    {
+      "File": "Plugins\\GameFeatures\\ue_raytracing_lidar_feature\\Source\\ue_raytracing_lidar_featureRuntime\\Private\\Effects\\RaytracingLidarWeatherEffectModel.cpp",
+      "Score": 91,
+      "PrimaryMatches": 30,
+      "GeometryMatches": 11
+    },
+    {
+      "File": "Plugins\\GameFeatures\\ue_radar_feature\\Source\\ue_radar_featureRuntime\\Private\\SimpleRadar.cpp",
+      "Score": 85,
+      "PrimaryMatches": 20,
+      "GeometryMatches": 45
+    },
+    {
+      "File": "Plugins\\GameFeatures\\ue_lidar_feature\\Source\\ue_lidar_featureRuntime\\Private\\LidarSensorTester.cpp",
+      "Score": 72,
+      "PrimaryMatches": 23,
+      "GeometryMatches": 6
+    }
+  ],
+  "ScientificStatus": "Source discovery only. Mathematical beam geometry not yet validated.",
+  "RawOSIUnchanged": true
+}

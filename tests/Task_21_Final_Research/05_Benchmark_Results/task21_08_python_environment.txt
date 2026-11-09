@@ -1,0 +1,14 @@
+Task 21.8 benchmark
+Computer: Nafis
+OS: Windows-10-10.0.26300-SP0
+Processor: AMD64 Family 26 Model 96 Stepping 0, AuthenticAMD
+Python: 3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]
+NumPy: 2.4.6
+Input: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_20_Final_Research\02_CSV_Data\task20_49_50m_radar_returns.csv
+Input SHA256: 3eae380c5e32765d5099ca811189c4ceaf66f289ce521bfebdc551ca626b1660
+Frames: 1-99
+Repetitions: 100
+Trials: 5
+Timing: perf_counter, excluding CSV loading
+MATLAB and Python use different runtimes and measurement APIs.
+Results are exploratory, not controlled cross-language energy benchmarks.

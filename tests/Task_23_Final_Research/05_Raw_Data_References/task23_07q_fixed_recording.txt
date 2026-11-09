@@ -1,0 +1,11 @@
+﻿TASK 23.7Q FIXED RECORDING TEST
+Start: 11/03/2026 16:25:41
+Process ID: 44776
+Process exited: True
+Exit code: 0
+New SensorView files: 1
+New GroundTruth files: 1
+
+FILES:
+E:\GEMSTAR_Project\gemstar\Output\20261103T152603Z_gt_380_X_1534_GEMSTARADAR.osi | 24124 bytes
+E:\GEMSTAR_Project\gemstar\Output\20261103T152603Z_sv_380_X_1534_GEMSTARADAR.osi | 7391914 bytes

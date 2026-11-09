@@ -1,0 +1,3 @@
+﻿"Weather","ControllerSpawned","ManagerRegistered","FogApplied","MOR100Confirmed","LogValidation","RuntimeLog","LogSHA256"
+"Clear","True","True","False","False","PASS","E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\05_Raw_Data_References\task23_10_Clear_runtime.log","F7785184F51C172BDAF408C57D62F3005FCE94C67E883686FF0ED20B24E42DE8"
+"Fog","True","True","True","True","PASS","E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\05_Raw_Data_References\task23_10_Fog_runtime.log","45524685514FA360ED9D73BA6BD52772637540B7722F00C02E57331D1F011564"

@@ -1,0 +1,1 @@
+{"Task":"23.5C-4","Method":"Independent MATLAB calculation","FramesVerified":16,"TotalPoints":544,"SteadyStateCandidatePoints":237,"AllChecksPassed":true,"ToleranceM":1E-8,"ValidationType":"Cross-language numerical consistency","Limitation":"This does not establish independent target accuracy or physical Doppler validity."}

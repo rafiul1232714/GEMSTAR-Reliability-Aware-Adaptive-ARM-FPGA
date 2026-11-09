@@ -1,0 +1,120 @@
+﻿
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp
+  55: 	osi3::SensorView sv = combineSensorViewMessages();
+  56: 	if (writeSensorViews) {
+  57: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::ESensorViewMessage, sv.SerializeAsString());
+  58: 	}
+  59: 	if (writeSensorDatas) {
+  60: 		for (auto& sd : sensorDatas)
+  61: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::ESensorDataMessage, sd.Value.SerializeAsString());
+  62: 	}
+
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp
+  59: 	if (writeSensorDatas) {
+  60: 		for (auto& sd : sensorDatas)
+  61: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::ESensorDataMessage, sd.Value.SerializeAsString());
+  62: 	}
+  63: 	if (debugmode)
+  64: 		UE_LOG(Logger, Log, TEXT("LogManager: SV:\n%s"), *FString(UTF8_TO_TCHAR(sv.DebugString().c_str())));
+  65: 
+  66: 
+
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp
+  67: 	if (writeGroundTruth) {
+  68: 		osi3::GroundTruth gt = osi_GroundTruth.parseWorldToGroundTruth(this, dynamicSpawnedObjects, DeltaTime);
+  69: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::EGroundTruthMessage, gt.SerializeAsString());
+  70: 		if (debugmode)
+  71: 			UE_LOG(Logger, Log, TEXT("LogManager: GT:\n%s"), *FString(UTF8_TO_TCHAR(gt.DebugString().c_str())));
+  72: 	}
+  73: 	if (writeOmegaPrime) {
+  74: 		osi3::GroundTruth gtop = osi_GroundTruth.parseOmegaPrimeToGroundTruth(this, dynamicSpawnedObjects, DeltaTime);
+
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\LogManager.cpp
+  73: 	if (writeOmegaPrime) {
+  74: 		osi3::GroundTruth gtop = osi_GroundTruth.parseOmegaPrimeToGroundTruth(this, dynamicSpawnedObjects, DeltaTime);
+  75: 		osi_Trace_Writer.logMessage(fileDescription, OSIMessageType::EGroundTruthMessage, gtop.SerializeAsString());
+  76: 		if (debugmode)
+  77: 			UE_LOG(Logger, Log, TEXT("LogManager: GT Omega Prime:\n%s"), *FString(UTF8_TO_TCHAR(gtop.DebugString().c_str())));
+  78: 	}
+  79: }
+  80: 
+
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp
+  21: void OSI_GroundTruth::parseStationaryMapObjects(const UObject* WorldContectObject)
+  22: {
+  23: 	staticMapTruth.set_country_code(276);//Default: Germany, USA = 840
+  24: 	auto* version = staticMapTruth.mutable_version();
+  25: 	version->set_version_major(OSI_VERSION_MAJOR);
+  26: 	version->set_version_minor(OSI_VERSION_MINOR);
+  27: 	version->set_version_patch(OSI_VERSION_PATCH);
+  28: 	//TODO
+
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp
+  22: {
+  23: 	staticMapTruth.set_country_code(276);//Default: Germany, USA = 840
+  24: 	auto* version = staticMapTruth.mutable_version();
+  25: 	version->set_version_major(OSI_VERSION_MAJOR);
+  26: 	version->set_version_minor(OSI_VERSION_MINOR);
+  27: 	version->set_version_patch(OSI_VERSION_PATCH);
+  28: 	//TODO
+  29: 	//auto* proj_frame_offset = staticMapTruth.mutable_proj_frame_offset();
+
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp
+  27: 	version->set_version_patch(OSI_VERSION_PATCH);
+  28: 	//TODO
+  29: 	//auto* proj_frame_offset = staticMapTruth.mutable_proj_frame_offset();
+  30: 	//proj_frame_offset->
+  31: 	auto OSIStationaryObjects = staticMapTruth.mutable_stationary_object();
+  32: 	TArray<AActor*> FoundActors;
+  33: 	UGameplayStatics::GetAllActorsOfClass(WorldContectObject, AActor::StaticClass(), FoundActors);
+  34: 
+
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp
+  29: 	//auto* proj_frame_offset = staticMapTruth.mutable_proj_frame_offset();
+  30: 	//proj_frame_offset->
+  31: 	auto OSIStationaryObjects = staticMapTruth.mutable_stationary_object();
+  32: 	TArray<AActor*> FoundActors;
+  33: 	UGameplayStatics::GetAllActorsOfClass(WorldContectObject, AActor::StaticClass(), FoundActors);
+  34: 
+  35: 	for (auto actor : FoundActors) {
+  36: 		//TODO Check if static actor
+
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp
+  43: 		}
+  44: 	}
+  45: 	auto OSITrafficSigns = staticMapTruth.mutable_traffic_sign();
+  46: 	//TODO Traffic Signs
+  47: 
+  48: 	UE_LOG(Logger, Log, TEXT("OSI_GroundTruth: Finished parsing of stationary map objects."));
+  49: }
+  50: 
+
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp
+  55: osi3::GroundTruth OSI_GroundTruth::parseWorldToGroundTruth(const UObject* WorldContectObject, const TArray<AActor*>& dynamicObjects, const float DeltaTime)
+  56: {
+  57: 	// use staticMapTruth as a base for every new groundTruth message that already contains unchanging fields
+  58: 	osi3::GroundTruth groundTruth = osi3::GroundTruth();
+  59: 	if (!staticInformationisLoggedOneTime)
+  60: 	{
+  61: 		groundTruth.MergeFrom(staticMapTruth);
+  62: 		staticInformationisLoggedOneTime = true;
+
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Private\OSI_GroundTruth.cpp
+  59: 	if (!staticInformationisLoggedOneTime)
+  60: 	{
+  61: 		groundTruth.MergeFrom(staticMapTruth);
+  62: 		staticInformationisLoggedOneTime = true;
+  63: 	}
+  64: 	groundTruth.MergeFrom(trafficLightGroundTruth);
+  65: 
+  66: 	for (auto* actor : dynamicObjects) {
+
+FILE: E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_logger_feature\Source\ue_logger_featureRuntime\Public\OSI_GroundTruth.h
+  40: 	osi3::StationaryObject* toOSI(const AActor* actor);
+  41: 
+  42: 	osi3::GroundTruth staticMapTruth = osi3::GroundTruth();
+  43: 	osi3::GroundTruth trafficLightGroundTruth = osi3::GroundTruth();
+  44: 
+  45: 	double addedTimeDeltaTimes = 0.;
+  46: 	bool staticInformationisLoggedOneTime = false;
+  47: 

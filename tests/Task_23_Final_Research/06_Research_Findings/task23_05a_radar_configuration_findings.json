@@ -1,0 +1,693 @@
+{
+  "Task": "23.5A",
+  "Scope": "Radar configuration, protobuf fields, and preliminary raw reflection counts",
+  "SampledFrames": [
+    0,
+    1,
+    25,
+    99
+  ],
+  "Records": [
+    {
+      "PairID": 1,
+      "Frame": 0,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.0,
+            "y": -0.0,
+            "z": 0.8
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 1.687506079673767,
+        "time_of_flight": 1.1166569317513471e-14,
+        "doppler_shift": 0.0,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 1,
+      "Frame": 1,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.0,
+            "y": -0.0,
+            "z": 0.8
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 0.6221381425857544,
+        "time_of_flight": 3.074363252747649e-08,
+        "doppler_shift": 198753.36148070017,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 1,
+      "Frame": 25,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.0,
+            "y": -0.0,
+            "z": 0.8
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 0.6221381425857544,
+        "time_of_flight": 3.074363252747649e-08,
+        "doppler_shift": 0.0,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 1,
+      "Frame": 99,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.0,
+            "y": -0.0,
+            "z": 0.8
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 0.6221381425857544,
+        "time_of_flight": 3.074363252747649e-08,
+        "doppler_shift": -2997.9038903505084,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 2,
+      "Frame": 0,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.0,
+            "y": -0.0,
+            "z": 0.8
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 1.687506079673767,
+        "time_of_flight": 1.1166569317513471e-14,
+        "doppler_shift": 0.0,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 2,
+      "Frame": 1,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.0,
+            "y": -0.0,
+            "z": 0.8
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 0.6221381425857544,
+        "time_of_flight": 3.074363252747649e-08,
+        "doppler_shift": 186877.78968820916,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 2,
+      "Frame": 25,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.0,
+            "y": -0.0,
+            "z": 0.8
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 0.6221381425857544,
+        "time_of_flight": 3.074363252747649e-08,
+        "doppler_shift": -6647.680387757439,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 2,
+      "Frame": 99,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.0,
+            "y": -0.0,
+            "z": 0.8
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 0.6221381425857544,
+        "time_of_flight": 3.074363252747649e-08,
+        "doppler_shift": -1999.5181073937988,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 3,
+      "Frame": 0,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.0,
+            "y": -0.0,
+            "z": 0.8
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 1.687506079673767,
+        "time_of_flight": 1.1166569317513471e-14,
+        "doppler_shift": 0.0,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 3,
+      "Frame": 1,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.0,
+            "y": -0.0,
+            "z": 0.8
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 0.6221381425857544,
+        "time_of_flight": 3.074363252747649e-08,
+        "doppler_shift": 200512.89427341442,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 3,
+      "Frame": 25,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.0,
+            "y": -0.0,
+            "z": 0.8
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 0.6221381425857544,
+        "time_of_flight": 3.074363252747649e-08,
+        "doppler_shift": 0.0,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 3,
+      "Frame": 99,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 2.0,
+            "y": -0.0,
+            "z": 0.8
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 0.6221381425857544,
+        "time_of_flight": 3.074363252747649e-08,
+        "doppler_shift": -2866.8978604122594,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 4,
+      "Frame": 0,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 19.400000000000002,
+            "y": 26.5,
+            "z": 2.5
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 0.0,
+        "time_of_flight": 0.0,
+        "doppler_shift": 0.0,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 4,
+      "Frame": 1,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 19.400000000000002,
+            "y": 26.5,
+            "z": 2.5
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 0.0,
+        "time_of_flight": 0.0,
+        "doppler_shift": 0.0,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 4,
+      "Frame": 25,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 19.400000000000002,
+            "y": 26.5,
+            "z": 2.5
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 0.0,
+        "time_of_flight": 0.0,
+        "doppler_shift": 0.0,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    },
+    {
+      "PairID": 4,
+      "Frame": 99,
+      "SensorIndex": 0,
+      "ViewConfiguration": {
+        "mounting_position": {
+          "position": {
+            "x": 19.400000000000002,
+            "y": 26.5,
+            "z": 2.5
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 0.3490658503988659,
+        "number_of_rays_horizontal": 10,
+        "number_of_rays_vertical": 10,
+        "emitter_frequency": 77000000000.0
+      },
+      "RadarPresentFields": [
+        "view_configuration",
+        "reflection"
+      ],
+      "ReflectionFieldNames": [
+        "signal_strength",
+        "time_of_flight",
+        "doppler_shift",
+        "source_horizontal_angle",
+        "source_vertical_angle"
+      ],
+      "RepresentativeReflection": {
+        "signal_strength": 0.0,
+        "time_of_flight": 0.0,
+        "doppler_shift": 0.0,
+        "source_horizontal_angle": -0.7853981852531433,
+        "source_vertical_angle": -0.1745329201221466
+      }
+    }
+  ],
+  "ScientificStatus": "RAW_RADAR_INSPECTION",
+  "Limitations": [
+    "Positive TOF is not proof of a correct detection",
+    "Radar noise and weather effects not validated",
+    "No range reconstruction performed yet",
+    "No velocity or Doppler conversion performed yet",
+    "No object-level accuracy claimed",
+    "No hardware power or latency measured"
+  ]
+}

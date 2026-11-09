@@ -1,0 +1,15 @@
+=== TASK 23.9 - CAMERA GEOMETRIC VALIDATION ===
+Baseline cube width: 123 px
+Displaced cube width: 124 px
+Baseline cube height: 180 px
+Displaced cube height: 191 px
+Measured width ratio: 1.008130
+Expected width ratio: 0.809524
+Measured reduction: -0.81%
+Absolute ratio deviation: 0.198606
+Measurement type: manual front-face bounding boxes
+Tolerance: 0.10 absolute ratio (screening criterion)
+Weather consistency: not independently verified
+Status: CAMERA_WIDTH_REQUIRES_REVIEW
+CSV: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\02_CSV_Data\task23_09_camera_cube_measurements.csv
+Graph: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\03_Graphs\task23_09_camera_width_comparison.svg

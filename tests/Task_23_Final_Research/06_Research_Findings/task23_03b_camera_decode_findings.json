@@ -1,0 +1,120 @@
+{
+  "Task": "23.3B",
+  "Results": [
+    {
+      "PairID": "1",
+      "Frame": 25,
+      "ImageBytes": 921600,
+      "AssumedRGBWidth": 640,
+      "AssumedRGBHeight": 480,
+      "AssumedRGBChannels": 3,
+      "CameraConfiguration": {
+        "sensor_id": {
+          "value": 2763112687
+        },
+        "mounting_position": {
+          "position": {
+            "x": 0.7000000000000001,
+            "y": -0.0,
+            "z": 1.6
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 1.5707963267948966,
+        "number_of_pixels_horizontal": 640,
+        "number_of_pixels_vertical": 480,
+        "channel_format": {
+          "count": 1
+        },
+        "samples_per_pixel": 1,
+        "pixel_order": 0
+      },
+      "ComparisonGraph": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_23_Final_Research\\03_Graphs\\task23_03b_pair1_camera_layout_comparison.png",
+      "DecodingStatus": "CANDIDATES_UNVERIFIED"
+    },
+    {
+      "PairID": "2",
+      "Frame": 25,
+      "ImageBytes": 921600,
+      "AssumedRGBWidth": 640,
+      "AssumedRGBHeight": 480,
+      "AssumedRGBChannels": 3,
+      "CameraConfiguration": {
+        "sensor_id": {
+          "value": 2763072905
+        },
+        "mounting_position": {
+          "position": {
+            "x": 0.7000000000000001,
+            "y": -0.0,
+            "z": 1.6
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 1.5707963267948966,
+        "number_of_pixels_horizontal": 640,
+        "number_of_pixels_vertical": 480,
+        "channel_format": {
+          "count": 1
+        },
+        "samples_per_pixel": 1,
+        "pixel_order": 0
+      },
+      "ComparisonGraph": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_23_Final_Research\\03_Graphs\\task23_03b_pair2_camera_layout_comparison.png",
+      "DecodingStatus": "CANDIDATES_UNVERIFIED"
+    },
+    {
+      "PairID": "3",
+      "Frame": 25,
+      "ImageBytes": 921600,
+      "AssumedRGBWidth": 640,
+      "AssumedRGBHeight": 480,
+      "AssumedRGBChannels": 3,
+      "CameraConfiguration": {
+        "sensor_id": {
+          "value": 2763123287
+        },
+        "mounting_position": {
+          "position": {
+            "x": 0.7000000000000001,
+            "y": -0.0,
+            "z": 1.6
+          },
+          "orientation": {
+            "roll": -0.0,
+            "pitch": 0.0,
+            "yaw": -0.0
+          }
+        },
+        "field_of_view_horizontal": 1.5707963267948966,
+        "field_of_view_vertical": 1.5707963267948966,
+        "number_of_pixels_horizontal": 640,
+        "number_of_pixels_vertical": 480,
+        "channel_format": {
+          "count": 1
+        },
+        "samples_per_pixel": 1,
+        "pixel_order": 0
+      },
+      "ComparisonGraph": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_23_Final_Research\\03_Graphs\\task23_03b_pair3_camera_layout_comparison.png",
+      "DecodingStatus": "CANDIDATES_UNVERIFIED"
+    }
+  ],
+  "Limitations": [
+    "Candidate layouts are not confirmed",
+    "Color-channel order is unverified",
+    "Byte count alone does not establish dimensions",
+    "Pixel row stride and orientation unverified",
+    "No image quality or detection accuracy measured"
+  ]
+}

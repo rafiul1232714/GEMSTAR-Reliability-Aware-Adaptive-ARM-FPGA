@@ -1,0 +1,93 @@
+﻿ 146: 			FDefaultValueHelper::ParseDouble(*ValueStr, FoVHorizontal);
+ 147: 		}
+ 148: 		double FoVVertical = 0.0;
+ 149: 		if (const FString* ValueStr = Pair.Value.Entries.Find("FoVVertical"))
+ 150: 		{
+ 151: 			FDefaultValueHelper::ParseDouble(*ValueStr, FoVVertical);
+ 152: 		}
+ 153: 		float Range = 0.0;
+ 154: 		if (const FString* ValueStr = Pair.Value.Entries.Find("Range"))
+ 155: 		{
+ 156: 			FDefaultValueHelper::ParseFloat(*ValueStr, Range);
+ 157: 		}
+ 158: 		bool NoFalloff = false;
+ 159: 		if (const FString* ValueStr = Pair.Value.Entries.Find("NoFalloff"))
+ 160: 		{
+ 161: 			FDefaultValueHelper::ParseBool(*ValueStr, NoFalloff);
+ 162: 		}
+ 163: 		float distanceHalfFalloff = 0.0;
+ 164: 		if (const FString* ValueStr = Pair.Value.Entries.Find("DistanceHalfFalloff"))
+ 165: 		{
+ 166: 			FDefaultValueHelper::ParseFloat(*ValueStr, distanceHalfFalloff);
+ 167: 		}
+ 168: 		config.Radar.NumberOfRaysHorizontal = width;
+ 169: 		config.Radar.NumberOfRaysVertical = height;
+ 170: 		config.Radar.FieldOfViewHorizontal = FMath::DegreesToRadians(FoVHorizontal);
+ 171: 		config.Radar.FieldOfViewVertical = FMath::DegreesToRadians(FoVVertical);
+ 172: 		// DistanceHalfFalloff in Meter
+ 173: 		config.Radar.DistanceHalfFalloff = distanceHalfFalloff * 100.0f;
+ 174:           config.Radar.Range = (Range > 0.0f) ? Range : 10.0f;
+ 175: 		SensorConfiguration.Add(config);
+ 176: 	}
+ 177: 	for (auto& config : SensorConfiguration)
+ 178: 	{
+ 179: 		SpawnSensor(config);
+ 180: 	}
+ 181: }
+ 182: 
+ 183: void ARadarSensorManager::SpawnSensor(FSensorConfigData& sensorConfiguration) {
+ 184: 	UWorld* World = GetWorld();
+ 185: 	if (World)
+ 186: 	{
+ 187: 		FActorSpawnParameters params;
+ 188: 		params.Name = sensorConfiguration.ID;
+ 189: 		ASimpleRadar* SpawnedActor = World->SpawnActor<ASimpleRadar>(ASimpleRadar::StaticClass(), FTransform(), params);
+ 190: 		if (SpawnedActor == nullptr) {
+ 191: 			UE_LOG(Radar, Log, TEXT("RadarSensorManager: Radar spawn failed for %s"), *SpawnedActor->GetName());
+ 192: 			return;
+ 193: 		}
+ 194: 
+ 195: 		SpawnedActor->SetSensorConfiguration(sensorConfiguration);
+ 196: 
+ 197: 		UE_LOG(Radar, Log, TEXT("RadarSensorManager: Radar spawned %s"), *SpawnedActor->GetName());
+ 198: 		if (!sensorConfiguration.Mount.IsEmpty()) {
+ 199: 			IGemstarManager::Execute_MountOn(GemstarSimulationSubsystem, sensorConfiguration.Mount, SpawnedActor);
+ 200: 		}
+ 201: 		else {
+ 202: 			ILocalTransformUpdater::Execute_UpdateTransformAfterAttachment(SpawnedActor);
+ 203: 		}
+ 204: 		AddTickPrerequisiteActor(SpawnedActor);
+ 205: 		SpawnedActors.Add(SpawnedActor);
+ 206: 	}
+ 207: }
+ 208: 
+ 209: void ARadarSensorManager::SpawnSensor_Implementation(FSensorConfigData& sensorConfiguration)
+ 210: {
+ 211: 	if (sensorConfiguration.Type != SensorType::RADAR) {
+ 212: 		return;
+ 213: 	}
+ 214: 
+ 215: 	UWorld* World = GetWorld();
+ 216: 	if (World)
+ 217: 	{
+ 218: 		FActorSpawnParameters params;
+ 219: 		if (sensorConfiguration.ID.IsNone()) {
+ 220: 			params.Name = "Unnamed_Radar_Sensor";
+ 221: 		}
+ 222: 		else {
+ 223: 			params.Name = sensorConfiguration.ID;
+ 224: 		}
+ 225: 		params.Owner = sensorConfiguration.Vehicle;
+ 226: 
+ 227: 		ASimpleRadar* SpawnedActor = World->SpawnActor<ASimpleRadar>(ASimpleRadar::StaticClass(), FTransform(), params);
+ 228: 		SpawnedActor->AttachToActor(sensorConfiguration.Vehicle, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true));
+ 229: 		SpawnedActor->SetSensorConfiguration(sensorConfiguration);
+ 230: 		SpawnedActor->SetActorRelativeTransform(sensorConfiguration.Offset);
+ 231: 
+ 232: 		if (SpawnedActor)
+ 233: 		{
+ 234: 			UE_LOG(Radar, Warning, TEXT("RadarSensorManager: spawned radar sensor: %s"), *SpawnedActor->GetName());
+ 235: 			SpawnedActors.Add(SpawnedActor);
+ 236: 		}
+ 237: 	}
+ 238: }

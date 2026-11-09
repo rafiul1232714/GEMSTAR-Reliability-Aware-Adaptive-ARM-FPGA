@@ -1,0 +1,12 @@
+TASK 21.7 - MATLAB CPU PERFORMANCE
+
+Correctness comparison: PASSED
+Candidate returns: 5614
+Vectorized median ms/pass: 0.06508712
+Frame loop median ms/pass: 0.02577112
+Workload: range filtering and per-frame aggregation.
+Execution platform: Windows desktop CPU.
+Timing excludes MAT loading and external transfer.
+Small workload timings are sensitive to overhead.
+Actual power and energy were NOT measured.
+No ARM/FPGA speedup established.

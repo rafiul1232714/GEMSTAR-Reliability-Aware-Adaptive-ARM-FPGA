@@ -1,0 +1,63 @@
+TASK 24.6.4AS - VISUALIZER ISOLATION COMPARISON
+================================================
+
+OBJECTIVE
+Investigate orange/red curved artifacts appearing in GEMSTAR Camera images.
+
+V1 CONFIGURATION
+C02_CleanCamera_Test_V1.ini
+Visualizer section present.
+Visualizer sensor input disabled using Input=[].
+Runtime logs still showed Visualizer activation.
+Orange/red arcs observed in sampled Camera images.
+
+V2 CONFIGURATION
+C02_NoVisualizer_Test_V2.ini
+Visualizer configuration section removed.
+Runtime log did not report Visualizer activation.
+Orange/red arcs not observed in five inspected Camera images.
+
+V2 SENSORVIEW
+20261108T211139Z_sv_380_X_2122_GEMSTAR.osi
+
+V2 GROUND TRUTH
+20261108T211140Z_gt_380_X_2122_GEMSTAR.osi
+
+THREE-SENSOR INTEGRITY
+Total SensorView messages: 2122
+Camera images: 2122
+LiDAR reflection payloads: 2122
+Radar reflection payloads: 2122
+
+GROUND TRUTH
+Messages: 2122
+Timestamped messages: 2122
+Strictly increasing timestamps: Yes
+Frames containing moving objects: 2122
+
+TIMESTAMP ALIGNMENT
+Index-matched SensorView/Ground Truth pairs: 2122
+Maximum timestamp offset: 0.000 ms
+P99 timestamp offset: 0.000 ms
+
+INTERPRETATION
+The evidence strongly supports the Visualizer feature as the source
+of the previously observed Camera rendering artifacts.
+
+LIMITATIONS
+Only five V2 images were visually inspected.
+V1 and V2 recordings are not frame-matched.
+Camera/LiDAR/Radar internal acquisition timing was not independently measured.
+Perception accuracy and object-association quality were not evaluated.
+The absence of a Visualizer activation log is supporting evidence,
+not a direct measurement of every runtime rendering operation.
+
+RECOMMENDATION
+Use the Visualizer-free configuration for clean research recordings,
+subject to scenario-specific verification.
+Keep original C02 recordings, maps and configurations unchanged.
+
+V1_SHA256=8E1670CB95A038B2CDA72246AE1C06C820AEA157181F2B72D09C9D99E5E3A76B
+V2_SHA256=1982F8C80901BB7C90EBB5B4808E999EEDE0FC41F98AB24B523C729948728290
+
+TASK24_06_04AS_COMPARISON_DOCUMENTED
