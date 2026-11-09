@@ -1,0 +1,57 @@
+TASK 10 - FINAL RESEARCH FINDINGS
+
+PROJECT:
+GEMSTAR-Based Camera-LiDAR-Radar Reliability Monitoring
+
+TASK 10.1 - SYNCHRONIZED DATASET
+47 samples from the GEMSTAR MOR 100 recording.
+Camera, LiDAR and Radar measurements aligned by frame.
+
+TASK 10.2 - SENSOR QUALITY ESTIMATION
+Mean Camera score: approximately 0.782
+Mean LiDAR score: approximately 0.861
+Mean Radar score: approximately 0.933
+
+TASK 10.3 - CONTROLLED DEGRADATION
+
+Camera:
+Original average = 0.74787
+Degraded average = 0.14957
+
+LiDAR:
+Original average = 0.89926
+Degraded average = approximately 0.13492
+
+Radar:
+Original average = 0.92456
+Degraded average = 0.00000
+
+These values are averages over their respective
+eight-sample fault-injection windows.
+
+TASK 10.4 - ADAPTIVE SENSOR WEIGHTING
+Weights calculated from normalized quality scores.
+
+Observed behavior:
+- Camera weight decreased during Camera degradation.
+- LiDAR weight decreased during LiDAR degradation.
+- Radar weight reached zero during injected Radar failure.
+- Remaining sensor weights were redistributed.
+- MATLAB weight-normalization checks passed.
+- No all-sensor-failure samples occurred.
+
+RESEARCH CONCLUSION:
+The prototype successfully responds to controlled
+degradation of its own input quality measurements
+and dynamically reallocates sensor weights.
+
+LIMITATIONS:
+1. Sensor faults were synthetically injected into metrics.
+2. Weights have not been calibrated against detection errors.
+3. No object-level sensor fusion has been implemented.
+4. No improvement in object detection has yet been demonstrated.
+5. Further evaluation requires independent Ground Truth
+   and comparable scenarios.
+
+NEXT RESEARCH TASK:
+Task 11 - Object-level Camera-LiDAR-Radar fusion.

@@ -1,0 +1,14 @@
+TASK 11.8E.3 - YOLO MISSED DETECTION
+Frame: 150
+Model: yolo11n.pt
+Confidence threshold: 0.05
+Image size: 640
+Device: CPU
+
+original: 1 total, 0 vehicles
+swapped_rb: 4 total, 0 vehicles
+
+This is a diagnostic test, not final evaluation.
+Lower confidence can increase false positives.
+Color channel ordering remains to be verified.
+No camera-to-LiDAR object association performed.

@@ -1,0 +1,20 @@
+TASK 13.7C - TEMPORAL ASSOCIATION ASSESSMENT
+
+Total recorded frames: 466
+Target GT present: 376 frames
+Camera stream available: 466 frames
+LiDAR frames with valid returns: 466
+Radar frames with valid returns: 465
+
+FRAME 150 OBSERVATIONS
+Camera: a car is visible.
+LiDAR: no confirmed target-specific association.
+Radar: five geometric candidates within 0.5m under both tested box models.
+
+RESEARCH LIMITATIONS
+The visible car has no validated GT identity.
+The origin calibration was transferred from another run.
+Radar proximity is not a confirmed detection.
+No target-specific detection labels exist for all frames.
+Precision and recall cannot yet be calculated.
+No energy or processing-latency benchmark is included.

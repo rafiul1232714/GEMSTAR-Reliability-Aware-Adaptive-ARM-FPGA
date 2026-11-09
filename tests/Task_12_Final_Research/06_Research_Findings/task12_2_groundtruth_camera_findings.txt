@@ -1,0 +1,20 @@
+TASK 12.2 - GT TO CAMERA VALIDATION
+Scenario: GEMSTAR MOR100
+Frame: 150
+Ego ID: 76895
+Target candidate ID: 76865
+
+Forward: 5.4766 m
+Lateral: 2.1811 m
+Relative Z: -0.0164 m
+Negative sign pixel error: 37.432
+Positive sign pixel error: 304.786
+Negative sign inside box: 1
+Positive sign inside box: 0
+
+LIMITATIONS
+GT reference point is not fully calibrated.
+Camera extrinsic and optical axis are provisional.
+Pixel overlap does not prove identity.
+GT object association remains a candidate.
+No LiDAR/Radar fusion has been validated.

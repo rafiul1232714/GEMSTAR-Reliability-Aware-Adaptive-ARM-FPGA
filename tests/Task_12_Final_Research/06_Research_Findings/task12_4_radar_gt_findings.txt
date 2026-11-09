@@ -1,0 +1,28 @@
+TASK 12.4 - RADAR GROUND TRUTH VALIDATION
+Scenario: GEMSTAR MOR100
+Frame: 150
+GT object: 76865
+Radar returns: 31
+
+Lateral sign: +1
+Nearest distance: 0.4860 m
+Within 1 m: 2
+Within 2 m: 6
+Nearby Z min/max: -0.0002 / -0.0002 m
+Mean nearby signal: 0.6077
+Mean nearby Doppler: 0.0000 Hz
+
+Lateral sign: -1
+Nearest distance: 0.6888 m
+Within 1 m: 6
+Within 2 m: 7
+Nearby Z min/max: -0.0942 / 0.3067 m
+Mean nearby signal: 0.6226
+Mean nearby Doppler: 0.0000 Hz
+
+LIMITATIONS
+Radar coordinates remain provisional.
+2m proximity does not prove object identity.
+The search circle is not the GT vehicle footprint.
+Doppler must not be interpreted as velocity without calibration.
+No confirmed Radar-to-vehicle association yet.

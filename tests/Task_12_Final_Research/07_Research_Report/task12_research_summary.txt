@@ -1,0 +1,46 @@
+TASK 12 - RESEARCH REPORT
+
+12.1 - Ground Truth Object Identification
+Method: Identified the ego vehicle and nearby traffic vehicles in the MOR100 recording.
+Result: Ego vehicle ID: 76895. Candidate white-car ID: 76865.
+Limitation: The candidate correspondence required camera validation.
+
+12.2 - Ground Truth to Camera Projection
+Method: Transformed the target position into a provisional ego-camera geometry and compared projected vehicle centers against the YOLO11s bounding box.
+Result: The negative-Y projection fell within the detected car box with approximately 37.43 pixels of center error.
+Limitation: The GT Z reference and camera extrinsics remain provisional.
+
+12.3 - LiDAR to Ground Truth Proximity
+Method: Compared recorded LiDAR points with the target GT center for both lateral-axis hypotheses.
+Result: 279 and 389 points fell within the 2-metre search radius in the respective hypotheses.
+Limitation: Nearby points were not verified as vehicle reflections.
+
+12.4 - Radar to Ground Truth Proximity
+Method: Compared 31 recorded Radar returns against the same candidate vehicle position.
+Result: Six and seven returns fell within a 2-metre GT-center search radius.
+Limitation: Radar object identity and Doppler interpretation were not independently verified.
+
+12.5 - Cross-Sensor Evidence Assessment
+Method: Combined Camera, LiDAR, Radar and GT proximity results into a reproducible evidence comparison.
+Result: Camera-to-GT association was supported as a candidate. LiDAR/Radar object associations remained unverified.
+Limitation: No confirmed object-level tri-sensor fusion was demonstrated.
+
+12.6A - Multi-Frame Availability
+Method: Compared existing Camera image frames with Ground Truth vehicle presence.
+Result: 47 Camera images were available; 37 frames included both ego and target Ground Truth objects.
+Limitation: GT presence alone does not indicate Camera visibility.
+
+12.6B - Camera Visibility Candidate Filtering
+Method: Projected target GT centers using a provisional camera model.
+Result: Eight frames had projected GT centers inside the image.
+Limitation: Center-in-image is not a verified visibility label.
+
+12.6C - Multi-Frame YOLO11s Evaluation
+Method: Ran YOLO11s on eight selected Camera frames.
+Result: Seven frames contained vehicle predictions. Six contained provisional GT-center overlap.
+Limitation: These counts are not validated detection recall.
+
+12.6D - Multi-Frame Performance Analysis
+Method: Analyzed detection confidence, geometric alignment and CPU prediction time across the eight frames.
+Result: Mean prediction wall time: 51.057 ms, with observed range 47.938-61.232 ms.
+Limitation: Single-run timing does not establish hardware speedup or statistically robust latency performance.

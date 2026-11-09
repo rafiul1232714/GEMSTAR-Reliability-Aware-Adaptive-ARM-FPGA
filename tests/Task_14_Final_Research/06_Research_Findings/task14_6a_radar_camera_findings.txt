@@ -1,0 +1,20 @@
+===== TASK 14.6A - CAMERA/RADAR CHECK =====
+Frame: 150
+Valid Radar measurements: 31
+Projected measurements: 31
+Radar returns inside YOLO box: 12
+Provisional GT candidate rays: 4
+Candidate rays inside YOLO box: 4
+
+PROVISIONAL TARGET CANDIDATES:
+Ray 0: range=4.60835 m, pixel=(92.258, 353.565), inside_YOLO=True
+Ray 1: range=4.60835 m, pixel=(153.987, 342.056), inside_YOLO=True
+Ray 2: range=4.60835 m, pixel=(206.617, 334.598), inside_YOLO=True
+Ray 3: range=4.60835 m, pixel=(253.868, 330.095), inside_YOLO=True
+
+LIMITATIONS:
+Camera intrinsic and extrinsic calibration is provisional.
+Radar angle sign convention requires independent validation.
+Rays 0-3 are provisional GT associations, not proven identities.
+Several rays may arise from one physical surface.
+Image-space containment alone does not establish sensor fusion.

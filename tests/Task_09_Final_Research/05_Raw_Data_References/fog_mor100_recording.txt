@@ -1,0 +1,19 @@
+TASK 9.2 - LIGHT FOG EXPERIMENT
+
+Weather: Fog
+MOR: 100 m
+Precipitation intensity: 0
+Frames: 466
+
+SensorView:
+E:\GEMSTAR_Project\sensor-health-monitor\data\raw\fog_mor100\20261027T224313Z_sv_380_X_466_GEMSTAR.osi
+
+Ground Truth:
+E:\GEMSTAR_Project\sensor-health-monitor\data\raw\fog_mor100\20261027T224313Z_gt_380_X_466_GEMSTAR.osi
+
+LiDAR:
+Corrected weather-data implementation.
+
+Note:
+Camera, LiDAR and Radar are stored together in SensorView.
+Analysis of the 466 frames is not yet completed.

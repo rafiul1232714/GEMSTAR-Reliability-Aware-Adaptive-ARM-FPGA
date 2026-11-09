@@ -1,0 +1,17 @@
+TASK 11.5T - FRAME 150 LIDAR INSPECTION
+Valid points: 2044
+Rejected points: 0
+X range: 5.408 to 21.094 m
+Y range: -9.640 to 11.624 m
+
+Provisional GT vehicle 76865:
+X = 5.48 m
+Y = 2.18 m
+
+Nearby LiDAR point counts (rectangular XY search):
+At predicted Y = +2.18 m: 436
+At mirrored Y  = -2.18 m: 527
+
+Counts include road and background reflections.
+They are not vehicle detections.
+Coordinate signs and yaw conventions remain provisional.

@@ -1,0 +1,34 @@
+TASK 12.3 - LIDAR VS GROUND TRUTH
+
+Scenario: GEMSTAR MOR100
+Frame: 150
+Ego ID: 76895
+GT vehicle ID: 76865
+
+GT forward X: 5.4766 m
+GT lateral Y: 2.1811 m
+Total LiDAR points: 2044
+
+LATERAL SIGN +1
+Nearest distance: 0.3611 m
+Points within 1 m: 108
+Points within 2 m: 279
+Elevated within 2 m: 0
+Minimum nearby Z: -0.0002 m
+Maximum nearby Z: -0.0002 m
+
+LATERAL SIGN -1
+Nearest distance: 0.5289 m
+Points within 1 m: 134
+Points within 2 m: 389
+Elevated within 2 m: 0
+Minimum nearby Z: -0.1481 m
+Maximum nearby Z: 0.4178 m
+
+RESEARCH INTERPRETATION
+This experiment evaluates 2D proximity to a GT center.
+Nearby LiDAR points may represent ground or other surfaces.
+A 2 m search radius is not the true vehicle boundary.
+Reconstructed LiDAR coordinates remain provisional.
+Diagnostic object IDs are not OSI GT object IDs.
+No confirmed LiDAR-to-vehicle identification is claimed.

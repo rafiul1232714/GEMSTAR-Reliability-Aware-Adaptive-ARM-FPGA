@@ -1,0 +1,3 @@
+test_name,lateral_sign,lidar_visible,cluster_visible,radar_visible,lidar_in_box,cluster_in_box,radar_in_box
+Y-sign-negative,-1,2044,190,31,803,0,12
+Y-sign-positive,1,2044,190,31,840,190,13

@@ -1,0 +1,9 @@
+TASK 11.5R - LIDAR / GT ALIGNMENT
+Frame: 431
+Ego ID: 76895
+LiDAR points: 2636
+GT vehicles within 35 m: 1
+GT vehicle centers in forward plot: 0
+Yaw/axis convention: provisional
+Sensor mounting and GT pose alignment: not yet validated
+Diagnostic surface label is not a vehicle classification

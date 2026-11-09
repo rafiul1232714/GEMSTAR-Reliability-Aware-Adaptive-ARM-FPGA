@@ -1,0 +1,10 @@
+metric,value
+Matched Samples,47
+Mean Camera Brightness,0.741340375571678
+Mean Camera Contrast,0.101242318038673
+Mean Camera Edge Strength,0.01135410204143
+Mean Camera Sharpness,0.00590168968891854
+Mean LiDAR Positive Return (%),42.8401893943981
+Mean Radar Positive Return (%),30.3617021276596
+Maximum LiDAR Range (m),20.0054060919927
+Maximum Radar Range (m),9.99992147778807

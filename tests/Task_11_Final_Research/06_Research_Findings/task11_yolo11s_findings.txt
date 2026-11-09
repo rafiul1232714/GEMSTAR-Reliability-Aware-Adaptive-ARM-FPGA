@@ -1,0 +1,10 @@
+TASK 11.8E.4 - YOLO11s TEST
+Frame: 150
+Model: yolo11s.pt
+Device: CPU
+Confidence threshold: 0.05
+Total detections: 2
+Vehicle detections: 1
+Wall-clock prediction time: 70.419 ms
+Single-run timing, after warm-up.
+No cross-sensor object association performed.

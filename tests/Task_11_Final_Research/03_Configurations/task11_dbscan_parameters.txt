@@ -1,0 +1,10 @@
+TASK 11.5E - DBSCAN PARAMETERS
+Frame: 101
+Clustering dimensions: XY
+Epsilon: 0.40 m
+Minimum points: 8
+Candidate points: 472
+Clusters detected: 1
+Noise points: 26
+Implementation: Custom MATLAB DBSCAN
+Research status: Exploratory clustering

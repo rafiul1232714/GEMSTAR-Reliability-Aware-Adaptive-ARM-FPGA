@@ -1,0 +1,18 @@
+TASK 08 - RAW SENSOR DATA REFERENCES
+
+1. Clear baseline (829 frames)
+E:\GEMSTAR_Project\sensor-health-monitor\data\raw\baseline_clear\20261027T205013Z_sv_380_X_829_GEMSTAR.osi
+
+2. Original fog baseline, before LiDAR correction (794 frames)
+E:\GEMSTAR_Project\sensor-health-monitor\data\raw\baseline_fog_working_radar\20261027T152743Z_sv_380_X_794_GEMSTAR.osi
+
+3. Corrected fog recording, MOR 20 m (705 frames)
+E:\GEMSTAR_Project\sensor-health-monitor\data\raw\fog_postfix_validation\20261027T222053Z_sv_380_X_705_GEMSTAR.osi
+
+NOTE:
+Camera, LiDAR, and Radar measurements are stored together
+inside each SensorView OSI file.
+
+Use the matching Ground Truth file from the same recording.
+The original fog dataset was recorded before the LiDAR C++ fix.
+Do not present its LiDAR measurements as final corrected results.

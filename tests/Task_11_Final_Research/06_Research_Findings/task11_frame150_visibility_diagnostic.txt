@@ -1,0 +1,50 @@
+TASK 11.5W - LIDAR VISIBILITY
+Frame: 150
+GT candidate: 76865
+GT position: provisional
+
+LiDAR mount X: 2.60 m
+Vehicle center X: 5.48 m
+Vehicle center Y: 2.18 m
+Expected horizontal distance from LiDAR: 3.612 m
+Expected +Y bearing: 37.12 deg
+Expected -Y bearing: -37.12 deg
+
+Measured LiDAR minimum range: 3.991 m
+
+POSITIVE-Y DIRECTION
+Points in +/-10 deg: 400
+Minimum return range: 3.991 m
+Nearest 10 returns:
+Ray 1505 | range 3.99 m | X 5.41 | Y -2.81 | Z 0.35 | diagnostic ID 83265
+Ray 1254 | range 4.00 m | X 5.41 | Y -2.81 | Z 0.28 | diagnostic ID 83265
+Ray 1003 | range 4.01 m | X 5.41 | Y -2.81 | Z 0.21 | diagnostic ID 83265
+Ray 752 | range 4.01 m | X 5.41 | Y -2.81 | Z 0.14 | diagnostic ID 83265
+Ray 1504 | range 4.02 m | X 5.45 | Y -2.82 | Z 0.35 | diagnostic ID 83265
+Ray 501 | range 4.03 m | X 5.41 | Y -2.81 | Z 0.07 | diagnostic ID 83265
+Ray 1253 | range 4.03 m | X 5.45 | Y -2.82 | Z 0.28 | diagnostic ID 83265
+Ray 201 | range 4.03 m | X 6.13 | Y -1.83 | Z -0.00 | diagnostic ID 83185
+Ray 202 | range 4.03 m | X 6.12 | Y -1.85 | Z -0.00 | diagnostic ID 83185
+Ray 203 | range 4.03 m | X 6.10 | Y -1.87 | Z -0.00 | diagnostic ID 83185
+
+MIRRORED-Y DIRECTION
+Points in +/-10 deg: 400
+Minimum return range: 4.032 m
+Nearest 10 returns:
+Ray 0 | range 4.03 m | X 5.41 | Y 2.81 | Z -0.00 | diagnostic ID 83185
+Ray 1 | range 4.03 m | X 5.43 | Y 2.79 | Z -0.00 | diagnostic ID 83185
+Ray 2 | range 4.03 m | X 5.44 | Y 2.77 | Z -0.00 | diagnostic ID 83185
+Ray 3 | range 4.03 m | X 5.46 | Y 2.75 | Z -0.00 | diagnostic ID 83185
+Ray 4 | range 4.03 m | X 5.48 | Y 2.74 | Z -0.00 | diagnostic ID 83185
+Ray 5 | range 4.03 m | X 5.49 | Y 2.72 | Z -0.00 | diagnostic ID 83185
+Ray 6 | range 4.03 m | X 5.51 | Y 2.70 | Z -0.00 | diagnostic ID 83185
+Ray 7 | range 4.03 m | X 5.53 | Y 2.68 | Z -0.00 | diagnostic ID 83185
+Ray 8 | range 4.03 m | X 5.55 | Y 2.66 | Z -0.00 | diagnostic ID 83185
+Ray 9 | range 4.03 m | X 5.56 | Y 2.64 | Z -0.00 | diagnostic ID 83185
+
+IMPORTANT:
+This is a preliminary bearing/range diagnostic.
+GT yaw, coordinate axes and vehicle visibility
+are not yet independently validated.
+Sensor mounting rotation and object geometry
+must also be considered before conclusions.

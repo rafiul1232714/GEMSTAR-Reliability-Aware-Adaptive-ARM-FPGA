@@ -1,0 +1,22 @@
+TASK 9.2 - MOR 100 CAMERA IMAGES
+
+Source: GEMSTAR SensorView OSI
+Camera resolution: 640 x 480
+Recorded frames: 466
+Extracted Camera samples: 47
+Sampling: Every 10th frame
+
+Image directory:
+E:\GEMSTAR_Project\sensor-health-monitor\results\figures\fog_mor100_camera
+
+Camera quality CSV:
+E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_09_Final_Research\02_CSV_Data\task09_mor100_camera_quality.csv
+
+Combined three-sensor CSV:
+E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_09_Final_Research\02_CSV_Data\task09_mor100_three_sensor_combined.csv
+
+Notes:
+- Raw Camera bytes were wrapped into PPM files.
+- MATLAB verified image dimensions and visual appearance.
+- Current measurements characterize sensor signals.
+- Object-detection accuracy and sensor fusion remain future work.

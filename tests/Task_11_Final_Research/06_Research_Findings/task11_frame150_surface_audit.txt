@@ -1,0 +1,16 @@
+TASK 11.5V - FRAME 150 SURFACE AUDIT
+Ground Truth target: vehicle 76865
+Target coordinates are provisional.
+
+SIMULATOR SURFACE GROUPS
+
+ID 83185 | Points 1428 | +Y window 436 | -Y window 232 | X [5.41, 15.96] | Y [-3.24, 7.08] | Z [-0.00, -0.00] | MinRange 4.03
+ID 83265 | Points 412 | +Y window 0 | -Y window 262 | X [5.41, 21.09] | Y [-4.87, -2.81] | Z [-0.21, 0.43] | MinRange 3.99
+ID 83181 | Points 200 | +Y window 0 | -Y window 33 | X [6.35, 18.27] | Y [-9.64, 11.62] | Z [-0.30, -0.00] | MinRange 4.82
+ID 83183 | Points 4 | +Y window 0 | -Y window 0 | X [15.25, 15.33] | Y [4.05, 4.29] | Z [-0.00, -0.00] | MinRange 13.38
+
+Interpretation:
+These groups are simulator diagnostic IDs.
+They are not predicted vehicle labels.
+Bounding ranges and counts are not proof of alignment.
+Coordinate conventions require independent validation.

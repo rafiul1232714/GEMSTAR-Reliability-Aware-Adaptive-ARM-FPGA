@@ -1,0 +1,18 @@
+TASK 13.3C - SENSOR BOX ASSOCIATION
+
+Scenario: GEMSTAR MOR100
+Frame: 150
+Target GT ID: 76865
+
+LiDAR inside box: 424 / 2044
+Radar inside box: 9 / 31
+LiDAR within 0.5m: 583
+Radar within 0.5m: 12
+
+LIMITATIONS
+GT box uses world-axis bounding extents.
+It is not a validated vehicle-aligned box.
+Sensor and GT ego origins are assumed coincident.
+Sensor points follow Task 13.2A reconstruction.
+A point inside the box does not prove target identity.
+No confirmed tri-sensor fusion is established.

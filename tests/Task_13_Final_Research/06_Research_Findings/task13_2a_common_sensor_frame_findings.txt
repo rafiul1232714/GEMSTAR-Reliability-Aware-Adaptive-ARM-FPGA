@@ -1,0 +1,25 @@
+TASK 13.2A - COMMON SENSOR COORDINATE FRAME
+
+Scenario: GEMSTAR MOR100, frame 150
+LiDAR valid points: 2044
+Radar valid returns: 31
+
+COMPARISON WITH TASK 11
+Mean LiDAR difference: 5.169808 m
+Mean Radar difference: 4.913289 m
+Maximum LiDAR difference: 23.248728 m
+Maximum Radar difference: 11.703469 m
+
+VERIFIED SOURCE-CODE DETAILS
+LiDAR horizontal index changes fastest.
+LiDAR angles are uniformly distributed over FoV.
+LiDAR and Radar use Unreal GetForwardVector.
+Sensor-local positive Y corresponds to positive yaw.
+
+ASSUMPTIONS AND LIMITATIONS
+Uses OSI-derived Task 11 CSV files.
+LiDAR ray index is assumed zero-based.
+Sensor mounting rotations are assumed zero.
+Mounting-frame chain requires further validation.
+A difference from Task 11 is not proof of correctness.
+No object-level tri-sensor fusion is demonstrated.

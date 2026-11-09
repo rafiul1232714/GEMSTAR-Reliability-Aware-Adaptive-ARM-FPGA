@@ -1,0 +1,8 @@
+TASK 11.7A - LIDAR RADAR COMPARISON
+Frame: 150
+LiDAR candidate points: 206
+Radar reflections: 31
+LiDAR clusters: 1
+Coordinates: provisional ego-local
+GT used for association: No
+Association status: NOT CONFIRMED

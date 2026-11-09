@@ -1,0 +1,3 @@
+model,box_span_x_m,box_span_y_m,box_span_z_m,sensor_inside_box,sensor_to_box_distance_m,intersecting_nominal_rays,intersection_percentage
+A_exporter_half_extents,4.847394099926205,3.8030674922636036,2.1202398602024135,0,1.4160594478894204,3360,63.745019920318725
+B_standard_full_dimensions,2.4236970499631023,1.9015337461318018,1.0601199301012068,0,2.3739230595203598,1890,35.85657370517928

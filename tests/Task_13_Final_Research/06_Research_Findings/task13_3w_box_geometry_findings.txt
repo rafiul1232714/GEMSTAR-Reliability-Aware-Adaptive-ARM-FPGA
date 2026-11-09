@@ -1,0 +1,16 @@
+TASK 13.3W - GT BOX GEOMETRY VALIDATION
+
+Model A follows the inspected GEMSTAR exporter:
+GetActorBounds(false, Origin, Extent)
+dimension fields = Extent * 0.01
+
+Model B tests standard full-dimension interpretation.
+It is not evidence that this exporter uses that format.
+
+Both models use a provisional cross-run sensor pose.
+The actor-to-bounds XY offset may vary with yaw.
+These comparisons do not establish target detection.
+
+RESULTS:
+{'model': 'A_exporter_half_extents', 'box_span_x_m': 4.847394099926205, 'box_span_y_m': 3.8030674922636036, 'box_span_z_m': 2.1202398602024135, 'sensor_inside_box': 0, 'sensor_to_box_distance_m': 1.4160594478894204, 'intersecting_nominal_rays': 3360, 'intersection_percentage': 63.745019920318725}
+{'model': 'B_standard_full_dimensions', 'box_span_x_m': 2.4236970499631023, 'box_span_y_m': 1.9015337461318018, 'box_span_z_m': 1.0601199301012068, 'sensor_inside_box': 0, 'sensor_to_box_distance_m': 2.3739230595203598, 'intersecting_nominal_rays': 1890, 'intersection_percentage': 35.85657370517928}

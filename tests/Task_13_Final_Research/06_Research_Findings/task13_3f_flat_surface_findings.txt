@@ -1,0 +1,23 @@
+TASK 13.3F - HORIZONTAL SURFACE HYPOTHESIS
+
+Actor ID: 83185
+Actor returns: 1428
+Median height: 0.825996578 m
+Height standard deviation: 0.000000029 m
+Maximum height deviation: 0.000000077 m
+Ego GT center height: 0.826199945 m
+Usable plane-range comparisons: 1428
+
+RESEARCH INTERPRETATION
+Near-constant reconstructed height supports
+a horizontal-surface hypothesis.
+The actor could be road/ground geometry,
+but its semantic identity is not yet verified.
+
+LIMITATIONS
+Range-angle testing reuses the same reconstructed
+measurements and is not independent validation.
+Potential sensor timing and origin errors remain.
+OSI GT object IDs do not directly identify
+the Unreal actor from these measurements.
+No confirmed target vehicle association.

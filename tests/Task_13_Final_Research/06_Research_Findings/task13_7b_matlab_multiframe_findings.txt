@@ -1,0 +1,13 @@
+TASK 13.7B - MATLAB MULTI-FRAME ANALYSIS
+
+Total frames: 466
+Frames containing GT target: 376
+LiDAR min/median/max: 1914 / 2065.0 / 4833
+Radar min/median/max: 0 / 30.0 / 40
+Maximum GT objects in a frame: 19
+
+LIMITATIONS
+Sensor return counts are not object detections.
+Target presence is based only on Ground Truth.
+No per-frame target association was established.
+Camera frames are not evaluated by these plots.

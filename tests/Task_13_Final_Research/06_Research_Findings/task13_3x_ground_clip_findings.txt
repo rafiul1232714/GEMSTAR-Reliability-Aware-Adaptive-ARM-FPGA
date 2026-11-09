@@ -1,0 +1,25 @@
+TASK 13.3X - GROUND-CLIPPED RAY TEST
+
+Original GT box bottom: -0.250349 m
+Clipped GT box bottom: 0.300000 m
+Original intersections: 3360
+Clipped intersections: 3226
+Clipped rays with recorded hits: 1146
+
+Actor distribution:
+83185: 1069
+83181: 73
+83183: 4
+
+Range relationships:
+HIT_BEYOND_CLIPPED_BOX: 1146
+NO_RECORDED_HIT: 2080
+
+LIMITATIONS:
+Clipping at 0.30m is an exploratory threshold.
+The target box remains an approximate world AABB.
+Sensor pose is transferred from a different run.
+A ray intersecting the box is not a vehicle hit.
+A preceding reflection may indicate occlusion,
+but identity and timing are still unverified.
+No validated sensor fusion is claimed.

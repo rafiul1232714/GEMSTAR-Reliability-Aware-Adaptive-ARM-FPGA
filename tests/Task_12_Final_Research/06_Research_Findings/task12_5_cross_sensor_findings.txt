@@ -1,0 +1,26 @@
+TASK 12.5 - ASSOCIATION ASSESSMENT
+Scenario: MOR100, frame 150
+Target GT ID: 76865
+
+CAMERA
+GT projection supports a car candidate.
+Camera correspondence is not fully calibrated.
+
+LIDAR / RADAR
+
+Y sign +1
+LiDAR within 2 m: 279
+Radar within 2 m: 6
+
+Y sign -1
+LiDAR within 2 m: 389
+Radar within 2 m: 7
+
+FINAL ASSESSMENT
+Camera-GT candidate: SUPPORTED, NOT PROVEN.
+LiDAR-GT association: UNVERIFIED.
+Radar-GT association: UNVERIFIED.
+Tri-sensor fusion: NOT CONFIRMED.
+XY search circles are not object boundaries.
+Coordinate-frame conventions remain provisional.
+No energy or accuracy improvement is claimed.

@@ -1,0 +1,2 @@
+frame,ego_id,target_id,forward_m,lateral_m,relative_z_m,u_negative,u_positive,v_pixel,yolo_center_u,yolo_center_v,error_negative_px,error_positive_px,inside_negative,inside_positive
+150,76895,76865,5.47655151593226,2.18111693896077,-0.016429193769376,173.878385245213,466.121614754787,348.290958504453,163.463626861572,312.336555480957,37.4324229641305,304.786116370718,1,0

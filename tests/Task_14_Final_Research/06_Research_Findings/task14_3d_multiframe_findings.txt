@@ -1,0 +1,23 @@
+TASK 14.3D - MULTI-FRAME RADAR ASSOCIATION
+Frames examined: 466
+Frames missing candidate ego: 8
+Valid Radar returns evaluated: 13714
+Frames with GT target 76865: 376
+Frames with >=1 provisional target candidate: 22
+
+CLASSIFICATION COUNTS:
+NO_GT_VEHICLE: 841
+NO_NEAR_GT_VEHICLE: 12725
+PROVISIONAL_NEAR_BOTH: 148
+
+FRAME 150 CHECK:
+{'frame': 150, 'time_s': '4.902842395', 'target_present': 1, 'radar_valid': 31, 'near_any_gt': 4, 'near_target': 4, 'ambiguous': 0, 'status': 'PROCESSED'}
+
+IMPORTANT LIMITATIONS:
+Only GT vehicle models containing Car/Truck/Bus are evaluated.
+Ego ID and origin correction are provisional.
+Origin offset is rotated using a frame-150 reference yaw.
+Full 3D sensor orientation is not reconstructed.
+GT bounding-box dimensions remain ambiguous.
+Near-target frames are NOT verified detection frames.
+Results must not be reported as precision or recall.

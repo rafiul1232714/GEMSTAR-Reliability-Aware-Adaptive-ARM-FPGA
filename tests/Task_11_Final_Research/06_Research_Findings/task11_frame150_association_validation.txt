@@ -1,0 +1,12 @@
+TASK 11.7C - ASSOCIATION VALIDATION
+Frame: 150
+LiDAR cluster points: 190
+Radar total: 31
+Radar within 1 m: 9
+LiDAR X extent: 7.548 m
+LiDAR Y extent: 0.992 m
+LiDAR Z extent: 0.270 m
+Geometry flag: ELONGATED_STRUCTURE
+Coordinates: provisional
+Ground Truth used for association: No
+Vehicle detection: NOT CONFIRMED

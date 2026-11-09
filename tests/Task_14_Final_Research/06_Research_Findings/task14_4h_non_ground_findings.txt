@@ -1,0 +1,15 @@
+===== TASK 14.4H - NON-GROUND LIDAR ASSOCIATION =====
+Original LiDAR points: 2044
+Ground-like points excluded: 1428
+Remaining non-ground points: 616
+Near both GT box models: 0
+Box-model sensitive: 0
+Not near target: 616
+
+ACTOR IDS AMONG NEAR OR BOX-SENSITIVE POINTS:
+
+LIMITATIONS:
+Actor 83185 is classified as ground-like, not proven ground.
+GT box dimensions and pose remain provisional.
+Geometric proximity is not confirmed vehicle detection.
+Diagnostic actor IDs still require GT mapping.

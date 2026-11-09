@@ -1,0 +1,121 @@
+
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:38:}
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:39:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:40:// Called when the game Ends
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:41:void AVehicleManager::EndPlay(const EEndPlayReason::Type EndPlayReason)
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:42:{
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:43:	WriteVehicleMappingLogToFile();
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:44:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:45:	if (IsValid(GemstarSimulationSubsystem)) {
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:46:		GemstarSimulationSubsystem->UnregisterManager(this);
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:47:		GemstarSimulationSubsystem = nullptr;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:48:	}
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:49:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:50:	for (TPair<FName, FVehicleInstances>& Controller : SpawnedVehicles){
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:51:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:88:			else if (entry.Key == "VehicleDataConfiguration") {
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:89:				VehicleDefinitionsPath = entry.Value;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:90:				FillVehicleDefinitions(VehicleDefinitionsPath);
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:91:				continue;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:92:			}
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:93:			else if (entry.Key == "VehicleMappingLog") {
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:94:				bWriteVehicleMappingLog = entry.Value.ToBool();
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:95:				continue;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:96:			}
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:97:			else if (entry.Key == "VehicleMappingFileName") {
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:98:				VehicleMappingFileName = entry.Value;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:99:				continue;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:100:			}
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:101:			else if (entry.Key == "ClearAbandonedVehicles") {
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:102:				bClearAbandonedVehicles = entry.Value.ToBool();
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:103:				continue;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:104:			}
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:105:			else {
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:106:				ConfigurationNameToVehicleNameInScenario.Add(entry);
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:281:			SpawnInfo
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:282:		);
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:283:		// collect information about the spawned traffic actor
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:284:		if (actor)
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:285:		{
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:286:			FVehicleMappingLogEntry Entry;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:287:			Entry.Provider = data.Provider;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:288:			Entry.ScenarioPlayerName = data.Name;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:289:			Entry.ScenarioPlayerType = data.VehicleClass;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:290:			Entry.VehicleAssetName = vehicleDefinition.VehicleAsset;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:291:			Entry.OsiObjectId = actor->GetUniqueID();
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:292:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:293:			UE_LOG(Vehicle, Log, TEXT("Spawned vehicle. Name: %s, Vehicle Class: %s, Asset: %s, OSI ID: %i"),
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:294:				*data.Name.ToString(), *data.VehicleClass.ToString(),
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:295:				*vehicleDefinition.VehicleAsset.ToString(), Entry.OsiObjectId);
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:296:
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:297:			VehicleMappingLog.Add(Entry);
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:298:		} else {
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:299:			UE_LOG(Vehicle, Warning, TEXT("Could not spawn vehicle!"));
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:300:		}
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:301:	} else {
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:302:		UE_LOG(Vehicle, Warning, TEXT("Could not find available vehicle!"));
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:303:	}
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:304:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:305:	return actor;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:432:	FString Escaped = Value;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:433:	Escaped.ReplaceInline(TEXT("\""), TEXT("\"\""));
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:434:	return FString::Printf(TEXT("\"%s\""), *Escaped);
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:435:}
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:436:
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:437:void AVehicleManager::WriteVehicleMappingLogToFile() {
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:438:	if (!bWriteVehicleMappingLog) {
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:439:		UE_LOG(Vehicle, Warning, TEXT("No vehicle mapping log written!"));
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:440:		return;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:441:	}
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:442:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:443:	const FString OutputDir = FPaths::Combine(FPaths::ProjectDir(), TEXT("Output"));
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:444:	IFileManager::Get().MakeDirectory(*OutputDir, true);
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:445:	FString Timestamp = FDateTime::Now().ToString(TEXT("%Y%m%d_%H%M%S"));
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:446:	const FString FileName = FString::Printf(TEXT("%s_%s"), *Timestamp, *VehicleMappingFileName);
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:447:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:448:	const FString OutputFile = FPaths::Combine(OutputDir, FileName);
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:449:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:450:	FString Csv;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:451:	Csv += TEXT("Provider, ScenarioPlayerName, ScenarioPlayerType, VehicleAssetName, OsiObjectId\n");
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:452:	for (const FVehicleMappingLogEntry& Entry : VehicleMappingLog) {
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:453:		Csv += FString::Printf(TEXT("%s, %s, %s, %s, %lld\n"),
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:454:			*ToCSVField(Entry.Provider.ToString()),
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:455:			*ToCSVField(Entry.ScenarioPlayerName.ToString()),
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:456:			*ToCSVField(Entry.ScenarioPlayerType.ToString()),
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:457:			*ToCSVField(Entry.VehicleAssetName.ToString()),
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:458:			Entry.OsiObjectId
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:459:		);
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Private\VehicleManager.cpp:460:	}
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:58:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:59:	FVehicleInstances() : Instances() {}
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:60:};
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:61:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:62:USTRUCT(BlueprintType)
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:63:struct FVehicleMappingLogEntry
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:64:{
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:65:	GENERATED_BODY()
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:66:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:67:	//scenario player provider
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:68:	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:69:	FName Provider;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:70:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:71:	// Name of the scenario player
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:128:	TArray<FAssetData> GetAllAssetsInFolder(FString Path);
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:129:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:130:	uint64 ClearedInFrame = 0;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:131:	void  ClearVehiclesWithoutUpdates();
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:132:
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:133:	bool bWriteVehicleMappingLog = false;
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:134:	FString VehicleMappingFileName = TEXT("GEMSTAR_vehicle_mapping.csv");
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:135:
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:136:	TArray <FVehicleMappingLogEntry> VehicleMappingLog;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:137:
+> E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:138:	void WriteVehicleMappingLogToFile();
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:139:	FString ToCSVField(const FString& Value) const;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:140:	FString GetVehicleRootDirectory();
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:141:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:142:public:
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:143:	AVehicleManager();
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:144:	virtual void Tick(float DeltaTime) override;
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:145:	void Configure(TMap<FString, FInnerConfig> Configurations, UGemstarSimulationSubsystem* SimulationSubsystem);
+  E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_vehicle_feature\Source\ue_vehicle_featureRuntime\Public\VehicleManager.h:146:

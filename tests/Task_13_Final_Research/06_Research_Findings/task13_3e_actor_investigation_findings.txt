@@ -1,0 +1,15 @@
+TASK 13.3E - ACTOR 83185 INVESTIGATION
+
+Actor 83185 returns: 1428
+Inside GT box: 424
+Within 0.50 m: 583
+Matching log lines: 0
+
+GT AABB bottom Z: -0.250349 m
+GT AABB top Z: 1.869891 m
+
+IMPORTANT:
+The GT box is an approximate world-AABB proxy.
+Actor 83185 has not yet been semantically identified.
+Spatial overlap alone does not prove a vehicle hit.
+The identity mapping to OSI GT remains unverified.

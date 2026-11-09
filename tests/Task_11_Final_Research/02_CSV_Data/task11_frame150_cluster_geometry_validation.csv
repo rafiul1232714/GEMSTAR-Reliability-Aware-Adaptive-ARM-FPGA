@@ -1,0 +1,2 @@
+cluster_points,x_extent_m,y_extent_m,z_extent_m,min_z_m,max_z_m,mean_z_m,below_05m,at_or_above_05m,inside_bbox_sign_minus,inside_bbox_sign_plus,low_inside_minus,low_inside_plus,high_inside_minus,high_inside_plus
+190,7.54812157019618,0.99214003397432,0.270359151546371,0.151773581504895,0.422132733051266,0.287108351006247,190,0,0,190,0,190,0,0

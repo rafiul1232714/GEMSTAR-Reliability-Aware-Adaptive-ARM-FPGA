@@ -1,0 +1,52 @@
+TASK 10 - EXPERIMENT CONFIGURATION
+
+Project:
+GEMSTAR Camera-LiDAR-Radar Reliability Monitoring
+
+Input:
+mor100_three_sensor_baseline.csv
+
+Environment:
+Fog, MOR = 100 m
+Precipitation intensity = 0
+
+Samples:
+47 synchronized Camera-LiDAR-Radar samples
+
+CAMERA QUALITY ESTIMATOR:
+Contrast weight = 0.40
+Edge strength weight = 0.35
+Sharpness weight = 0.25
+
+LIDAR QUALITY ESTIMATOR:
+Positive-return-rate weight = 0.65
+Maximum-range weight = 0.35
+
+RADAR QUALITY ESTIMATOR:
+Positive-return-rate weight = 0.65
+Maximum-range weight = 0.35
+
+NORMALIZATION:
+90th percentile of the original dataset.
+References remain fixed during fault injection.
+
+FAULT-INJECTION WINDOWS:
+Camera = samples 9 through 16
+LiDAR = samples 21 through 28
+Radar = samples 34 through 41
+
+SYNTHETIC DEGRADATION:
+Camera metrics multiplied by 0.20
+LiDAR metrics multiplied by 0.15
+Radar return rate and maximum range set to zero
+
+ADAPTIVE WEIGHTING:
+W_i = R_i / sum(R)
+
+Zero-total fallback:
+All sensor weights become zero.
+
+IMPORTANT:
+These are experimental heuristic settings.
+The quality scores are not calibrated probabilities.
+The current implementation does not perform object-level fusion.

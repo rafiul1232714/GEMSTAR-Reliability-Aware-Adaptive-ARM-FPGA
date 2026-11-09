@@ -1,0 +1,6 @@
+metric,value
+nominal_rays,5271
+original_intersections,3360
+clipped_intersections,3226
+clipped_with_recorded_hits,1146
+clipped_flat_actor_hits,1069

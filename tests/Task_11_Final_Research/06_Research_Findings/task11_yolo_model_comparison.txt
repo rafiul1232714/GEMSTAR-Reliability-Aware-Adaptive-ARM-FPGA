@@ -1,0 +1,22 @@
+TASK 11.8 - PRELIMINARY CAMERA DETECTION COMPARISON
+
+Recording: GEMSTAR MOR100
+Frame: 150
+Image resolution: 640 x 480
+
+YOLO11n:
+- Vehicle detections: 0
+- Airplane false classification: confidence 0.718
+- CPU latency measurements: 32.961, 36.218, 33.282 ms
+
+YOLO11s:
+- Car detection: confidence 0.931
+- Additional person prediction: confidence 0.151
+- CPU latency: 70.419 ms
+
+Interpretation:
+- YOLO11s successfully reported a car-class detection.
+- Bounding-box correctness requires visual validation.
+- The person prediction is not yet verified.
+- Timing comparison is preliminary, not a controlled benchmark.
+- No confirmed Camera-LiDAR-Radar object association yet.

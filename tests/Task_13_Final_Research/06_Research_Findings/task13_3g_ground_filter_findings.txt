@@ -1,0 +1,24 @@
+TASK 13.3G - FLAT-SURFACE ACTOR FILTERING
+
+Original LiDAR points: 2044
+Excluded actor 83185: 1428
+Remaining LiDAR points: 616
+Remaining inside GT box: 0
+Remaining within 0.25 m: 0
+Remaining within 0.50 m: 0
+Remaining within 1.00 m: 0
+
+ACTOR COUNTS:
+Actor 83265: 412
+Actor 83181: 200
+Actor 83183: 4
+
+INTERPRETATION:
+Actor 83185 is excluded using its diagnostic ID.
+The flat-surface hypothesis is strongly supported
+but its semantic identity is not yet independently proven.
+Remaining actors are not automatically vehicles.
+GT AABB and sensor-origin assumptions remain provisional.
+Zero remaining candidates, if observed, do not
+prove the vehicle was absent or impossible to detect.
+No validated object-level fusion is claimed.

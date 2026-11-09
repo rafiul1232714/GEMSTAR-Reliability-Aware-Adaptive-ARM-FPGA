@@ -1,0 +1,29 @@
+﻿TASK 14.2K - RADAR COORDINATE CONVENTION
+
+SOURCE:
+GEMSTAR SimpleRadar.cpp
+
+SOURCE EVIDENCE:
+Lines 82-83: Ray azimuth and elevation
+Line 85: Unreal FRotator(Pitch, Yaw, Roll)
+Line 86: Rotation composition
+Line 88: GetForwardVector()
+Lines 90-91: Unreal line trace
+Lines 115-117: OSI Radar export
+
+COORDINATE CONVENTION:
+Unreal positive Y corresponds to negative OSI Y
+under the established conversion.
+
+RADAR LOCAL TO OSI:
+X = range * cos(vertical) * cos(horizontal)
+Y = -range * cos(vertical) * sin(horizontal)
+Z = range * sin(vertical)
+
+STATUS:
+Angle-sign convention supported by source-code analysis.
+
+LIMITATIONS:
+Sensor world pose remains provisional.
+Object identity remains unconfirmed.
+Ground Truth box dimensions need independent validation.

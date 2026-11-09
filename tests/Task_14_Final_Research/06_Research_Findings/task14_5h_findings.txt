@@ -1,0 +1,14 @@
+TASK 14.5H - CAMERA / GT BOUNDING BOX COMPARISON
+Frame: 150
+Target: 76865
+GT pose and camera calibration: PROVISIONAL
+
+MODEL_A_FULL_AS_HALF_EXTENTS: IoU=0.20714, box=(-179.971, 201.172, 327.224, 506.202), behind=0
+MODEL_B_FULL_AS_FULL_DIMENSIONS: IoU=0.70597, box=(55.486, 253.447, 269.578, 359.123), behind=0
+
+LIMITATIONS:
+Results depend on the provisional GT ego-origin correction.
+Camera optical calibration and frame orientation are not independently verified.
+GT dimensions interpretation is not established.
+Projected 3D box is an approximate visible 2D envelope.
+IoU alone does not prove object identity.

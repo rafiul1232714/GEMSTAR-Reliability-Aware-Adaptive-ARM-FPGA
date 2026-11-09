@@ -1,0 +1,21 @@
+TASK 10 - SOURCE DATA REFERENCES
+
+ORIGINAL GEMSTAR SENSORVIEW:
+E:\GEMSTAR_Project\sensor-health-monitor\data\raw\fog_mor100\20261027T224313Z_sv_380_X_466_GEMSTAR.osi
+
+ORIGINAL GEMSTAR GROUND TRUTH:
+E:\GEMSTAR_Project\sensor-health-monitor\data\raw\fog_mor100\20261027T224313Z_gt_380_X_466_GEMSTAR.osi
+
+THREE-SENSOR MATLAB DATASET:
+E:\GEMSTAR_Project\sensor-health-monitor\research\datasets\mor100_three_sensor_baseline.csv
+
+SOURCE CAMERA QUALITY DATA:
+E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_09_Final_Research\02_CSV_Data\task09_mor100_camera_quality.csv
+
+SOURCE SENSOR DIAGNOSTICS:
+E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_09_Final_Research\02_CSV_Data\task09_mor100_sensor_diagnostics.csv
+
+EXPERIMENT NOTES:
+Task 10 uses data from the MOR 100 simulation.
+Fault injection was performed in MATLAB.
+No additional GEMSTAR recording was required.

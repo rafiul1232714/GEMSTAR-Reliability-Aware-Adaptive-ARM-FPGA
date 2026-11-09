@@ -1,0 +1,18 @@
+===== TASK 14.7C - SENSOR EVIDENCE SCENARIOS =====
+Frame: 150
+Only BASELINE uses the observed associations.
+Other scenarios are synthetic counterfactual tests.
+
+BASELINE: Camera=True, Radar=True, LiDAR=False => MULTISENSOR_GEOMETRIC_SUPPORT
+CAMERA_EVIDENCE_LOST: Camera=False, Radar=True, LiDAR=False => SINGLE_SENSOR_SUPPORT
+RADAR_EVIDENCE_LOST: Camera=True, Radar=False, LiDAR=False => SINGLE_SENSOR_SUPPORT
+CAMERA_AND_RADAR_LOST: Camera=False, Radar=False, LiDAR=False => INSUFFICIENT_ASSOCIATION_EVIDENCE
+HYPOTHETICAL_LIDAR_ASSOCIATION: Camera=True, Radar=True, LiDAR=True => MULTISENSOR_GEOMETRIC_SUPPORT
+
+LIMITATIONS:
+This tests evidence availability, not physical sensor failure.
+No sensor measurements are modified.
+No FOV, occlusion or weather model is applied.
+The decision rules are not calibrated probabilities.
+The hypothetical LiDAR result is not observed evidence.
+No CPU/FPGA performance or energy claim is made.

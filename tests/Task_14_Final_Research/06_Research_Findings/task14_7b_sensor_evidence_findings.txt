@@ -1,0 +1,17 @@
+===== TASK 14.7B - SENSOR EVIDENCE DECISION =====
+Frame: 150
+Target GT candidate: 76865
+
+Camera: measurement_available=True, observability=NOT_VERIFIED, association=PROVISIONAL, evidence_count=1
+Radar: measurement_available=True, observability=PROVISIONAL_IN_FOV, association=PROVISIONAL, evidence_count=4
+LiDAR: measurement_available=True, observability=NOT_VERIFIED, association=UNCONFIRMED, evidence_count=0
+
+Scene decision: MULTISENSOR_GEOMETRIC_SUPPORT
+
+LIMITATIONS:
+This is a rule-based exploratory decision, not an AI model.
+Measurement availability is not a validated sensor health score.
+Target association is provisional and GT-assisted.
+Radar candidate rays are not independent detections.
+No calibrated fusion confidence or detection probability.
+LiDAR target observability remains unverified.

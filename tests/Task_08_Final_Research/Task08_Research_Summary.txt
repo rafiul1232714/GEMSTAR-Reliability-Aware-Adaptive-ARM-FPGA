@@ -1,0 +1,33 @@
+TASK 08 - KEY RESEARCH FINDINGS
+
+1. Camera fog-vs-clear:
+Fog images showed higher brightness and lower contrast/edge strength
+in the five sampled images. Scene matching was not exact.
+
+2. LiDAR weather-processing correction:
+Original code used ASimpleLidar::LatestWeatherData.
+Corrected code uses AGemstarSensor::CurrentWeatherData.
+
+Pre-fix: 794 frames, positive return rate 45.082%.
+Post-fix: 705 frames, positive return rate 18.966%.
+
+Pre-fix maximum positive LiDAR distance: 20.006 m.
+Post-fix maximum positive LiDAR distance: 6.927 m.
+
+Post-fix positive returns beyond 7 m: 0.
+Post-fix positive returns beyond 10 m: 0.
+
+3. Radar:
+The inspected simple Radar implementation did not show
+weather-dependent attenuation. Further validation is needed.
+
+4. Ground Truth:
+Original clear and fog SensorView/GT timestamps were synchronized.
+Ego trajectories had mean XY difference approximately 0.088 m
+over the common compared interval.
+
+RESEARCH LIMITATIONS:
+Different recording lengths and unmatched surrounding traffic.
+The original fog LiDAR dataset is pre-fix diagnostic data.
+No object-detection accuracy or multi-sensor fusion accuracy
+has been established yet.

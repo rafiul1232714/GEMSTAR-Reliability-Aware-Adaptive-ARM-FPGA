@@ -1,0 +1,2 @@
+lidar_points,center_x_m,center_y_m,center_z_m,extent_x_m,extent_y_m,extent_z_m,radar_total,radar_nearby,geometry_flag
+190,7.45710100219589,-3.08003330445571,0.287108351006247,7.54812157019618,0.99214003397432,0.270359151546371,31,9,ELONGATED_STRUCTURE

@@ -1,0 +1,12 @@
+TASK 13.2B - COORDINATE DIAGNOSTIC
+
+LIDAR: lowest unadjusted sign-hypothesis mean error is 0.000000 m (reverse_y).
+RADAR: lowest unadjusted sign-hypothesis mean error is 0.000000 m (reverse_y).
+
+Interpretation:
+The hypotheses compare numerical agreement with Task 11.
+They do not establish which coordinate frame is correct.
+Simple axis flips can also require translation adjustments.
+OSI-to-Unreal and sensor mounting transforms still
+require independent verification.
+No object-level sensor correspondence is established.

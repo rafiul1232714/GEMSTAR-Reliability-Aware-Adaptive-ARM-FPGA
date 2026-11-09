@@ -1,0 +1,21 @@
+TASK 13.3T - ORIGIN SENSITIVITY
+
+Test A: original reconstructed world coordinates.
+Test B: subtract independent Z-origin offset.
+Test C: subtract full cross-run WORLD offset.
+
+Measured new-run offset (OSI m):
+(0.15738, -0.07349, 0.8262)
+
+IMPORTANT LIMITATIONS:
+The full XY offset is from a different simulation.
+World-axis bounding offsets may depend on yaw.
+The correction is a sensitivity analysis only.
+Actor 83185 is excluded diagnostically.
+No actor-to-GT identity mapping has been proved.
+No target detection or fusion accuracy is claimed.
+
+RESULTS:
+{'test': 'A_original', 'offset_x_m': 0.0, 'offset_y_m': 0.0, 'offset_z_m': 0.0, 'nonflat_point_count': 616, 'nonflat_inside_box': 0, 'nonflat_within_050m': 0, 'nonflat_within_100m': 0, 'minimum_nonflat_box_distance_m': 1.8082609630842492}
+{'test': 'B_vertical_only', 'offset_x_m': 0.0, 'offset_y_m': 0.0, 'offset_z_m': 0.8262, 'nonflat_point_count': 616, 'nonflat_inside_box': 0, 'nonflat_within_050m': 0, 'nonflat_within_100m': 0, 'minimum_nonflat_box_distance_m': 1.8082609630842492}
+{'test': 'C_full_cross_run', 'offset_x_m': 0.15738, 'offset_y_m': -0.07349, 'offset_z_m': 0.8262, 'nonflat_point_count': 616, 'nonflat_inside_box': 0, 'nonflat_within_050m': 0, 'nonflat_within_100m': 0, 'minimum_nonflat_box_distance_m': 1.6533036524799622}

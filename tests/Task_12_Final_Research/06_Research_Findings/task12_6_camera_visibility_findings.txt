@@ -1,0 +1,13 @@
+TASK 12.6B - MULTI-FRAME GT CAMERA FILTER
+Frames with both GT objects: 37
+Frames with projected center in image: 8
+
+Projection uses the negative-Y convention from Task 12.2.
+Camera horizontal FOV: 90 degrees.
+Principal point assumed at image center.
+No occlusion or image-boundary box clipping test.
+GT center and vertical reference remain provisional.
+In-image center does not guarantee target visibility.
+
+Candidate frames:
+91, 101, 111, 121, 131, 141, 151, 431

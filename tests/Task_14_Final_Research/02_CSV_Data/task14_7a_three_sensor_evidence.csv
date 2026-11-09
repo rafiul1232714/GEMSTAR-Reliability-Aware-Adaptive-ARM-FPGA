@@ -1,0 +1,4 @@
+﻿"frame","sensor","valid_measurements","target_evidence","metric","value","status"
+"150","Camera",,"1","YOLO confidence","0.9306","PROVISIONAL_GT_MATCH"
+"150","Radar","31","4","GT Model B IoU","0.706","PROVISIONAL_GEOMETRIC_MATCH"
+"150","LiDAR","2044","0","Confirmed target points","0","TARGET_NOT_CONFIRMED"

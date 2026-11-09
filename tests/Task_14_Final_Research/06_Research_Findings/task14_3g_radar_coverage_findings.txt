@@ -1,0 +1,19 @@
+===== TASK 14.3G - RADAR COVERAGE ANALYSIS =====
+Total frames: 466
+Evaluable target + ego frames: 368
+Target within assumed 10 m: 49
+Target within assumed +/-45 deg: 76
+Target within both coverage limits: 20
+Frames with provisional target candidates: 22
+Candidate frames inside assumed coverage: 20
+Missing-ego target frames: [459, 460, 461, 462, 463, 464, 465, 466]
+
+FRAME 150 CHECK:
+{'frame': 150, 'time_s': '4.902842395', 'ego_present': 1, 'target_present': 1, 'distance_3d_m': 4.10807, 'forward_m': 3.56909, 'lateral_m': 2.03413, 'horizontal_angle_deg': -29.68007, 'within_assumed_range': 1, 'within_assumed_hfov': 1, 'within_assumed_coverage': 1, 'has_provisional_candidate': 1, 'status': 'EVALUATED'}
+
+LIMITATIONS:
+Coverage thresholds must be checked against the active config.
+Range and angle refer to GT target centre, not target surfaces.
+Vertical FOV, occlusion and signal strength are not assessed.
+Sensor pose and GT box interpretation remain provisional.
+Coverage is not equivalent to a confirmed Radar detection.

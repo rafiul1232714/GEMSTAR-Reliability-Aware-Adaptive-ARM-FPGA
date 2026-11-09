@@ -1,0 +1,50 @@
+TASK 11 - FINAL FRAME-150 RESEARCH FINDINGS
+
+Scenario:
+GEMSTAR MOR100 fog
+Recorded frame: 150
+Camera timestamp: 4.902842 s
+
+CAMERA
+- YOLO11n did not recognize the car.
+- YOLO11s detected the visible white car.
+- Detection confidence: 0.9306
+- Bounding box: (45.70,244.30)-(281.22,380.37)
+- Single CPU prediction measurement: 70.419 ms.
+- Additional person prediction remains unverified.
+
+LIDAR
+- 2044 valid reconstructed points.
+- One elongated cluster of 190 points.
+- Length: 7.548 m
+- Width: 0.992 m
+- Height extent: 0.270 m
+- Reconstructed Z: 0.152 to 0.422 m
+- Cluster diagnostic object ID: 83265.
+- Vehicle identity not confirmed.
+
+RADAR
+- 31 valid reflections in frame 150.
+- Some reflections are near the LiDAR cluster.
+- No confirmed vehicle-level association.
+
+PROJECTION
+- Negative lateral convention: 0 cluster points in car box.
+- Positive lateral convention: 190 cluster points in car box.
+- This ambiguity requires geometric calibration.
+- Pixel overlap is not sufficient to establish identity.
+
+CONCLUSIONS
+- Synchronized three-sensor inspection completed.
+- Camera vehicle detection successfully demonstrated.
+- LiDAR and Radar measurements visualized and analyzed.
+- Vehicle-level Camera-LiDAR-Radar fusion NOT demonstrated.
+- Projection and sensor alignment require independent validation.
+- Additional multi-frame testing is needed.
+
+FUTURE WORK
+- Verify coordinate transformations with known landmarks.
+- Investigate LiDAR vehicle visibility and vertical scanning coverage.
+- Validate Radar detections against Ground Truth.
+- Establish object-level associations.
+- Measure detection accuracy, latency and energy across multiple frames.

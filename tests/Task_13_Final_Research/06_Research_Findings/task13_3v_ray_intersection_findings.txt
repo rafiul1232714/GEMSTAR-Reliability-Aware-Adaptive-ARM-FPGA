@@ -1,0 +1,25 @@
+TASK 13.3V - LIDAR RAY / GT BOX INTERSECTION
+
+Total configured rays: 5271
+Recorded valid hits: 2044
+Rays intersecting target AABB: 3360
+Intersecting rays with recorded hits: 1280
+
+Range relationships:
+HIT_AT_BOX_RANGE: 458
+HIT_BEFORE_BOX: 1
+HIT_BEYOND_BOX: 821
+NO_RECORDED_HIT: 2080
+
+Recorded actors:
+83185: 1203
+83181: 73
+83183: 4
+
+LIMITATIONS:
+Cross-run actor-to-GT correction is provisional.
+GT bounding box is an approximate world AABB.
+Zero-based ray indexing is assumed.
+AABB intersection is not proof of vehicle visibility.
+Ray-range comparisons are not identity validation.
+No confirmed Camera-LiDAR-Radar association.

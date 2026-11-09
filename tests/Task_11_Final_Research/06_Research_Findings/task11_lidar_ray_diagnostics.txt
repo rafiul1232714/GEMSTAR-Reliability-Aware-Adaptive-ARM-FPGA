@@ -1,0 +1,42 @@
+TASK 11.5X - LIDAR RAY DIAGNOSTICS
+Frame: 150
+Valid points: 2044
+Unique ray indices: 2044
+Minimum range: 3.9907 m
+Maximum range: 19.1366 m
+
+MOST COMMON RANGES (rounded to 0.01 m)
+Range 4.03 m: 215 points
+Range 4.48 m: 208 points
+Range 5.03 m: 200 points
+Range 5.75 m: 192 points
+Range 6.70 m: 185 points
+Range 8.03 m: 178 points
+Range 10.04 m: 171 points
+Range 13.38 m: 92 points
+Range 16.46 m: 56 points
+Range 13.47 m: 21 points
+Range 4.82 m: 13 points
+Range 16.60 m: 8 points
+Range 5.27 m: 5 points
+Range 6.59 m: 5 points
+Range 6.58 m: 5 points
+
+VERTICAL LAYER ANALYSIS
+Layer  0: points=251, range=[4.03,4.88] m, mean Z=-0.015 m, dominant ID=83185 (213)
+Layer  1: points=251, range=[4.03,6.37] m, mean Z=-0.013 m, dominant ID=83185 (205)
+Layer  2: points=251, range=[4.01,6.60] m, mean Z=-0.008 m, dominant ID=83185 (198)
+Layer  3: points=251, range=[4.01,6.98] m, mean Z=0.007 m, dominant ID=83185 (191)
+Layer  4: points=251, range=[4.00,8.16] m, mean Z=0.022 m, dominant ID=83185 (184)
+Layer  5: points=251, range=[3.99,9.95] m, mean Z=0.042 m, dominant ID=83185 (178)
+Layer  6: points=251, range=[4.05,12.54] m, mean Z=0.064 m, dominant ID=83185 (171)
+Layer  7: points=251, range=[5.39,16.60] m, mean Z=-0.002 m, dominant ID=83181 (108)
+Layer  8: points= 30, range=[7.96,19.14] m, mean Z=0.282 m, dominant ID=83265 (30)
+Layer  9: points=  6, range=[15.36,19.13] m, mean Z=0.401 m, dominant ID=83265 (6)
+
+INTERPRETATION NOTES
+Repeated ranges can occur because many rays
+intersect a flat surface or shared geometry.
+This diagnostic alone cannot establish a simulator bug.
+Check ray-index ordering and the source implementation.
+Vehicle detection is not yet confirmed.

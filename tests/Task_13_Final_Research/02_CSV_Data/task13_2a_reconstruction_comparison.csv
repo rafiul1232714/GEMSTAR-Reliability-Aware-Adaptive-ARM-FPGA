@@ -1,0 +1,2 @@
+lidar_point_count,radar_return_count,mean_lidar_difference_m,mean_radar_difference_m,max_lidar_difference_m,max_radar_difference_m
+2044,31,5.16980829457714,4.91328939757611,23.2487275146815,11.7034694424931

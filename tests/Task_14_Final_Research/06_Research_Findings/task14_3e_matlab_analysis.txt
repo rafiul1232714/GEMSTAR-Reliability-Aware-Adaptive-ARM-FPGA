@@ -1,0 +1,15 @@
+TASK 14.3E - MATLAB ANALYSIS
+
+Total frames: 466
+GT target present: 376
+Provisional target candidate frames: 22
+Missing ego frames: 8
+
+Missing ego frame numbers:
+459 460 461 462 463 464 465 466
+
+LIMITATIONS:
+Geometric proximity is not verified detection.
+Sensor pose and GT box semantics remain provisional.
+Radar field of view and occlusion are not evaluated.
+Frames without ego reference are not evaluated.

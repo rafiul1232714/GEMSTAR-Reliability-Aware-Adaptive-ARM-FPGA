@@ -1,0 +1,14 @@
+Metric,Value
+Weather,Fog
+MOR_m,100
+PrecipitationIntensity,0
+SensorViewFrames,466
+GroundTruthFrames,466
+CameraFramesWithImage,466
+MeanLiDARPositivePct,42.291980656975575
+MaximumLiDARRange_m,20.005647861310138
+TotalLiDARReturnsBeyond7m,464939
+TotalLiDARReturnsBeyond10m,317287
+MeanRadarPositivePct,30.0
+MaximumRadarRange_m,9.999921477788067
+MaximumSensorGTTimeError_ms,0.0

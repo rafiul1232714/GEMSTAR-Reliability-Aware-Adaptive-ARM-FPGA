@@ -1,0 +1,21 @@
+TASK 14.3C - ALL VEHICLE DISTANCE COMPARISON
+Frame: 150
+Radar returns: 31
+GT vehicles evaluated: 4
+Total pairwise comparisons: 124
+
+NO_NEAR_GT_VEHICLE: 27
+PROVISIONAL_NEAR_BOTH_MODELS: 4
+
+TARGET 76865 - NEAR CANDIDATES:
+Ray 0: best_B=0.327m, second_B=107.681m, margin=107.354m, PROVISIONAL_NEAR_BOTH_MODELS
+Ray 1: best_B=0.280m, second_B=108.402m, margin=108.122m, PROVISIONAL_NEAR_BOTH_MODELS
+Ray 2: best_B=0.280m, second_B=109.058m, margin=108.778m, PROVISIONAL_NEAR_BOTH_MODELS
+Ray 3: best_B=0.280m, second_B=109.630m, margin=109.350m, PROVISIONAL_NEAR_BOTH_MODELS
+
+LIMITATIONS:
+0.5m threshold and ambiguity margin are exploratory.
+Model B is used to choose nearest and second-nearest.
+Provisional sensor origin and GT box dimensions.
+Geometric nearness does not establish a confirmed hit.
+Results are frame-specific.

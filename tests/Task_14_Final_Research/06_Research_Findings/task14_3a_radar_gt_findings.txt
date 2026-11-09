@@ -1,0 +1,12 @@
+TASK 14.3A - RADAR-GT OBJECT ASSOCIATION
+Frame: 150
+Valid Radar returns: 31
+Other GT vehicles evaluated: 4
+Near target 76865 under both models: 4
+Candidate rays: [0, 1, 2, 3]
+
+IMPORTANT LIMITATIONS
+Uses provisional sensor/world pose.
+GT box dimension interpretation is not verified.
+Geometric proximity does not establish a confirmed object hit.
+Nearest-box assignment can be ambiguous.

@@ -1,0 +1,17 @@
+TASK 14.5E - CAMERA YOLO DETECTION
+Frame: 150
+Image: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_13_Final_Research\01_Graphs\task13_5e_camera_frame150_rgb.png
+Model: yolo11s.pt
+Confidence threshold: 0.25
+
+Total detections: 1
+Vehicle detections: 1
+
+VEHICLE DETECTIONS:
+ID 0: car, conf=0.930604, box=(45.703, 244.302)-(281.224, 380.371), center=(163.464, 312.337), area=32047.003
+
+LIMITATIONS:
+YOLO detection is image-based only.
+No confirmed mapping yet between camera detections and GT object IDs.
+A visible vehicle detection is not yet a proven match to target 76865.
+Further geometric/temporal comparison is still required.

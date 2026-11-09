@@ -1,0 +1,18 @@
+TASK 13.3U - TARGET LIDAR FOV
+
+Frame: 150
+Target GT ID: 76865
+Center distance: 3.600730 m
+Center azimuth: 34.415093 deg
+Center elevation: 1.746973 deg
+Center inside nominal FOV: True
+Bounding corners inside FOV: 1/8
+
+LIMITATIONS:
+Actor offset transferred from another run.
+Only the target AABB center and corners are tested.
+Corner counts do not establish total visible area.
+Visibility/occlusion has not been verified.
+The sensor's complete pose is not independently logged.
+Angular coverage is not proof of a sensor reflection.
+No vehicle association is claimed.

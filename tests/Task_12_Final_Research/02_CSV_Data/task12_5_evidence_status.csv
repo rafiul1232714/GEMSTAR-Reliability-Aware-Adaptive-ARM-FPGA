@@ -1,0 +1,4 @@
+sensor,observation,status
+Camera,YOLO car bbox overlaps GT candidate projection,SUPPORTED_CANDIDATE
+LiDAR,Measured returns near GT center,UNVERIFIED_OBJECT_IDENTITY
+Radar,Measured returns near GT center,UNVERIFIED_OBJECT_IDENTITY

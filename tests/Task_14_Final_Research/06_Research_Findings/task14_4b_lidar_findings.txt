@@ -1,0 +1,16 @@
+TASK 14.4B - LIDAR/GT GEOMETRIC COMPARISON
+Frame: 150
+Total LiDAR points: 2044
+Near both GT box models: 257
+Box model sensitive: 335
+Not near target: 1452
+
+DIAGNOSTIC ACTOR IDS AMONG NEAR POINTS:
+Actor 83185: 257
+
+IMPORTANT LIMITATIONS:
+Uses provisional ego-origin calibration.
+Assumes Task 11 ego-local coordinate convention.
+GT bounding-box semantics remain ambiguous.
+Diagnostic actor IDs are not mapped to GT IDs.
+Geometric proximity is not confirmed detection.

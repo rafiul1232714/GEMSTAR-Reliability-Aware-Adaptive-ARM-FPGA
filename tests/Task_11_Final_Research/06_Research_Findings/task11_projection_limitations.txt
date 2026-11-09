@@ -1,0 +1,11 @@
+TASK 11.8J - PROJECTION DIAGNOSTIC
+Frame: 150
+Camera FOV horizontal: 90 degrees
+Assumed fx=fy=320 px
+Camera mount: (0.7,0,1.6) metres
+Testing both lateral-axis signs.
+No lens distortion model applied.
+No occlusion handling or per-ray visibility check.
+3D geometry reconstruction remains provisional.
+Bounding-box overlap is NOT object identification.
+Actual camera extrinsic transform is not independently validated.

@@ -1,0 +1,61 @@
+	const FVector LidarPosition = this->GetActorLocation();
+	const FRotator LidarRotation = this->GetActorRotation();
+
+	// Initialize array for raycast result
+	Sensor.RecordedHits.Init(FHitResultAndIntesity(), Sensor.Number_of_rays_horizontal * Sensor.Number_of_rays_vertical);
+
+	// Calculate batch size for 'ParallelFor' based on workable thread
+	const int32 ThreadNum = FPlatformMisc::NumberOfWorkerThreadsToSpawn();
+	const int32 DivideEnd = FMath::FloorToInt((float)(Sensor.RecordedHits.Num() / ThreadNum));
+
+	ParallelFor(
+		ThreadNum,
+		[&](int32 PFIndex)
+		{
+			int32 StartAt = PFIndex * DivideEnd;
+			if (StartAt >= Sensor.RecordedHits.Num()) {
+				return;
+			}
+
+			int32 EndAt = StartAt + DivideEnd;
+			if (PFIndex == (ThreadNum - 1)) {
+				EndAt = Sensor.RecordedHits.Num();
+			}
+
+			for (int32 Index = StartAt; Index < EndAt; ++Index) {
+				const float HAngle = Sensor.AzimuthAngles[Index % Sensor.Number_of_rays_horizontal];
+				const float VAngle = Sensor.ElevationAngles[Index / Sensor.Number_of_rays_horizontal];
+
+				FRotator LaserRotation(FMath::RadiansToDegrees(VAngle), FMath::RadiansToDegrees(HAngle), 0.f);
+				FRotator Rotation = UKismetMathLibrary::ComposeRotators(LaserRotation, LidarRotation);
+
+				FVector EndPoint = LidarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+
+				GetWorld()->LineTraceSingleByChannel(
+					Sensor.RecordedHits[Index].HitResult, LidarPosition, EndPoint, ECC_Visibility, TraceParams, FCollisionResponseParams::DefaultResponseParam);
+				if (Sensor.RecordedHits[Index].HitResult.bBlockingHit) {
+					Sensor.RecordedHits[Index].Intesity = ComputeLidarSignalStrength(Sensor.RecordedHits[Index].HitResult);
+				}
+			}
+		},
+		!SupportMultithread
+	);
+
+}
+
+void ASimpleLidar::GenerateOSIMessage() {
+	delete Sensor.SensorView;
+	Sensor.SensorView = new osi3::SensorView();
+	auto* lidarSensorView = Sensor.SensorView->add_lidar_sensor_view();
+	auto* viewConfiguration = lidarSensorView->mutable_view_configuration();
+	if (Sensor.SensorViewConfig != nullptr && Sensor.SensorViewConfig->lidar_sensor_view_configuration_size())
+		viewConfiguration->CopyFrom(Sensor.SensorViewConfig->lidar_sensor_view_configuration(0));
+
+	for (auto& hit : Sensor.RecordedHits) {
+		auto* reflection = lidarSensorView->add_reflection();
+		reflection->set_time_of_flight(2 * 0.01 * hit.HitResult.Distance / SPEED_OF_LIGHT);
+
+		osi3::Vector3d* normal_to_surface = reflection->mutable_normal_to_surface();
+		normal_to_surface->set_x(hit.HitResult.ImpactNormal.X);
+		normal_to_surface->set_y(-hit.HitResult.ImpactNormal.Y);
+		normal_to_surface->set_z(hit.HitResult.ImpactNormal.Z);

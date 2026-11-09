@@ -1,0 +1,36 @@
+﻿# Large sensor recordings
+*.osi
+*.bag
+*.db3
+*.mcap
+
+# Archives and compiled binaries
+*.zip
+*.7z
+*.rar
+*.exe
+*.dll
+*.pdb
+
+# Python generated files
+__pycache__/
+*.pyc
+.venv/
+
+# FPGA generated files
+.Xil/
+*.runs/
+*.cache/
+*.sim/
+*.gen/
+
+# Private configuration and credentials
+.env
+.env.*
+*.pem
+*.key
+*.p12
+
+# IDE directories
+.vs/
+.idea/

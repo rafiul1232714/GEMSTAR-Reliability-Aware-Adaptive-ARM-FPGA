@@ -1,0 +1,11 @@
+TASK 14.3B - ASSOCIATION CLASSIFICATION
+Total Radar returns: 31
+NEAR_UNDER_BOTH_BOX_MODELS: 4
+BOX_MODEL_SENSITIVE: 8
+NOT_NEAR_SELECTED_VEHICLE: 19
+
+LIMITATIONS:
+A/B distances come from the vehicle selected by Model B.
+This does not compare second-best vehicle distances.
+Nearness is a geometric screening criterion, not confidence.
+Multiple rays may belong to the same reflector.

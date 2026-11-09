@@ -1,0 +1,4 @@
+Sensor,Evidence,TargetIdentityVerified
+Camera,Visible car in frame 150; identity unconfirmed,0
+LiDAR,Projected reflections; target association unconfirmed,0
+Radar,5 frame-150 candidates near both GT box models,0

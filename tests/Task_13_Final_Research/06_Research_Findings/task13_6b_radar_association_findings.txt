@@ -1,0 +1,17 @@
+TASK 13.6B - RADAR ASSOCIATION ROBUSTNESS
+
+Diagnostic threshold: 0.5 m
+Models A/B differ in box-size interpretation.
+These are geometric proximity labels only.
+
+NEAR_UNDER_BOTH_MODELS: 5
+SENSITIVE_TO_BOX_MODEL: 7
+NEAR_ONLY_MODEL_B: 0
+NOT_NEAR_TARGET: 19
+
+LIMITATIONS
+Cross-run actor-origin offset remains provisional.
+Object identity has not been confirmed.
+Radar return independence is not established.
+No calibrated association probability is given.
+Camera-LiDAR-Radar fusion remains unvalidated.

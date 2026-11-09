@@ -1,0 +1,10 @@
+TASK 11 RAW DATA REFERENCES
+
+Scenario: GEMSTAR MOR100
+Original files are referenced, not duplicated.
+
+E:\GEMSTAR_Project\sensor-health-monitor\data\raw\fog_mor100\20261027T224313Z_gt_380_X_466_GEMSTAR.osi
+Size: 868,456 bytes
+
+E:\GEMSTAR_Project\sensor-health-monitor\data\raw\fog_mor100\20261027T224313Z_sv_380_X_466_GEMSTAR.osi
+Size: 599,025,820 bytes

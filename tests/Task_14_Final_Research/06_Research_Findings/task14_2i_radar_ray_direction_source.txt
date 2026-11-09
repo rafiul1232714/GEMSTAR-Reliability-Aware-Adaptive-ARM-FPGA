@@ -1,0 +1,81 @@
+	}
+
+	Parent = GetAttachParentActor();
+
+	if (Parent != nullptr) {
+		auto* moving_object = Sensor.SensorView->mutable_global_ground_truth()->add_moving_object();
+		uint32_t uniqueID = Parent->GetUniqueID();
+		moving_object->mutable_id()->set_value(uniqueID);
+		moving_object->mutable_base()->set_allocated_position(ToOSI::Position(Parent->GetActorLocation()));
+		moving_object->mutable_base()->set_allocated_orientation(ToOSI::Orientation3d(Parent->GetActorQuat()));
+		Sensor.SensorView->mutable_global_ground_truth()->mutable_host_vehicle_id()->set_value(uniqueID);
+	}
+}
+
+float ASimpleRadar::ComputeRadarSignalStrength(const FHitResult& Hit)
+{
+	// Frequenz 77GHz, Wellenl�nge= 3.9mm, Sendeleistung 0.01W, Antennengewinn 30dB ca. 1000(linear), Radarziel R�ckstreuquerschnitt (Auto) 10m2, R = Entfernung zum Ziel
+	// Pr = (7.5 * 10^-5 * Radarziel R�ckstreuquerschnitt) / R^4
+	float backscatterValue = 10; // default for cars, need adjustment for bikes and pedestrians
+
+	float distanceToTarget = (Hit.ImpactPoint - Hit.TraceStart).Size() * 0.01; //in meter
+	distanceToTarget = FMath::Max(distanceToTarget, 0.01f); // prevent division by zero
+	float signalStrengthInWatt = (7.5 * 0.00001 * backscatterValue) / FMath::Pow(distanceToTarget, 4);
+
+	float signalStrengthInDB = 10 * FMath::LogX(10, (signalStrengthInWatt / FMath::Pow(10.0, -12.0)));
+
+	// normalise dB signal
+	float scaledDBsignal = (signalStrengthInDB) / 100.0;
+
+	return scaledDBsignal;
+}
+
+void ASimpleRadar::SetSensorConfiguration(FSensorConfigData NewSensorConfiguration) {
+	Super::SetSensorConfiguration(NewSensorConfiguration);
+	Sensor.SensorViewConfig->clear_radar_sensor_view_configuration();
+	auto* conf = Sensor.SensorViewConfig->add_radar_sensor_view_configuration();
+	conf->set_field_of_view_horizontal(SensorConfiguration.Radar.FieldOfViewHorizontal);
+	conf->set_field_of_view_vertical(SensorConfiguration.Radar.FieldOfViewVertical);
+	conf->set_number_of_rays_horizontal(SensorConfiguration.Radar.NumberOfRaysHorizontal);
+	conf->set_number_of_rays_vertical(SensorConfiguration.Radar.NumberOfRaysVertical);
+	conf->mutable_mounting_position()->set_allocated_position(
+		ToOSI::Position(SensorConfiguration.Offset.GetLocation()));
+	conf->mutable_mounting_position()->set_allocated_orientation(
+		ToOSI::Orientation3d(SensorConfiguration.Offset.GetRotation()));
+	conf->set_emitter_frequency(77000000000.0); //in Hz
+	//calculate angles
+
+	Sensor.AzimuthAngles.Empty();
+	Sensor.ElevationAngles.Empty();
+	Sensor.Number_of_rays_horizontal = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_horizontal();
+	for (uint32_t i = 0; i < Sensor.Number_of_rays_horizontal; i++) {
+		Sensor.AzimuthAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal()
+			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_horizontal() / (Sensor.Number_of_rays_horizontal - 1) * i);
+	}
+	Sensor.Number_of_rays_vertical = Sensor.SensorViewConfig->radar_sensor_view_configuration(0).number_of_rays_vertical();
+	for (uint32_t i = 0; i < Sensor.Number_of_rays_vertical; i++) {
+		Sensor.ElevationAngles.Add(-0.5 * Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical()
+			+ Sensor.SensorViewConfig->radar_sensor_view_configuration(0).field_of_view_vertical() / (Sensor.Number_of_rays_vertical - 1) * i);
+	}
+}
+
+void ASimpleRadar::CreateTestConfig() {
+	Sensor.SensorViewConfig = new osi3::SensorViewConfiguration();
+	Sensor.SensorViewConfig->set_range(10);
+}
+
+void ASimpleRadar::ShowSensorDebugInformation() {
+	int noHitCounter = 0;
+	for (auto& hit : Sensor.RecordedHits) {
+		if (hit.HitResult.bBlockingHit) {
+			if (bDebugRayTraces)
+				DrawDebugLine(GetWorld(), hit.HitResult.TraceStart, hit.HitResult.ImpactPoint, FColor::Green, false, 0.0f, 0, 1.0f);
+			if (bDebugReflections)
+				DrawDebugPoint(GetWorld(), hit.HitResult.ImpactPoint, 10.0f, FColor::Red, false, 0.0f);
+			if (bDebugNormals)
+				DrawDebugLine(GetWorld(), hit.HitResult.ImpactPoint, hit.HitResult.ImpactPoint + hit.HitResult.ImpactNormal * 10, FColor::Blue, false, 0.0f, 0, 1.0f);
+		}
+		else {
+			noHitCounter++;
+		}
+	}

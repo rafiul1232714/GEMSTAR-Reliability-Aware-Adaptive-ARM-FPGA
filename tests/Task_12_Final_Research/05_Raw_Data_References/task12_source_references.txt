@@ -1,0 +1,16 @@
+TASK 12 - ORIGINAL DATA REFERENCES
+
+Scenario: GEMSTAR MOR100
+
+Ground Truth CSV:
+E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_11_Final_Research\02_CSV_Data\task11_groundtruth_objects.csv
+
+LiDAR geometry CSV:
+E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_11_Final_Research\02_CSV_Data\task11_lidar_frame150_geometry.csv
+
+Radar measurements CSV:
+E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_11_Final_Research\02_CSV_Data\task11_frame150_radar_cluster_association.csv
+
+Raw recordings:
+E:\GEMSTAR_Project\sensor-health-monitor\data\raw\fog_mor100\20261027T224313Z_gt_380_X_466_GEMSTAR.osi (868,456 bytes)
+E:\GEMSTAR_Project\sensor-health-monitor\data\raw\fog_mor100\20261027T224313Z_sv_380_X_466_GEMSTAR.osi (599,025,820 bytes)

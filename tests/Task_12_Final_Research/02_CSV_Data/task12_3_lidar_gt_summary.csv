@@ -1,0 +1,3 @@
+lateral_sign,nearest_distance_m,points_within_1m,points_within_2m,elevated_within_2m,min_near_z_m,max_near_z_m,unique_diagnostic_ids
+1,0.361139372359762,108,279,0,-0.000203368006722604,-0.000203327606661308,1
+-1,0.528906975908617,134,389,0,-0.14809955383539,0.417760122340641,3

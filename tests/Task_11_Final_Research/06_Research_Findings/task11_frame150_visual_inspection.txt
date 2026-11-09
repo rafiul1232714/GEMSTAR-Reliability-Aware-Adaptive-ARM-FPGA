@@ -1,0 +1,9 @@
+TASK 11.5U - FRAME 150
+Total LiDAR points: 2044
+Positive Y window points: 436
+Negative Y window points: 527
+GT object ID: 76865
+GT coordinates: provisional
+Vehicle detection: NOT CONFIRMED
+Ground filtering: not applied to frame 150
+No simulator object IDs used for classification

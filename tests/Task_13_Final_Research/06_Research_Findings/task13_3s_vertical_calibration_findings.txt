@@ -1,0 +1,13 @@
+TASK 13.3S - VERTICAL ORIGIN CALIBRATION
+
+Measured actor-to-bounds Z offset: 0.82620 m
+Original plane median Z: 0.825996578 m
+Corrected plane median Z: -0.000203422 m
+
+LIMITATIONS
+The offset came from a separate diagnostic run.
+A horizontal surface at Z~0 supports a ground hypothesis
+but does not independently establish actor identity.
+Horizontal actor-to-bounds offsets remain uncalibrated.
+Original sensor-to-GT timestamps remain unverified.
+No target-vehicle association is claimed.

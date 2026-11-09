@@ -1,0 +1,8 @@
+Frame=150
+HeightThreshold=0.150
+DBSCAN_Epsilon=0.600
+DBSCAN_MinPoints=6
+DetectedClusters=1
+GroundRemoval=Height-based, provisional
+Coordinates=Provisional ego-local
+GroundTruthUsedForDetection=No

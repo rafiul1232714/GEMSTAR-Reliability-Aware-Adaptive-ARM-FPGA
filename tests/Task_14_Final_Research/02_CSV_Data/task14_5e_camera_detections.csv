@@ -1,0 +1,2 @@
+detection_id,frame,class_id,class_name,confidence,x1,y1,x2,y2,width,height,center_x,center_y,area_px,is_vehicle
+0,150,2,car,0.930604,45.703,244.302,281.224,380.371,235.52,136.069,163.464,312.337,32047.003,True

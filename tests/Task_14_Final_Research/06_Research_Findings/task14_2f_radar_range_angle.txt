@@ -1,0 +1,25 @@
+TASK 14.2F - RADAR RANGE AND ANGLE COMPARISON
+Frame: 150
+Predicted target reference range: 4.108 m
+Predicted target bearing: 29.68 degrees
+Valid Radar returns: 31
+
+BEST 5 - DIRECT ANGLE CONVENTION
+Ray 7: range=4.608 m, angle=25.00 deg, range_error=0.500 m, angle_error=4.68 deg
+Ray 9: range=3.906 m, angle=45.00 deg, range_error=0.202 m, angle_error=15.32 deg
+Ray 19: range=3.883 m, angle=45.00 deg, range_error=0.225 m, angle_error=15.32 deg
+Ray 28: range=5.095 m, angle=35.00 deg, range_error=0.987 m, angle_error=5.32 deg
+Ray 18: range=5.118 m, angle=35.00 deg, range_error=1.010 m, angle_error=5.32 deg
+
+BEST 5 - FLIPPED ANGLE CONVENTION
+Ray 2: range=4.608 m, angle=-25.00 deg, range_error=0.500 m, angle_error=4.68 deg
+Ray 1: range=4.608 m, angle=-35.00 deg, range_error=0.500 m, angle_error=5.32 deg
+Ray 3: range=4.608 m, angle=-15.00 deg, range_error=0.500 m, angle_error=14.68 deg
+Ray 0: range=4.608 m, angle=-45.00 deg, range_error=0.500 m, angle_error=15.32 deg
+Ray 4: range=4.608 m, angle=-5.00 deg, range_error=0.500 m, angle_error=24.68 deg
+
+LIMITATIONS:
+No confirmed Radar-to-GT object identity.
+Radar angle sign and sensor pose conventions require validation.
+Target is represented by its GT reference point, not surfaces.
+Diagnostic scores are not detection probabilities.

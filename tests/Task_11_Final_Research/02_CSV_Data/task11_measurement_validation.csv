@@ -1,0 +1,13 @@
+sensor,metric,value
+LiDAR,total_positive,1038812
+LiDAR,near_zero_lt_0_1m,2510
+LiDAR,range_ge_0_1m,1036302
+LiDAR,range_ge_0_5m,1036302
+LiDAR,range_ge_1m,1036302
+LiDAR,maximum_range_m,20.005647861310138
+Radar,total_positive,13980
+Radar,near_zero_lt_0_1m,50
+Radar,range_ge_0_1m,13930
+Radar,range_ge_0_5m,13930
+Radar,range_ge_1m,13930
+Radar,maximum_range_m,9.999921477788067

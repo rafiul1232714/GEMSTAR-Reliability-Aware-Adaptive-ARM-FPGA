@@ -1,0 +1,28 @@
+TASK 11.5S - FORWARD VEHICLE FRAME SEARCH
+Frames checked: 458
+Candidate observations: 85
+Frames with candidates: 85
+Yaw/coordinate convention: provisional
+Candidate test: GT center inside approximate LiDAR FOV
+
+TOP 20 RESULTS
+Frame 157 | GT 76865 | BP_Large_Car_C | X=3.12 m | Y=2.48 m | Distance=3.99 m | Angle=38.5 deg
+Frame 155 | GT 76865 | BP_Large_Car_C | X=3.71 m | Y=2.41 m | Distance=4.42 m | Angle=33.0 deg
+Frame 156 | GT 76865 | BP_Large_Car_C | X=3.71 m | Y=2.41 m | Distance=4.42 m | Angle=33.0 deg
+Frame 348 | GT 76859 | BP_Bus_C | X=3.33 m | Y=3.11 m | Distance=4.55 m | Angle=43.0 deg
+Frame 349 | GT 76859 | BP_Bus_C | X=3.33 m | Y=3.11 m | Distance=4.55 m | Angle=43.0 deg
+Frame 450 | GT 76852 | BP_Truck_C | X=4.34 m | Y=2.04 m | Distance=4.80 m | Angle=25.2 deg
+Frame 154 | GT 76865 | BP_Large_Car_C | X=4.30 m | Y=2.33 m | Distance=4.89 m | Angle=28.5 deg
+Frame 347 | GT 76859 | BP_Bus_C | X=4.05 m | Y=3.13 m | Distance=5.12 m | Angle=37.7 deg
+Frame 152 | GT 76865 | BP_Large_Car_C | X=4.89 m | Y=2.26 m | Distance=5.38 m | Angle=24.8 deg
+Frame 153 | GT 76865 | BP_Large_Car_C | X=4.89 m | Y=2.26 m | Distance=5.38 m | Angle=24.8 deg
+Frame 345 | GT 76859 | BP_Bus_C | X=4.76 m | Y=3.16 m | Distance=5.72 m | Angle=33.6 deg
+Frame 346 | GT 76859 | BP_Bus_C | X=4.76 m | Y=3.16 m | Distance=5.72 m | Angle=33.6 deg
+Frame 150 | GT 76865 | BP_Large_Car_C | X=5.48 m | Y=2.18 m | Distance=5.89 m | Angle=21.7 deg
+Frame 151 | GT 76865 | BP_Large_Car_C | X=5.48 m | Y=2.18 m | Distance=5.89 m | Angle=21.7 deg
+Frame 344 | GT 76859 | BP_Bus_C | X=5.48 m | Y=3.20 m | Distance=6.34 m | Angle=30.3 deg
+Frame 149 | GT 76865 | BP_Large_Car_C | X=6.06 m | Y=2.11 m | Distance=6.42 m | Angle=19.2 deg
+Frame 442 | GT 76856 | BP_Large_Car_C | X=6.14 m | Y=2.41 m | Distance=6.60 m | Angle=21.4 deg
+Frame 147 | GT 76865 | BP_Large_Car_C | X=6.65 m | Y=2.03 m | Distance=6.96 m | Angle=17.0 deg
+Frame 148 | GT 76865 | BP_Large_Car_C | X=6.65 m | Y=2.03 m | Distance=6.96 m | Angle=17.0 deg
+Frame 342 | GT 76859 | BP_Bus_C | X=6.19 m | Y=3.24 m | Distance=6.99 m | Angle=27.7 deg

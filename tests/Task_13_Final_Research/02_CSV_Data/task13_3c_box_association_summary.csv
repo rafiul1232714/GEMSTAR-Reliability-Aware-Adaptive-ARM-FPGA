@@ -1,0 +1,2 @@
+frame,target_gt_id,lidar_count,radar_count,lidar_inside_box,radar_inside_box,lidar_within_025m,radar_within_025m,lidar_within_050m,radar_within_050m,lidar_within_100m,radar_within_100m
+150,76865,2044,31,424,9,502,10,583,12,732,12

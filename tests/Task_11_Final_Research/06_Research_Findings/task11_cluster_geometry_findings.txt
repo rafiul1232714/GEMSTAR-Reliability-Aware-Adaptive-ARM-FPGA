@@ -1,0 +1,17 @@
+TASK 11.8K - CLUSTER VALIDATION
+Frame: 150
+LiDAR points: 190
+X extent: 7.5481 m
+Y extent: 0.9921 m
+Z extent: 0.2704 m
+Mean Z: 0.2871 m
+Points below Z 0.5m: 190
+Negative Y sign box overlap: 0
+Positive Y sign box overlap: 190
+
+Important limitations:
+Z is provisional ego-frame height.
+Object IDs identify simulator diagnostic surfaces.
+2D box overlap does not prove object identity.
+Sensor extrinsic alignment remains unvalidated.
+Car association status: NOT CONFIRMED.

@@ -1,0 +1,37 @@
+TASK 12.6D - MULTI-FRAME PERFORMANCE ANALYSIS
+Scenario: GEMSTAR MOR100
+Model: YOLO11s
+Device: CPU
+
+TOTAL FRAMES ANALYZED: 8
+FRAMES WITH VEHICLE DETECTIONS: 7
+PROVISIONAL GT OVERLAP FRAMES: 6
+
+OVERALL RESULTS
+Mean prediction wall time: 51.0571 ms
+Minimum prediction wall time: 47.9376 ms
+Maximum prediction wall time: 61.2315 ms
+Mean selected confidence: 0.7359
+Mean selected center difference: 45.6912 px
+
+PROVISIONAL OVERLAP FRAMES
+Mean confidence: 0.8473
+Mean center difference: 20.7601 px
+Mean prediction wall time: 49.3526 ms
+
+RESEARCH INTERPRETATION
+YOLO11s produced vehicle detections in 7 of 8 evaluated frames.
+Six detections contain the projected Ground Truth center.
+Frame 91 has no vehicle detection.
+Frame 431 has a detected vehicle without GT-center overlap.
+The approach sequence supports candidate geometric correspondence.
+
+IMPORTANT LIMITATIONS
+Ground Truth Camera calibration remains provisional.
+GT-center overlap does not prove vehicle identity.
+The evaluated frames were selected geometrically.
+Selected detections are not independent annotations.
+Detection counts are not verified recall or precision.
+CPU wall-clock times are preliminary single-run measurements.
+No FPGA speedup or energy reduction has been demonstrated.
+Tri-sensor object-level fusion remains unverified.

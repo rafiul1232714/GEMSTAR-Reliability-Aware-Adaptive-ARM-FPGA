@@ -1,0 +1,14 @@
+TASK 13.3D - LIDAR ACTOR IDENTITY DIAGNOSTIC
+
+LiDAR measurements analyzed: 2044
+Inside-box measurements: 424
+Within 0.25 m: 502
+
+INTERPRETATION LIMITATIONS
+Actor IDs originate from the LiDAR simulation.
+They are not automatically OSI Ground Truth IDs.
+A scene mesh may belong to a larger shared actor.
+Inside-box overlap does not establish vehicle identity.
+Radar returns lack equivalent actor IDs in the
+inspected SimpleRadar.cpp reflection output.
+Further actor-to-GT mapping is required.

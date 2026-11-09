@@ -1,0 +1,27 @@
+TASK 13.3B - GROUND TRUTH BOUNDING GEOMETRY
+
+Frame: 150
+Ego GT ID: 76895
+Target GT ID: 76865
+
+Target center in ego frame:
+X = 5.476552 m
+Y = 2.181117 m
+Z = -0.016429 m
+
+3D center distance = 5.894926 m
+Planar center distance = 5.894904 m
+
+Estimated world-axis spans:
+X = 4.847394 m
+Y = 3.803067 m
+Z = 2.120240 m
+
+GEOMETRY LIMITATIONS:
+Dimensions are interpreted as world-axis half-extents.
+Exporter uses GetActorBounds(false, Origin, Extent).
+The generated boxes are world-AABB approximations.
+They are not true vehicle-oriented bounding boxes.
+The exporter may not follow standard OSI dimension semantics.
+Physical vehicle mesh boundaries remain unverified.
+No LiDAR/Radar object association is established here.

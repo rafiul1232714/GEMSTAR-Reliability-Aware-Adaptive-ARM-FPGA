@@ -1,0 +1,120 @@
+
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:1:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:2:; =========================================================
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:3:; GEMSTAR - CAMERA + LIDAR + RADAR SENSOR CONFIGURATION
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:4:; TASK 7: RADAR MOUNTING TEST
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:5:; Weather: Fog
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:6:; =========================================================
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:8:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:9:; =========================================================
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:10:; CAMERA SENSOR
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:11:; =========================================================
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:12:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:13:[ue_camera_feature:sensor1]
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:14:;Debug=true
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:15:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:16:Mount=SensorPlatform_1
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:17:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:18:; Position in centimeters
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:44:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:45:; =========================================================
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:46:; FMI SENSOR MODEL - DISABLED
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:47:; =========================================================
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:48:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:49:;[ue_fmi_feature:sensormodel1]
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:50:;Debug=true
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:51:;Input=[lidar:sensor1]
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:52:;InputData=[SensorView]
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:53:;InputName=[OSMPSensorViewIn]
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:54:;Model="Resources/sl-1-5-reflection-based-fmcw-lidar-detection-model-5271.fmu"
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:55:;OutputData=[SensorData]
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:56:;OutputName=[OSMPSensorDataOut]
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:57:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:58:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:59:; =========================================================
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:60:; LIDAR SENSOR
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:61:; =========================================================
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:62:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:63:[ue_lidar_feature:sensor1]
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:64:;Debug=true
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:65:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:66:Mount=SensorPlatform_1
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:67:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:68:MountingPositionX=260
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:90:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:91:; =========================================================
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:92:; LOGGER - ALL THREE SENSORS
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:93:; =========================================================
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:94:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:102:;OmegaPrime=true
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:103:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:104:; Record Camera, LiDAR and Radar
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:105:Input=[ue_camera_feature:sensor1,ue_lidar_feature:sensor1,ue_radar_feature:sensor1]
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:106:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:107:InputData=[SensorView,SensorView,SensorView]
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:108:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:109:; Output filename prefix
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:112:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:113:; =========================================================
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:114:; RADAR SENSOR - UPDATED FOR TEST
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:115:; =========================================================
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:116:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:117:[ue_radar_feature:sensor1]
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:118:;Debug=true
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:119:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:120:; Mount Radar on the same moving vehicle
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:121:Mount=SensorPlatform_1
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:122:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:123:; Radar mounting position in centimeters
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:124:MountingPositionX=200
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:125:MountingPositionY=0
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:131:MountingOrientationYaw=0
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:132:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:133:; Radar ray configuration
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:134:NumberOfRaysHorizontal=10
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:135:NumberOfRaysVertical=10
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:152:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:153:; =========================================================
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:154:; VEHICLE CONFIGURATION
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:155:; =========================================================
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:156:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:157:[ue_vehicle_feature]
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:158:;Debug=true
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:159:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:161:Input=[ue_sumo_feature]
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:162:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:163:VehicleDataConfiguration="VehicleDataConfig.json"
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:164:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:165:; Mount three sensors on vehicle 0
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:166:SensorPlatform_1=0
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:167:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:168:; Other available platform
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:169:SensorPlatform_2=other
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:170:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:171:; Static infrastructure sensor platform
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:172:StaticSensorPlatform=GEMSTAR_Root
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:173:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:174:; Vehicle mapping logs
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:175:VehicleMappingLog=true
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:176:VehicleMappingFileName=GEMSTAR_vehicle_mapping.csv
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:177:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:178:ClearAbandonedVehicles=true
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:179:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:180:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:181:; =========================================================
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:182:; SENSOR VISUALIZATION
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:183:; =========================================================
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:184:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:186:;Debug=true
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:187:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:188:Input=[ue_lidar_feature:sensor1]
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:189:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:190:ShowFoV=false
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:191:ShowCamera=true
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:192:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:193:
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:221:PrecipitationIntensity=0.0
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:222:
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:223:; LiDAR weather model
+> E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:224:LidarCoefficient=1.0
+  E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini:225:ReflectivityThreshold=10.0

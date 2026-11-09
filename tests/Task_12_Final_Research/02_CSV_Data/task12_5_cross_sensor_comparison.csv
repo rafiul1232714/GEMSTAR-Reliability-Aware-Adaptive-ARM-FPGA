@@ -1,0 +1,3 @@
+lateral_sign,lidar_within_1m,lidar_within_2m,radar_within_1m,radar_within_2m,nearest_lidar_m,nearest_radar_m
+1,108,279,2,6,0.361139372359762,0.485962601452896
+-1,134,389,6,7,0.528906975908617,0.688823017459977

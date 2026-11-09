@@ -1,0 +1,2 @@
+frame,ego_id,target_id,center_distance_3d_m,center_distance_xy_m,target_ego_x_m,target_ego_y_m,target_ego_z_m,target_relative_yaw_rad,world_aabb_span_x_m,world_aabb_span_y_m,world_aabb_span_z_m
+150,76895,76865,5.89492642248311,5.89490352830999,5.47655151593226,2.18111693896077,-0.016429193769376,3.01473371993074,4.8473940999262,3.8030674922636,2.12023986020241

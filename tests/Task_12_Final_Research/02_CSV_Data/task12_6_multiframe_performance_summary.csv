@@ -1,0 +1,2 @@
+frames_analyzed,frames_with_vehicle_detection,frames_with_provisional_overlap,mean_cpu_prediction_ms,min_cpu_prediction_ms,max_cpu_prediction_ms,mean_selected_confidence,mean_selected_center_error_px,mean_overlap_confidence,mean_overlap_center_error_px,mean_overlap_cpu_ms
+8,7,6,51.057087504887,47.9376000002958,61.2315000034869,0.735897498471396,45.6912164287362,0.847291787465413,20.7600613214746,49.3526000063866

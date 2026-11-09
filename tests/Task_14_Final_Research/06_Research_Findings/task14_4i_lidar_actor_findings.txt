@@ -1,0 +1,13 @@
+===== TASK 14.4I - NON-GROUND LIDAR ACTOR ANALYSIS =====
+Non-ground actors: 3
+Non-ground points: 616
+
+Actor 83265: points=412, median_xyz=(7.130, -3.037, 0.150) m, min_A=2.925 m, min_B=3.876 m
+Actor 83181: points=200, median_xyz=(13.044, -2.853, -0.146) m, min_A=2.480 m, min_B=3.490 m
+Actor 83183: points=4, median_xyz=(15.294, 4.169, -0.000) m, min_A=7.072 m, min_B=8.494 m
+
+LIMITATIONS:
+Actor IDs are diagnostic Unreal hit IDs, not confirmed GT IDs.
+Distances use the provisional Task 14.4B transformation.
+Ground-like actor 83185 was excluded.
+No semantic object classification has been established.

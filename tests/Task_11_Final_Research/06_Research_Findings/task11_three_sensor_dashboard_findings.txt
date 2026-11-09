@@ -1,0 +1,16 @@
+TASK 11.8D - THREE-SENSOR DASHBOARD
+Frame: 150
+Camera timestamp: 4.902842 s
+LiDAR total points: 2044
+LiDAR candidate points: 206
+LiDAR clustered points: 190
+Radar reflections: 31
+Radar within 1 m: 9
+
+Research limitations:
+Frame numbers matched across three sensors.
+Timestamp agreement must be checked.
+Sensor coordinate convention remains provisional.
+LiDAR cluster is an elongated structure.
+Camera object detection not yet implemented.
+Object-level three-sensor fusion not yet confirmed.

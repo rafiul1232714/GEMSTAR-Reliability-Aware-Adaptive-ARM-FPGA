@@ -1,0 +1,9 @@
+TASK 11.8E.2 - CAMERA VEHICLE DETECTION
+Frame: 150
+Model: yolo11n.pt
+Device: cpu
+Vehicle detections: 0
+Wall-clock prediction time: 33.282 ms
+Model download and warm-up excluded.
+This is a single-run latency measurement.
+Camera detections are not yet associated with LiDAR/Radar.

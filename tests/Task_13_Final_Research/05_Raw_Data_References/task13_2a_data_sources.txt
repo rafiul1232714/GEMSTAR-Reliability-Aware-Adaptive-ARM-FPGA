@@ -1,0 +1,9 @@
+TASK 13.2A DATA SOURCES
+
+LiDAR: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_11_Final_Research\02_CSV_Data\task11_lidar_frame150_geometry.csv
+Radar: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_11_Final_Research\02_CSV_Data\task11_frame150_radar_cluster_association.csv
+
+Original GEMSTAR files:
+SimpleLidar.cpp
+SimpleRadar.cpp
+DefaultGemstar.ini

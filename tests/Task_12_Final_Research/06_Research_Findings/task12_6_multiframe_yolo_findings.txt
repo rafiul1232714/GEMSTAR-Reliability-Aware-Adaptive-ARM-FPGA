@@ -1,0 +1,18 @@
+TASK 12.6C - MULTI-FRAME YOLO VALIDATION
+Scenario: GEMSTAR MOR100
+Target GT ID: 76865
+Model: yolo11s.pt
+Device: cpu
+Confidence threshold: 0.05
+Frames processed: 8
+Frames with any vehicle detection: 7
+Frames with provisional GT-center overlap: 6
+
+IMPORTANT LIMITATIONS:
+GT center positions use provisional camera calibration.
+GT centers inside images do not guarantee actual visibility.
+A GT center inside a detection box is not proof of identity.
+No verified detection recall can be calculated yet.
+Image color ordering remains an implementation assumption.
+Single-run wall times are not controlled benchmarks.
+Frame 431 is a distant-object diagnostic.
