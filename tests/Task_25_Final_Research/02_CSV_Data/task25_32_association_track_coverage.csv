@@ -1,0 +1,5 @@
+﻿"Dataset","Rows","UniqueFrames","FirstFrame","LastFrame","UniqueTrackIDs","TrackIDs"
+"Radar_Returns","670","53","0","2121","3","1;2;7"
+"Radar_Tracks","81","53","0","2121","7","1;2;3;4;5;6;7"
+"LiDAR_Tracks","81","53","0","2121","7","1;2;3;4;5;6;7"
+"Camera_Bearing","1","1","530","530","1","2"

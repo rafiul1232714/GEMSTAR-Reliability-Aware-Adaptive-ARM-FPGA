@@ -1,0 +1,219 @@
+﻿
+======================================================================
+SCRIPT: C02_V2_Lidar_Temporal_Tracks_V1.py
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget\C02_V2_Lidar_Temporal_Tracks_V1.py
+======================================================================
+   4: from pathlib import Path
+   5: 
+   6: BASE = Path(
+   7:     r"E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget"
+   8: )
+   9: DIR = BASE / "C02_V2_EKF_Input_53Frames_V1"
+  10: 
+  11: MAX_MISSED_FRAMES = 2
+  20:         return list(csv.DictReader(f))
+  21: 
+  22: frames = read_csv(DIR / "selected_frames.csv")
+  23: clusters = read_csv(DIR / "lidar_cluster_candidates_v1.csv")
+  24: 
+  25: if len(frames) != 53:
+  26:     raise RuntimeError("Expected 53 frame records")
+  27: 
+ 204:     "last_x_m", "last_y_m", "classification"
+ 205: ]
+ 206: 
+ 207: with (DIR / "lidar_temporal_tracks_v1.csv").open(
+ 208:     "x", newline="", encoding="utf-8"
+ 209: ) as f:
+ 210:     writer = csv.DictWriter(f, fieldnames=track_fields)
+ 211:     writer.writeheader()
+ 212:     writer.writerows(observations)
+ 213: 
+ 214: with (DIR / "lidar_temporal_track_summary_v1.csv").open(
+ 215:     "x", newline="", encoding="utf-8"
+ 216: ) as f:
+ 217:     writer = csv.DictWriter(f, fieldnames=summary_fields)
+ 218:     writer.writeheader()
+ 259: 
+ 260: print("TRACK_IDS_FROM_GROUND_TRUTH=NO")
+ 261: print("CAMERA_USED_TO_SELECT_TRACKS=NO")
+ 262: print("MATCHING_METHOD=GREEDY_NEAREST_PREDICTED_POSITION")
+ 263: print("TRACK_VALIDATION_STATUS=PROVISIONAL")
+ 264: print("ORIGINAL_INPUTS_MODIFIED=NO")
+ 265: print("TASK24_09_03_TEMPORAL_ASSOCIATION_COMPLETE")
+
+======================================================================
+SCRIPT: C02_V2_Radar_Track_Association_V1.py
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget\C02_V2_Radar_Track_Association_V1.py
+======================================================================
+   5: from statistics import median
+   6: 
+   7: BASE = Path(
+   8:     r"E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget"
+   9: )
+  10: DIR = BASE / "C02_V2_EKF_Input_53Frames_V1"
+  11: 
+  12: GATE_M = 1.5
+  16:     with (DIR / name).open(newline="", encoding="utf-8-sig") as f:
+  17:         return list(csv.DictReader(f))
+  18: 
+  19: clusters = read_csv("lidar_cluster_candidates_v1.csv")
+  20: tracks = read_csv("lidar_temporal_tracks_v1.csv")
+  21: radar = read_csv("radar_returns.csv")
+  22: 
+  23: # Link each LiDAR cluster to its algorithm-generated temporal track.
+  24: cluster_to_track = {}
+  25: for row in tracks:
+  26:     key = (int(row["frame"]), int(row["local_cluster_id"]))
+  27:     if key in cluster_to_track:
+  66:         "time_s": box["time_s"],
+  67:         "track_id": box["track_id"],
+  68:         "local_cluster_id": cluster_id,
+  69:         "lidar_cluster_points": box["points"],
+  70:         "radar_matched_returns": 0,
+  71:         "radar_nonzero_doppler_matches": 0,
+  72:         "nearest_spatial_gap_m": None,
+  73:         "matched_raw_doppler_values": [],
+ 102:         unassigned += 1
+ 103:         continue
+ 104: 
+ 105:     # A single Radar return can support only one LiDAR cluster.
+ 106:     ranked = sorted(
+ 107:         (
+ 108:             box_distance(x, y, z, box),
+ 109:             box["track_id"],
+ 140:         "return_index": row["return_index"],
+ 141:         "track_id": track_id,
+ 142:         "local_cluster_id": cluster_id,
+ 143:         "radar_x_m": x,
+ 144:         "radar_y_m": y,
+ 145:         "radar_z_m": z,
+ 146:         "radar_range_m": row["range_m"],
+ 147:         "spatial_gap_to_box_m": round(distance, 6),
+ 161:         "time_s": item["time_s"],
+ 162:         "track_id": item["track_id"],
+ 163:         "local_cluster_id": item["local_cluster_id"],
+ 164:         "lidar_cluster_points": item["lidar_cluster_points"],
+ 165:         "radar_matched_returns": item["radar_matched_returns"],
+ 166:         "radar_nonzero_doppler_matches":
+ 167:             item["radar_nonzero_doppler_matches"],
+ 168:         "nearest_spatial_gap_m": (
+ 181: 
+ 182: match_fields = [
+ 183:     "frame", "time_s", "return_index", "track_id",
+ 184:     "local_cluster_id", "radar_x_m", "radar_y_m",
+ 185:     "radar_z_m", "radar_range_m",
+ 186:     "spatial_gap_to_box_m", "doppler_shift_raw",
+ 187:     "nonzero_doppler", "association_status"
+ 188: ]
+ 189: 
+ 190: summary_fields = [
+ 191:     "frame", "time_s", "track_id",
+ 192:     "local_cluster_id", "lidar_cluster_points",
+ 193:     "radar_matched_returns",
+ 194:     "radar_nonzero_doppler_matches",
+ 195:     "nearest_spatial_gap_m", "median_doppler_raw",
+ 196:     "doppler_unit_status", "association_status"
+ 239: 
+ 240:     print(
+ 241:         f"TRACK={tid} "
+ 242:         f"LIDAR_OBSERVATIONS={len(observations)} "
+ 243:         f"RADAR_SUPPORTED_FRAMES={matched_frames} "
+ 244:         f"NONZERO_DOPPLER_FRAMES={nonzero_frames} "
+ 245:         f"RADAR_MATCHES={total_matches}"
+ 246:     )
+ 265:         )
+ 266: 
+ 267: print("RADAR_GATE_M=", GATE_M)
+ 268: print("MATCHING_METHOD=NEAREST_LIDAR_3D_BOX")
+ 269: print("TRACK_ASSOCIATION_STATUS=PROVISIONAL")
+ 270: print("DOPPLER_UNITS_VERIFIED=NO")
+ 271: print("DOPPLER_CONVERTED_TO_MPS=NO")
+ 272: print("SIMULATOR_OBJECT_IDS_USED=NO")
+
+======================================================================
+SCRIPT: C02_V2_GT_Center_Comparison_V1.py
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget\C02_V2_GT_Center_Comparison_V1.py
+======================================================================
+   5: from pathlib import Path
+   6: from statistics import mean, median
+   7: 
+   8: from osi3.osi_sensorview_pb2 import SensorView
+   9: from osi3.osi_groundtruth_pb2 import GroundTruth
+  10: 
+  11: sv_path = Path(sys.argv[1])
+  12: gt_path = Path(sys.argv[2])
+  65: 
+  66:     return result
+  67: 
+  68: sv_data = read_selected(sv_path, SensorView)
+  69: gt_data = read_selected(gt_path, GroundTruth)
+  70: 
+  71: results = []
+  72: skipped = []
+ 100:         skipped.append((frame, "HOST_OR_TARGET_UNAVAILABLE"))
+ 101:         continue
+ 102: 
+ 103:     ego = host[0].base
+ 104: 
+ 105:     # Ensure duplicated ego observations agree within this frame.
+ 106:     if not all(
+ 107:         abs(h.base.position.x - ego.position.x) < 1e-6
+ 108:         and abs(h.base.position.y - ego.position.y) < 1e-6
+ 109:         and abs(h.base.orientation.yaw - ego.orientation.yaw) < 1e-6
+ 110:         for h in host
+ 111:     ):
+ 112:         raise RuntimeError(f"Inconsistent ego pose: frame {frame}")
+ 113: 
+ 114:     p = target[0].base.position
+ 115:     dx = p.x - ego.position.x
+ 116:     dy = p.y - ego.position.y
+ 117:     yaw = ego.orientation.yaw
+ 118: 
+ 119:     gx = math.cos(yaw) * dx + math.sin(yaw) * dy
+ 120:     gy = -math.sin(yaw) * dx + math.cos(yaw) * dy
+ 121: 
+
+======================================================================
+SCRIPT: C02_V2_GT_Surface_Offset_Diagnostic_V1.py
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget\C02_V2_GT_Surface_Offset_Diagnostic_V1.py
+======================================================================
+  18:     comparisons = list(csv.DictReader(f))
+  19: 
+  20: if len(comparisons) != 23:
+  21:     raise RuntimeError("Expected 23 GT center-reference rows")
+  22: 
+  23: by_frame = {int(r["frame"]): r for r in comparisons}
+  24: if len(by_frame) != len(comparisons):
+  25:     raise RuntimeError("Duplicate comparison frame")
+  75: 
+  76:     length = float(dimensions.length)
+  77:     width = float(dimensions.width)
+  78:     target_yaw = float(obj.base.orientation.yaw)
+  79:     ego_yaw = float(r["ego_yaw_rad"])
+  80: 
+  81:     if not (
+  82:         math.isfinite(length)
+  83:         and math.isfinite(width)
+  87:         missing_dimensions.append(frame)
+  88:         continue
+  89: 
+  90:     relative_yaw = math.atan2(
+  91:         math.sin(target_yaw - ego_yaw),
+  92:         math.cos(target_yaw - ego_yaw)
+  93:     )
+  94: 
+  95:     gt_x = float(r["gt_center_x_ego_m"])
+  96:     gt_y = float(r["gt_center_y_ego_m"])
+  97: 
+  98:     # Rear-face center, assuming object length is along its
+  99:     # longitudinal heading. This is an approximation only.
+ 100:     rear_x = gt_x - 0.5 * length * math.cos(relative_yaw)
+ 101:     rear_y = gt_y - 0.5 * length * math.sin(relative_yaw)
+ 102: 
+ 103:     # The facing direction matters: rear face may not be
+ 104:     # the actual LiDAR-visible surface in every frame.
+ 105:     estimator_positions = {
+ 106:         name: (
+ 107:             gt_x + float(r[f"{name}_x_error_m"]),
+ 108:             gt_y + float(r[f"{name}_y_error_m"])

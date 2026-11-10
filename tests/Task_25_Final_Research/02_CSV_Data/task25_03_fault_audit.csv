@@ -1,0 +1,8 @@
+﻿"Scenario","Samples","LiDAR_Dropped","Radar_Accepted","Radar_Rejected","Camera_Accepted","Camera_Rejected"
+"baseline","24","0","4","0","1","0"
+"radar_dropout","24","0","0","0","1","0"
+"camera_dropout","24","0","4","0","0","0"
+"lidar_every4_dropout","24","5","4","0","1","0"
+"radar_bias_6mps","24","0","1","3","1","0"
+"camera_bias_0p20rad","24","0","4","0","0","1"
+"joint_dropout","24","4","4","0","0","0"

@@ -1,0 +1,200 @@
+﻿
+================================================
+FILE: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget\C02_NoVisualizer_Test_V2.ini
+SHA256: 1982F8C80901BB7C90EBB5B4808E999EEDE0FC41F98AB24B523C729948728290
+================================================
+  14: ;Debug=true
+  15: 
+  16: Mount=SensorPlatform_1
+  17: 
+  18: ; Position in centimeters
+  19: MountingPositionX=70
+  20: MountingPositionY=0
+  21: MountingPositionZ=160
+  22: 
+  23: ; Orientation in degrees
+  24: MountingOrientationRoll=0
+  25: MountingOrientationPitch=0
+  26: MountingOrientationYaw=0
+  27: 
+  28: ; Reduced resolution for testing
+  64: ;Debug=true
+  65: 
+  66: Mount=SensorPlatform_1
+  67: 
+  68: MountingPositionX=260
+  69: MountingPositionY=0
+  70: MountingPositionZ=70
+  71: 
+  72: MountingOrientationRoll=0
+  73: MountingOrientationPitch=0
+  74: MountingOrientationYaw=0
+  75: 
+  76: FoVHorizontal=90
+ 102: ;OmegaPrime=true
+ 103: 
+ 104: ; Record Camera, LiDAR and Radar
+ 105: Input=[ue_camera_feature:sensor1,ue_lidar_feature:sensor1,ue_radar_feature:sensor1]
+ 106: 
+ 118: ;Debug=true
+ 119: 
+ 120: ; Mount Radar on the same moving vehicle
+ 121: Mount=SensorPlatform_1
+ 122: 
+ 123: ; Radar mounting position in centimeters
+ 124: MountingPositionX=200
+ 125: MountingPositionY=0
+ 126: MountingPositionZ=80
+ 127: 
+ 128: ; Forward-facing orientation
+ 129: MountingOrientationRoll=0
+ 130: MountingOrientationPitch=0
+ 131: MountingOrientationYaw=0
+ 132: 
+ 133: ; Radar ray configuration
+ 134: NumberOfRaysHorizontal=10
+ 135: NumberOfRaysVertical=10
+ 164: VehicleDataConfiguration="VehicleDataConfig.json"
+ 165: 
+ 166: ; Mount three sensors on vehicle 0
+ 167: SensorPlatform_1=0
+ 168: 
+ 209: PrecipitationIntensity=0.0
+ 210: 
+ 211: ; LiDAR weather model
+ 212: LidarCoefficient=1.0
+ 213: ReflectivityThreshold=10.0
+ 214: 
+
+================================================
+FILE: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget\C02_Gemstar_Launch.ini
+SHA256: 316BCD2BFB31419890E3DD134F264BBA39FF1C47094B0A614313085083F3BE6F
+================================================
+  14: ;Debug=true
+  15: 
+  16: Mount=SensorPlatform_1
+  17: 
+  18: ; Position in centimeters
+  19: MountingPositionX=70
+  20: MountingPositionY=0
+  21: MountingPositionZ=160
+  22: 
+  23: ; Orientation in degrees
+  24: MountingOrientationRoll=0
+  25: MountingOrientationPitch=0
+  26: MountingOrientationYaw=0
+  27: 
+  28: ; Reduced resolution for testing
+  64: ;Debug=true
+  65: 
+  66: Mount=SensorPlatform_1
+  67: 
+  68: MountingPositionX=260
+  69: MountingPositionY=0
+  70: MountingPositionZ=70
+  71: 
+  72: MountingOrientationRoll=0
+  73: MountingOrientationPitch=0
+  74: MountingOrientationYaw=0
+  75: 
+  76: FoVHorizontal=90
+ 102: ;OmegaPrime=true
+ 103: 
+ 104: ; Record Camera, LiDAR and Radar
+ 105: Input=[ue_camera_feature:sensor1,ue_lidar_feature:sensor1,ue_radar_feature:sensor1]
+ 106: 
+ 118: ;Debug=true
+ 119: 
+ 120: ; Mount Radar on the same moving vehicle
+ 121: Mount=SensorPlatform_1
+ 122: 
+ 123: ; Radar mounting position in centimeters
+ 124: MountingPositionX=200
+ 125: MountingPositionY=0
+ 126: MountingPositionZ=80
+ 127: 
+ 128: ; Forward-facing orientation
+ 129: MountingOrientationRoll=0
+ 130: MountingOrientationPitch=0
+ 131: MountingOrientationYaw=0
+ 132: 
+ 133: ; Radar ray configuration
+ 134: NumberOfRaysHorizontal=10
+ 135: NumberOfRaysVertical=10
+ 164: VehicleDataConfiguration="VehicleDataConfig.json"
+ 165: 
+ 166: ; Mount three sensors on vehicle 0
+ 167: SensorPlatform_1=0
+ 168: 
+ 222: PrecipitationIntensity=0.0
+ 223: 
+ 224: ; LiDAR weather model
+ 225: LidarCoefficient=1.0
+ 226: ReflectivityThreshold=10.0
+ 227: 
+
+================================================
+FILE: E:\GEMSTAR_Project\gemstar\Simulation\DefaultGemstar.ini
+SHA256: 2B8B50BA3B0858A6681A6339D272D6024DA71C5AF54CBD4F8B14FDB2D5EF9EB7
+================================================
+  14: ;Debug=true
+  15: 
+  16: Mount=SensorPlatform_1
+  17: 
+  18: ; Position in centimeters
+  19: MountingPositionX=70
+  20: MountingPositionY=0
+  21: MountingPositionZ=160
+  22: 
+  23: ; Orientation in degrees
+  24: MountingOrientationRoll=0
+  25: MountingOrientationPitch=0
+  26: MountingOrientationYaw=0
+  27: 
+  28: ; Reduced resolution for testing
+  64: ;Debug=true
+  65: 
+  66: Mount=SensorPlatform_1
+  67: 
+  68: MountingPositionX=260
+  69: MountingPositionY=0
+  70: MountingPositionZ=70
+  71: 
+  72: MountingOrientationRoll=0
+  73: MountingOrientationPitch=0
+  74: MountingOrientationYaw=0
+  75: 
+  76: FoVHorizontal=90
+ 102: ;OmegaPrime=true
+ 103: 
+ 104: ; Record Camera, LiDAR and Radar
+ 105: Input=[ue_camera_feature:sensor1,ue_lidar_feature:sensor1,ue_radar_feature:sensor1]
+ 106: 
+ 118: ;Debug=true
+ 119: 
+ 120: ; Mount Radar on the same moving vehicle
+ 121: Mount=SensorPlatform_1
+ 122: 
+ 123: ; Radar mounting position in centimeters
+ 124: MountingPositionX=200
+ 125: MountingPositionY=0
+ 126: MountingPositionZ=80
+ 127: 
+ 128: ; Forward-facing orientation
+ 129: MountingOrientationRoll=0
+ 130: MountingOrientationPitch=0
+ 131: MountingOrientationYaw=0
+ 132: 
+ 133: ; Radar ray configuration
+ 134: NumberOfRaysHorizontal=10
+ 135: NumberOfRaysVertical=10
+ 164: VehicleDataConfiguration="VehicleDataConfig.json"
+ 165: 
+ 166: ; Mount three sensors on vehicle 0
+ 167: SensorPlatform_1=0
+ 168: 
+ 222: PrecipitationIntensity=0.0
+ 223: 
+ 224: ; LiDAR weather model
+ 225: LidarCoefficient=1.0
+ 226: ReflectivityThreshold=10.0

@@ -1,0 +1,135 @@
+﻿
+================================================
+SCRIPT: C02_V2_Lidar_Temporal_Tracks_V1.py
+================================================
+  16: MIN_TRACK_OBSERVATIONS = 3
+  17: 
+  18: def read_csv(path):
+  19:     with path.open(newline="", encoding="utf-8-sig") as f:
+  20:         return list(csv.DictReader(f))
+  21: 
+  45:         "cluster": int(r["local_cluster_id"]),
+  46:         "n": int(r["point_count"]),
+  47:         "x": float(r["median_x_m"]),
+  48:         "y": float(r["median_y_m"]),
+  49:         "z": float(r["median_z_m"])
+  50:     })
+  51: 
+ 141:             "local_cluster_id": c["cluster"],
+ 142:             "point_count": c["n"],
+ 143:             "x_m": c["x"],
+ 144:             "y_m": c["y"],
+ 145:             "z_m": c["z"],
+ 146:             "association_distance_m": (
+ 147:                 round(distance, 5)
+ 185:             if duration > 0 else ""
+ 186:         ),
+ 187:         "first_x_m": first["x"],
+ 188:         "first_y_m": first["y"],
+ 189:         "last_x_m": last["x"],
+ 190:         "last_y_m": last["y"],
+ 191:         "classification": track_status
+ 192:     })
+ 193: 
+ 194: track_fields = [
+ 195:     "track_id", "frame", "time_s", "local_cluster_id",
+ 196:     "point_count", "x_m", "y_m", "z_m",
+ 197:     "association_distance_m", "status"
+ 198: ]
+ 199: 
+ 201:     "track_id", "observations", "first_frame", "last_frame",
+ 202:     "duration_s", "net_displacement_m",
+ 203:     "average_net_speed_mps", "first_x_m", "first_y_m",
+ 204:     "last_x_m", "last_y_m", "classification"
+ 205: ]
+ 206: 
+ 207: with (DIR / "lidar_temporal_tracks_v1.csv").open(
+ 252:             "POINTS=", r["point_count"],
+ 253:             "XYZ=", (
+ 254:                 round(r["x_m"], 3),
+ 255:                 round(r["y_m"], 3),
+ 256:                 round(r["z_m"], 3)
+ 257:             )
+ 258:         )
+
+================================================
+SCRIPT: C02_V2_Radar_Track_Association_V1.py
+================================================
+  13: DOPPLER_EPS = 1e-9
+  14: 
+  15: def read_csv(name):
+  16:     with (DIR / name).open(newline="", encoding="utf-8-sig") as f:
+  17:         return list(csv.DictReader(f))
+  18: 
+  46:         "time_s": float(row["time_s"]),
+  47:         "points": int(row["point_count"]),
+  48:         "xmin": float(row["min_x_m"]),
+  49:         "xmax": float(row["max_x_m"]),
+  50:         "ymin": float(row["min_y_m"]),
+  51:         "ymax": float(row["max_y_m"]),
+  52:         "zmin": float(row["min_z_m"]),
+  53:         "zmax": float(row["max_z_m"]),
+  54:     }
+  74:     }
+  75: 
+  76: def box_distance(x, y, z, box):
+  77:     dx = max(box["xmin"] - x, 0.0, x - box["xmax"])
+  78:     dy = max(box["ymin"] - y, 0.0, y - box["ymax"])
+  79:     dz = max(box["zmin"] - z, 0.0, z - box["zmax"])
+ 141:         "track_id": track_id,
+ 142:         "local_cluster_id": cluster_id,
+ 143:         "radar_x_m": x,
+ 144:         "radar_y_m": y,
+ 145:         "radar_z_m": z,
+ 146:         "radar_range_m": row["range_m"],
+ 147:         "spatial_gap_to_box_m": round(distance, 6),
+ 148:         "doppler_shift_raw": doppler,
+ 149:         "nonzero_doppler": int(abs(doppler) > DOPPLER_EPS),
+ 150:         "association_status": "PROVISIONAL_BOX_GATE"
+ 182: match_fields = [
+ 183:     "frame", "time_s", "return_index", "track_id",
+ 184:     "local_cluster_id", "radar_x_m", "radar_y_m",
+ 185:     "radar_z_m", "radar_range_m",
+ 186:     "spatial_gap_to_box_m", "doppler_shift_raw",
+ 187:     "nonzero_doppler", "association_status"
+ 188: ]
+ 189: 
+
+================================================
+SCRIPT: C02_V2_GT_Surface_Offset_Diagnostic_V1.py
+================================================
+  76:     length = float(dimensions.length)
+  77:     width = float(dimensions.width)
+  78:     target_yaw = float(obj.base.orientation.yaw)
+  79:     ego_yaw = float(r["ego_yaw_rad"])
+  80: 
+  81:     if not (
+  89: 
+  90:     relative_yaw = math.atan2(
+  91:         math.sin(target_yaw - ego_yaw),
+  92:         math.cos(target_yaw - ego_yaw)
+  93:     )
+  94: 
+  95:     gt_x = float(r["gt_center_x_ego_m"])
+  98:     # Rear-face center, assuming object length is along its
+  99:     # longitudinal heading. This is an approximation only.
+ 100:     rear_x = gt_x - 0.5 * length * math.cos(relative_yaw)
+ 101:     rear_y = gt_y - 0.5 * length * math.sin(relative_yaw)
+ 102: 
+ 103:     # The facing direction matters: rear face may not be
+ 104:     # the actual LiDAR-visible surface in every frame.
+ 117:         "gt_width_m": width,
+ 118:         "relative_yaw_deg": math.degrees(relative_yaw),
+ 119:         "gt_center_x_m": gt_x,
+ 120:         "gt_center_y_m": gt_y,
+ 121:         "approx_rear_face_x_m": rear_x,
+ 122:         "approx_rear_face_y_m": rear_y,
+ 123:         "reference_type": "APPROXIMATE_GT_REAR_FACE",
+ 124:     }
+ 125: 
+ 136: if not results:
+ 137:     raise RuntimeError(
+ 138:         "GT target dimensions unavailable; cannot test offset"
+ 139:     )
+ 140: 
+ 141: with output_path.open("x", newline="", encoding="utf-8") as f:

@@ -1,0 +1,20 @@
+﻿TASK 25.2 SENSOR HEALTH VALIDATION
+Recording: C02 V2
+Frames: 2122
+Frame and timestamp alignment: PASS
+Payload classification: PASS
+Unchanged duration calculations: PASS
+Acquisition age independently verified: NO
+Sensor failure root cause identified: NO
+
+Camera NEW=2121 REPEATED=0
+LiDAR NEW=633 REPEATED=1488
+Radar NEW=286 REPEATED=1835
+
+LIMITATIONS:
+Repeated payloads do not independently prove stale acquisition.
+Sensor update rates and acquisition timestamps remain unverified.
+Camera image changes do not independently prove perceptual quality.
+No hardware energy saving is established by these diagnostics.
+
+TASK25_02_06A_PASS

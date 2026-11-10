@@ -1,0 +1,194 @@
+﻿==================================================
+Configuration and source definitions
+==================================================
+   1: import csv
+   2: import math
+   3: import struct
+   4: from pathlib import Path
+   5: from osi3.osi_sensorview_pb2 import SensorView
+   6: 
+   7: BASE = Path(
+   8:     r"E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget"
+   9: )
+  10: 
+  11: OSI = Path(
+  12:     r"E:\GEMSTAR_Project\gemstar\Output\20261108T211139Z_sv_380_X_2122_GEMSTAR.osi"
+  13: )
+  14: 
+  15: OUT = BASE / "C02_V2_EKF_Input_53Frames_V1"
+  16: 
+  17: TOTAL_FRAMES = 2122
+  18: SAMPLE_COUNT = 53
+  19: C = 299792458.0
+  20: 
+  21: selected = [
+  22:     round(k * (TOTAL_FRAMES - 1) / (SAMPLE_COUNT - 1))
+  23:     for k in range(SAMPLE_COUNT)
+  24: ]
+  25: 
+  26: assert len(selected) == 53
+  27: assert len(set(selected)) == 53
+  28: assert selected[0] == 0
+  29: assert selected[-1] == 2121
+  30: assert 530 in selected
+  31: 
+  32: OUT.mkdir(parents=False, exist_ok=False)
+  33: 
+  34: summary_path = OUT / "selected_frames.csv"
+  35: lidar_path = OUT / "lidar_points.csv"
+  36: radar_path = OUT / "radar_returns.csv"
+  37: 
+  38: summary_fields = [
+  39:     "frame", "time_s", "lidar_valid_points",
+  40:     "radar_valid_returns", "radar_nonzero_doppler_returns",
+  41:     "camera_payload_present"
+  42: ]
+  43: 
+  44: lidar_fields = [
+  45:     "frame", "time_s", "ray_index", "range_m",
+  46:     "x_vehicle_m", "y_vehicle_m", "z_vehicle_m",
+  47:     "signal_strength"
+  48: ]
+  49: 
+  50: radar_fields = [
+  51:     "frame", "time_s", "return_index", "range_m",
+  52:     "x_vehicle_m", "y_vehicle_m", "z_vehicle_m",
+  53:     "horizontal_angle_rad", "vertical_angle_rad",
+  54:     "doppler_shift_raw", "signal_strength"
+  55: ]
+  56: 
+  57: total_lidar = 0
+  58: total_radar = 0
+  59: total_nonzero = 0
+  60: 
+  61: with (
+  62:     OSI.open("rb") as source,
+  63:     summary_path.open("x", newline="", encoding="utf-8") as sf,
+  64:     lidar_path.open("x", newline="", encoding="utf-8") as lf,
+  65:     radar_path.open("x", newline="", encoding="utf-8") as rf
+
+==================================================
+Measurement extraction and coordinate calculations
+==================================================
+  90:             continue
+  91: 
+  92:         payload = source.read(size)
+  93: 
+  94:         if len(payload) != size:
+  95:             raise RuntimeError(f"Incomplete OSI frame {frame}")
+  96: 
+  97:         sv = SensorView()
+  98:         sv.ParseFromString(payload)
+  99: 
+ 100:         if len(sv.lidar_sensor_view) != 1:
+ 101:             raise RuntimeError(f"Unexpected LiDAR count: {frame}")
+ 102: 
+ 103:         if len(sv.radar_sensor_view) != 1:
+ 104:             raise RuntimeError(f"Unexpected Radar count: {frame}")
+ 105: 
+ 106:         time_s = (
+ 107:             sv.timestamp.seconds +
+ 108:             sv.timestamp.nanos * 1e-9
+ 109:         )
+ 110: 
+ 111:         lidar = sv.lidar_sensor_view[0]
+ 112:         radar = sv.radar_sensor_view[0]
+ 113: 
+ 114:         cfg = lidar.view_configuration
+ 115: 
+ 116:         nh = int(cfg.number_of_rays_horizontal)
+ 117:         nv = int(cfg.number_of_rays_vertical)
+ 118: 
+ 119:         if (nh, nv) != (251, 21):
+ 120:             raise RuntimeError(f"LiDAR grid changed at frame {frame}")
+ 121: 
+ 122:         if len(lidar.reflection) != nh * nv:
+ 123:             raise RuntimeError(f"LiDAR ray count mismatch: {frame}")
+ 124: 
+ 125:         lidar_count = 0
+ 126:         radar_count = 0
+ 127:         nonzero_count = 0
+ 128: 
+ 129:         for i, ref in enumerate(lidar.reflection):
+ 130:             tof = float(ref.time_of_flight)
+ 131: 
+ 132:             if not math.isfinite(tof) or tof <= 0:
+ 133:                 continue
+ 134: 
+ 135:             distance = C * tof / 2
+ 136: 
+ 137:             if not math.isfinite(distance) or distance <= 0.01:
+ 138:                 continue
+ 139: 
+ 140:             hi = i % nh
+ 141:             vi = i // nh
+ 142: 
+ 143:             yaw = (
+ 144:                 -cfg.field_of_view_horizontal / 2
+ 145:                 + hi * cfg.field_of_view_horizontal / (nh - 1)
+ 146:             )
+ 147: 
+ 148:             pitch = (
+ 149:                 -cfg.field_of_view_vertical / 2
+ 150:                 + vi * cfg.field_of_view_vertical / (nv - 1)
+ 151:             )
+ 152: 
+ 153:             sx = distance * math.cos(pitch) * math.cos(yaw)
+ 154:             sy = distance * math.cos(pitch) * math.sin(yaw)
+ 155:             sz = distance * math.sin(pitch)
+ 156: 
+ 157:             x = 2.6 + sx
+ 158:             y = -sy
+ 159:             z = 0.7 + sz
+ 160: 
+ 161:             lw.writerow({
+ 162:                 "frame": frame,
+ 163:                 "time_s": time_s,
+ 164:                 "ray_index": i,
+ 165:                 "range_m": distance,
+ 166:                 "x_vehicle_m": x,
+ 167:                 "y_vehicle_m": y,
+ 168:                 "z_vehicle_m": z,
+ 169:                 "signal_strength": ref.signal_strength
+ 170:             })
+ 171: 
+ 172:             lidar_count += 1
+ 173: 
+ 174:         for i, ref in enumerate(radar.reflection):
+ 175:             tof = float(ref.time_of_flight)
+
+==================================================
+Radar and LiDAR CSV assignments
+==================================================
+ 185: 
+ 186:             if not all(
+ 187:                 math.isfinite(v)
+ 188:                 for v in (distance, yaw, pitch, doppler)
+ 189:             ):
+ 190:                 continue
+ 191: 
+ 192:             if distance <= 0.01:
+ 193:                 continue
+ 194: 
+ 195:             x = (
+ 196:                 2.0
+ 197:                 + distance * math.cos(pitch) * math.cos(yaw)
+ 198:             )
+ 199:             y = (
+ 200:                 -distance * math.cos(pitch) * math.sin(yaw)
+ 201:             )
+ 202:             z = 0.8 + distance * math.sin(pitch)
+ 203: 
+ 204:             rw.writerow({
+ 205:                 "frame": frame,
+ 206:                 "time_s": time_s,
+ 207:                 "return_index": i,
+ 208:                 "range_m": distance,
+ 209:                 "x_vehicle_m": x,
+ 210:                 "y_vehicle_m": y,
+ 211:                 "z_vehicle_m": z,
+ 212:                 "horizontal_angle_rad": yaw,
+ 213:                 "vertical_angle_rad": pitch,
+ 214:                 "doppler_shift_raw": doppler,
+ 215:                 "signal_strength": ref.signal_strength
+

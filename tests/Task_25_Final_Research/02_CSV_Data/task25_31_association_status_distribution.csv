@@ -1,0 +1,7 @@
+﻿"Dataset","Status","Count"
+"Radar_Returns","PROVISIONAL_BOX_GATE","670"
+"Radar_Tracks","PROVISIONAL_RADAR_SPATIAL_MATCH","65"
+"Radar_Tracks","NO_RADAR_SPATIAL_MATCH","16"
+"LiDAR_Tracks","INITIALIZED","7"
+"LiDAR_Tracks","MATCHED","74"
+"Camera_Bearing","BEARING_GEOMETRICALLY_COMPATIBLE_NOT_CALIBRATED","1"

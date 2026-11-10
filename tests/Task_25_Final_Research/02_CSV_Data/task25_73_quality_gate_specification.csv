@@ -1,0 +1,7 @@
+﻿"GateID","Requirement","Metric","Limit","Evidence","Authorization"
+"G01","GT_CENTER_ACCURACY","GT center position error","UNSET","HISTORICAL_MEASUREMENTS_AVAILABLE","UNVERIFIED"
+"G02","VALID_OUTPUT_COVERAGE","GT matched and authorized output coverage","UNSET","NOT_VALIDATED","UNVERIFIED"
+"G03","ASSOCIATION_INTEGRITY","Correct object association","UNSET","PROVISIONAL_ASSOCIATION","UNVERIFIED"
+"G04","UNCERTAINTY_CONSISTENCY","Residual and covariance consistency","UNSET","NOT_CALIBRATED","UNVERIFIED"
+"G05","P99_PROCESSING_LATENCY","99th percentile end-to-end latency in ms","UNSET","NOT_MEASURED_IN_REPLAY","UNVERIFIED"
+"G06","OVERALL_VALID_RESULT","All applicable hard quality gates passed","ALL_REQUIRED_GATES_PASS","INSUFFICIENT","UNVERIFIED"
