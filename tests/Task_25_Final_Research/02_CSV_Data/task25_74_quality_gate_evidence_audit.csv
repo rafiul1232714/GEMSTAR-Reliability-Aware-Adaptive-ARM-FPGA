@@ -1,0 +1,7 @@
+﻿"GateID","Gate","EvidenceState","SupportingEvidence","MissingRequirement","Authorization"
+"G01","GT_CENTER_ACCURACY","EVIDENCE_AVAILABLE_THRESHOLD_UNSET","7 scenario summaries; 23 GT evaluations per scenario","Prespecified metric-specific error limit; valid center reference","UNVERIFIED"
+"G02","VALID_OUTPUT_COVERAGE","PARTIAL_EVIDENCE","168 fallback decisions; 9 hold; 159 provisional","Independent validity decisions; coverage denominator and minimum","UNVERIFIED"
+"G03","ASSOCIATION_INTEGRITY","PARTIAL_EVIDENCE","162 association records; 65 provisional Radar spatial matches","Independent target identity validation and acceptance criteria","UNVERIFIED"
+"G04","UNCERTAINTY_CONSISTENCY","PARTIAL_EVIDENCE","23 residual audits; 4 accepted finite Radar NIS","Calibrated covariance evidence and prespecified consistency tests","UNVERIFIED"
+"G05","P99_PROCESSING_LATENCY","NOT_MEASURED","No per-sample end-to-end latency in current replay input","Matched latency measurements and prespecified p99 deadline","UNVERIFIED"
+"G06","OVERALL_VALID_RESULT","INSUFFICIENT_FOR_AUTHORIZATION","G01-G05 cannot establish all required gate passes","All applicable hard gates independently satisfied","UNVERIFIED"

@@ -1,0 +1,18 @@
+TASK 25.3D - MATLAB FAULT ANALYSIS
+Seven controlled fault scenarios
+
+baseline: GT_N=23, Mean=1.628200, RMSE=1.640300, Max=1.816200
+radar_dropout: GT_N=23, Mean=1.650400, RMSE=1.663600, Max=1.896000
+camera_dropout: GT_N=23, Mean=1.628200, RMSE=1.640300, Max=1.816200
+lidar_every4_dropout: GT_N=23, Mean=1.618100, RMSE=1.632300, Max=1.816900
+radar_bias_6mps: GT_N=23, Mean=1.625600, RMSE=1.645500, Max=1.896000
+camera_bias_0p20rad: GT_N=23, Mean=1.628200, RMSE=1.640300, Max=1.816200
+joint_dropout: GT_N=23, Mean=1.601900, RMSE=1.613300, Max=1.774400
+
+RESEARCH LIMITATIONS:
+Matched frames are not independent trials.
+Small error differences do not prove improvement.
+GT-center reference geometry has known limitations.
+Sensor association remains partly provisional.
+No measured ARM-FPGA energy results exist yet.
+TASK25_03D_MATLAB_PASS

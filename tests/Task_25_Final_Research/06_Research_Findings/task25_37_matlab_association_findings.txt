@@ -1,0 +1,18 @@
+TASK 25.4D - ASSOCIATION RELIABILITY
+
+Radar matched records: 65
+Radar no-match records: 16
+Radar mean spatial gap: 0.044080000 m
+Radar max spatial gap: 0.879610000 m
+
+LiDAR matched records: 74
+LiDAR initialized records: 7
+LiDAR mean temporal distance: 0.094688378 m
+LiDAR max temporal distance: 1.045800000 m
+
+INTERPRETATION LIMITATIONS
+These two distances have different definitions.
+Radar zero box gap does not prove correct identity.
+Provisional associations are not GT-confirmed matches.
+Selected frames are not independent experiments.
+TASK25_04D_MATLAB_PASS

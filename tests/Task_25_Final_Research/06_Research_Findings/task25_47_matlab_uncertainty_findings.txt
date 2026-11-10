@@ -1,0 +1,20 @@
+TASK 25.5H - EKF UNCERTAINTY DIAGNOSTICS
+
+Valid Radar NIS: 4 of 24 observations
+GT X residual observations: 23
+LiDAR mean signed X residual: -1.623516522 m
+Radar mean signed X residual: -1.601277826 m
+LiDAR mean reported sigma X: 0.555642174 m
+Radar mean reported sigma X: 0.552602174 m
+LiDAR |residual| > sigma: 23 of 23
+Radar |residual| > sigma: 23 of 23
+
+LIMITATIONS
+NIS has only four accepted Radar measurements.
+NIS gate threshold was not independently verified.
+GT-center versus sensed-surface geometry may create bias.
+One trajectory does not establish statistical calibration.
+X residual divided by sigma is not full-state NEES.
+No full covariance matrix was established.
+No original measurements were bias-corrected.
+TASK25_05H_MATLAB_PASS

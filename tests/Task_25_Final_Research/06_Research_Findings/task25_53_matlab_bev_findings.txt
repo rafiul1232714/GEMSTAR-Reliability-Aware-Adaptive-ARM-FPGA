@@ -1,0 +1,19 @@
+TASK 25.6D - PROVISIONAL GEMSTAR BEV
+Coordinate frames not independently verified.
+
+GT centers: 3
+LiDAR records: 6
+Radar returns: 50
+
+Frame 41: Longitudinal=-1.725100 m, Lateral=0.013846 m, Separation=1.725100 m, HalfLength=1.082900 m
+Frame 530: Longitudinal=-1.698000 m, Lateral=-0.020617 m, Separation=1.698200 m, HalfLength=1.082500 m
+Frame 816: Longitudinal=-1.368700 m, Lateral=0.538390 m, Separation=1.470800 m, HalfLength=0.940630 m
+
+LIMITATIONS
+LiDAR and Radar XY reference frames remain unverified.
+The plotted lines do not prove object identity.
+Radar returns may include repeated payloads.
+GT vehicle yaw convention is not independently verified.
+Vehicle dimensions alone do not explain all offsets.
+No extrinsic correction or bias subtraction was applied.
+TASK25_06D_MATLAB_BEV_PASS

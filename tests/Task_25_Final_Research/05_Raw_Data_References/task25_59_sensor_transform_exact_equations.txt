@@ -1,0 +1,83 @@
+﻿TASK 25.6E.8 - SENSOR TRANSFORMATION SOURCE
+Original source: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget\C02_V2_Extract_EKF_Measurements_V1.py
+
+=== LIDAR TRANSFORM ===
+ 135:             distance = C * tof / 2
+ 136: 
+ 137:             if not math.isfinite(distance) or distance <= 0.01:
+ 138:                 continue
+ 139: 
+ 140:             hi = i % nh
+ 141:             vi = i // nh
+ 142: 
+ 143:             yaw = (
+ 144:                 -cfg.field_of_view_horizontal / 2
+ 145:                 + hi * cfg.field_of_view_horizontal / (nh - 1)
+ 146:             )
+ 147: 
+ 148:             pitch = (
+ 149:                 -cfg.field_of_view_vertical / 2
+ 150:                 + vi * cfg.field_of_view_vertical / (nv - 1)
+ 151:             )
+ 152: 
+ 153:             sx = distance * math.cos(pitch) * math.cos(yaw)
+ 154:             sy = distance * math.cos(pitch) * math.sin(yaw)
+ 155:             sz = distance * math.sin(pitch)
+ 156: 
+ 157:             x = 2.6 + sx
+ 158:             y = -sy
+ 159:             z = 0.7 + sz
+ 160: 
+ 161:             lw.writerow({
+ 162:                 "frame": frame,
+ 163:                 "time_s": time_s,
+ 164:                 "ray_index": i,
+ 165:                 "range_m": distance,
+ 166:                 "x_vehicle_m": x,
+ 167:                 "y_vehicle_m": y,
+ 168:                 "z_vehicle_m": z,
+ 169:                 "signal_strength": ref.signal_strength
+ 170:             })
+ 171: 
+ 172:             lidar_count += 1
+ 173: 
+ 174:         for i, ref in enumerate(radar.reflection):
+ 175:             tof = float(ref.time_of_flight)
+
+=== RADAR TRANSFORM ===
+ 180:             distance = C * tof / 2
+ 181: 
+ 182:             yaw = float(ref.source_horizontal_angle)
+ 183:             pitch = float(ref.source_vertical_angle)
+ 184:             doppler = float(ref.doppler_shift)
+ 185: 
+ 186:             if not all(
+ 187:                 math.isfinite(v)
+ 188:                 for v in (distance, yaw, pitch, doppler)
+ 189:             ):
+ 190:                 continue
+ 191: 
+ 192:             if distance <= 0.01:
+ 193:                 continue
+ 194: 
+ 195:             x = (
+ 196:                 2.0
+ 197:                 + distance * math.cos(pitch) * math.cos(yaw)
+ 198:             )
+ 199:             y = (
+ 200:                 -distance * math.cos(pitch) * math.sin(yaw)
+ 201:             )
+ 202:             z = 0.8 + distance * math.sin(pitch)
+ 203: 
+ 204:             rw.writerow({
+ 205:                 "frame": frame,
+ 206:                 "time_s": time_s,
+ 207:                 "return_index": i,
+ 208:                 "range_m": distance,
+ 209:                 "x_vehicle_m": x,
+ 210:                 "y_vehicle_m": y,
+ 211:                 "z_vehicle_m": z,
+ 212:                 "horizontal_angle_rad": yaw,
+ 213:                 "vertical_angle_rad": pitch,
+ 214:                 "doppler_shift_raw": doppler,
+ 215:                 "signal_strength": ref.signal_strength

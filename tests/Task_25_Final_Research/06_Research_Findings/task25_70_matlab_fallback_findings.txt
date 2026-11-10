@@ -1,0 +1,12 @@
+TASK 25.7F - FALLBACK MATLAB FINDINGS
+SCENARIOS: 7
+REPLAY_SAMPLES: 168
+NORMAL_CANDIDATE: 143
+DEGRADED_CANDIDATE: 16
+HOLD_OR_ALERT: 9
+QUALITY_AUTHORIZATION: UNVERIFIED
+ENERGY_SAVINGS_CLAIMED: NO
+INTERPRETATION: Offline policy classifications only.
+NOTE: Replay scenarios are not independent recordings.
+NOTE: Repeated payload is not proven sensor failure.
+NOTE: Accuracy and latency limits are not validated.

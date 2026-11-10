@@ -1,0 +1,89 @@
+﻿
+===========================================
+DATASET: task25_20_c02_sensor_health_fullrate.csv
+ROWS: 2122
+COLUMNS: Frame, Timestamp_ns, Camera_Status, LiDAR_Status, Radar_Status, Camera_UnchangedDuration_ms, LiDAR_UnchangedDuration_ms, Radar_UnchangedDuration_ms, AcquisitionAgeKnown
+FIRST ROW:
+  Frame = 0
+  Timestamp_ns = 16666799
+  Camera_Status = FIRST_OBSERVATION
+  LiDAR_Status = FIRST_OBSERVATION
+  Radar_Status = FIRST_OBSERVATION
+  Camera_UnchangedDuration_ms = 0
+  LiDAR_UnchangedDuration_ms = 0
+  Radar_UnchangedDuration_ms = 0
+  AcquisitionAgeKnown = 0
+
+===========================================
+DATASET: task25_replay_samples.csv
+ROWS: 168
+COLUMNS: scenario, sample, frame, time_s, lidar_used, lidar_cluster_points, radar_status, radar_nis, camera_status, camera_nis, lidar_only_x_m, lidar_only_y_m, lidar_radar_x_m, lidar_radar_y_m, fusion_x_m, fusion_y_m, fusion_std_x_m
+FIRST ROW:
+  scenario = baseline
+  sample = 0
+  frame = 0
+  time_s = 0.016666799
+  lidar_used = 1
+  lidar_cluster_points = 11
+  radar_status = NOT_AVAILABLE
+  radar_nis = nan
+  camera_status = NO_UPDATE
+  camera_nis = nan
+  lidar_only_x_m = 8.40513
+  lidar_only_y_m = 0.29204
+  lidar_radar_x_m = 8.40513
+  lidar_radar_y_m = 0.29204
+  fusion_x_m = 8.40513
+  fusion_y_m = 0.29204
+  fusion_std_x_m = 1.0
+
+===========================================
+DATASET: task25_fault_summary.csv
+ROWS: 7
+COLUMNS: scenario, samples, gt_evaluation_samples, mean_gt_center_error_m, rmse_gt_center_m, max_gt_center_error_m, lidar_measurement_used, radar_updates_accepted, radar_nis_rejected, camera_updates_accepted
+FIRST ROW:
+  scenario = baseline
+  samples = 24
+  gt_evaluation_samples = 23
+  mean_gt_center_error_m = 1.6282133966765957
+  rmse_gt_center_m = 1.6403083148717734
+  max_gt_center_error_m = 1.8162460383398142
+  lidar_measurement_used = 24
+  radar_updates_accepted = 4
+  radar_nis_rejected = 0
+  camera_updates_accepted = 1
+
+===========================================
+DATASET: task25_33_association_distance_analysis.csv
+ROWS: 162
+COLUMNS: Sensor, Frame, TrackID, Status, Distance_m
+FIRST ROW:
+  Sensor = Radar
+  Frame = 0
+  TrackID = 1
+  Status = PROVISIONAL_RADAR_SPATIAL_MATCH
+  Distance_m = 0.599995
+
+===========================================
+DATASET: task25_40_ekf_consistency_audit.csv
+ROWS: 23
+COLUMNS: Frame, LiDAR_ResidualX_m, LiDAR_SigmaX_m, LiDAR_AbsResidualOverSigma, Radar_ResidualX_m, Radar_SigmaX_m, Radar_AbsResidualOverSigma
+FIRST ROW:
+  Frame = 41
+  LiDAR_ResidualX_m = -1.72423000873752
+  LiDAR_SigmaX_m = 0.584916071240142
+  LiDAR_AbsResidualOverSigma = 2.94782464274199
+  Radar_ResidualX_m = -1.72423000873752
+  Radar_SigmaX_m = 0.584916071240142
+  Radar_AbsResidualOverSigma = 2.94782464274199
+
+===========================================
+DATASET: task25_43_validated_radar_nis.csv
+ROWS: 24
+COLUMNS: Frame, Radar_Status, NIS_Valid, Radar_NIS, Within_Recorded_Gate
+FIRST ROW:
+  Frame = 0
+  Radar_Status = NOT_AVAILABLE
+  NIS_Valid = False
+  Radar_NIS = 
+  Within_Recorded_Gate = NotEvaluated
