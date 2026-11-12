@@ -1,0 +1,993 @@
+{
+  "task": "26.5F",
+  "analysis_type": "Static source inspection only",
+  "source_execution": false,
+  "source_files_modified": false,
+  "findings": [
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Track2_Camera_EKF_V1.py",
+      "size_bytes": 8376,
+      "sha256": "1430be78638bb74412e39fcccd832ecddad36d8569673ce21682a426a0bbd52c",
+      "imports": [
+        "csv",
+        "math",
+        "from collections import ...",
+        "from pathlib import ...",
+        "from statistics import ...",
+        "numpy"
+      ],
+      "functions": [
+        {
+          "name": "load",
+          "line": 26,
+          "arguments": [
+            "name"
+          ]
+        },
+        {
+          "name": "wrap",
+          "line": 30,
+          "arguments": [
+            "angle"
+          ]
+        },
+        {
+          "name": "update",
+          "line": 33,
+          "arguments": [
+            "x",
+            "P",
+            "H",
+            "residual",
+            "R"
+          ]
+        },
+        {
+          "name": "predict",
+          "line": 41,
+          "arguments": [
+            "x",
+            "P",
+            "dt"
+          ]
+        },
+        {
+          "name": "lidar_noise",
+          "line": 54,
+          "arguments": [
+            "n"
+          ]
+        },
+        {
+          "name": "radar_model",
+          "line": 58,
+          "arguments": [
+            "x"
+          ]
+        },
+        {
+          "name": "camera_model",
+          "line": 69,
+          "arguments": [
+            "x"
+          ]
+        }
+      ],
+      "top_level_operations": [
+        {
+          "kind": "Assign",
+          "line": 9,
+          "preview": "BASE = Path(r\"E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\")"
+        },
+        {
+          "kind": "Assign",
+          "line": 10,
+          "preview": "DIR = BASE / \"C02_V2_EKF_Input_53Frames_V1\""
+        },
+        {
+          "kind": "Assign",
+          "line": 12,
+          "preview": "C = 299792458.0"
+        },
+        {
+          "kind": "Assign",
+          "line": 13,
+          "preview": "FREQUENCY = 77e9"
+        },
+        {
+          "kind": "Assign",
+          "line": 14,
+          "preview": "RADAR_POS = (2.0, 0.0)"
+        },
+        {
+          "kind": "Assign",
+          "line": 15,
+          "preview": "CAMERA_X = 0.7"
+        },
+        {
+          "kind": "Assign",
+          "line": 17,
+          "preview": "RADAR_SIGMA = 2.0"
+        },
+        {
+          "kind": "Assign",
+          "line": 18,
+          "preview": "RADAR_NIS_GATE = 9.0"
+        },
+        {
+          "kind": "Assign",
+          "line": 19,
+          "preview": "CAMERA_NIS_GATE = 9.0"
+        },
+        {
+          "kind": "Assign",
+          "line": 20,
+          "preview": "MIN_RADAR_RETURNS = 2"
+        },
+        {
+          "kind": "Assign",
+          "line": 22,
+          "preview": "H_L = np.array([[1., 0., 0., 0.], [0., 1., 0., 0.]])"
+        },
+        {
+          "kind": "Assign",
+          "line": 24,
+          "preview": "I = np.eye(4)"
+        },
+        {
+          "kind": "Assign",
+          "line": 78,
+          "preview": "track = sorted( [r for r in load(\"lidar_temporal_tracks_v1.csv\") if int(r[\"track_id\"]) == 2], key=lambda r: float(r[\"time_s\"]) )"
+        },
+        {
+          "kind": "Assign",
+          "line": 83,
+          "preview": "radar = defaultdict(list)"
+        },
+        {
+          "kind": "For",
+          "line": 84,
+          "preview": "for r in load(\"radar_track_matches_v1.csv\"): if int(r[\"track_id\"]) == 2: fd = float(r[\"doppler_shift_raw\"]) if abs(fd) > 1e-9: radar[int(r[\"frame\"])].append( (float(r[\"time_s\"]), fd) )"
+        },
+        {
+          "kind": "Assign",
+          "line": 92,
+          "preview": "cam = load(\"camera_bearing_track2_frame530_v1.csv\")"
+        },
+        {
+          "kind": "Assign",
+          "line": 93,
+          "preview": "old = load(\"lidar_radar_ekf_track2_v1.csv\")"
+        },
+        {
+          "kind": "if",
+          "line": 95,
+          "preview": "len(track) != 24 or len(old) != 24 or len(cam) != 1"
+        },
+        {
+          "kind": "if",
+          "line": 98,
+          "preview": "cam[0][\"status\"] != \"BEARING_GEOMETRICALLY_COMPATIBLE_NOT_CALIBRATED\""
+        },
+        {
+          "kind": "if",
+          "line": 100,
+          "preview": "int(cam[0][\"frame\"]) != 530 or int(cam[0][\"track_id\"]) != 2"
+        },
+        {
+          "kind": "Assign",
+          "line": 103,
+          "preview": "camera_angle = float(cam[0][\"camera_bearing_rad\"])"
+        },
+        {
+          "kind": "Assign",
+          "line": 104,
+          "preview": "camera_sigma = max( 0.05, float(cam[0][\"assumed_bearing_sigma_rad\"]) )"
+        },
+        {
+          "kind": "Assign",
+          "line": 108,
+          "preview": "x0 = np.array([ float(track[0][\"x_m\"]), float(track[0][\"y_m\"]), 0., 0. ])"
+        },
+        {
+          "kind": "Assign",
+          "line": 112,
+          "preview": "P0 = np.diag([1., 1., 4., 4.])"
+        },
+        {
+          "kind": "Assign",
+          "line": 115,
+          "preview": "states = [x0.copy() for _ in range(3)]"
+        },
+        {
+          "kind": "Assign",
+          "line": 116,
+          "preview": "covs = [P0.copy() for _ in range(3)]"
+        },
+        {
+          "kind": "Assign",
+          "line": 117,
+          "preview": "results = []"
+        },
+        {
+          "kind": "Assign",
+          "line": 119,
+          "preview": "camera_status = \"NOT_ATTEMPTED\""
+        },
+        {
+          "kind": "Assign",
+          "line": 120,
+          "preview": "camera_nis = float(\"nan\")"
+        },
+        {
+          "kind": "Assign",
+          "line": 121,
+          "preview": "camera_residual = float(\"nan\")"
+        },
+        {
+          "kind": "Assign",
+          "line": 122,
+          "preview": "camera_updates = 0"
+        },
+        {
+          "kind": "Assign",
+          "line": 123,
+          "preview": "max_baseline_error = 0.0"
+        },
+        {
+          "kind": "For",
+          "line": 125,
+          "preview": "for i, row in enumerate(track): frame = int(row[\"frame\"]) t = float(row[\"time_s\"]) z = np.array([float(row[\"x_m\"]), float(row[\"y_m\"])]) R_L = lidar_noise(int(row[\"point_count\"])) if i: dt = t - float(track[i-1][\"time_s\"]"
+        },
+        {
+          "kind": "With",
+          "line": 232,
+          "preview": "with (DIR/\"lidar_radar_camera_ekf_track2_v1.csv\").open( \"x\", newline=\"\", encoding=\"utf-8\" ) as f: w = csv.DictWriter(f, fieldnames=list(results[0])) w.writeheader() w.writerows(results)"
+        },
+        {
+          "kind": "expression",
+          "line": 239,
+          "preview": "print(\"=== TASK 24.9.6B RESULTS ===\")"
+        },
+        {
+          "kind": "expression",
+          "line": 240,
+          "preview": "print(\"OBSERVATIONS=\",len(results))"
+        },
+        {
+          "kind": "expression",
+          "line": 241,
+          "preview": "print(\"BASELINE_REPRODUCTION_MAX_ERROR=\",max_baseline_error)"
+        },
+        {
+          "kind": "expression",
+          "line": 242,
+          "preview": "print(\"CAMERA_UPDATE_FRAME=530\")"
+        },
+        {
+          "kind": "expression",
+          "line": 243,
+          "preview": "print(\"CAMERA_NIS=\",round(camera_nis,6))"
+        },
+        {
+          "kind": "expression",
+          "line": 244,
+          "preview": "print(\"CAMERA_INNOVATION_DEG=\",round( math.degrees(camera_residual),6))"
+        },
+        {
+          "kind": "expression",
+          "line": 246,
+          "preview": "print(\"CAMERA_ASSUMED_SIGMA_DEG=\",round( math.degrees(camera_sigma),6))"
+        },
+        {
+          "kind": "expression",
+          "line": 248,
+          "preview": "print(\"CAMERA_STATUS=\",camera_status)"
+        },
+        {
+          "kind": "expression",
+          "line": 249,
+          "preview": "print(\"CAMERA_UPDATES=\",camera_updates)"
+        },
+        {
+          "kind": "expression",
+          "line": 250,
+          "preview": "print(\"MAX_CAMERA_VS_RADAR_POSITION_DIFFERENCE_M=\", round(max( r[\"camera_vs_radar_position_difference_m\"] for r in results ),6))"
+        },
+        {
+          "kind": "expression",
+          "line": 255,
+          "preview": "print(\"OUTPUT=\",DIR/\"lidar_radar_camera_ekf_track2_v1.csv\")"
+        },
+        {
+          "kind": "expression",
+          "line": 256,
+          "preview": "print(\"CAMERA_CALIBRATED=NO\")"
+        },
+        {
+          "kind": "expression",
+          "line": 257,
+          "preview": "print(\"GROUND_TRUTH_ACCURACY_EVALUATED=NO\")"
+        },
+        {
+          "kind": "expression",
+          "line": 258,
+          "preview": "print(\"ORIGINAL_FILES_MODIFIED=NO\")"
+        },
+        {
+          "kind": "expression",
+          "line": 259,
+          "preview": "print(\"TASK24_09_06B_CAMERA_EKF_COMPLETE\")"
+        }
+      ],
+      "file_references": [
+        "radar_track_matches_v1.csv",
+        "camera_bearing_track2_frame530_v1.csv",
+        "lidar_radar_ekf_track2_v1.csv",
+        "lidar_radar_camera_ekf_track2_v1.csv",
+        "lidar_temporal_tracks_v1.csv"
+      ],
+      "possible_file_operations": [
+        {
+          "line": 232,
+          "function": "(DIR/\"lidar_radar_camera_ekf_track2_v1.csv\").open",
+          "preview": "(DIR/\"lidar_radar_camera_ekf_track2_v1.csv\").open( \"x\", newline=\"\", encoding=\"utf-8\" )"
+        },
+        {
+          "line": 237,
+          "function": "w.writerows",
+          "preview": "w.writerows(results)"
+        },
+        {
+          "line": 27,
+          "function": "(DIR / name).open",
+          "preview": "(DIR / name).open(newline=\"\", encoding=\"utf-8-sig\")"
+        }
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Track2_EKF_Baseline_V1.py",
+      "size_bytes": 8521,
+      "sha256": "2ecff2ea51b105d08eb298f514a586e45c8f01a74d284a7f79ca7731585412fb",
+      "imports": [
+        "csv",
+        "math",
+        "from pathlib import ...",
+        "from collections import ...",
+        "from statistics import ...",
+        "numpy"
+      ],
+      "functions": [
+        {
+          "name": "load",
+          "line": 34,
+          "arguments": [
+            "name"
+          ]
+        },
+        {
+          "name": "lidar_covariance",
+          "line": 74,
+          "arguments": [
+            "point_count"
+          ]
+        },
+        {
+          "name": "predict",
+          "line": 84,
+          "arguments": [
+            "x",
+            "P",
+            "dt"
+          ]
+        },
+        {
+          "name": "update",
+          "line": 103,
+          "arguments": [
+            "x",
+            "P",
+            "H",
+            "innovation",
+            "R"
+          ]
+        },
+        {
+          "name": "radar_model",
+          "line": 115,
+          "arguments": [
+            "x"
+          ]
+        }
+      ],
+      "top_level_operations": [
+        {
+          "kind": "Assign",
+          "line": 9,
+          "preview": "BASE = Path( r\"E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\" )"
+        },
+        {
+          "kind": "Assign",
+          "line": 12,
+          "preview": "DIR = BASE / \"C02_V2_EKF_Input_53Frames_V1\""
+        },
+        {
+          "kind": "Assign",
+          "line": 14,
+          "preview": "TRACK_ID = 2"
+        },
+        {
+          "kind": "Assign",
+          "line": 15,
+          "preview": "C = 299792458.0"
+        },
+        {
+          "kind": "Assign",
+          "line": 16,
+          "preview": "CARRIER_HZ = 77e9"
+        },
+        {
+          "kind": "Assign",
+          "line": 18,
+          "preview": "LIDAR_STD_M = 0.60"
+        },
+        {
+          "kind": "Assign",
+          "line": 19,
+          "preview": "RADAR_STD_MPS = 2.0"
+        },
+        {
+          "kind": "Assign",
+          "line": 20,
+          "preview": "PROCESS_ACCEL_STD_MPS2 = 1.0"
+        },
+        {
+          "kind": "Assign",
+          "line": 21,
+          "preview": "RADAR_NIS_GATE = 9.0"
+        },
+        {
+          "kind": "Assign",
+          "line": 22,
+          "preview": "MIN_NONZERO_RADAR_RETURNS = 2"
+        },
+        {
+          "kind": "Assign",
+          "line": 24,
+          "preview": "RADAR_X_M = 2.0"
+        },
+        {
+          "kind": "Assign",
+          "line": 25,
+          "preview": "RADAR_Y_M = 0.0"
+        },
+        {
+          "kind": "Assign",
+          "line": 27,
+          "preview": "H_L = np.array([ [1., 0., 0., 0.], [0., 1., 0., 0.] ])"
+        },
+        {
+          "kind": "Assign",
+          "line": 32,
+          "preview": "I = np.eye(4)"
+        },
+        {
+          "kind": "Assign",
+          "line": 40,
+          "preview": "observations = [ r for r in load(\"lidar_temporal_tracks_v1.csv\") if int(r[\"track_id\"]) == TRACK_ID ]"
+        },
+        {
+          "kind": "expression",
+          "line": 45,
+          "preview": "observations.sort(key=lambda r: float(r[\"time_s\"]))"
+        },
+        {
+          "kind": "if",
+          "line": 47,
+          "preview": "len(observations) != 24"
+        },
+        {
+          "kind": "if",
+          "line": 50,
+          "preview": "len({ int(r[\"frame\"]) for r in observations }) != len(observations)"
+        },
+        {
+          "kind": "Assign",
+          "line": 55,
+          "preview": "radar_by_frame = defaultdict(list)"
+        },
+        {
+          "kind": "For",
+          "line": 57,
+          "preview": "for r in load(\"radar_track_matches_v1.csv\"): if int(r[\"track_id\"]) != TRACK_ID: continue doppler = float(r[\"doppler_shift_raw\"]) if not math.isfinite(doppler): raise RuntimeError(\"Non-finite Doppler\") if abs(doppler) <= "
+        },
+        {
+          "kind": "Assign",
+          "line": 137,
+          "preview": "first = observations[0]"
+        },
+        {
+          "kind": "Assign",
+          "line": 139,
+          "preview": "initial_x = np.array([ float(first[\"x_m\"]), float(first[\"y_m\"]), 0., 0. ])"
+        },
+        {
+          "kind": "Assign",
+          "line": 146,
+          "preview": "initial_P = np.diag([1., 1., 4., 4.])"
+        },
+        {
+          "kind": "Assign",
+          "line": 148,
+          "preview": "xl, Pl = initial_x.copy(), initial_P.copy()"
+        },
+        {
+          "kind": "Assign",
+          "line": 149,
+          "preview": "xr, Pr = initial_x.copy(), initial_P.copy()"
+        },
+        {
+          "kind": "Assign",
+          "line": 151,
+          "preview": "previous_time = None"
+        },
+        {
+          "kind": "Assign",
+          "line": 152,
+          "preview": "results = []"
+        },
+        {
+          "kind": "Assign",
+          "line": 153,
+          "preview": "accepted = 0"
+        },
+        {
+          "kind": "Assign",
+          "line": 154,
+          "preview": "rejected = 0"
+        },
+        {
+          "kind": "Assign",
+          "line": 155,
+          "preview": "insufficient = 0"
+        },
+        {
+          "kind": "Assign",
+          "line": 156,
+          "preview": "no_nonzero = 0"
+        },
+        {
+          "kind": "For",
+          "line": 158,
+          "preview": "for index, row in enumerate(observations): frame = int(row[\"frame\"]) t = float(row[\"time_s\"]) z = np.array([ float(row[\"x_m\"]), float(row[\"y_m\"]) ]) R_L = lidar_covariance(row[\"point_count\"]) if index > 0: dt = t - previ"
+        },
+        {
+          "kind": "Assign",
+          "line": 261,
+          "preview": "output = DIR / \"lidar_radar_ekf_track2_v1.csv\""
+        },
+        {
+          "kind": "With",
+          "line": 263,
+          "preview": "with output.open(\"x\", newline=\"\", encoding=\"utf-8\") as f: writer = csv.DictWriter(f, fieldnames=list(results[0])) writer.writeheader() writer.writerows(results)"
+        },
+        {
+          "kind": "Assign",
+          "line": 268,
+          "preview": "max_difference = max( r[\"state_difference_m\"] for r in results )"
+        },
+        {
+          "kind": "Assign",
+          "line": 272,
+          "preview": "summary = f\"\"\"TASK 24.9.5D - MATCHED EKF DEVELOPMENT BASELINE ================================================= Recording: clean V2, 2122 frames Selected development frames: 53 Evaluated provisional Track ID: {TRACK_ID} "
+        },
+        {
+          "kind": "Assign",
+          "line": 303,
+          "preview": "report = DIR / \"lidar_radar_ekf_track2_summary_v1.txt\""
+        },
+        {
+          "kind": "With",
+          "line": 305,
+          "preview": "with report.open(\"x\", encoding=\"utf-8\") as f: f.write(summary)"
+        },
+        {
+          "kind": "expression",
+          "line": 308,
+          "preview": "print(\"=== TASK 24.9.5D RESULTS ===\")"
+        },
+        {
+          "kind": "expression",
+          "line": 309,
+          "preview": "print(\"TRACK_ID=\", TRACK_ID)"
+        },
+        {
+          "kind": "expression",
+          "line": 310,
+          "preview": "print(\"MATCHED_OBSERVATIONS=\", len(results))"
+        },
+        {
+          "kind": "expression",
+          "line": 311,
+          "preview": "print(\"RADAR_UPDATES_ACCEPTED=\", accepted)"
+        },
+        {
+          "kind": "expression",
+          "line": 312,
+          "preview": "print(\"RADAR_UPDATES_REJECTED=\", rejected)"
+        },
+        {
+          "kind": "expression",
+          "line": 313,
+          "preview": "print(\"RADAR_INSUFFICIENT_RETURNS=\", insufficient)"
+        },
+        {
+          "kind": "expression",
+          "line": 314,
+          "preview": "print(\"RADAR_WITHOUT_NONZERO_MEASUREMENT=\", no_nonzero)"
+        },
+        {
+          "kind": "expression",
+          "line": 315,
+          "preview": "print(\"MAX_ESTIMATOR_POSITION_DIFFERENCE_M=\", round(max_difference, 6))"
+        },
+        {
+          "kind": "expression",
+          "line": 318,
+          "preview": "print(\"\\n=== RADAR UPDATE DETAILS ===\")"
+        },
+        {
+          "kind": "For",
+          "line": 319,
+          "preview": "for r in results: if r[\"radar_nonzero_returns\"] > 0: print( f\"FRAME={r['frame']} \" f\"RETURNS={r['radar_nonzero_returns']} \" f\"STATUS={r['radar_status']} \" f\"MEASURED_MPS={r['radar_measured_mps']:.3f} \" f\"NIS={r['radar_ni"
+        },
+        {
+          "kind": "expression",
+          "line": 329,
+          "preview": "print(\"OUTPUT_CSV=\", output)"
+        },
+        {
+          "kind": "expression",
+          "line": 330,
+          "preview": "print(\"REPORT=\", report)"
+        },
+        {
+          "kind": "expression",
+          "line": 331,
+          "preview": "print(\"GROUND_TRUTH_ACCURACY_EVALUATED=NO\")"
+        },
+        {
+          "kind": "expression",
+          "line": 332,
+          "preview": "print(\"CAMERA_UPDATES_PERFORMED=NO\")"
+        },
+        {
+          "kind": "expression",
+          "line": 333,
+          "preview": "print(\"ORIGINAL_FILES_MODIFIED=NO\")"
+        },
+        {
+          "kind": "expression",
+          "line": 334,
+          "preview": "print(\"TASK24_09_05D_EKF_BASELINE_COMPLETE\")"
+        }
+      ],
+      "file_references": [
+        "radar_track_matches_v1.csv",
+        "lidar_radar_ekf_track2_v1.csv",
+        "lidar_temporal_tracks_v1.csv"
+      ],
+      "possible_file_operations": [
+        {
+          "line": 263,
+          "function": "output.open",
+          "preview": "output.open(\"x\", newline=\"\", encoding=\"utf-8\")"
+        },
+        {
+          "line": 266,
+          "function": "writer.writerows",
+          "preview": "writer.writerows(results)"
+        },
+        {
+          "line": 305,
+          "function": "report.open",
+          "preview": "report.open(\"x\", encoding=\"utf-8\")"
+        },
+        {
+          "line": 35,
+          "function": "(DIR / name).open",
+          "preview": "(DIR / name).open( newline=\"\", encoding=\"utf-8-sig\" )"
+        }
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Radar_Track_Association_V1.py",
+      "size_bytes": 8212,
+      "sha256": "36df0fdbfc999b3385f0afac63ecfcc6ca00aa10c6af0e9abc74115da35f97d9",
+      "imports": [
+        "csv",
+        "math",
+        "from pathlib import ...",
+        "from collections import ...",
+        "from statistics import ..."
+      ],
+      "functions": [
+        {
+          "name": "read_csv",
+          "line": 15,
+          "arguments": [
+            "name"
+          ]
+        },
+        {
+          "name": "box_distance",
+          "line": 76,
+          "arguments": [
+            "x",
+            "y",
+            "z",
+            "box"
+          ]
+        }
+      ],
+      "top_level_operations": [
+        {
+          "kind": "Assign",
+          "line": 7,
+          "preview": "BASE = Path( r\"E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\" )"
+        },
+        {
+          "kind": "Assign",
+          "line": 10,
+          "preview": "DIR = BASE / \"C02_V2_EKF_Input_53Frames_V1\""
+        },
+        {
+          "kind": "Assign",
+          "line": 12,
+          "preview": "GATE_M = 1.5"
+        },
+        {
+          "kind": "Assign",
+          "line": 13,
+          "preview": "DOPPLER_EPS = 1e-9"
+        },
+        {
+          "kind": "Assign",
+          "line": 19,
+          "preview": "clusters = read_csv(\"lidar_cluster_candidates_v1.csv\")"
+        },
+        {
+          "kind": "Assign",
+          "line": 20,
+          "preview": "tracks = read_csv(\"lidar_temporal_tracks_v1.csv\")"
+        },
+        {
+          "kind": "Assign",
+          "line": 21,
+          "preview": "radar = read_csv(\"radar_returns.csv\")"
+        },
+        {
+          "kind": "Assign",
+          "line": 24,
+          "preview": "cluster_to_track = {}"
+        },
+        {
+          "kind": "For",
+          "line": 25,
+          "preview": "for row in tracks: key = (int(row[\"frame\"]), int(row[\"local_cluster_id\"])) if key in cluster_to_track: raise RuntimeError(f\"Duplicate track assignment: {key}\") cluster_to_track[key] = int(row[\"track_id\"])"
+        },
+        {
+          "kind": "Assign",
+          "line": 31,
+          "preview": "by_frame = defaultdict(list)"
+        },
+        {
+          "kind": "Assign",
+          "line": 32,
+          "preview": "summary_lookup = {}"
+        },
+        {
+          "kind": "For",
+          "line": 34,
+          "preview": "for row in clusters: frame = int(row[\"frame\"]) cluster_id = int(row[\"local_cluster_id\"]) key = (frame, cluster_id) if key not in cluster_to_track: raise RuntimeError(f\"Cluster lacks temporal track: {key}\") box = { \"frame"
+        },
+        {
+          "kind": "Assign",
+          "line": 82,
+          "preview": "matches = []"
+        },
+        {
+          "kind": "Assign",
+          "line": 83,
+          "preview": "nonzero_input = 0"
+        },
+        {
+          "kind": "Assign",
+          "line": 84,
+          "preview": "unassigned = 0"
+        },
+        {
+          "kind": "For",
+          "line": 86,
+          "preview": "for row in radar: frame = int(row[\"frame\"]) x = float(row[\"x_vehicle_m\"]) y = float(row[\"y_vehicle_m\"]) z = float(row[\"z_vehicle_m\"]) doppler = float(row[\"doppler_shift_raw\"]) if not all(math.isfinite(v) for v in (x, y, "
+        },
+        {
+          "kind": "Assign",
+          "line": 153,
+          "preview": "summary_rows = []"
+        },
+        {
+          "kind": "For",
+          "line": 155,
+          "preview": "for key in sorted(summary_lookup): item = summary_lookup[key] values = item[\"matched_raw_doppler_values\"] summary_rows.append({ \"frame\": item[\"frame\"], \"time_s\": item[\"time_s\"], \"track_id\": item[\"track_id\"], \"local_clust"
+        },
+        {
+          "kind": "Assign",
+          "line": 182,
+          "preview": "match_fields = [ \"frame\", \"time_s\", \"return_index\", \"track_id\", \"local_cluster_id\", \"radar_x_m\", \"radar_y_m\", \"radar_z_m\", \"radar_range_m\", \"spatial_gap_to_box_m\", \"doppler_shift_raw\", \"nonzero_doppler\", \"association_sta"
+        },
+        {
+          "kind": "Assign",
+          "line": 190,
+          "preview": "summary_fields = [ \"frame\", \"time_s\", \"track_id\", \"local_cluster_id\", \"lidar_cluster_points\", \"radar_matched_returns\", \"radar_nonzero_doppler_matches\", \"nearest_spatial_gap_m\", \"median_doppler_raw\", \"doppler_unit_status\""
+        },
+        {
+          "kind": "With",
+          "line": 199,
+          "preview": "with (DIR / \"radar_track_matches_v1.csv\").open( \"x\", newline=\"\", encoding=\"utf-8\" ) as f: writer = csv.DictWriter(f, fieldnames=match_fields) writer.writeheader() writer.writerows(matches)"
+        },
+        {
+          "kind": "With",
+          "line": 206,
+          "preview": "with (DIR / \"radar_track_association_summary_v1.csv\").open( \"x\", newline=\"\", encoding=\"utf-8\" ) as f: writer = csv.DictWriter(f, fieldnames=summary_fields) writer.writeheader() writer.writerows(summary_rows)"
+        },
+        {
+          "kind": "expression",
+          "line": 213,
+          "preview": "print(\"=== TASK 24.9.4 RESULTS ===\")"
+        },
+        {
+          "kind": "expression",
+          "line": 214,
+          "preview": "print(\"RADAR_INPUT_RETURNS=\", len(radar))"
+        },
+        {
+          "kind": "expression",
+          "line": 215,
+          "preview": "print(\"RADAR_NONZERO_DOPPLER_INPUT=\", nonzero_input)"
+        },
+        {
+          "kind": "expression",
+          "line": 216,
+          "preview": "print(\"RADAR_SPATIALLY_MATCHED=\", len(matches))"
+        },
+        {
+          "kind": "expression",
+          "line": 217,
+          "preview": "print(\"RADAR_UNASSIGNED=\", unassigned)"
+        },
+        {
+          "kind": "expression",
+          "line": 218,
+          "preview": "print(\"MATCHED_NONZERO_DOPPLER=\", sum( r[\"nonzero_doppler\"] for r in matches ))"
+        },
+        {
+          "kind": "expression",
+          "line": 222,
+          "preview": "print(\"\\n=== TRACK-LEVEL RADAR SUMMARY ===\")"
+        },
+        {
+          "kind": "Assign",
+          "line": 223,
+          "preview": "track_ids = sorted(set(r[\"track_id\"] for r in summary_rows))"
+        },
+        {
+          "kind": "For",
+          "line": 225,
+          "preview": "for tid in track_ids: observations = [ r for r in summary_rows if r[\"track_id\"] == tid ] matched_frames = sum( r[\"radar_matched_returns\"] > 0 for r in observations ) nonzero_frames = sum( r[\"radar_nonzero_doppler_matches"
+        },
+        {
+          "kind": "expression",
+          "line": 248,
+          "preview": "print(\"\\n=== TRACK 2 RADAR OBSERVATIONS ===\")"
+        },
+        {
+          "kind": "For",
+          "line": 249,
+          "preview": "for r in summary_rows: if r[\"track_id\"] == 2: print( f\"FRAME={r['frame']} \" f\"MATCHES={r['radar_matched_returns']} \" f\"NONZERO={r['radar_nonzero_doppler_matches']} \" f\"RAW_DOPPLER_MEDIAN={r['median_doppler_raw']}\" )"
+        },
+        {
+          "kind": "expression",
+          "line": 258,
+          "preview": "print(\"\\n=== FRAME 530 ===\")"
+        },
+        {
+          "kind": "For",
+          "line": 259,
+          "preview": "for r in summary_rows: if r[\"frame\"] == 530: print( f\"TRACK={r['track_id']} \" f\"RADAR_MATCHES={r['radar_matched_returns']} \" f\"STATUS={r['association_status']}\" )"
+        },
+        {
+          "kind": "expression",
+          "line": 267,
+          "preview": "print(\"RADAR_GATE_M=\", GATE_M)"
+        },
+        {
+          "kind": "expression",
+          "line": 268,
+          "preview": "print(\"MATCHING_METHOD=NEAREST_LIDAR_3D_BOX\")"
+        },
+        {
+          "kind": "expression",
+          "line": 269,
+          "preview": "print(\"TRACK_ASSOCIATION_STATUS=PROVISIONAL\")"
+        },
+        {
+          "kind": "expression",
+          "line": 270,
+          "preview": "print(\"DOPPLER_UNITS_VERIFIED=NO\")"
+        },
+        {
+          "kind": "expression",
+          "line": 271,
+          "preview": "print(\"DOPPLER_CONVERTED_TO_MPS=NO\")"
+        },
+        {
+          "kind": "expression",
+          "line": 272,
+          "preview": "print(\"SIMULATOR_OBJECT_IDS_USED=NO\")"
+        },
+        {
+          "kind": "expression",
+          "line": 273,
+          "preview": "print(\"ORIGINAL_FILES_MODIFIED=NO\")"
+        },
+        {
+          "kind": "expression",
+          "line": 274,
+          "preview": "print(\"TASK24_09_04_RADAR_ASSOCIATION_COMPLETE\")"
+        }
+      ],
+      "file_references": [
+        "lidar_cluster_candidates_v1.csv",
+        "lidar_temporal_tracks_v1.csv",
+        "radar_returns.csv",
+        "radar_track_matches_v1.csv",
+        "radar_track_association_summary_v1.csv"
+      ],
+      "possible_file_operations": [
+        {
+          "line": 199,
+          "function": "(DIR / \"radar_track_matches_v1.csv\").open",
+          "preview": "(DIR / \"radar_track_matches_v1.csv\").open( \"x\", newline=\"\", encoding=\"utf-8\" )"
+        },
+        {
+          "line": 204,
+          "function": "writer.writerows",
+          "preview": "writer.writerows(matches)"
+        },
+        {
+          "line": 206,
+          "function": "(DIR / \"radar_track_association_summary_v1.csv\").open",
+          "preview": "(DIR / \"radar_track_association_summary_v1.csv\").open( \"x\", newline=\"\", encoding=\"utf-8\" )"
+        },
+        {
+          "line": 211,
+          "function": "writer.writerows",
+          "preview": "writer.writerows(summary_rows)"
+        },
+        {
+          "line": 16,
+          "function": "(DIR / name).open",
+          "preview": "(DIR / name).open(newline=\"\", encoding=\"utf-8-sig\")"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Static analysis does not prove runtime behavior.",
+    "Possible write operations are candidates, not proof of writes.",
+    "Nested function calls and dynamic paths need manual review.",
+    "No EKF prediction or update was executed.",
+    "No perception quality or energy was measured."
+  ]
+}

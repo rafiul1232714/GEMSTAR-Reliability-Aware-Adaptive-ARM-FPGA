@@ -1,0 +1,110 @@
+﻿TASK 26.6E - PERCEPTION QUALITY CONSTRAINTS
+===========================================
+
+EXPERIMENT
+C02 Moving Target, Track 2
+GEMSTAR Camera / LiDAR / Radar / EKF
+Reference target ID: 76897
+Ego object ID: 76894
+
+1. COMPUTATIONAL REPRODUCIBILITY
+--------------------------------
+Original Camera-assisted EKF replay:
+24 of 24 observations reproduced.
+Numerical mismatches: 0.
+
+This validates computational reproducibility only.
+
+2. GROUND-TRUTH COMPARISON
+--------------------------
+Matching GT/EKF observations: 23
+Timestamp mismatches: 0
+Evaluation-only target association: 23 of 23
+Numerical error checks passed: 69 of 69
+
+The GT coordinate transformation remains preliminary.
+
+3. DIAGNOSTIC CENTER-POSITION ERROR
+-----------------------------------
+LiDAR-only position RMSE: 1.663585 m
+Radar-assisted position RMSE: 1.640300 m
+Camera-experimental position RMSE: 1.640308 m
+
+Radar relative RMSE reduction: approximately 1.3997%.
+
+These are diagnostic comparisons, not validated
+perception-accuracy guarantees.
+
+4. CAMERA RELIABILITY LIMITATION
+--------------------------------
+Experimental Camera updates accepted: 1
+Accepted frame: 530
+
+Camera input update authorization: NO
+Camera calibration verified: NO
+Ground-truth validation established: NO
+
+Do not use the Camera experimental update as
+evidence of validated accuracy improvement.
+
+5. SURFACE VERSUS CENTER GEOMETRY
+---------------------------------
+Radar mean GT-center error: 1.628205 m
+Radar mean approximate GT-rear-face error: 0.639567 m
+
+The rear-face point is constructed from the
+OSI reported dimension and target heading.
+
+The original OSI length varies:
+Minimum: 1.173327 m
+Maximum: 2.168729 m
+
+Near-zero-yaw mean length: 2.165771 m
+High-yaw mean length: 1.478316 m
+
+The reported dimensions exhibit orientation-associated
+variation. The exporter cause is not confirmed.
+
+Do not interpret the approximate rear-face distance
+as corrected or independently validated position RMSE.
+
+6. GROUND-TRUTH VELOCITY LIMITATION
+-----------------------------------
+Six samples were flagged for reported zero
+velocity during measured motion.
+
+Do not use these actor velocity fields as
+validated velocity references without further checks.
+
+7. QUALITY CONSTRAINTS FOR FUTURE OPTIMIZATION
+----------------------------------------------
+Q1: Preserve matched object identity.
+Q2: Use the same declared reference geometry when
+    comparing CPU and FPGA configurations.
+Q3: Require independently checked position-error
+    metrics on matched scenarios.
+Q4: Verify sensor association, missed detections,
+    false detections, and update authorization.
+Q5: Record quality and latency for each tested
+    processing configuration.
+Q6: Reject configurations failing established
+    quality or hard real-time requirements.
+Q7: Compare measured total system energy per
+    validated perception result, not estimated
+    processor efficiency alone.
+
+Numeric quality thresholds: NOT YET ESTABLISHED.
+Deadline thresholds: NOT YET ESTABLISHED.
+Validated full-pipeline accuracy: NOT YET ESTABLISHED.
+ARM-FPGA system energy: NOT YET MEASURED.
+
+8. RESEARCH STATUS
+------------------
+Task 26.6 establishes diagnostic quality evidence,
+identifies remaining validation gaps, and defines
+the required measurement framework.
+
+It does not establish that the perception-quality
+hard constraint has been satisfied.
+
+Historical Task 23-25 research remains unchanged.

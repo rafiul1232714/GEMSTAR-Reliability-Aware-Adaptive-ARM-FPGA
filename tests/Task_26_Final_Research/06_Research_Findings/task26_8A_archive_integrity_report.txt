@@ -1,0 +1,12 @@
+﻿TASK 26.8A - RESEARCH ARCHIVE INTEGRITY
+======================================
+Required files checked: 20
+Missing required files: 0
+Manifest entries: 114
+Benchmark timing rows: 6025
+Statistical measurement groups: 184
+Hash algorithm: SHA256
+Manifest scope: 01_Code, 02_CSV_Data, 04_Plots, 06_Research_Findings
+Configurations and raw OSI files are not included in this hash manifest.
+Historical files modified: NO
+Benchmarks reexecuted: NO

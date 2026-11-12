@@ -1,0 +1,75 @@
+{
+  "task": "26.4J",
+  "model_sha256": "85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5",
+  "model_load_ms": 56.6381,
+  "torch_version": "2.15.0+cpu",
+  "ultralytics_version": "8.4.211",
+  "opencv_version": "5.0.0",
+  "numpy_version": "2.4.6",
+  "python_version": "3.11.9",
+  "device": "cpu",
+  "cpu_threads": 4,
+  "warmup_per_image": 3,
+  "timed_runs_per_image": 10,
+  "image_hashes": {
+    "clean_camera_01_frame00000.png": "7FBED760BB503A3B777F1B7955A93CA5EE8A87EC5246AE06B566AE9EAB73B3FF",
+    "clean_camera_02_frame00530.png": "D72ECF600735F3E84D2AE4AA254E48350C556913EA35C2BB2680468D6F9141DA",
+    "clean_camera_03_frame01060.png": "C7DE23713CC77F4B7E76D8B46601F80F81F47A9AEC731F5DC15FD7FCB7BB6046",
+    "clean_camera_04_frame01591.png": "1C6F699E653D02C3703061CD6EDF74D19EF686216BE16E41BB7B4ABCCC8CE0C2",
+    "clean_camera_05_frame02121.png": "6D390B770EE7965C12F707B969B9240C9AA67DABBD6D40149E8DA983E071299E"
+  },
+  "summary": [
+    {
+      "frame": 0,
+      "filename": "clean_camera_01_frame00000.png",
+      "detections": 0,
+      "median_ms": 43.74605,
+      "p95_ms": 48.85696,
+      "p99_ms": 49.982752000000005,
+      "mean_ms": 44.56004
+    },
+    {
+      "frame": 530,
+      "filename": "clean_camera_02_frame00530.png",
+      "detections": 3,
+      "median_ms": 45.9721,
+      "p95_ms": 51.029675,
+      "p99_ms": 51.676415,
+      "mean_ms": 46.06326
+    },
+    {
+      "frame": 1060,
+      "filename": "clean_camera_03_frame01060.png",
+      "detections": 0,
+      "median_ms": 42.46295,
+      "p95_ms": 46.13554,
+      "p99_ms": 46.428868,
+      "mean_ms": 43.16229
+    },
+    {
+      "frame": 1591,
+      "filename": "clean_camera_04_frame01591.png",
+      "detections": 0,
+      "median_ms": 43.274,
+      "p95_ms": 45.30025,
+      "p99_ms": 45.52525,
+      "mean_ms": 43.47875
+    },
+    {
+      "frame": 2121,
+      "filename": "clean_camera_05_frame02121.png",
+      "detections": 0,
+      "median_ms": 45.9199,
+      "p95_ms": 47.71976,
+      "p99_ms": 47.943391999999996,
+      "mean_ms": 45.04103
+    }
+  ],
+  "disk_read_timed": false,
+  "model_load_included_in_timing": false,
+  "prediction_preprocessing_timed": true,
+  "prediction_inference_timed": true,
+  "prediction_postprocessing_timed": true,
+  "energy_measured": false,
+  "accuracy_validated": false
+}

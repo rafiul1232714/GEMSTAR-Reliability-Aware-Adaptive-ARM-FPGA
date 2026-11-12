@@ -1,0 +1,140 @@
+﻿=== task23_15_camera_adapter.py ===
+L41: def process_camera(image_bgr, timestamp_ns, roi=None):
+L42:     """Wrap validated Camera features in common sensor metadata."""
+L43: 
+L44:     if not validate_timestamp_ns(timestamp_ns):
+L45:         return make_measurement(
+L46:             sensor="camera",
+L47:             timestamp_ns=None,
+L48:             coordinate_frame="CAMERA_LOCAL",
+L49:             status="INVALID_TIMESTAMP",
+L50:             quality={},
+L51:         )
+L52: 
+L53:     if image_bgr is None:
+L54:         return make_measurement(
+L55:             sensor="camera",
+L56:             timestamp_ns=timestamp_ns,
+L57:             coordinate_frame="CAMERA_LOCAL",
+L58:             status="MISSING_FRAME",
+L59:             quality={},
+L60:         )
+L61: 
+L62:     preprocess_camera = load_camera_processor()
+L63: 
+L64:     try:
+L65:         result = preprocess_camera(image_bgr, roi=roi)
+L66:     except (TypeError, ValueError, AttributeError):
+L67:         return make_measurement(
+L68:             sensor="camera",
+L69:             timestamp_ns=timestamp_ns,
+L70:             coordinate_frame="CAMERA_LOCAL",
+L71:             status="INVALID_MEASUREMENT",
+L72:             quality={},
+L73:         )
+L74: 
+L75:     return make_measurement(
+L76:         sensor="camera",
+L77:         timestamp_ns=timestamp_ns,
+L78:         coordinate_frame="CAMERA_LOCAL",
+L79:         status=result["status"],
+L80:         quality=dict(result["features"]),
+L81:         data={
+L82:             "roi": result["roi"],
+L83:             "grayscale": result["grayscale"],
+L84:             "edges": result["edges"],
+L85:         },
+L86:     )
+L87: 
+L88: 
+L89: if __name__ == "__main__":
+L90:     print("TASK23_15B_03_CAMERA_ADAPTER_IMPORT_PASS")
+
+=== task23_15_lidar_adapter.py ===
+L64: def process_lidar(lidar_view, timestamp_ns, previous_ns=None):
+L65:     """Produce a unified LiDAR measurement with availability metadata."""
+L66: 
+L67:     if not validate_timestamp_ns(timestamp_ns, previous_ns):
+L68:         return make_measurement(
+L69:             sensor="lidar",
+L70:             timestamp_ns=None,
+L71:             coordinate_frame="LIDAR_LOCAL",
+L72:             status="INVALID_TIMESTAMP",
+L73:         )
+L74: 
+L75:     scorer = load_lidar_processor()
+L76: 
+L77:     # Original scorer accepts timestamps in seconds.
+L78:     current_seconds = timestamp_ns / 1_000_000_000.0
+L79: 
+L80:     previous_seconds = (
+L81:         None if previous_ns is None
+L82:         else previous_ns / 1_000_000_000.0
+L83:     )
+L84: 
+L85:     result = scorer(
+L86:         lidar_view,
+L87:         current_seconds,
+L88:         previous_seconds,
+L89:     )
+L90: 
+L91:     quality = {
+L92:         "positive_return_ratio": result.score,
+L93:         "positive_returns": result.positive,
+L94:         "total_reflections": result.total,
+L95:     }
+L96: 
+L97:     return make_measurement(
+L98:         sensor="lidar",
+L99:         timestamp_ns=timestamp_ns,
+L100:         coordinate_frame="LIDAR_LOCAL",
+L101:         status=result.status,
+L102:         quality=quality,
+L103:         data=lidar_view,
+L104:     )
+L105: 
+L106: 
+L107: if __name__ == "__main__":
+L108:     print("TASK23_15B_04A_LIDAR_ADAPTER_IMPORT_PASS")
+
+=== task23_15_radar_adapter.py ===
+L76: def process_radar_return(tof, strength, timestamp_ns):
+L77:     """Wrap one Radar reflection in the unified measurement format."""
+L78: 
+L79:     if not validate_timestamp_ns(timestamp_ns):
+L80:         return make_measurement(
+L81:             sensor="radar",
+L82:             timestamp_ns=None,
+L83:             coordinate_frame="RADAR_LOCAL",
+L84:             status="INVALID_TIMESTAMP",
+L85:         )
+L86: 
+L87:     processor = load_radar_processor()
+L88: 
+L89:     try:
+L90:         result = processor(tof, strength)
+L91:     except (ValueError, TypeError):
+L92:         return make_measurement(
+L93:             sensor="radar",
+L94:             timestamp_ns=timestamp_ns,
+L95:             coordinate_frame="RADAR_LOCAL",
+L96:             status="INVALID_MEASUREMENT",
+L97:         )
+L98: 
+L99:     return make_measurement(
+L100:         sensor="radar",
+L101:         timestamp_ns=timestamp_ns,
+L102:         coordinate_frame="RADAR_LOCAL",
+L103:         status=result["status"],
+L104:         quality={
+L105:             "signal_strength": result["signal_strength"],
+L106:         },
+L107:         data={
+L108:             "range_m": result["range_m"],
+L109:         },
+L110:     )
+L111: 
+L112: 
+L113: if __name__ == "__main__":
+L114:     print("TASK23_15B_05A_RADAR_ADAPTER_IMPORT_PASS")
+

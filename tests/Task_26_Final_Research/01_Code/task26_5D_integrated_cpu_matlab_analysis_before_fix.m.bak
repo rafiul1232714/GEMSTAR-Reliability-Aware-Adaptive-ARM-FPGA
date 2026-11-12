@@ -1,0 +1,294 @@
+﻿%% Task 26.5D - Integrated LiDAR/Radar CPU MATLAB Analysis
+% Actual measured Task 26.5C results.
+% 53 selected frames, 25 timed runs each.
+% No Statistics Toolbox required.
+% Partial sequential pipeline, not end-to-end perception.
+
+clear; clc; close all;
+
+root = "E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_26_Final_Research";
+
+csvDir = fullfile(root, "02_CSV_Data");
+plotDir = fullfile(root, "04_Plots");
+findingsDir = fullfile(root, "06_Research_Findings");
+
+timingPath = fullfile(csvDir, ...
+    "task26_5C_integrated_cpu_timing.csv");
+
+summaryPath = fullfile(csvDir, ...
+    "task26_5C_integrated_cpu_summary.csv");
+
+reportPath = fullfile(findingsDir, ...
+    "task26_5D_integrated_cpu_findings.txt");
+
+plotNames = [
+    "task26_5D_stage_latency_breakdown.png"
+    "task26_5D_total_latency_by_frame.png"
+    "task26_5D_workload_scaling.png"
+    "task26_5D_latency_distribution.png"
+];
+
+%% Verify inputs and preserve existing outputs
+
+if ~isfile(timingPath) || ~isfile(summaryPath)
+    error("Task 26.5C input CSV files are missing.");
+end
+
+if isfile(reportPath)
+    error("Existing analysis report preserved.");
+end
+
+for k = 1:numel(plotNames)
+    if isfile(fullfile(plotDir,plotNames(k)))
+        error("Existing plot preserved: %s",plotNames(k));
+    end
+end
+
+if ~isfolder(plotDir)
+    mkdir(plotDir);
+end
+
+%% Read measured data
+
+T = readtable(timingPath);
+S = readtable(summaryPath);
+
+if height(T) ~= 1325 || height(S) ~= 53
+    error("Unexpected benchmark dimensions.");
+end
+
+requiredTiming = [
+    "frame","repeat","filter_ms","cluster_ms", ...
+    "radar_ms","total_ms"
+];
+
+requiredSummary = [
+    "frame","lidar_input_points", ...
+    "radar_input_returns", ...
+    "median_filter_ms","median_cluster_ms", ...
+    "median_radar_ms","median_total_ms", ...
+    "p95_total_ms","p99_total_ms"
+];
+
+if ~all(ismember(requiredTiming, ...
+        string(T.Properties.VariableNames)))
+    error("Required timing columns are missing.");
+end
+
+if ~all(ismember(requiredSummary, ...
+        string(S.Properties.VariableNames)))
+    error("Required summary columns are missing.");
+end
+
+S = sortrows(S,"frame");
+
+frames = S.frame;
+
+% Verify that the measured total agrees with the
+% three measured stage durations for each run.
+stageSum = T.filter_ms + T.cluster_ms + T.radar_ms;
+
+maxDifference = max(abs(stageSum - T.total_ms));
+
+if maxDifference > 1e-5
+    error("Measured stage durations do not sum to total.");
+end
+
+% Verify every selected frame has exactly 25 runs.
+for i = 1:height(S)
+    nRuns = sum(T.frame == S.frame(i));
+    if nRuns ~= 25
+        error("Unexpected run count at frame %d",S.frame(i));
+    end
+end
+
+%% Figure 1 - Stage latency breakdown
+% Median of each stage is displayed separately.
+% Sum of medians need not equal median of measured total.
+
+f1 = figure("Color","w","Position",[100 100 1120 520]);
+
+stageMatrix = [
+    S.median_filter_ms, ...
+    S.median_cluster_ms, ...
+    S.median_radar_ms
+];
+
+bar(frames,stageMatrix,"stacked");
+
+xlabel("GEMSTAR frame number");
+ylabel("Sum of median stage durations (ms)");
+title("Task 26.5D - Sequential LiDAR/Radar CPU stage breakdown");
+
+legend("LiDAR spatial filtering", ...
+       "LiDAR grid clustering", ...
+       "Radar return processing", ...
+       "Location","best");
+
+grid on;
+
+saveas(f1,fullfile(plotDir,plotNames(1)));
+
+%% Figure 2 - Total measured latency and percentiles
+
+f2 = figure("Color","w","Position",[100 100 1120 520]);
+
+plot(frames,S.median_total_ms,"-o","LineWidth",1.5);
+hold on;
+plot(frames,S.p95_total_ms,"-s","LineWidth",1.3);
+plot(frames,S.p99_total_ms,"-^","LineWidth",1.3);
+hold off;
+
+xlabel("GEMSTAR frame number");
+ylabel("Measured partial pipeline duration (ms)");
+title("Task 26.5D - Combined LiDAR/Radar CPU latency");
+
+legend("Median","p95","p99","Location","best");
+grid on;
+
+saveas(f2,fullfile(plotDir,plotNames(2)));
+
+%% Figure 3 - Workload size and total latency
+
+f3 = figure("Color","w","Position",[100 100 1000 520]);
+
+scatter(S.lidar_input_points,S.median_total_ms, ...
+    55,S.radar_input_returns,"filled");
+
+xlabel("Raw LiDAR points per frame");
+ylabel("Median partial pipeline duration (ms)");
+title("Task 26.5D - Combined CPU time versus LiDAR workload");
+
+cb = colorbar;
+cb.Label.String = "Radar input returns";
+
+grid on;
+
+saveas(f3,fullfile(plotDir,plotNames(3)));
+
+%% Figure 4 - Distribution of all 1325 timings
+
+f4 = figure("Color","w","Position",[100 100 1000 520]);
+
+histogram(T.total_ms,40);
+
+xlabel("Measured partial pipeline duration (ms)");
+ylabel("Number of timed runs");
+title("Task 26.5D - Integrated CPU timing distribution");
+
+grid on;
+
+saveas(f4,fullfile(plotDir,plotNames(4)));
+
+%% Numerical findings
+
+filterMedian = median(S.median_filter_ms);
+clusterMedian = median(S.median_cluster_ms);
+radarMedian = median(S.median_radar_ms);
+totalMedian = median(S.median_total_ms);
+
+% Calculate stage shares from the actual recorded
+% stage durations across all timed executions.
+totalFilter = sum(T.filter_ms);
+totalCluster = sum(T.cluster_ms);
+totalRadar = sum(T.radar_ms);
+
+denominator = totalFilter + totalCluster + totalRadar;
+
+shares = 100 * [
+    totalFilter
+    totalCluster
+    totalRadar
+] / denominator;
+
+disp("=== TASK 26.5D INTEGRATED MATLAB ANALYSIS ===");
+
+fprintf("FRAMES: %d\n",height(S));
+fprintf("TIMED_RUNS: %d\n",height(T));
+
+fprintf("MEDIAN_OF_FRAME_FILTER_MEDIANS_MS: %.6f\n", ...
+    filterMedian);
+
+fprintf("MEDIAN_OF_FRAME_CLUSTER_MEDIANS_MS: %.6f\n", ...
+    clusterMedian);
+
+fprintf("MEDIAN_OF_FRAME_RADAR_MEDIANS_MS: %.6f\n", ...
+    radarMedian);
+
+fprintf("MEDIAN_OF_FRAME_TOTAL_MEDIANS_MS: %.6f\n", ...
+    totalMedian);
+
+fprintf("MIN_FRAME_MEDIAN_TOTAL_MS: %.6f\n", ...
+    min(S.median_total_ms));
+
+fprintf("MAX_FRAME_MEDIAN_TOTAL_MS: %.6f\n", ...
+    max(S.median_total_ms));
+
+fprintf("MAX_FRAME_P99_TOTAL_MS: %.6f\n", ...
+    max(S.p99_total_ms));
+
+fprintf("FILTER_EXECUTION_TIME_SHARE_PERCENT: %.2f\n", ...
+    shares(1));
+
+fprintf("CLUSTER_EXECUTION_TIME_SHARE_PERCENT: %.2f\n", ...
+    shares(2));
+
+fprintf("RADAR_EXECUTION_TIME_SHARE_PERCENT: %.2f\n", ...
+    shares(3));
+
+fprintf("MAX_STAGE_SUM_DIFFERENCE_MS: %.9f\n", ...
+    maxDifference);
+
+%% Research findings report
+
+fid = fopen(reportPath,"x");
+
+if fid == -1
+    error("Could not create new research findings report.");
+end
+
+fprintf(fid,"TASK 26.5D - INTEGRATED CPU ANALYSIS\n");
+fprintf(fid,"====================================\n\n");
+
+fprintf(fid,"Selected frames: %d\n",height(S));
+fprintf(fid,"Timed executions: %d\n\n",height(T));
+
+fprintf(fid,"Median of frame total medians: %.6f ms\n", ...
+    totalMedian);
+
+fprintf(fid,"Median of frame filtering medians: %.6f ms\n", ...
+    filterMedian);
+
+fprintf(fid,"Median of frame clustering medians: %.6f ms\n", ...
+    clusterMedian);
+
+fprintf(fid,"Median of frame Radar medians: %.6f ms\n\n", ...
+    radarMedian);
+
+fprintf(fid,"Stage shares of accumulated measured time:\n");
+fprintf(fid,"LiDAR filtering: %.2f%%\n",shares(1));
+fprintf(fid,"LiDAR clustering: %.2f%%\n",shares(2));
+fprintf(fid,"Radar processing: %.2f%%\n\n",shares(3));
+
+fprintf(fid,"MAXIMUM FRAME P99 ESTIMATE: %.6f ms\n\n", ...
+    max(S.p99_total_ms));
+
+fprintf(fid,"LIMITATIONS:\n");
+fprintf(fid,"- This is a partial sequential LiDAR/Radar CPU replay.\n");
+fprintf(fid,"- Camera, YOLO, association, EKF, and scheduler are excluded.\n");
+fprintf(fid,"- CSV and OSI decoding are excluded from timing.\n");
+fprintf(fid,"- Radar TOF was derived from archived range data.\n");
+fprintf(fid,"- No ARM or FPGA execution was measured.\n");
+fprintf(fid,"- No energy consumption was measured.\n");
+fprintf(fid,"- Each frame p99 is estimated from 25 repeats only.\n");
+fprintf(fid,"- Reproducing archived clusters is not detection accuracy validation.\n");
+fprintf(fid,"- Timing comparisons do not establish perception quality.\n");
+
+fclose(fid);
+
+disp("PLOTS_GENERATED: 4");
+disp("END_TO_END_PERCEPTION_MEASURED: NO");
+disp("ENERGY_MEASURED: NO");
+disp("TASK26_5D_INTEGRATED_MATLAB_ANALYSIS_PASS");
+disp("REPORT: " + reportPath);
+disp("PLOTS: " + plotDir);

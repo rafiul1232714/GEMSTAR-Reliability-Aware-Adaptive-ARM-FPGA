@@ -1,0 +1,34 @@
+{
+  "task": "26.5I",
+  "replay_type": "Sandbox reproduction of the original Task 24 Camera-assisted EKF",
+  "original_source": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Track2_Camera_EKF_V1.py",
+  "sandbox_source": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_26_Final_Research\\03_Configurations\\Task26_5I_EKF_Sandbox\\camera_ekf_sandbox_replay.py",
+  "sandbox_output": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_26_Final_Research\\03_Configurations\\Task26_5I_EKF_Sandbox\\Input_Output\\lidar_radar_camera_ekf_track2_v1.csv",
+  "archived_rows": 24,
+  "replay_rows": 24,
+  "mismatch_count": 0,
+  "mismatches": [],
+  "max_numeric_difference": 0.0,
+  "original_files_unchanged": true,
+  "sandbox_inputs_unchanged": true,
+  "source_hashes_before": {
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Track2_Camera_EKF_V1.py": "1430be78638bb74412e39fcccd832ecddad36d8569673ce21682a426a0bbd52c",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\lidar_radar_camera_ekf_track2_v1.csv": "23e9b644209d2921b365236d3d550acea644f47aed0d0397f8fc8baf72946750",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\lidar_temporal_tracks_v1.csv": "bd9759af5441aff7526c6b0a31ea86ac7c44efc7b5ab4145be48059ddfd7e78c",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\radar_track_matches_v1.csv": "1386ac6939e0ec9b5d1ca3de4c83d8c058569fc8cf158a8d5a30b0c127d83a4a",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\camera_bearing_track2_frame530_v1.csv": "5a1607f18e2f016ff5a94690e27b103a487721793ba3d641c9f36435f5fd3487",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\lidar_radar_ekf_track2_v1.csv": "c391b9ce411faee5b6479790977733a80ca27f4588d7b244f34b49f3ac753f33"
+  },
+  "source_hashes_after": {
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Track2_Camera_EKF_V1.py": "1430be78638bb74412e39fcccd832ecddad36d8569673ce21682a426a0bbd52c",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\lidar_radar_camera_ekf_track2_v1.csv": "23e9b644209d2921b365236d3d550acea644f47aed0d0397f8fc8baf72946750",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\lidar_temporal_tracks_v1.csv": "bd9759af5441aff7526c6b0a31ea86ac7c44efc7b5ab4145be48059ddfd7e78c",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\radar_track_matches_v1.csv": "1386ac6939e0ec9b5d1ca3de4c83d8c058569fc8cf158a8d5a30b0c127d83a4a",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\camera_bearing_track2_frame530_v1.csv": "5a1607f18e2f016ff5a94690e27b103a487721793ba3d641c9f36435f5fd3487",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\lidar_radar_ekf_track2_v1.csv": "c391b9ce411faee5b6479790977733a80ca27f4588d7b244f34b49f3ac753f33"
+  },
+  "camera_update_policy": "Original experimental NIS gate, without authorization-field enforcement",
+  "ground_truth_validated": false,
+  "integrated_cpu_latency_measured": false,
+  "energy_measured": false
+}

@@ -1,0 +1,34 @@
+TASK 26.6C.2 - EKF DIAGNOSTIC ACCURACY
+====================================
+
+Matching GT/EKF observations: 23
+
+lidar_only
+RMSE: 1.663584605 m
+Mean center error: 1.650416620 m
+Mean signed X error: -1.623522337 m
+Mean signed Y error: -0.116577669 m
+
+radar_assisted
+RMSE: 1.640299773 m
+Mean center error: 1.628205028 m
+Mean signed X error: -1.601282948 m
+Mean signed Y error: -0.116574486 m
+
+camera_experimental
+RMSE: 1.640308315 m
+Mean center error: 1.628213397 m
+Mean signed X error: -1.601288295 m
+Mean signed Y error: -0.117506153 m
+
+Radar relative RMSE reduction: 1.399678 percent
+
+IMPORTANT LIMITATIONS:
+- Ground-truth coordinate transformation remains preliminary.
+- GT target identity is evaluation-only.
+- GT object-center versus visible LiDAR surface bias is uncorrected.
+- Camera update is experimental and not authorized.
+- GT actor velocity has six integrity warnings.
+- Diagnostic center-position RMSE is not detection precision/recall.
+- No official validated perception-accuracy claim is made.
+- No FPGA speedup or board energy was measured.

@@ -1,0 +1,25 @@
+{
+  "task": "26.4D",
+  "description": "Isolated filtering and original grid clustering",
+  "source_sha256": "68BD7CD3AA55BC1AB590327BD97FA19E457D4BB2744A71746D55B1335BF124E7",
+  "input_sha256": "1A9DC3181E01F046DBF05AC8767A8B82DDE2CCFB9840304E9E08336C92F1665F",
+  "frame_manifest_sha256": "7FF747656DF50CCA9BCE6CCE8A25C1958A90E272EEAEBC27C5A43D52167ED85B",
+  "reference_sha256": "D9EA8F86E77DA6D049AA3391FB62CE473803BA818B208EFC7AE3218C2063223A",
+  "selected_frames": 53,
+  "raw_point_rows": 172839,
+  "warmup_per_stage_per_frame": 5,
+  "timed_repeats_per_stage_per_frame": 25,
+  "timing_rows": 2650,
+  "reference_frame_validation": "PASS",
+  "csv_parsing_timed": false,
+  "filter_and_cluster_timed_separately": true,
+  "end_to_end_latency_measured": false,
+  "energy_measured": false,
+  "hardware": "Development workstation CPU",
+  "limitations": [
+    "Archived 53-frame controlled scenario only",
+    "Clustering is not validated object classification",
+    "Stage timings do not include OSI or CSV decoding",
+    "No measurements from ARM or FPGA hardware"
+  ]
+}

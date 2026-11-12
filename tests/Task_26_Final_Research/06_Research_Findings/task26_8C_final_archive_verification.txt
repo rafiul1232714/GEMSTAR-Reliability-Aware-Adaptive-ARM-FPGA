@@ -1,0 +1,17 @@
+﻿TASK 26.8C - FINAL ARCHIVE VERIFICATION
+======================================
+Original manifest entries: 114
+Original verified hashes: 114
+Original hash mismatches: 0
+New manifest entries: 118
+Original timing observations: 6025
+Statistical groups: 184
+Final research report present: YES
+Final report generator present: YES
+Full-pipeline accuracy validated: NO
+ARM-FPGA energy measured: NO
+Hash scope: 01_Code, 02_CSV_Data, 04_Plots, 06_Research_Findings
+03_Configurations and 05_Raw_Data_References inspected at top level only.
+External OSI raw recordings not independently checked.
+This verification report and the final manifest are not self-hashed.
+Original benchmark inputs modified: NO

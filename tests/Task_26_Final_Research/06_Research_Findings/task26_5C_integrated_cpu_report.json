@@ -1,0 +1,27 @@
+{
+  "task": "26.5C",
+  "pipeline_type": "Partial sequential LiDAR\u2013Radar CPU replay",
+  "frames": 53,
+  "lidar_points": 172839,
+  "radar_returns": 3348,
+  "warmups_per_frame": 5,
+  "timed_repeats_per_frame": 25,
+  "timing_rows": 1325,
+  "archived_lidar_reference_match": "PASS",
+  "radar_tof": "Derived from stored range; not original raw TOF",
+  "source_sha256": {
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Lidar_Clustering_53Frames_V1.py": "68BD7CD3AA55BC1AB590327BD97FA19E457D4BB2744A71746D55B1335BF124E7",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_23_Final_Research\\01_Code\\task23_13C_01_radar_robustness_tests.py": "268E8309511F847AB1CDC9029C45C78EE477B10BC12AC132F16767C93D40F4BB",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\selected_frames.csv": "7FF747656DF50CCA9BCE6CCE8A25C1958A90E272EEAEBC27C5A43D52167ED85B",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\lidar_points.csv": "1A9DC3181E01F046DBF05AC8767A8B82DDE2CCFB9840304E9E08336C92F1665F",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\radar_returns.csv": "539FB5345A35A0893875D4830C60117879C15CE450A640ECC23A3B343D2C6D7D",
+    "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\lidar_clustering_summary_v1.csv": "D9EA8F86E77DA6D049AA3391FB62CE473803BA818B208EFC7AE3218C2063223A"
+  },
+  "csv_and_osi_read_timed": false,
+  "camera_included": false,
+  "association_included": false,
+  "ekf_included": false,
+  "energy_measured": false,
+  "timing_type": "Sequential execution of three processing stages",
+  "p99_limitation": "25 repeats per frame; exploratory"
+}

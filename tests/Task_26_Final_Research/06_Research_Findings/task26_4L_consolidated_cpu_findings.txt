@@ -1,0 +1,57 @@
+TASK 26.4L - CONSOLIDATED CPU ANALYSIS
+=====================================
+
+EKF baseline
+  Timing unit: 24-observation replay
+  Representative median: 1.509900 ms
+  Representative p99: 2.245492 ms
+  Descriptive tail ratio: 1.487
+
+Camera ROI
+  Timing unit: 384x288 region
+  Representative median: 0.960250 ms
+  Representative p99: 1.309475 ms
+  Descriptive tail ratio: 1.364
+
+Camera full
+  Timing unit: 640x480 image
+  Representative median: 2.593350 ms
+  Representative p99: 3.980186 ms
+  Descriptive tail ratio: 1.535
+
+LiDAR filter
+  Timing unit: selected LiDAR frame
+  Representative median: 0.747300 ms
+  Representative p99: 1.168072 ms
+  Descriptive tail ratio: 1.563
+
+LiDAR cluster
+  Timing unit: filtered LiDAR frame
+  Representative median: 0.045400 ms
+  Representative p99: 0.057484 ms
+  Descriptive tail ratio: 1.266
+
+Radar valid batch
+  Timing unit: valid-return batch
+  Representative median: 0.008825 ms
+  Representative p99: 0.016727 ms
+  Descriptive tail ratio: 1.895
+
+YOLO11s
+  Timing unit: selected Camera image
+  Representative median: 43.746050 ms
+  Representative p99: 47.943392 ms
+  Descriptive tail ratio: 1.096
+
+RESEARCH FINDINGS AND LIMITATIONS
+- YOLO11s is the highest-duration tested workload.
+- Radar valid-return processing is lightweight.
+- LiDAR filtering takes longer than clustering in this selected scenario.
+- EKF is timed per 24-observation replay, not per sensor frame.
+- Measurements have different timing units and cannot be summed into a pipeline latency.
+- Some comparisons use different images and software environments.
+- p99 estimates are exploratory; YOLO has only ten runs per image.
+- No final ARM CPU performance was measured.
+- No FPGA performance or board energy was measured.
+- Perception quality must remain a hard constraint.
+- Hardware allocation is provisional until ARM/FPGA measurements.

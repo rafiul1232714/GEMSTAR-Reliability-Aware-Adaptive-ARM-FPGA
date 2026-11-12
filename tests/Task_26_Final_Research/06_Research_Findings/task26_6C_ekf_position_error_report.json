@@ -1,0 +1,84 @@
+{
+  "task": "26.6C",
+  "experiment": "C02 moving-target Track 2",
+  "reference": "GT_OBJECT_CENTER",
+  "matched_frames": [
+    41,
+    82,
+    122,
+    163,
+    204,
+    245,
+    286,
+    326,
+    367,
+    408,
+    449,
+    489,
+    530,
+    571,
+    612,
+    653,
+    693,
+    734,
+    775,
+    816,
+    857,
+    897,
+    938
+  ],
+  "target_id": 76897,
+  "numerical_checks": 69,
+  "camera_experimental_update_frames": [
+    530
+  ],
+  "summary": [
+    {
+      "method": "lidar_only",
+      "observations": 23,
+      "position_rmse_m_diagnostic": 1.6635846048237297,
+      "mean_center_error_m": 1.6504166202896204,
+      "max_center_error_m": 1.8959880648684109,
+      "mean_x_error_m": -1.6235223365093576,
+      "mean_y_error_m": -0.11657766868738392,
+      "reference": "GT_OBJECT_CENTER",
+      "validation_status": "EXPLORATORY_NOT_VALIDATED"
+    },
+    {
+      "method": "radar_assisted",
+      "observations": 23,
+      "position_rmse_m_diagnostic": 1.6402997734521376,
+      "mean_center_error_m": 1.6282050284014193,
+      "max_center_error_m": 1.8162460383398142,
+      "mean_x_error_m": -1.6012829477275432,
+      "mean_y_error_m": -0.11657448592631357,
+      "reference": "GT_OBJECT_CENTER",
+      "validation_status": "EXPLORATORY_NOT_VALIDATED"
+    },
+    {
+      "method": "camera_experimental",
+      "observations": 23,
+      "position_rmse_m_diagnostic": 1.6403083148717734,
+      "mean_center_error_m": 1.6282133966765957,
+      "max_center_error_m": 1.8162460383398142,
+      "mean_x_error_m": -1.6012882950963157,
+      "mean_y_error_m": -0.11750615278901334,
+      "reference": "GT_OBJECT_CENTER",
+      "validation_status": "EXPLORATORY_NOT_VALIDATED"
+    }
+  ],
+  "radar_minus_lidar_rmse_m": -0.023284831371592096,
+  "camera_minus_radar_rmse_m": 8.54141963579913e-06,
+  "classification": "EXPLORATORY_NOT_VALIDATED",
+  "limitations": [
+    "GT coordinate transform labelled preliminary by original source.",
+    "GT association uses evaluation-only target identity.",
+    "Object-center versus visible LiDAR surface bias is not corrected.",
+    "Camera update authorization is NO.",
+    "GT actor velocity has six integrity warnings.",
+    "No detection precision or recall is measured.",
+    "No validated three-sensor accuracy is established.",
+    "No ARM/FPGA or energy measurement is included."
+  ],
+  "historical_source_files_modified": false
+}

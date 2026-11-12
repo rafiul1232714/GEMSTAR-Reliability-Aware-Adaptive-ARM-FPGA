@@ -1,0 +1,68 @@
+TASK 26.7C - CPU TIMING RELIABILITY
+==================================
+
+Timing observations: 6025
+Measurement groups: 184
+
+EKF
+Groups: 2
+Timing observations: 200
+Median of group medians: 5.485225000 ms
+Max group descriptive p99: 10.413307000 ms
+Median within-group CV: 6.37873%
+Outlier rate: 13.50000%
+
+Camera
+Groups: 6
+Timing observations: 600
+Median of group medians: 1.815050000 ms
+Max group descriptive p99: 4.249605000 ms
+Median within-group CV: 11.37095%
+Outlier rate: 9.83333%
+
+LiDAR
+Groups: 106
+Timing observations: 2650
+Median of group medians: 0.460500000 ms
+Max group descriptive p99: 1.717220000 ms
+Median within-group CV: 3.16333%
+Outlier rate: 9.77358%
+
+Radar
+Groups: 12
+Timing observations: 1200
+Median of group medians: 0.008825000 ms
+Max group descriptive p99: 0.041704000 ms
+Median within-group CV: 16.22213%
+Outlier rate: 9.33333%
+
+YOLO11s
+Groups: 5
+Timing observations: 50
+Median of group medians: 43.746050000 ms
+Max group descriptive p99: 51.676415000 ms
+Median within-group CV: 5.26163%
+Outlier rate: 4.00000%
+
+Partial_LiDAR_Radar
+Groups: 53
+Timing observations: 1325
+Median of group medians: 0.794900000 ms
+Max group descriptive p99: 1.831704000 ms
+Median within-group CV: 12.73525%
+Outlier rate: 10.33962%
+
+Radar pooled median: 0.010800000 ms
+Radar maximum: 0.617000000 ms
+
+LIMITATIONS
+- Measurements use repeated stored inputs.
+- Workload timing units differ.
+- EKF replay group sizes differ.
+- Radar batch return counts differ.
+- Some sample groups have only 10 or 25 runs.
+- Tail percentiles are descriptive estimates.
+- Outliers are retained, not discarded.
+- Partial pipeline is not full-system latency.
+- No certified worst-case execution time.
+- No measured ARM-FPGA board energy.

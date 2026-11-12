@@ -1,0 +1,45 @@
+{
+  "task": "26.6A",
+  "scope": "C02 moving-target archived quality evidence",
+  "input_paths": {
+    "selected": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\selected_frames.csv",
+    "lidar": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\lidar_clustering_summary_v1.csv",
+    "tracks": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\lidar_temporal_tracks_v1.csv",
+    "ekf": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\lidar_radar_camera_ekf_track2_v1.csv",
+    "camera": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\camera_bearing_track2_frame530_v1.csv"
+  },
+  "selected_frames": 53,
+  "lidar_clustered_frames": 53,
+  "frames_with_lidar_clusters": 53,
+  "frames_with_temporal_tracks": 53,
+  "ekf_rows": 24,
+  "radar_status_counts": {
+    "NOT_AVAILABLE": 19,
+    "ACCEPTED": 4,
+    "INSUFFICIENT_RETURNS": 1
+  },
+  "camera_status_counts": {
+    "NO_UPDATE": 23,
+    "EXPERIMENTAL_ACCEPTED": 1
+  },
+  "ground_truth_status_counts": {
+    "NO": 24
+  },
+  "camera_measurement": {
+    "frame": 530,
+    "status": "BEARING_GEOMETRICALLY_COMPATIBLE_NOT_CALIBRATED",
+    "update_authorized": false,
+    "archived_ekf_status": "EXPERIMENTAL_ACCEPTED",
+    "experimental_update_without_authorization": true
+  },
+  "conclusion": "Algorithm outputs and reproducibility are documented, but no EKF row is marked ground-truth validated. These records alone cannot establish perception accuracy.",
+  "limits": [
+    "No object-detection precision or recall calculated.",
+    "No tracking RMSE calculated.",
+    "No false-positive or false-negative rate calculated.",
+    "A cluster is not automatically a correct object detection.",
+    "Experimental Camera update lacks authorization.",
+    "No CPU versus FPGA accuracy comparison exists yet.",
+    "No board-level energy measurement exists yet."
+  ]
+}

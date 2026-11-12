@@ -1,0 +1,8 @@
+Workload,TimingUnit,RepresentativeMedianMs,RepresentativeP99Ms,DescriptiveTailRatio
+EKF baseline,24-observation replay,1.5099,2.245492,1.48717928339625
+Camera ROI,384x288 region,0.96025,1.309475,1.3636813329862
+Camera full,640x480 image,2.59335,3.98018600000001,1.53476622900881
+LiDAR filter,selected LiDAR frame,0.7473,1.168072,1.56305633614345
+LiDAR cluster,filtered LiDAR frame,0.0454,0.057484,1.26616740088106
+Radar valid batch,valid-return batch,0.008825,0.0167270000000016,1.8954107648727
+YOLO11s,selected Camera image,43.74605,47.943392,1.09594790843973

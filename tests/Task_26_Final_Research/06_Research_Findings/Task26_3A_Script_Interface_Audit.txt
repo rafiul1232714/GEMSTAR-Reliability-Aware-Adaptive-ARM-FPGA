@@ -1,0 +1,179 @@
+﻿TASK 26.3A - SCRIPT INTERFACE AUDIT
+Date: 2026-11-12 18:59:53
+Purpose: Read-only source interface inspection
+Original scripts executed: NO
+
+=== CameraAdapter ===
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\01_Code\task23_15_camera_adapter.py
+STATUS: FOUND
+BYTES: 2365
+LINES: 90
+L7: from importlib import util
+L8: from pathlib import Path
+L9: import sys
+L11: from task23_15_unified_preprocessing import (
+L17: def load_camera_processor():
+L41: def process_camera(image_bgr, timestamp_ns, roi=None):
+L89: if __name__ == "__main__":
+
+=== LidarAdapter ===
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\01_Code\task23_15_lidar_adapter.py
+STATUS: FOUND
+BYTES: 2709
+LINES: 108
+L10: import ast
+L11: import math
+L12: from collections import namedtuple
+L13: from pathlib import Path
+L15: from task23_15_unified_preprocessing import (
+L21: def load_lidar_processor():
+L64: def process_lidar(lidar_view, timestamp_ns, previous_ns=None):
+L107: if __name__ == "__main__":
+
+=== RadarAdapter ===
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\01_Code\task23_15_radar_adapter.py
+STATUS: FOUND
+BYTES: 3006
+LINES: 114
+L7: import ast
+L8: import math
+L9: from pathlib import Path
+L11: from task23_15_unified_preprocessing import (
+L17: def load_radar_processor():
+L76: def process_radar_return(tof, strength, timestamp_ns):
+L113: if __name__ == "__main__":
+
+=== UnifiedPreprocessing ===
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\01_Code\task23_15_unified_preprocessing.py
+STATUS: FOUND
+BYTES: 2651
+LINES: 105
+L7: from dataclasses import dataclass, field
+L8: import math
+L9: from typing import Any, Dict, Optional
+L34: class SensorMeasurement:
+L42: def __post_init__(self):
+L64: def validate_timestamp_ns(timestamp_ns, previous_ns=None):
+L85: def make_measurement(
+L104: if __name__ == "__main__":
+
+=== CameraYOLO ===
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget\C02_V2_MultiFrame_YOLO.py
+STATUS: FOUND
+BYTES: 2567
+LINES: 101
+L1: from pathlib import Path
+L2: import csv
+L3: import cv2
+L4: from ultralytics import YOLO
+L82: with csv_path.open("x", newline="", encoding="utf-8") as f:
+
+=== LidarTracking ===
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget\C02_V2_Lidar_Temporal_Tracks_V1.py
+STATUS: FOUND
+BYTES: 7262
+LINES: 265
+L1: import csv
+L2: import math
+L3: from collections import defaultdict
+L4: from pathlib import Path
+L18: def read_csv(path):
+L19: with path.open(newline="", encoding="utf-8-sig") as f:
+L22: frames = read_csv(DIR / "selected_frames.csv")
+L23: clusters = read_csv(DIR / "lidar_cluster_candidates_v1.csv")
+L207: with (DIR / "lidar_temporal_tracks_v1.csv").open(
+L214: with (DIR / "lidar_temporal_track_summary_v1.csv").open(
+
+=== RadarAssociation ===
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget\C02_V2_Radar_Track_Association_V1.py
+STATUS: FOUND
+BYTES: 8212
+LINES: 274
+L1: import csv
+L2: import math
+L3: from pathlib import Path
+L4: from collections import defaultdict
+L5: from statistics import median
+L15: def read_csv(name):
+L16: with (DIR / name).open(newline="", encoding="utf-8-sig") as f:
+L19: clusters = read_csv("lidar_cluster_candidates_v1.csv")
+L20: tracks = read_csv("lidar_temporal_tracks_v1.csv")
+L21: radar = read_csv("radar_returns.csv")
+L76: def box_distance(x, y, z, box):
+L199: with (DIR / "radar_track_matches_v1.csv").open(
+L206: with (DIR / "radar_track_association_summary_v1.csv").open(
+
+=== ExperimentalEKF ===
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\09_Controlled_Scenario\C02_MovingTarget\C02_V2_Track2_Camera_EKF_V1.py
+STATUS: FOUND
+BYTES: 8376
+LINES: 259
+L1: import csv
+L2: import math
+L3: from collections import defaultdict
+L4: from pathlib import Path
+L5: from statistics import median
+L7: import numpy as np
+L26: def load(name):
+L27: with (DIR / name).open(newline="", encoding="utf-8-sig") as f:
+L30: def wrap(angle):
+L33: def update(x, P, H, residual, R):
+L41: def predict(x, P, dt):
+L54: def lidar_noise(n):
+L58: def radar_model(x):
+L69: def camera_model(x):
+L232: with (DIR/"lidar_radar_camera_ekf_track2_v1.csv").open(
+
+=== FaultReplay ===
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_25_Final_Research\01_Code\task25_replay.py
+STATUS: FOUND
+BYTES: 13985
+LINES: 192
+L5: from __future__ import annotations
+L6: import argparse, csv, hashlib, json, math
+L7: from collections import defaultdict, Counter
+L8: from pathlib import Path
+L9: from statistics import median, mean
+L10: import numpy as np
+L19: def rows(path):
+L20: with path.open(newline='', encoding='utf-8-sig') as f:
+L23: def num(s):
+L26: def writecsv(path, data):
+L28: with path.open('w', newline='', encoding='utf-8') as f:
+L31: def update(x,P,H,res,R):
+L39: def predict(x,P,dt):
+L44: def radial(x):
+L51: def camera(x):
+L56: def wrap(v): return math.atan2(math.sin(v),math.cos(v))
+L58: def load_inputs(d):
+L88: def replay(tracks,radar,cam,scenario):
+L139: def validate_baseline(replayed,reference,camref):
+L147: def summary(data,centers):
+L156: def plot(data,summaries,centers,out):
+L157: import matplotlib
+L159: import matplotlib.pyplot as plt
+L172: def main():
+L173: p=argparse.ArgumentParser();p.add_argument('--task24',type=Path,required=True,help='Task24 C02_V2_EKF_Input_53Frames_V1 folder');p.add_argument('--task25',type=...
+L181: writecsv(o/'02_CSV_Data'/'task25_replay_samples.csv',experiments)
+L182: writecsv(o/'02_CSV_Data'/'task25_fault_summary.csv',summ)
+L183: writecsv(o/'05_Raw_Data_References'/'task25_sha256_manifest.csv',hashes)
+L192: if __name__=='__main__':main()
+
+=== FallbackController ===
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_25_Final_Research\01_Code\task25_07D_fallback_controller.py
+STATUS: FOUND
+BYTES: 7196
+LINES: 243
+L1: import csv
+L2: import math
+L3: from collections import Counter, defaultdict
+L4: from pathlib import Path
+L18: def load_csv(path):
+L21: with path.open("r", newline="", encoding="utf-8-sig") as f:
+L41: def action(domain, status):
+L72: def optional_finite_number(text):
+L162: def write_csv(path, rows):
+L165: with path.open("w", newline="", encoding="utf-8") as f:
+
+CPU_BENCHMARK_EXECUTED: NO
+TASK26_3A_INTERFACE_AUDIT_PASS

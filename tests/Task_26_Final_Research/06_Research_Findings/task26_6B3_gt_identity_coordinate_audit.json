@@ -1,0 +1,60 @@
+{
+  "task": "26.6B.3",
+  "common_frames": [
+    41,
+    82,
+    122,
+    163,
+    204,
+    245,
+    286,
+    326,
+    367,
+    408,
+    449,
+    489,
+    530,
+    571,
+    612,
+    653,
+    693,
+    734,
+    775,
+    816,
+    857,
+    897,
+    938
+  ],
+  "target_ids": [
+    "76897"
+  ],
+  "nearest_gt_ids": [
+    "76897"
+  ],
+  "target_models": [
+    "BP_Small_Car_C"
+  ],
+  "ego_ids": [
+    "76894"
+  ],
+  "nearest_target_matches": 23,
+  "evaluation_only_rows": 23,
+  "recomputed_error_checks_passed": 69,
+  "expected_error_checks": 69,
+  "gt_x_range_m": [
+    10.112215654127722,
+    42.39634016478585
+  ],
+  "gt_y_range_m": [
+    -0.12145575180360169,
+    9.734442038270121
+  ],
+  "gt_position_spread_m": 33.7550502394539,
+  "gt_nonzero_displacement_steps": 19,
+  "zero_velocity_during_motion_flags": 6,
+  "consistency_failures": [],
+  "ground_truth_provenance_verified": false,
+  "coordinate_transform_independently_verified": false,
+  "official_tracking_rmse_calculated": false,
+  "historical_files_modified": false
+}

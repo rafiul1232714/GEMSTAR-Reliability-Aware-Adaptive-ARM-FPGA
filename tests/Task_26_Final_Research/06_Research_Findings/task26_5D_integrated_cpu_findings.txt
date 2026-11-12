@@ -1,0 +1,28 @@
+TASK 26.5D - INTEGRATED CPU ANALYSIS
+====================================
+
+Selected frames: 53
+Timed executions: 1325
+
+Median of frame total medians: 0.794900 ms
+Median of frame filtering medians: 0.725300 ms
+Median of frame clustering medians: 0.046200 ms
+Median of frame Radar medians: 0.016500 ms
+
+Stage shares of accumulated measured time:
+LiDAR filtering: 89.32%
+LiDAR clustering: 8.63%
+Radar processing: 2.05%
+
+MAXIMUM FRAME P99 ESTIMATE: 1.831704 ms
+
+LIMITATIONS:
+- This is a partial sequential LiDAR/Radar CPU replay.
+- Camera, YOLO, association, EKF, and scheduler are excluded.
+- CSV and OSI decoding are excluded from timing.
+- Radar TOF was derived from archived range data.
+- No ARM or FPGA execution was measured.
+- No energy consumption was measured.
+- Each frame p99 is estimated from 25 repeats only.
+- Reproducing archived clusters is not detection accuracy validation.
+- Timing comparisons do not establish perception quality.

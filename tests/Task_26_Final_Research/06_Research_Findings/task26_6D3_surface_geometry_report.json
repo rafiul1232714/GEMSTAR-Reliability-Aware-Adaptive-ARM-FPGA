@@ -1,0 +1,29 @@
+{
+  "task": "26.6D.3",
+  "reference_type": "APPROXIMATE_GT_REAR_FACE",
+  "frames": 23,
+  "geometry_hypothesis": "rear = center - (length / 2) * [cos(relative_yaw), sin(relative_y)]",
+  "formula_matches": true,
+  "maximum_geometry_residual_m": 0.0,
+  "maximum_half_length_difference_m": 2.6645352591003757e-15,
+  "gt_length_range_m": [
+    1.1733268505268006,
+    2.168729378191404
+  ],
+  "relative_yaw_range_deg": [
+    -0.18142382071934854,
+    72.84236620473898
+  ],
+  "radar_center_mean_error_m": 1.6282050284014193,
+  "radar_approx_rear_mean_error_m": 0.639566909089469,
+  "limitations": [
+    "Internal formula agreement is not independent GT validation.",
+    "Vehicle length may be exporter-dependent.",
+    "Approximate rear face is not a verified sensor-hit location.",
+    "GT world-to-ego conversion is still preliminary.",
+    "Target association is evaluation-only.",
+    "No tracking-state correction has been applied.",
+    "No energy measurement is included."
+  ],
+  "historical_inputs_modified": false
+}

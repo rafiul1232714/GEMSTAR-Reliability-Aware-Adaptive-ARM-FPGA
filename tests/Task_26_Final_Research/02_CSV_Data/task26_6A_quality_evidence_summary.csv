@@ -1,0 +1,10 @@
+metric,value,interpretation
+selected_frames,53,recorded reference coverage
+lidar_clustered_frames,53,algorithm output coverage
+frames_with_lidar_clusters,53,cluster presence; not detection accuracy
+total_retained_cluster_points,16288,recorded processing output
+frames_with_temporal_tracks,53,tracking coverage
+archived_ekf_frames,24,fusion output coverage
+ground_truth_validated_ekf_rows,0,validated EKF evidence
+camera_updates_authorized,0,input authorization flag
+experimental_camera_update_unauthorized,1,requires independent validation

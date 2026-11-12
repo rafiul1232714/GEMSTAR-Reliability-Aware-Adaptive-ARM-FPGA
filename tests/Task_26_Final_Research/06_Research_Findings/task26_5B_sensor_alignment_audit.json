@@ -1,0 +1,102 @@
+{
+  "task": "26.5B",
+  "timestamp_tolerance_seconds": 1e-06,
+  "selected_frames": 53,
+  "row_counts": {
+    "lidar": 172839,
+    "radar": 3348,
+    "tracks": 81,
+    "ekf": 24
+  },
+  "alignment_findings": {
+    "lidar": {
+      "timestamp_mismatches": 0,
+      "unknown_frame_rows": 0
+    },
+    "radar": {
+      "timestamp_mismatches": 0,
+      "unknown_frame_rows": 0
+    },
+    "tracks": {
+      "timestamp_mismatches": 0,
+      "unknown_frame_rows": 0
+    },
+    "ekf": {
+      "timestamp_mismatches": 0,
+      "unknown_frame_rows": 0
+    }
+  },
+  "unique_frame_counts": {
+    "lidar": 53,
+    "radar": 53,
+    "tracks": 53,
+    "ekf": 24
+  },
+  "decoded_camera_frames": [
+    0,
+    530,
+    1060,
+    1591,
+    2121
+  ],
+  "common_lidar_radar_frames": [
+    0,
+    41,
+    82,
+    122,
+    163,
+    204,
+    245,
+    286,
+    326,
+    367,
+    408,
+    449,
+    489,
+    530,
+    571,
+    612,
+    653,
+    693,
+    734,
+    775,
+    816,
+    857,
+    897,
+    938,
+    979,
+    1020,
+    1060,
+    1101,
+    1142,
+    1183,
+    1224,
+    1264,
+    1305,
+    1346,
+    1387,
+    1428,
+    1468,
+    1509,
+    1550,
+    1591,
+    1632,
+    1672,
+    1713,
+    1754,
+    1795,
+    1835,
+    1876,
+    1917,
+    1958,
+    1999,
+    2039,
+    2080,
+    2121
+  ],
+  "common_all_available_frames": [
+    0,
+    530
+  ],
+  "note": "Frame and timestamp agreement alone does not prove sensor calibration, successful association, fusion accuracy or an executable live pipeline."
+}

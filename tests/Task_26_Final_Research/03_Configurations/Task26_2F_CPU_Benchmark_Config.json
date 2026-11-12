@@ -1,0 +1,61 @@
+﻿{
+    "Task":  26,
+    "Subtask":  "26.2F",
+    "Purpose":  "Reproducible initial CPU benchmark reference",
+    "CreatedAt":  "2026-11-12T18:59:04+01:00",
+    "Environment":  {
+                        "CPU":  "AMD Ryzen AI 7 450 w/ Radeon 860M              ",
+                        "PhysicalCores":  8,
+                        "LogicalProcessors":  16,
+                        "PythonExecutable":  "C:\\Users\\rafiu\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+                        "PythonVersion":  "Python 3.11.9"
+                    },
+    "RawRecordingManifest":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_26_Final_Research\\05_Raw_Data_References\\Task26_2E_Verified_OSI_Manifest.csv",
+    "RawRecordings":  [
+                          {
+                              "Name":  "20261108T211139Z_sv_380_X_2122_GEMSTAR.osi",
+                              "Path":  "E:\\GEMSTAR_Project\\gemstar\\Output\\20261108T211139Z_sv_380_X_2122_GEMSTAR.osi",
+                              "SHA256":  "7E9912A32EBF70BA43B34E68CAE24D411FCD52EEB0748658614CC3ACB0AA16D6",
+                              "SizeMatch":  "True",
+                              "HashMatch":  "True"
+                          },
+                          {
+                              "Name":  "20261108T211140Z_gt_380_X_2122_GEMSTAR.osi",
+                              "Path":  "E:\\GEMSTAR_Project\\gemstar\\Output\\20261108T211140Z_gt_380_X_2122_GEMSTAR.osi",
+                              "SHA256":  "5F552C52380187BA3BFF6C67FE883D66F788F44EE59CC6E95D20027A72738D28",
+                              "SizeMatch":  "True",
+                              "HashMatch":  "True"
+                          }
+                      ],
+    "SourceScripts":  {
+                          "CameraAdapter":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_23_Final_Research\\01_Code\\task23_15_camera_adapter.py",
+                          "LidarAdapter":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_23_Final_Research\\01_Code\\task23_15_lidar_adapter.py",
+                          "RadarAdapter":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_23_Final_Research\\01_Code\\task23_15_radar_adapter.py",
+                          "UnifiedPreprocessing":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_23_Final_Research\\01_Code\\task23_15_unified_preprocessing.py",
+                          "CameraYOLO":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_MultiFrame_YOLO.py",
+                          "LidarTracking":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Lidar_Temporal_Tracks_V1.py",
+                          "RadarAssociation":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Radar_Track_Association_V1.py",
+                          "ExperimentalEKF":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Track2_Camera_EKF_V1.py",
+                          "FaultReplay":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_25_Final_Research\\01_Code\\task25_replay.py",
+                          "FallbackController":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_25_Final_Research\\01_Code\\task25_07D_fallback_controller.py"
+                      },
+    "DerivedCSVInputs":  [
+                             "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\lidar_temporal_tracks_v1.csv",
+                             "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\radar_track_matches_v1.csv",
+                             "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\camera_bearing_track2_frame530_v1.csv",
+                             "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\lidar_radar_ekf_track2_v1.csv",
+                             "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1\\lidar_radar_camera_ekf_track2_v1.csv"
+                         ],
+    "BenchmarkScopes":  {
+                            "DerivedCSV_EKF":  "Candidate for first isolated CPU benchmark",
+                            "PerSensorKernels":  "Pending executable interface verification",
+                            "CameraYOLO":  "Pending model weights and input image verification",
+                            "EndToEndPipeline":  "Pending integration and timestamp validation",
+                            "DenseTraffic":  "Pending new controlled dataset"
+                        },
+    "GroundTruthQuality":  "UNVERIFIED",
+    "FullThreeSensorAssociation":  "UNVERIFIED",
+    "HardwareEnergyMeasurement":  "NOT_STARTED",
+    "BenchmarkExecuted":  false,
+    "AcceptanceThresholds":  "NOT_LOCKED"
+}

@@ -1,0 +1,23 @@
+TASK 26.4K - YOLO CPU MATLAB ANALYSIS
+====================================
+
+YOLO frames analyzed: 5
+YOLO timed runs: 50
+Median of YOLO frame medians: 43.7460 ms
+Maximum frame p99 estimate: 51.6764 ms
+Total detections across five frames: 3
+
+Median Camera full preprocessing: 2.5934 ms
+Median Camera ROI preprocessing: 0.9603 ms
+YOLO / Camera full ratio: 16.87
+YOLO / Camera ROI ratio: 45.56
+
+RESEARCH INTERPRETATION
+- YOLO CPU prediction is computationally heavier than conventional Camera preprocessing.
+- YOLO includes its internal preprocessing, model inference, and postprocessing.
+- The Camera comparison uses different images, processing operations, and OpenCV environments.
+- Only five selected frames and ten timed YOLO runs per frame were evaluated.
+- These p99 values are exploratory estimates, not hard real-time guarantees.
+- Detection count is not a validated accuracy metric.
+- CPU measurements were collected on the development workstation, not the target ARM processor.
+- No system energy or FPGA acceleration was measured.

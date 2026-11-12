@@ -1,0 +1,632 @@
+{
+  "task": "26.5E",
+  "selected_frames": 53,
+  "ekf_records": 24,
+  "decoded_camera_frames": [
+    0,
+    530,
+    1060,
+    1591,
+    2121
+  ],
+  "camera_ekf_overlap": [
+    0,
+    530
+  ],
+  "matched_frame_details": [
+    {
+      "frame": 0,
+      "time_s": "0.016666799",
+      "radar_status": "NOT_AVAILABLE",
+      "camera_status": "NO_UPDATE",
+      "ground_truth_validated": "NO",
+      "camera_file": "clean_camera_01_frame00000.png"
+    },
+    {
+      "frame": 530,
+      "time_s": "14.128400195",
+      "radar_status": "NOT_AVAILABLE",
+      "camera_status": "EXPERIMENTAL_ACCEPTED",
+      "ground_truth_validated": "NO",
+      "camera_file": "clean_camera_02_frame00530.png"
+    }
+  ],
+  "ekf_status_counts": {
+    "camera_status": {
+      "NO_UPDATE": 23,
+      "EXPERIMENTAL_ACCEPTED": 1
+    },
+    "radar_status": {
+      "NOT_AVAILABLE": 19,
+      "ACCEPTED": 4,
+      "INSUFFICIENT_RETURNS": 1
+    },
+    "ground_truth_validated": {
+      "NO": 24
+    }
+  },
+  "python_files_inspected": 126,
+  "relevant_source_candidates": [
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Track2_Camera_EKF_V1.py",
+      "score": 8,
+      "filename_matches": [
+        "ekf",
+        "camera",
+        "track"
+      ],
+      "relevant_functions": [
+        "radar_model",
+        "camera_model"
+      ],
+      "all_top_level_functions": [
+        "load",
+        "wrap",
+        "update",
+        "predict",
+        "lidar_noise",
+        "radar_model",
+        "camera_model"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Track2_Camera_EKF_V1.py",
+      "score": 8,
+      "filename_matches": [
+        "ekf",
+        "camera",
+        "track"
+      ],
+      "relevant_functions": [
+        "radar_model",
+        "camera_model"
+      ],
+      "all_top_level_functions": [
+        "load",
+        "wrap",
+        "update",
+        "predict",
+        "lidar_noise",
+        "radar_model",
+        "camera_model"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Radar_Track_Association_V1.py",
+      "score": 6,
+      "filename_matches": [
+        "association",
+        "radar",
+        "track"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "read_csv",
+        "box_distance"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Radar_Track_Association_V1.py",
+      "score": 6,
+      "filename_matches": [
+        "association",
+        "radar",
+        "track"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "read_csv",
+        "box_distance"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Track2_EKF_Baseline_V1.py",
+      "score": 5,
+      "filename_matches": [
+        "ekf",
+        "track"
+      ],
+      "relevant_functions": [
+        "radar_model"
+      ],
+      "all_top_level_functions": [
+        "load",
+        "lidar_covariance",
+        "predict",
+        "update",
+        "radar_model"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\Validation\\C02_Radar_Lidar_EKF_V1.py",
+      "score": 5,
+      "filename_matches": [
+        "ekf",
+        "radar"
+      ],
+      "relevant_functions": [
+        "radar_model"
+      ],
+      "all_top_level_functions": [
+        "read_csv",
+        "radar_model",
+        "covariance_update",
+        "clean"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\Validation\\C02_Radar_Lidar_EKF_V2.py",
+      "score": 5,
+      "filename_matches": [
+        "ekf",
+        "radar"
+      ],
+      "relevant_functions": [
+        "radar_model"
+      ],
+      "all_top_level_functions": [
+        "lidar_covariance",
+        "read_csv",
+        "radar_model",
+        "covariance_update",
+        "clean"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\Validation\\C02_Radar_Lidar_EKF_V3.py",
+      "score": 5,
+      "filename_matches": [
+        "ekf",
+        "radar"
+      ],
+      "relevant_functions": [
+        "radar_model"
+      ],
+      "all_top_level_functions": [
+        "lidar_covariance",
+        "read_csv",
+        "radar_model",
+        "covariance_update",
+        "clean"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Track2_EKF_Baseline_V1.py",
+      "score": 5,
+      "filename_matches": [
+        "ekf",
+        "track"
+      ],
+      "relevant_functions": [
+        "radar_model"
+      ],
+      "all_top_level_functions": [
+        "load",
+        "lidar_covariance",
+        "predict",
+        "update",
+        "radar_model"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\Validation\\C02_Radar_Lidar_EKF_V1.py",
+      "score": 5,
+      "filename_matches": [
+        "ekf",
+        "radar"
+      ],
+      "relevant_functions": [
+        "radar_model"
+      ],
+      "all_top_level_functions": [
+        "read_csv",
+        "radar_model",
+        "covariance_update",
+        "clean"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\Validation\\C02_Radar_Lidar_EKF_V2.py",
+      "score": 5,
+      "filename_matches": [
+        "ekf",
+        "radar"
+      ],
+      "relevant_functions": [
+        "radar_model"
+      ],
+      "all_top_level_functions": [
+        "lidar_covariance",
+        "read_csv",
+        "radar_model",
+        "covariance_update",
+        "clean"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\Validation\\C02_Radar_Lidar_EKF_V3.py",
+      "score": 5,
+      "filename_matches": [
+        "ekf",
+        "radar"
+      ],
+      "relevant_functions": [
+        "radar_model"
+      ],
+      "all_top_level_functions": [
+        "lidar_covariance",
+        "read_csv",
+        "radar_model",
+        "covariance_update",
+        "clean"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C01_Clear_Stationary10m\\Validation\\C01_Lidar_Radar_Association.py",
+      "score": 4,
+      "filename_matches": [
+        "association",
+        "radar"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": []
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C01_Clear_Stationary10m\\Validation\\C01_Lidar_Radar_Association.py",
+      "score": 4,
+      "filename_matches": [
+        "association",
+        "radar"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": []
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C01_Clear_Stationary10m\\Validation\\C01_Lidar_Kalman_Baseline.py",
+      "score": 2,
+      "filename_matches": [
+        "kalman"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "transpose",
+        "multiply",
+        "add",
+        "subtract",
+        "diag",
+        "inverse2"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C01_Clear_Stationary10m\\Validation\\C01_Lidar_Temporal_Association.py",
+      "score": 2,
+      "filename_matches": [
+        "association"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "extract_points",
+        "clusters_from_points",
+        "describe"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_Create_CleanCamera_TestMap.py",
+      "score": 2,
+      "filename_matches": [
+        "camera"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "record"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_Extract_CleanCamera_Frames.py",
+      "score": 2,
+      "filename_matches": [
+        "camera"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "chunk",
+        "save_png"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Camera_Bearing_Validation_V1.py",
+      "score": 2,
+      "filename_matches": [
+        "camera"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "load"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Camera_Lidar_Visual_Comparison.py",
+      "score": 2,
+      "filename_matches": [
+        "camera"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": []
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Extract_EKF_Measurements_V1.py",
+      "score": 2,
+      "filename_matches": [
+        "ekf"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": []
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_GT_Track2_Identity_Audit_V1.py",
+      "score": 2,
+      "filename_matches": [
+        "track"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "read_selected"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Lidar_Temporal_Tracks_V1.py",
+      "score": 2,
+      "filename_matches": [
+        "track"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "read_csv"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Radar_Coverage_Diagnostic_Frame0530.py",
+      "score": 2,
+      "filename_matches": [
+        "radar"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": []
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_ThreeSensor_Association_Frame0530_V1.py",
+      "score": 2,
+      "filename_matches": [
+        "association"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": []
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\Validation\\C02_Kalman_Radial_Evaluation_V1.py",
+      "score": 2,
+      "filename_matches": [
+        "kalman"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "closest_gt",
+        "optional_float",
+        "rmse"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\Validation\\C02_Lidar_Kalman_Baseline_V1.py",
+      "score": 2,
+      "filename_matches": [
+        "kalman"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "number_or_blank",
+        "rounded"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C01_Clear_Stationary10m\\Validation\\C01_Lidar_Kalman_Baseline.py",
+      "score": 2,
+      "filename_matches": [
+        "kalman"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "transpose",
+        "multiply",
+        "add",
+        "subtract",
+        "diag",
+        "inverse2"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C01_Clear_Stationary10m\\Validation\\C01_Lidar_Temporal_Association.py",
+      "score": 2,
+      "filename_matches": [
+        "association"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "extract_points",
+        "clusters_from_points",
+        "describe"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\C02_Create_CleanCamera_TestMap.py",
+      "score": 2,
+      "filename_matches": [
+        "camera"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "record"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\C02_Extract_CleanCamera_Frames.py",
+      "score": 2,
+      "filename_matches": [
+        "camera"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "chunk",
+        "save_png"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Camera_Bearing_Validation_V1.py",
+      "score": 2,
+      "filename_matches": [
+        "camera"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "load"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Camera_Lidar_Visual_Comparison.py",
+      "score": 2,
+      "filename_matches": [
+        "camera"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": []
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Extract_EKF_Measurements_V1.py",
+      "score": 2,
+      "filename_matches": [
+        "ekf"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": []
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_GT_Track2_Identity_Audit_V1.py",
+      "score": 2,
+      "filename_matches": [
+        "track"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "read_selected"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Lidar_Temporal_Tracks_V1.py",
+      "score": 2,
+      "filename_matches": [
+        "track"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "read_csv"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Radar_Coverage_Diagnostic_Frame0530.py",
+      "score": 2,
+      "filename_matches": [
+        "radar"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": []
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_ThreeSensor_Association_Frame0530_V1.py",
+      "score": 2,
+      "filename_matches": [
+        "association"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": []
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\Validation\\C02_Kalman_Radial_Evaluation_V1.py",
+      "score": 2,
+      "filename_matches": [
+        "kalman"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "closest_gt",
+        "optional_float",
+        "rmse"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\10_Task24_Consolidated_V1\\04_Code\\09_Controlled_Scenario\\C02_MovingTarget\\Validation\\C02_Lidar_Kalman_Baseline_V1.py",
+      "score": 2,
+      "filename_matches": [
+        "kalman"
+      ],
+      "relevant_functions": [],
+      "all_top_level_functions": [
+        "number_or_blank",
+        "rounded"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_25_Final_Research\\01_Code\\task25_replay.py",
+      "score": 1,
+      "filename_matches": [],
+      "relevant_functions": [
+        "camera"
+      ],
+      "all_top_level_functions": [
+        "rows",
+        "num",
+        "writecsv",
+        "update",
+        "predict",
+        "radial",
+        "camera",
+        "wrap",
+        "load_inputs",
+        "replay",
+        "validate_baseline",
+        "summary",
+        "plot",
+        "main"
+      ]
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_25_Final_Research\\06_Research_Findings\\task25_replay_starter\\task25_starter\\task25_replay.py",
+      "score": 1,
+      "filename_matches": [],
+      "relevant_functions": [
+        "camera"
+      ],
+      "all_top_level_functions": [
+        "rows",
+        "num",
+        "writecsv",
+        "update",
+        "predict",
+        "radial",
+        "camera",
+        "wrap",
+        "load_inputs",
+        "replay",
+        "validate_baseline",
+        "summary",
+        "plot",
+        "main"
+      ]
+    }
+  ],
+  "limitations": [
+    "Archived EKF rows are not executed EKF computations.",
+    "Camera frame naming does not independently verify image timestamps.",
+    "Matched frame IDs do not prove sensor association.",
+    "No integrated Camera/EKF latency is measured.",
+    "No ARM, FPGA or board-energy measurement is performed."
+  ]
+}

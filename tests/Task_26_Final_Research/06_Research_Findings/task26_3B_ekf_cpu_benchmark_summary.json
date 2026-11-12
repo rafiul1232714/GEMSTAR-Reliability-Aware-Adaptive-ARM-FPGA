@@ -1,0 +1,45 @@
+{
+  "task": "26.3B",
+  "benchmark_type": "isolated_EKF_replay",
+  "source_script": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_25_Final_Research\\01_Code\\task25_replay.py",
+  "source_sha256": "32B3385A356DF478464B695FECBE02E49AC3A5C5C66B36DCA19D0032A88AFB49",
+  "input_directory": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_EKF_Input_53Frames_V1",
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "baseline_max_difference_m": 1.3877787807814457e-17,
+  "osi_parsing_timed": false,
+  "csv_loading_timed": false,
+  "camera_inference_timed": false,
+  "file_writing_timed": false,
+  "groundtruth_in_timed_execution": false,
+  "energy_measured": false,
+  "arm_board_measured": false,
+  "complete_pipeline_measured": false,
+  "results": [
+    {
+      "workload": "baseline",
+      "observations_per_run": 24,
+      "warmup_runs": 20,
+      "timed_runs": 100,
+      "mean_ms": 1.549976,
+      "median_ms": 1.5099,
+      "p95_ms": 1.6786599999999996,
+      "p99_ms": 2.245492000000001,
+      "min_ms": 1.4992,
+      "max_ms": 2.3932,
+      "median_ms_per_observation": 0.0629125
+    },
+    {
+      "workload": "seven_scenarios",
+      "observations_per_run": 168,
+      "warmup_runs": 20,
+      "timed_runs": 100,
+      "mean_ms": 9.55637,
+      "median_ms": 9.46055,
+      "p95_ms": 10.28727,
+      "p99_ms": 10.413307000000003,
+      "min_ms": 9.3026,
+      "max_ms": 10.8892,
+      "median_ms_per_observation": 0.056312797619047616
+    }
+  ]
+}

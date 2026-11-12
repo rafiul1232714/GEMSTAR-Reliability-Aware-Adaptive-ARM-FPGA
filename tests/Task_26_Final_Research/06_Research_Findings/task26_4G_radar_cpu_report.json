@@ -1,0 +1,21 @@
+{
+  "task": "26.4G",
+  "source_sha256": "268E8309511F847AB1CDC9029C45C78EE477B10BC12AC132F16767C93D40F4BB",
+  "data_sha256": "00AFD8A22CC6776CB3E57C1AB123625B90E2F83010855CF2911CD9B9D683D230",
+  "input_rows": 1600,
+  "valid_returns": 544,
+  "invalid_returns": 1056,
+  "frame_groups": 12,
+  "timing_rows": 1200,
+  "maximum_range_difference_m": 0.0,
+  "original_function_used": true,
+  "reference_validation": "PASS",
+  "warmup_batches_per_frame": 10,
+  "timed_batches_per_frame": 100,
+  "csv_parsing_timed": false,
+  "invalid_returns_timed": false,
+  "radar_lidar_association_timed": false,
+  "energy_measured": false,
+  "latency_type": "Complete valid-return batch",
+  "per_return_metric": "Batch time divided by return count"
+}
