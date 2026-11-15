@@ -1,0 +1,185 @@
+workload,group,measurements,median_ms,mean_ms,p95_ms,p99_ms,min_ms,max_ms,timing_scope
+EKF,workload=baseline,100,1.5099,1.549976,1.6786599999999996,2.245492000000001,1.4992,2.3932,Full tracking replay per run; not a per-frame latency
+EKF,workload=seven_scenarios,100,9.46055,9.55637,10.28727,10.413307000000003,9.3026,10.8892,Full tracking replay per run; not a per-frame latency
+Camera,weather=CLEAR|mode=FULL,100,2.76105,2.846895,3.358155,3.980186000000006,2.5301,5.1668,One image preprocessing run
+Camera,weather=CLEAR|mode=ROI,100,1.0499,1.071723,1.2015149999999999,1.3094750000000024,0.9836,1.7822,One image preprocessing run
+Camera,weather=FOG100|mode=FULL,100,2.5801999999999996,2.689164,3.4481849999999996,3.951092,2.4679,3.9602,One image preprocessing run
+Camera,weather=FOG100|mode=ROI,100,0.96025,0.952045,1.0510599999999999,1.1472050000000005,0.8482,1.2269,One image preprocessing run
+Camera,weather=FOG20|mode=FULL,100,2.59335,2.716758,3.660179999999999,4.249605000000001,2.4709,4.359,One image preprocessing run
+Camera,weather=FOG20|mode=ROI,100,0.90165,0.964186,1.2601099999999998,1.652465000000002,0.8579,2.0846,One image preprocessing run
+LiDAR,frame=0|stage=cluster,25,0.3891,0.42548400000000003,0.43601999999999996,1.0067079999999986,0.3811,1.1869,Isolated filter or cluster stage per frame
+LiDAR,frame=0|stage=filter,25,0.5319,0.535388,0.53606,0.6072559999999998,0.5266,0.6296,Isolated filter or cluster stage per frame
+LiDAR,frame=1020|stage=cluster,25,0.045,0.073904,0.15783999999999992,0.2507919999999998,0.0444,0.2788,Isolated filter or cluster stage per frame
+LiDAR,frame=1020|stage=filter,25,0.7376,0.742724,0.74972,0.8248519999999999,0.7299,0.8483,Isolated filter or cluster stage per frame
+LiDAR,frame=1060|stage=cluster,25,0.0444,0.044476,0.04508,0.045176,0.0441,0.0452,Isolated filter or cluster stage per frame
+LiDAR,frame=1060|stage=filter,25,0.744,0.746612,0.7626,0.79062,0.7377,0.7983,Isolated filter or cluster stage per frame
+LiDAR,frame=1101|stage=cluster,25,0.0447,0.045,0.046079999999999996,0.047416,0.0443,0.0478,Isolated filter or cluster stage per frame
+LiDAR,frame=1101|stage=filter,25,0.7471,0.76298,0.7601,1.0584719999999992,0.7369,1.152,Isolated filter or cluster stage per frame
+LiDAR,frame=1142|stage=cluster,25,0.0447,0.045028,0.04758,0.047876,0.0443,0.0479,Isolated filter or cluster stage per frame
+LiDAR,frame=1142|stage=filter,25,0.738,0.757332,0.75364,1.0429799999999994,0.7332,1.1343,Isolated filter or cluster stage per frame
+LiDAR,frame=1183|stage=cluster,25,0.0447,0.044996,0.046619999999999995,0.04708,0.0441,0.0472,Isolated filter or cluster stage per frame
+LiDAR,frame=1183|stage=filter,25,0.7454,0.747516,0.75398,0.7974319999999999,0.7387,0.8108,Isolated filter or cluster stage per frame
+LiDAR,frame=1224|stage=cluster,25,0.0446,0.044916,0.0466,0.047588,0.044,0.0479,Isolated filter or cluster stage per frame
+LiDAR,frame=1224|stage=filter,25,0.7445,0.7492840000000001,0.7996799999999998,0.812028,0.7385,0.8121,Isolated filter or cluster stage per frame
+LiDAR,frame=122|stage=cluster,25,0.1343,0.136116,0.13676,0.16175199999999992,0.1338,0.1696,Isolated filter or cluster stage per frame
+LiDAR,frame=122|stage=filter,25,0.8518,0.8774,1.0118799999999994,1.2353039999999995,0.8439,1.2942,Isolated filter or cluster stage per frame
+LiDAR,frame=1264|stage=cluster,25,0.0449,0.045168,0.04736,0.047904,0.0441,0.048,Isolated filter or cluster stage per frame
+LiDAR,frame=1264|stage=filter,25,0.75,0.78964,0.8427199999999997,1.4514039999999984,0.7446,1.6369,Isolated filter or cluster stage per frame
+LiDAR,frame=1305|stage=cluster,25,0.0447,0.045072,0.04734,0.048388,0.0442,0.0487,Isolated filter or cluster stage per frame
+LiDAR,frame=1305|stage=filter,25,0.7475,0.750284,0.7615999999999999,0.788596,0.7384,0.7969,Isolated filter or cluster stage per frame
+LiDAR,frame=1346|stage=cluster,25,0.0451,0.045432,0.047959999999999996,0.048808,0.0446,0.049,Isolated filter or cluster stage per frame
+LiDAR,frame=1346|stage=filter,25,0.7529,0.823924,1.2678599999999993,1.4990519999999994,0.7444,1.5549,Isolated filter or cluster stage per frame
+LiDAR,frame=1387|stage=cluster,25,0.0456,0.045652,0.0467,0.047888,0.0446,0.0482,Isolated filter or cluster stage per frame
+LiDAR,frame=1387|stage=filter,25,0.7457,0.750196,0.75674,0.8406199999999998,0.738,0.8669,Isolated filter or cluster stage per frame
+LiDAR,frame=1428|stage=cluster,25,0.0445,0.0449,0.0474,0.048004,0.0444,0.0481,Isolated filter or cluster stage per frame
+LiDAR,frame=1428|stage=filter,25,0.7464,0.785768,0.7718799999999999,1.4977919999999982,0.7355,1.7256,Isolated filter or cluster stage per frame
+LiDAR,frame=1468|stage=cluster,25,0.0444,0.044888,0.04752,0.048104,0.0441,0.0482,Isolated filter or cluster stage per frame
+LiDAR,frame=1468|stage=filter,25,0.7424,0.859708,1.5213799999999995,1.6752039999999997,0.7351,1.7131,Isolated filter or cluster stage per frame
+LiDAR,frame=1509|stage=cluster,25,0.0444,0.047436,0.047979999999999995,0.09655999999999987,0.044,0.1118,Isolated filter or cluster stage per frame
+LiDAR,frame=1509|stage=filter,25,0.7398,0.7985,1.0669199999999994,1.5129639999999989,0.7315,1.6435,Isolated filter or cluster stage per frame
+LiDAR,frame=1550|stage=cluster,25,0.0446,0.04568,0.047319999999999994,0.06284799999999996,0.0443,0.0676,Isolated filter or cluster stage per frame
+LiDAR,frame=1550|stage=filter,25,0.7438,0.762828,0.8494399999999996,1.0413759999999996,0.7389,1.0942,Isolated filter or cluster stage per frame
+LiDAR,frame=1591|stage=cluster,25,0.0454,0.0454,0.04596,0.046608,0.0449,0.0468,Isolated filter or cluster stage per frame
+LiDAR,frame=1591|stage=filter,25,0.7459,0.817432,1.2693999999999992,1.325076,0.7384,1.3281,Isolated filter or cluster stage per frame
+LiDAR,frame=1632|stage=cluster,25,0.0449,0.045016,0.0456,0.04674,0.0445,0.0471,Isolated filter or cluster stage per frame
+LiDAR,frame=1632|stage=filter,25,0.7462,0.752208,0.7561800000000001,0.8654319999999998,0.7364,0.8998,Isolated filter or cluster stage per frame
+LiDAR,frame=163|stage=cluster,25,0.1342,0.13452,0.13620000000000002,0.13858,0.1335,0.1393,Isolated filter or cluster stage per frame
+LiDAR,frame=163|stage=filter,25,0.8535,0.8666,0.86276,1.0912999999999995,0.8481,1.1633,Isolated filter or cluster stage per frame
+LiDAR,frame=1672|stage=cluster,25,0.0447,0.044808,0.045599999999999995,0.046004,0.0442,0.0461,Isolated filter or cluster stage per frame
+LiDAR,frame=1672|stage=filter,25,0.7433,0.7991159999999999,1.2527799999999982,1.4631239999999996,0.7352,1.4901,Isolated filter or cluster stage per frame
+LiDAR,frame=1713|stage=cluster,25,0.0446,0.044896,0.0462,0.046959999999999995,0.0441,0.0472,Isolated filter or cluster stage per frame
+LiDAR,frame=1713|stage=filter,25,0.7427,0.797416,1.080679999999999,1.494083999999999,0.7346,1.6029,Isolated filter or cluster stage per frame
+LiDAR,frame=1754|stage=cluster,25,0.0449,0.054391999999999996,0.08743999999999998,0.09690399999999998,0.0442,0.0994,Isolated filter or cluster stage per frame
+LiDAR,frame=1754|stage=filter,25,0.7441,0.759128,0.75286,1.0426599999999993,0.7373,1.1341,Isolated filter or cluster stage per frame
+LiDAR,frame=1795|stage=cluster,25,0.0446,0.044932,0.04698,0.047404,0.0442,0.0475,Isolated filter or cluster stage per frame
+LiDAR,frame=1795|stage=filter,25,0.7454,0.805164,1.322439999999998,1.517188,0.7376,1.5337,Isolated filter or cluster stage per frame
+LiDAR,frame=1835|stage=cluster,25,0.045,0.045224,0.047319999999999994,0.048768,0.0443,0.0492,Isolated filter or cluster stage per frame
+LiDAR,frame=1835|stage=filter,25,0.7421,0.78986,1.1448999999999998,1.168072,0.7358,1.1698,Isolated filter or cluster stage per frame
+LiDAR,frame=1876|stage=cluster,25,0.0447,0.045087999999999996,0.04698,0.048088,0.0441,0.0484,Isolated filter or cluster stage per frame
+LiDAR,frame=1876|stage=filter,25,0.7426,0.766356,0.7497,1.1809719999999988,0.7367,1.3171,Isolated filter or cluster stage per frame
+LiDAR,frame=1917|stage=cluster,25,0.0445,0.04478,0.046919999999999996,0.047604,0.0442,0.0477,Isolated filter or cluster stage per frame
+LiDAR,frame=1917|stage=filter,25,0.7436,0.770956,0.7519,1.2639999999999987,0.7391,1.4254,Isolated filter or cluster stage per frame
+LiDAR,frame=1958|stage=cluster,25,0.0448,0.045,0.046419999999999996,0.046728,0.0443,0.0468,Isolated filter or cluster stage per frame
+LiDAR,frame=1958|stage=filter,25,0.739,0.777844,0.9522399999999994,1.3092119999999992,0.7341,1.4097,Isolated filter or cluster stage per frame
+LiDAR,frame=1999|stage=cluster,25,0.0447,0.045104,0.04784,0.048076,0.044,0.0481,Isolated filter or cluster stage per frame
+LiDAR,frame=1999|stage=filter,25,0.7371,0.739492,0.74568,0.7832359999999999,0.7298,0.7949,Isolated filter or cluster stage per frame
+LiDAR,frame=2039|stage=cluster,25,0.0445,0.044796,0.04636,0.047132,0.0441,0.0473,Isolated filter or cluster stage per frame
+LiDAR,frame=2039|stage=filter,25,0.745,0.746912,0.75154,0.794488,0.735,0.808,Isolated filter or cluster stage per frame
+LiDAR,frame=204|stage=cluster,25,0.132,0.133124,0.13454,0.14979999999999996,0.1311,0.1546,Isolated filter or cluster stage per frame
+LiDAR,frame=204|stage=filter,25,0.8542,0.8713799999999999,0.8623999999999999,1.1894959999999992,0.8464,1.2926,Isolated filter or cluster stage per frame
+LiDAR,frame=2080|stage=cluster,25,0.0446,0.044864,0.0469,0.047127999999999996,0.0441,0.0472,Isolated filter or cluster stage per frame
+LiDAR,frame=2080|stage=filter,25,0.739,0.80246,1.2947399999999987,1.420668,0.7299,1.4271,Isolated filter or cluster stage per frame
+LiDAR,frame=2121|stage=cluster,25,0.0446,0.044888,0.0469,0.04776,0.0442,0.048,Isolated filter or cluster stage per frame
+LiDAR,frame=2121|stage=filter,25,0.7429,0.7445120000000001,0.74898,0.7803359999999999,0.7366,0.7902,Isolated filter or cluster stage per frame
+LiDAR,frame=245|stage=cluster,25,0.1152,0.115608,0.11794,0.11837600000000001,0.1146,0.1184,Isolated filter or cluster stage per frame
+LiDAR,frame=245|stage=filter,25,0.8257,0.8309,0.8363,0.9070239999999998,0.8181,0.9292,Isolated filter or cluster stage per frame
+LiDAR,frame=286|stage=cluster,25,0.0911,0.091432,0.09318,0.093908,0.0907,0.0941,Isolated filter or cluster stage per frame
+LiDAR,frame=286|stage=filter,25,0.798,0.853424,1.240299999999999,1.325196,0.7904,1.3359,Isolated filter or cluster stage per frame
+LiDAR,frame=326|stage=cluster,25,0.0796,0.079604,0.08152,0.08215599999999999,0.0785,0.0823,Isolated filter or cluster stage per frame
+LiDAR,frame=326|stage=filter,25,0.7761,0.8150000000000001,0.8508799999999997,1.4563279999999985,0.7691,1.6424,Isolated filter or cluster stage per frame
+LiDAR,frame=367|stage=cluster,25,0.0727,0.07312,0.07414,0.08020399999999998,0.0719,0.0821,Isolated filter or cluster stage per frame
+LiDAR,frame=367|stage=filter,25,0.7682,0.868688,1.6182399999999995,1.71722,0.7603,1.7339,Isolated filter or cluster stage per frame
+LiDAR,frame=408|stage=cluster,25,0.0647,0.064836,0.06566,0.06684,0.0637,0.0672,Isolated filter or cluster stage per frame
+LiDAR,frame=408|stage=filter,25,0.7613,0.769008,0.7676599999999999,0.9218679999999997,0.7536,0.9703,Isolated filter or cluster stage per frame
+LiDAR,frame=41|stage=cluster,25,0.1351,0.135488,0.13832,0.13994399999999999,0.1338,0.1404,Isolated filter or cluster stage per frame
+LiDAR,frame=41|stage=filter,25,0.848,0.857104,0.9255999999999998,0.977304,0.8412,0.9888,Isolated filter or cluster stage per frame
+LiDAR,frame=449|stage=cluster,25,0.0588,0.059236000000000004,0.0603,0.063972,0.0582,0.0651,Isolated filter or cluster stage per frame
+LiDAR,frame=449|stage=filter,25,0.7625,0.782484,0.7715799999999999,1.174895999999999,0.7471,1.302,Isolated filter or cluster stage per frame
+LiDAR,frame=489|stage=cluster,25,0.0589,0.058916,0.060099999999999994,0.060655999999999995,0.058,0.0608,Isolated filter or cluster stage per frame
+LiDAR,frame=489|stage=filter,25,0.7573,0.806336,1.1320599999999996,1.2987919999999997,0.748,1.3406,Isolated filter or cluster stage per frame
+LiDAR,frame=530|stage=cluster,25,0.0587,0.063732,0.09625999999999997,0.10941199999999997,0.0576,0.1127,Isolated filter or cluster stage per frame
+LiDAR,frame=530|stage=filter,25,0.7553,0.78502,0.7623,1.3534759999999983,0.7446,1.5401,Isolated filter or cluster stage per frame
+LiDAR,frame=571|stage=cluster,25,0.0551,0.055408,0.056999999999999995,0.057479999999999996,0.0545,0.0576,Isolated filter or cluster stage per frame
+LiDAR,frame=571|stage=filter,25,0.7558,0.757752,0.76134,0.7938,0.7478,0.804,Isolated filter or cluster stage per frame
+LiDAR,frame=612|stage=cluster,25,0.0548,0.05538,0.055760000000000004,0.06461599999999998,0.0544,0.0674,Isolated filter or cluster stage per frame
+LiDAR,frame=612|stage=filter,25,0.7498,0.759424,0.7762399999999999,0.9313159999999996,0.7373,0.9785,Isolated filter or cluster stage per frame
+LiDAR,frame=653|stage=cluster,25,0.0555,0.055772,0.05724,0.058008,0.0552,0.0582,Isolated filter or cluster stage per frame
+LiDAR,frame=653|stage=filter,25,0.7473,0.753912,0.75804,0.8517319999999997,0.7414,0.8813,Isolated filter or cluster stage per frame
+LiDAR,frame=693|stage=cluster,25,0.055,0.055424,0.056979999999999996,0.06105199999999999,0.0544,0.0623,Isolated filter or cluster stage per frame
+LiDAR,frame=693|stage=filter,25,0.7551,0.794772,0.7782399999999999,1.506291999999998,0.7423,1.7359,Isolated filter or cluster stage per frame
+LiDAR,frame=734|stage=cluster,25,0.0552,0.055408,0.056760000000000005,0.057484,0.0547,0.0577,Isolated filter or cluster stage per frame
+LiDAR,frame=734|stage=filter,25,0.7521,0.776964,0.9928199999999993,1.0555240000000001,0.7408,1.0579,Isolated filter or cluster stage per frame
+LiDAR,frame=775|stage=cluster,25,0.0554,0.07318,0.18288,0.2259359999999999,0.0547,0.2394,Isolated filter or cluster stage per frame
+LiDAR,frame=775|stage=filter,25,0.7514,0.782508,0.7599,1.3529359999999984,0.7413,1.5398,Isolated filter or cluster stage per frame
+LiDAR,frame=816|stage=cluster,25,0.0546,0.054928,0.056,0.057595999999999994,0.0542,0.0581,Isolated filter or cluster stage per frame
+LiDAR,frame=816|stage=filter,25,0.7534,0.803568,1.222279999999999,1.2985799999999998,0.7432,1.3011,Isolated filter or cluster stage per frame
+LiDAR,frame=82|stage=cluster,25,0.1355,0.1359,0.13796,0.140432,0.1348,0.1412,Isolated filter or cluster stage per frame
+LiDAR,frame=82|stage=filter,25,0.8492,0.923316,1.4230199999999995,1.5874399999999997,0.8423,1.6274,Isolated filter or cluster stage per frame
+LiDAR,frame=857|stage=cluster,25,0.0546,0.054912,0.0573,0.058184,0.054,0.0584,Isolated filter or cluster stage per frame
+LiDAR,frame=857|stage=filter,25,0.7499,0.763408,0.76188,0.9996079999999994,0.7381,1.0742,Isolated filter or cluster stage per frame
+LiDAR,frame=897|stage=cluster,25,0.0569,0.05768,0.06293999999999998,0.06676399999999999,0.0563,0.0677,Isolated filter or cluster stage per frame
+LiDAR,frame=897|stage=filter,25,0.7509,0.755848,0.8015199999999999,0.814096,0.7456,0.8146,Isolated filter or cluster stage per frame
+LiDAR,frame=938|stage=cluster,25,0.0537,0.054384,0.05588,0.06299199999999998,0.0532,0.0652,Isolated filter or cluster stage per frame
+LiDAR,frame=938|stage=filter,25,0.7496,0.752796,0.76014,0.8114159999999999,0.74,0.8274,Isolated filter or cluster stage per frame
+LiDAR,frame=979|stage=cluster,25,0.0469,0.047124,0.048499999999999995,0.048676,0.0465,0.0487,Isolated filter or cluster stage per frame
+LiDAR,frame=979|stage=filter,25,0.7478,0.772396,0.75802,1.220247999999999,0.7354,1.366,Isolated filter or cluster stage per frame
+Radar,pair_id=1|frame=0,100,0.0183,0.018374,0.018605,0.019166000000000034,0.0179,0.0257,One radar return batch; not one return
+Radar,pair_id=1|frame=1,100,0.0137,0.014369999999999999,0.014044999999999998,0.041704000000000005,0.0135,0.0421,One radar return batch; not one return
+Radar,pair_id=1|frame=25,100,0.0128,0.013258,0.013,0.019504000000000153,0.0126,0.0496,One radar return batch; not one return
+Radar,pair_id=1|frame=99,100,0.0124,0.015886,0.037605,0.03826900000000003,0.0122,0.0451,One radar return batch; not one return
+Radar,pair_id=2|frame=0,100,0.0109,0.010903,0.011205,0.011505000000000003,0.0107,0.012,One radar return batch; not one return
+Radar,pair_id=2|frame=1,100,0.0068,0.0068319999999999995,0.007,0.007803000000000001,0.0067,0.0081,One radar return batch; not one return
+Radar,pair_id=2|frame=25,100,0.0066,0.00664,0.0068,0.006906000000000003,0.0065,0.0075,One radar return batch; not one return
+Radar,pair_id=2|frame=99,100,0.0068,0.00683,0.007,0.00771800000000001,0.0067,0.0095,One radar return batch; not one return
+Radar,pair_id=3|frame=0,100,0.01085,0.010878,0.011005,0.011901000000000002,0.0107,0.012,One radar return batch; not one return
+Radar,pair_id=3|frame=1,100,0.0068,0.012915,0.007,0.014288000000003114,0.0067,0.617,One radar return batch; not one return
+Radar,pair_id=3|frame=25,100,0.0066,0.011986,0.020005,0.020301,0.0065,0.0204,One radar return batch; not one return
+Radar,pair_id=3|frame=99,100,0.0066,0.010043,0.0198,0.020102000000000002,0.0065,0.0203,One radar return batch; not one return
+YOLO11s,frame=0,10,43.74605,44.56004,48.85696,49.982752000000005,41.6612,50.2642,One image inference call
+YOLO11s,frame=1060,10,42.46295,43.16229,46.13554,46.428868,41.8601,46.5022,One image inference call
+YOLO11s,frame=1591,10,43.274,43.47875,45.30025,45.52525,41.9106,45.5815,One image inference call
+YOLO11s,frame=2121,10,45.9199,45.04103,47.71976,47.943391999999996,40.8663,47.9993,One image inference call
+YOLO11s,frame=530,10,45.9721,46.06326,51.029675,51.676415,41.9171,51.8381,One image inference call
+Partial_LiDAR_Radar,frame=0,25,0.9187,0.952784,0.95992,1.4817319999999987,0.9106,1.6457,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1020,25,0.7813,0.817924,1.0479999999999994,1.1809719999999997,0.7734,1.2103,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1060,25,0.7801,0.782964,0.8051999999999999,0.8277439999999999,0.7726,0.8336,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1101,25,0.7849,0.826136,1.1002799999999995,1.2471719999999997,0.7781,1.2819,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1142,25,0.7795,0.787132,0.8445999999999998,0.866612,0.7704,0.8705,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1183,25,0.806,0.844684,1.2574999999999985,1.4376839999999997,0.7727,1.4625,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=122,25,0.9857,0.990412,0.99734,1.1042799999999997,0.9699,1.138,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1224,25,0.8265,0.845736,1.0898999999999994,1.212268,0.7747,1.2373,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1264,25,0.7854,0.800892,0.8832999999999999,0.9609679999999998,0.7776,0.983,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1305,25,0.7856,0.81692,0.82812,1.3282399999999988,0.7806,1.4858,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1346,25,0.7835,0.81714,0.8573399999999999,1.3500079999999988,0.7717,1.5038,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1387,25,0.7878,0.8244,0.85574,1.3715959999999987,0.7736,1.5323,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1428,25,0.7884,0.80812,0.8340399999999999,1.1501079999999992,0.7756,1.2481,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1468,25,0.8075,0.813016,0.8815599999999997,0.933256,0.7797,0.9442,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1509,25,0.7824,0.813984,0.8038000000000001,1.3451319999999987,0.7745,1.5157,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1550,25,0.7872,0.793688,0.82992,0.8620119999999999,0.7819,0.8719,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1591,25,0.7822,0.786732,0.80804,0.8484519999999999,0.7754,0.8599,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=163,25,0.9888,1.029004,1.01522,1.7851479999999977,0.9671,2.0275,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1632,25,0.7884,0.790276,0.7984399999999999,0.8481399999999999,0.7746,0.8635,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1672,25,0.7784,0.822712,0.8371799999999999,1.5755039999999982,0.7714,1.8066,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1713,25,0.7787,0.80844,0.80842,1.3215279999999985,0.7722,1.4824,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1754,25,0.7835,0.819544,0.8321799999999999,1.4391879999999984,0.7768,1.6279,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1795,25,0.7897,0.81466,0.8700199999999999,1.195707999999999,0.7736,1.2949,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1835,25,0.7788,0.791416,0.78976,0.9934479999999996,0.7738,1.0576,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1876,25,0.7879,0.789064,0.7945599999999999,0.8614679999999998,0.7716,0.8823,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1917,25,0.7795,0.814452,0.83736,1.3796959999999987,0.7705,1.5494,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1958,25,0.7795,0.810992,0.82058,1.3290919999999988,0.7737,1.4891,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=1999,25,0.7828,0.896636,1.6934599999999997,1.8317039999999998,0.7734,1.8666,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=2039,25,0.7803,0.784056,0.79128,0.8442359999999999,0.773,0.8607,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=204,25,0.9768,1.031288,1.4513799999999983,1.6740319999999997,0.9669,1.709,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=2080,25,0.7929,0.798076,0.8084600000000001,0.8866959999999998,0.7787,0.9112,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=2121,25,0.7864,0.855336,1.4000799999999984,1.5537679999999998,0.7764,1.568,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=245,25,0.9364,0.968396,0.9919799999999999,1.5039959999999986,0.9219,1.6635,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=286,25,0.8963,0.899712,0.92614,1.0068199999999998,0.8759,1.0307,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=326,25,0.8582,0.861876,0.87774,0.9159239999999998,0.8453,0.9279,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=367,25,0.8313,0.852856,0.9223199999999997,1.1755159999999996,0.8228,1.2491,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=408,25,0.8185,0.877692,1.3514999999999984,1.5295679999999998,0.8098,1.5516,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=41,25,0.987,0.991696,1.0271599999999999,1.0847839999999997,0.9707,1.1012,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=449,25,0.8168,0.81554,0.82406,0.8553279999999999,0.8018,0.865,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=489,25,0.8023,0.897596,1.3840399999999997,1.7226519999999992,0.7974,1.8271,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=530,25,0.8039,0.844644,1.1260199999999991,1.3347599999999997,0.7988,1.3782,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=571,25,0.8009,0.875084,1.447699999999998,1.7877679999999996,0.7926,1.8452,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=612,25,0.8034,0.833684,0.8894599999999997,1.3459799999999988,0.7894,1.4841,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=653,25,0.7949,0.827728,0.8720399999999998,1.3522239999999988,0.7868,1.5004,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=693,25,0.7998,0.834828,0.8725199999999999,1.4332399999999987,0.7892,1.6064,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=734,25,0.8015,0.806276,0.8367399999999999,0.88916,0.7884,0.9038,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=775,25,0.7954,0.807956,0.9013999999999998,0.922052,0.7867,0.9239,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=816,25,0.8009,0.83396,0.83336,1.4146439999999987,0.7912,1.5981,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=82,25,0.9835,0.98632,0.9949399999999999,1.0440319999999998,0.9732,1.0592,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=857,25,0.7988,0.803468,0.81106,0.8939199999999998,0.7892,0.9196,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=897,25,0.7935,0.862708,1.410139999999998,1.6367559999999999,0.7819,1.6627,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=938,25,0.8044,0.81836,0.81272,1.0814319999999993,0.7969,1.1662,Sequential LiDAR filtering + clustering + Radar batch
+Partial_LiDAR_Radar,frame=979,25,0.8236,0.827328,0.8927199999999998,1.0904879999999995,0.7707,1.1514,Sequential LiDAR filtering + clustering + Radar batch

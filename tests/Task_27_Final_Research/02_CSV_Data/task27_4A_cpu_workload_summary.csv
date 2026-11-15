@@ -1,0 +1,7 @@
+workload,timing_rows,groups,median_of_group_medians_ms,minimum_group_median_ms,maximum_group_median_ms,maximum_group_p99_ms,timing_scope,directly_comparable_across_workloads
+EKF,200,2,5.485225,1.5099,9.46055,10.413307000000003,Full tracking replay per run; not a per-frame latency,NO
+Camera,600,6,1.8150499999999998,0.90165,2.76105,4.249605000000001,One image preprocessing run,NO
+LiDAR,2650,106,0.4605,0.0444,0.8542,1.71722,Isolated filter or cluster stage per frame,NO
+Radar,1200,12,0.008825,0.0066,0.0183,0.041704000000000005,One radar return batch; not one return,NO
+YOLO11s,50,5,43.74605,42.46295,45.9721,51.676415,One image inference call,NO
+Partial_LiDAR_Radar,1325,53,0.7949,0.7784,0.9888,1.8317039999999998,Sequential LiDAR filtering + clustering + Radar batch,NO

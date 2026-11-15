@@ -1,0 +1,6 @@
+stage,records,median_of_record_medians_ms,minimum_record_median_ms,maximum_record_median_ms,exact_operation_count_known,actual_dram_traffic_known,fpga_energy_known
+LiDAR_filter,53,0.7473,0.5319,0.8542,NO,NO,NO
+LiDAR_cluster,53,0.0454,0.0444,0.3891,NO,NO,NO
+Camera_preprocessing,6,1.8150499999999998,0.90165,2.76105,NO,NO,NO
+Radar_valid_returns,12,0.008825,0.0066,0.0183,NO,NO,NO
+YOLO11s_predict,5,43.74605,42.46295,45.9721,NO,NO,NO

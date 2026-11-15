@@ -1,0 +1,17 @@
+GEMSTAR TASK 27.3A - LIDAR WORKLOAD FINDINGS
+Frames: 53
+Total input points: 172839
+Total filtered points: 16295
+Weighted point reduction: 90.5722%
+Mean occupied cells/frame: 23.60
+Median filter stage time (across frame medians): 0.747300 ms
+Median cluster stage time (across frame medians): 0.045400 ms
+
+LIMITATIONS:
+CPU times are archived workstation timings, not ARM timings.
+The sum of stage medians is not end-to-end measured latency.
+8*occupied_cells is a structural upper bound on neighbor-cell candidates, not measured operations.
+Nominal XYZ sizes assume float32 triples, not Python object allocation or DRAM traffic.
+Occupied cells do not include Python dictionary/list overhead.
+This step does not rerun clustering or validate cluster identities.
+No FPGA energy or acceleration results are claimed.

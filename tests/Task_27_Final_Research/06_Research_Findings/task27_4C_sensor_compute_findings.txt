@@ -1,0 +1,34 @@
+GEMSTAR TASK 27.4C - WORKLOAD CHARACTERIZATION
+==============================================
+Camera configurations: 6
+Radar batches: 12
+YOLO frames: 5
+Total characterization rows: 23
+
+Camera median of group medians: 1.815050 ms
+Radar median of group medians: 0.008825 ms
+YOLO median of group medians: 43.746050 ms
+Radar valid returns in distinct benchmark batches: 544
+Stored YOLO model size: 19313732 bytes
+
+CAMERA BUFFER MODEL:
+BGR + grayscale + HSV + Canny + float64 Laplacian.
+Calculated intermediate-size sum: 16 bytes per pixel.
+ROI and FULL are alternative processing modes.
+
+RADAR MODEL:
+Nominal 16 bytes per valid input return.
+No invalid returns or association included in timing.
+
+YOLO MODEL:
+The measured CPU predict time includes preprocessing,
+inference and postprocessing, but not model loading.
+Model file size is NOT runtime activation or weight RAM.
+
+LIMITATIONS:
+No DRAM traffic, cache misses, or DMA bandwidth measured.
+No operation count or arithmetic intensity validated.
+No real ARM-FPGA timing or energy measured.
+Sensor accuracy is not established by these timings.
+Different workloads have different timing boundaries.
+No hardware kernels selected yet.

@@ -1,0 +1,45 @@
+GEMSTAR TASK 27.6B - BREAK-EVEN REQUIREMENTS
+============================================
+Candidate kernels: 2
+Recorded workload cases: 59
+Hypothetical model scenarios: 354
+
+MODEL:
+Offload time = transfer + compute + fixed overhead
+Latency faster when offload time < archived CPU time.
+
+ENERGY CONDITION:
+E = average power x execution time.
+For matched accounting boundaries:
+P_offload_avg / P_cpu_avg < T_cpu / T_offload
+Power ratios are limits, not measurements.
+
+PARAMETER SWEEP:
+Bandwidth MB/s: [100, 500, 1000]
+Compute time ms: [0.05, 0.25]
+Fixed overhead ms: 0.05
+
+GROUP RESULTS:
+Camera_preprocessing, 100 MB/s, compute=0.05 ms: 0/6 modeled faster; median allowable average power ratio 0.1692
+Camera_preprocessing, 100 MB/s, compute=0.25 ms: 0/6 modeled faster; median allowable average power ratio 0.1652
+Camera_preprocessing, 500 MB/s, compute=0.05 ms: 0/6 modeled faster; median allowable average power ratio 0.8155
+Camera_preprocessing, 500 MB/s, compute=0.25 ms: 0/6 modeled faster; median allowable average power ratio 0.7560
+Camera_preprocessing, 1000 MB/s, compute=0.05 ms: 6/6 modeled faster; median allowable average power ratio 1.5812
+Camera_preprocessing, 1000 MB/s, compute=0.25 ms: 6/6 modeled faster; median allowable average power ratio 1.3181
+LiDAR_filter, 100 MB/s, compute=0.05 ms: 52/53 modeled faster; median allowable average power ratio 1.4566
+LiDAR_filter, 100 MB/s, compute=0.25 ms: 52/53 modeled faster; median allowable average power ratio 1.0478
+LiDAR_filter, 500 MB/s, compute=0.05 ms: 53/53 modeled faster; median allowable average power ratio 4.0982
+LiDAR_filter, 500 MB/s, compute=0.25 ms: 53/53 modeled faster; median allowable average power ratio 1.9550
+LiDAR_filter, 1000 MB/s, compute=0.05 ms: 53/53 modeled faster; median allowable average power ratio 5.2934
+LiDAR_filter, 1000 MB/s, compute=0.25 ms: 53/53 modeled faster; median allowable average power ratio 2.1910
+
+LIMITATIONS:
+Bandwidth, FPGA compute and overhead are hypothetical.
+No actual DMA throughput or FPGA execution measured.
+Camera interface is hypothetical and excludes metadata.
+ROI excludes pixels; quality equivalence not established.
+Timing uses separate development-workstation CPU runs.
+The simple energy model excludes other system activity.
+Power must be measured with matched accounting boundaries.
+No p99 real-time guarantee or quality validation.
+No measured FPGA speedup or energy saving.

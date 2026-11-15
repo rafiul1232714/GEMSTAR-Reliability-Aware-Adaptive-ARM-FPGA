@@ -1,0 +1,19 @@
+GEMSTAR TASK 27.3C - LIDAR MEMORY MODEL
+========================================
+Frames analyzed: 53
+Nominal input XYZ bytes: 2074068
+Nominal filtered XYZ bytes: 195540
+Modeled input + output bytes: 2269608
+Output payload reduction: 90.5722%
+Median zero-compute bandwidth threshold: 55.2532 MB/s
+Maximum zero-compute bandwidth threshold: 91.4834 MB/s
+
+CONDITION FOR ACTUAL LATENCY IMPROVEMENT:
+Transfer + FPGA execution + scheduling/other overhead
+must be less than the matched CPU processing time.
+
+NOT MEASURED:
+Real DMA throughput, bus transactions, cache traffic,
+FPGA execution latency, board power and energy.
+
+NO FPGA SPEEDUP OR ENERGY CLAIM IS ESTABLISHED.

@@ -1,0 +1,13 @@
+kernel,hypothetical_bandwidth_MBps,hypothetical_compute_ms,hypothetical_fixed_overhead_ms,cases,modeled_latency_faster_cases,median_modeled_offload_ms,median_max_average_power_ratio_for_energy_saving,measured_energy
+Camera_preprocessing,100,0.05,0.05,6,0,10.544800000000002,0.1691587085155694,NO
+Camera_preprocessing,100,0.25,0.05,6,0,10.744800000000001,0.16518358876117495,NO
+Camera_preprocessing,500,0.05,0.05,6,0,2.18896,0.8155028373266078,NO
+Camera_preprocessing,500,0.25,0.05,6,0,2.38896,0.7559773324552972,NO
+Camera_preprocessing,1000,0.05,0.05,6,6,1.1444800000000002,1.581158312958435,NO
+Camera_preprocessing,1000,0.25,0.05,6,6,1.3444800000000001,1.3181138837702278,NO
+LiDAR_filter,100,0.05,0.05,53,52,0.51136,1.4566002197457226,NO
+LiDAR_filter,100,0.25,0.05,53,52,0.71136,1.047796189832037,NO
+LiDAR_filter,500,0.05,0.05,53,53,0.182272,4.098216638847403,NO
+LiDAR_filter,500,0.25,0.05,53,53,0.382272,1.955045717992175,NO
+LiDAR_filter,1000,0.05,0.05,53,53,0.14113599999999998,5.293399920549345,NO
+LiDAR_filter,1000,0.25,0.05,53,53,0.341136,2.1909604917417416,NO

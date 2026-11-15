@@ -1,0 +1,35 @@
+{
+  "task": "27.6A",
+  "analysis_type": "Qualitative evidence-gated shortlist",
+  "kernel_count": 5,
+  "provisional_shortlist": [
+    "LiDAR_filter",
+    "Camera_preprocessing"
+  ],
+  "source_files": [
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_27_Final_Research\\02_CSV_Data\\task27_5A_kernel_summary.csv",
+      "sha256": "9CF85136588382EE59CC3FE31A7925DB674BF343D9E3235360877C4472EF5B96"
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_27_Final_Research\\02_CSV_Data\\task27_5A_kernel_structure.csv",
+      "sha256": "6A14AC21EDA211FE2F4C08C8C849F5B8F04C59CEA5E4C1F2756CCDEEF8CC8257"
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_27_Final_Research\\02_CSV_Data\\task27_3C_lidar_memory_model.csv",
+      "sha256": "025BC831E51A33280057A49A2620EF600679668D73C70820FF75C108567F1C88"
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_27_Final_Research\\02_CSV_Data\\task27_4C_sensor_compute_characterization.csv",
+      "sha256": "1F3E19A62C96D55CD9E855CD9F17226FA863F183A4502A8138889EF9CF117628"
+    }
+  ],
+  "lidar_total_input_xyz_bytes": 2074068,
+  "lidar_total_filtered_xyz_bytes": 195540,
+  "camera_full_bgr_bytes_per_frame": 921600,
+  "camera_roi_bgr_bytes_per_frame": 331776,
+  "candidate_ranking_measured": false,
+  "fpga_power_measured": false,
+  "energy_saving_claimed": false,
+  "final_selection_made": false
+}

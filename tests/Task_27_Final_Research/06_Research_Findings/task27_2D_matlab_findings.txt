@@ -1,0 +1,8 @@
+GEMSTAR TASK 27.2D
+Frames: 53
+LiDAR points: 172839
+Radar returns: 3348
+Camera ROI input reduction: 64.00%
+Nominal payloads and buffer sizes only.
+No RAM bandwidth or energy measured.
+No perception quality equivalence established.

@@ -1,0 +1,30 @@
+GEMSTAR TASK 27.4D
+Camera, Radar and YOLO Characterization
+======================================
+
+Camera configurations: 6
+Radar batches: 12
+YOLO frames: 5
+
+CAMERA MEDIANS (ms):
+CLEAR FULL=2.761050 ROI=1.049900
+FOG100 FULL=2.580200 ROI=0.960250
+FOG20 FULL=2.593350 ROI=0.901650
+
+RADAR:
+Valid benchmark returns: 544
+Median of batch medians: 0.008825 ms
+
+YOLO:
+Median of frame medians: 43.746050 ms
+Max group p99: 51.676415 ms
+
+LIMITATIONS:
+CPU processing scopes differ across workloads.
+Camera nominal buffers do not measure RAM traffic.
+ROI processes fewer pixels but may exclude objects.
+Radar benchmark processes valid returns only.
+YOLO model load and disk input excluded from timing.
+YOLO accuracy is not validated by these measurements.
+No FPGA execution or board energy measurements.
+No cross-sensor speedup or energy benefit established.

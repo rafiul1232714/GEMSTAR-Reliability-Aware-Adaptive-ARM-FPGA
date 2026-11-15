@@ -1,0 +1,4 @@
+Workload,Groups,MedianOfGroupMediansMs,MaximumGroupP99Ms
+Camera,6,1.81505,4.249605
+Radar,12,0.008825,0.041704
+YOLO11s,5,43.74605,51.676415

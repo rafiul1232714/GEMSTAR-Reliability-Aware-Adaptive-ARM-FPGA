@@ -1,0 +1,24 @@
+workload,scenario,mode,frame,processing_items,nominal_processing_input_bytes,nominal_intermediate_buffer_sum_bytes,stored_model_file_bytes,archived_cpu_median_ms,archived_cpu_p99_ms,processing_scope,memory_traffic_measured,energy_measured
+Camera,CLEAR,FULL,,307200,921600,4915200,0,2.76105,3.980186000000006,Preprocessing only; cropped processing region,NO,NO
+Camera,CLEAR,ROI,,110592,331776,1769472,0,1.0499,1.3094750000000024,Preprocessing only; cropped processing region,NO,NO
+Camera,FOG100,FULL,,307200,921600,4915200,0,2.5801999999999996,3.951092,Preprocessing only; cropped processing region,NO,NO
+Camera,FOG100,ROI,,110592,331776,1769472,0,0.96025,1.1472050000000005,Preprocessing only; cropped processing region,NO,NO
+Camera,FOG20,FULL,,307200,921600,4915200,0,2.59335,4.249605000000001,Preprocessing only; cropped processing region,NO,NO
+Camera,FOG20,ROI,,110592,331776,1769472,0,0.90165,1.652465000000002,Preprocessing only; cropped processing region,NO,NO
+Radar,1,VALID_RETURN_BATCH,0,82,1312,0,0,0.0183,0.019166000000000034,Valid Radar returns only; no association,NO,NO
+Radar,1,VALID_RETURN_BATCH,1,63,1008,0,0,0.0137,0.041704000000000005,Valid Radar returns only; no association,NO,NO
+Radar,1,VALID_RETURN_BATCH,25,59,944,0,0,0.0128,0.019504000000000153,Valid Radar returns only; no association,NO,NO
+Radar,1,VALID_RETURN_BATCH,99,57,912,0,0,0.0124,0.03826900000000003,Valid Radar returns only; no association,NO,NO
+Radar,2,VALID_RETURN_BATCH,0,50,800,0,0,0.0109,0.011505000000000003,Valid Radar returns only; no association,NO,NO
+Radar,2,VALID_RETURN_BATCH,1,31,496,0,0,0.0068,0.007803000000000001,Valid Radar returns only; no association,NO,NO
+Radar,2,VALID_RETURN_BATCH,25,30,480,0,0,0.0066,0.006906000000000003,Valid Radar returns only; no association,NO,NO
+Radar,2,VALID_RETURN_BATCH,99,31,496,0,0,0.0068,0.00771800000000001,Valid Radar returns only; no association,NO,NO
+Radar,3,VALID_RETURN_BATCH,0,50,800,0,0,0.01085,0.011901000000000002,Valid Radar returns only; no association,NO,NO
+Radar,3,VALID_RETURN_BATCH,1,31,496,0,0,0.0068,0.014288000000003114,Valid Radar returns only; no association,NO,NO
+Radar,3,VALID_RETURN_BATCH,25,30,480,0,0,0.0066,0.020301,Valid Radar returns only; no association,NO,NO
+Radar,3,VALID_RETURN_BATCH,99,30,480,0,0,0.0066,0.020102000000000002,Valid Radar returns only; no association,NO,NO
+YOLO11s,C02_CONTROLLED,CPU_INFERENCE,0,307200,921600,0,19313732,43.74605,49.982752000000005,Predict: preprocessing + inference + postprocessing,NO,NO
+YOLO11s,C02_CONTROLLED,CPU_INFERENCE,530,307200,921600,0,19313732,45.9721,51.676415,Predict: preprocessing + inference + postprocessing,NO,NO
+YOLO11s,C02_CONTROLLED,CPU_INFERENCE,1060,307200,921600,0,19313732,42.46295,46.428868,Predict: preprocessing + inference + postprocessing,NO,NO
+YOLO11s,C02_CONTROLLED,CPU_INFERENCE,1591,307200,921600,0,19313732,43.274,45.52525,Predict: preprocessing + inference + postprocessing,NO,NO
+YOLO11s,C02_CONTROLLED,CPU_INFERENCE,2121,307200,921600,0,19313732,45.9199,47.943391999999996,Predict: preprocessing + inference + postprocessing,NO,NO

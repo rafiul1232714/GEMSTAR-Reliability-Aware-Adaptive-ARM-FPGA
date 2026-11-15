@@ -1,0 +1,3 @@
+Sensor,TotalSamples,MeanPerFrame,MinimumPerFrame,MaximumPerFrame
+LiDAR,172839,3261.11320754717,2141,3642
+Radar,3348,63.1698113207547,32,69

@@ -1,0 +1,35 @@
+{
+  "task": "27.7A",
+  "status": "PASS",
+  "registered_datasets": 20,
+  "source_hashes_verified": 15,
+  "dataset_types": {
+    "MEASURED_CPU": 6,
+    "AUDIT": 1,
+    "CALCULATED": 4,
+    "MODEL": 3,
+    "DERIVED_CPU": 3,
+    "QUALITATIVE": 1,
+    "HYPOTHETICAL": 2
+  },
+  "confirmed": [
+    "Original CPU benchmark datasets are accessible",
+    "Selected Task 27 research datasets are accessible",
+    "Expected row counts matched",
+    "Selected source manifests matched their files",
+    "LiDAR totals are internally consistent",
+    "Two candidate kernels are provisionally shortlisted",
+    "Modeled FPGA energy is not presented as measured"
+  ],
+  "not_established": [
+    "Full three-sensor perception-quality guarantee",
+    "Measured ARM-FPGA execution latency",
+    "Measured DMA throughput",
+    "Measured FPGA board/system energy",
+    "Validated operation counts and arithmetic intensity",
+    "Empirical hardware roofline",
+    "Generalization across rain and dense traffic",
+    "Final energy-optimal kernel selection"
+  ],
+  "scope_note": "Selected file, hash, row-count and numerical checks. Not an exhaustive byte-level audit of every archived file."
+}

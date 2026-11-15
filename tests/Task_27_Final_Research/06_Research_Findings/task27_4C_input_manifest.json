@@ -1,0 +1,39 @@
+{
+  "task": "27.4C",
+  "input_files": [
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_26_Final_Research\\02_CSV_Data\\task26_4B_camera_cpu_summary.csv",
+      "sha256": "8F0903F9CD6435934E194D6C795AC66D4EF1A56F8369BA0F422D1B2FDD7E0BF1",
+      "size_bytes": 1219
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_26_Final_Research\\02_CSV_Data\\task26_4G_radar_cpu_summary.csv",
+      "sha256": "6D4D777144428F8174A1E7C7A820A313A383633EC913C58ECA9BF8036B6E2D10",
+      "size_bytes": 976
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_26_Final_Research\\02_CSV_Data\\task26_4J_yolo_cpu_summary.csv",
+      "sha256": "4E567A94402609B689F76E2FCEF40A8E85D634ED9445B9BED414CA202A1E91F2",
+      "size_bytes": 449
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_18_Final_Research\\03_Configurations\\Models\\yolo11s.pt",
+      "sha256": "85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5",
+      "size_bytes": 19313732
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_27_Final_Research\\02_CSV_Data\\task27_2C_camera_buffer_audit.csv",
+      "sha256": "1ABB3C7E104C3A98ADD09A791AB499CDDAB3D06058D3B5D8A2946E06ED31602E",
+      "size_bytes": 320
+    }
+  ],
+  "camera_groups": 6,
+  "radar_groups": 12,
+  "yolo_groups": 5,
+  "camera_nominal_buffer_bytes_per_pixel": 16,
+  "radar_nominal_bytes_per_return": 16,
+  "yolo_model_file_bytes": 19313732,
+  "timings_rerun": false,
+  "real_memory_traffic_measured": false,
+  "hardware_energy_measured": false
+}

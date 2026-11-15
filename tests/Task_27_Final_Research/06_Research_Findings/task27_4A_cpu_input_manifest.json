@@ -1,0 +1,79 @@
+{
+  "task": "27.4A",
+  "inputs": [
+    {
+      "workload": "EKF",
+      "source": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_26_Final_Research\\02_CSV_Data\\task26_3B_ekf_cpu_timing.csv",
+      "sha256": "1DA77D1E79123B3CD05AFCD144011ABCA9D0D2B85CF847C1AC9CBBE8869308F8",
+      "rows": 200,
+      "elapsed_column": "elapsed_ms",
+      "group_columns": [
+        "workload"
+      ],
+      "timing_scope": "Full tracking replay per run; not a per-frame latency"
+    },
+    {
+      "workload": "Camera",
+      "source": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_26_Final_Research\\02_CSV_Data\\task26_4B_camera_cpu_timing.csv",
+      "sha256": "63DCFBD103CD49BDE2D740490AD28DD76CDA181A73A6DED9DFBA44C5941BCE48",
+      "rows": 600,
+      "elapsed_column": "elapsed_ms",
+      "group_columns": [
+        "weather",
+        "mode"
+      ],
+      "timing_scope": "One image preprocessing run"
+    },
+    {
+      "workload": "LiDAR",
+      "source": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_26_Final_Research\\02_CSV_Data\\task26_4D_lidar_cpu_timing.csv",
+      "sha256": "626E22151AFC451EA09607207D8293CCFCA04A77E609DBC2A089A31E6B6639E4",
+      "rows": 2650,
+      "elapsed_column": "elapsed_ms",
+      "group_columns": [
+        "frame",
+        "stage"
+      ],
+      "timing_scope": "Isolated filter or cluster stage per frame"
+    },
+    {
+      "workload": "Radar",
+      "source": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_26_Final_Research\\02_CSV_Data\\task26_4G_radar_cpu_timing.csv",
+      "sha256": "6BA6B6A249780D12857CD2CBA63D7DD391E40F940ADFA5919ABA241947A72DBE",
+      "rows": 1200,
+      "elapsed_column": "batch_elapsed_ms",
+      "group_columns": [
+        "pair_id",
+        "frame"
+      ],
+      "timing_scope": "One radar return batch; not one return"
+    },
+    {
+      "workload": "YOLO11s",
+      "source": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_26_Final_Research\\02_CSV_Data\\task26_4J_yolo_cpu_timing.csv",
+      "sha256": "8FC4047116775B48D1D675D274C5E0AF2BCA68264C9720EA2049BDEE2E5A8D22",
+      "rows": 50,
+      "elapsed_column": "elapsed_ms",
+      "group_columns": [
+        "frame"
+      ],
+      "timing_scope": "One image inference call"
+    },
+    {
+      "workload": "Partial_LiDAR_Radar",
+      "source": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_26_Final_Research\\02_CSV_Data\\task26_5C_integrated_cpu_timing.csv",
+      "sha256": "C01FA73103C4303ED91D9D9CFDB8E7D7C33A14AEADC998B98CCF08702D2F3E64",
+      "rows": 1325,
+      "elapsed_column": "total_ms",
+      "group_columns": [
+        "frame"
+      ],
+      "timing_scope": "Sequential LiDAR filtering + clustering + Radar batch"
+    }
+  ],
+  "total_timing_rows": 6025,
+  "group_p95_p99_method": "linear interpolation",
+  "source_data_modified": false,
+  "hardware_energy_measured": false,
+  "comparison_warning": "Different workloads and input sizes have different timing units and boundaries."
+}

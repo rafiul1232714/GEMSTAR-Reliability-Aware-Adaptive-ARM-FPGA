@@ -1,0 +1,21 @@
+{
+  "task": "27.7B",
+  "generated_utc": "2026-11-15T12:50:08.931411+00:00",
+  "status": "PASS",
+  "cpu_timing_observations": 6025,
+  "evidence_datasets": 20,
+  "verified_source_hash_checks": 15,
+  "matlab_figure_pairs": 24,
+  "archive_files_hashed": 113,
+  "archive_manifest_scope": "Files present at finalization; manifest and verification JSON excluded",
+  "provisional_kernels": [
+    "LiDAR_filter",
+    "Camera_preprocessing"
+  ],
+  "hardware_energy_measured": false,
+  "full_pipeline_quality_validated": false,
+  "empirical_roofline_established": false,
+  "final_hardware_selection_validated": false,
+  "final_report": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_27_Final_Research\\07_Research_Report\\task27_7B_final_research_report.md",
+  "archive_manifest": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_27_Final_Research\\07_Research_Report\\task27_7B_archive_sha256_manifest.csv"
+}

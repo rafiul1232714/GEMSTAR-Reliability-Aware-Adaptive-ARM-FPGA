@@ -1,0 +1,14 @@
+{
+  "task": "27.2B",
+  "status": "PASS",
+  "camera_images": 3,
+  "camera_modes": 6,
+  "yolo_images": 5,
+  "source_images_hash_matched": 8,
+  "model_file_bytes": 19313732,
+  "model_sha256": "85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5",
+  "model_configured_imgsz": 640,
+  "source_rows": 11,
+  "measurement": "Nominal data volume only; not measured memory traffic, operations, peak RAM, bandwidth, FPGA transfer or energy",
+  "output_csv": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_27_Final_Research\\02_CSV_Data\\task27_2B_camera_yolo_input_volume.csv"
+}

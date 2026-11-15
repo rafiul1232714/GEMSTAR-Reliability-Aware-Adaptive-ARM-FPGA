@@ -1,0 +1,34 @@
+GEMSTAR TASK 27.4B MATLAB CPU COMPARISON
+========================================
+
+Workloads: 6
+Timing observations: 6025
+Benchmark groups: 184
+
+EKF: 2 groups, 5.485225 ms median of medians
+Camera: 6 groups, 1.815050 ms median of medians
+LiDAR: 106 groups, 0.460500 ms median of medians
+Radar: 12 groups, 0.008825 ms median of medians
+YOLO11s: 5 groups, 43.746050 ms median of medians
+Partial_LiDAR_Radar: 53 groups, 0.794900 ms median of medians
+
+CAMERA MEDIANS IN ms:
+CLEAR FULL=2.761050 ROI=1.049900
+FOG100 FULL=2.580200 ROI=0.960250
+FOG20 FULL=2.593350 ROI=0.901650
+
+LIDAR STAGE MEDIANS:
+Filtering: 0.747300 ms
+Clustering: 0.045400 ms
+
+LIMITATIONS:
+Benchmark groups have different input sizes and scopes.
+EKF time is a multi-observation replay.
+Radar time is per batch, not per return.
+LiDAR times are individual stages.
+YOLO timing does not establish detection accuracy.
+Camera weather timing does not prove sensor reliability.
+Partial integrated timing excludes Camera and EKF.
+No full three-sensor real-time validation.
+No measured ARM-FPGA energy or speedup.
+No hardware accelerator has been selected.

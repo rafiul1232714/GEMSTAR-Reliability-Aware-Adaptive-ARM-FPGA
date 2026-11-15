@@ -1,0 +1,22 @@
+GEMSTAR TASK 27.3D
+LiDAR Transfer Model and Break-Even Analysis
+============================================
+
+Frames: 53
+Input payload: 2074068 bytes
+Filtered payload: 195540 bytes
+Round-trip payload: 2269608 bytes
+Output reduction: 90.5722 percent
+Median required bandwidth: 55.2532 MB/s
+Maximum required bandwidth: 91.4834 MB/s
+Median archived CPU filter time: 0.747300 ms
+
+MODEL ASSUMPTIONS:
+XYZ payload: 3 float32 values per point.
+Host sends raw points and receives filtered points.
+Bandwidth scenarios: 100, 500, 1000 MB/s.
+No measured DMA or FPGA hardware results.
+Transfer-only comparison excludes execution and overhead.
+Feasibility map adds hypothetical compute/overhead.
+No FPGA speedup or energy savings demonstrated.
+CPU timings originate from the development workstation.

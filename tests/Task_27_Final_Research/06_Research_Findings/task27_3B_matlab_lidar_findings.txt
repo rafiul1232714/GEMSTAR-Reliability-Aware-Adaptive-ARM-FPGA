@@ -1,0 +1,17 @@
+GEMSTAR TASK 27.3B FINDINGS
+===========================
+Frames analyzed: 53
+Total input points: 172839
+Total filtered points: 16295
+Point reduction: 90.5722%
+Mean occupied cells: 23.6038
+Median of per-frame filter medians: 0.747300 ms
+Median of per-frame cluster medians: 0.045400 ms
+3D example frame: 530
+
+LIMITATIONS:
+Clustering candidates are not validated object identities.
+CPU times are archived development-host measurements.
+No ARM or FPGA energy measurement.
+No memory bandwidth measurement.
+No detection-quality equivalence established.

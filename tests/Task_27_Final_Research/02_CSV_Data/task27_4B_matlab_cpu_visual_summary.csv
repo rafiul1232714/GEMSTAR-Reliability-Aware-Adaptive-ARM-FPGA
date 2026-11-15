@@ -1,0 +1,7 @@
+Workload,Groups,MedianOfGroupMediansMs
+EKF,2,5.485225
+Camera,6,1.81505
+LiDAR,106,0.4605
+Radar,12,0.008825
+YOLO11s,5,43.74605
+Partial_LiDAR_Radar,53,0.7949

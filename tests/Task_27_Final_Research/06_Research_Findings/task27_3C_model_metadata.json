@@ -1,0 +1,26 @@
+{
+  "task": "27.3C",
+  "source_csv_sha256": "4D873F53E5B1918310D42C301399FA2670C7C9AC59A666EB9823339D1CC452B1",
+  "frames": 53,
+  "xyz_bytes_per_point": 12,
+  "illustrative_grid_key_bytes": 8,
+  "hypothetical_bandwidth_MBps": [
+    100,
+    500,
+    1000
+  ],
+  "model": "Host-to-FPGA raw XYZ plus FPGA-to-host filtered XYZ",
+  "measured_transfer": false,
+  "measured_memory_traffic": false,
+  "measured_energy": false,
+  "measured_fpga_execution": false,
+  "limitations": [
+    "Compact float32 representation assumed.",
+    "Actual transport framing and transfer overhead excluded.",
+    "Python heap usage, cache traffic and DRAM traffic unknown.",
+    "The original grid clustering executes additional operations.",
+    "Bandwidth thresholds assume zero FPGA compute/overhead.",
+    "CPU measurements originate from a development workstation.",
+    "No FPGA acceleration or energy benefit established."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "task": "27.5A",
+  "source_files": [
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_27_Final_Research\\02_CSV_Data\\task27_3A_lidar_workload_metrics.csv",
+      "sha256": "4D873F53E5B1918310D42C301399FA2670C7C9AC59A666EB9823339D1CC452B1",
+      "size_bytes": 4266
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_27_Final_Research\\02_CSV_Data\\task27_4C_sensor_compute_characterization.csv",
+      "sha256": "1F3E19A62C96D55CD9E855CD9F17226FA863F183A4502A8138889EF9CF117628",
+      "size_bytes": 3095
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_23_Final_Research\\01_Code\\task23_12C_06_camera_cpu_preprocessing.py",
+      "sha256": "FD2BCDE521B7C7089D95EEBD97314A3AC6B60E8A466185E9C3A76164208ED604",
+      "size_bytes": 2925
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_23_Final_Research\\01_Code\\task23_13C_01_radar_robustness_tests.py",
+      "sha256": "268E8309511F847AB1CDC9029C45C78EE477B10BC12AC132F16767C93D40F4BB",
+      "size_bytes": 3097
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_24_Final_Research\\09_Controlled_Scenario\\C02_MovingTarget\\C02_V2_Lidar_Clustering_53Frames_V1.py",
+      "sha256": "68BD7CD3AA55BC1AB590327BD97FA19E457D4BB2744A71746D55B1335BF124E7",
+      "size_bytes": 6123
+    }
+  ],
+  "total_stage_records": 129,
+  "stage_counts": {
+    "LiDAR_filter": 53,
+    "LiDAR_cluster": 53,
+    "Camera_preprocessing": 6,
+    "Radar_valid_returns": 12,
+    "YOLO11s_predict": 5
+  },
+  "assumptions": {
+    "lidar_xyz": "3 float32 values per point; 12 bytes",
+    "lidar_grid_cell_m": 0.5,
+    "neighbor_probes": "9 per occupied cell; structural count",
+    "camera": "Named buffer sizes, not actual DRAM traffic",
+    "radar": "Nominal valid-return representation",
+    "yolo": "No exact FLOP count or runtime memory estimate"
+  },
+  "exact_operations_measured": false,
+  "actual_memory_traffic_measured": false,
+  "hardware_energy_measured": false,
+  "original_data_modified": false
+}

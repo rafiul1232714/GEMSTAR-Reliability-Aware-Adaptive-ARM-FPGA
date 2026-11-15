@@ -1,0 +1,35 @@
+GEMSTAR TASK 27.6A
+FPGA Candidate Comparison
+===================================
+Candidate kernel types: 5
+Provisional shortlist count: 2
+
+PROVISIONAL SHORTLIST:
+- LiDAR_filter
+- Camera_preprocessing
+
+CANDIDATE EVIDENCE:
+LiDAR_filter: 0.747300 ms; PROVISIONAL_SHORTLIST
+  Reason: Streaming-friendly filter with recorded input reduction; transfer break-even and perception quality remain unproven.
+Camera_preprocessing: 1.815050 ms; PROVISIONAL_SHORTLIST
+  Reason: Regular image operations and measurable CPU cost; preserve full-frame quality and verify FPGA transfer benefits.
+YOLO11s_predict: 43.746050 ms; DEFER_LAYER_PROFILING
+  Reason: Largest archived CPU time, but full-model resource feasibility, model quality and layer-level performance are unverified.
+LiDAR_cluster: 0.045400 ms; DEFER_INITIAL_ACCELERATION
+  Reason: Small standalone CPU time on the recorded dataset and more complex memory organization.
+Radar_valid_returns: 0.008825 ms; DEFER_INITIAL_ACCELERATION
+  Reason: Very small archived batch latency; dedicated offload may not justify its overhead.
+
+NEXT VALIDATION GATES:
+1. Matched-input quality preservation.
+2. Hardware-compatible numerical fidelity.
+3. Actual transfer and execution latency.
+4. Processing deadline and p99 performance.
+5. Total system joules per valid result.
+
+LIMITATIONS:
+This is a provisional engineering shortlist.
+Different CPU timing scopes are not directly comparable.
+No measured FPGA speedup or energy reduction.
+No final hardware mapping has been approved.
+YOLO remains a candidate for later layer-level profiling.

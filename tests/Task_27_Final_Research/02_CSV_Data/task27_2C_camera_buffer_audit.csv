@@ -1,0 +1,3 @@
+﻿"Mode","Width","Height","Pixels","Input_BGR_Bytes","Grayscale_Bytes","HSV_Bytes","Canny_Bytes","Laplacian_Float64_Bytes","Nominal_Buffer_Sum_Bytes"
+"FULL","640","480","307200","921600","307200","921600","307200","2457600","4915200"
+"ROI","384","288","110592","331776","110592","331776","110592","884736","1769472"

@@ -1,0 +1,32 @@
+GEMSTAR TASK 27.5B
+Computational and Nominal Memory Analysis
+========================================
+
+Kernel types: 5
+Structural records: 129
+LiDAR frames: 53
+Camera configurations: 6
+
+LIDAR:
+Input points: 172839
+Retained points: 16295
+Point reduction: 90.5722%
+Mean occupied cells: 23.6038
+Total modeled neighbor probes: 11259
+
+ARCHIVED CPU MEDIANS:
+LiDAR_filter: 0.747300 ms
+LiDAR_cluster: 0.045400 ms
+Camera_preprocessing: 1.815050 ms
+Radar_valid_returns: 0.008825 ms
+YOLO11s_predict: 43.746050 ms
+
+LIMITATIONS:
+CPU timing boundaries differ across stages.
+Camera buffers are named nominal arrays, not DRAM traffic.
+Grid probes are structural counts, not CPU instructions.
+No validated operation counts or arithmetic intensity.
+No hardware compute or memory ceilings measured.
+Therefore, this is not an empirical roofline plot.
+No FPGA execution or energy measurement.
+No perception-quality equivalence established.

@@ -1,0 +1,37 @@
+{
+  "task": "27.6B",
+  "analysis": "Hypothetical latency and energy break-even",
+  "source_files": [
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_27_Final_Research\\02_CSV_Data\\task27_3C_lidar_memory_model.csv",
+      "sha256": "025BC831E51A33280057A49A2620EF600679668D73C70820FF75C108567F1C88"
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_27_Final_Research\\02_CSV_Data\\task27_4C_sensor_compute_characterization.csv",
+      "sha256": "1F3E19A62C96D55CD9E855CD9F17226FA863F183A4502A8138889EF9CF117628"
+    },
+    {
+      "path": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_27_Final_Research\\02_CSV_Data\\task27_6A_fpga_candidate_matrix.csv",
+      "sha256": "848E027EBA592995C7392BCB87E6D2C3BFDFB354015EDA427BB453745942B256"
+    }
+  ],
+  "input_cases": 59,
+  "model_scenarios": 354,
+  "bandwidth_MBps": [
+    100,
+    500,
+    1000
+  ],
+  "compute_ms": [
+    0.05,
+    0.25
+  ],
+  "fixed_overhead_ms": 0.05,
+  "camera_output_assumption": "Two uint8 output arrays: grayscale and edges. Feature metadata and other transfers excluded.",
+  "energy_equation": "E_offload < E_cpu iff P_offload_avg/P_cpu_avg < T_cpu/T_offload for equivalent accounting windows.",
+  "real_dma_measured": false,
+  "real_fpga_compute_measured": false,
+  "real_power_measured": false,
+  "real_energy_measured": false,
+  "perception_quality_validated": false
+}

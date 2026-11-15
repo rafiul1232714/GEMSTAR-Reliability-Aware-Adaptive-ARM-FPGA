@@ -1,0 +1,302 @@
+from pathlib import Path
+import csv
+import json
+import hashlib
+import math
+from collections import Counter
+
+ROOT = Path(r"E:\GEMSTAR_Project\sensor-health-monitor\tests")
+T26 = ROOT / "Task_26_Final_Research"
+T27 = ROOT / "Task_27_Final_Research"
+DATA = T27 / "02_CSV_Data"
+FIND = T27 / "06_Research_Findings"
+
+OUT_CSV = DATA / "task27_7A_evidence_register.csv"
+OUT_JSON = FIND / "task27_7A_validation_audit.json"
+OUT_TXT = FIND / "task27_7A_validation_findings.txt"
+
+EXPECTED = [
+    ("Task26_EKF", T26 / "02_CSV_Data" /
+     "task26_3B_ekf_cpu_timing.csv", 200, "MEASURED_CPU"),
+    ("Task26_Camera", T26 / "02_CSV_Data" /
+     "task26_4B_camera_cpu_timing.csv", 600, "MEASURED_CPU"),
+    ("Task26_LiDAR", T26 / "02_CSV_Data" /
+     "task26_4D_lidar_cpu_timing.csv", 2650, "MEASURED_CPU"),
+    ("Task26_Radar", T26 / "02_CSV_Data" /
+     "task26_4G_radar_cpu_timing.csv", 1200, "MEASURED_CPU"),
+    ("Task26_YOLO", T26 / "02_CSV_Data" /
+     "task26_4J_yolo_cpu_timing.csv", 50, "MEASURED_CPU"),
+    ("Task26_Partial", T26 / "02_CSV_Data" /
+     "task26_5C_integrated_cpu_timing.csv", 1325, "MEASURED_CPU"),
+
+    ("Task27_1A", DATA /
+     "task27_1A_cpu_dataset_inventory.csv", None, "AUDIT"),
+    ("Task27_2A", DATA /
+     "task27_2A_sensor_input_volume.csv", None, "CALCULATED"),
+    ("Task27_2B", DATA /
+     "task27_2B_camera_yolo_input_volume.csv", 11, "CALCULATED"),
+    ("Task27_2C", DATA /
+     "task27_2C_camera_buffer_audit.csv", 2, "CALCULATED"),
+    ("Task27_3A", DATA /
+     "task27_3A_lidar_workload_metrics.csv", 53, "CALCULATED"),
+    ("Task27_3C", DATA /
+     "task27_3C_lidar_memory_model.csv", 53, "MODEL"),
+    ("Task27_4A_summary", DATA /
+     "task27_4A_cpu_workload_summary.csv", 6, "DERIVED_CPU"),
+    ("Task27_4A_groups", DATA /
+     "task27_4A_cpu_workload_groups.csv", 184, "DERIVED_CPU"),
+    ("Task27_4C", DATA /
+     "task27_4C_sensor_compute_characterization.csv", 23, "MODEL"),
+    ("Task27_5A_structure", DATA /
+     "task27_5A_kernel_structure.csv", 129, "MODEL"),
+    ("Task27_5A_summary", DATA /
+     "task27_5A_kernel_summary.csv", 5, "DERIVED_CPU"),
+    ("Task27_6A", DATA /
+     "task27_6A_fpga_candidate_matrix.csv", 5, "QUALITATIVE"),
+    ("Task27_6B_scenarios", DATA /
+     "task27_6B_break_even_scenarios.csv", 354, "HYPOTHETICAL"),
+    ("Task27_6B_summary", DATA /
+     "task27_6B_break_even_summary.csv", 12, "HYPOTHETICAL"),
+]
+
+def checksum(path):
+    h = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1048576), b""):
+            h.update(block)
+    return h.hexdigest().upper()
+
+def read_csv(path):
+    with path.open(newline="", encoding="utf-8-sig") as stream:
+        return list(csv.DictReader(stream))
+
+def validate_source_manifest(path):
+    document = json.loads(path.read_text(encoding="utf-8-sig"))
+    items = document.get("source_files", document.get("inputs", []))
+    checks = 0
+
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+
+        source = item.get("path", item.get("file"))
+        recorded = item.get("sha256")
+
+        if not source or not recorded:
+            continue
+
+        source_path = Path(source)
+
+        if not source_path.is_file():
+            raise RuntimeError(
+                f"Manifest source missing: {source_path}"
+            )
+
+        if checksum(source_path) != recorded.upper():
+            raise RuntimeError(
+                f"Manifest hash mismatch: {source_path}"
+            )
+
+        checks += 1
+
+    if checks == 0:
+        raise RuntimeError(f"No hashes verified in {path.name}")
+
+    return checks
+
+def main():
+    print("=== TASK 27.7A: RESEARCH EVIDENCE AUDIT ===")
+
+    for path in (OUT_CSV, OUT_JSON, OUT_TXT):
+        if path.exists():
+            raise FileExistsError(
+                f"Existing output preserved: {path}"
+            )
+
+    records = []
+    failures = []
+
+    for name, path, expected_rows, evidence_type in EXPECTED:
+        exists = path.is_file()
+        count = None
+        digest = ""
+
+        if exists:
+            try:
+                rows = read_csv(path)
+                count = len(rows)
+                digest = checksum(path)
+            except Exception as exc:
+                failures.append(f"{name}: {exc}")
+        else:
+            failures.append(f"{name}: missing file")
+
+        if expected_rows is not None and count != expected_rows:
+            failures.append(
+                f"{name}: expected {expected_rows} rows, got {count}"
+            )
+
+        records.append({
+            "dataset": name,
+            "evidence_type": evidence_type,
+            "file_path": str(path),
+            "exists": exists,
+            "expected_rows": (
+                expected_rows if expected_rows is not None else ""
+            ),
+            "observed_rows": count if count is not None else "",
+            "sha256": digest,
+            "status": (
+                "PASS" if exists and count is not None and
+                (expected_rows is None or count == expected_rows)
+                else "FAIL"
+            ),
+        })
+
+    source_hash_checks = 0
+    manifests = [
+        FIND / "task27_4A_cpu_input_manifest.json",
+        FIND / "task27_5A_source_manifest.json",
+        FIND / "task27_6A_fpga_candidate_manifest.json",
+    ]
+
+    # Different manifests use different key names.
+    for path in manifests:
+        if not path.is_file():
+            failures.append(f"Manifest missing: {path.name}")
+            continue
+
+        try:
+            source_hash_checks += validate_source_manifest(path)
+        except Exception as exc:
+            failures.append(str(exc))
+
+    # Independent cross-checks on scientific outputs.
+    if not failures:
+        l = read_csv(DATA / "task27_3A_lidar_workload_metrics.csv")
+        m = read_csv(DATA / "task27_3C_lidar_memory_model.csv")
+        c = read_csv(DATA / "task27_6A_fpga_candidate_matrix.csv")
+        b = read_csv(DATA / "task27_6B_break_even_scenarios.csv")
+
+        input_points = sum(int(r["input_points"]) for r in l)
+        retained = sum(int(r["filtered_points"]) for r in l)
+
+        total_in = sum(
+            int(r["nominal_input_xyz_bytes"]) for r in m
+        )
+        total_out = sum(
+            int(r["nominal_output_xyz_bytes"]) for r in m
+        )
+
+        shortlisted = [
+            r["kernel"] for r in c
+            if r["decision"] == "PROVISIONAL_SHORTLIST"
+        ]
+
+        if input_points != 172839 or retained != 16295:
+            failures.append("LiDAR point count mismatch")
+
+        if total_in != 2074068 or total_out != 195540:
+            failures.append("LiDAR byte count mismatch")
+
+        if set(shortlisted) != {
+            "LiDAR_filter", "Camera_preprocessing"
+        }:
+            failures.append("Candidate shortlist mismatch")
+
+        if len(b) != 354:
+            failures.append("Break-even scenario count mismatch")
+
+        if any(r["energy_saving_demonstrated"] != "NO" for r in b):
+            failures.append("Unsupported energy claim in model")
+
+    if failures:
+        print("AUDIT_STATUS: FAIL")
+        for problem in failures:
+            print("ERROR:", problem)
+        raise RuntimeError("Audit failed; no outputs written")
+
+    # All checks passed: create new, immutable evidence outputs.
+    OUT_CSV.parent.mkdir(parents=True, exist_ok=True)
+    FIND.mkdir(parents=True, exist_ok=True)
+
+    with OUT_CSV.open("x", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(
+            f, fieldnames=list(records[0].keys())
+        )
+        writer.writeheader()
+        writer.writerows(records)
+
+    result = {
+        "task": "27.7A",
+        "status": "PASS",
+        "registered_datasets": len(records),
+        "source_hashes_verified": source_hash_checks,
+        "dataset_types": dict(Counter(
+            r["evidence_type"] for r in records
+        )),
+        "confirmed": [
+            "Original CPU benchmark datasets are accessible",
+            "Selected Task 27 research datasets are accessible",
+            "Expected row counts matched",
+            "Selected source manifests matched their files",
+            "LiDAR totals are internally consistent",
+            "Two candidate kernels are provisionally shortlisted",
+            "Modeled FPGA energy is not presented as measured"
+        ],
+        "not_established": [
+            "Full three-sensor perception-quality guarantee",
+            "Measured ARM-FPGA execution latency",
+            "Measured DMA throughput",
+            "Measured FPGA board/system energy",
+            "Validated operation counts and arithmetic intensity",
+            "Empirical hardware roofline",
+            "Generalization across rain and dense traffic",
+            "Final energy-optimal kernel selection"
+        ],
+        "scope_note": (
+            "Selected file, hash, row-count and numerical checks. "
+            "Not an exhaustive byte-level audit of every archived file."
+        ),
+    }
+
+    with OUT_JSON.open("x", encoding="utf-8") as f:
+        json.dump(result, f, indent=2)
+
+    lines = [
+        "GEMSTAR TASK 27.7A - RESEARCH EVIDENCE AUDIT",
+        "===========================================",
+        "STATUS: PASS",
+        f"Registered CSV datasets: {len(records)}",
+        f"Verified archived source hashes: {source_hash_checks}",
+        "",
+        "VALIDATION BOUNDARIES:",
+        "CPU timings are development-workstation measurements.",
+        "Data-volume and neighbor-probe counts are calculated.",
+        "Nominal buffers are not measured DRAM traffic.",
+        "FPGA break-even scenarios use hypothetical parameters.",
+        "No FPGA energy improvement has been demonstrated.",
+        "Full perception-quality equivalence remains unverified.",
+        "",
+        "The audit confirms selected research file integrity",
+        "and internal consistency, not complete system validation."
+    ]
+
+    with OUT_TXT.open("x", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+
+    print("REGISTERED_DATASETS:", len(records))
+    print("SOURCE_HASHES_VERIFIED:", source_hash_checks)
+    print("DATASET_CHECKS: PASS")
+    print("LIDAR_CROSS_CHECK: PASS")
+    print("PROVISIONAL_KERNELS: 2")
+    print("HARDWARE_ENERGY_VALIDATED: NO")
+    print("FULL_PIPELINE_QUALITY_VALIDATED: NO")
+    print("AUDIT_STATUS: PASS")
+    print("EVIDENCE_REGISTER:", OUT_CSV)
+    print("AUDIT_JSON:", OUT_JSON)
+    print("FINDINGS:", OUT_TXT)
+    print("TASK27_7A_RESEARCH_EVIDENCE_AUDIT_DONE")
+
+if __name__ == "__main__":
+    main()

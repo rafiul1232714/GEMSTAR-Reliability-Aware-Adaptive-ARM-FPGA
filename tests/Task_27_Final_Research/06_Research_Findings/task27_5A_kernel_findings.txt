@@ -1,0 +1,28 @@
+GEMSTAR TASK 27.5A - KERNEL STRUCTURE
+===================================
+Stage records: 129
+Stage types: 5
+LiDAR input points: 172839
+LiDAR retained points: 16295
+
+STAGE CPU TIMINGS:
+LiDAR_filter: 53 records, 0.747300 ms median of record medians
+LiDAR_cluster: 53 records, 0.045400 ms median of record medians
+Camera_preprocessing: 6 records, 1.815050 ms median of record medians
+Radar_valid_returns: 12 records, 0.008825 ms median of record medians
+YOLO11s_predict: 5 records, 43.746050 ms median of record medians
+
+HARDWARE INTERPRETATION:
+LiDAR filtering is structurally streaming-friendly.
+LiDAR clustering requires cell storage and traversal.
+Camera contains pixel-local and neighborhood operations.
+Radar has relatively small valid-return batches.
+YOLO requires separate model-layer analysis.
+
+LIMITATIONS:
+These timings cover different workloads and inputs.
+No actual CPU instructions or FLOPs measured.
+No actual cache, DRAM or DMA traffic measured.
+No real hardware roofline established.
+No ARM-FPGA power, energy or speedup measured.
+No final FPGA kernel selected.

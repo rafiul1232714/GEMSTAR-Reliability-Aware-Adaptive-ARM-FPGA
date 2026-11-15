@@ -1,0 +1,150 @@
+%% GEMSTAR TASK 27.2D — MATLAB WORKLOAD ANALYSIS
+clear; clc; close all;
+
+root = 'E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_27_Final_Research';
+csvDir = fullfile(root,'02_CSV_Data');
+plotDir = fullfile(root,'04_Plots');
+reportDir = fullfile(root,'06_Research_Findings');
+
+fprintf('=== TASK 27.2D MATLAB EVIDENCE ===\n');
+
+%% Load input data
+A = readtable(fullfile(csvDir,'task27_2A_sensor_input_volume.csv'),'VariableNamingRule','preserve');
+B = readtable(fullfile(csvDir,'task27_2B_camera_yolo_input_volume.csv'),'VariableNamingRule','preserve');
+C = readtable(fullfile(csvDir,'task27_2C_camera_buffer_audit.csv'),'VariableNamingRule','preserve');
+
+assert(height(A)==53,'Expected 53 frames');
+assert(height(B)==11,'Expected 11 Camera/YOLO records');
+assert(height(C)==2,'Expected two Camera buffer modes');
+
+frames = double(A.Frame);
+[frames,idx] = sort(frames);
+lidar = double(A.LiDARPoints(idx));
+radar = double(A.RadarReturns(idx));
+
+assert(sum(lidar)==172839,'LiDAR mismatch');
+assert(sum(radar)==3348,'Radar mismatch');
+
+%% Figure 1 — Workload per frame
+f = figure('Visible','off','Color','w','Position',[100 100 1100 550]);
+yyaxis left
+plot(frames,lidar,'-o','LineWidth',1.4);
+ylabel('LiDAR points / frame');
+yyaxis right
+plot(frames,radar,'-s','LineWidth',1.4);
+ylabel('Radar returns / frame');
+xlabel('Frame ID');
+title('GEMSTAR Sensor Workload Across 53 Frames');
+grid on;
+legend('LiDAR','Radar','Location','best');
+savefig(f,fullfile(plotDir,'Task27_Fig01_Sensor_Workload.fig'));
+exportgraphics(f,fullfile(plotDir,'Task27_Fig01_Sensor_Workload.png'),'Resolution',300);
+close(f);
+
+%% Figure 2 — Nominal payload
+lidarKiB = double(A.LiDARXYZBytesFloat32(idx))/1024;
+radarKiB = double(A.RadarRangeStrengthBytesFloat32(idx))/1024;
+
+f = figure('Visible','off','Color','w','Position',[100 100 1100 550]);
+plot(frames,lidarKiB,'-o','LineWidth',1.4);
+hold on;
+plot(frames,radarKiB,'-s','LineWidth',1.4);
+xlabel('Frame ID');
+ylabel('Nominal data payload (KiB)');
+title('GEMSTAR LiDAR and Radar Nominal Input Payload');
+legend('LiDAR XYZ','Radar range/strength','Location','best');
+grid on;
+savefig(f,fullfile(plotDir,'Task27_Fig02_Sensor_Payload.fig'));
+exportgraphics(f,fullfile(plotDir,'Task27_Fig02_Sensor_Payload.png'),'Resolution',300);
+close(f);
+
+%% Figure 3 — Camera buffer composition
+modes = string(C.Mode);
+[found,order] = ismember(["FULL";"ROI"],modes);
+assert(all(found),'FULL or ROI missing');
+C = C(order,:);
+
+buffers = [
+    double(C.Input_BGR_Bytes), ...
+    double(C.Grayscale_Bytes), ...
+    double(C.HSV_Bytes), ...
+    double(C.Canny_Bytes), ...
+    double(C.Laplacian_Float64_Bytes)
+]/1048576;
+
+f = figure('Visible','off','Color','w','Position',[100 100 1100 550]);
+bar(categorical({'FULL','ROI'}),buffers,'stacked');
+ylabel('Nominal buffers (MiB)');
+title('GEMSTAR Camera Intermediate Buffer Composition');
+legend('BGR','Grayscale','HSV','Canny','Laplacian','Location','eastoutside');
+grid on;
+savefig(f,fullfile(plotDir,'Task27_Fig03_Camera_Buffers.fig'));
+exportgraphics(f,fullfile(plotDir,'Task27_Fig03_Camera_Buffers.png'),'Resolution',300);
+close(f);
+
+%% Figure 4 — Camera FULL versus ROI by weather
+camera = B(string(B.workload)=="camera_preprocessing",:);
+weather = ["CLEAR";"FOG100";"FOG20"];
+fullBytes = zeros(3,1);
+roiBytes = zeros(3,1);
+
+for k = 1:3
+    fullMask = string(camera.('case'))==weather(k) & string(camera.mode)=="FULL";
+    roiMask = string(camera.('case'))==weather(k) & string(camera.mode)=="ROI";
+
+    assert(nnz(fullMask)==1 && nnz(roiMask)==1, ...
+        'Missing weather/mode record');
+
+    fullBytes(k) = double(camera.uncompressed_bgr_input_bytes(fullMask));
+    roiBytes(k) = double(camera.uncompressed_bgr_input_bytes(roiMask));
+end
+
+f = figure('Visible','off','Color','w','Position',[100 100 1100 550]);
+bar(categorical(cellstr(weather)),[fullBytes roiBytes]/1024);
+ylabel('Nominal BGR payload (KiB)');
+xlabel('Weather scenario');
+title('GEMSTAR Camera FULL vs ROI Input Volume');
+legend('FULL','ROI','Location','best');
+grid on;
+savefig(f,fullfile(plotDir,'Task27_Fig04_Camera_ROI.fig'));
+exportgraphics(f,fullfile(plotDir,'Task27_Fig04_Camera_ROI.png'),'Resolution',300);
+close(f);
+
+%% Numerical summary
+summary = table( ...
+    ["LiDAR";"Radar"], ...
+    [sum(lidar);sum(radar)], ...
+    [mean(lidar);mean(radar)], ...
+    [min(lidar);min(radar)], ...
+    [max(lidar);max(radar)], ...
+    'VariableNames',{'Sensor','TotalSamples','MeanPerFrame', ...
+    'MinimumPerFrame','MaximumPerFrame'});
+
+summaryPath = fullfile(csvDir,'task27_2D_matlab_sensor_summary.csv');
+writetable(summary,summaryPath);
+
+reduction = 100*(1-roiBytes(1)/fullBytes(1));
+
+%% Findings
+reportPath = fullfile(reportDir,'task27_2D_matlab_findings.txt');
+fid = fopen(reportPath,'w');
+assert(fid>0,'Failed to create findings file');
+
+fprintf(fid,'GEMSTAR TASK 27.2D\n');
+fprintf(fid,'Frames: %d\n',height(A));
+fprintf(fid,'LiDAR points: %d\n',sum(lidar));
+fprintf(fid,'Radar returns: %d\n',sum(radar));
+fprintf(fid,'Camera ROI input reduction: %.2f%%\n',reduction);
+fprintf(fid,'Nominal payloads and buffer sizes only.\n');
+fprintf(fid,'No RAM bandwidth or energy measured.\n');
+fprintf(fid,'No perception quality equivalence established.\n');
+fclose(fid);
+
+fprintf('PAIRED_FRAMES: %d\n',height(A));
+fprintf('LIDAR_POINTS: %d\n',sum(lidar));
+fprintf('RADAR_RETURNS: %d\n',sum(radar));
+fprintf('CAMERA_ROI_INPUT_REDUCTION_PCT: %.2f\n',reduction);
+fprintf('FIGURES_CREATED: 4 PNG + 4 FIG\n');
+fprintf('SUMMARY_CSV_CREATED: YES\n');
+fprintf('FINDINGS_CREATED: YES\n');
+fprintf('TASK27_2D_MATLAB_EVIDENCE_DONE\n');

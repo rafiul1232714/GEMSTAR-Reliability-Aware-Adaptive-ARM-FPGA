@@ -1,0 +1,25 @@
+GEMSTAR TASK 27.4A - CPU WORKLOAD COMPARISON
+============================================
+Source timing datasets: 6
+Original timing rows: 6025
+Distinct timing groups: 184
+
+WORKLOAD SUMMARY:
+EKF: 200 observations, 2 groups, median of group medians 5.485225 ms
+Camera: 600 observations, 6 groups, median of group medians 1.815050 ms
+LiDAR: 2650 observations, 106 groups, median of group medians 0.460500 ms
+Radar: 1200 observations, 12 groups, median of group medians 0.008825 ms
+YOLO11s: 50 observations, 5 groups, median of group medians 43.746050 ms
+Partial_LiDAR_Radar: 1325 observations, 53 groups, median of group medians 0.794900 ms
+
+SCIENTIFIC LIMITATIONS:
+Different benchmarks have different processing scopes.
+EKF time represents a replay, not one frame.
+Radar times represent batches, not individual returns.
+LiDAR filtering and clustering were timed separately.
+YOLO is not part of the partial integrated benchmark.
+The partial integrated workload excludes Camera and EKF.
+Per-group p99 is descriptive, not a latency guarantee.
+Archived timings originate from a development CPU.
+No ARM-FPGA execution or hardware energy measured.
+No final kernel-selection decision established.
