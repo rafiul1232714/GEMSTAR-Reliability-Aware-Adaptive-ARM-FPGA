@@ -1,0 +1,28 @@
+GEMSTAR TASK 28.3B.6
+FULL LIDAR IDENTITY VALIDATION
+====================================
+
+Scenario: fog_postfix_validation
+Frames: 705
+Range candidates: 1698619
+Zero-signal invalid-ID returns: 996340
+Positive-signal object-ID returns: 702279
+Invalid-ID proportion: 58.6559%
+Object-associated proportion: 41.3441%
+
+VALIDATED FINDINGS
+- All 705 frames passed identity consistency checks.
+- Range candidates can include invalid object IDs.
+- Zero-signal candidate returns all carry invalid IDs.
+- Positive-signal candidates carry ordinary object IDs.
+
+LIMITATIONS
+- Object association is simulator metadata, not GT accuracy.
+- Weather causality is not established.
+- Zero-signal returns may retain positive time of flight.
+- Energy savings and execution latency are not measured.
+
+SCHEDULER IMPLICATION
+Track raw rays, range candidates, object-associated
+returns, payload age, and independent quality checks
+as separate workload/reliability variables.

@@ -1,0 +1,384 @@
+﻿==================================================
+SCRIPT: task23_11F_04A_verify_real_osi.py
+==================================================
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_23_Final_Research\01_Code\task23_11F_04A_verify_real_osi.py
+TOTAL LINES: 118
+
+FIRST 45 LINES:
+import struct
+from pathlib import Path
+
+from osi3.osi_sensorview_pb2 import SensorView
+from task23_11F_lidar_reliability import score_lidar_frame
+
+
+OUTPUT = Path(r"E:\GEMSTAR_Project\gemstar\Output")
+
+DATASETS = [
+    (
+        "CLEAR",
+        "20261105T213845Z_sv_380_X_13819_T23_11E_CLEAR.osi",
+        5090,
+        "VALID"
+    ),
+    (
+        "FOG100",
+        "20261105T220440Z_sv_380_X_12386_T23_11E_FOG100.osi",
+        5090,
+        "VALID"
+    ),
+    (
+        "FOG20",
+        "20261105T215332Z_sv_380_X_14597_T23_11E_FOG20.osi",
+        0,
+        "NO_RETURNS"
+    ),
+]
+
+
+def read_frame(stream):
+    header = stream.read(4)
+
+    if len(header) != 4:
+        raise RuntimeError("Missing or incomplete frame header")
+
+    length = struct.unpack("<I", header)[0]
+
+    if length <= 0:
+        raise RuntimeError("Invalid OSI frame length")
+
+    payload = stream.read(length)
+
+    if len(payload) != length:
+
+IMPORTANT IMPLEMENTATION LINES:
+Line 1: import struct
+Line 2: from pathlib import Path
+Line 4: from osi3.osi_sensorview_pb2 import SensorView
+Line 5: from task23_11F_lidar_reliability import score_lidar_frame
+Line 8: OUTPUT = Path(r"E:\GEMSTAR_Project\gemstar\Output")
+Line 32: def read_frame(stream):
+Line 33: header = stream.read(4)
+Line 38: length = struct.unpack("<I", header)[0]
+Line 43: payload = stream.read(length)
+Line 49: frame.ParseFromString(payload)
+Line 54: path = OUTPUT / filename
+Line 63: with path.open("rb") as stream:
+Line 72: lidar = (
+Line 73: frame.lidar_sensor_view[0]
+Line 74: if len(frame.lidar_sensor_view) == 1
+Line 78: result = score_lidar_frame(
+Line 79: lidar,
+
+==================================================
+SCRIPT: task24_03_05C_full_measurement_extraction.py
+==================================================
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\01_Code\task24_03_05C_full_measurement_extraction.py
+TOTAL LINES: 380
+
+FIRST 45 LINES:
+import csv
+import gzip
+import hashlib
+import math
+import os
+import struct
+from pathlib import Path
+
+from osi3 import osi_sensorview_pb2
+
+ROOT = Path(
+    r"E:\GEMSTAR_Project\sensor-health-monitor"
+    r"\tests\Task_24_Final_Research"
+)
+
+SOURCE = Path(
+    r"E:\GEMSTAR_Project\gemstar\Output"
+    r"\20261105T231919Z_sv_380_X_372_GEMSTAR.osi"
+)
+
+DATA = ROOT / "02_CSV_Data"
+PROCESSED = ROOT / "08_Processed_Data"
+
+CAMERA_OUT = PROCESSED / "task24_03_05C_camera_metadata_372frames.csv"
+LIDAR_OUT = PROCESSED / "task24_03_05C_lidar_measurements_372frames.csv.gz"
+RADAR_OUT = PROCESSED / "task24_03_05C_radar_measurements_372frames.csv.gz"
+
+OUTPUTS = [CAMERA_OUT, LIDAR_OUT, RADAR_OUT]
+
+C = 299792458.0
+MIN_RANGE_M = 0.01
+
+MOUNTS = {
+    "LiDAR": (2.6, 0.0, 0.7),
+    "Radar": (2.0, 0.0, 0.8),
+}
+
+CAMERA_FIELDS = [
+    "Frame", "Timestamp_ns", "Width", "Height",
+    "ImageBytes", "ImageSHA256", "PayloadFreshness",
+    "IndependentAcquisitionTimeKnown"
+]
+
+POINT_FIELDS = [
+    "Frame", "Timestamp_ns", "Sensor", "RayIndex",
+
+IMPORTANT IMPLEMENTATION LINES:
+Line 1: import csv
+Line 2: import gzip
+Line 3: import hashlib
+Line 4: import math
+Line 5: import os
+Line 6: import struct
+Line 7: from pathlib import Path
+Line 9: from osi3 import osi_sensorview_pb2
+Line 17: r"E:\GEMSTAR_Project\gemstar\Output"
+Line 24: CAMERA_OUT = PROCESSED / "task24_03_05C_camera_metadata_372frames.csv"
+Line 25: LIDAR_OUT = PROCESSED / "task24_03_05C_lidar_measurements_372frames.csv.gz"
+Line 26: RADAR_OUT = PROCESSED / "task24_03_05C_radar_measurements_372frames.csv.gz"
+Line 28: OUTPUTS = [CAMERA_OUT, LIDAR_OUT, RADAR_OUT]
+Line 34: "LiDAR": (2.6, 0.0, 0.7),
+Line 35: "Radar": (2.0, 0.0, 0.8),
+Line 38: CAMERA_FIELDS = [
+Line 56: def read_csv_indexed(path):
+Line 57: with path.open("r", newline="", encoding="utf-8") as f:
+Line 67: def extract_points(frame, timestamp, sensor, view, writer, quality):
+Line 78: expected = (251, 21) if sensor == "LiDAR" else (10, 10)
+Line 91: "LiDARPayloadFreshness"
+Line 92: if sensor == "LiDAR"
+Line 93: else "RadarPayloadFreshness"
+Line 96: if sensor == "Radar":
+Line 100: raise RuntimeError("Invalid Radar carrier frequency")
+Line 110: if sensor == "Radar":
+Line 143: if sensor == "Radar":
+Line 145: doppler_flag = quality["RadarDopplerReviewFlag"]
+Line 178: def main():
+Line 185: for path in OUTPUTS:
+Line 187: raise RuntimeError(f"Output already exists: {path}")
+Line 193: # Temporary files prevent incomplete outputs from being
+Line 197: for path in OUTPUTS
+Line 200: camera_count = 0
+Line 201: lidar_count = 0
+Line 202: radar_count = 0
+Line 203: lidar_candidates = 0
+Line 204: radar_candidates = 0
+Line 209: with temporary[0].open("x", newline="", encoding="utf-8") as fc, \
+Line 210: gzip.open(temporary[1], "xt", encoding="utf-8",
+Line 212: gzip.open(temporary[2], "xt", encoding="utf-8",
+Line 215: wc = csv.DictWriter(fc, fieldnames=CAMERA_FIELDS)
+Line 223: with SOURCE.open("rb") as stream:
+Line 225: header = stream.read(4)
+Line 233: size = struct.unpack("<I", header)[0]
+Line 238: payload = stream.read(size)
+Line 244: sv.ParseFromString(payload)
+Line 246: frame = camera_count
+Line 254: "camera_sensor_view",
+Line 255: "lidar_sensor_view",
+Line 256: "radar_sensor_view"
+Line 282: camera = sv.camera_sensor_view[0]
+Line 283: cfg = camera.view_configuration
+Line 287: image = bytes(camera.image_data)
+Line 290: raise RuntimeError("Unexpected Camera resolution")
+Line 293: raise RuntimeError("Unexpected Camera image size")
+Line 303: quality["CameraPayloadFreshness"],
+Line 307: lidar_n, lidar_valid = extract_points(
+Line 308: frame, timestamp, "LiDAR",
+Line 309: sv.lidar_sensor_view[0], wl, quality
+Line 312: radar_n, radar_valid = extract_points(
+Line 313: frame, timestamp, "Radar",
+Line 314: sv.radar_sensor_view[0], wr, quality
+Line 317: camera_count += 1
+Line 318: lidar_count += lidar_n
+
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_24_Final_Research\10_Task24_Consolidated_V1\04_Code\01_Code\task24_03_05C_full_measurement_extraction.py
+TOTAL LINES: 380
+
+FIRST 45 LINES:
+import csv
+import gzip
+import hashlib
+import math
+import os
+import struct
+from pathlib import Path
+
+from osi3 import osi_sensorview_pb2
+
+ROOT = Path(
+    r"E:\GEMSTAR_Project\sensor-health-monitor"
+    r"\tests\Task_24_Final_Research"
+)
+
+SOURCE = Path(
+    r"E:\GEMSTAR_Project\gemstar\Output"
+    r"\20261105T231919Z_sv_380_X_372_GEMSTAR.osi"
+)
+
+DATA = ROOT / "02_CSV_Data"
+PROCESSED = ROOT / "08_Processed_Data"
+
+CAMERA_OUT = PROCESSED / "task24_03_05C_camera_metadata_372frames.csv"
+LIDAR_OUT = PROCESSED / "task24_03_05C_lidar_measurements_372frames.csv.gz"
+RADAR_OUT = PROCESSED / "task24_03_05C_radar_measurements_372frames.csv.gz"
+
+OUTPUTS = [CAMERA_OUT, LIDAR_OUT, RADAR_OUT]
+
+C = 299792458.0
+MIN_RANGE_M = 0.01
+
+MOUNTS = {
+    "LiDAR": (2.6, 0.0, 0.7),
+    "Radar": (2.0, 0.0, 0.8),
+}
+
+CAMERA_FIELDS = [
+    "Frame", "Timestamp_ns", "Width", "Height",
+    "ImageBytes", "ImageSHA256", "PayloadFreshness",
+    "IndependentAcquisitionTimeKnown"
+]
+
+POINT_FIELDS = [
+    "Frame", "Timestamp_ns", "Sensor", "RayIndex",
+
+IMPORTANT IMPLEMENTATION LINES:
+Line 1: import csv
+Line 2: import gzip
+Line 3: import hashlib
+Line 4: import math
+Line 5: import os
+Line 6: import struct
+Line 7: from pathlib import Path
+Line 9: from osi3 import osi_sensorview_pb2
+Line 17: r"E:\GEMSTAR_Project\gemstar\Output"
+Line 24: CAMERA_OUT = PROCESSED / "task24_03_05C_camera_metadata_372frames.csv"
+Line 25: LIDAR_OUT = PROCESSED / "task24_03_05C_lidar_measurements_372frames.csv.gz"
+Line 26: RADAR_OUT = PROCESSED / "task24_03_05C_radar_measurements_372frames.csv.gz"
+Line 28: OUTPUTS = [CAMERA_OUT, LIDAR_OUT, RADAR_OUT]
+Line 34: "LiDAR": (2.6, 0.0, 0.7),
+Line 35: "Radar": (2.0, 0.0, 0.8),
+Line 38: CAMERA_FIELDS = [
+Line 56: def read_csv_indexed(path):
+Line 57: with path.open("r", newline="", encoding="utf-8") as f:
+Line 67: def extract_points(frame, timestamp, sensor, view, writer, quality):
+Line 78: expected = (251, 21) if sensor == "LiDAR" else (10, 10)
+Line 91: "LiDARPayloadFreshness"
+Line 92: if sensor == "LiDAR"
+Line 93: else "RadarPayloadFreshness"
+Line 96: if sensor == "Radar":
+Line 100: raise RuntimeError("Invalid Radar carrier frequency")
+Line 110: if sensor == "Radar":
+Line 143: if sensor == "Radar":
+Line 145: doppler_flag = quality["RadarDopplerReviewFlag"]
+Line 178: def main():
+Line 185: for path in OUTPUTS:
+Line 187: raise RuntimeError(f"Output already exists: {path}")
+Line 193: # Temporary files prevent incomplete outputs from being
+Line 197: for path in OUTPUTS
+Line 200: camera_count = 0
+Line 201: lidar_count = 0
+Line 202: radar_count = 0
+Line 203: lidar_candidates = 0
+Line 204: radar_candidates = 0
+Line 209: with temporary[0].open("x", newline="", encoding="utf-8") as fc, \
+Line 210: gzip.open(temporary[1], "xt", encoding="utf-8",
+Line 212: gzip.open(temporary[2], "xt", encoding="utf-8",
+Line 215: wc = csv.DictWriter(fc, fieldnames=CAMERA_FIELDS)
+Line 223: with SOURCE.open("rb") as stream:
+Line 225: header = stream.read(4)
+Line 233: size = struct.unpack("<I", header)[0]
+Line 238: payload = stream.read(size)
+Line 244: sv.ParseFromString(payload)
+Line 246: frame = camera_count
+Line 254: "camera_sensor_view",
+Line 255: "lidar_sensor_view",
+Line 256: "radar_sensor_view"
+Line 282: camera = sv.camera_sensor_view[0]
+Line 283: cfg = camera.view_configuration
+Line 287: image = bytes(camera.image_data)
+Line 290: raise RuntimeError("Unexpected Camera resolution")
+Line 293: raise RuntimeError("Unexpected Camera image size")
+Line 303: quality["CameraPayloadFreshness"],
+Line 307: lidar_n, lidar_valid = extract_points(
+Line 308: frame, timestamp, "LiDAR",
+Line 309: sv.lidar_sensor_view[0], wl, quality
+Line 312: radar_n, radar_valid = extract_points(
+Line 313: frame, timestamp, "Radar",
+Line 314: sv.radar_sensor_view[0], wr, quality
+Line 317: camera_count += 1
+Line 318: lidar_count += lidar_n
+
+==================================================
+SCRIPT: task19_10l_cross_recording_extraction.py
+==================================================
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_19_Final_Research\04_Code\task19_10l_cross_recording_extraction.py
+TOTAL LINES: 258
+
+FIRST 45 LINES:
+import csv
+import math
+import struct
+from pathlib import Path
+
+from osi3 import osi_sensorview_pb2
+
+ROOT = Path(r"E:\GEMSTAR_Project\sensor-health-monitor")
+BASE = ROOT / "tests" / "Task_19_Final_Research"
+
+RAW = ROOT / "data" / "raw"
+OUT = BASE / "08_Extracted_PointClouds" / "task19_10l_cross_recording"
+DATA = BASE / "02_CSV_Data"
+
+OUT.mkdir(parents=True, exist_ok=True)
+DATA.mkdir(parents=True, exist_ok=True)
+
+SCENARIOS = [
+    "baseline_clear",
+    "baseline_fog_working_radar",
+    "fog_postfix_validation",
+]
+
+C = 299705543.0
+INVALID_ID = (1 << 64) - 1
+
+H_RAYS = 251
+V_RAYS = 21
+EXPECTED = H_RAYS * V_RAYS
+
+LOW_ROI = 1600
+HIGH_ROI = 2200
+
+FIELDS = [
+    "FrameIndex",
+    "RayIndex",
+    "ObjectID",
+    "RangeM",
+    "SignalStrength",
+    "X",
+    "Y",
+    "Z",
+]
+
+def reconstruct(sv, frame_index):
+
+IMPORTANT IMPLEMENTATION LINES:
+Line 1: import csv
+Line 2: import math
+Line 3: import struct
+Line 4: from pathlib import Path
+Line 6: from osi3 import osi_sensorview_pb2
+Line 20: "baseline_fog_working_radar",
+Line 45: def reconstruct(sv, frame_index):
+Line 47: if len(sv.lidar_sensor_view) != 1:
+Line 48: raise ValueError("Expected exactly one LiDAR sensor")
+Line 50: reflections = sv.lidar_sensor_view[0].reflection
+Line 125: with source.open("rb") as f:
+Line 129: header = f.read(4)
+Line 137: length = struct.unpack("<I", header)[0]
+Line 150: payload = f.read(length)
+Line 158: sv.ParseFromString(payload)
+Line 179: with destination.open(
+Line 181: ) as output_file:
+Line 184: output_file,
+Line 223: with inventory.open(
+Line 258: print("Output folder:", OUT)
+

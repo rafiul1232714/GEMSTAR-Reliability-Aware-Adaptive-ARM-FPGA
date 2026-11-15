@@ -1,0 +1,131 @@
+﻿GEMSTAR TASK 28.3B.3 SOURCE AUDIT
+============================================
+
+============================================
+FILE: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_08_Final_Research\03_Configurations\baseline_clear.ini
+============================================
+TOTAL LINES: 225
+
+MATCHES FOUND: 15
+Line 5: ; Weather: Fog
+Line 54: ;Model="Resources/sl-1-5-reflection-based-fmcw-lidar-detection-model-5271.fmu"
+Line 82: ; Maximum simulated range in meters
+Line 83: Range=100
+Line 88: WeatherInput=[ue_weather_effect_feature]
+Line 204: ; WEATHER CONFIGURATION - FOG
+Line 207: [ue_weather_effect_feature]
+Line 209: ; External weather input disabled
+Line 212: WeatherEffectEnabled=false
+Line 214: ; Clear, Fog, Rain, Snow
+Line 215: ActiveWeatherType=Clear
+Line 217: ; Meteorological Optical Range in meters
+Line 221: PrecipitationIntensity=0.0
+Line 223: ; LiDAR weather model
+Line 225: ReflectivityThreshold=10.0
+
+============================================
+FILE: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_08_Final_Research\03_Configurations\fog_postfix_validation.ini
+============================================
+TOTAL LINES: 225
+
+MATCHES FOUND: 15
+Line 5: ; Weather: Fog
+Line 54: ;Model="Resources/sl-1-5-reflection-based-fmcw-lidar-detection-model-5271.fmu"
+Line 82: ; Maximum simulated range in meters
+Line 83: Range=100
+Line 88: WeatherInput=[ue_weather_effect_feature]
+Line 204: ; WEATHER CONFIGURATION - FOG
+Line 207: [ue_weather_effect_feature]
+Line 209: ; External weather input disabled
+Line 212: WeatherEffectEnabled=true
+Line 214: ; Clear, Fog, Rain, Snow
+Line 215: ActiveWeatherType=Fog
+Line 217: ; Meteorological Optical Range in meters
+Line 221: PrecipitationIntensity=100.0
+Line 223: ; LiDAR weather model
+Line 225: ReflectivityThreshold=10.0
+
+============================================
+FILE: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_08_Final_Research\03_Configurations\fog_postfix_verified.ini
+============================================
+TOTAL LINES: 225
+
+MATCHES FOUND: 15
+Line 5: ; Weather: Fog
+Line 54: ;Model="Resources/sl-1-5-reflection-based-fmcw-lidar-detection-model-5271.fmu"
+Line 82: ; Maximum simulated range in meters
+Line 83: Range=100
+Line 88: WeatherInput=[ue_weather_effect_feature]
+Line 204: ; WEATHER CONFIGURATION - FOG
+Line 207: [ue_weather_effect_feature]
+Line 209: ; External weather input disabled
+Line 212: WeatherEffectEnabled=true
+Line 214: ; Clear, Fog, Rain, Snow
+Line 215: ActiveWeatherType=Fog
+Line 217: ; Meteorological Optical Range in meters
+Line 221: PrecipitationIntensity=100.0
+Line 223: ; LiDAR weather model
+Line 225: ReflectivityThreshold=10.0
+
+============================================
+FILE: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_08_Final_Research\04_Code\SimpleLidar_before_fix.cpp
+============================================
+TOTAL LINES: 259
+
+MATCHES FOUND: 23
+Line 13: #include "Effects/LidarWeatherEffectModel.h"
+Line 38: if (bDebugRayTraces || bDebugReflections || bDebugNormals)
+Line 81: FVector EndPoint = LidarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+Line 84: Sensor.RecordedHits[Index].HitResult, LidarPosition, EndPoint, ECC_Visibility, TraceParams, FCollisionResponseParams::DefaultResponseParam);
+Line 86: Sensor.RecordedHits[Index].Intesity = ComputeLidarSignalStrength(Sensor.RecordedHits[Index].HitResult);
+Line 104: auto* reflection = lidarSensorView->add_reflection();
+Line 105: reflection->set_time_of_flight(2 * 0.01 * hit.HitResult.Distance / SPEED_OF_LIGHT);
+Line 107: osi3::Vector3d* normal_to_surface = reflection->mutable_normal_to_surface();
+Line 111: reflection->set_doppler_shift(0);
+Line 113: reflection->mutable_object_id()->set_value(hit.HitResult.GetActor()->GetUniqueID());
+Line 114: reflection->set_signal_strength(hit.Intesity);
+Line 117: reflection->mutable_object_id()->set_value(UINT64_MAX);
+Line 118: reflection->set_signal_strength(0.0);
+Line 133: //apply weathereffect
+Line 134: if (HasWeatherData && Sensor.SensorView) {
+Line 135: LidarWeatherEffectModel LidarWeatherEffectModel;
+Line 136: LidarWeatherEffectModel.ApplyLidarWeatherEffect(*Sensor.SensorView, LatestWeatherData);
+Line 140: float ASimpleLidar::ComputeLidarSignalStrength(const FHitResult& Hit)
+Line 154: // Distance attenuation: 1 / (1 + (d/d0)^2)
+Line 221: Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+Line 240: Sensor.SensorViewConfig->set_range(Range);
+Line 249: if (bDebugReflections)
+Line 258: UE_LOG(Lidar, Log, TEXT("No reflection from lidar: %d of %d"), noHitCounter, Sensor.RecordedHits.Num());
+
+============================================
+FILE: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_08_Final_Research\04_Code\SimpleLidar_weather_fixed.cpp
+============================================
+TOTAL LINES: 260
+
+MATCHES FOUND: 24
+Line 13: #include "Effects/LidarWeatherEffectModel.h"
+Line 38: if (bDebugRayTraces || bDebugReflections || bDebugNormals)
+Line 81: FVector EndPoint = LidarPosition + Sensor.SensorViewConfig->range() * 100 * UKismetMathLibrary::GetForwardVector(Rotation);
+Line 84: Sensor.RecordedHits[Index].HitResult, LidarPosition, EndPoint, ECC_Visibility, TraceParams, FCollisionResponseParams::DefaultResponseParam);
+Line 86: Sensor.RecordedHits[Index].Intesity = ComputeLidarSignalStrength(Sensor.RecordedHits[Index].HitResult);
+Line 104: auto* reflection = lidarSensorView->add_reflection();
+Line 105: reflection->set_time_of_flight(2 * 0.01 * hit.HitResult.Distance / SPEED_OF_LIGHT);
+Line 107: osi3::Vector3d* normal_to_surface = reflection->mutable_normal_to_surface();
+Line 111: reflection->set_doppler_shift(0);
+Line 113: reflection->mutable_object_id()->set_value(hit.HitResult.GetActor()->GetUniqueID());
+Line 114: reflection->set_signal_strength(hit.Intesity);
+Line 117: reflection->mutable_object_id()->set_value(UINT64_MAX);
+Line 118: reflection->set_signal_strength(0.0);
+Line 133: // Apply weather effect
+Line 134: if (HasWeatherData && Sensor.SensorView) {
+Line 135: LidarWeatherEffectModel LidarWeatherEffectModel;
+Line 136: LidarWeatherEffectModel.ApplyLidarWeatherEffect(
+Line 137: *Sensor.SensorView, CurrentWeatherData);
+Line 141: float ASimpleLidar::ComputeLidarSignalStrength(const FHitResult& Hit)
+Line 155: // Distance attenuation: 1 / (1 + (d/d0)^2)
+Line 222: Sensor.SensorViewConfig->set_range(NewSensorConfiguration.Lidar.Range);
+Line 241: Sensor.SensorViewConfig->set_range(Range);
+Line 250: if (bDebugReflections)
+Line 259: UE_LOG(Lidar, Log, TEXT("No reflection from lidar: %d of %d"), noHitCounter, Sensor.RecordedHits.Num());
+
+TASK 28.3B.3 SOURCE AUDIT COMPLETE

@@ -1,0 +1,6 @@
+﻿"Scenario","Frames","FrameErrors","TimestampErrors","IntervalErrors","MissingSensorFrames","DimensionErrors","RepeatFlagErrors","LiDARRepeated","RadarRepeated","RadarRepeatedPct","Status"
+"baseline_clear","829","0","0","0","0","0","0","360","99","11.94","PASS"
+"baseline_fog_working_radar","794","0","0","0","0","0","0","317","130","16.37","PASS"
+"fog_mor100","466","0","0","0","0","0","0","178","49","10.52","PASS"
+"fog_postfix_validation","705","0","0","0","0","0","0","277","88","12.48","PASS"
+"task05_fog_test","542","0","0","0","542","542","0","0","541","99.82","FAIL"

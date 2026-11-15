@@ -1,0 +1,61 @@
+﻿GEMSTAR TASK 28.3C.1
+CPU BENCHMARK INVENTORY
+====================================
+
+FILE: task26_3B_ekf_cpu_timing.csv
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_26_Final_Research\02_CSV_Data\task26_3B_ekf_cpu_timing.csv
+ROWS: 200
+COLUMNS: workload, repeat, observations, elapsed_ms, ms_per_observation
+SAMPLE: workload=baseline | repeat=1 | observations=24 | elapsed_ms=1.5127 | ms_per_observation=0.06302916666666666
+SAMPLE: workload=baseline | repeat=2 | observations=24 | elapsed_ms=1.7653 | ms_per_observation=0.07355416666666667
+SAMPLE: workload=baseline | repeat=3 | observations=24 | elapsed_ms=1.5366 | ms_per_observation=0.064025
+------------------------------------
+
+FILE: task26_4B_camera_cpu_timing.csv
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_26_Final_Research\02_CSV_Data\task26_4B_camera_cpu_timing.csv
+ROWS: 600
+COLUMNS: weather, mode, repeat, image_width, image_height, processed_pixels, elapsed_ms
+SAMPLE: weather=CLEAR | mode=FULL | repeat=1 | image_width=640 | image_height=480 | processed_pixels=307200 | elapsed_ms=2.8903
+SAMPLE: weather=CLEAR | mode=FULL | repeat=2 | image_width=640 | image_height=480 | processed_pixels=307200 | elapsed_ms=2.7608
+SAMPLE: weather=CLEAR | mode=FULL | repeat=3 | image_width=640 | image_height=480 | processed_pixels=307200 | elapsed_ms=2.7953
+------------------------------------
+
+FILE: task26_4D_lidar_cpu_timing.csv
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_26_Final_Research\02_CSV_Data\task26_4D_lidar_cpu_timing.csv
+ROWS: 2650
+COLUMNS: frame, stage, repeat, input_points, filtered_points, clusters_found, elapsed_ms
+SAMPLE: frame=0 | stage=filter | repeat=1 | input_points=2141 | filtered_points=1914 | clusters_found=6 | elapsed_ms=0.6296
+SAMPLE: frame=0 | stage=filter | repeat=2 | input_points=2141 | filtered_points=1914 | clusters_found=6 | elapsed_ms=0.5324
+SAMPLE: frame=0 | stage=filter | repeat=3 | input_points=2141 | filtered_points=1914 | clusters_found=6 | elapsed_ms=0.5322
+------------------------------------
+
+FILE: task26_4G_radar_cpu_timing.csv
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_26_Final_Research\02_CSV_Data\task26_4G_radar_cpu_timing.csv
+ROWS: 1200
+COLUMNS: pair_id, frame, repeat, returns_processed, batch_elapsed_ms, average_ms_per_return
+SAMPLE: pair_id=1 | frame=0 | repeat=1 | returns_processed=82 | batch_elapsed_ms=0.0191 | average_ms_per_return=0.00023292682926829268
+SAMPLE: pair_id=1 | frame=0 | repeat=2 | returns_processed=82 | batch_elapsed_ms=0.0188 | average_ms_per_return=0.00022926829268292683
+SAMPLE: pair_id=1 | frame=0 | repeat=3 | returns_processed=82 | batch_elapsed_ms=0.0184 | average_ms_per_return=0.00022439024390243903
+------------------------------------
+
+FILE: task26_4J_yolo_cpu_timing.csv
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_26_Final_Research\02_CSV_Data\task26_4J_yolo_cpu_timing.csv
+ROWS: 50
+COLUMNS: frame, filename, repeat, detections, elapsed_ms
+SAMPLE: frame=0 | filename=clean_camera_01_frame00000.png | repeat=1 | detections=0 | elapsed_ms=47.137
+SAMPLE: frame=0 | filename=clean_camera_01_frame00000.png | repeat=2 | detections=0 | elapsed_ms=41.8856
+SAMPLE: frame=0 | filename=clean_camera_01_frame00000.png | repeat=3 | detections=0 | elapsed_ms=45.8712
+------------------------------------
+
+FILE: task26_5C_integrated_cpu_timing.csv
+PATH: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_26_Final_Research\02_CSV_Data\task26_5C_integrated_cpu_timing.csv
+ROWS: 1325
+COLUMNS: frame, repeat, lidar_input_points, lidar_filtered_points, radar_input_returns, radar_valid_returns, radar_invalid_returns, clusters, filter_ms, cluster_ms, radar_ms, total_ms
+SAMPLE: frame=0 | repeat=1 | lidar_input_points=2141 | lidar_filtered_points=1914 | radar_input_returns=32 | radar_valid_returns=32 | radar_invalid_returns=0 | clusters=6 | filter_ms=0.5097 | cluster_ms=0.4097 | radar_ms=0.0087 | total_ms=0.9281
+SAMPLE: frame=0 | repeat=2 | lidar_input_points=2141 | lidar_filtered_points=1914 | radar_input_returns=32 | radar_valid_returns=32 | radar_invalid_returns=0 | clusters=6 | filter_ms=0.5112 | cluster_ms=0.4024 | radar_ms=0.0089 | total_ms=0.9225
+SAMPLE: frame=0 | repeat=3 | lidar_input_points=2141 | lidar_filtered_points=1914 | radar_input_returns=32 | radar_valid_returns=32 | radar_invalid_returns=0 | clusters=6 | filter_ms=0.5094 | cluster_ms=0.4005 | radar_ms=0.0088 | total_ms=0.9187
+------------------------------------
+
+TOTAL ROWS FOUND: 6025
+NOTE: Check duplicate file copies before aggregating.
+NOTE: CPU benchmarks are not KR260 energy data.

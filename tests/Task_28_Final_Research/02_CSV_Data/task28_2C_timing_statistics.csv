@@ -1,0 +1,7 @@
+metric,value
+Mean_DT_ms,82.5984507520215
+Median_DT_ms,33.0536
+P95_DT_ms,333.333492
+P99_DT_ms,333.333701
+Min_DT_ms,28.567199
+Max_DT_ms,333.368808

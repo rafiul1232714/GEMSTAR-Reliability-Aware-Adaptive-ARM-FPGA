@@ -1,0 +1,80 @@
+﻿GEMSTAR TASK 28.2G.11
+CONSOLIDATED SENSOR WORKLOAD FINDINGS
+==========================================
+
+DATASET OVERVIEW
+Three-sensor candidate recordings: 4
+Three-sensor frames: 2794
+Radar-only diagnostic frames: 542
+Figures verified: 5 PNG + 5 FIG
+
+THREE-SENSOR SCENARIO RESULTS
+
+Scenario: baseline_clear
+Frames: 829
+Mean Camera bytes: 921600
+Mean LiDAR reflections: 5271
+Mean Radar reflections: 100
+LiDAR repeated (%): 43.4258142340169
+Radar repeated (%): 11.9420989143546
+Median frame interval (ms): 31.612599
+P95 frame interval (ms): 35.7979089
+P99 frame interval (ms): 123.478143660007
+
+Scenario: baseline_fog_working_radar
+Frames: 794
+Mean Camera bytes: 921600
+Mean LiDAR reflections: 5271
+Mean Radar reflections: 100
+LiDAR repeated (%): 39.9244332493703
+Radar repeated (%): 16.3727959697733
+Median frame interval (ms): 35.850298
+P95 frame interval (ms): 40.86346915
+P99 frame interval (ms): 50.6343111399999
+
+Scenario: fog_mor100
+Frames: 466
+Mean Camera bytes: 921600
+Mean LiDAR reflections: 5271
+Mean Radar reflections: 100
+LiDAR repeated (%): 38.1974248927039
+Radar repeated (%): 10.5150214592275
+Median frame interval (ms): 32.993101
+P95 frame interval (ms): 333.333492
+P99 frame interval (ms): 333.333493
+
+Scenario: fog_postfix_validation
+Frames: 705
+Mean Camera bytes: 921600
+Mean LiDAR reflections: 5271
+Mean Radar reflections: 100
+LiDAR repeated (%): 39.290780141844
+Radar repeated (%): 12.4822695035461
+Median frame interval (ms): 35.1625995
+P95 frame interval (ms): 39.7882899
+P99 frame interval (ms): 333.33344394
+
+RADAR-ONLY DIAGNOSTIC
+Scenario: task05_fog_test
+Frames: 542
+Repeated Radar views: 541
+Camera views absent; LiDAR views absent.
+
+RESEARCH INTERPRETATION
+1. Four recordings contain Camera, LiDAR and Radar views.
+2. LiDAR payload repetition is observable in all four.
+3. fog_mor100 requires investigation of slow frame intervals.
+4. task05_fog_test is a Radar-only diagnostic recording.
+5. Raw reflection counts are not valid-return counts.
+6. Repetition does not establish acquisition freshness.
+7. The recorded intervals are not measured CPU execution times.
+8. Scenario labels alone do not establish weather causality.
+9. No hardware energy savings have been demonstrated.
+
+NEXT RESEARCH REQUIREMENTS
+- Extract valid LiDAR and Radar return counts.
+- Verify scenario configurations and timestamp behavior.
+- Link workload observations with measured CPU benchmarks.
+- Build the Task 29 modeled scheduler.
+- Validate energy on KR260 hardware in later tasks.
+

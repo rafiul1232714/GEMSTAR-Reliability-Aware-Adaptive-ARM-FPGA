@@ -1,0 +1,15 @@
+Scenario,Frame,RangeCandidates,ZeroSignal,ZeroWithInvalidID,ZeroWithObjectID,PositiveWithInvalidID,PositiveWithObjectID,ZeroWithNoObjectIDField
+baseline_clear,0,1914,0,0,0,0,1914,0
+baseline_clear,1,2069,0,0,0,0,2069,0
+baseline_clear,2,2068,0,0,0,0,2068,0
+baseline_clear,100,2035,0,0,0,0,2035,0
+baseline_clear,350,2008,0,0,0,0,2008,0
+baseline_clear,690,4647,0,0,0,0,4647,0
+baseline_clear,704,3737,0,0,0,0,3737,0
+fog_postfix_validation,0,1914,1903,1903,0,0,11,0
+fog_postfix_validation,1,2069,1033,1033,0,0,1036,0
+fog_postfix_validation,2,2068,1046,1046,0,0,1022,0
+fog_postfix_validation,100,2034,932,932,0,0,1102,0
+fog_postfix_validation,350,2956,1952,1952,0,0,1004,0
+fog_postfix_validation,690,2126,1122,1122,0,0,1004,0
+fog_postfix_validation,704,2126,1122,1122,0,0,1004,0

@@ -1,0 +1,64 @@
+﻿GEMSTAR TASK 28.3C.5
+RESEARCH CONSOLIDATION AND TASK 29 HANDOFF
+====================================================
+
+1. DATASET COVERAGE
+Four three-sensor recordings were analyzed.
+Total OSI frames: 2794
+LiDAR/Radar frame-level rows: 5588
+
+2. SIGNAL AND IDENTITY VALIDATION
+Fog-postfix identity frames: 705
+Range candidates: 1698619
+Zero signal and invalid object ID: 996340
+Positive signal and ordinary object ID: 702279
+Zero-invalid percentage: 58.6559%
+Positive-object percentage: 41.3441%
+
+Identity agreement was verified for 705 frames.
+Simulator object-ID classification is not independent GT accuracy.
+Weather causality was not established.
+
+3. CPU BENCHMARK COVERAGE
+Total benchmark timing observations: 6025
+Source environment: workstation CPU, not KR260.
+
+4. WORKLOAD MODEL READINESS
+Integrated clustering Pearson r: 0.91330
+Feature: actual filtered LiDAR points.
+Held-out validation is required before prediction.
+The negative standalone clustering correlation uses raw
+input points and does not establish inverse computational cost.
+
+5. TASK 29 FEATURE CONTRACT
+Keep the following fields separate:
+- Sensor type and simulation timestamp
+- Sensor payload age / freshness evidence
+- Raw reflections or image dimensions
+- Range candidate returns
+- Positive-signal and object-ID classifications
+- Actual filtered points entering clustering
+- Radar returns processed
+- Camera FULL or ROI operating mode
+- YOLO inference cost and detection quality
+- EKF observation count and fusion quality
+
+6. TASK 29 COST-MODEL CONSTRAINTS
+- Never equate OSI candidates with CPU processed points
+  without checking the preprocessing definitions.
+- Use frame-grouped training/test splits.
+- Report prediction error on held-out data.
+- Report P95/P99 and out-of-range workload behavior.
+- Keep quality constraints independent of timing.
+- Treat model-based energy as estimated, not measured.
+- Do not claim KR260 latency or energy savings yet.
+
+7. PRIORITY FOR TASK 29
+First validate workload-based latency estimates.
+Then define feasible processing modes and quality limits.
+Only then evaluate hypothetical scheduling decisions.
+
+SOURCE MANIFEST
+E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_28_Final_Research\02_CSV_Data\task28_3C5_source_manifest.csv
+
+STATUS: TASK 28.3C.5 RESEARCH HANDOFF COMPLETE

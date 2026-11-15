@@ -1,0 +1,15 @@
+﻿GEMSTAR TASK 28.2G.9B - DATASET CLASSIFICATION
+
+Three-sensor candidate datasets: 4
+Radar-only diagnostic datasets: 1
+
+Three-sensor candidate frames: 2794
+Radar-only diagnostic frames: 542
+
+IMPORTANT RESEARCH LIMITATIONS:
+- Three-sensor eligibility means structurally suitable for workload comparison.
+- It does not prove acquisition synchronization or perception accuracy.
+- task05_fog_test is Radar-only, not a valid three-sensor workload baseline.
+- Identical Radar payloads do not establish physical sensor failure.
+- Weather labels alone do not establish causal effects.
+- These are input workload observations, not energy measurements.

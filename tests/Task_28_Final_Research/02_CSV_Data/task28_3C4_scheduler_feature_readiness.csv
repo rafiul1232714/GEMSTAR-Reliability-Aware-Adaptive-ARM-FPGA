@@ -1,0 +1,8 @@
+﻿"Stage","BenchmarkRows","WorkloadFeature","TimingBoundary","ObservedInputMin","ObservedInputMax","MedianLatency_ms","P99Latency_ms","PearsonR","Readiness","ResearchNote"
+"LiDAR_Filter","1325","RawLiDARInputPoints","LiDAR filtering","2141","3642","0.7488","1.539875","0.34351","EXPLORATORY_ONLY","Raw benchmark point count is not verified as equivalent to OSI range candidates"
+"LiDAR_Cluster","1325","RawLiDARInputPoints","Standalone LiDAR clustering","2141","3642","0.047","0.388575","-0.3494","FEATURE_MISMATCH","Use actual clustering input/filtered points instead of raw input points"
+"Radar_Batch","1200","ReturnsProcessed","Radar processing batch","30","82","0.0108","0.0374","0.1571","EXPLORATORY_ONLY","Weak observed association; validate batch definition and pairing"
+"Integrated_Filter","1325","LiDARInputPoints","Integrated LiDAR filtering","2141","3642","0.7259","1.432425","0.34264","EXPLORATORY_ONLY","Association requires validation before latency prediction"
+"Integrated_Cluster","1325","FilteredLiDARPoints","Integrated LiDAR clustering","198","1914","0.0545","0.399125","0.9133","HELDOUT_VALIDATION_PRIORITY","Strong association; evaluate held-out prediction error and p99 residual"
+"Integrated_Radar","1325","RadarInputReturns","Integrated Radar processing","32","69","0.0166","0.044475","0.25391","EXPLORATORY_ONLY","Weak observed association; preserve Radar batch timing boundary"
+"Integrated_Total","1325","LiDARInputPoints","Integrated benchmark total","2141","3642","0.7969","1.60005","0.17517","DO_NOT_TREAT_AS_FULL_FUSION","Total covers benchmarked stages, not Camera YOLO EKF or full end-to-end fusion"

@@ -1,0 +1,149 @@
+﻿============================================
+FILE: tests\Task_15_Final_Research\02_CSV_Data\task15_scenario_inventory.csv
+============================================
+ROWS: 8
+COLUMNS: ScenarioFolder, FolderPath, TotalFiles, OSIFiles, GTFiles, SVFiles, CSVFiles, TotalSizeGB, ScenarioVerified, SensorContentVerified, Notes
+
+FIRST FIVE RECORDS:
+
+
+ScenarioFolder        : baseline_clear
+FolderPath            : E:\GEMSTAR_Project\sensor-health-monitor\data\raw\baseline_clear
+TotalFiles            : 3
+OSIFiles              : 2
+GTFiles               : 1
+SVFiles               : 1
+CSVFiles              : 1
+TotalSizeGB           : 0.993
+ScenarioVerified      : NO
+SensorContentVerified : NO
+Notes                 : Files available; content not yet validated
+
+ScenarioFolder        : baseline_fog
+FolderPath            : E:\GEMSTAR_Project\sensor-health-monitor\data\raw\baseline_fog
+TotalFiles            : 1
+OSIFiles              : 1
+GTFiles               : 0
+SVFiles               : 1
+CSVFiles              : 0
+TotalSizeGB           : 2.544
+ScenarioVerified      : NO
+SensorContentVerified : NO
+Notes                 : GT/SV counterpart needs investigation
+
+ScenarioFolder        : baseline_fog_working_radar
+FolderPath            : E:\GEMSTAR_Project\sensor-health-monitor\data\raw\baseline_fog_working_radar
+TotalFiles            : 3
+OSIFiles              : 2
+GTFiles               : 1
+SVFiles               : 1
+CSVFiles              : 1
+TotalSizeGB           : 0.952
+ScenarioVerified      : NO
+SensorContentVerified : NO
+Notes                 : Files available; content not yet validated
+
+ScenarioFolder        : fog_mor100
+FolderPath            : E:\GEMSTAR_Project\sensor-health-monitor\data\raw\fog_mor100
+TotalFiles            : 2
+OSIFiles              : 2
+GTFiles               : 1
+SVFiles               : 1
+CSVFiles              : 0
+TotalSizeGB           : 0.559
+ScenarioVerified      : NO
+SensorContentVerified : NO
+Notes                 : Files available; content not yet validated
+
+ScenarioFolder        : fog_mor20
+FolderPath            : E:\GEMSTAR_Project\sensor-health-monitor\data\raw\fog_mor20
+TotalFiles            : 0
+OSIFiles              : 0
+GTFiles               : 0
+SVFiles               : 0
+CSVFiles              : 0
+TotalSizeGB           : 0
+ScenarioVerified      : NO
+SensorContentVerified : NO
+Notes                 : No OSI files in scenario folder
+
+
+
+
+
+============================================
+FILE: tests\Task_15_Final_Research\02_CSV_Data\task15_recording_pairs_verified.csv
+============================================
+ROWS: 18
+COLUMNS: RunID, GT_Count, SV_Count, Status
+
+FIRST FIVE RECORDS:
+
+
+RunID    : 380_X_3530_GEMSTAR
+GT_Count : 1
+SV_Count : 1
+Status   : PAIRED
+
+RunID    : 380_X_1114_GEMSTAR
+GT_Count : 1
+SV_Count : 1
+Status   : PAIRED
+
+RunID    : 380_X_2388_GEMSTAR
+GT_Count : 1
+SV_Count : 1
+Status   : PAIRED
+
+RunID    : 380_X_542_GEMSTAR
+GT_Count : 1
+SV_Count : 1
+Status   : PAIRED
+
+RunID    : 380_X_779_GEMSTAR
+GT_Count : 1
+SV_Count : 1
+Status   : PAIRED
+
+
+
+
+
+============================================
+FILE: tests\Task_23_Final_Research\02_CSV_Data\task23_06b_scenario_inventory.csv
+============================================
+ROWS: 38
+COLUMNS: Name, Extension, SizeBytes, FullPath
+
+FIRST FIVE RECORDS:
+
+
+Name      : GEMSTAR.umap
+Extension : .umap
+SizeBytes : 67821
+FullPath  : E:\GEMSTAR_Project\gemstar\Content\GEMSTAR.umap
+
+Name      : CameraTestMap.umap
+Extension : .umap
+SizeBytes : 117608
+FullPath  : E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_camera_feature\Content\Test\CameraTestMap.umap
+
+Name      : DrivingPractiseAreaBrunswickMap.umap
+Extension : .umap
+SizeBytes : 14903218
+FullPath  : E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_driving_area_brunswick_map_feature\Content\DrivingPractiseAreaBrunswickMap.umap
+
+Name      : DrivingPractiseArea_0_0.umap
+Extension : .umap
+SizeBytes : 474218
+FullPath  : E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_driving_area_brunswick_map_feature\Content\TrianImport\Driving_Practise_Area_Tiles\DrivingPractiseArea_0_0.umap
+
+Name      : DrivingPractiseAreaBrunswickMap.xodr
+Extension : .xodr
+SizeBytes : 989144
+FullPath  : E:\GEMSTAR_Project\gemstar\Plugins\GameFeatures\ue_driving_area_brunswick_map_feature\XODR\DrivingPractiseAreaBrunswickMap.xodr
+
+
+
+
+

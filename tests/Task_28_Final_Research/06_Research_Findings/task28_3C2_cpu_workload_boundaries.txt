@@ -1,0 +1,17 @@
+﻿GEMSTAR TASK 28.3C.2
+CPU TIMING BOUNDARY AUDIT
+==========================================
+
+Total source benchmark observations: 6025
+
+Each result is grouped by its original benchmark stage.
+CPU timing measurements are descriptive.
+Camera modes may contain multiple weather conditions.
+Integrated total_ms is not complete sensor-fusion latency.
+YOLO detections is an output count, not input workload.
+EKF elapsed_ms is a batch duration.
+Radar batch_elapsed_ms is a batch duration.
+These timings were not measured on the KR260.
+No hardware power or energy was measured.
+
+Task 28.3C.2 completed successfully.

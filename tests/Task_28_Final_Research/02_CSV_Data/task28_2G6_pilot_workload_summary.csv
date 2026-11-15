@@ -1,0 +1,9 @@
+metric,value
+Frames,100
+Camera_mean_bytes,921600
+LiDAR_mean_rays,5271
+Radar_mean_rays,100
+Camera_repeated,0
+LiDAR_repeated,37
+Radar_repeated,0
+LiDAR_repeated_fraction,0.37

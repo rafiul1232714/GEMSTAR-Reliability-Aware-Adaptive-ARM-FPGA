@@ -1,0 +1,41 @@
+﻿GEMSTAR TASK 28.3C.4
+SCHEDULER COST-MODEL READINESS
+=================================================
+
+SOURCE DATA:
+CPU stage statistics: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_28_Final_Research\02_CSV_Data\task28_3C2_cpu_stage_statistics.csv
+Workload correlations: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_28_Final_Research\02_CSV_Data\task28_3C3_cpu_workload_correlations.csv
+OSI candidate summary: E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_28_Final_Research\02_CSV_Data\task28_3A3_candidate_return_statistics.csv
+
+PRIMARY RESEARCH FINDING:
+Integrated clustering Pearson r = 0.9133.
+The corresponding feature is filtered LiDAR points.
+This is a candidate for held-out validation, not an approved model.
+
+IMPORTANT INPUT-DEFINITION WARNING:
+Fog-postfix object-associated returns mean = 996.14/frame.
+LiDAR filter benchmark input range = 2141 to 3642.
+Integrated cluster filtered-point range = 198 to 1914.
+These counts describe different processing stages.
+Do not equate them without a matched extraction and filter definition.
+
+SCHEDULER FEATURES TO RETAIN SEPARATELY:
+- Raw sensor rays or image dimensions
+- Candidate range returns
+- Signal and simulator object-ID classification
+- Actual filtered points entering clustering
+- Radar batch returns
+- Camera FULL versus ROI processing mode
+- EKF observation count and batch boundary
+- Separate YOLO inference latency
+
+TASK 29 MODEL RULES:
+- Fit only on training data; evaluate on held-out data.
+- Keep repeated measurements from one frame in one split.
+- Evaluate out-of-range workloads explicitly.
+- Preserve p99 latency and quality constraints.
+- Workstation CPU timing is not KR260 timing.
+- No measured power or energy savings have been demonstrated.
+- Do not interpret the integrated total as full sensor fusion.
+
+STATUS: READINESS AUDIT COMPLETE

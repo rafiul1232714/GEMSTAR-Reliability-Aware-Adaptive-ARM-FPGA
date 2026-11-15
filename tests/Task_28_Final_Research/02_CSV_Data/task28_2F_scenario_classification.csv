@@ -1,0 +1,9 @@
+Scenario,FolderExists,OSIFiles,GTFiles,SVFiles,Candidate,ScenarioVerified,SensorVerified,FullyVerified,ReadinessCode
+baseline_clear,1,2,1,1,1,0,0,0,1
+baseline_fog,1,1,0,1,0,0,0,0,0
+baseline_fog_working_radar,1,2,1,1,1,0,0,0,1
+fog_mor100,1,2,1,1,1,0,0,0,1
+fog_mor20,1,0,0,0,0,0,0,0,0
+fog_mor50,1,0,0,0,0,0,0,0,0
+fog_postfix_validation,1,2,1,1,1,0,0,0,1
+task05_fog_test,1,2,1,1,1,0,0,0,1

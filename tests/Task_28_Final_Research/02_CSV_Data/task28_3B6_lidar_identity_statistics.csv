@@ -1,0 +1,10 @@
+Metric,Value
+Frames,705
+RangeCandidates,1698619
+ZeroSignalInvalidID,996340
+PositiveSignalObjectID,702279
+ZeroSignalInvalidIDPct,58.655884574469
+PositiveSignalObjectIDPct,41.344115425531
+MeanAssociatedReturnsPerFrame,996.140425531915
+MedianAssociatedReturnsPerFrame,1004
+P95AssociatedReturnsPerFrame,1102
