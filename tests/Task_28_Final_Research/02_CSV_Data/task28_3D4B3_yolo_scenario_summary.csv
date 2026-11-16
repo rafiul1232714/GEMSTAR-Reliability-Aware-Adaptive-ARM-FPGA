@@ -1,0 +1,5 @@
+Scenario,Images,ImagesWithDetections,TotalDetections,MeanDetectionsPerImage,MedianImageLatency_ms,P95ImageLatency_ms,P99ImageLatency_ms
+baseline_clear,5,3,3,0.6,43.9581,47.00198,47.63407
+baseline_fog_working_radar,5,2,2,0.4,44.33875,49.17009,52.93171
+fog_mor100,5,4,7,1.4,44.3574,47.06681,48.49695
+fog_postfix_validation,5,3,4,0.8,44.0352,53.21202,58.93352

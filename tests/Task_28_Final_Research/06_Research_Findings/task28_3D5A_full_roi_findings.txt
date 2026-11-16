@@ -1,0 +1,23 @@
+TASK 28.3D.5A - FULL/ROI YOLO PAIRED PILOT
+==========================================
+Model SHA256: 85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5
+Images: 20, four scenarios, five each
+ROI: centered x=128, y=96, width=384, height=288
+Full frame: 640x480
+YOLO imgsz: 640; confidence: 0.15; device: CPU
+Warmups/mode/image: 2
+Timed repeats/mode/image: 5
+Comparison: same image, same YOLO weights and threshold
+ROI bounding boxes translated to full-frame coordinates
+Matching: same class, one-to-one, IoU >= 0.5
+
+LIMITATIONS
+FULL and ROI are different detector inputs.
+Matching measures consistency, not precision or recall.
+Fully-inside-ROI criterion excludes boundary crossings.
+YOLO resizes inputs; ROI is not guaranteed faster.
+Five images per scenario are not a matched weather study.
+No measured energy savings or independent accuracy labels.
+Workstation CPU timings are not KR260 timings.
+
+STATUS: TASK 28.3D.5A COMPLETE

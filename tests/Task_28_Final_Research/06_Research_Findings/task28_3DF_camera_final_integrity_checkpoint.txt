@@ -1,0 +1,27 @@
+﻿GEMSTAR TASK 28.3D.F
+FINAL CAMERA RESEARCH INTEGRITY CHECKPOINT
+========================================
+STATUS: PASS
+ERRORS: 0
+
+VERIFICATION RESULTS
+Research scripts: 7 / 7
+Research CSV datasets: 13 / 13
+Dataset row-count checks: 12 / 12
+Extracted Camera images: 20
+Annotated YOLO images: 20
+MATLAB PNG/FIG figure pairs: 4 / 4
+Research reports: 3 / 3
+FULL detection boxes: 16
+ROI detection boxes: 13
+Matched inside ROI: 3 / 3
+
+ERRORS
+
+SCIENTIFIC LIMITATIONS
+Image quality metrics are descriptive proxies.
+Clear/fog recordings are not matched scenes.
+Simulator Camera channel order not source-confirmed.
+YOLO detection accuracy is not validated.
+YOLO timings are workstation CPU timings.
+No hardware energy savings measured.

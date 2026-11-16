@@ -1,0 +1,5 @@
+Scenario,Images,FullDetections,ROIDetections,FullBoxesInsideROI,MatchedFullInsideROI,MeanFullImageMedian_ms,MeanROIImageMedian_ms,MedianPairedDelta_ms,MeanPairedDelta_ms,ImagesROIFaster,ImagesROISlower,PooledFullMedian_ms,PooledROIMedian_ms
+baseline_clear,5,3,6,2,2,45.02456,46.0553,0.980699999999999,1.03074,0,5,44.9973,45.6623
+baseline_fog_working_radar,5,2,1,0,0,43.87822,44.15014,0.245999999999995,0.271919999999997,2,3,44.0274,44.2241
+fog_mor100,5,7,4,1,1,44.965,44.35734,0.446399999999997,-0.607660000000003,2,3,44.693,44.2614
+fog_postfix_validation,5,4,2,0,0,44.18776,45.34674,1.24319999999999,1.15898,1,4,43.9449,44.8862

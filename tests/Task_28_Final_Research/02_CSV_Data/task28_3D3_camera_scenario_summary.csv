@@ -1,0 +1,5 @@
+Scenario,Frames,ImageBytesPerFrame,RepeatedImages,RepeatedImagePct,MeanIntensity,MedianIntensity,P05Intensity,P95Intensity,MeanIntensityStd,MeanEdgeMagnitude,MeanDarkPct,MeanBrightPct,MedianDT_ms,P95DT_ms
+baseline_clear,829,921600,0,0.0,160.7076,163.8083,140.216,176.2723,39.0441,12.0155,0.0017,0.0087,31.6126,35.7672
+baseline_fog_working_radar,794,921600,0,0.0,209.4538,209.1373,202.3158,218.5301,19.1452,2.9964,0.0,0.0026,35.8503,40.8328
+fog_mor100,466,921600,0,0.0,187.8677,188.8042,176.7612,192.3554,27.375,5.9895,0.0,0.0016,32.9931,333.3335
+fog_postfix_validation,705,921600,0,0.0,209.3243,208.7577,201.3799,218.6888,19.4385,2.9642,0.0,0.0031,35.1626,39.7393

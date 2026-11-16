@@ -1,0 +1,67 @@
+{
+  "task": "28.3D.4B.3",
+  "model": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_18_Final_Research\\03_Configurations\\Models\\yolo11s.pt",
+  "model_sha256": "85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5",
+  "ultralytics_version": "8.4.211",
+  "torch_version": "2.15.0+cpu",
+  "opencv_version": "5.0.0",
+  "device": "cpu",
+  "torch_threads": 4,
+  "image_size": 640,
+  "confidence_threshold": 0.15,
+  "warmups_per_image": 3,
+  "timed_repeats_per_image": 10,
+  "images_tested": 20,
+  "timing_observations": 200,
+  "detections_reported": 16,
+  "image_encoding_convention": "Task24_RGB_assumption_not_source_verified",
+  "image_bytes_verified_against_manifest": true,
+  "model_load_excluded_from_timing": true,
+  "disk_read_excluded_from_timing": true,
+  "prediction_preprocess_inference_postprocess_timed": true,
+  "recordings_matched_by_scene": false,
+  "ground_truth_detection_accuracy_validated": false,
+  "hardware_energy_measured": false,
+  "scenario_summary": [
+    {
+      "Scenario": "baseline_clear",
+      "Images": 5,
+      "ImagesWithDetections": 3,
+      "TotalDetections": 3,
+      "MeanDetectionsPerImage": 0.6,
+      "MedianImageLatency_ms": 43.9581,
+      "P95ImageLatency_ms": 47.00198,
+      "P99ImageLatency_ms": 47.63407
+    },
+    {
+      "Scenario": "baseline_fog_working_radar",
+      "Images": 5,
+      "ImagesWithDetections": 2,
+      "TotalDetections": 2,
+      "MeanDetectionsPerImage": 0.4,
+      "MedianImageLatency_ms": 44.33875,
+      "P95ImageLatency_ms": 49.17009,
+      "P99ImageLatency_ms": 52.93171
+    },
+    {
+      "Scenario": "fog_mor100",
+      "Images": 5,
+      "ImagesWithDetections": 4,
+      "TotalDetections": 7,
+      "MeanDetectionsPerImage": 1.4,
+      "MedianImageLatency_ms": 44.3574,
+      "P95ImageLatency_ms": 47.06681,
+      "P99ImageLatency_ms": 48.49695
+    },
+    {
+      "Scenario": "fog_postfix_validation",
+      "Images": 5,
+      "ImagesWithDetections": 3,
+      "TotalDetections": 4,
+      "MeanDetectionsPerImage": 0.8,
+      "MedianImageLatency_ms": 44.0352,
+      "P95ImageLatency_ms": 53.21202,
+      "P99ImageLatency_ms": 58.93352
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+GEMSTAR TASK 28.3D.6A CAMERA RESEARCH FINDINGS
+=============================================
+
+Images compared: 20
+YOLO timing observations: 200
+FULL detections: 16
+ROI detections: 13
+FULL boxes completely in ROI: 3
+Matched inside-ROI boxes: 3
+
+Mean FULL per-image median latency: 44.51389 ms
+Mean ROI per-image median latency: 44.97738 ms
+Mean paired ROI-FULL difference: 0.46349 ms
+Median paired ROI-FULL difference: 0.73865 ms
+ROI faster on 5/20 images
+ROI slower on 15/20 images
+
+RESEARCH INTERPRETATION
+- ROI source area is 36 percent of full pixels.
+- YOLO requested inference size remained 640.
+- Reduced input area did not guarantee lower YOLO latency.
+- FULL and ROI produce different detection sets.
+- ROI matching is detector consistency, not accuracy.
+- ROI preprocessing and YOLO inference are distinct costs.
+
+LIMITATIONS
+- Only 20 images, five per recording.
+- Scenario images are not proven matched scenes.
+- CPU benchmark is not KR260 hardware timing.
+- No measured energy or independent object accuracy.
+- RGB convention follows Task 24; source not verified.
+- Repeat timing observations are not independent images.
+- No power or energy saving has been established.
+
+STATUS: TASK 28.3D.6A COMPLETE
