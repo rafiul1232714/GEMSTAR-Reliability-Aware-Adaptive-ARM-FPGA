@@ -1,0 +1,19 @@
+Scenario,Frame,Class,Confidence,X1,Y1,X2,Y2,TargetClass
+baseline_clear,207,person,0.209206,311.55,236.59,318.1,253.31,True
+baseline_clear,621,car,0.890102,321.88,242.29,421.15,287.81,True
+baseline_clear,828,airplane,0.220998,456.67,200.57,588.7,271.21,False
+baseline_fog_working_radar,0,umbrella,0.196715,0.07,138.36,83.58,224.73,False
+baseline_fog_working_radar,793,dining table,0.219558,585.5,369.41,639.81,478.83,False
+baseline_fog_working_radar,793,airplane,0.115714,499.48,176.44,639.72,276.51,False
+baseline_fog_working_radar,793,clock,0.108505,550.27,254.41,570.61,274.66,False
+fog_mor100,116,car,0.853033,291.75,240.51,333.0,271.27,True
+fog_mor100,232,person,0.605472,0.0,247.07,9.08,273.53,True
+fog_mor100,349,car,0.813303,0.7,199.55,191.6,442.62,True
+fog_mor100,465,person,0.403605,516.87,238.53,523.23,251.91,True
+fog_mor100,465,truck,0.38779,593.86,203.08,639.58,268.9,True
+fog_mor100,465,bed,0.217404,492.43,318.05,639.38,477.78,False
+fog_postfix_validation,0,umbrella,0.219476,0.07,138.37,83.43,224.89,False
+fog_postfix_validation,176,car,0.397663,0.37,312.05,94.28,479.62,True
+fog_postfix_validation,352,surfboard,0.124871,600.85,271.08,639.71,296.24,False
+fog_postfix_validation,704,dining table,0.544808,583.81,364.06,639.64,478.85,False
+fog_postfix_validation,704,car,0.181109,493.65,343.87,639.62,479.91,True

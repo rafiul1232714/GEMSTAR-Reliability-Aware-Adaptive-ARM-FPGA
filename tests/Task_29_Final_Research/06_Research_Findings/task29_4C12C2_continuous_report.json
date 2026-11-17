@@ -1,0 +1,48 @@
+{
+  "task": "29.4C.12C.2",
+  "status": "PASS",
+  "policies": 4,
+  "phases": 4,
+  "events_per_policy": 76,
+  "total_decisions": 304,
+  "phase_policy_summaries": 16,
+  "policy_totals": {
+    "CPU_ONLY": {
+      "processed": 72,
+      "deadline_misses": 43,
+      "active_energy_mj": 12689.431799,
+      "max_queue_wait_ms": 684.279239,
+      "switches": 0
+    },
+    "FIXED_AVAILABLE_ACCELERATORS": {
+      "processed": 72,
+      "deadline_misses": 19,
+      "active_energy_mj": 12275.930534,
+      "max_queue_wait_ms": 668.341043,
+      "switches": 2
+    },
+    "ADAPTIVE_DEADLINE": {
+      "processed": 72,
+      "deadline_misses": 32,
+      "active_energy_mj": 12541.640131,
+      "max_queue_wait_ms": 667.362698,
+      "switches": 8
+    },
+    "ARRIVAL_AWARE_ENERGY": {
+      "processed": 72,
+      "deadline_misses": 19,
+      "active_energy_mj": 11269.130663,
+      "max_queue_wait_ms": 668.341043,
+      "switches": 4
+    }
+  },
+  "state_persisted_across_phases": true,
+  "queue_model": "ONE_SERIALIZED_FIFO_SERVER",
+  "phase_spacing": "1800_MS_START_TO_START",
+  "hardware_conditions": "SYNTHETIC",
+  "accelerator_performance": "HYPOTHETICAL",
+  "power_model": "ILLUSTRATIVE_ACTIVE_ONLY",
+  "complete_board_energy_measured": false,
+  "quality_verified": false,
+  "weather_simulation_executed": false
+}

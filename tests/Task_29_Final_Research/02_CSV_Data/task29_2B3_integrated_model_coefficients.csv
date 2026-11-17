@@ -1,0 +1,9 @@
+Model,Term,Coefficient,RidgeLambda
+constant,Intercept,0.8034,0
+input_only,Intercept,0.245440754496233,1
+input_only,LiDARInputPoints,0.000592651294869789,1
+input_only,RadarInputReturns,-0.0214108119835642,1
+stage_aware,Intercept,0.122999908840606,1
+stage_aware,LiDARInputPoints,0.000155440678943511,1
+stage_aware,LiDARFilteredPoints,0.000205937406885943,1
+stage_aware,RadarInputReturns,0.00204940474380581,1

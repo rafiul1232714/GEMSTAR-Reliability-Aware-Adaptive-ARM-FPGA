@@ -1,0 +1,45 @@
+{
+  "task": "29.3D.3C.1",
+  "scenario": "fog_mor100",
+  "frame": 465,
+  "source_image": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_fog_mor100_frame00465.png",
+  "image_sha256": "63c0f5ecc65e3420b57d846263e09bd963d2d262e40c090b6d0c50b1a5f21870",
+  "model": "yolo11s",
+  "model_sha256": "85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5",
+  "confidence_threshold": 0.1,
+  "inference_image_size": 640,
+  "status": "UNREVIEWED_MODEL_PROPOSAL",
+  "is_ground_truth": false,
+  "proposals": [
+    {
+      "class": "person",
+      "class_id": 0,
+      "confidence": 0.403605192899704,
+      "x1": 516.867431640625,
+      "y1": 238.52789306640625,
+      "x2": 523.22705078125,
+      "y2": 251.91357421875,
+      "target_class": true
+    },
+    {
+      "class": "truck",
+      "class_id": 7,
+      "confidence": 0.38779038190841675,
+      "x1": 593.8577270507812,
+      "y1": 203.07577514648438,
+      "x2": 639.5759887695312,
+      "y2": 268.90118408203125,
+      "target_class": true
+    },
+    {
+      "class": "bed",
+      "class_id": 59,
+      "confidence": 0.2174038589000702,
+      "x1": 492.4288330078125,
+      "y1": 318.04986572265625,
+      "x2": 639.37890625,
+      "y2": 477.78070068359375,
+      "target_class": false
+    }
+  ]
+}

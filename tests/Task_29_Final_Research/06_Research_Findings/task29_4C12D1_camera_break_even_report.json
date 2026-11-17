@@ -1,0 +1,27 @@
+{
+  "task": "29.4C.12D.1",
+  "status": "PASS",
+  "analysis": "CAMERA_ARM_FPGA_ENERGY_BREAK_EVEN",
+  "sensitivity_cases": 256,
+  "camera_cpu_reference_ms": 47.989737,
+  "camera_fpga_compute_reference_ms": 23.9948685,
+  "camera_dma_reference_ms": 2.0,
+  "assumed_dma_host_power_w": 6.0,
+  "deadline_ms": 75.0,
+  "energy_winner_counts": {
+    "FPGA_LOWER_ENERGY": 215,
+    "ARM_LOWER_ENERGY": 41
+  },
+  "deadline_feasible_counts": {
+    "FPGA": 224,
+    "ARM": 32
+  },
+  "model": "ILLUSTRATIVE_ACTIVE_PROCESSING_ONLY",
+  "arm_performance": "HYPOTHETICAL_SCALING",
+  "fpga_ai_implementation": "NOT_VERIFIED",
+  "dma_costs": "HYPOTHETICAL",
+  "queue_model_executed": false,
+  "whole_board_energy_measured": false,
+  "perception_quality_verified": false,
+  "previous_results_modified": false
+}

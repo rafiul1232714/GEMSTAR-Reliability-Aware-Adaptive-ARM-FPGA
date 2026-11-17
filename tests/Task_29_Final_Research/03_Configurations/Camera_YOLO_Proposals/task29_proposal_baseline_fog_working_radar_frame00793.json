@@ -1,0 +1,45 @@
+{
+  "task": "29.3D.3C.1",
+  "scenario": "baseline_fog_working_radar",
+  "frame": 793,
+  "source_image": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_fog_working_radar_frame00793.png",
+  "image_sha256": "c6b21a34a5d356a0a4d25ecb55c976dde44df83bc9f8156fbf756433276d0629",
+  "model": "yolo11s",
+  "model_sha256": "85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5",
+  "confidence_threshold": 0.1,
+  "inference_image_size": 640,
+  "status": "UNREVIEWED_MODEL_PROPOSAL",
+  "is_ground_truth": false,
+  "proposals": [
+    {
+      "class": "dining table",
+      "class_id": 60,
+      "confidence": 0.21955786645412445,
+      "x1": 585.5010986328125,
+      "y1": 369.41033935546875,
+      "x2": 639.8092041015625,
+      "y2": 478.82501220703125,
+      "target_class": false
+    },
+    {
+      "class": "airplane",
+      "class_id": 4,
+      "confidence": 0.11571443825960159,
+      "x1": 499.4806823730469,
+      "y1": 176.44338989257812,
+      "x2": 639.716796875,
+      "y2": 276.5093688964844,
+      "target_class": false
+    },
+    {
+      "class": "clock",
+      "class_id": 74,
+      "confidence": 0.1085052415728569,
+      "x1": 550.2734375,
+      "y1": 254.4074249267578,
+      "x2": 570.611328125,
+      "y2": 274.66021728515625,
+      "target_class": false
+    }
+  ]
+}

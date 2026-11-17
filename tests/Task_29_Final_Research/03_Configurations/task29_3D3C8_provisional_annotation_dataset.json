@@ -1,0 +1,409 @@
+﻿{
+    "task":  "29.3D.3C.8",
+    "status":  "PROVISIONAL_NOT_GROUND_TRUTH",
+    "images":  20,
+    "original_proposals":  18,
+    "retained_candidates":  6,
+    "unresolved_proposals":  4,
+    "independent_accuracy_validated":  false,
+    "records":  [
+                    {
+                        "scenario":  "baseline_clear",
+                        "frame":  0,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_clear_frame00000.png",
+                        "image_sha256":  "295e032a8ba81bb2c74341944d6fd59185c4be6be27a74c09759233aef170655",
+                        "candidate_objects":  [
+
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  true,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "baseline_clear",
+                        "frame":  207,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_clear_frame00207.png",
+                        "image_sha256":  "9bb498388f52854d803418045cb5af7b8f65bdc50cf9b8757a23322eec95b22c",
+                        "candidate_objects":  [
+
+                                              ],
+                        "uncertain_proposals":  [
+                                                    {
+                                                        "proposal_id":  1,
+                                                        "predicted_class":  "person",
+                                                        "confidence":  0.2092
+                                                    }
+                                                ],
+                        "previous_annotation_exists":  true,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "baseline_clear",
+                        "frame":  414,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_clear_frame00414.png",
+                        "image_sha256":  "ebec3198066415e03d0d9a2e73c917d7ce77cff470f1ff1004dfaf0b72ce9074",
+                        "candidate_objects":  [
+
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  true,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "baseline_clear",
+                        "frame":  621,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_clear_frame00621.png",
+                        "image_sha256":  "01a7bcc9de13bc9d3a7f3f7b806d4b648c8319c60111a246d6f32d52c4dcbba4",
+                        "candidate_objects":  [
+                                                  {
+                                                      "class":  "car",
+                                                      "x1":  321.88,
+                                                      "y1":  242.29,
+                                                      "x2":  421.15,
+                                                      "y2":  287.81,
+                                                      "source_proposal_id":  1
+                                                  }
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "baseline_clear",
+                        "frame":  828,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_clear_frame00828.png",
+                        "image_sha256":  "5d429e919528e5be884158d66a16721840ea0b843bf7b2457868aa7d165551d4",
+                        "candidate_objects":  [
+                                                  {
+                                                      "class":  "truck",
+                                                      "x1":  456.67,
+                                                      "y1":  200.57,
+                                                      "x2":  588.7,
+                                                      "y2":  271.21,
+                                                      "source_proposal_id":  1
+                                                  }
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "baseline_fog_working_radar",
+                        "frame":  0,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_fog_working_radar_frame00000.png",
+                        "image_sha256":  "f1c96c139aed4867595e69bbd0d1a76f3edcb8276e4d8a7d1045aa424adfbfd2",
+                        "candidate_objects":  [
+
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "baseline_fog_working_radar",
+                        "frame":  198,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_fog_working_radar_frame00198.png",
+                        "image_sha256":  "a72eb26ae62937c3a3e3015afdb39287d5d9b400b6c79608a52b66ac5736cfcb",
+                        "candidate_objects":  [
+
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "baseline_fog_working_radar",
+                        "frame":  396,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_fog_working_radar_frame00396.png",
+                        "image_sha256":  "07e4e5a478d25ae1f29a86e837366b6276518050cde573704af4362f06487ebb",
+                        "candidate_objects":  [
+
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "baseline_fog_working_radar",
+                        "frame":  595,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_fog_working_radar_frame00595.png",
+                        "image_sha256":  "a3311e3b5a0d7b2dd404403603af80931feaa4be66c26e37cca0eb46a6dad42f",
+                        "candidate_objects":  [
+
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "baseline_fog_working_radar",
+                        "frame":  793,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_fog_working_radar_frame00793.png",
+                        "image_sha256":  "c6b21a34a5d356a0a4d25ecb55c976dde44df83bc9f8156fbf756433276d0629",
+                        "candidate_objects":  [
+                                                  {
+                                                      "class":  "truck",
+                                                      "x1":  499.48,
+                                                      "y1":  176.44,
+                                                      "x2":  639.72,
+                                                      "y2":  276.51,
+                                                      "source_proposal_id":  2
+                                                  }
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "fog_mor100",
+                        "frame":  0,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_fog_mor100_frame00000.png",
+                        "image_sha256":  "e1a77ebcb82d49793301dd5bec729110204355c9503a249565b95c7a2b748bda",
+                        "candidate_objects":  [
+
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "fog_mor100",
+                        "frame":  116,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_fog_mor100_frame00116.png",
+                        "image_sha256":  "8e68b233e81182c8aa7f036b4d9e97769b897727b38da8451e426f4a1fdfde1d",
+                        "candidate_objects":  [
+                                                  {
+                                                      "class":  "car",
+                                                      "x1":  291.75,
+                                                      "y1":  240.51,
+                                                      "x2":  333,
+                                                      "y2":  271.27,
+                                                      "source_proposal_id":  1
+                                                  }
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "fog_mor100",
+                        "frame":  232,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_fog_mor100_frame00232.png",
+                        "image_sha256":  "c3848a0c1b85653ad94093f395639deb6f6f830256da06c70115c2e9389b748e",
+                        "candidate_objects":  [
+
+                                              ],
+                        "uncertain_proposals":  [
+                                                    {
+                                                        "proposal_id":  1,
+                                                        "predicted_class":  "person",
+                                                        "confidence":  0.6055
+                                                    }
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "fog_mor100",
+                        "frame":  349,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_fog_mor100_frame00349.png",
+                        "image_sha256":  "75a6ee98f4f8abbc99a929086cbd3612243182cf1013ec36449e6a297cb80ae8",
+                        "candidate_objects":  [
+
+                                              ],
+                        "uncertain_proposals":  [
+                                                    {
+                                                        "proposal_id":  1,
+                                                        "predicted_class":  "car",
+                                                        "confidence":  0.8133
+                                                    }
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "fog_mor100",
+                        "frame":  465,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_fog_mor100_frame00465.png",
+                        "image_sha256":  "63c0f5ecc65e3420b57d846263e09bd963d2d262e40c090b6d0c50b1a5f21870",
+                        "candidate_objects":  [
+                                                  {
+                                                      "class":  "truck",
+                                                      "x1":  593.86,
+                                                      "y1":  203.08,
+                                                      "x2":  639.58,
+                                                      "y2":  268.9,
+                                                      "source_proposal_id":  2
+                                                  }
+                                              ],
+                        "uncertain_proposals":  [
+                                                    {
+                                                        "proposal_id":  1,
+                                                        "predicted_class":  "person",
+                                                        "confidence":  0.4036
+                                                    }
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "fog_postfix_validation",
+                        "frame":  0,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_fog_postfix_validation_frame00000.png",
+                        "image_sha256":  "693030702393d244317288e1c6b1438f62f4d8f0aa8410e785378b987a500c14",
+                        "candidate_objects":  [
+
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "fog_postfix_validation",
+                        "frame":  176,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_fog_postfix_validation_frame00176.png",
+                        "image_sha256":  "22466f0a899da96d174301a4777c09efcbec8f01ff625543aa0a335770cfd592",
+                        "candidate_objects":  [
+                                                  {
+                                                      "class":  "car",
+                                                      "x1":  0.37,
+                                                      "y1":  312.05,
+                                                      "x2":  94.28,
+                                                      "y2":  479.62,
+                                                      "source_proposal_id":  1
+                                                  }
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "fog_postfix_validation",
+                        "frame":  352,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_fog_postfix_validation_frame00352.png",
+                        "image_sha256":  "1961dec3bd985662a8116c3ca10e93eb46e22a11753079b47d0934df58eeb839",
+                        "candidate_objects":  [
+
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "fog_postfix_validation",
+                        "frame":  528,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_fog_postfix_validation_frame00528.png",
+                        "image_sha256":  "336f16e6186ac6f0664c3f11570535f367afc6e28bb1cdfa59afd236901adb9f",
+                        "candidate_objects":  [
+
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    },
+                    {
+                        "scenario":  "fog_postfix_validation",
+                        "frame":  704,
+                        "image":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_fog_postfix_validation_frame00704.png",
+                        "image_sha256":  "a3b18aeb2f71ff66d951d9caa99c09e337c40768f1eccd0b14a835e470ac0548",
+                        "candidate_objects":  [
+
+                                              ],
+                        "uncertain_proposals":  [
+
+                                                ],
+                        "previous_annotation_exists":  false,
+                        "human_review_complete":  false,
+                        "independent_verification_complete":  false,
+                        "missing_object_check_complete":  false,
+                        "ground_truth_approved":  false
+                    }
+                ]
+}

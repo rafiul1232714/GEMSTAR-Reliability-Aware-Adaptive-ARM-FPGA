@@ -1,0 +1,13 @@
+{
+  "task": "29.3D.3C.1",
+  "model": "yolo11s",
+  "model_sha256": "85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5",
+  "images_reviewed_by_model": 20,
+  "scenarios": 4,
+  "proposals": 18,
+  "threshold": 0.1,
+  "contact_sheets": 4,
+  "manual_review_completed": false,
+  "ground_truth_created": false,
+  "note": "These are model-generated candidates, not independent annotations."
+}

@@ -1,0 +1,5 @@
+Scenario,Images,YOLO11nMeanMedianMs,YOLO11sMeanMedianMs
+baseline_clear,5,19.79746,43.69642
+baseline_fog_working_radar,5,19.48773,43.75033
+fog_mor100,5,19.5933,43.5843
+fog_postfix_validation,5,19.05683,43.36806

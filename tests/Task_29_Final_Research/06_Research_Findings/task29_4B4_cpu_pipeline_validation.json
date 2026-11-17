@@ -1,0 +1,19 @@
+﻿{
+    "Task":  "29.4B.4",
+    "Status":  "PASS",
+    "Source":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_26_Final_Research\\02_CSV_Data\\task26_5C_integrated_cpu_timing.csv",
+    "SourceSHA256":  "C01FA73103C4303ED91D9D9CFDB8E7D7C33A14AEADC998B98CCF08702D2F3E64",
+    "Frames":  53,
+    "TimingRecords":  1325,
+    "ProcessingStages":  [
+                             "LiDAR filtering",
+                             "LiDAR clustering",
+                             "Radar preprocessing"
+                         ],
+    "SourceType":  "Previously recorded workstation CPU benchmark",
+    "ProcessingExecutedInThisStep":  false,
+    "CameraIncluded":  false,
+    "FusionIncluded":  false,
+    "KR260Measured":  false,
+    "EnergyMeasured":  false
+}

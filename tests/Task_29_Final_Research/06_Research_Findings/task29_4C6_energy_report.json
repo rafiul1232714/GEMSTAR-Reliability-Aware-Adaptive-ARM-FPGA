@@ -1,0 +1,30 @@
+{
+  "task": "29.4C.6",
+  "status": "PASS",
+  "decisions_replayed": 38,
+  "summary": {
+    "CPU_ONLY": {
+      "processed_jobs": 18,
+      "estimated_active_energy_mj": 7123.891536,
+      "estimated_active_energy_per_processed_job_mj": 395.771752,
+      "verified_valid_results": null,
+      "energy_per_valid_result_mj": null
+    },
+    "ADAPTIVE_DEADLINE": {
+      "processed_jobs": 18,
+      "estimated_active_energy_mj": 3721.877351,
+      "estimated_active_energy_per_processed_job_mj": 206.770964,
+      "verified_valid_results": null,
+      "energy_per_valid_result_mj": null
+    }
+  },
+  "modeled_active_energy_change_percent": -47.755,
+  "cpu_timing_origin": "RECORDED_WORKSTATION",
+  "fpga_dma_power_origin": "ILLUSTRATIVE_ASSUMPTIONS",
+  "stage_energy_decomposition": "UNCALIBRATED_SURROGATE",
+  "idle_and_system_power_included": false,
+  "validated_perception_quality": false,
+  "energy_per_valid_result_available": false,
+  "scheduler_optimizes_energy": false,
+  "hardware_energy_measured": false
+}

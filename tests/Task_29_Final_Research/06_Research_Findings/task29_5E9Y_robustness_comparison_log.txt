@@ -1,0 +1,19 @@
+=== COMPARATIVE RESULTS ===
+Configuration            OnTime  Late Outages   MaxWait MeanResponse
+CPU_BASELINE                  0    72       0  5610.491     2896.266
+ACCEL_8X                     72     0       0     0.000       11.816
+ACCEL_8X_OVERHEAD_2          34    38       0   128.936       78.284
+ACCEL_10X_OVERHEAD_2         72     0       0     0.000       11.553
+ACCEL_12X_OVERHEAD_2         72     0       0     0.000       10.044
+ACCEL_8X_OUTAGE              19    53       3   230.071      117.201
+ACCEL_10X_OUTAGE             32    40       3   144.077       74.739
+ACCEL_12X_OUTAGE             54    18       3    86.748       46.430
+
+JOBS PER CONFIGURATION: 72
+JOBS DROPPED: 0
+QUALITY: ASSUMED UNCHANGED
+SYNTHETIC PHASE 4 MODEL: YES
+COMPLETE SCHEDULER POLICIES COMPARED: NO
+POWER AND FPGA PERFORMANCE MEASURED: NO
+EXISTING FILES MODIFIED: NO
+STATUS: TASK 29.5E.9X COMPARISON COMPLETE

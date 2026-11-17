@@ -1,0 +1,56 @@
+{
+  "task": "29.4C.9",
+  "status": "PASS",
+  "policies_compared": 4,
+  "events_per_policy": 19,
+  "fixed_policy_processed": 18,
+  "fixed_policy_holds": 1,
+  "comparisons": {
+    "CPU_ONLY": {
+      "processed": 18,
+      "safety_holds": 1,
+      "deadline_missed": 11,
+      "max_wait_ms": 412.186159,
+      "accelerator_decisions": 0,
+      "estimated_active_energy_mj": 7123.891536
+    },
+    "ADAPTIVE_DEADLINE": {
+      "processed": 18,
+      "safety_holds": 1,
+      "deadline_missed": 10,
+      "max_wait_ms": 188.963672,
+      "accelerator_decisions": 11,
+      "estimated_active_energy_mj": 3721.877351
+    },
+    "ADAPTIVE_ENERGY": {
+      "processed": 18,
+      "safety_holds": 1,
+      "deadline_met": 10,
+      "deadline_missed": 8,
+      "max_wait_ms": 166.311423,
+      "max_backlog": 7,
+      "accelerator_decisions": 18,
+      "estimated_active_energy_mj": 1554.686506
+    },
+    "FIXED_COMBINED": {
+      "processed": 18,
+      "safety_holds": 1,
+      "deadline_missed": 8,
+      "max_wait_ms": 166.311423,
+      "accelerator_decisions": 18,
+      "estimated_active_energy_mj": 1554.686506
+    }
+  },
+  "fixed_energy_change_vs_cpu_percent": -78.176,
+  "energy_adaptive_minus_fixed_mj": 0.0,
+  "same_arrival_sequence": true,
+  "cpu_sources": "RECORDED_WORKSTATION_REFERENCES",
+  "hardware_and_power": "HYPOTHETICAL",
+  "serialized_processing": true,
+  "energy_scope": "ACTIVE_PROCESSING_ONLY",
+  "sensor_data_synchronized": false,
+  "quality_validated": false,
+  "hardware_energy_measured": false,
+  "real_fpga_executed": false,
+  "weather_scenarios_executed": false
+}

@@ -1,0 +1,28 @@
+{
+  "task": "29.4C.12D.3",
+  "status": "PASS",
+  "cases": 126,
+  "workload_levels": 7,
+  "power_combinations": 9,
+  "dma_models": 2,
+  "camera_cpu_reference_ms": 47.989737,
+  "camera_fpga_compute_model_ms": 23.994868,
+  "dma_reference_ms": 2.0,
+  "deadline_ms": 75.0,
+  "energy_winner_counts": {
+    "ARM": 62,
+    "FPGA": 64
+  },
+  "deadline_feasible_choice_counts": {
+    "ARM": 46,
+    "FPGA": 71,
+    "NO_FEASIBLE_PLACEMENT": 9
+  },
+  "workload_scaling": "SYNTHETIC_LINEAR_PROXY",
+  "ai_model_switching_tested": false,
+  "sensor_quality_verified": false,
+  "arm_hardware_measured": false,
+  "fpga_hardware_measured": false,
+  "whole_board_energy_measured": false,
+  "queue_simulation_executed": false
+}

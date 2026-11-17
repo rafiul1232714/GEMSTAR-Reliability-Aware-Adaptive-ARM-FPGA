@@ -1,0 +1,22 @@
+{
+  "frame": 250,
+  "image": "task18_camera_frame_250.png",
+  "annotation_source": "PROVISIONAL_VISUAL_REVIEW",
+  "reviewed": false,
+  "objects": [
+    {
+      "class": "person",
+      "x1": 147,
+      "y1": 246,
+      "x2": 158,
+      "y2": 274
+    },
+    {
+      "class": "person",
+      "x1": 561,
+      "y1": 237,
+      "x2": 569,
+      "y2": 259
+    }
+  ]
+}

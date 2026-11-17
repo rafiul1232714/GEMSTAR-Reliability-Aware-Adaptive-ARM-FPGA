@@ -1,0 +1,35 @@
+{
+  "task": "29.3D.3C.1",
+  "scenario": "fog_postfix_validation",
+  "frame": 704,
+  "source_image": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_fog_postfix_validation_frame00704.png",
+  "image_sha256": "a3b18aeb2f71ff66d951d9caa99c09e337c40768f1eccd0b14a835e470ac0548",
+  "model": "yolo11s",
+  "model_sha256": "85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5",
+  "confidence_threshold": 0.1,
+  "inference_image_size": 640,
+  "status": "UNREVIEWED_MODEL_PROPOSAL",
+  "is_ground_truth": false,
+  "proposals": [
+    {
+      "class": "dining table",
+      "class_id": 60,
+      "confidence": 0.544808030128479,
+      "x1": 583.8137817382812,
+      "y1": 364.05615234375,
+      "x2": 639.6355590820312,
+      "y2": 478.8509521484375,
+      "target_class": false
+    },
+    {
+      "class": "car",
+      "class_id": 2,
+      "confidence": 0.18110939860343933,
+      "x1": 493.6463623046875,
+      "y1": 343.87347412109375,
+      "x2": 639.6246337890625,
+      "y2": 479.910888671875,
+      "target_class": true
+    }
+  ]
+}

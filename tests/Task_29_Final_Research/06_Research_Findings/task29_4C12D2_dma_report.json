@@ -1,0 +1,22 @@
+{
+  "task": "29.4C.12D.2",
+  "status": "PASS",
+  "cases": 256,
+  "limiting_condition_counts": {
+    "ENERGY_LIMIT_DOMINATES": 128,
+    "FPGA_COMPUTE_ALREADY_TOO_EXPENSIVE": 20,
+    "DEADLINE_LIMIT_DOMINATES": 108
+  },
+  "tested_result_counts": {
+    "FPGA_ENERGY_AND_DEADLINE_PASS": 215,
+    "FPGA_ENERGY_FAIL": 41
+  },
+  "dma_host_power_w_assumed": 6.0,
+  "deadline_ms": 75.0,
+  "arm_hardware_measured": false,
+  "fpga_hardware_measured": false,
+  "power_model": "ACTIVE_ONLY_HYPOTHETICAL",
+  "includes_queue_delay": false,
+  "quality_verified": false,
+  "note": "Positive DMA limits are mathematical thresholds. Exact energy equality is not an energy saving. Zero feasible limit means no positive transfer duration satisfies both modeled constraints."
+}

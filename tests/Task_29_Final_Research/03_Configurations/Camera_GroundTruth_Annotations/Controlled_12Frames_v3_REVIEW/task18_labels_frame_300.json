@@ -1,0 +1,15 @@
+{
+  "frame": 300,
+  "image": "task18_camera_frame_300.png",
+  "annotation_source": "MANUAL",
+  "reviewed": true,
+  "objects": [
+    {
+      "class": "car",
+      "x1": 277,
+      "y1": 230,
+      "x2": 332,
+      "y2": 266
+    }
+  ]
+}

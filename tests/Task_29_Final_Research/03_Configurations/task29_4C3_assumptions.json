@@ -1,0 +1,12 @@
+﻿{
+    "model_type":  "HYPOTHETICAL_FPGA_COSTS",
+    "lidar_execution_factor":  0.45,
+    "lidar_dma_ms":  0.15,
+    "lidar_switch_ms":  0.3,
+    "camera_execution_factor":  0.5,
+    "camera_dma_ms":  2,
+    "camera_switch_ms":  3,
+    "minimum_ticks_between_switches":  2,
+    "calibrated_energy_model":  false,
+    "measured_fpga_execution":  false
+}

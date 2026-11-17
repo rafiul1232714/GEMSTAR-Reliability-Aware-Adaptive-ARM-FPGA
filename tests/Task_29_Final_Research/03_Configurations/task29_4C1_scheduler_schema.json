@@ -1,0 +1,32 @@
+{
+  "task": "29.4C.1",
+  "actions": [
+    "CPU_ONLY",
+    "CPU_CAMERA_ACCELERATOR",
+    "CPU_LIDAR_ACCELERATOR",
+    "CPU_COMBINED_ACCELERATORS"
+  ],
+  "required_state_fields": [
+    "health_mode",
+    "quality_authorization",
+    "cpu_latency_ms",
+    "deadline_ms",
+    "queue_depth",
+    "workload_id",
+    "workload_source",
+    "health_source"
+  ],
+  "latency_units": "milliseconds",
+  "cpu_reference": "measured_workstation_cpu",
+  "fpga_execution_ms": null,
+  "dma_transfer_ms": null,
+  "mode_switch_ms": null,
+  "cpu_power_w": null,
+  "fpga_power_w": null,
+  "energy_model_calibrated": false,
+  "quality_constraint_calibrated": false,
+  "input_pairing": "SEPARATE_REFERENCES_NOT_SYNCHRONIZED",
+  "deadline_policy": "NOT_YET_SPECIFIED",
+  "currently_executable_action": "CPU_ONLY",
+  "offload_actions": "DECLARED_NOT_IMPLEMENTED"
+}

@@ -1,0 +1,27 @@
+﻿{
+    "task":  "29.3E.3",
+    "status":  "SOFTWARE_FEASIBILITY_CHECKPOINT",
+    "camera_images":  20,
+    "original_proposals":  18,
+    "keep_candidates":  4,
+    "reclass_candidates":  2,
+    "remove_candidates":  8,
+    "unresolved_proposals":  4,
+    "yolo11n_median_cpu_ms":  19.5245,
+    "yolo11s_median_cpu_ms":  43.501,
+    "yolo11s_to_yolo11n_latency_ratio":  2.228,
+    "latency_values_source":  "Task 29.3C previous benchmark",
+    "ground_truth_approved":  false,
+    "precision_recall_validated":  false,
+    "int8_quantization_validated":  false,
+    "kr260_dpu_compatibility_verified":  false,
+    "kr260_energy_measured":  false,
+    "confirmed_dpu_architecture_files":  0,
+    "audit_note":  "archive_verification.json was incorrectly counted by the filename regex; it is not a confirmed DPU architecture file.",
+    "evidence_files":  {
+                           "Benchmark":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_29_Final_Research\\02_CSV_Data\\task29_3C1_yolo_comparison_summary.csv",
+                           "Corrections":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_29_Final_Research\\02_CSV_Data\\task29_3D3C7_automatic_correction_candidates.csv",
+                           "Dataset":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_29_Final_Research\\03_Configurations\\task29_3D3C8_provisional_annotation_dataset.json",
+                           "HardwareAudit":  "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_29_Final_Research\\02_CSV_Data\\task29_3E2_kr260_deployment_inventory.csv"
+                       }
+}

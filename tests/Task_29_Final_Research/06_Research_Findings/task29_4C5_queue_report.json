@@ -1,0 +1,37 @@
+{
+  "task": "29.4C.5",
+  "status": "PASS",
+  "events_per_policy": 19,
+  "logged_decisions": 38,
+  "summary": {
+    "CPU_ONLY": {
+      "processed": 18,
+      "safety_holds": 1,
+      "deadline_met": 7,
+      "deadline_missed": 11,
+      "max_wait_ms": 412.186159,
+      "max_backlog": 9,
+      "accelerator_decisions": 0,
+      "total_modeled_service_ms": 890.486442
+    },
+    "ADAPTIVE_DEADLINE": {
+      "processed": 18,
+      "safety_holds": 1,
+      "deadline_met": 8,
+      "deadline_missed": 10,
+      "max_wait_ms": 188.963672,
+      "max_backlog": 8,
+      "accelerator_decisions": 11,
+      "total_modeled_service_ms": 647.911703
+    }
+  },
+  "workload_provenance": "SEPARATE_MEASURED_CPU_REFERENCES",
+  "arrival_times": "SYNTHETIC",
+  "deadlines": "SYNTHETIC",
+  "accelerator_costs": "HYPOTHETICAL",
+  "resource_model": "ONE_SERIALIZED_SERVER",
+  "parallel_fpga_execution_modeled": false,
+  "energy_optimization": false,
+  "fpga_executed": false,
+  "weather_scenarios_executed": false
+}

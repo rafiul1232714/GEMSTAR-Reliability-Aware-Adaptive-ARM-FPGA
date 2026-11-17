@@ -1,0 +1,100 @@
+{
+  "task": "29.4C.11B",
+  "status": "PASS",
+  "hardware_workload_scenarios": 16,
+  "policies": 4,
+  "events_per_policy": 19,
+  "logged_decisions": 1216,
+  "policy_summaries": 64,
+  "adaptive_vs_fixed_by_scenario": [
+    {
+      "scenario": "H1_W1",
+      "adaptive_minus_fixed_energy_mj": 0.0,
+      "adaptive_minus_fixed_deadline_misses": 0
+    },
+    {
+      "scenario": "H1_W2",
+      "adaptive_minus_fixed_energy_mj": 0.0,
+      "adaptive_minus_fixed_deadline_misses": 0
+    },
+    {
+      "scenario": "H1_W3",
+      "adaptive_minus_fixed_energy_mj": 0.0,
+      "adaptive_minus_fixed_deadline_misses": 0
+    },
+    {
+      "scenario": "H1_W4",
+      "adaptive_minus_fixed_energy_mj": 0.0,
+      "adaptive_minus_fixed_deadline_misses": 0
+    },
+    {
+      "scenario": "H2_W1",
+      "adaptive_minus_fixed_energy_mj": -1343.233162,
+      "adaptive_minus_fixed_deadline_misses": 11
+    },
+    {
+      "scenario": "H2_W2",
+      "adaptive_minus_fixed_energy_mj": 0.0,
+      "adaptive_minus_fixed_deadline_misses": 0
+    },
+    {
+      "scenario": "H2_W3",
+      "adaptive_minus_fixed_energy_mj": 0.0,
+      "adaptive_minus_fixed_deadline_misses": 0
+    },
+    {
+      "scenario": "H2_W4",
+      "adaptive_minus_fixed_energy_mj": 0.0,
+      "adaptive_minus_fixed_deadline_misses": 0
+    },
+    {
+      "scenario": "H3_W1",
+      "adaptive_minus_fixed_energy_mj": 1.721406,
+      "adaptive_minus_fixed_deadline_misses": 0
+    },
+    {
+      "scenario": "H3_W2",
+      "adaptive_minus_fixed_energy_mj": 0.0,
+      "adaptive_minus_fixed_deadline_misses": 0
+    },
+    {
+      "scenario": "H3_W3",
+      "adaptive_minus_fixed_energy_mj": 0.0,
+      "adaptive_minus_fixed_deadline_misses": 0
+    },
+    {
+      "scenario": "H3_W4",
+      "adaptive_minus_fixed_energy_mj": 0.0,
+      "adaptive_minus_fixed_deadline_misses": 0
+    },
+    {
+      "scenario": "H4_W1",
+      "adaptive_minus_fixed_energy_mj": 0.0,
+      "adaptive_minus_fixed_deadline_misses": 0
+    },
+    {
+      "scenario": "H4_W2",
+      "adaptive_minus_fixed_energy_mj": 0.0,
+      "adaptive_minus_fixed_deadline_misses": 0
+    },
+    {
+      "scenario": "H4_W3",
+      "adaptive_minus_fixed_energy_mj": 0.0,
+      "adaptive_minus_fixed_deadline_misses": 0
+    },
+    {
+      "scenario": "H4_W4",
+      "adaptive_minus_fixed_energy_mj": 0.0,
+      "adaptive_minus_fixed_deadline_misses": 0
+    }
+  ],
+  "data_source": "RECORDED_WORKSTATION_CPU_REFERENCES",
+  "arm_cpu_model": "HYPOTHETICAL_SCALING",
+  "fpga_latency_model": "HYPOTHETICAL_SCALING",
+  "energy_model": "ILLUSTRATIVE_ACTIVE_ONLY",
+  "processing_model": "SINGLE_SERIALIZED_SERVER",
+  "workloads_synchronized": false,
+  "hardware_measurements": false,
+  "validated_perception_quality": false,
+  "weather_simulation_executed": false
+}

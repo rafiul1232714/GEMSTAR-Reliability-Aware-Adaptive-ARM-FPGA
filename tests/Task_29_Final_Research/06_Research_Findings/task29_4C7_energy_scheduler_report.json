@@ -1,0 +1,18 @@
+{
+  "task": "29.4C.7",
+  "status": "PASS",
+  "unit_tests": 10,
+  "optimization_objective": "MINIMUM_MODELED_ACTIVE_ENERGY",
+  "deadline_feasibility_checked": true,
+  "all_four_placements_tested": true,
+  "power_sensitivity_tested": true,
+  "switch_cooldown_tested": true,
+  "quality_authorization": "UNVERIFIED",
+  "stage_decomposition": "UNCALIBRATED_SURROGATE",
+  "power_and_fpga_costs": "HYPOTHETICAL",
+  "idle_system_energy_included": false,
+  "real_fpga_execution": false,
+  "measured_energy_savings": false,
+  "full_queue_comparison_with_energy_policy": false,
+  "weather_scenarios_executed": false
+}

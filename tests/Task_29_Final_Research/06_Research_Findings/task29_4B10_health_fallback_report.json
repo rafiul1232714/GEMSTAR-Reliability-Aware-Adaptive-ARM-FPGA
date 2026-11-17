@@ -1,0 +1,17 @@
+{
+  "task": "29.4B.10",
+  "status": "PASS",
+  "policy_rules": 21,
+  "health_state_rows": 168,
+  "archived_fallback_decisions_match": true,
+  "modes": {
+    "NORMAL_CANDIDATE": 143,
+    "DEGRADED_CANDIDATE": 16,
+    "HOLD_OR_ALERT": 9
+  },
+  "quality_authorization": "UNVERIFIED",
+  "cpu_latency_joined": false,
+  "cpu_fpga_scheduler_implemented": false,
+  "energy_measured": false,
+  "source": "TASK25_ARCHIVED_REPLAY_AND_FALLBACK"
+}

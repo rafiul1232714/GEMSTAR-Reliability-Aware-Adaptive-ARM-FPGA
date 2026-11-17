@@ -1,0 +1,12 @@
+﻿{
+    "model_type":  "ILLUSTRATIVE_UNCALIBRATED_ACTIVE_ENERGY",
+    "cpu_active_w":  8,
+    "fpga_camera_active_w":  3,
+    "fpga_lidar_active_w":  2,
+    "dma_host_active_w":  6,
+    "switch_energy_mj_per_resource":  0.5,
+    "idle_energy_included":  false,
+    "actual_power_measured":  false,
+    "actual_fpga_executed":  false,
+    "valid_perception_results_verified":  false
+}

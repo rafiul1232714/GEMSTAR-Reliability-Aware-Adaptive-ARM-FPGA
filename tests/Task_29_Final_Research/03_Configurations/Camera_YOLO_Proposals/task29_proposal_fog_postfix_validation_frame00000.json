@@ -1,0 +1,25 @@
+{
+  "task": "29.3D.3C.1",
+  "scenario": "fog_postfix_validation",
+  "frame": 0,
+  "source_image": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_fog_postfix_validation_frame00000.png",
+  "image_sha256": "693030702393d244317288e1c6b1438f62f4d8f0aa8410e785378b987a500c14",
+  "model": "yolo11s",
+  "model_sha256": "85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5",
+  "confidence_threshold": 0.1,
+  "inference_image_size": 640,
+  "status": "UNREVIEWED_MODEL_PROPOSAL",
+  "is_ground_truth": false,
+  "proposals": [
+    {
+      "class": "umbrella",
+      "class_id": 25,
+      "confidence": 0.21947632730007172,
+      "x1": 0.07137298583984375,
+      "y1": 138.36697387695312,
+      "x2": 83.43495178222656,
+      "y2": 224.89425659179688,
+      "target_class": false
+    }
+  ]
+}

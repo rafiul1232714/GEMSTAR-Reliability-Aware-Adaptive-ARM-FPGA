@@ -1,0 +1,13 @@
+﻿TASK 29.4C.12D.5C.3 - ALL 20 CAMERA FRAMES
+Matched frames: 20
+Model benchmark observations: 400 raw repetitions (from prior audit)
+Mean of frame-level YOLO11n medians (ms): 19.4838
+Mean of frame-level YOLO11s medians (ms): 43.5998
+Ratio of mean frame medians (s/n): 2.238
+Existing annotation proposals: 18
+Ground truth verified: NO
+FPGA AI energy measured: NO
+Processing energy savings established: NO
+Per-model bounding boxes verified by this script: NO
+Quality-constrained model switching authorized: NO
+Prior research modified: NO

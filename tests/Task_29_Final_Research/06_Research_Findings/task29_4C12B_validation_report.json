@@ -1,0 +1,22 @@
+{
+  "task": "29.4C.12B",
+  "status": "PASS",
+  "scenarios": 16,
+  "events_per_scenario": 19,
+  "decision_records": 304,
+  "comparisons": 16,
+  "finding_counts": {
+    "ENERGY_EQUIVALENT": 15,
+    "ADAPTIVE_ENERGY_BENEFIT": 1
+  },
+  "deadline_regressions": 0,
+  "adaptive_energy_benefits": 1,
+  "previous_two_scenarios_reproduced": true,
+  "scheduler": "ARRIVAL_RATE_AWARE",
+  "arrival_information": "KNOWN_SYNTHETIC_INTERVALS",
+  "latency": "WORKSTATION_REFERENCES_WITH_ARM_SCALING",
+  "fpga_power_and_dma": "HYPOTHETICAL",
+  "quality_validated": false,
+  "hardware_energy_measured": false,
+  "weather_simulation_executed": false
+}

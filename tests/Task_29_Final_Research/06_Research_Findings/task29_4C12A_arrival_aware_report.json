@@ -1,0 +1,44 @@
+{
+  "task": "29.4C.12A",
+  "status": "PASS",
+  "tested_scenarios": 2,
+  "logged_decisions": 38,
+  "comparisons": [
+    {
+      "scenario": "H2_W1",
+      "original_adaptive_misses": 11,
+      "new_misses": 0,
+      "fixed_misses": 0,
+      "new_energy_mj": 4637.379521,
+      "fixed_energy_mj": 5644.679393,
+      "energy_change_vs_fixed_percent": -17.845,
+      "actions": {
+        "CPU_ONLY": 0,
+        "CPU_CAMERA_ACCELERATOR": 0,
+        "CPU_LIDAR_ACCELERATOR": 6,
+        "CPU_COMBINED_ACCELERATORS": 12
+      }
+    },
+    {
+      "scenario": "H3_W1",
+      "original_adaptive_misses": 7,
+      "new_misses": 7,
+      "fixed_misses": 7,
+      "new_energy_mj": 1822.681298,
+      "fixed_energy_mj": 1822.681298,
+      "energy_change_vs_fixed_percent": -0.0,
+      "actions": {
+        "CPU_ONLY": 0,
+        "CPU_CAMERA_ACCELERATOR": 0,
+        "CPU_LIDAR_ACCELERATOR": 0,
+        "CPU_COMBINED_ACCELERATORS": 18
+      }
+    }
+  ],
+  "arrival_rate_source": "KNOWN_SYNTHETIC_TRAFFIC_PROFILE",
+  "scheduler_test": "ARRIVAL_RATE_CAPACITY_GUARD",
+  "hardware_costs": "HYPOTHETICAL",
+  "real_hardware_measured": false,
+  "validated_perception_quality": false,
+  "all_16_scenarios_retested": false
+}

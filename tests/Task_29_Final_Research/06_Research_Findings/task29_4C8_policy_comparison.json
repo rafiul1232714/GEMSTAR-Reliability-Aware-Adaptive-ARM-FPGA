@@ -1,0 +1,53 @@
+{
+  "task": "29.4C.8",
+  "status": "PASS",
+  "events_per_policy": 19,
+  "new_policy_processed": 18,
+  "new_policy_safety_holds": 1,
+  "policies_compared": 3,
+  "comparisons": {
+    "CPU_ONLY": {
+      "processed": 18,
+      "safety_holds": 1,
+      "deadline_missed": 11,
+      "max_wait_ms": 412.186159,
+      "accelerator_decisions": 0,
+      "estimated_active_energy_mj": 7123.891536
+    },
+    "ADAPTIVE_DEADLINE": {
+      "processed": 18,
+      "safety_holds": 1,
+      "deadline_missed": 10,
+      "max_wait_ms": 188.963672,
+      "accelerator_decisions": 11,
+      "estimated_active_energy_mj": 3721.877351
+    },
+    "ADAPTIVE_ENERGY": {
+      "processed": 18,
+      "safety_holds": 1,
+      "deadline_met": 10,
+      "deadline_missed": 8,
+      "max_wait_ms": 166.311423,
+      "max_backlog": 7,
+      "accelerator_decisions": 18,
+      "estimated_active_energy_mj": 1554.686506
+    }
+  },
+  "energy_policy_change_vs_cpu_percent": -78.176,
+  "new_policy_decisions_logged": 19,
+  "input_hashes": {
+    "timing": "2170383afec238323730a62ae222b48976c4163603398515c401745ce7b4841b",
+    "power": "91e3ea896f6758b9dc2a46dd8f86fabb74987902bdf7e6ba0d3a6a27b4f5e9be",
+    "queue_reference": "d814a1cfb7f8ea5eda924218c5e213a9303f6a0215703ab0a9b8f314c61fe852",
+    "energy_reference": "9e62c8a459939032d82ac75f011c8f2ca9987f776dbfd3e5739fa4b72fd61bd6"
+  },
+  "arrival_times": "SYNTHETIC_TASK29_4C5",
+  "cpu_timing": "RECORDED_WORKSTATION_REFERENCES",
+  "fpga_and_power_models": "HYPOTHETICAL",
+  "processing_model": "SINGLE_SERIALIZED_SERVER",
+  "queue_model": "FIFO",
+  "quality_verified": false,
+  "energy_per_valid_result_available": false,
+  "actual_hardware_energy_measured": false,
+  "weather_scenarios_executed": false
+}

@@ -1,0 +1,21 @@
+{
+  "task": "29.4C.4",
+  "status": "PASS",
+  "tests": 9,
+  "cpu_measured_sources_reused": true,
+  "candidate_costs_ms": {
+    "CPU_ONLY": 49.471469,
+    "CPU_CAMERA_ACCELERATOR": 30.476600499999996,
+    "CPU_LIDAR_ACCELERATOR": 49.1140888,
+    "CPU_COMBINED_ACCELERATORS": 30.1192203
+  },
+  "combined_acceleration_tested": true,
+  "switch_cost_only_on_transition": true,
+  "safety_hold_tested": true,
+  "pairing": "SYNTHETIC_SEQUENTIAL_WORKLOAD",
+  "scheduler_objective": "DEADLINE_FEASIBILITY",
+  "queue_simulation_implemented": false,
+  "energy_optimization_implemented": false,
+  "hardware_measurements": false,
+  "weather_simulation_completed": false
+}

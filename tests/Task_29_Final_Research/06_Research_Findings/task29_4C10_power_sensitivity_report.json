@@ -1,0 +1,21 @@
+{
+  "task": "29.4C.10",
+  "status": "PASS",
+  "unit_tests": 9,
+  "independent_power_profiles": 4,
+  "expected_placement_for_each_profile": {
+    "BASE_ASSUMPTIONS": "CPU_COMBINED_ACCELERATORS",
+    "HIGH_CAMERA_FPGA_POWER": "CPU_LIDAR_ACCELERATOR",
+    "HIGH_LIDAR_FPGA_POWER": "CPU_CAMERA_ACCELERATOR",
+    "HIGH_BOTH_FPGA_POWER": "CPU_ONLY"
+  },
+  "dynamic_switching_tested": true,
+  "cooldown_tested": true,
+  "deadline_priority_tested": true,
+  "safety_hold_tested": true,
+  "hardware_costs": "HYPOTHETICAL",
+  "sensor_data_pairing": "SYNTHETIC_REFERENCE",
+  "actual_fpga_executed": false,
+  "real_energy_savings_measured": false,
+  "four_weather_scenarios_executed": false
+}

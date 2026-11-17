@@ -1,0 +1,25 @@
+﻿{
+    "Task":  "29.4B.5",
+    "Status":  "PASS",
+    "CameraImages":  20,
+    "CameraModels":  [
+                         "yolo11n",
+                         "yolo11s"
+                     ],
+    "CameraModelTimingSummaries":  40,
+    "LiDARRadarReferenceFrames":  53,
+    "ScenarioCount":  4,
+    "Scenarios":  [
+                      "baseline_clear",
+                      "baseline_fog_working_radar",
+                      "fog_mor100",
+                      "fog_postfix_validation"
+                  ],
+    "NumericFrameMatches":  4,
+    "SameRecordingVerified":  false,
+    "TimestampAlignmentVerified":  false,
+    "ThreeSensorEndToEndTimingMeasured":  false,
+    "CameraEKFIntegrated":  false,
+    "HardwareEnergyMeasured":  false,
+    "Conclusion":  "CPU stage measurements are available separately. Do not sum them as a measured synchronized full-pipeline latency."
+}

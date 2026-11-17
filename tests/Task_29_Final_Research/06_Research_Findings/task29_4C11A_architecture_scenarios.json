@@ -1,0 +1,13 @@
+﻿{
+    "Task":  "29.4C.11A",
+    "Status":  "PASS",
+    "ScenarioCount":  16,
+    "HardwareProfiles":  4,
+    "WorkloadLevels":  4,
+    "BasedOnTask29_4C10":  true,
+    "ArmHardwareMeasured":  false,
+    "FpgaHardwareMeasured":  false,
+    "EnergyMeasured":  false,
+    "SchedulerSweepExecuted":  false,
+    "Purpose":  "Prepare dual-accelerator sensitivity scenarios"
+}

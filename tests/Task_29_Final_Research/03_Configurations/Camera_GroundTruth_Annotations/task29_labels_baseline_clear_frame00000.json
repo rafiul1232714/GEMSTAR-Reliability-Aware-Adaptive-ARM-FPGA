@@ -1,0 +1,11 @@
+{
+  "task": "29.3D.3A",
+  "scenario": "baseline_clear",
+  "frame": 0,
+  "image": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_clear_frame00000.png",
+  "image_sha256": "295e032a8ba81bb2c74341944d6fd59185c4be6be27a74c09759233aef170655",
+  "reviewed": true,
+  "annotation_source": "manual_visual_review",
+  "independently_verified": false,
+  "objects": []
+}

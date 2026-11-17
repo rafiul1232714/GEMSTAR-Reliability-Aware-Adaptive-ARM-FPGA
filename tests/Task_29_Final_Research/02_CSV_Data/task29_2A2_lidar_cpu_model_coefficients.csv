@@ -1,0 +1,3 @@
+﻿"Stage","Feature","ModelType","TrainFrames","UniqueTrainWorkloads","InterceptMs","SlopeMsPerPoint","BaselineMedianMs","TrainInputMin","TrainInputMax"
+"filter","InputPoints","linear","37","26","0.03766399359388406","0.00022082196219426356","0.75139999999999996","2141","3642"
+"cluster","FilteredPoints","linear","37","20","0.0084368112090764946","0.00018913216921339002","0.055100000000000003","198","1914"

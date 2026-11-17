@@ -1,0 +1,20 @@
+﻿{
+    "Task":  "29.4C.12C.1",
+    "Status":  "PASS",
+    "PhaseCount":  4,
+    "TotalEvents":  76,
+    "EligibleEvents":  72,
+    "SafetyHoldEvents":  4,
+    "TimelineDurationMs":  7200,
+    "HardwareProfiles":  [
+                             "H1_W1",
+                             "H2_W1",
+                             "H3_W1",
+                             "H4_W1"
+                         ],
+    "QueueStatePersistedInNextTest":  true,
+    "ContinuousSchedulerExecuted":  false,
+    "ArrivalTimesSynthetic":  true,
+    "HardwareMeasured":  false,
+    "WeatherSimulationExecuted":  false
+}

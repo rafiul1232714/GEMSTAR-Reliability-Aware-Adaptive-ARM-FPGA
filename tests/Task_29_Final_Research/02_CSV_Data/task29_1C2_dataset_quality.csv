@@ -1,0 +1,7 @@
+﻿"Dataset","Rows","GroupColumns","UniqueGroups","GroupsWithRepeats","MaximumGroupSize","MissingTime","InvalidTime"
+"EKF","200","workload","2","2","100","0","0"
+"Camera","600","weather,mode","6","6","100","0","0"
+"LiDAR","2650","frame,stage","106","106","25","0","0"
+"Radar","1200","pair_id,frame","12","12","100","0","0"
+"YOLO","50","filename","5","5","10","0","0"
+"Integrated","1325","frame","53","53","25","0","0"

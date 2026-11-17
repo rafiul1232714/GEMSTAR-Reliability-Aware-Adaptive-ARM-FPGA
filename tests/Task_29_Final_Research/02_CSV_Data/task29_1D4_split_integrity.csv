@@ -1,0 +1,7 @@
+﻿"Dataset","Split","Rows","Status"
+"lidar","train","1850","PASS"
+"lidar","validation","400","PASS"
+"lidar","test","400","PASS"
+"integrated","train","925","PASS"
+"integrated","validation","200","PASS"
+"integrated","test","200","PASS"

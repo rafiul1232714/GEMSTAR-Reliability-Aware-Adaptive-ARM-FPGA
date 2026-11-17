@@ -1,0 +1,14 @@
+{
+  "task": "29.3D.3C.1",
+  "scenario": "baseline_fog_working_radar",
+  "frame": 595,
+  "source_image": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_fog_working_radar_frame00595.png",
+  "image_sha256": "a3311e3b5a0d7b2dd404403603af80931feaa4be66c26e37cca0eb46a6dad42f",
+  "model": "yolo11s",
+  "model_sha256": "85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5",
+  "confidence_threshold": 0.1,
+  "inference_image_size": 640,
+  "status": "UNREVIEWED_MODEL_PROPOSAL",
+  "is_ground_truth": false,
+  "proposals": []
+}

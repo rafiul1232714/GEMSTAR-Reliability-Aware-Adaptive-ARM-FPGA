@@ -1,0 +1,25 @@
+{
+  "task": "29.4C.12D.4",
+  "status": "PASS",
+  "scenarios": [
+    "H1_W1",
+    "H2_W1",
+    "H4_W1"
+  ],
+  "frequency_factors": [
+    0.5,
+    0.75,
+    1.0,
+    1.25
+  ],
+  "frequency_power_exponent": 1.5,
+  "policy_summaries": 24,
+  "processed_jobs_per_policy_run": 18,
+  "reference_frequency_reproduced": true,
+  "response_p99": "SYNTHETIC_NEAREST_RANK_18_JOBS",
+  "queue_model": "SINGLE_SERIALIZED_SERVER",
+  "power_model": "ILLUSTRATIVE_ACTIVE_ONLY",
+  "frequency_scaling_measured": false,
+  "whole_board_energy_measured": false,
+  "perception_quality_verified": false
+}

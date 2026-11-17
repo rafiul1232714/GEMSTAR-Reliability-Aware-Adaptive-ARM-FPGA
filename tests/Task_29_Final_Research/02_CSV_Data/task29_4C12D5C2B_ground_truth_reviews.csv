@@ -1,0 +1,2 @@
+﻿"Scenario","Frame","ImagePath","TargetClasses","GroundTruthObjectCount","ReviewStatus","ReviewerConfirmation","Notes","Source","ModelPredictionsUsedAsGroundTruth"
+"baseline_clear","0","E:\GEMSTAR_Project\sensor-health-monitor\tests\Task_28_Final_Research\04_Plots\Camera_YOLO_Comparison\Inputs\task28_3D4B2_baseline_clear_frame00000.png","car;pedestrian;cyclist","0","VISUALLY_REVIEWED_EMPTY_CANDIDATE","PENDING","No clearly identifiable target road users; trees and scenery excluded","ORIGINAL_CAMERA_IMAGE_VISUAL_INSPECTION","False"

@@ -1,0 +1,3 @@
+﻿"Model","Images","MedianOfMediansMs","MedianImageP95Ms","MedianImageP99Ms","TotalDetectionsAcrossImages"
+"yolo11n","20","19.5245","21.6712","22.2084","9"
+"yolo11s","20","43.501","47.8356","48.2073","15"

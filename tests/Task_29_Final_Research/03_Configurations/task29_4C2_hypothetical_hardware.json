@@ -1,0 +1,12 @@
+﻿{
+    "minimum_ticks_between_switches":  2,
+    "camera_acceleration_factor":  0.5,
+    "description":  "HYPOTHETICAL SOFTWARE TEST PARAMETERS - NOT KR260 MEASUREMENTS",
+    "lidar_dma_ms":  0.3,
+    "lidar_acceleration_factor":  0.6,
+    "energy_model_calibrated":  false,
+    "camera_dma_ms":  2,
+    "camera_switch_ms":  3,
+    "lidar_switch_ms":  2,
+    "fpga_execution_measured":  false
+}

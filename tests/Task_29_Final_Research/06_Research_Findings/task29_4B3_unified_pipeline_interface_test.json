@@ -1,0 +1,117 @@
+{
+  "task": "29.4B.3",
+  "status": "PASS",
+  "test_type": "SYNTHETIC_METADATA_INTERFACE",
+  "test_cases": 4,
+  "source": "Task 23.15",
+  "real_sensor_frames_processed": false,
+  "independent_sensor_sync_verified": false,
+  "cpu_pipeline_integrated": false,
+  "adaptive_scheduler_implemented": false,
+  "cases": {
+    "aligned": {
+      "container_timestamp_ns": 1000000000,
+      "max_delta_ns": 0,
+      "sensors": {
+        "camera": {
+          "status": "ALIGNED_CONTAINER_TIME",
+          "delta_ns": 0,
+          "source_status": "VALID"
+        },
+        "lidar": {
+          "status": "ALIGNED_CONTAINER_TIME",
+          "delta_ns": 0,
+          "source_status": "VALID"
+        },
+        "radar": {
+          "status": "ALIGNED_CONTAINER_TIME",
+          "delta_ns": 0,
+          "source_status": "VALID"
+        }
+      },
+      "all_container_times_aligned": true,
+      "all_measurements_valid": true,
+      "ready_for_fusion": true,
+      "independent_acquisition_sync_verified": false,
+      "same_run_provenance_verified": false
+    },
+    "missing_radar": {
+      "container_timestamp_ns": 1000000000,
+      "max_delta_ns": 0,
+      "sensors": {
+        "camera": {
+          "status": "ALIGNED_CONTAINER_TIME",
+          "delta_ns": 0,
+          "source_status": "VALID"
+        },
+        "lidar": {
+          "status": "ALIGNED_CONTAINER_TIME",
+          "delta_ns": 0,
+          "source_status": "VALID"
+        },
+        "radar": {
+          "status": "MISSING_SENSOR",
+          "delta_ns": null,
+          "source_status": null
+        }
+      },
+      "all_container_times_aligned": false,
+      "all_measurements_valid": false,
+      "ready_for_fusion": false,
+      "independent_acquisition_sync_verified": false,
+      "same_run_provenance_verified": false
+    },
+    "stale_camera": {
+      "container_timestamp_ns": 1000000000,
+      "max_delta_ns": 10000000,
+      "sensors": {
+        "camera": {
+          "status": "STALE",
+          "delta_ns": -100000000,
+          "source_status": "VALID"
+        },
+        "lidar": {
+          "status": "ALIGNED_CONTAINER_TIME",
+          "delta_ns": 0,
+          "source_status": "VALID"
+        },
+        "radar": {
+          "status": "ALIGNED_CONTAINER_TIME",
+          "delta_ns": 0,
+          "source_status": "VALID"
+        }
+      },
+      "all_container_times_aligned": false,
+      "all_measurements_valid": true,
+      "ready_for_fusion": false,
+      "independent_acquisition_sync_verified": false,
+      "same_run_provenance_verified": false
+    },
+    "invalid_camera": {
+      "container_timestamp_ns": 1000000000,
+      "max_delta_ns": 0,
+      "sensors": {
+        "camera": {
+          "status": "ALIGNED_CONTAINER_TIME",
+          "delta_ns": 0,
+          "source_status": "INVALID_MEASUREMENT"
+        },
+        "lidar": {
+          "status": "ALIGNED_CONTAINER_TIME",
+          "delta_ns": 0,
+          "source_status": "VALID"
+        },
+        "radar": {
+          "status": "ALIGNED_CONTAINER_TIME",
+          "delta_ns": 0,
+          "source_status": "VALID"
+        }
+      },
+      "all_container_times_aligned": true,
+      "all_measurements_valid": false,
+      "ready_for_fusion": false,
+      "independent_acquisition_sync_verified": false,
+      "same_run_provenance_verified": false
+    }
+  }
+}

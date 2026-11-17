@@ -1,0 +1,25 @@
+{
+  "task": "29.3D.3C.1",
+  "scenario": "baseline_clear",
+  "frame": 621,
+  "source_image": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_clear_frame00621.png",
+  "image_sha256": "01a7bcc9de13bc9d3a7f3f7b806d4b648c8319c60111a246d6f32d52c4dcbba4",
+  "model": "yolo11s",
+  "model_sha256": "85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5",
+  "confidence_threshold": 0.1,
+  "inference_image_size": 640,
+  "status": "UNREVIEWED_MODEL_PROPOSAL",
+  "is_ground_truth": false,
+  "proposals": [
+    {
+      "class": "car",
+      "class_id": 2,
+      "confidence": 0.8901017308235168,
+      "x1": 321.880615234375,
+      "y1": 242.29391479492188,
+      "x2": 421.1492919921875,
+      "y2": 287.8148498535156,
+      "target_class": true
+    }
+  ]
+}

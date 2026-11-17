@@ -1,0 +1,25 @@
+{
+  "task": "29.3D.3C.1",
+  "scenario": "fog_mor100",
+  "frame": 349,
+  "source_image": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_fog_mor100_frame00349.png",
+  "image_sha256": "75a6ee98f4f8abbc99a929086cbd3612243182cf1013ec36449e6a297cb80ae8",
+  "model": "yolo11s",
+  "model_sha256": "85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5",
+  "confidence_threshold": 0.1,
+  "inference_image_size": 640,
+  "status": "UNREVIEWED_MODEL_PROPOSAL",
+  "is_ground_truth": false,
+  "proposals": [
+    {
+      "class": "car",
+      "class_id": 2,
+      "confidence": 0.8133034110069275,
+      "x1": 0.6992950439453125,
+      "y1": 199.5465087890625,
+      "x2": 191.59815979003906,
+      "y2": 442.62298583984375,
+      "target_class": true
+    }
+  ]
+}

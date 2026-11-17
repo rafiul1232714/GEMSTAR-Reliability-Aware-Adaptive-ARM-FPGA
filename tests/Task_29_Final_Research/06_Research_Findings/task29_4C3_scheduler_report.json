@@ -1,0 +1,21 @@
+{
+  "task": "29.4C.3",
+  "status": "PASS",
+  "unit_tests": 9,
+  "lidar_recorded_repeats": 25,
+  "lidar_cpu_p99_ms": 1.4817319999999987,
+  "lidar_stage_cpu_p99_ms": 1.467963999999999,
+  "radar_stage_cpu_p99_ms": 0.013767999999999997,
+  "lidar_offload_hypothetical_p99_ms": 0.8243517999999995,
+  "camera_cpu_p99_ms": 47.989737,
+  "camera_offload_hypothetical_ms": 25.9948685,
+  "lidar_accelerator_tested": true,
+  "camera_accelerator_tested": true,
+  "cooldown_tested": true,
+  "combined_accelerators_tested": false,
+  "queue_simulator_implemented": false,
+  "energy_optimization_implemented": false,
+  "hardware_measured": false,
+  "weather_scenarios_executed": false,
+  "evidence_pairing": "SEPARATE_SOURCE_WORKLOADS"
+}

@@ -1,0 +1,15 @@
+{
+  "frame": 450,
+  "image": "task18_camera_frame_450.png",
+  "annotation_source": "MANUAL",
+  "reviewed": true,
+  "objects": [
+    {
+      "class": "truck",
+      "x1": 7,
+      "y1": 10,
+      "x2": 335,
+      "y2": 477
+    }
+  ]
+}

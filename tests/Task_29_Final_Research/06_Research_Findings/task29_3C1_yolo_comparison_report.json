@@ -1,0 +1,32 @@
+{
+  "task": "29.3C.1",
+  "images": 20,
+  "models": [
+    "yolo11n",
+    "yolo11s"
+  ],
+  "weight_sha256": {
+    "yolo11n": "0EBBC80D4A7680D14987A577CD21342B65ECFD94632BD9A8DA63AE6417644EE1",
+    "yolo11s": "85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5"
+  },
+  "source_manifest": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\02_CSV_Data\\task28_3D4B2_camera_image_manifest.csv",
+  "source_image_hashes_verified": true,
+  "python_version": "3.11.9",
+  "torch_version": "2.15.0+cpu",
+  "ultralytics_version": "8.4.191",
+  "device": "cpu",
+  "torch_threads": 4,
+  "imgsz": 640,
+  "confidence": 0.15,
+  "iou": 0.7,
+  "agnostic_nms": true,
+  "warmups_per_model": 3,
+  "repeats_per_image_per_model": 10,
+  "timing_records": 400,
+  "frame_model_summaries": 40,
+  "timing_definition": "wall_time_model_predict_preprocess_inference_postprocess",
+  "model_loading_timed": false,
+  "disk_read_timed": false,
+  "energy_measured": false,
+  "independent_detection_accuracy_measured": false
+}

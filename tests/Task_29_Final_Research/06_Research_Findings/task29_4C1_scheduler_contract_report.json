@@ -1,0 +1,39 @@
+{
+  "task": "29.4C.1",
+  "status": "PASS",
+  "cpu_workload_references": 93,
+  "sensor_health_states": 168,
+  "health_modes_tested": 3,
+  "invalid_inputs_rejected": 4,
+  "ledger_sha256": "1df23b66f601c56421e4b7c4f889057dea1147c9d908102a33e5401b60c67664",
+  "health_sha256": "00d2d0efe2927050381ced78cbbf0f0c62f07d02bfb93098ad737f40326815d5",
+  "baseline_decisions": {
+    "NORMAL_CANDIDATE": {
+      "processing_placement": "CPU_ONLY",
+      "result_permission": "PROVISIONAL_ONLY",
+      "reason": "BASELINE_NO_HARDWARE_MODEL",
+      "deadline_verified": false,
+      "quality_verified": false,
+      "fpga_executed": false
+    },
+    "DEGRADED_CANDIDATE": {
+      "processing_placement": "CPU_ONLY",
+      "result_permission": "PROVISIONAL_ONLY",
+      "reason": "BASELINE_NO_HARDWARE_MODEL",
+      "deadline_verified": false,
+      "quality_verified": false,
+      "fpga_executed": false
+    },
+    "HOLD_OR_ALERT": {
+      "processing_placement": "CPU_ONLY",
+      "result_permission": "WITHHOLD_VALID_RESULT",
+      "reason": "REQUIRED_SENSOR_UNAVAILABLE",
+      "deadline_verified": false,
+      "quality_verified": false,
+      "fpga_executed": false
+    }
+  },
+  "adaptive_placement_implemented": false,
+  "hardware_energy_measured": false,
+  "full_pipeline_synchronized": false
+}

@@ -1,0 +1,19 @@
+﻿{
+    "Task":  "29.4B.6",
+    "Status":  "PASS",
+    "CPUWorkloadRecords":  93,
+    "LiDARRadarRecords":  53,
+    "CameraModelRecords":  40,
+    "UniqueCameraImages":  20,
+    "SourceTypes":  [
+                        "Task 26 recorded LiDAR-Radar CPU benchmark",
+                        "Task 29.3C recorded YOLO CPU benchmark"
+                    ],
+    "WorkloadLedgerType":  "PROVENANCE_SEPARATED_CPU_STAGE_REFERENCES",
+    "ProcessingExecutedInThisStep":  false,
+    "UnifiedThreeSensorExecutionMeasured":  false,
+    "TimestampSynchronizationVerified":  false,
+    "AdaptiveSchedulerImplemented":  false,
+    "FPGAExecutionMeasured":  false,
+    "EnergyMeasured":  false
+}

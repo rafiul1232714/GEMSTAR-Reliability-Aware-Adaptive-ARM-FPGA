@@ -1,0 +1,25 @@
+{
+  "task": "29.3D.3C.1",
+  "scenario": "baseline_clear",
+  "frame": 828,
+  "source_image": "E:\\GEMSTAR_Project\\sensor-health-monitor\\tests\\Task_28_Final_Research\\04_Plots\\Camera_YOLO_Comparison\\Inputs\\task28_3D4B2_baseline_clear_frame00828.png",
+  "image_sha256": "5d429e919528e5be884158d66a16721840ea0b843bf7b2457868aa7d165551d4",
+  "model": "yolo11s",
+  "model_sha256": "85A76FE86DD8AFE384648546B56A7A78580C7CB7B404FC595F97969322D502D5",
+  "confidence_threshold": 0.1,
+  "inference_image_size": 640,
+  "status": "UNREVIEWED_MODEL_PROPOSAL",
+  "is_ground_truth": false,
+  "proposals": [
+    {
+      "class": "airplane",
+      "class_id": 4,
+      "confidence": 0.22099840641021729,
+      "x1": 456.6700439453125,
+      "y1": 200.56552124023438,
+      "x2": 588.695556640625,
+      "y2": 271.2098693847656,
+      "target_class": false
+    }
+  ]
+}
